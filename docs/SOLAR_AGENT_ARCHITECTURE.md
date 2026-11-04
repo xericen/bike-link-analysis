@@ -1,0 +1,19 @@
+# Solar Agent Architecture (Stage 4)
+
+## 실행 경로
+React AI Agent → `POST /api/agent/chat` → Upstage `/v1/chat/completions` (`solar-mini4`) → 실제 로컬 분석 함수 → Solar 한국어 해석 → JSON 보고서.
+
+키는 프로젝트 루트의 Git 무시 `.env`에서 FastAPI 시작 시 읽는다. 브라우저에는 키를 전송하지 않는다. Upstage SDK의 타임아웃은 25초, 자동 재시도는 0회이며 인증, 한도, 연결, 타임아웃, API 상태 오류를 분리한다. 호출별 토큰 사용량은 응답 `usage`에 기록한다.
+
+## 도구
+`get_region_overview`, `get_station_details`, `get_station_clusters`, `get_centrality_ranking`, `get_network_analysis`, `find_similar_stations`, `compare_region_patterns`, `get_data_availability`의 8개 함수를 제공한다. 지역, 날짜, 중심성 지표, TOP N, 노드 수를 검증한다. Solar가 첫 도구를 선택하고, 서버는 질문에 명시된 지역·지표가 누락되면 추가 검증 도구를 실제 실행하며 `initiator: metric_guard`로 구별한다. 한 요청에서 Solar의 도구 호출은 최대 5건, 전체 근거는 최대 8건이다.
+
+## 보고서 신뢰 경계
+`report.key_findings`, `charts`, `sources`, `periods`, `station_roles`, `recommendations`, `limitations`는 서버가 실제 도구 결과에서 구성한다. 이용량 대비 중심성 질문은 같은 분석 기간의 대여소별 대여량 순위와 중심성 순위를 실제 프로필·OD 결과로 계산해 순위 차이로 표시한다. 양의 순위 차이는 중심성 순위가 이용량 순위보다 높다는 뜻이며, 운영 효과를 뜻하지 않는다.
+
+Solar의 자유 서술은 `answer` / `report.interpretation`으로 별도 표시한다. 운영 제안은 검증이 필요한 검토 항목이며 효과·재고량을 추정하지 않는다. 모델이 내부 도구 문법을 출력하면 도구 결과에 기반한 간단한 안내로 대체한다.
+
+서울은 집계 OD와 공식 마스터에서 확인된 좌표만 연결한다. 대전은 개별 Trip을 집계한다. 세종은 연간 총량, 부산은 운영 메타데이터만 분석 가능하다. 중심성은 전체 그래프에서 계산하고 화면용 네트워크는 상위 노드로 제한한다. 불연속 2일 결과를 장기 패턴으로 해석하면 안 된다.
+
+## 미검증·제약
+Solar 자유 서술의 모든 문장과 수치를 기계적으로 증명하는 검증기는 없다. 구조화 카드·차트는 도구 수치를 그대로 사용하며 원문 답변은 사용자가 근거를 확인해야 한다. 진행 UI는 요청 시작과 실제 결과 수신만 표시한다. 내부 분석 단계별 스트리밍 상태는 구현하지 않았다.

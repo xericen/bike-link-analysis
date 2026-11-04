@@ -1,4 +1,5 @@
 from datetime import date
+import os
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -82,9 +83,12 @@ def clusters(region_id: str, date_start: date | None = None, date_end: date | No
 
 
 @app.get("/api/regions/{region_id}/network")
-def network(region_id: str, date_start: date | None = None, date_end: date | None = None):
+def network(region_id: str, date_start: date | None = None, date_end: date | None = None,
+            node_limit: int = 40):
     check_region(region_id)
-    return real_data.network(region_id, *period(date_start, date_end))
+    if node_limit not in (30, 40, 50):
+        raise HTTPException(400, "node_limit은 30, 40, 50 중 하나여야 합니다.")
+    return real_data.network(region_id, *period(date_start, date_end), node_limit)
 
 
 @app.get("/api/regions/{region_id}/centrality")
@@ -129,10 +133,20 @@ def data_quality(region_id: str | None = None):
     return {"quality": quality.get(region_id, {}) if region_id else quality}
 
 
+@app.get("/api/data-validation")
+def data_validation():
+    return real_data.read_json("validation_stage3.json", {"message": "검증 결과 미생성"})
+
+
 @app.post("/api/regions/{region_id}/upload")
 async def upload(region_id: str, kind: str = Form(...), dataset_name: str = Form(...), file: UploadFile = File(...)):
     check_region(region_id)
     return await imports.import_csv(region_id, kind, file, dataset_name)
+
+
+@app.get("/api/agent/status")
+def agent_status():
+    return {"configured": bool(os.getenv("UPSTAGE_API_KEY")), "provider": "Upstage Solar"}
 
 
 @app.post("/api/agent/chat")

@@ -56,6 +56,13 @@ def test_algorithms_on_fixture(fixture_data):
     assert groups["selected_k"] == 2 and groups["diagnostics"][0]["silhouette"] <= 1
     network = client.get("/api/regions/seoul/network").json()
     assert network["available"] and network["edge_count"] == 3
+    assert network["visible_edge_count"] == 3 and len(network["nodes"]) == 3
+    limited = real_data.network("seoul", node_limit=2)
+    assert len(limited["nodes"]) == 2
+    assert all(edge["origin_station_id"] in {n["station_id"] for n in limited["nodes"]}
+               and edge["destination_station_id"] in {n["station_id"] for n in limited["nodes"]}
+               for edge in limited["edges"])
+    assert client.get("/api/regions/seoul/network?node_limit=999").status_code == 400
     assert next(x["trip_count"] for x in network["edges"] if x["origin_station_id"] == "A" and x["destination_station_id"] == "B") == 12
     ranks = client.get("/api/regions/seoul/centrality").json()
     assert ranks["available"] and len(ranks["rankings"]) == 3
@@ -100,6 +107,7 @@ def test_encoding_and_duplicate_import(tmp_path, monkeypatch):
 
 def test_solar_uses_availability_and_missing_key(fixture_data, monkeypatch):
     result = solar.run_tool("get_data_availability", {"region_id": "busan"})
+    assert solar.run_tool("get_data_availability", {"region_id": "부산"})["region_id"] == "busan"
     assert result["total_rentals"] is None and result["has_od"] is False
     monkeypatch.delenv("UPSTAGE_API_KEY", raising=False)
     response = TestClient(app).post("/api/agent/chat", json={"message": "부산 데이터로 가능한 분석은?"})
@@ -137,3 +145,25 @@ def test_openapi_collector_requires_key_and_uses_verified_path(tmp_path, monkeyp
     assert result.exists() and "테스트" in result.read_text(encoding="utf-8")
     assert calls[0][0] == "https://api.odcloud.kr/api" + source["api_path"]
     assert calls[0][1]["serviceKey"] == "fixture-key"
+
+
+def test_solar_tool_arguments_and_report_are_grounded(fixture_data):
+    bad = solar.run_tool("get_centrality_ranking", {"region_id": "seoul", "metric": "made_up"})
+    assert "error" in bad
+    bad_date = solar.run_tool("get_region_overview", {"region_id": "seoul",
+                                                      "date_range": {"date_start": "2026-10-29", "date_end": "2026-10-25"}})
+    assert "error" in bad_date
+    ranking = solar.run_tool("get_centrality_ranking", {"region_id": "seoul", "metric": "pagerank", "top_n": 2})
+    assert ranking["available"] and len(ranking["rankings"]) == 2
+    assert ranking["metric"] == "pagerank"
+    assert ranking["rankings"][0]["centrality_rank"] == 1
+    assert ranking["rankings"][0]["usage_rank"] is not None
+    detail = solar.run_tool("get_station_details", {"region_id": "seoul", "station_id": "A"})
+    assert detail["available"] and detail["station"]["station_id"] == "A"
+    unavailable = solar.run_tool("get_centrality_ranking", {"region_id": "busan", "metric": "pagerank"})
+    assert unavailable["available"] is False and unavailable["rankings"] == []
+    evidence = [{"tool": "get_centrality_ranking", "arguments": {"region_id": "seoul", "metric": "pagerank"},
+                 "result": ranking}]
+    report = solar._report("fixture question", "해석", evidence)
+    assert report["charts"][0]["points"][0]["value"] == ranking["rankings"][0]["pagerank"]
+    assert report["evidence"] == evidence

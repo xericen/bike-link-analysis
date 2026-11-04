@@ -79,9 +79,12 @@ def source_meta(region_id):
 
 def region_stations(region_id, date_start=None, date_end=None):
     s = [row for row in snapshot()["stations"] if row["region_id"] == region_id]
+    if region_id == "seoul" and any(x["source_id"] == "seoul-station-master-oa-21235" for x in snapshot()["sources"]):
+        s = [row for row in s if row["station_id"].startswith("ST-")]
     profile = profiles(region_id, date_start, date_end)
     by_id = {p["station_id"]: p for p in profile}
     return [{**station, "rental_count": by_id.get(station["station_id"], {}).get("rental_count"),
+             "return_count": by_id.get(station["station_id"], {}).get("return_count"),
              "hourly": by_id.get(station["station_id"], {}).get("hourly"),
              "weekend_share": by_id.get(station["station_id"], {}).get("weekend_share")}
             for station in s]
@@ -100,10 +103,11 @@ def profiles(region_id, date_start=None, date_end=None):
         sid = row["station_id"]
         item = by_id.setdefault(sid, {"station_id": sid, "station_name": stations.get(sid, {}).get("station_name"),
             "region_id": region_id, "hourly": [0] * 24, "rental_count": 0,
-            "return_count": 0, "weekend_count": 0, "has_hourly": True})
+            "return_count": 0, "has_return": False, "weekend_count": 0, "has_hourly": True})
         count = row["rental_count"]
         item["rental_count"] += count
         item["return_count"] += row["return_count"] or 0
+        item["has_return"] = item["has_return"] or row["return_count"] is not None
         if row["hour"] is None:
             item["has_hourly"] = False
         else:
@@ -116,6 +120,8 @@ def profiles(region_id, date_start=None, date_end=None):
         item["weekend_share"] = item["weekend_count"] / item["rental_count"] if mixed_days and item["rental_count"] else None
         if not item["has_hourly"]:
             item["hourly"] = None
+        if not item["has_return"]:
+            item["return_count"] = None
     return list(by_id.values())
 
 
@@ -129,7 +135,8 @@ def overview(region_id, date_start=None, date_end=None):
     hourly = [sum(r["rental_count"] for r in rows if r["hour"] == h) for h in range(24)] if rows and all(r["hour"] is not None for r in rows) else None
     total = sum(r["rental_count"] for r in rows) if rows else None
     station_ids = {r["station_id"] for r in rows if r["rental_count"] > 0}
-    inventory = [s for s in snapshot()["stations"] if s["region_id"] == region_id and s["latitude"] is not None]
+    inventory = [s for s in snapshot()["stations"] if s["region_id"] == region_id and s["latitude"] is not None
+                 and (region_id != "seoul" or s["station_id"].startswith("ST-"))]
     # Sejong's annual totals are a separate population and period; never mix them with station usage.
     annual = [r for r in snapshot()["yearly"] if r["region_id"] == region_id and r["complete_year"]]
     annual_latest = max(annual, key=lambda r: r["year"]) if annual else None
@@ -146,7 +153,7 @@ def overview(region_id, date_start=None, date_end=None):
             "weekday_share": round(1 - weekend_share, 4) if weekend_share is not None else None,
             "map_stations": inventory, "annual_latest": annual_latest,
             "has_od": bool(filtered(snapshot()["od"], region_id, date_start, date_end)),
-            "coverage_note": "서울은 선택한 2일의 집계만 포함하며, 위치 목록과 OD 대여소 ID의 직접 대응은 확인되지 않았습니다." if region_id == "seoul" else
+            "coverage_note": "서울은 불연속 2일의 집계 OD입니다. 공식 대여소 마스터의 ST ID와 유효 좌표를 확인한 항목만 지도에 연결했으며 X는 미매칭입니다." if region_id == "seoul" else
             ("대전 Trip 원본에서 서울과 공통인 2일만 분석합니다. 관리 반납 기록은 제외했습니다." if region_id == "daejeon" and rows else
              "대여소 위치 목록만 확보해 이용량·좌표가 없습니다." if region_id == "daejeon" else
              "운영기관별 자료 범위가 달라 통합 지표가 없습니다." if region_id == "busan" else
@@ -159,31 +166,39 @@ def clusters(region_id, date_start=None, date_end=None):
     return {**source_meta(region_id), **result, "period_start": date_start, "period_end": date_end}
 
 
-@lru_cache(maxsize=32)
-def network(region_id, date_start=None, date_end=None):
+@lru_cache(maxsize=64)
+def network(region_id, date_start=None, date_end=None, node_limit=40):
     records = filtered(snapshot()["od"], region_id, date_start, date_end)
     if not records:
         return {**source_meta(region_id), "available": False, "nodes": [], "edges": [],
-                "edge_count": 0, "message": "이동 경로 데이터 미확보"}
+                "edge_count": 0, "visible_edge_count": 0, "message": "이동 경로 데이터 미확보"}
     merged = Counter()
     for row in records:
         merged[(row["origin_station_id"], row["destination_station_id"])] += row["trip_count"]
-    edges = [{"origin_station_id": a, "destination_station_id": b, "trip_count": count}
-             for (a, b), count in merged.items()]
-    nodes = {sid for edge in edges for sid in (edge["origin_station_id"], edge["destination_station_id"])}
+    ranking = centrality_result(region_id, date_start, date_end)["rankings"]
+    top_ids = [item["station_id"] for item in ranking[:node_limit]]
+    selected = set(top_ids)
     station_map = {s["station_id"]: s for s in snapshot()["stations"] if s["region_id"] == region_id}
-    return {**source_meta(region_id), "available": True, "nodes": [station_map[sid] for sid in nodes if sid in station_map],
-            "edges": sorted(edges, key=lambda x: x["trip_count"], reverse=True)[:300],
-            "edge_count": len(edges), "period_start": min(r["date"] for r in records),
-            "period_end": max(r["date"] for r in records),
-            "message": ("실제 Trip에서 집계한 상위 300개 연결만 시각화합니다." if region_id == "daejeon" else "실제 OD 집계 상위 300개 연결만 시각화합니다. 개별 Trip 기록이 아닙니다.")}
+    edges = [{"origin_station_id": origin, "destination_station_id": destination, "trip_count": count}
+             for (origin, destination), count in merged.items()
+             if origin in selected and destination in selected]
+    edges.sort(key=lambda item: item["trip_count"], reverse=True)
+    return {**source_meta(region_id), "available": True,
+            "nodes": [station_map[sid] for sid in top_ids if sid in station_map],
+            "edges": edges, "edge_count": len(merged), "visible_edge_count": len(edges),
+            "node_selection_basis": "전체 OD 그래프의 PageRank 상위 대여소",
+            "period_start": min(row["date"] for row in records),
+            "period_end": max(row["date"] for row in records),
+            "message": ("대전 개별 Trip에서 집계한 연결입니다." if region_id == "daejeon"
+                        else "서울의 집계 OD 연결이며 개별 Trip 기록은 아닙니다.")}
 
 
 @lru_cache(maxsize=32)
 def centrality_result(region_id, date_start=None, date_end=None):
     records = filtered(snapshot()["od"], region_id, date_start, date_end)
     ids = {s for row in records for s in (row["origin_station_id"], row["destination_station_id"])}
-    stations = [s for s in snapshot()["stations"] if s["region_id"] == region_id and s["station_id"] in ids]
+    stations = [s for s in snapshot()["stations"] if s["region_id"] == region_id and s["station_id"] in ids
+                and (region_id != "seoul" or (s["latitude"] is not None and s["longitude"] is not None))]
     result = centrality(stations, records)
     return {**source_meta(region_id), **result, "rankings": result["rankings"][:100]}
 
