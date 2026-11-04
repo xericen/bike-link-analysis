@@ -1,0 +1,7 @@
+region_id,station_id,date,hour,rental_count,return_count
+seoul,A,2026-10-25,8,10,2
+seoul,B,2026-10-25,18,20,3
+seoul,C,2026-10-25,12,5,4
+seoul,A,2026-10-29,8,15,1
+seoul,B,2026-10-29,18,30,5
+seoul,C,2026-10-29,12,8,6

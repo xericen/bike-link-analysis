@@ -1,0 +1,3 @@
+region_id,year,period_end,complete_year,rental_count
+sejong,2025,2025-12-31,True,100
+sejong,2026,2026-08-31,False,80

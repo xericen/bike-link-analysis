@@ -1,0 +1,5 @@
+region_id,station_id,station_name,latitude,longitude,capacity
+seoul,A,가,37.5,127.0,10
+seoul,B,나,37.6,127.1,10
+seoul,C,다,37.7,127.2,10
+daejeon,D,타슈 대여소,,,

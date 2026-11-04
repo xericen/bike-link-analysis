@@ -1,0 +1,250 @@
+{
+  "metadata": {
+    "source": "팀 234 합성 데모 데이터 (공공데이터 미수집)",
+    "period_start": "2026-01-01",
+    "period_end": "2026-01-07",
+    "is_real": false,
+    "has_od": true
+  },
+  "regions": [
+    {
+      "region_id": "seoul",
+      "name": "서울"
+    },
+    {
+      "region_id": "sejong",
+      "name": "세종"
+    },
+    {
+      "region_id": "suwon",
+      "name": "수원"
+    }
+  ],
+  "stations": [
+    {
+      "region_id": "seoul",
+      "station_id": "S001",
+      "station_name": "광화문역",
+      "latitude": 37.5701,
+      "longitude": 126.9769,
+      "hourly": [
+        2,
+        1,
+        1,
+        1,
+        1,
+        3,
+        12,
+        30,
+        42,
+        24,
+        18,
+        22,
+        27,
+        26,
+        22,
+        28,
+        39,
+        48,
+        45,
+        32,
+        24,
+        17,
+        10,
+        5
+      ]
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "S002",
+      "station_name": "시청역",
+      "latitude": 37.5663,
+      "longitude": 126.9779,
+      "hourly": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        4,
+        14,
+        33,
+        40,
+        21,
+        17,
+        20,
+        25,
+        24,
+        23,
+        30,
+        42,
+        52,
+        43,
+        30,
+        22,
+        15,
+        8,
+        4
+      ]
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "S003",
+      "station_name": "여의도공원",
+      "latitude": 37.5277,
+      "longitude": 126.9238,
+      "hourly": [
+        3,
+        2,
+        1,
+        1,
+        1,
+        2,
+        7,
+        16,
+        21,
+        22,
+        25,
+        31,
+        36,
+        38,
+        41,
+        43,
+        40,
+        37,
+        32,
+        28,
+        19,
+        12,
+        8,
+        5
+      ]
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "S004",
+      "station_name": "홍대입구",
+      "latitude": 37.5571,
+      "longitude": 126.9245,
+      "hourly": [
+        4,
+        2,
+        1,
+        1,
+        1,
+        2,
+        7,
+        13,
+        19,
+        21,
+        25,
+        29,
+        31,
+        32,
+        33,
+        38,
+        41,
+        49,
+        55,
+        61,
+        57,
+        47,
+        28,
+        12
+      ]
+    },
+    {
+      "region_id": "sejong",
+      "station_id": "J001",
+      "station_name": "세종호수공원",
+      "latitude": 36.4961,
+      "longitude": 127.2708,
+      "hourly": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        3,
+        8,
+        11,
+        15,
+        20,
+        25,
+        30,
+        33,
+        35,
+        32,
+        29,
+        26,
+        20,
+        13,
+        8,
+        5,
+        3,
+        2
+      ]
+    },
+    {
+      "region_id": "suwon",
+      "station_id": "W001",
+      "station_name": "수원역",
+      "latitude": 37.2665,
+      "longitude": 127.001,
+      "hourly": [
+        1,
+        0,
+        0,
+        0,
+        1,
+        3,
+        11,
+        25,
+        34,
+        19,
+        14,
+        17,
+        20,
+        21,
+        20,
+        24,
+        31,
+        37,
+        30,
+        21,
+        14,
+        9,
+        5,
+        2
+      ]
+    }
+  ],
+  "od": [
+    {
+      "origin_station_id": "S001",
+      "destination_station_id": "S002",
+      "trip_count": 83
+    },
+    {
+      "origin_station_id": "S002",
+      "destination_station_id": "S003",
+      "trip_count": 51
+    },
+    {
+      "origin_station_id": "S003",
+      "destination_station_id": "S004",
+      "trip_count": 66
+    },
+    {
+      "origin_station_id": "S004",
+      "destination_station_id": "S001",
+      "trip_count": 39
+    },
+    {
+      "origin_station_id": "S001",
+      "destination_station_id": "S003",
+      "trip_count": 27
+    }
+  ]
+}

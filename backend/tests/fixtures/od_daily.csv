@@ -1,0 +1,5 @@
+region_id,date,origin_station_id,destination_station_id,trip_count
+seoul,2026-10-25,A,B,5
+seoul,2026-10-25,B,C,2
+seoul,2026-10-29,A,B,7
+seoul,2026-10-29,C,A,4

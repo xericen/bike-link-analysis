@@ -1,0 +1,15 @@
+export type Region = { region_id: string; region_name: string; service_name: string; operator: string; availability: string; has_usage: boolean; has_od: boolean }
+export type DataSource = { source_id: string; region_id: string; dataset_name: string; source_url: string | null; date_start: string | null; date_end: string | null; collected_at: string | null; verification_status: string; available_columns: string[]; origin?: string; note?: string }
+export type SourceInfo = { sources: DataSource[]; source_names: string[]; last_updated: string | null; verification_status: string; period_start?: string | null; period_end?: string | null }
+export type Station = { region_id: string; station_id: string; station_name: string | null; latitude: number | null; longitude: number | null; capacity: number | null; rental_count?: number | null; hourly?: number[] | null; weekend_share?: number | null }
+export type Annual = { year: number; period_end: string; complete_year: boolean; rental_count: number }
+export type Overview = SourceInfo & { region_id: string; region_name: string; service_name: string; operator: string; total_rentals: number | null; station_count: number | null; inventory_station_count: number | null; average_per_station: number | null; hourly: number[] | null; daily: {date:string; rental_count:number}[]; weekend_share: number | null; weekday_share: number | null; period_start: string | null; period_end: string | null; observed_dates: string[]; map_stations: Station[]; annual_latest: Annual | null; has_od: boolean; coverage_note: string }
+export type Cluster = { station_id: string; cluster_id: number; role: string; description: string; station_count: number; mean_rentals: number; morning_share: number; evening_share: number; weekend_share: number | null }
+export type ClusterResult = SourceInfo & { available: boolean; clusters: Cluster[]; diagnostics: { k: number; inertia: number; silhouette: number }[]; selected_k?: number; features?: string[]; message: string }
+export type Edge = { origin_station_id: string; destination_station_id: string; trip_count: number }
+export type Network = SourceInfo & { available: boolean; nodes: Station[]; edges: Edge[]; edge_count: number; message: string }
+export type Centrality = { station_id: string; station_name: string; pagerank: number; weighted_out_degree: number; weighted_in_degree: number; betweenness: number }
+export type CentralityResult = SourceInfo & { available: boolean; rankings: Centrality[]; components: number | null; betweenness_sample_nodes?: number; message: string }
+export type SimilarityResult = SourceInfo & { available: boolean; station_id: string; similar: { station_id: string; station_name: string | null; score: number; rental_count: number; volume_ratio: number }[]; message: string }
+export type CompareResult = { regions: (Omit<Overview, 'map_stations'> & { centrality_top: Centrality | null })[]; same_observed_dates: boolean; limitations: string[] }
+export type ChatResult = { answer: string; evidence: { tool: string; arguments: Record<string, unknown>; result: Record<string, unknown> }[] }

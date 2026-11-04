@@ -1,0 +1,20 @@
+import { useEffect, useState } from 'react'
+import { api } from '../services/api'
+import type { Cluster, SimilarityResult, SourceInfo, Station } from '../types'
+import { Empty, ErrorBox, SourceBadge, SourceNote } from '../components/State'
+import { HourlyChart } from '../charts/HourlyChart'
+import { StationMap } from '../maps/StationMap'
+
+export function StationAnalysis({ regionId }: { regionId: string }) {
+  const [stations, setStations] = useState<Station[]>([])
+  const [selected, setSelected] = useState('')
+  const [detail, setDetail] = useState<{ station: Station; cluster: Cluster | null }>()
+  const [similar, setSimilar] = useState<SimilarityResult>()
+  const [source, setSource] = useState<SourceInfo>()
+  const [search, setSearch] = useState('')
+  const [error, setError] = useState('')
+  useEffect(() => { let active = true; setStations([]); setSelected(''); setDetail(undefined); setSimilar(undefined); setError(''); api.stations(regionId).then(result => { if (active) { const sorted = result.stations.sort((a,b) => (b.rental_count || 0)-(a.rental_count || 0)); setStations(sorted); setSource(result); setSelected(sorted[0]?.station_id || '') } }).catch(err => { if (active) setError(err.message) }); return () => { active = false } }, [regionId])
+  useEffect(() => { if (!selected) return; let active = true; setDetail(undefined); setSimilar(undefined); Promise.all([api.station(regionId,selected), api.similarity(regionId,selected)]).then(([a,b]) => { if (active) { setDetail(a); setSimilar(b) } }).catch(err => { if (active) setError(err.message) }); return () => { active = false } }, [regionId,selected])
+  const shown = stations.filter(s => (s.station_name || '').includes(search) || s.station_id.toLowerCase().includes(search.toLowerCase())).slice(0,100)
+  return <><div className="page-heading"><div><span className="section-label">STATION INTELLIGENCE</span><h2>대여소 분석</h2><p>실제 자료에서 대여소를 검색합니다.</p></div><SourceBadge data={source}/></div>{error && <ErrorBox message={error}/>}<div className="station-layout"><section className="panel"><div className="panel-title"><h3>대여소 검색</h3><span>{stations.length}개소</span></div><input className="search" placeholder="대여소명 또는 ID 검색" value={search} onChange={e => setSearch(e.target.value)}/><div className="select-list">{shown.map(s => <button key={s.station_id} className={selected === s.station_id ? 'selected' : ''} onClick={() => setSelected(s.station_id)}><b>{s.station_name || s.station_id}</b><small>{s.station_id} · {s.rental_count?.toLocaleString() || 'N/A'}건</small></button>)}</div></section><div>{detail ? <><section className="panel"><div className="panel-title"><h3>{detail.station.station_name || detail.station.station_id}</h3><span>{detail.station.station_id}</span></div><div className="detail-grid"><div><small>이용량</small><strong>{detail.station.rental_count?.toLocaleString() || 'N/A'}건</strong></div><div><small>군집 유형</small><strong>{detail.cluster?.role || 'N/A'}</strong></div><div><small>주말 비중</small><strong>{detail.station.weekend_share === null || detail.station.weekend_share === undefined ? 'N/A' : (detail.station.weekend_share*100).toFixed(1)+'%'}</strong></div></div><p className="muted">{detail.cluster?.description || '분석 가능한 이용 기록이 없습니다.'}</p></section><section className="panel"><h3>대여소 위치</h3><StationMap stations={[detail.station]}/></section><section className="panel"><h3>시간대별 대여량</h3>{detail.station.hourly ? <HourlyChart values={detail.station.hourly}/> : <Empty>시간대별 이용 데이터 미확보</Empty>}</section><section className="panel"><h3>유사 대여소</h3>{similar?.available ? <div className="station-list">{similar.similar.map(s => <div className="station-row" key={s.station_id}><span><b>{s.station_name || s.station_id}</b><small>패턴 유사도 {s.score.toFixed(3)}</small></span><strong>{s.rental_count.toLocaleString()}건</strong></div>)}</div> : <Empty>{similar?.message || '유사도 분석 자료 미확보'}</Empty>}<p className="muted">패턴 유사도와 절대 이용량은 서로 다른 지표입니다.</p></section></> : <Empty>{stations.length ? '대여소를 선택하세요.' : '대여소 데이터 미확보'}</Empty>}</div></div><SourceNote data={source}/></>
+}
