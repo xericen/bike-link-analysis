@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { api } from '../services/api'
 import type { ChatResult, Region } from '../types'
@@ -10,11 +10,11 @@ const questions = [
   '대전에서 이용량과 연결 중심성이 다른 대여소를 찾아줘.',
   '서울과 대전의 이용 패턴을 비교해줘.',
   '세종에서 군집 분석이 가능한지 알려줘.',
-  '부산의 대여소 연결 중심성을 분석해줘.',
   '서울에서 중요한 연결 거점의 운영 개선 방안을 제안해줘.',
 ]
 type Message = { question: string; result: ChatResult }
 export function AIAgent() {
+  const [params]=useSearchParams()
   const [question, setQuestion] = useState('')
   const [history, setHistory] = useState<Message[]>([])
   const [selected, setSelected] = useState<number | null>(null)
@@ -28,11 +28,12 @@ export function AIAgent() {
     api.agentStatus().then(x => setConfigured(x.configured)).catch(e => setError(e.message))
     api.regions().then(x => setRegions(x.regions)).catch(() => {})
   }, [])
+  useEffect(()=>{const prompt=params.get('prompt');if(prompt)setQuestion(prompt)},[params])
   async function submit(event?: React.FormEvent, override?: string) {
     event?.preventDefault()
     const text = (override || question).trim()
     if (!text || loading || configured !== true) return
-    const submitted = /서울|대전|세종|부산/.test(text) ? text : regions.find(x => x.region_id === region)?.region_name + ' ' + text
+    const submitted = /서울|대전|세종/.test(text) ? text : regions.find(x => x.region_id === region)?.region_name + ' ' + text
     setQuestion('')
     setLastQuestion(submitted)
     setError('')
@@ -47,11 +48,11 @@ export function AIAgent() {
   const active = selected === null ? null : history[selected]
   const report = active?.result.report
   return <>
-    <div className="page-heading"><div><span className="section-label">AI ANALYSIS</span><h2>데이터에 질문하기</h2><p>Solar가 분석 도구를 호출하고 실제 결과를 보고서로 정리합니다.</p></div><span className={configured ? 'mini-status good' : 'mini-status'}>{configured === undefined ? '연결 확인 중' : configured ? 'Solar API 설정됨' : 'Solar API 키 미설정'}</span></div>
+    <div className="page-heading"><div><span className="section-label">AI ANALYSIS REPORT</span><h2>발견을 운영 검토 질문으로 연결하다</h2><p>Solar가 실제 분석 도구를 호출해 발견·근거·검토 조치·추가 검증을 구분합니다.</p></div><span className={configured ? 'mini-status good' : 'mini-status'}>{configured === undefined ? '연결 확인 중' : configured ? 'Solar API 설정됨' : 'Solar API 키 미설정'}</span></div>
     <div className="agent-workspace">
       <div className="agent-left">
         <section className="panel">
-          <div className="panel-title"><h3>질문 입력</h3><span>서울 · 대전 · 세종 · 부산</span></div>
+          <div className="panel-title"><h3>질문 입력</h3><span>서울 · 대전 · 세종</span></div>
           <label className="agent-label" htmlFor="agent-region">기본 분석 지역</label>
           <select id="agent-region" value={region} onChange={e => setRegion(e.target.value)}>{regions.map(x => <option key={x.region_id} value={x.region_id}>{x.region_name} · {x.service_name}</option>)}</select>
           <form onSubmit={e => void submit(e)} className="agent-question-form"><textarea aria-label="분석 질문" placeholder={configured === false ? 'Solar API 키 설정이 필요합니다' : '공공자전거 데이터에 대해 질문하세요'} value={question} disabled={configured === false} onChange={e => setQuestion(e.target.value)} rows={4}/><button className="button-primary" disabled={loading || configured !== true || !question.trim()}>{loading ? '분석 요청 중…' : '분석 보고서 생성 ↗'}</button></form>
@@ -70,6 +71,7 @@ export function AIAgent() {
             {report?.key_findings.length ? <div className="agent-findings">{report.key_findings.map((x, i) => <div key={i}><small>{x.label}</small><strong>{x.value.toLocaleString()} <em>{x.unit}</em></strong>{x.period && <small>{x.period}년</small>}</div>)}</div> : <div className="notice">수치로 확인된 핵심 발견이 없습니다. 도구 결과와 자료 한계를 확인하세요.</div>}
           </section>
           <section className="panel"><div className="panel-title"><h3>Solar 분석 및 운영 검토 의견</h3><span>{active.result.model}</span></div><div className="agent-answer">{active.result.answer}</div><p className="agent-note">AI 해석과 제안은 아래 실제 도구 결과를 참고해 검토하세요. 효과나 재고 상태는 검증된 수치가 아닙니다.</p></section>
+          {active.result.grounding_validation&&<section className="panel"><div className="panel-title"><h3>응답 수치 대조</h3><span className={active.result.grounding_validation.passed?'mini-status good':'mini-status'}>{active.result.grounding_validation.passed?'도구 수치 일치':'불일치 검토 필요'}</span></div><p>검사 {active.result.grounding_validation.checked_numeric_tokens}개 · 일치 {active.result.grounding_validation.matched_numeric_tokens}개</p>{!active.result.grounding_validation.passed&&<p className="notice">도구 결과와 직접 일치하지 않은 수치: {active.result.grounding_validation.unmatched_numeric_tokens.join(', ')}</p>}<p className="muted">{active.result.grounding_validation.method}</p></section>}
           {report?.charts.map((chart, i) => <section className="panel" key={i}><div className="panel-title"><h3>{chart.title}</h3><span>도구 결과에서 생성</span></div><div className="chart"><ResponsiveContainer width="100%" height="100%"><BarChart data={chart.points}><CartesianGrid stroke="#e6edf5" vertical={false}/><XAxis dataKey={chart.kind === 'ranking' ? 'station_id' : 'date'} interval={0} angle={-25} height={54} textAnchor="end" fontSize={10}/><YAxis/><Tooltip/><Bar dataKey={chart.kind === 'ranking' ? 'value' : 'rental_count'} fill="#3476d0" isAnimationActive={false}/></BarChart></ResponsiveContainer></div>{chart.kind === 'ranking' && <p className="agent-note">전체 OD 그래프에서 계산한 {chart.metric}입니다. <Link to="/network">네트워크 화면 보기 ↗</Link></p>}</section>)}
           {report?.station_comparison.length ? <section className="panel"><h3>대여량과 연결 중심성 비교</h3><div className="agent-table-wrap"><table className="agent-table"><thead><tr><th>대여소</th><th>대여량</th><th>이용량 순위</th><th>중심성 지표</th><th>중심성 순위</th><th>순위 차이</th></tr></thead><tbody>{report.station_comparison.map(x => <tr key={x.station_id}><td>{x.station_id}<small>{x.station_name}</small></td><td>{x.rental_count?.toLocaleString() ?? 'N/A'}</td><td>{x.usage_rank ?? "N/A"}</td><td>{x.metric} {x.centrality}</td><td>{x.centrality_rank ?? "N/A"}</td><td>{x.rank_gap ?? "N/A"}</td></tr>)}</tbody></table></div><p className="agent-note">두 값은 단위가 다릅니다. 같은 기간의 실제 대여량과 전체 그래프 중심성입니다.</p></section> : null}
           {(report?.station_roles.length || report?.recommendations.length) ? <section className="panel"><h3>대여소 역할과 운영 검토 제안</h3>{report.station_roles.map((x, i) => <p className="agent-source" key={'role'+i}><b>{x.station_id}</b> · {x.role} (군집 {x.cluster_id})</p>)}{report.recommendations.map((x, i) => <div className="agent-recommendation" key={'rec'+i}><b>{x.feature}</b><p>근거: {x.evidence}</p><p>제안: {x.action}</p><p>활용: {x.value}</p><small>추가 검증: {x.validation}</small></div>)}</section> : null}

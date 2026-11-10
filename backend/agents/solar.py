@@ -11,7 +11,7 @@ from openai import AuthenticationError, OpenAI, RateLimitError, APITimeoutError,
 from backend.services import real_data
 
 REGION_ALIASES = {"서울": "seoul", "따릉이": "seoul", "대전": "daejeon", "타슈": "daejeon",
-                  "세종": "sejong", "어울링": "sejong", "부산": "busan"}
+                  "세종": "sejong", "어울링": "sejong"}
 REGIONS = {r["region_id"] for r in real_data.REGIONS}
 METRICS = {"pagerank", "weighted_in_degree", "weighted_out_degree", "betweenness"}
 TOOL_DEFINITIONS = {
@@ -23,6 +23,12 @@ TOOL_DEFINITIONS = {
     "find_similar_stations": ("시간대 패턴 코사인 유사 대여소", {"region_id": "string", "station_id": "string", "top_n": "integer", "date_range": "object"}, ["region_id", "station_id"]),
     "compare_region_patterns": ("지역별 기간과 비교 가능 범위", {"region_ids": "array", "date_range": "object"}, ["region_ids"]),
     "get_data_availability": ("원천 자료의 확보 상태 및 분석 가능 범위", {"region_id": "string"}, ["region_id"]),
+    "get_cluster_stability": ("7일·14일·30일 K-means 군집 안정성과 ARI", {"region_id": "string", "date_range": "object"}, ["region_id"]),
+    "get_station_imbalance": ("대여·반납 순유출, 불균형 비율과 지속성", {"region_id": "string", "top_n": "integer", "date_range": "object"}, ["region_id"]),
+    "get_hidden_hubs": ("이용량 순위보다 연결 중심성 순위가 높은 대여소와 근거 연결", {"region_id": "string", "top_n": "integer", "date_range": "object"}, ["region_id"]),
+    "get_hidden_hub_validation": ("특정 대여소의 이름·위치·대여/반납·TOP 10 연결·순위 백분위와 7·14·30일 민감도", {"region_id": "string", "station_id": "string", "date_range": "object"}, ["region_id", "station_id"]),
+    "get_station_role_history": ("동일 대여소의 7·14·30일 군집·집중 시간·가중 연결 순위 변화", {"region_id": "string", "station_id": "string", "date_range": "object"}, ["region_id", "station_id"]),
+    "get_role_candidates": ("분포 기반 네 가지 숨은 역할 후보와 판정 임계값", {"region_id": "string", "date_range": "object"}, ["region_id"]),
 }
 def _schema(name, description, fields, required):
     props = {}
@@ -103,6 +109,30 @@ def run_tool(name, arguments):
         if name == "get_station_clusters":
             result = real_data.clusters(region_id, start, end)
             return {**result, "clusters": result["clusters"][:20], "returned_count": min(20, len(result["clusters"]))}
+        if name == "get_cluster_stability":
+            return real_data.cluster_stability(region_id, end)
+        if name == "get_station_imbalance":
+            result = real_data.imbalance_result(region_id, start, end)
+            top = _top(arguments.get("top_n"))
+            return {**result, "stations": result["stations"][:top], "returned_count": min(top, len(result["stations"]))}
+        if name == "get_hidden_hubs":
+            result = real_data.hidden_hubs(region_id, start, end)
+            top = _top(arguments.get("top_n"))
+            return {**result, "candidates": result.get("candidates", [])[:top],
+                    "returned_count": min(top, len(result.get("candidates", [])))}
+        if name == "get_hidden_hub_validation":
+            station_id = arguments.get("station_id")
+            if not isinstance(station_id, str) or not station_id:
+                raise ValueError("station_id가 필요합니다.")
+            return real_data.hidden_hub_validation(region_id, station_id, end)
+        if name == "get_station_role_history":
+            station_id = arguments.get("station_id")
+            if not isinstance(station_id, str) or not station_id:
+                raise ValueError("station_id가 필요합니다.")
+            return real_data.station_role_history(region_id, station_id, end)
+        if name == "get_role_candidates":
+            result = real_data.role_candidates(region_id, start, end)
+            return {**result, "types": {key: rows[:5] for key, rows in result.get("types", {}).items()}}
         if name == "get_centrality_ranking":
             metric = str(arguments.get("metric", "")).lower().replace("page_rank", "pagerank").replace("weighted_degree", "weighted_in_degree")
             if metric not in METRICS:
@@ -195,6 +225,37 @@ def _report(question, answer, evidence):
             algorithms.add("K-means")
             roles.extend({"station_id": c["station_id"], "role": c["role"], "cluster_id": c["cluster_id"]}
                          for c in result.get("clusters", [])[:5] if c.get("role"))
+        elif call["tool"] == "get_cluster_stability" and result.get("available"):
+            algorithms.add("Adjusted Rand Index")
+            limitations.extend(window["confidence_warning"] for window in result.get("windows", []) if window.get("confidence_warning"))
+        elif call["tool"] == "get_station_imbalance" and result.get("available"):
+            algorithms.add("rental-return imbalance")
+            if result.get("stations"):
+                top = result["stations"][0]
+                findings.append({"label": top["station_id"] + " 순유출", "value": top["net_outflow"],
+                                 "unit": "건", "region_id": call["arguments"].get("region_id", "")})
+                limitations.append(result["message"])
+        elif call["tool"] == "get_hidden_hubs" and result.get("available"):
+            algorithms.update(("PageRank", "betweenness centrality", "usage-centrality rank gap"))
+            limitations.append(result["message"])
+        elif call["tool"] == "get_hidden_hub_validation" and result.get("available"):
+            algorithms.update(("PageRank", "period sensitivity", "usage-centrality rank gap"))
+            detail = result["metrics"]
+            findings.append({"label": result["station"]["station_id"] + " PageRank 순위", "value": detail["pagerank_rank"],
+                             "unit": "위", "region_id": call["arguments"].get("region_id", ""),
+                             "period": result.get("period_end")})
+            limitations.extend(result.get("limitations", []))
+        elif call["tool"] == "get_station_role_history" and result.get("available"):
+            algorithms.update(("K-means period comparison", "weighted degree rank change"))
+            limitations.append(result["message"])
+        elif call["tool"] == "get_role_candidates" and result.get("available"):
+            algorithms.update(("empirical percentile thresholds", "hidden role classification"))
+            labels = {"low_usage_high_connectivity": "저이용·고연결 후보", "persistent_imbalance": "지속 불균형 후보",
+                      "time_concentrated": "시간대 집중 후보", "role_changed": "기간 역할 변화 후보"}
+            for key, count in result.get("counts", {}).items():
+                findings.append({"label": labels.get(key, key), "value": count, "unit": "개",
+                                 "region_id": call["arguments"].get("region_id", "")})
+            limitations.append(result["message"])
         elif call["tool"] == "find_similar_stations" and result.get("available"):
             algorithms.add("cosine similarity")
         elif call["tool"] == "get_station_details" and result.get("available"):
@@ -262,6 +323,32 @@ def _report(question, answer, evidence):
             "interpretation": answer}
 
 
+def _numeric_grounding(answer, evidence):
+    """Compare answer numbers with both numeric fields and identifiers/addresses returned by tools."""
+    pattern = r"(?<![A-Za-z-])\d[\d,]*(?:\.\d+)?"
+    evidence_numbers = set()
+    def collect(value):
+        if isinstance(value, bool) or value is None:
+            return
+        if isinstance(value, (int, float)):
+            evidence_numbers.add(round(abs(float(value)), 8)); return
+        if isinstance(value, str):
+            for item in re.findall(pattern, value):
+                evidence_numbers.add(round(abs(float(item.replace(",", ""))), 8))
+        elif isinstance(value, dict):
+            for child in value.values(): collect(child)
+        elif isinstance(value, list):
+            for child in value: collect(child)
+    for item in evidence: collect(item.get("result"))
+    answer_numbers = [abs(float(value.replace(",", ""))) for value in re.findall(pattern, answer)]
+    checked = [value for value in answer_numbers if value > 30 and not 1900 <= value <= 2100]
+    unmatched = [value for value in checked if not any(abs(value - actual) <= max(1e-8, abs(actual) * 1e-6)
+                                                        for actual in evidence_numbers)]
+    return {"checked_numeric_tokens": len(checked), "matched_numeric_tokens": len(checked) - len(unmatched),
+            "unmatched_numeric_tokens": unmatched, "passed": not unmatched,
+            "method": "Solar 답변의 30 초과 수치를 도구 결과의 수치·식별자 문자열과 대조(연도 제외)"}
+
+
 def chat(question):
     if not os.getenv("UPSTAGE_API_KEY"):
         raise HTTPException(503, "UPSTAGE_API_KEY가 없습니다. .env에 설정하세요.")
@@ -269,12 +356,14 @@ def chat(question):
         raise HTTPException(400, "질문은 1~2000자로 입력하세요.")
     client = OpenAI(api_key=os.environ["UPSTAGE_API_KEY"], base_url="https://api.upstage.ai/v1",
                     timeout=25.0, max_retries=0)
-    prompt = ("서울·대전·세종·부산 공공자전거 분석가입니다. 질문에 맞는 실제 도구를 먼저 호출하세요. "
+    prompt = ("서울·대전·세종 공공자전거 분석가입니다. 질문에 맞는 실제 도구를 먼저 호출하세요. "
               "서울 OD는 집계이며 위치 ID는 공식 마스터 검증분만 사용합니다. 대전은 개별 Trip, "
-              "세종은 연간 총량, 부산은 운영 메타데이터만 있습니다. 관측 날짜는 불연속일 수 있습니다. "
+              "세종은 연간 총량만 있습니다. 관측 날짜는 불연속일 수 있습니다. "
               "도구 수치와 대여소 ID를 그대로 인용하고 없는 값을 만들지 마세요. "
               "관측 사실·해석·운영 제안을 분리한 한국어 답변을 작성하세요. "
-              "재고 자료가 없으므로 부족을 단정하지 말고 PageRank를 환승의 증거로 단정하지 마세요. "
+              "재고·재배치 자료가 없으므로 부족이나 재배치 필요를 단정하지 말고 PageRank를 환승의 증거로 단정하지 마세요. "
+              "불균형은 대여-반납 관측값으로, 군집 안정성은 공통 대여소 ARI로만 설명하세요. "
+              "답변은 핵심 발견, 분석 대상 및 기간, 실제 수치와 근거, 숨은 역할 판단 이유, 운영상 검토 조치, 추가 검증, 데이터 출처와 한계 순서로 구성하세요. "
               "도구 오류나 자료 부족이면 불가능한 분석을 명시하세요.")
     messages = [{"role": "system", "content": prompt}, {"role": "user", "content": question}]
     evidence, usage = [], {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
@@ -320,9 +409,23 @@ def chat(question):
                 ensure("get_centrality_ranking", {"region_id": rid, "metric": metric, "top_n": 5, "date_range": date_range})
             if "군집" in question:
                 ensure("get_station_clusters", {"region_id": rid, "date_range": date_range})
+            if "군집" in question and any(word in question for word in ("기간", "안정", "달라")):
+                ensure("get_cluster_stability", {"region_id": rid, "date_range": date_range})
+            if any(word in question for word in ("불균형", "순유출", "대여·반납", "대여 반납")):
+                ensure("get_station_imbalance", {"region_id": rid, "top_n": 5, "date_range": date_range})
+            if any(word in question for word in ("이용량은 적", "숨은", "저이용", "중요한 대여소")):
+                ensure("get_hidden_hubs", {"region_id": rid, "top_n": 5, "date_range": date_range})
+            station_ids = re.findall(r"ST-?\d+", question, flags=re.IGNORECASE)
+            if station_ids and any(word in question for word in ("숨은", "거점", "검증", "중요")):
+                ensure("get_hidden_hub_validation", {"region_id": rid, "station_id": station_ids[0].upper(),
+                                                       "date_range": date_range})
+            if station_ids and any(word in question for word in ("역할", "기간", "변화", "중요도")):
+                ensure("get_station_role_history", {"region_id": rid, "station_id": station_ids[0].upper(), "date_range": date_range})
             if any(word in question for word in ("운영", "이용량", "패턴")):
                 ensure("get_region_overview", {"region_id": rid, "date_range": date_range})
-            if rid in ("sejong", "busan"):
+            if any(word in question for word in ("우선 검토", "숨은 역할", "후보 유형")):
+                ensure("get_role_candidates", {"region_id": rid, "date_range": date_range})
+            if rid == "sejong":
                 ensure("get_data_availability", {"region_id": rid})
             if "이용량" in question and "중심성" in question and rid in ("seoul", "daejeon"):
                 ranking = next((e["result"] for e in evidence if e["tool"] == "get_centrality_ranking"
@@ -348,8 +451,12 @@ def chat(question):
             else:
                 answer = "요청한 분석을 뒷받침할 자료가 부족하거나 Solar의 답변 형식을 확인할 수 없습니다."
             if report["limitations"]: answer += " 한계: " + report["limitations"][0]
-        return {"answer": answer, "evidence": evidence, "report": _report(question, answer, evidence),
-                "usage": usage, "model": completion.model}
+        grounding = _numeric_grounding(answer, evidence)
+        report = _report(question, answer, evidence)
+        if unmatched:
+            report["limitations"].append("Solar 본문의 일부 수치가 도구 결과와 직접 일치하지 않아 원문 수치 사용을 보류해야 합니다.")
+        return {"answer": answer, "evidence": evidence, "report": report,
+                "usage": usage, "model": completion.model, "grounding_validation": grounding}
     except AuthenticationError as exc:
         raise HTTPException(502, "Solar 인증 오류: API 키를 확인하세요.") from exc
     except RateLimitError as exc:

@@ -39,9 +39,8 @@ def health():
 def regions():
     return {"regions": [
         {**region, "availability": real_data.source_meta(region["region_id"])["verification_status"],
-         "has_usage": bool(real_data.profiles(region["region_id"])),
-         "has_od": bool(real_data.snapshot()["od"] and any(
-             e["region_id"] == region["region_id"] for e in real_data.snapshot()["od"]))}
+         "has_usage": real_data.has_observations("station_usage", region["region_id"]),
+         "has_od": real_data.has_observations("od_daily", region["region_id"])}
         for region in real_data.REGIONS]}
 
 
@@ -66,20 +65,57 @@ def stations(region_id: str, date_start: date | None = None, date_end: date | No
 
 
 @app.get("/api/regions/{region_id}/stations/{station_id}")
-def station(region_id: str, station_id: str, date_start: date | None = None, date_end: date | None = None):
+def station(region_id: str, station_id: str, date_start: date | None = None, date_end: date | None = None,
+            include_cluster: bool = True):
     check_region(region_id)
     start, end = period(date_start, date_end)
     item = next((s for s in real_data.region_stations(region_id, start, end) if s["station_id"] == station_id), None)
     if item is None:
         raise HTTPException(404, "대여소를 찾을 수 없습니다.")
-    cluster = next((c for c in real_data.clusters(region_id, start, end)["clusters"] if c["station_id"] == station_id), None)
+    cluster = (next((c for c in real_data.clusters(region_id, start, end)["clusters"]
+                     if c["station_id"] == station_id), None) if include_cluster else None)
     return {**real_data.source_meta(region_id), "station": item, "cluster": cluster}
+
+
+@app.get("/api/regions/{region_id}/stations/{station_id}/role-history")
+def station_role_history(region_id: str, station_id: str, date_end: date | None = None):
+    check_region(region_id)
+    if not any(s["station_id"] == station_id for s in real_data.snapshot()["stations"]
+               if s["region_id"] == region_id):
+        raise HTTPException(404, "대여소를 찾을 수 없습니다.")
+    return real_data.station_role_history(region_id, station_id, date_end.isoformat() if date_end else None)
+
+
+@app.get("/api/regions/{region_id}/stations/{station_id}/hidden-hub-validation")
+def station_hidden_hub_validation(region_id: str, station_id: str, date_end: date | None = None):
+    check_region(region_id)
+    result = real_data.hidden_hub_validation(region_id, station_id, date_end.isoformat() if date_end else None)
+    if not result.get("available") and not any(s["station_id"] == station_id for s in real_data.snapshot()["stations"]
+                                                if s["region_id"] == region_id):
+        raise HTTPException(404, "대여소를 찾을 수 없습니다.")
+    return result
 
 
 @app.get("/api/regions/{region_id}/clusters")
 def clusters(region_id: str, date_start: date | None = None, date_end: date | None = None):
     check_region(region_id)
     return real_data.clusters(region_id, *period(date_start, date_end))
+
+
+@app.get("/api/regions/{region_id}/cluster-stability")
+def cluster_stability(region_id: str, date_end: date | None = None):
+    check_region(region_id)
+    return real_data.cluster_stability(region_id, date_end.isoformat() if date_end else None)
+
+
+@app.get("/api/regions/{region_id}/imbalance")
+def imbalance(region_id: str, date_start: date | None = None, date_end: date | None = None,
+              limit: int = 100):
+    check_region(region_id)
+    if not 1 <= limit <= 10000:
+        raise HTTPException(400, "limit은 1~10000이어야 합니다.")
+    result = real_data.imbalance_result(region_id, *period(date_start, date_end))
+    return {**result, "stations": result["stations"][:limit], "total": len(result["stations"])}
 
 
 @app.get("/api/regions/{region_id}/network")
@@ -97,6 +133,18 @@ def centrality(region_id: str, date_start: date | None = None, date_end: date | 
     return real_data.centrality_result(region_id, *period(date_start, date_end))
 
 
+@app.get("/api/regions/{region_id}/hidden-hubs")
+def hidden_hubs(region_id: str, date_start: date | None = None, date_end: date | None = None):
+    check_region(region_id)
+    return real_data.hidden_hubs(region_id, *period(date_start, date_end))
+
+
+@app.get("/api/regions/{region_id}/role-candidates")
+def role_candidates(region_id: str, date_start: date | None = None, date_end: date | None = None):
+    check_region(region_id)
+    return real_data.role_candidates(region_id, *period(date_start, date_end))
+
+
 @app.get("/api/regions/{region_id}/similarity")
 def similarity(region_id: str, station_id: str, date_start: date | None = None, date_end: date | None = None):
     check_region(region_id)
@@ -107,22 +155,24 @@ def similarity(region_id: str, station_id: str, date_start: date | None = None, 
 
 
 @app.get("/api/compare")
-def compare(region_ids: str | None = None, date_start: date | None = None, date_end: date | None = None):
+def compare(region_ids: str | None = None, date_start: date | None = None, date_end: date | None = None,
+            align_common: bool = False):
     ids = list(dict.fromkeys(x.strip() for x in region_ids.split(","))) if region_ids else None
     if ids is not None:
         if not 1 <= len(ids) <= 4:
             raise HTTPException(400, "1~4개 지역을 선택하세요.")
         for rid in ids:
             check_region(rid)
-    return real_data.compare(ids, *period(date_start, date_end))
+    return real_data.compare(ids, *period(date_start, date_end), align_common=align_common)
 
 
 @app.get("/api/data-sources")
 def data_sources(region_id: str | None = None):
     if region_id:
         check_region(region_id)
+    active = {r["region_id"] for r in real_data.REGIONS}
     return {"data_sources": [s for s in real_data.snapshot()["sources"]
-                             if region_id is None or s["region_id"] == region_id]}
+                             if s["region_id"] in active and (region_id is None or s["region_id"] == region_id)]}
 
 
 @app.get("/api/data-quality")
@@ -130,7 +180,9 @@ def data_quality(region_id: str | None = None):
     if region_id:
         check_region(region_id)
     quality = real_data.snapshot()["quality"]
-    return {"quality": quality.get(region_id, {}) if region_id else quality}
+    active = {r["region_id"] for r in real_data.REGIONS}
+    return {"quality": quality.get(region_id, {}) if region_id else
+            {key: value for key, value in quality.items() if key in active}}
 
 
 @app.get("/api/data-validation")

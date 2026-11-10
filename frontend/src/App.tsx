@@ -15,8 +15,7 @@ const DemoMode = lazy(() => import('./pages/DemoMode').then(m => ({default:m.Dem
 const initialRegions: Region[] = [
   {region_id:'seoul',region_name:'서울',service_name:'따릉이',operator:'',availability:'확인 중',has_usage:false,has_od:false},
   {region_id:'daejeon',region_name:'대전',service_name:'타슈',operator:'',availability:'확인 중',has_usage:false,has_od:false},
-  {region_id:'sejong',region_name:'세종',service_name:'어울링',operator:'',availability:'확인 중',has_usage:false,has_od:false},
-  {region_id:'busan',region_name:'부산',service_name:'지역별 대여소',operator:'',availability:'확인 중',has_usage:false,has_od:false}
+  {region_id:'sejong',region_name:'세종',service_name:'어울링',operator:'',availability:'확인 중',has_usage:false,has_od:false}
 ]
 const navigation = [
   { path:'/dashboard', icon:'▦', label:'Overview', ko:'종합 현황' },
@@ -35,7 +34,7 @@ function Layout() {
   const [filter,setFilter]=useState<DateFilter>(()=>({start:saved('bike.start',''),end:saved('bike.end','')}))
   const [error,setError]=useState('')
   const location=useLocation(), navigate=useNavigate()
-  useEffect(()=>{ api.regions().then(x=>setRegions(x.regions)).catch(e=>setError(e.message));api.sources().then(x=>setSources(x.data_sources)).catch(()=>{}) },[])
+  useEffect(()=>{ api.regions().then(x=>{setRegions(x.regions);if(!x.regions.some(r=>r.region_id===regionId))setRegionId('seoul')}).catch(e=>setError(e.message));api.sources().then(x=>setSources(x.data_sources)).catch(()=>{}) },[])
   useEffect(()=>{localStorage.setItem('bike.region',regionId)},[regionId])
   useEffect(()=>{localStorage.setItem('bike.start',filter.start);localStorage.setItem('bike.end',filter.end)},[filter])
   const current=regions.find(x=>x.region_id===regionId)

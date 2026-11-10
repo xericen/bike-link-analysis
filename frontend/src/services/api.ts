@@ -1,4 +1,4 @@
-import type { CentralityResult, ChatResult, ClusterResult, CompareResult, DataSource, Network, Overview, Region, SimilarityResult, SourceInfo, Station, Validation } from '../types'
+import type { CentralityResult, ChatResult, ClusterResult, ClusterStability, CompareResult, DataSource, HiddenHubValidation, HiddenHubsResult, ImbalanceResult, Network, Overview, Region, RoleCandidatesResult, RoleHistory, SimilarityResult, SourceInfo, Station, Validation } from '../types'
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   const response = await fetch(path, options)
@@ -20,12 +20,18 @@ export const api = {
   regions: () => request<{ regions: Region[] }>('/api/regions'),
   overview: (id: string, start?: string, end?: string) => request<Overview>(base(id) + '/overview' + query(start, end)),
   stations: (id: string, start?: string, end?: string, q?: string) => request<SourceInfo & { stations: Station[]; total: number; available: boolean; message: string | null }>(base(id) + '/stations' + query(start,end,{limit:'10000', ...(q ? {q} : {})})),
-  station: (id: string, stationId: string, start?: string, end?: string) => request<SourceInfo & { station: Station; cluster: ClusterResult['clusters'][number] | null }>(base(id) + '/stations/' + encodeURIComponent(stationId) + query(start,end)),
+  station: (id: string, stationId: string, start?: string, end?: string, includeCluster=true) => request<SourceInfo & { station: Station; cluster: ClusterResult['clusters'][number] | null }>(base(id) + '/stations/' + encodeURIComponent(stationId) + query(start,end,{include_cluster:String(includeCluster)})),
+  roleHistory: (id:string,stationId:string,end?:string) => request<RoleHistory>(base(id)+'/stations/'+encodeURIComponent(stationId)+'/role-history'+query(undefined,end)),
+  hiddenHubValidation:(id:string,stationId:string,end?:string)=>request<HiddenHubValidation>(base(id)+'/stations/'+encodeURIComponent(stationId)+'/hidden-hub-validation'+query(undefined,end)),
   clusters: (id: string, start?: string, end?: string) => request<ClusterResult>(base(id) + '/clusters' + query(start, end)),
+  clusterStability: (id:string,end?:string) => request<ClusterStability>(base(id)+'/cluster-stability'+query(undefined,end)),
+  imbalance: (id:string,start?:string,end?:string) => request<ImbalanceResult>(base(id)+'/imbalance'+query(start,end,{limit:'10000'})),
   network: (id: string, start?: string, end?: string, nodeLimit=40) => request<Network>(base(id) + '/network' + query(start, end, {node_limit:String(nodeLimit)})),
   centrality: (id: string, start?: string, end?: string) => request<CentralityResult>(base(id) + '/centrality' + query(start, end)),
+  hiddenHubs: (id:string,start?:string,end?:string) => request<HiddenHubsResult>(base(id)+'/hidden-hubs'+query(start,end)),
+  roleCandidates: (id:string,start?:string,end?:string) => request<RoleCandidatesResult>(base(id)+'/role-candidates'+query(start,end)),
   similarity: (id: string, stationId: string, start?: string, end?: string) => request<SimilarityResult>(base(id) + '/similarity' + query(start,end,{station_id:stationId})),
-  compare: (ids: string[], start?: string, end?: string) => request<CompareResult>('/api/compare' + query(start,end,{region_ids:ids.join(',')})),
+  compare: (ids: string[], start?: string, end?: string, alignCommon=true) => request<CompareResult>('/api/compare' + query(start,end,{region_ids:ids.join(','),align_common:String(alignCommon)})),
   sources: (id?: string) => request<{ data_sources: DataSource[] }>('/api/data-sources' + (id ? '?region_id=' + encodeURIComponent(id) : '')),
   quality: (id?: string) => request<{ quality: Record<string, unknown> }>('/api/data-quality' + (id ? '?region_id=' + encodeURIComponent(id) : '')),
   validation: () => request<Validation>('/api/data-validation'),

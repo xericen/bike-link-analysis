@@ -19,19 +19,23 @@ def build_graph(stations, od_records):
     return graph
 
 
-def centrality(stations, od_records):
+def centrality(stations, od_records, include_betweenness=True):
     if not od_records:
         return {"available": False, "rankings": [], "components": None, "message": "이동 경로 데이터 미확보"}
     graph = build_graph(stations, od_records)
     if not graph.number_of_edges():
         return {"available": False, "rankings": [], "components": None, "message": "유효한 이동 경로 데이터 미확보"}
     rank = nx.pagerank(graph, weight="weight")
-    # Betweenness uses inverse flow as distance, and sampling on large graphs.
-    for _, _, attr in graph.edges(data=True):
-        attr["distance"] = 1 / attr["weight"]
-    samples = min(32, graph.number_of_nodes())
-    between = nx.betweenness_centrality(graph, k=samples if samples < graph.number_of_nodes() else None,
-                                         weight="distance", normalized=True, seed=42)
+    # Betweenness uses inverse flow as distance, and sampling on large graphs. Period sensitivity
+    # can skip this expensive approximation because it compares PageRank only.
+    samples = min(32, graph.number_of_nodes()) if include_betweenness else 0
+    if include_betweenness:
+        for _, _, attr in graph.edges(data=True):
+            attr["distance"] = 1 / attr["weight"]
+        between = nx.betweenness_centrality(graph, k=samples if samples < graph.number_of_nodes() else None,
+                                             weight="distance", normalized=True, seed=42)
+    else:
+        between = dict.fromkeys(graph, 0.0)
     weighted_out = dict(graph.out_degree(weight="weight"))
     weighted_in = dict(graph.in_degree(weight="weight"))
     rankings = sorted(({

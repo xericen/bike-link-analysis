@@ -7,9 +7,10 @@
 - `stations.csv`: `region_id,station_id,station_name,latitude,longitude,capacity`
 - `station_usage.csv`: `region_id,station_id,date,hour,rental_count,return_count`
 - `od_daily.csv`: 위 OD 집계 스키마
-- `trips.csv`: `region_id,origin_station_id,destination_station_id,started_at,ended_at,duration_minutes`. 현재 대전의 실제 Trip 2일분만 저장하며 자전거번호·주소 등 원본 부가 필드는 제외한다.
+- `trips/daejeon-YYYYMM.csv`: `region_id,origin_station_id,destination_station_id,started_at,ended_at,duration_minutes`. 대전 유효 Trip을 월별 파티션으로 저장하며 자전거번호·주소 등 원본 부가 필드는 제외한다. 루트 `trips.csv`는 과거 경로 호환용 헤더 파일이다.
 - `yearly.csv`: `region_id,year,period_end,complete_year,rental_count`; 세종 연간 집계는 대여소 이용량과 합치지 않는다.
 - `sources.json`, `quality.json`: 출처 상태와 지역별 품질·기간
+- `analysis.sqlite`: `station_usage`와 `od_daily`의 API 조회용 인덱스 저장소. CSV가 기준 산출물이며 SQLite에는 같은 값을 적재한다.
 
 업로드 API `POST /api/regions/{region_id}/upload`는 `multipart/form-data`의 `file`, `kind`(`stations|station_usage|od_daily|trips`), `dataset_name`을 받는다. 해당 정규화 CSV 컬럼이 필요하며 대여소를 먼저 업로드한다. UTF-8 BOM/UTF-8/CP949를 지원한다. 업로드의 `VERIFIED`는 **파일 스키마 검증**을 뜻하고 공식 출처 검증을 뜻하지 않는다.
 

@@ -1,4 +1,6 @@
 .env
+.env.*
+!.env.example
 .venv/
 __pycache__/
 .pytest_cache/
@@ -11,3 +13,7 @@ data/raw/*
 data/processed/*
 !data/processed/.gitkeep
 !frontend/package-lock.json
+*.pem
+*.key
+id_rsa*
+id_ed25519*

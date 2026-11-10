@@ -99,14 +99,34 @@ def match_master(master, processed):
               "unmatched_ids": sorted(ids - matched), "invalid_coordinate_ids": invalid,
               "missing_name_ids": name_missing, "checked_at": datetime.now(timezone.utc).isoformat()}
     (processed / "seoul_station_mapping.json").write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+    quality_path = processed / "quality.json"
+    if quality_path.exists():
+        quality = json.loads(quality_path.read_text(encoding="utf-8"))
+        quality.setdefault("seoul", {}).update({
+            "od_station_ids": len(ids),
+            "station_id_matches": len(matched),
+            "station_id_match_rate": result["match_rate"],
+            "unmatched_station_ids": result["unmatched_ids"],
+            "station_master_rows": len(master),
+            "station_count": len(ids),
+            "inventory_station_count": len(master_by_id),
+            "od_ids_without_inventory_match": len(ids - matched),
+            "missing_coordinate_ratio": round(len(ids - matched) / len(ids), 4) if ids else None,
+        })
+        quality_path.write_text(json.dumps(quality, ensure_ascii=False, indent=2), encoding="utf-8")
     source_path = processed / "sources.json"
     sources = json.loads(source_path.read_text(encoding="utf-8"))
-    if not any(s["source_id"] == "seoul-station-master-oa-21235" for s in sources):
+    existing = next((s for s in sources if s["source_id"] == "seoul-station-master-oa-21235"), None)
+    if existing:
+        existing.update({"collected_at": result["checked_at"],
+                         "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"})
+        source_path.write_text(json.dumps(sources, ensure_ascii=False, indent=2), encoding="utf-8")
+    else:
         sources.append({"source_id": "seoul-station-master-oa-21235", "region_id": "seoul",
                         "dataset_name": "서울시 따릉이대여소 마스터 정보", "source_url": SOURCE_URL,
                         "date_start": None, "date_end": None, "collected_at": result["checked_at"],
                         "verification_status": "VERIFIED", "available_columns": list(FIELDS),
-                        "origin": "official_sheet", "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영"})
+                        "origin": "official_sheet", "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"})
         source_path.write_text(json.dumps(sources, ensure_ascii=False, indent=2), encoding="utf-8")
     return result
 

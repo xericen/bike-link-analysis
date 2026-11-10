@@ -11,10 +11,13 @@ PROCESSED = ROOT / "data" / "processed"
 
 def rows(name):
     path = PROCESSED / name
-    if not path.exists():
-        return
-    with path.open(encoding="utf-8", newline="") as stream:
-        yield from csv.DictReader(stream)
+    paths = [path] if path.exists() else []
+    if name == "trips.csv":
+        partitions = sorted((PROCESSED / "trips").glob("*.csv"))
+        paths = partitions or paths
+    for current in paths:
+        with current.open(encoding="utf-8", newline="") as stream:
+            yield from csv.DictReader(stream)
 
 
 def validate():
@@ -42,9 +45,9 @@ def validate():
     trip_count = Counter()
     bad_time = 0
     negative_duration = 0
-    possible_duplicates = 0
+    quality = json.loads((PROCESSED / "quality.json").read_text(encoding="utf-8")) if (PROCESSED / "quality.json").exists() else {}
+    possible_duplicates = quality.get("daejeon", {}).get("duplicate_rows", 0)
     missing_trip_ids = set()
-    seen = set()
     for row in rows("trips.csv"):
         region = row["region_id"]
         try:
@@ -59,11 +62,6 @@ def validate():
                 negative_duration += 1
         except (ValueError, TypeError):
             negative_duration += 1
-        key = tuple(row.values())
-        if key in seen:
-            possible_duplicates += 1
-        else:
-            seen.add(key)
         for name in ("origin_station_id", "destination_station_id"):
             if row[name] not in stations.get(region, set()):
                 missing_trip_ids.add((region, row[name]))

@@ -1,5 +1,6 @@
-import React from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App'
 import './style.css'
-createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>)
+// Analysis endpoints can run expensive graph algorithms. Avoid development-only StrictMode
+// effect replays that issue identical API requests twice; backend tests cover side effects.
+createRoot(document.getElementById('root')!).render(<App/>)

@@ -6,10 +6,10 @@ import { clusterColor } from '../components/colors'
 import { number } from '../components/State'
 import 'leaflet/dist/leaflet.css'
 
-type Props = { stations: Station[]; selectedId?: string; onSelect?: (id: string) => void; clusterById?: Record<string,number>; height?: number }
+type Props = { stations: Station[]; selectedId?: string; onSelect?: (id: string) => void; clusterById?: Record<string,number>; colorById?: Record<string,string>; height?: number }
 function MapWatcher({ setZoom }: {setZoom:(n:number)=>void}) { useMapEvents({zoomend: e => setZoom(e.target.getZoom())}); return null }
 function Focus({ station }: {station?: Station}) { const map=useMap(); useEffect(() => { if (station?.latitude != null && station?.longitude != null) map.flyTo([station.latitude,station.longitude],14) }, [station?.station_id,map]); return null }
-export function StationMap({ stations, selectedId, onSelect, clusterById={}, height=350 }: Props) {
+export function StationMap({ stations, selectedId, onSelect, clusterById={}, colorById={}, height=350 }: Props) {
   const located = useMemo(() => stations.filter((s): s is Station & {latitude:number;longitude:number} => s.latitude != null && s.longitude != null),[stations])
   const [zoom,setZoom] = useState(11)
   const selected = located.find(s => s.station_id === selectedId)
@@ -31,7 +31,7 @@ export function StationMap({ stations, selectedId, onSelect, clusterById={}, hei
       const icon=divIcon({className:'map-cluster',html:'<span>'+group.length+'</span>',iconSize:[34,34]})
       return <Marker key={'group-'+i} position={[lat,lon]} icon={icon} eventHandlers={{click:e => e.target._map.flyTo([lat,lon],Math.min(zoom+2,15))}}><Tooltip>{group.length}개 대여소 · 클릭하여 확대</Tooltip></Marker>
     }
-    const s=group[0];const color=clusterColor(clusterById[s.station_id])
-    return <CircleMarker key={s.station_id} center={[s.latitude,s.longitude]} radius={s.station_id===selectedId?9:6} pathOptions={{color,fillColor:color,fillOpacity:.82,weight:2}} eventHandlers={{click:()=>onSelect?.(s.station_id)}}><Popup><b>{s.station_name||s.station_id}</b><br/>{s.station_id}<br/>대여 {number(s.rental_count)}건</Popup><Tooltip direction="top" offset={[0,-8]}>{s.station_name||s.station_id}</Tooltip></CircleMarker>
+    const s=group[0];const color=colorById[s.station_id]||clusterColor(clusterById[s.station_id])
+    return <CircleMarker key={s.station_id} center={[s.latitude,s.longitude]} radius={s.station_id===selectedId?9:6} pathOptions={{color,fillColor:color,fillOpacity:.82,weight:2}} eventHandlers={{click:()=>onSelect?.(s.station_id)}}><Popup><b>{s.station_name||s.station_id}</b><br/>{s.station_id}<br/>대여 {number(s.rental_count)}건{s.net_outflow!=null&&<><br/>순유출 {number(s.net_outflow)}건</>}</Popup><Tooltip direction="top" offset={[0,-8]}>{s.station_name||s.station_id}</Tooltip></CircleMarker>
   })}</MapContainer></div>
 }

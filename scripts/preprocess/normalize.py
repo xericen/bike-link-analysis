@@ -3,9 +3,10 @@ import csv
 import json
 import logging
 import math
+import sqlite3
 import zipfile
 from collections import Counter, defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -43,6 +44,65 @@ def write_csv(name, fields, rows):
         writer = csv.DictWriter(output, fieldnames=fields)
         writer.writeheader()
         writer.writerows(rows)
+
+
+def build_analysis_database():
+    """Build an indexed query store so the API never loads millions of CSV rows."""
+    target = OUT / "analysis.sqlite"
+    temporary = OUT / "analysis.sqlite.part"
+    temporary.unlink(missing_ok=True)
+    connection = sqlite3.connect(temporary)
+    try:
+        connection.executescript("""
+            PRAGMA journal_mode=OFF;
+            PRAGMA synchronous=OFF;
+            PRAGMA temp_store=MEMORY;
+            CREATE TABLE station_usage (
+                region_id TEXT NOT NULL, station_id TEXT NOT NULL, date TEXT NOT NULL,
+                hour INTEGER, rental_count INTEGER NOT NULL, return_count INTEGER
+            );
+            CREATE TABLE od_daily (
+                region_id TEXT NOT NULL, date TEXT NOT NULL, origin_station_id TEXT NOT NULL,
+                destination_station_id TEXT NOT NULL, trip_count INTEGER NOT NULL
+            );
+        """)
+        for filename, table, columns in (
+            ("station_usage.csv", "station_usage", ("region_id", "station_id", "date", "hour", "rental_count", "return_count")),
+            ("od_daily.csv", "od_daily", ("region_id", "date", "origin_station_id", "destination_station_id", "trip_count")),
+        ):
+            placeholders = ",".join("?" for _ in columns)
+            with (OUT / filename).open(encoding="utf-8", newline="") as stream:
+                reader = csv.DictReader(stream)
+                batch = []
+                for row in reader:
+                    values = [row[column] if row[column] != "" else None for column in columns]
+                    batch.append(values)
+                    if len(batch) == 50000:
+                        connection.executemany(f"INSERT INTO {table} VALUES ({placeholders})", batch)
+                        batch.clear()
+                if batch:
+                    connection.executemany(f"INSERT INTO {table} VALUES ({placeholders})", batch)
+        connection.executescript("""
+            CREATE INDEX idx_usage_region_date ON station_usage(region_id, date);
+            CREATE INDEX idx_usage_region_station ON station_usage(region_id, station_id);
+            CREATE INDEX idx_od_region_date ON od_daily(region_id, date);
+            CREATE INDEX idx_od_region_pair ON od_daily(region_id, origin_station_id, destination_station_id);
+            ANALYZE;
+        """)
+        connection.commit()
+    finally:
+        connection.close()
+    temporary.replace(target)
+
+
+def missing_calendar_dates(days):
+    if not days:
+        return []
+    start, end = datetime.fromisoformat(days[0]).date(), datetime.fromisoformat(days[-1]).date()
+    observed = set(days)
+    return [(start + timedelta(days=offset)).isoformat()
+            for offset in range((end - start).days + 1)
+            if (start + timedelta(days=offset)).isoformat() not in observed]
 
 
 def station_inventory(path, stations, issues):
@@ -112,27 +172,61 @@ def sejong_yearly(path, issues):
 
 
 def daejeon_trips(path, stations, usage, od, issues):
-    """Stream the October member and retain only days shared with Seoul."""
-    selected_days = {"2026-10-25", "2026-10-29"}
-    trip_count = 0
+    """Stream every monthly member; retain valid observations without loading the ZIP."""
+    stats = Counter()
+    stats["monthly_files"] = 0
+    inventory_ids = {sid for region, sid in stations if region == "daejeon"}
+    missing_inventory_ids = set()
+    observed_days = set()
+    seen_hashes = set()
     fields = ["region_id", "origin_station_id", "destination_station_id",
               "started_at", "ended_at", "duration_minutes"]
     OUT.mkdir(parents=True, exist_ok=True)
-    with (OUT / "trips.csv").open("w", encoding="utf-8", newline="") as target, zipfile.ZipFile(path) as archive:
-        writer = csv.DictWriter(target, fieldnames=fields)
-        writer.writeheader()
-        names = [name for name in archive.namelist() if "26년10월" in name and name.endswith(".csv")]
-        if len(names) != 1:
-            raise ValueError("대전 ZIP에서 2026년 10월 CSV를 찾지 못했습니다.")
-        with archive.open(names[0]) as probe:
-            enc = detect_encoding(probe.read(65536))
-        with archive.open(names[0]) as stream:
-            for chunk in pd.read_csv(stream, encoding=enc, dtype=str, chunksize=50000):
+    partition_dir = OUT / "trips"
+    partition_dir.mkdir(parents=True, exist_ok=True)
+    # Keep the legacy file as a small compatibility marker; full trips are month-partitioned.
+    write_csv("trips.csv", fields, [])
+    with zipfile.ZipFile(path) as archive:
+        names = sorted(name for name in archive.namelist() if name.lower().endswith(".csv"))
+        if not names:
+            raise ValueError("대전 ZIP에서 월별 CSV를 찾지 못했습니다.")
+        for name in names:
+            month_token = name.split("(")[-1].split(")")[0].replace("년", "").replace("월", "")
+            month_token = ("20" + month_token) if len(month_token) == 4 else month_token
+            target_path = partition_dir / f"daejeon-{month_token}.csv"
+            stats["monthly_files"] += 1
+            with archive.open(name) as probe:
+                sample = probe.read(65536)
+            try:
+                enc = detect_encoding(sample)
+            except ValueError:
+                try:
+                    sample.splitlines()[0].decode("utf-8")
+                    enc = "utf-8"
+                except UnicodeDecodeError:
+                    enc = "cp949"
+                stats["encoding_replacement_files"] += 1
+            with archive.open(name) as stream, target_path.open("w", encoding="utf-8", newline="") as target:
+              writer = csv.DictWriter(target, fieldnames=fields)
+              writer.writeheader()
+              for chunk in pd.read_csv(stream, encoding=enc, encoding_errors="replace", dtype=str, chunksize=50000):
                 required = {"대여일시", "대여_대여소ID", "대여_대여소명", "대여_X좌표", "대여_Y좌표",
                             "반납일시", "반납_대여소ID", "반납_대여소명", "반납_X좌표", "반납_Y좌표", "이용시간(분)"}
                 if not required <= set(chunk.columns):
                     raise ValueError("대전 Trip 컬럼이 예상과 다릅니다.")
-                chosen = chunk[chunk["대여일시"].str.slice(0, 10).isin(selected_days)]
+                stats["raw_rows"] += len(chunk)
+                hashes = pd.util.hash_pandas_object(chunk.fillna(""), index=False).astype("uint64")
+                keep = []
+                for value in hashes:
+                    number = int(value)
+                    duplicate = number in seen_hashes
+                    keep.append(not duplicate)
+                    if duplicate:
+                        stats["duplicate_rows"] += 1
+                    else:
+                        seen_hashes.add(number)
+                chosen = chunk.loc[keep]
+                normalized = []
                 for row in chosen.itertuples(index=False, name=None):
                     values = dict(zip(chunk.columns, row))
                     try:
@@ -141,25 +235,38 @@ def daejeon_trips(path, stations, usage, od, issues):
                         duration = float(values["이용시간(분)"]) if pd.notna(values["이용시간(분)"]) else None
                         if duration is not None and duration < 0:
                             issues["daejeon_negative_duration"] += 1
+                            stats["invalid_duration_rows"] += 1
                             continue
                         if ended and ended < started:
                             issues["daejeon_invalid_trip_time"] += 1
+                            stats["invalid_time_rows"] += 1
                             continue
                     except (ValueError, TypeError):
                         issues["daejeon_invalid_trip_time"] += 1
+                        stats["invalid_time_rows"] += 1
                         continue
+                    if ended is None:
+                        stats["missing_ended_at_rows"] += 1
+                    if duration is None:
+                        stats["missing_duration_rows"] += 1
+                    elif duration > 1440:
+                        stats["duration_over_24h_rows"] += 1
                     origin, dest = str(values["대여_대여소ID"]).strip(), str(values["반납_대여소ID"]).strip()
                     if not origin or not dest or origin.lower() == "nan" or dest.lower() == "nan":
                         issues["daejeon_missing_station_id"] += 1
+                        stats["missing_station_id_rows"] += 1
                         continue
                     labels = (str(values["대여_대여소명"]), str(values["반납_대여소명"]))
                     if any("타슈관제센터" in label for label in labels):
                         issues["daejeon_admin_return_excluded"] += 1
+                        stats["admin_return_rows"] += 1
                         continue
                     for sid, label, x, y in (
                         (origin, labels[0], values["대여_X좌표"], values["대여_Y좌표"]),
                         (dest, labels[1], values["반납_X좌표"], values["반납_Y좌표"])):
                         key = ("daejeon", sid)
+                        if sid not in inventory_ids:
+                            missing_inventory_ids.add(sid)
                         if key not in stations:
                             issues["daejeon_ids_missing_in_inventory"] += 1
                             stations[key] = Station(region_id="daejeon", station_id=sid,
@@ -173,40 +280,69 @@ def daejeon_trips(path, stations, usage, od, issues):
                         except (TypeError, ValueError):
                             issues["daejeon_invalid_coordinates"] += 1
                     day, hour = started.date().isoformat(), started.hour
+                    observed_days.add(day)
                     usage[("daejeon", day, hour, origin)][0] += 1
                     if ended:
                         usage[("daejeon", ended.date().isoformat(), ended.hour, dest)][1] += 1
                     od[("daejeon", day, origin, dest)] += 1
-                    writer.writerow({"region_id": "daejeon", "origin_station_id": origin,
+                    normalized.append({"region_id": "daejeon", "origin_station_id": origin,
                         "destination_station_id": dest, "started_at": started.isoformat(),
                         "ended_at": ended.isoformat() if ended else None, "duration_minutes": duration})
-                    trip_count += 1
-    return trip_count
+                    stats["valid_rows"] += 1
+                writer.writerows(normalized)
+    stats["excluded_rows"] = stats["raw_rows"] - stats["valid_rows"]
+    stats["inventory_station_count"] = len(inventory_ids)
+    stats["trip_station_count"] = len({sid for region, sid in stations if region == "daejeon"})
+    stats["ids_missing_in_inventory"] = len(missing_inventory_ids)
+    stats["observed_days"] = len(observed_days)
+    stats["period_start"] = min(observed_days) if observed_days else None
+    stats["period_end"] = max(observed_days) if observed_days else None
+    return dict(stats)
 
 
 def seoul_od(path, stations, usage, od, issues):
     seen_rows = set()
+    stats = Counter()
+    observed_days = set()
     with zipfile.ZipFile(path) as archive:
         names = [name for name in archive.namelist() if name.lower().endswith(".csv")]
-        if len(names) != 1:
-            raise ValueError("서울 OD ZIP에 CSV 하나가 있어야 합니다.")
-        with archive.open(names[0]) as probe:
-            enc = detect_encoding(probe.read(65536))
-        with archive.open(names[0]) as stream:
-            for chunk in pd.read_csv(stream, encoding=enc, dtype=str, chunksize=50000):
+        if not names:
+            raise ValueError("서울 OD ZIP에 CSV가 있어야 합니다.")
+        stats["files"] = len(names)
+        for name in names:
+          with archive.open(name) as probe:
+            sample = probe.read(65536)
+          try:
+            enc = detect_encoding(sample)
+          except ValueError:
+            # Several official October members contain isolated malformed bytes in
+            # Korean station labels although their header is CP949. IDs, dates and
+            # numeric measures remain parseable; disclose the replacement below.
+            try:
+              sample.splitlines()[0].decode("utf-8")
+              enc = "utf-8"
+            except UnicodeDecodeError:
+              enc = "cp949"
+            stats["encoding_replacement_files"] += 1
+          with archive.open(name) as stream:
+            for chunk in pd.read_csv(stream, encoding=enc, encoding_errors="replace", dtype=str, chunksize=50000):
                 required = {"기준_날짜", "집계_기준", "기준_시간대", "시작_대여소_ID",
                             "시작_대여소명", "종료_대여소_ID", "종료_대여소명", "전체_건수"}
                 if not required <= set(chunk.columns):
                     raise ValueError("서울 OD 컬럼이 예상과 다릅니다.")
+                stats["raw_rows"] += len(chunk)
                 # The source includes departure-time and arrival-time views of the same trips.
                 for row in chunk.itertuples(index=False, name=None):
                     values = dict(zip(chunk.columns, row))
                     if values["집계_기준"] != "출발시간":
+                        stats["arrival_view_rows_excluded"] += 1
                         continue
                     raw_key = tuple(values.get(key) for key in
                         ("기준_날짜", "집계_기준", "기준_시간대", "시작_대여소_ID", "종료_대여소_ID"))
                     if raw_key in seen_rows:
                         issues["duplicate_od_rows"] += 1
+                        stats["duplicate_rows"] += 1
+                        continue
                     seen_rows.add(raw_key)
                     raw_date = str(values["기준_날짜"])
                     try:
@@ -217,13 +353,16 @@ def seoul_od(path, stations, usage, od, issues):
                             raise ValueError()
                         if count < 0:
                             issues["negative_usage_rows"] += 1
+                            stats["negative_rows"] += 1
                             continue
                     except (ValueError, TypeError):
                         issues["invalid_usage_rows"] += 1
+                        stats["invalid_rows"] += 1
                         continue
                     origin, dest = str(values["시작_대여소_ID"]).strip(), str(values["종료_대여소_ID"]).strip()
                     if not origin or not dest or origin.lower() == "nan" or dest.lower() == "nan":
                         issues["missing_station_id"] += 1
+                        stats["missing_station_id_rows"] += 1
                         continue
                     for station_id, label in ((origin, values["시작_대여소명"]), (dest, values["종료_대여소명"])):
                         key = ("seoul", station_id)
@@ -233,14 +372,22 @@ def seoul_od(path, stations, usage, od, issues):
                     usage[("seoul", day, hour, origin)][0] += count
                     usage[("seoul", day, hour, dest)][1] += count
                     od[("seoul", day, origin, dest)] += count
-    return names[0]
+                    stats["valid_rows"] += 1
+                    stats["trip_count"] += count
+                    observed_days.add(day)
+    stats["excluded_rows"] = stats["raw_rows"] - stats["valid_rows"]
+    stats["observed_days"] = len(observed_days)
+    stats["period_start"] = min(observed_days) if observed_days else None
+    stats["period_end"] = max(observed_days) if observed_days else None
+    return dict(stats)
 
 
 def run():
     OUT.mkdir(parents=True, exist_ok=True)
     stations, usage, od = {}, defaultdict(lambda: [0, 0]), Counter()
     issues = Counter()
-    daejeon_trip_count = 0
+    daejeon_stats = {}
+    seoul_stats = {}
     files = {s["source_id"]: RAW / s["filename"] for s in SEOUL + DAEJEON + SEJONG}
     manifest_file = RAW / "manifest.json"
     manifest = json.loads(manifest_file.read_text(encoding="utf-8")) if manifest_file.exists() else {}
@@ -256,17 +403,17 @@ def run():
                 station_inventory(path, stations, issues)
                 columns = ["대여소 번호", "보관소(대여소)명", "소재지(위치)", "위도", "경도", "설치 시기", "LCD 거치대수", "QR 거치대수", "운영 방식"]
             elif source["source_id"].startswith("seoul-od-"):
-                seoul_od(path, stations, usage, od, issues)
+                seoul_stats = seoul_od(path, stations, usage, od, issues)
                 columns = ["기준_날짜", "집계_기준", "기준_시간대", "시작_대여소_ID", "시작_대여소명", "종료_대여소_ID", "종료_대여소명", "전체_건수", "전체_이용_분", "전체_이용_거리"]
             elif source["source_id"] == "daejeon-trips-20261102":
-                daejeon_trip_count = daejeon_trips(path, stations, usage, od, issues)
+                daejeon_stats = daejeon_trips(path, stations, usage, od, issues)
                 columns = ["자전거번호", "대여일시", "대여_대여소ID", "대여_대여소명", "대여_X좌표", "대여_Y좌표", "대여_구", "대여_동", "대여_대여소주소", "반납일시", "반납_대여소ID", "반납_대여소명", "반납_X좌표", "반납_Y좌표", "반납_구", "반납_동", "반납_대여소주소", "이용시간(분)", "이용거리(km)"]
             elif source["region_id"] == "daejeon":
                 daejeon_inventory(path, stations, issues)
                 columns = ["번호", "대여소명", "소재지", "행정동", "주소"]
             else:
                 columns = ["구분", "어울링 이용건수"]
-        day = source["source_id"][-8:] if source["source_id"].startswith("seoul-od-") else None
+        day = source["source_id"][-8:] if source["source_id"].startswith("seoul-od-") and len(source["source_id"].split("-")[-1]) == 8 else None
         day = f"{day[:4]}-{day[4:6]}-{day[6:]}" if day else None
         if source["source_id"] == "daejeon-stations-20260624":
             day = "2026-06-24"
@@ -280,6 +427,8 @@ def run():
             verification_status=status, available_columns=columns).model_dump(mode="json"))
         if source["source_id"] == "daejeon-trips-20261102" and status == "VERIFIED":
             sources[-1]["date_start"], sources[-1]["date_end"] = "2025-12-01", "2026-10-31"
+        if source["source_id"] == "seoul-od-202610" and status == "VERIFIED":
+            sources[-1]["date_start"], sources[-1]["date_end"] = seoul_stats.get("period_start"), seoul_stats.get("period_end")
     yearly = sejong_yearly(files["sejong-yearly-20260831"], issues) if files["sejong-yearly-20260831"].exists() else []
     # Attach genuine collection period to the yearly source without guessing partial-year coverage.
     for item in sources:
@@ -293,8 +442,13 @@ def run():
         dataset_name="부산 통합 이용·OD 원본", verification_status="UNAVAILABLE").model_dump(mode="json"))
     sources.append(DataSource(source_id="sejong-stations-metadata", region_id="sejong",
         dataset_name="세담터 어울링 수집 대여소정보",
-        source_url="https://www2.sejong.go.kr/bigdata/main.do",
-        verification_status="METADATA_ONLY").model_dump(mode="json"))
+        source_url="https://www2.sejong.go.kr/bigdata/metaDataView.do?order_type=rcd",
+        verification_status="ACCESS_REQUIRED").model_dump(mode="json"))
+    sources.append(DataSource(source_id="seoul-od-replacement-oa-14994", region_id="seoul",
+        dataset_name="서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+        source_url="https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+        date_start="2026-01-01", date_end="2026-06-30",
+        verification_status="VERIFIED", available_columns=["대여일자", "대여건수"]).model_dump(mode="json"))
     for region, source_id, name, url in (
         ("daejeon", "daejeon-portal-api", "타슈 위치 현황 자동변환 OpenAPI",
          "https://www.data.go.kr/data/15062798/fileData.do"),
@@ -335,10 +489,24 @@ def run():
                   "missing_station_name_ratio": round(sum(x["region_id"] == "seoul" and not x["station_name"] for x in station_rows) /
                         max(1, sum(x["region_id"] == "seoul" for x in station_rows)), 4),
                   "period_start": days[0] if days else None, "period_end": days[-1] if days else None,
-                  "observed_dates": days, "coverage_note": "선택된 2일의 OD 집계만 포함. 연속 기간이 아님."},
+                  "observed_dates": days, "raw_rows": seoul_stats.get("raw_rows", 0),
+                  "valid_rows": seoul_stats.get("valid_rows", 0), "excluded_rows": seoul_stats.get("excluded_rows", 0),
+                  "encoding_replacement_files": seoul_stats.get("encoding_replacement_files", 0),
+                  "observed_day_count": len(days), "missing_calendar_dates": missing_calendar_dates(days),
+                  "coverage_note": "2026년 10월 공식 월간 OD 중 실제 포함된 관측일."},
         "daejeon": {"issues": {k:v for k,v in issues.items() if k.startswith("daejeon_")},
                     "station_count": sum(x["region_id"] == "daejeon" for x in station_rows),
-                    "trip_rows": daejeon_trip_count,
+                    "trip_rows": daejeon_stats.get("valid_rows", 0),
+                    "raw_rows": daejeon_stats.get("raw_rows", 0),
+                    "valid_rows": daejeon_stats.get("valid_rows", 0),
+                    "excluded_rows": daejeon_stats.get("excluded_rows", 0),
+                    "duplicate_rows": daejeon_stats.get("duplicate_rows", 0),
+                    "admin_return_rows": daejeon_stats.get("admin_return_rows", 0),
+                    "invalid_time_rows": daejeon_stats.get("invalid_time_rows", 0),
+                    "invalid_duration_rows": daejeon_stats.get("invalid_duration_rows", 0),
+                    "duration_over_24h_rows": daejeon_stats.get("duration_over_24h_rows", 0),
+                    "encoding_replacement_files": daejeon_stats.get("encoding_replacement_files", 0),
+                    "ids_missing_in_inventory": daejeon_stats.get("ids_missing_in_inventory", 0),
                     "usage_rows": sum(x["region_id"] == "daejeon" for x in usage_rows),
                     "od_rows": sum(x["region_id"] == "daejeon" for x in od_rows),
                     "missing_coordinates": sum(x["region_id"] == "daejeon" and x["latitude"] is None for x in station_rows),
@@ -349,14 +517,17 @@ def run():
                     "period_start": daejeon_days[0] if daejeon_days else None,
                     "period_end": daejeon_days[-1] if daejeon_days else None,
                     "observed_dates": daejeon_days,
-                    "coverage_note": "대전 ZIP의 2026년 10월 기록 중 서울과 공통인 2일만 처리."},
+                    "observed_day_count": len(daejeon_days),
+                    "missing_calendar_dates": missing_calendar_dates(daejeon_days),
+                    "coverage_note": "대전 ZIP의 11개 월별 파일을 청크 처리한 전체 유효 기록."},
         "sejong": {"yearly_rows": len(yearly), "station_count": 0, "usage_rows": 0,
                     "period_start": f"{min(x['year'] for x in yearly)}-01-01" if yearly else None,
                     "period_end": max(x["period_end"] for x in yearly) if yearly else None},
         "busan": {"station_count": 0, "usage_rows": 0, "period_start": None, "period_end": None}
     }
     (OUT / "quality.json").write_text(json.dumps(quality, ensure_ascii=False, indent=2), encoding="utf-8")
-    LOG.info("stations=%s usage=%s od=%s trips=%s yearly=%s", len(station_rows), len(usage_rows), len(od_rows), daejeon_trip_count, len(yearly))
+    build_analysis_database()
+    LOG.info("stations=%s usage=%s od=%s trips=%s yearly=%s", len(station_rows), len(usage_rows), len(od_rows), daejeon_stats.get("valid_rows", 0), len(yearly))
     return quality
 
 
