@@ -1,0 +1,2 @@
+# Optional batch tooling, not required by the FastAPI server
+pyspark>=4.1,<4.2

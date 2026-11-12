@@ -1,0 +1,18 @@
+{
+  "run_date": "2026-11-12",
+  "method": "FastAPI TestClient wall time; cold bypasses all real_data memo/disk decorators, warm restores and primes them; no network latency included",
+  "rows": [
+    {
+      "endpoint": "/api/regions/seoul/overview?date_start=2026-10-25&date_end=2026-10-31",
+      "cold_seconds": 0.41,
+      "warm_seconds": 0.0668,
+      "values_equal": true
+    },
+    {
+      "endpoint": "/api/regions/seoul/network?date_start=2026-10-25&date_end=2026-10-31",
+      "cold_seconds": 1.6058,
+      "warm_seconds": 0.0229,
+      "values_equal": true
+    }
+  ]
+}

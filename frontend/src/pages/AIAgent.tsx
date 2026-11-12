@@ -1,86 +1,99 @@
 import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { api } from '../services/api'
-import type { ChatResult, Region } from '../types'
-import { ErrorBox, Skeleton } from '../components/State'
+import type { ChatResult, DateFilter, RoleCandidatesResult } from '../types'
+import { Empty, ErrorBox, Skeleton, number } from '../components/State'
+import { PageHeader, StatCard, SectionCard, ReportBlock, SimpleDataTable, SummaryBulletCard, RoleTag } from '../components/AnalysisUI'
+import { cityName } from '../services/presentation'
 
-const questions = [
-  '서울에서 PageRank가 높은 대여소 TOP 5를 알려줘.',
-  '대전에서 이용량과 연결 중심성이 다른 대여소를 찾아줘.',
-  '서울과 대전의 이용 패턴을 비교해줘.',
-  '세종에서 군집 분석이 가능한지 알려줘.',
-  '서울에서 중요한 연결 거점의 운영 개선 방안을 제안해줘.',
+const questions=[
+  '이용량은 적지만 연결상 중요한 대여소는 어디인가?',
+  '어떤 대여소에 반복적인 순유출이 나타나는가?',
+  '어떤 대여소의 중요도가 기간별로 유지되는가?',
+  '운영 담당자가 먼저 검토해야 하는 대여소는 어디인가?'
 ]
-type Message = { question: string; result: ChatResult }
-export function AIAgent() {
+type Message={question:string;result:ChatResult;executedAt:string;elapsed:number;context:string}
+export function AIAgent({regionId,filter}:{regionId:string;filter:DateFilter}) {
   const [params]=useSearchParams()
-  const [question, setQuestion] = useState('')
-  const [history, setHistory] = useState<Message[]>([])
-  const [selected, setSelected] = useState<number | null>(null)
-  const [region, setRegion] = useState('seoul')
-  const [regions, setRegions] = useState<Region[]>([])
-  const [configured, setConfigured] = useState<boolean>()
-  const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [lastQuestion, setLastQuestion] = useState('')
-  useEffect(() => {
-    api.agentStatus().then(x => setConfigured(x.configured)).catch(e => setError(e.message))
-    api.regions().then(x => setRegions(x.regions)).catch(() => {})
-  }, [])
+  const [question,setQuestion]=useState(questions[0])
+  const [history,setHistory]=useState<Message[]>([]),[selected,setSelected]=useState<number|null>(null)
+  const [configured,setConfigured]=useState<boolean>(),[error,setError]=useState(''),[loading,setLoading]=useState(false)
+  const [candidates,setCandidates]=useState<RoleCandidatesResult>(),[candidateError,setCandidateError]=useState('')
+  const context=[regionId,filter.start,filter.end].join('|')
+  useEffect(()=>{api.agentStatus().then(x=>setConfigured(x.configured)).catch(e=>setError(e.message))},[])
+  useEffect(()=>{let active=true;setCandidates(undefined);setCandidateError('');api.roleCandidates(regionId,filter.start,filter.end).then(x=>{if(active)setCandidates(x)}).catch(e=>{if(active)setCandidateError(e.message)});return()=>{active=false}},[regionId,filter.start,filter.end])
   useEffect(()=>{const prompt=params.get('prompt');if(prompt)setQuestion(prompt)},[params])
-  async function submit(event?: React.FormEvent, override?: string) {
-    event?.preventDefault()
-    const text = (override || question).trim()
-    if (!text || loading || configured !== true) return
-    const submitted = /서울|대전|세종/.test(text) ? text : regions.find(x => x.region_id === region)?.region_name + ' ' + text
-    setQuestion('')
-    setLastQuestion(submitted)
-    setError('')
-    setLoading(true)
+  async function submit(event:React.FormEvent) {
+    event.preventDefault()
+    const text=question.trim()
+    if(!text||loading||configured!==true)return
+    const submitted=cityName(regionId)+' / 분석 기간: '+(filter.start||'확보된 전체 기간')+' ~ '+(filter.end||'최신 관측일')+'\n'+text
+    const started=performance.now(), requestContext=context
+    setError('');setLoading(true)
     try {
-      const result = await api.chat(submitted)
-      setHistory(old => { const next = [...old, { question: submitted, result }]; setSelected(next.length - 1); return next })
-    } catch (e) {
-      setError(e instanceof Error ? e.message : '분석 요청 실패')
-    } finally { setLoading(false) }
+      const result=await api.chat(submitted)
+      const message={question:submitted,result,executedAt:new Date().toLocaleString('ko-KR'),elapsed:(performance.now()-started)/1000,context:requestContext}
+      setHistory(old=>{const next=[...old,message];setSelected(next.length-1);return next})
+    } catch(e){setError(e instanceof Error?e.message:'분석 요청 실패')} finally{setLoading(false)}
   }
-  const active = selected === null ? null : history[selected]
-  const report = active?.result.report
+  const active=selected===null?undefined:history[selected], report=active?.result.report
+  const hidden=candidates?.types.low_usage_high_connectivity[0], concentrated=candidates?.types.time_concentrated[0], imbalance=candidates?.types.persistent_imbalance[0]
+  const operational=[
+    ...(candidates?.types.low_usage_high_connectivity||[]).slice(0,2).map(x=>({id:x.station_id,name:x.station_name,focus:'숨은 연결 후보 · 이용 '+number(x.usage_rank)+'위 / PR '+number(x.pagerank_rank)+'위'})),
+    ...(candidates?.types.persistent_imbalance||[]).slice(0,2).map(x=>({id:x.station_id,name:x.station_name,focus:'반복 불균형 · 순유출 '+number(x.net_outflow)+'건'})),
+    ...(candidates?.types.time_concentrated||[]).slice(0,1).map(x=>({id:x.station_id,name:x.station_name,focus:'시간대 집중 · '+x.peak_hour+'시 / '+(x.peak_hour_share*100).toFixed(1)+'%'}))
+  ]
+  const tools=[...new Set(active?.result.evidence.map(x=>x.tool)||[])]
+  const limitations=['불균형만으로 재고 부족을 확정할 수 없습니다.','중심성만으로 인과적 중요성을 확정할 수 없습니다.',...(report?.limitations||[])]
   return <>
-    <div className="page-heading"><div><span className="section-label">AI ANALYSIS REPORT</span><h2>발견을 운영 검토 질문으로 연결하다</h2><p>Solar가 실제 분석 도구를 호출해 발견·근거·검토 조치·추가 검증을 구분합니다.</p></div><span className={configured ? 'mini-status good' : 'mini-status'}>{configured === undefined ? '연결 확인 중' : configured ? 'Solar API 설정됨' : 'Solar API 키 미설정'}</span></div>
-    <div className="agent-workspace">
-      <div className="agent-left">
-        <section className="panel">
-          <div className="panel-title"><h3>질문 입력</h3><span>서울 · 대전 · 세종</span></div>
-          <label className="agent-label" htmlFor="agent-region">기본 분석 지역</label>
-          <select id="agent-region" value={region} onChange={e => setRegion(e.target.value)}>{regions.map(x => <option key={x.region_id} value={x.region_id}>{x.region_name} · {x.service_name}</option>)}</select>
-          <form onSubmit={e => void submit(e)} className="agent-question-form"><textarea aria-label="분석 질문" placeholder={configured === false ? 'Solar API 키 설정이 필요합니다' : '공공자전거 데이터에 대해 질문하세요'} value={question} disabled={configured === false} onChange={e => setQuestion(e.target.value)} rows={4}/><button className="button-primary" disabled={loading || configured !== true || !question.trim()}>{loading ? '분석 요청 중…' : '분석 보고서 생성 ↗'}</button></form>
-          {configured === false && <div className="notice">UPSTAGE_API_KEY 미설정 상태입니다. AI 답변을 생성하지 않습니다.</div>}
-          {loading && <div className="agent-progress" role="status"><Skeleton rows={2}/><p>Solar 요청 및 분석 도구 실행 중입니다. 실제 완료된 단계는 결과와 함께 표시됩니다.</p></div>}
-          {error && <ErrorBox message={error} onRetry={() => { void submit(undefined, lastQuestion) }}/>}
-        </section>
-        <section className="panel"><h3>추천 질문</h3><div className="suggestion-grid">{questions.map(x => <button key={x} onClick={() => { setQuestion(x); if (configured) void submit(undefined, x) }}>{x}<span>↗</span></button>)}</div></section>
-        <section className="panel"><h3>대화 기록</h3>{history.length ? <div className="agent-history">{history.map((item, i) => <button className={selected === i ? 'selected' : ''} key={i} onClick={() => setSelected(i)}><small>질문 {i + 1}</small><span>{item.question}</span><b>도구 {item.result.evidence.length}건 · {item.result.usage.total_tokens} 토큰</b></button>)}</div> : <p className="muted">아직 분석 기록이 없습니다.</p>}</section>
-        <section className="panel"><h3>지역별 데이터 확보</h3><div className="agent-coverage">{regions.map(x => <div key={x.region_id}><b>{x.region_name}</b><span>{x.has_usage ? '이용 자료 확보' : x.availability === 'METADATA_ONLY' ? '운영 메타데이터' : '대여소별 자료 미확보'}</span><small>OD {x.has_od ? '확보' : '미확보'}</small></div>)}</div></section>
-      </div>
-      <div className="agent-right">
-        {!active ? <section className="panel agent-placeholder"><span className="agent-symbol">✦</span><h3>분석 보고서</h3><p>질문을 입력하면 도구 호출 근거, 확인된 수치, Solar의 해석을 함께 표시합니다.</p></section> : <>
-          <section className="panel"><div className="panel-title"><div><span className="section-label">SOLAR REPORT</span><h3>{report?.question_summary || active.question}</h3></div><span className="mini-status good">분석 완료</span></div>
-            <div className="agent-step-list"><span>✓ 질문 전송</span><span>✓ 도구 실행 {active.result.evidence.length}건</span><span>✓ 결과 수신</span><span>✓ 보고서 구성</span></div>
-            {report?.key_findings.length ? <div className="agent-findings">{report.key_findings.map((x, i) => <div key={i}><small>{x.label}</small><strong>{x.value.toLocaleString()} <em>{x.unit}</em></strong>{x.period && <small>{x.period}년</small>}</div>)}</div> : <div className="notice">수치로 확인된 핵심 발견이 없습니다. 도구 결과와 자료 한계를 확인하세요.</div>}
-          </section>
-          <section className="panel"><div className="panel-title"><h3>Solar 분석 및 운영 검토 의견</h3><span>{active.result.model}</span></div><div className="agent-answer">{active.result.answer}</div><p className="agent-note">AI 해석과 제안은 아래 실제 도구 결과를 참고해 검토하세요. 효과나 재고 상태는 검증된 수치가 아닙니다.</p></section>
-          {active.result.grounding_validation&&<section className="panel"><div className="panel-title"><h3>응답 수치 대조</h3><span className={active.result.grounding_validation.passed?'mini-status good':'mini-status'}>{active.result.grounding_validation.passed?'도구 수치 일치':'불일치 검토 필요'}</span></div><p>검사 {active.result.grounding_validation.checked_numeric_tokens}개 · 일치 {active.result.grounding_validation.matched_numeric_tokens}개</p>{!active.result.grounding_validation.passed&&<p className="notice">도구 결과와 직접 일치하지 않은 수치: {active.result.grounding_validation.unmatched_numeric_tokens.join(', ')}</p>}<p className="muted">{active.result.grounding_validation.method}</p></section>}
-          {report?.charts.map((chart, i) => <section className="panel" key={i}><div className="panel-title"><h3>{chart.title}</h3><span>도구 결과에서 생성</span></div><div className="chart"><ResponsiveContainer width="100%" height="100%"><BarChart data={chart.points}><CartesianGrid stroke="#e6edf5" vertical={false}/><XAxis dataKey={chart.kind === 'ranking' ? 'station_id' : 'date'} interval={0} angle={-25} height={54} textAnchor="end" fontSize={10}/><YAxis/><Tooltip/><Bar dataKey={chart.kind === 'ranking' ? 'value' : 'rental_count'} fill="#3476d0" isAnimationActive={false}/></BarChart></ResponsiveContainer></div>{chart.kind === 'ranking' && <p className="agent-note">전체 OD 그래프에서 계산한 {chart.metric}입니다. <Link to="/network">네트워크 화면 보기 ↗</Link></p>}</section>)}
-          {report?.station_comparison.length ? <section className="panel"><h3>대여량과 연결 중심성 비교</h3><div className="agent-table-wrap"><table className="agent-table"><thead><tr><th>대여소</th><th>대여량</th><th>이용량 순위</th><th>중심성 지표</th><th>중심성 순위</th><th>순위 차이</th></tr></thead><tbody>{report.station_comparison.map(x => <tr key={x.station_id}><td>{x.station_id}<small>{x.station_name}</small></td><td>{x.rental_count?.toLocaleString() ?? 'N/A'}</td><td>{x.usage_rank ?? "N/A"}</td><td>{x.metric} {x.centrality}</td><td>{x.centrality_rank ?? "N/A"}</td><td>{x.rank_gap ?? "N/A"}</td></tr>)}</tbody></table></div><p className="agent-note">두 값은 단위가 다릅니다. 같은 기간의 실제 대여량과 전체 그래프 중심성입니다.</p></section> : null}
-          {(report?.station_roles.length || report?.recommendations.length) ? <section className="panel"><h3>대여소 역할과 운영 검토 제안</h3>{report.station_roles.map((x, i) => <p className="agent-source" key={'role'+i}><b>{x.station_id}</b> · {x.role} (군집 {x.cluster_id})</p>)}{report.recommendations.map((x, i) => <div className="agent-recommendation" key={'rec'+i}><b>{x.feature}</b><p>근거: {x.evidence}</p><p>제안: {x.action}</p><p>활용: {x.value}</p><small>추가 검증: {x.validation}</small></div>)}</section> : null}
-          <section className="panel"><h3>분석 근거와 출처</h3><div className="agent-meta"><span>분석 기간: {report?.periods.length ? report.periods.join(' ~ ') : '확인된 날짜 없음'}</span><span>사용 알고리즘: {report?.algorithms.length ? report.algorithms.join(', ') : '해당 없음'}</span></div>{report?.sources.length ? report.sources.map((x, i) => <p className="agent-source" key={i}>{x.source_url ? <a href={x.source_url} target="_blank" rel="noreferrer">{x.dataset_name} ↗</a> : x.dataset_name} · {x.verification_status}</p>) : <p className="muted">출처 메타데이터가 없습니다.</p>}
-            <details><summary>실제 도구 호출 {active.result.evidence.length}건 보기</summary>{active.result.evidence.map((x, i) => <div className="evidence" key={i}><b>{x.tool}</b><pre>{JSON.stringify({ arguments: x.arguments, result: x.result }, null, 2)}</pre></div>)}</details>
-          </section>
-          <section className="panel"><h3>데이터 한계 및 주의사항</h3>{report?.limitations.length ? <ul className="agent-limits">{report.limitations.map((x, i) => <li key={i}>{x}</li>)}</ul> : <p className="muted">추가로 확인된 한계가 없습니다.</p>}</section>
+    <PageHeader title="AI 분석 리포트" subtitle="Upstage Solar 기반 근거 중심 분석 요약 · 운영 검토 제안"><RoleTag>{configured===undefined?'연결 확인 중':configured?'Solar API 설정됨':'Solar API 키 미설정'}</RoleTag></PageHeader>
+    <div className="stats">
+      <StatCard label="분석 대상 도시" value={cityName(regionId)} note="현재 선택한 도시와 기간으로 요청" icon="◎"/>
+      <StatCard label="사용 도구 수" value={active?tools.length+'개':'실행 대기'} note="실제 응답에 포함된 도구 기준" tone="mint" icon="⚙"/>
+      <StatCard label="핵심 발견 수" value={report?report.key_findings.length+'개':'실행 대기'} note="도구 근거가 있는 보고서 발견" tone="lavender" icon="✦"/>
+      <StatCard label="운영 검토 후보 수" value={candidates?.available?new Set([...candidates.types.low_usage_high_connectivity,...candidates.types.persistent_imbalance,...candidates.types.time_concentrated,...candidates.types.role_changed].map(x=>x.station_id)).size.toLocaleString()+'개':'자료 미확보'} note="목적별 후보의 중복 대여소 제외" tone="peach" icon="◈"/>
+    </div>
+    <div className="report-layout"><div>
+      <SectionCard title="질문 입력 및 실행 상태" note="버튼을 누를 때만 Solar 호출">
+        <form className="report-question" onSubmit={e=>void submit(e)}><label className="sr-only" htmlFor="report-question">분석 질문</label><input id="report-question" value={question} onChange={e=>setQuestion(e.target.value)} placeholder={questions[0]} disabled={loading}/><button className="button-primary" disabled={loading||configured!==true||!question.trim()}>{loading?'분석 중…':'분석 실행 →'}</button></form>
+        <div className="execution-state" role="status"><span className={active?'mini-status good':'mini-status'}>{loading?'분석 요청 및 도구 실행 중':active?'분석 실행 완료':'분석 실행 대기'}</span><span>소요 시간 {active?active.elapsed.toFixed(1)+'초':'—'}</span><span>실행 시각 {active?.executedAt||'—'}</span></div>
+        <div className="tool-tags">{(tools.length?tools:['get_hidden_hubs','get_station_imbalance','get_station_role_history']).map(x=><RoleTag key={x}>{x}</RoleTag>)}</div>
+        {!active&&<p className="muted">위 태그는 사용 가능한 도구 예시입니다. 실제 사용 도구는 실행 후 표시됩니다.</p>}
+        {configured===false&&<div className="notice">UPSTAGE_API_KEY 설정이 필요합니다. 생성된 AI 결과를 대신 표시하지 않습니다.</div>}
+        {active&&active.context!==context&&<div className="notice">아래 보고서는 이전 도시 또는 기간의 실행 결과입니다. 현재 조건으로 보려면 다시 분석하세요.</div>}
+        {loading&&<Skeleton rows={2}/>}
+        {error&&<ErrorBox message={error}/>}
+      </SectionCard>
+      <SectionCard title="Solar AI 분석 결과" note={active?.result.model||'실행 전 · 보고서 구성 미리보기'}>
+        {active&&<div className="report-question-summary">{active.question}</div>}
+        <ReportBlock icon="✦" title="핵심 발견" items={report?.key_findings.map(x=>x.label+': '+number(x.value)+' '+x.unit+(x.period?' · '+x.period:''))||[]}/>
+        <ReportBlock icon="◷" title="분석 대상 및 기간" items={report?['요청: '+active?.question,'분석 기간: '+(report.periods.join(' ~ ')||'확인된 기간 없음')]:[]}/>
+        <ReportBlock icon="▤" title="실제 수치와 근거" items={report?.station_comparison.map(x=>x.station_id+' '+(x.station_name||'이름 미확보')+' · 대여 '+number(x.rental_count)+'건 · '+x.metric+' '+x.centrality+' · 순위 차이 '+number(x.rank_gap))||[]}/>
+        <ReportBlock icon="◎" title="운영상 우선 검토 대상" items={report?.recommendations.map(x=>x.feature+' · '+x.action+' / 근거: '+x.evidence)||[]}/>
+        <ReportBlock icon="◇" title="추가 검증 필요 사항" items={report?.recommendations.map(x=>x.validation)||[]}/>
+        <ReportBlock icon="ⓘ" title="데이터 출처 및 한계" items={report?[...report.sources.map(x=>x.dataset_name+' · '+x.verification_status),...report.limitations]:[]}/>
+        {active&&<><details open><summary>Solar 원문 응답과 운영 검토 의견</summary><div className="agent-answer">{active.result.answer}</div></details>
+          {active.result.grounding_validation&&<div className="notice"><b>{active.result.grounding_validation.passed?'응답 수치 대조 통과':'응답 수치 불일치 · 검토 필요'}</b><p>검사 {active.result.grounding_validation.checked_numeric_tokens}개 · 일치 {active.result.grounding_validation.matched_numeric_tokens}개</p>{!active.result.grounding_validation.passed&&<p>불일치: {active.result.grounding_validation.unmatched_numeric_tokens.join(', ')}</p>}<p>{active.result.grounding_validation.method}</p></div>}
+          <p className="muted">실제 API 호출 1회 · 도구 {active.result.evidence.length}건 · 사용 토큰 {number(active.result.usage.total_tokens)} (입력 {number(active.result.usage.prompt_tokens)} / 출력 {number(active.result.usage.completion_tokens)})</p>
+          {report?.sources.map((x,i)=>x.source_url?<p key={i} className="muted"><a href={x.source_url} target="_blank" rel="noreferrer">{x.dataset_name} ↗</a></p>:null)}
         </>}
-      </div>
+      </SectionCard>
+    </div><aside>
+      <SectionCard title="근거 데이터 카드" note="선택 기간 API 결과 · AI 생성 아님">
+        {candidateError?<ErrorBox message={candidateError}/>:!candidates?<Skeleton rows={3}/>:<>
+        {[{id:hidden?.station_id,name:hidden?.station_name,title:'숨은 연결 거점',value:hidden?'이용 '+number(hidden.usage_rank)+'위 · PageRank '+number(hidden.pagerank_rank)+'위':null,tone:'mint'},{id:concentrated?.station_id,name:concentrated?.station_name,title:'시간대 집중',value:concentrated?concentrated.peak_hour+'시 · '+(concentrated.peak_hour_share*100).toFixed(1)+'%':null,tone:'lavender'},{id:imbalance?.station_id,name:imbalance?.station_name,title:'반복 불균형 거점',value:imbalance?'순유출 '+number(imbalance.net_outflow)+'건':null,tone:'peach'}].map(x=><div className={'evidence-card tone-'+x.tone} key={x.title}><RoleTag>{x.title} 후보</RoleTag><h3>{x.id||'확인된 후보 없음'}</h3><small>{x.name}</small><p>{x.value||'선정 규칙을 충족하는 자료가 없습니다.'}</p>{x.id&&<Link to={'/stations?station='+encodeURIComponent(x.id)}>대여소 분석 ↗</Link>}</div>)}
+        <p className="muted">{candidates.period_start||'미확인'} ~ {candidates.period_end||'미확인'}</p></>}
+      </SectionCard>
+      <SectionCard title="운영 검토 대상 Top 5" note="목적별 표시 순서 · 종합 점수 아님"><SimpleDataTable headers={['순서','대여소','운영 검토 초점']} rows={operational.slice(0,5).map((x,i)=>[i+1,<Link to={'/stations?station='+encodeURIComponent(x.id)} title={x.name||x.id}>{x.id}</Link>,x.focus])}/></SectionCard>
+      <SectionCard title="분석 기록" note={history.length+'회 · 현재 세션'}>{history.length?<div className="agent-history">{history.map((x,i)=><button key={i} className={selected===i?'selected':''} onClick={()=>setSelected(i)}><span>{x.question}</span><small>{x.executedAt} · {number(x.result.usage.total_tokens)} 토큰</small></button>)}</div>:<Empty>직접 실행한 분석이 없습니다.</Empty>}</SectionCard>
+    </aside></div>
+    <div className="grid-three">
+      <SectionCard title="도구 호출 요약" note={active?'실제 완료 내역':'아직 호출되지 않음'}>
+        <SimpleDataTable headers={['function','역할 / 입력','실행 결과']} rows={(active?.result.evidence||[]).map(x=>[x.tool,JSON.stringify(x.arguments),x.result.available===false?'자료 미확보':'응답 수신'])}/>
+        {active&&<details><summary>원본 도구 결과 보기</summary>{active.result.evidence.map((x,i)=><pre className="tool-result" key={i}>{JSON.stringify(x,null,2)}</pre>)}</details>}
+      </SectionCard>
+      <SectionCard title="질문 예시" note="클릭하면 입력창에 반영"><div className="suggestion-grid">{questions.map(x=><button key={x} onClick={()=>{setQuestion(x);document.getElementById('report-question')?.focus()}}>{x}<span>↗</span></button>)}</div></SectionCard>
+      <SummaryBulletCard title="한계 및 주의사항" items={limitations}/>
     </div>
   </>
 }

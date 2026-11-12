@@ -1,0 +1,38 @@
+[
+  {
+    "region_id": "seoul",
+    "action": "overview",
+    "code": 200,
+    "seconds": 0.0453
+  },
+  {
+    "region_id": "seoul",
+    "action": "network",
+    "code": 200,
+    "seconds": 0.0174
+  },
+  {
+    "region_id": "seoul",
+    "action": "research",
+    "code": 200,
+    "seconds": 0.0382
+  },
+  {
+    "region_id": "all",
+    "action": "overview",
+    "code": 200,
+    "seconds": 0.028
+  },
+  {
+    "region_id": "all",
+    "action": "network",
+    "code": 200,
+    "seconds": 0.0234
+  },
+  {
+    "region_id": "all",
+    "action": "research",
+    "code": 200,
+    "seconds": 0.0505
+  }
+]

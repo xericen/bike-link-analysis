@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from backend.agents.solar import chat
 from backend.models.schemas import ChatRequest
 from backend.services import data as demo_data
-from backend.services import imports, real_data
+from backend.services import imports, real_data, transit
 
 load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
@@ -78,18 +78,18 @@ def station(region_id: str, station_id: str, date_start: date | None = None, dat
 
 
 @app.get("/api/regions/{region_id}/stations/{station_id}/role-history")
-def station_role_history(region_id: str, station_id: str, date_end: date | None = None):
+def station_role_history(region_id: str, station_id: str, date_end: date | None = None, date_start: date | None = None):
     check_region(region_id)
     if not any(s["station_id"] == station_id for s in real_data.snapshot()["stations"]
                if s["region_id"] == region_id):
         raise HTTPException(404, "대여소를 찾을 수 없습니다.")
-    return real_data.station_role_history(region_id, station_id, date_end.isoformat() if date_end else None)
+    return real_data.station_role_history(region_id, station_id, date_end.isoformat() if date_end else None, date_start.isoformat() if date_start else None)
 
 
 @app.get("/api/regions/{region_id}/stations/{station_id}/hidden-hub-validation")
-def station_hidden_hub_validation(region_id: str, station_id: str, date_end: date | None = None):
+def station_hidden_hub_validation(region_id: str, station_id: str, date_end: date | None = None, date_start: date | None = None):
     check_region(region_id)
-    result = real_data.hidden_hub_validation(region_id, station_id, date_end.isoformat() if date_end else None)
+    result = real_data.hidden_hub_validation(region_id, station_id, date_end.isoformat() if date_end else None, date_start.isoformat() if date_start else None)
     if not result.get("available") and not any(s["station_id"] == station_id for s in real_data.snapshot()["stations"]
                                                 if s["region_id"] == region_id):
         raise HTTPException(404, "대여소를 찾을 수 없습니다.")
@@ -103,9 +103,9 @@ def clusters(region_id: str, date_start: date | None = None, date_end: date | No
 
 
 @app.get("/api/regions/{region_id}/cluster-stability")
-def cluster_stability(region_id: str, date_end: date | None = None):
+def cluster_stability(region_id: str, date_end: date | None = None, date_start: date | None = None):
     check_region(region_id)
-    return real_data.cluster_stability(region_id, date_end.isoformat() if date_end else None)
+    return real_data.cluster_stability(region_id, date_end.isoformat() if date_end else None, date_start.isoformat() if date_start else None)
 
 
 @app.get("/api/regions/{region_id}/imbalance")
@@ -203,7 +203,7 @@ def agent_status():
 
 @app.post("/api/agent/chat")
 def agent_chat(body: ChatRequest):
-    return chat(body.message)
+    return chat(body.message, context=body.context)
 
 
 # The old synthetic fixture is reachable only through explicit Demo Mode routes.
@@ -217,3 +217,25 @@ def demo_overview(region_id: str = "seoul"):
     if region_id not in {r["region_id"] for r in demo_data.regions()}:
         raise HTTPException(404, "데모 지역을 찾을 수 없습니다.")
     return demo_data.overview(region_id)
+
+
+@app.get("/api/transit-linkage")
+def transit_linkage(city: str = "seoul", date_start: date | None = None, date_end: date | None = None):
+    check_region(city)
+    start, end = period(date_start, date_end)
+    return transit.linkage(city, start, end)
+
+
+@app.get("/api/vulnerability")
+def vulnerability(city: str = "seoul", date_start: date | None = None, date_end: date | None = None):
+    from backend.services.vulnerability import analyze
+    check_region(city)
+    return analyze(city, *period(date_start,date_end))
+
+@app.get("/api/improvement-ranking")
+def improvement_ranking(city: str = "seoul", date_start: date | None = None, date_end: date | None = None, top_n: int = 10):
+    from backend.services.vulnerability import analyze
+    check_region(city)
+    if not 1 <= top_n <= 20:
+        raise HTTPException(422,"top_n은 1~20이어야 합니다.")
+    return analyze(city, *period(date_start,date_end), top_n=top_n)

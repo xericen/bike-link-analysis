@@ -1,0 +1,433 @@
+{
+  "city": "seoul",
+  "date_start": "2026-10-01",
+  "date_end": "2026-10-31",
+  "distance_unit": "m",
+  "radius_m": [
+    300,
+    500
+  ],
+  "available": true,
+  "source_document": "docs/TRANSIT_LINKAGE.md",
+  "sources": [
+    {
+      "dataset_name": "서울시 버스정류소 위치정보",
+      "verification_status": "VERIFIED",
+      "source_url": "https://data.seoul.go.kr/dataList/OA-15067/S/1/datasetView.do",
+      "reference_date": "2026-09-02"
+    },
+    {
+      "dataset_name": "서울교통공사 1~8호선 역사 좌표",
+      "verification_status": "VERIFIED",
+      "source_url": "https://data.seoul.go.kr/dataList/OA-22534/F/1/datasetView.do",
+      "reference_date": "2025-08-14"
+    }
+  ],
+  "limitations": [
+    "직선거리이며 보행 경로·출입구 접근성과 다릅니다.",
+    "서울 지하철 자료는 서울교통공사 1~8호선 276행으로 전체 수도권 철도망이 아닙니다. 좌표 기준일과 OD 관측 기간이 다릅니다.",
+    "역 연계 비율은 공간적 근접 이동 비중이며 실제 환승률이 아닙니다.",
+    "자료가 없는 수단의 수치와 역 연계 비율은 null입니다.",
+    "공간 버퍼 시나리오이며 실제 환승·이동시간·운영 개선 효과 검증이 아닙니다.",
+    "인구 격자·보행망·행정 경계 미확보로 인구 효과를 계산하지 않습니다.",
+    "순위 가중치는 사전 설정한 동등 가중 검토 기준이며 효과를 학습한 계수가 아닙니다.",
+    "취약 후보의 300m 추가 면적은 신규 연결이 가능하다는 가정의 잠재 면적입니다. 전체 시나리오와 별도입니다.",
+    "미수집 철도 노선 때문에 취약 후보가 과대 탐지될 수 있습니다."
+  ],
+  "stop_count": 11504,
+  "stop_types": [
+    "버스",
+    "지하철"
+  ],
+  "hourly_period_start": "2026-10-01",
+  "hourly_period_end": "2026-10-31",
+  "candidates": [
+    {
+      "region_id": "seoul",
+      "station_id": "ST-3277",
+      "station_name": "서울특별시 성동구 자동차시장3길 64",
+      "latitude": 37.554733,
+      "longitude": 127.057762,
+      "nearest_stop_distance_m": 570.948,
+      "rental_count": 836,
+      "accessibility_deficit": 0.14189599999999997,
+      "vulnerability": 118.62505599999997,
+      "potential_added_area_m2": 143392.67,
+      "score_components": {
+        "vulnerability": 0.9444444444444444,
+        "rental_count": 0.9444444444444444,
+        "potential_added_area_m2": 0.7222222222222222
+      },
+      "score": 0.8703703703703703,
+      "demand_weighted_sensitivity_score": 0.8888888888888888,
+      "rank": 1
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-2488",
+      "station_name": "서울특별시 강서구 금낭화로26가길 130",
+      "latitude": 37.584583,
+      "longitude": 126.810921,
+      "nearest_stop_distance_m": 624.494,
+      "rental_count": 122,
+      "accessibility_deficit": 0.24898800000000004,
+      "vulnerability": 30.376536000000005,
+      "potential_added_area_m2": 204566.02,
+      "score_components": {
+        "vulnerability": 0.6111111111111112,
+        "rental_count": 0.16666666666666666,
+        "potential_added_area_m2": 0.9444444444444444
+      },
+      "score": 0.5740740740740741,
+      "demand_weighted_sensitivity_score": 0.4722222222222222,
+      "rank": 2
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-405",
+      "station_name": "서울시립대 정보기술관",
+      "latitude": 37.583008,
+      "longitude": 127.060974,
+      "nearest_stop_distance_m": 545.469,
+      "rental_count": 645,
+      "accessibility_deficit": 0.0909380000000001,
+      "vulnerability": 58.65501000000007,
+      "potential_added_area_m2": 61782.539,
+      "score_components": {
+        "vulnerability": 0.7222222222222222,
+        "rental_count": 0.7222222222222222,
+        "potential_added_area_m2": 0.2777777777777778
+      },
+      "score": 0.5740740740740741,
+      "demand_weighted_sensitivity_score": 0.611111111111111,
+      "rank": 3
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-2474",
+      "station_name": "서울특별시 강남구 양재대로 781",
+      "latitude": 37.492294,
+      "longitude": 127.094337,
+      "nearest_stop_distance_m": 589.617,
+      "rental_count": 545,
+      "accessibility_deficit": 0.17923399999999992,
+      "vulnerability": 97.68252999999996,
+      "potential_added_area_m2": 102540.292,
+      "score_components": {
+        "vulnerability": 0.8333333333333334,
+        "rental_count": 0.2777777777777778,
+        "potential_added_area_m2": 0.3888888888888889
+      },
+      "score": 0.5,
+      "demand_weighted_sensitivity_score": 0.4444444444444444,
+      "rank": 4
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-2728",
+      "station_name": "서울특별시 송파구 백제고분로 11 신천중학교",
+      "latitude": 37.516403,
+      "longitude": 127.077614,
+      "nearest_stop_distance_m": 516.399,
+      "rental_count": 546,
+      "accessibility_deficit": 0.032798,
+      "vulnerability": 17.907708,
+      "potential_added_area_m2": 138956.824,
+      "score_components": {
+        "vulnerability": 0.3888888888888889,
+        "rental_count": 0.3888888888888889,
+        "potential_added_area_m2": 0.6111111111111112
+      },
+      "score": 0.46296296296296297,
+      "demand_weighted_sensitivity_score": 0.4444444444444445,
+      "rank": 5
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-414",
+      "station_name": "서울특별시 영등포구 여의서로 60-2 가로판매대22",
+      "latitude": 37.533657,
+      "longitude": 126.912163,
+      "nearest_stop_distance_m": 514.917,
+      "rental_count": 598,
+      "accessibility_deficit": 0.02983400000000006,
+      "vulnerability": 17.840732000000035,
+      "potential_added_area_m2": 122639.907,
+      "score_components": {
+        "vulnerability": 0.2777777777777778,
+        "rental_count": 0.6111111111111112,
+        "potential_added_area_m2": 0.5
+      },
+      "score": 0.46296296296296297,
+      "demand_weighted_sensitivity_score": 0.5,
+      "rank": 6
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-1962",
+      "station_name": "서울특별시 구로구 고척동 60-42",
+      "latitude": 37.50452,
+      "longitude": 126.870552,
+      "nearest_stop_distance_m": 520.67,
+      "rental_count": 591,
+      "accessibility_deficit": 0.04133999999999992,
+      "vulnerability": 24.43193999999995,
+      "potential_added_area_m2": 16131.305,
+      "score_components": {
+        "vulnerability": 0.5,
+        "rental_count": 0.5,
+        "potential_added_area_m2": 0.05555555555555555
+      },
+      "score": 0.35185185185185186,
+      "demand_weighted_sensitivity_score": 0.3888888888888889,
+      "rank": 7
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-3447",
+      "station_name": "서울특별시 강동구 구천면로 77",
+      "latitude": 37.544529,
+      "longitude": 127.114212,
+      "nearest_stop_distance_m": 599.868,
+      "rental_count": 89,
+      "accessibility_deficit": 0.1997360000000001,
+      "vulnerability": 17.77650400000001,
+      "potential_added_area_m2": 151139.18,
+      "score_components": {
+        "vulnerability": 0.16666666666666666,
+        "rental_count": 0.05555555555555555,
+        "potential_added_area_m2": 0.8333333333333334
+      },
+      "score": 0.35185185185185186,
+      "demand_weighted_sensitivity_score": 0.2777777777777778,
+      "rank": 8
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-406",
+      "station_name": "서울특별시 동대문구 서울시립대로 163 서울시립대학교",
+      "latitude": 37.585045,
+      "longitude": 127.060272,
+      "nearest_stop_distance_m": 504.697,
+      "rental_count": 822,
+      "accessibility_deficit": 0.009394000000000005,
+      "vulnerability": 7.721868000000004,
+      "potential_added_area_m2": 59650.307,
+      "score_components": {
+        "vulnerability": 0.05555555555555555,
+        "rental_count": 0.8333333333333334,
+        "potential_added_area_m2": 0.16666666666666666
+      },
+      "score": 0.35185185185185186,
+      "demand_weighted_sensitivity_score": 0.47222222222222227,
+      "rank": 9
+    }
+  ],
+  "ranking": [
+    {
+      "region_id": "seoul",
+      "station_id": "ST-3277",
+      "station_name": "서울특별시 성동구 자동차시장3길 64",
+      "latitude": 37.554733,
+      "longitude": 127.057762,
+      "nearest_stop_distance_m": 570.948,
+      "rental_count": 836,
+      "accessibility_deficit": 0.14189599999999997,
+      "vulnerability": 118.62505599999997,
+      "potential_added_area_m2": 143392.67,
+      "score_components": {
+        "vulnerability": 0.9444444444444444,
+        "rental_count": 0.9444444444444444,
+        "potential_added_area_m2": 0.7222222222222222
+      },
+      "score": 0.8703703703703703,
+      "demand_weighted_sensitivity_score": 0.8888888888888888,
+      "rank": 1
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-2488",
+      "station_name": "서울특별시 강서구 금낭화로26가길 130",
+      "latitude": 37.584583,
+      "longitude": 126.810921,
+      "nearest_stop_distance_m": 624.494,
+      "rental_count": 122,
+      "accessibility_deficit": 0.24898800000000004,
+      "vulnerability": 30.376536000000005,
+      "potential_added_area_m2": 204566.02,
+      "score_components": {
+        "vulnerability": 0.6111111111111112,
+        "rental_count": 0.16666666666666666,
+        "potential_added_area_m2": 0.9444444444444444
+      },
+      "score": 0.5740740740740741,
+      "demand_weighted_sensitivity_score": 0.4722222222222222,
+      "rank": 2
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-405",
+      "station_name": "서울시립대 정보기술관",
+      "latitude": 37.583008,
+      "longitude": 127.060974,
+      "nearest_stop_distance_m": 545.469,
+      "rental_count": 645,
+      "accessibility_deficit": 0.0909380000000001,
+      "vulnerability": 58.65501000000007,
+      "potential_added_area_m2": 61782.539,
+      "score_components": {
+        "vulnerability": 0.7222222222222222,
+        "rental_count": 0.7222222222222222,
+        "potential_added_area_m2": 0.2777777777777778
+      },
+      "score": 0.5740740740740741,
+      "demand_weighted_sensitivity_score": 0.611111111111111,
+      "rank": 3
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-2474",
+      "station_name": "서울특별시 강남구 양재대로 781",
+      "latitude": 37.492294,
+      "longitude": 127.094337,
+      "nearest_stop_distance_m": 589.617,
+      "rental_count": 545,
+      "accessibility_deficit": 0.17923399999999992,
+      "vulnerability": 97.68252999999996,
+      "potential_added_area_m2": 102540.292,
+      "score_components": {
+        "vulnerability": 0.8333333333333334,
+        "rental_count": 0.2777777777777778,
+        "potential_added_area_m2": 0.3888888888888889
+      },
+      "score": 0.5,
+      "demand_weighted_sensitivity_score": 0.4444444444444444,
+      "rank": 4
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-2728",
+      "station_name": "서울특별시 송파구 백제고분로 11 신천중학교",
+      "latitude": 37.516403,
+      "longitude": 127.077614,
+      "nearest_stop_distance_m": 516.399,
+      "rental_count": 546,
+      "accessibility_deficit": 0.032798,
+      "vulnerability": 17.907708,
+      "potential_added_area_m2": 138956.824,
+      "score_components": {
+        "vulnerability": 0.3888888888888889,
+        "rental_count": 0.3888888888888889,
+        "potential_added_area_m2": 0.6111111111111112
+      },
+      "score": 0.46296296296296297,
+      "demand_weighted_sensitivity_score": 0.4444444444444445,
+      "rank": 5
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-414",
+      "station_name": "서울특별시 영등포구 여의서로 60-2 가로판매대22",
+      "latitude": 37.533657,
+      "longitude": 126.912163,
+      "nearest_stop_distance_m": 514.917,
+      "rental_count": 598,
+      "accessibility_deficit": 0.02983400000000006,
+      "vulnerability": 17.840732000000035,
+      "potential_added_area_m2": 122639.907,
+      "score_components": {
+        "vulnerability": 0.2777777777777778,
+        "rental_count": 0.6111111111111112,
+        "potential_added_area_m2": 0.5
+      },
+      "score": 0.46296296296296297,
+      "demand_weighted_sensitivity_score": 0.5,
+      "rank": 6
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-1962",
+      "station_name": "서울특별시 구로구 고척동 60-42",
+      "latitude": 37.50452,
+      "longitude": 126.870552,
+      "nearest_stop_distance_m": 520.67,
+      "rental_count": 591,
+      "accessibility_deficit": 0.04133999999999992,
+      "vulnerability": 24.43193999999995,
+      "potential_added_area_m2": 16131.305,
+      "score_components": {
+        "vulnerability": 0.5,
+        "rental_count": 0.5,
+        "potential_added_area_m2": 0.05555555555555555
+      },
+      "score": 0.35185185185185186,
+      "demand_weighted_sensitivity_score": 0.3888888888888889,
+      "rank": 7
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-3447",
+      "station_name": "서울특별시 강동구 구천면로 77",
+      "latitude": 37.544529,
+      "longitude": 127.114212,
+      "nearest_stop_distance_m": 599.868,
+      "rental_count": 89,
+      "accessibility_deficit": 0.1997360000000001,
+      "vulnerability": 17.77650400000001,
+      "potential_added_area_m2": 151139.18,
+      "score_components": {
+        "vulnerability": 0.16666666666666666,
+        "rental_count": 0.05555555555555555,
+        "potential_added_area_m2": 0.8333333333333334
+      },
+      "score": 0.35185185185185186,
+      "demand_weighted_sensitivity_score": 0.2777777777777778,
+      "rank": 8
+    },
+    {
+      "region_id": "seoul",
+      "station_id": "ST-406",
+      "station_name": "서울특별시 동대문구 서울시립대로 163 서울시립대학교",
+      "latitude": 37.585045,
+      "longitude": 127.060272,
+      "nearest_stop_distance_m": 504.697,
+      "rental_count": 822,
+      "accessibility_deficit": 0.009394000000000005,
+      "vulnerability": 7.721868000000004,
+      "potential_added_area_m2": 59650.307,
+      "score_components": {
+        "vulnerability": 0.05555555555555555,
+        "rental_count": 0.8333333333333334,
+        "potential_added_area_m2": 0.16666666666666666
+      },
+      "score": 0.35185185185185186,
+      "demand_weighted_sensitivity_score": 0.47222222222222227,
+      "rank": 9
+    }
+  ],
+  "candidate_count": 9,
+  "station_count": 2762,
+  "observed_station_count": 2759,
+  "period_start": "2026-10-01",
+  "period_end": "2026-10-31",
+  "score_formula": "(ECDF_midrank(vulnerability) + ECDF_midrank(rental_count) + ECDF_midrank(potential_added_area_m2))/3",
+  "weights": {
+    "vulnerability": 0.3333333333333333,
+    "rental_count": 0.3333333333333333,
+    "potential_added_area_m2": 0.3333333333333333
+  },
+  "scenario": {
+    "crs": "EPSG:5179",
+    "method": "union of 64-segment straight-line buffers; no administrative clipping",
+    "walking_radius_m": 500,
+    "bike_station_buffer_m": 300,
+    "baseline_area_m2": 540162488.691,
+    "linked_area_m2": 541035186.121,
+    "added_area_m2": 872697.43,
+    "area_increase_ratio": 0.0016156202027710455,
+    "baseline_station_count": 2753,
+    "linked_station_count": 2756,
+    "station_count_increase_ratio": 0.0010897203051216855,
+    "population_increase_ratio": null
+  }
+}

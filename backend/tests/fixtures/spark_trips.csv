@@ -1,0 +1,5 @@
+region_id,origin_station_id,destination_station_id,started_at,ended_at,duration_minutes
+daejeon,A,B,2026-01-01T08:05:00,2026-01-01T08:10:00,5
+daejeon,A,B,2026-01-01T08:25:00,2026-01-01T08:40:00,15
+daejeon,B,A,2026-01-01T23:59:00,2026-01-02T00:10:00,11
+daejeon,A,B,2026-02-01T09:00:00,2026-02-01T09:20:00,20

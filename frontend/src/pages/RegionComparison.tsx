@@ -1,29 +1,72 @@
 import { useEffect, useState } from 'react'
-import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
+import { Bar, BarChart, CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 import { api } from '../services/api'
 import type { ClusterResult, CompareResult, DateFilter, Region } from '../types'
-import { clusterColor } from '../components/colors'
 import { Empty, ErrorBox, Skeleton, SourceNote, number } from '../components/State'
+import { PageHeader, StatCard, SectionCard, InsightBanner, SummaryBulletCard, ComparisonDonutCard, SimpleDataTable } from '../components/AnalysisUI'
+import { cityRatios, peakHour } from '../services/presentation'
+import { sejongAnnual } from '../services/sejongAnnual'
 
+const colors:Record<string,string>={seoul:'#2f6df6',daejeon:'#35a486'}
 export function RegionComparison({filter}:{filter:DateFilter}) {
-  const [regions,setRegions]=useState<Region[]>([])
-  const [ids,setIds]=useState(['seoul','daejeon','sejong'])
+  const [regions,setRegions]=useState<Region[]>([]), [ids,setIds]=useState(['seoul','daejeon','sejong'])
   const [data,setData]=useState<CompareResult>(),[clusters,setClusters]=useState<Record<string,ClusterResult>>({})
-  const [quality,setQuality]=useState<Record<string,Record<string,unknown>>>({})
   const [error,setError]=useState('')
-  useEffect(()=>{api.regions().then(x=>setRegions(x.regions)).catch(e=>setError(e.message));api.quality().then(x=>setQuality(x.quality as Record<string,Record<string,unknown>>)).catch(()=>{})},[])
-  useEffect(()=>{if(!ids.length){setData(undefined);return}let active=true;setData(undefined);setError('');api.compare(ids,filter.start,filter.end).then(async comparison=>{const start=filter.start||comparison.common_period?.date_start,end=filter.end||comparison.common_period?.date_end;const groups=await Promise.all(ids.map(id=>api.clusters(id,start,end)));if(active){setData(comparison);setClusters(Object.fromEntries(ids.map((id,i)=>[id,groups[i] as ClusterResult])))}}).catch(e=>{if(active)setError(e.message)});return()=>{active=false}},[ids.join(','),filter.start,filter.end])
-  const selected=regions.filter(r=>ids.includes(r.region_id))
-  const mixedUnits=ids.includes('seoul')&&ids.includes('daejeon')
-  return <><div className="page-heading"><div><span className="section-label">REGIONAL COMPARISON</span><h2>비교 가능한 범위에서 무엇이 다른가?</h2><p>서울·대전은 공통 관측 기간의 비율 지표로 비교하고 세종 연간 추세는 분리합니다.</p></div></div>
-    <div className="compare-controls region-checks">{regions.map(r=><label key={r.region_id}><input type="checkbox" checked={ids.includes(r.region_id)} onChange={e=>setIds(old=>e.target.checked?[...old,r.region_id]:old.filter(x=>x!==r.region_id))}/>{r.region_name}</label>)}<span>동일 기간 필터: {filter.start||'전체'} ~ {filter.end||'전체'}</span></div>
-    {!ids.length?<Empty>비교할 지역을 하나 이상 선택하세요.</Empty>:error?<ErrorBox message={error}/>:!data?<Skeleton rows={4}/>:<>
-      <div className="notice">{data.common_period?`서울·대전 공통 기간 ${data.common_period.date_start} ~ ${data.common_period.date_end}을 적용했습니다. `:!data.same_observed_dates?'관측일이 일치하지 않거나 비교 가능한 이용 자료가 부족합니다. ':''}{mixedUnits?'서울은 OD 집계, 대전은 개별 Trip입니다. 총 이용량은 직접 비교하지 않고 시간대·요일 비율을 봅니다. ':''}세종 연간 총량은 별도로 표시합니다.</div>
-      <div className="comparison-grid">{data.regions.map(item=>{const region=selected.find(r=>r.region_id===item.region_id);return <section className="panel comparison-card" key={item.region_id}><div className="panel-title"><h3>{item.region_name} <small>{item.service_name}</small></h3><span className={region?.has_usage?'mini-status good':'mini-status'}>{region?.has_usage?'분석 가능':item.annual_latest?'일부 분석 가능':'원본 미확보'}</span></div><strong>{number(item.total_rentals)}<small> 건</small></strong><p>{item.region_id==='seoul'?'OD 집계 대여':item.region_id==='daejeon'?'개별 Trip 대여':'대여소별 이용량 N/A'}</p><div className="metric-list"><p><span>대여소 수</span><b>{number(item.station_count)}</b></p><p><span>대여소당 이용</span><b>{number(item.average_per_station)}</b></p><p><span>관측일</span><b>{item.observed_dates.join(', ')||'N/A'}</b></p><p><span>시간대·군집</span><b>{item.hourly&&clusters[item.region_id]?.available?'가능':'N/A'}</b></p><p><span>OD·중심성</span><b>{item.has_od?'가능':'N/A'}</b></p><p><span>좌표 결측률</span><b>{quality[item.region_id]?.missing_coordinate_ratio===undefined?'N/A':String(quality[item.region_id]?.missing_coordinate_ratio)}</b></p></div>{item.annual_latest&&<p>별도 {item.annual_latest.year}년 총 이용 {number(item.annual_latest.rental_count)}건</p>}<p className="muted">{item.coverage_note}</p><SourceNote data={item}/></section>})}</div>
-      <div className="grid-two"><section className="panel"><div className="panel-title"><h3>시간대별 이용 패턴</h3><span>지역별 관측량 내부 비율</span></div>{data.regions.filter(r=>r.hourly&&r.total_rentals).map(r=><div className="mini-chart" key={r.region_id}><b>{r.region_name} · {r.region_id==='seoul'?'OD 집계':'개별 Trip'}</b><div className="chart"><ResponsiveContainer width="100%" height="100%"><BarChart data={r.hourly!.map((count,hour)=>({hour:hour+'시',ratio:count/(r.total_rentals||1)*100}))}><CartesianGrid stroke="#e6edf5" vertical={false}/><XAxis dataKey="hour" interval={3}/><YAxis unit="%"/><Tooltip formatter={(v)=>Number(v).toFixed(1)+'%'}/><Bar isAnimationActive={false} dataKey="ratio" name="지역 내부 비율" fill="#3c80d4" radius={[3,3,0,0]}/></BarChart></ResponsiveContainer></div></div>)}{!data.regions.some(r=>r.hourly)&&<Empty>시간대별 자료 미확보</Empty>}</section>
-      <section className="panel"><div className="panel-title"><h3>대여소 군집 분포</h3><span>지역별로 독립 학습</span></div>{data.regions.filter(r=>clusters[r.region_id]?.available).map(r=>{const groups=clusters[r.region_id].clusters.reduce<Record<string,{count:number;id:number}>>((a,x)=>{a[x.role]??={count:0,id:x.cluster_id};a[x.role].count++;return a},{});return <div className="role-breakdown" key={r.region_id}><b>{r.region_name}</b>{Object.entries(groups).map(([role,v])=><div key={role}><span><i style={{background:clusterColor(v.id)}}/>{role}</span><b>{number(v.count)}</b></div>)}</div>})}{!data.regions.some(r=>clusters[r.region_id]?.available)&&<Empty>군집 자료 미확보</Empty>}</section></div>
-      <section className="panel"><div className="panel-title"><h3>요일별 비중</h3><span>지역 내부 비율 · 총량 직접 비교 금지</span></div><div className="metric-table">{data.regions.filter(r=>r.weekday_share!==null).map(r=><div key={r.region_id}><b>{r.region_name}</b><span>평일 {((r.weekday_share||0)*100).toFixed(1)}%</span><span>주말 {((r.weekend_share||0)*100).toFixed(1)}%</span></div>)}</div></section>
-      <section className="panel"><h3>네트워크 지표</h3><div className="metric-table">{data.regions.map(r=><div key={r.region_id}><b>{r.region_name}</b><span>{r.centrality_top?.station_name||'N/A'}</span><span>PageRank {r.centrality_top?r.centrality_top.pagerank.toFixed(5):'N/A'}</span></div>)}</div><p className="muted">중심성은 이용 건수와 다릅니다. 도시별 그래프 규모가 달라 점수 자체도 직접 비교하지 않습니다.</p></section>
-      <section className="panel"><h3>비교 한계와 데이터 품질</h3><p>동일 관측일: {data.same_observed_dates?'예':'아니요 / 자료 미확보'}</p>{data.limitations.map(x=><p className="muted" key={x}>{x}</p>)}</section>
-    </>}</>
+  useEffect(()=>{api.regions().then(x=>setRegions(x.regions.filter(r=>['seoul','daejeon','sejong'].includes(r.region_id)))).catch(e=>setError(e.message))},[])
+  useEffect(()=>{
+    let active=true;setData(undefined);setClusters({});setError('')
+    if(!ids.length)return
+    api.compare(ids,filter.start,filter.end).then(async initial=>{
+      let comparison=initial
+      const observed=initial.regions.filter(r=>r.region_id!=='sejong'&&r.observed_dates.length)
+      if(observed.length>=2&&!initial.common_period){
+        const start=observed.map(r=>r.observed_dates[0]).sort().at(-1)!,end=observed.map(r=>r.observed_dates.at(-1)!).sort()[0]
+        if(start<=end){
+          if(observed.some(r=>r.observed_dates[0]!==start||r.observed_dates.at(-1)!==end))comparison=await api.compare(ids,start,end)
+          comparison={...comparison,common_period:{date_start:start,date_end:end}}
+        }
+      }
+      // Always use the actual aligned period returned by the API, even with explicit user dates.
+      const start=comparison.common_period?.date_start||filter.start, end=comparison.common_period?.date_end||filter.end
+      const groups=await Promise.all(ids.map(id=>api.clusters(id,start,end)))
+      if(active){setData(comparison);setClusters(Object.fromEntries(ids.map((id,i)=>[id,groups[i]])))}
+    }).catch(e=>{if(active)setError(e.message)})
+    return()=>{active=false}
+  },[ids.join(','),filter.start,filter.end])
+  const comparable=data?.regions.filter(r=>r.region_id!=='sejong'&&r.hourly)||[]
+  const hasWeekday=comparable.some(r=>r.weekday?.length)
+  const common=data?.common_period
+  const annual=sejongAnnual.map(x=>({...x,complete:x.complete_year?x.rental_count:null,partial:x.complete_year?null:x.rental_count}))
+  return <>
+    <PageHeader title="도시 간 비교" subtitle="공통 기간 기준 패턴 비교 · 시간대 비율 · 요일 분포 · 군집 구성 비교"/>
+    <div className="compare-controls region-checks">{regions.map(r=><label key={r.region_id}><input type="checkbox" checked={ids.includes(r.region_id)} onChange={e=>setIds(old=>e.target.checked?[...old,r.region_id]:old.filter(x=>x!==r.region_id))}/>{r.region_name}</label>)}<span>도시를 선택해 함께 비교하세요.</span></div>
+    {!ids.length?<Empty>비교할 도시를 하나 이상 선택하세요.</Empty>:error?<ErrorBox message={error}/>:!data?<Skeleton rows={5}/>:<>
+      <div className="stats"><StatCard label="비교 도시 수" value={ids.length+'개'} note="서울 · 대전 · 세종 중 선택" icon="◎"/><StatCard label="공통 비교 지역" value={comparable.map(r=>r.region_name).join(' · ')||'비교 자료 없음'} note="시간대 기록이 있는 선택 도시" tone="mint" icon="⇄"/><StatCard label="공통 관측 기간" value={common?common.date_start.slice(5)+' ~ '+common.date_end.slice(5):'공통 기간 없음'} note={common?common.date_start+' ~ '+common.date_end:'선택 도시의 관측 범위를 확인하세요.'} tone="peach" icon="◷"/><StatCard label="세종 제공 범위" value="연간 추세" note="상세 OD / 군집 자료 미확보" tone="lavender" icon="⌁"/></div>
+      <InsightBanner title="비교 해석 원칙"><p>{comparable.length>=2&&!common?'공통 관측 기간이 없습니다. 현재 표시는 관측 기간이 다른 참고 패턴입니다. ':''}서울/대전은 공통 관측 기간 기준 비율로 비교합니다. 세종은 연간 추세를 별도로 제공합니다. 총량 직접 비교보다 시간대·요일 비율을 확인하세요.</p></InsightBanner>
+      <div className="grid-two">
+        <SectionCard title="시간대 이용 비율 비교" note="도시 내부 대여량 대비 비율 · %">
+          {comparable.length?<div className="chart"><ResponsiveContainer width="100%" height="100%"><LineChart data={cityRatios(data)}><CartesianGrid vertical={false} stroke="#e6edf5"/><XAxis dataKey="label" interval={3}/><YAxis unit="%"/><Tooltip formatter={v=>Number(v).toFixed(2)+'%'}/><Legend/>{comparable.map(r=><Line key={r.region_id} type="monotone" dataKey={r.region_id} name={r.region_name} stroke={colors[r.region_id]} strokeWidth={3} dot={false} isAnimationActive={false}/>)}</LineChart></ResponsiveContainer></div>:<Empty>시간대별 자료 미확보</Empty>}
+          <div className="chart-callout">{comparable.map(r=><span key={r.region_id}>{r.region_name}: {peakHour(r.hourly)}시 대여 비중 최대</span>)}</div>
+        </SectionCard>
+        <SectionCard title="요일별 이용 비율 비교" note="도시 내부 대여량 대비 비율 · %">
+          {hasWeekday?<div className="chart"><ResponsiveContainer width="100%" height="100%"><BarChart data={cityRatios(data,'weekday')}><CartesianGrid vertical={false} stroke="#e6edf5"/><XAxis dataKey="label"/><YAxis unit="%"/><Tooltip formatter={v=>Number(v).toFixed(2)+'%'}/><Legend/>{comparable.map(r=><Bar key={r.region_id} dataKey={r.region_id} name={r.region_name} fill={colors[r.region_id]} radius={[4,4,0,0]} isAnimationActive={false}/>)}</BarChart></ResponsiveContainer></div>:<Empty>요일별 이용 자료 미확보</Empty>}
+        </SectionCard>
+      </div>
+      <div className="comparison-lower">
+        <SectionCard title="K-means 군집 분포 비교" note="각 도시 독립 학습">
+          <div className="donut-pair">{comparable.map(r=><div key={r.region_id}><b>{r.region_name}</b><ComparisonDonutCard data={clusters[r.region_id]}/></div>)}</div>
+          <SimpleDataTable headers={['도시','k','실루엣','해석']} rows={comparable.map(r=>{const c=clusters[r.region_id];return [r.region_name,c?.selected_k??'N/A',c?.diagnostics.find(x=>x.k===c.selected_k)?.silhouette.toFixed(3)??'N/A',c?.interpretation_allowed?'탐색 해석':'유형 확정 보류']})}/>
+          <p className="muted">같은 군집 번호가 같은 역할을 뜻하지 않습니다.</p>
+        </SectionCard>
+        <SectionCard title="핵심 차이 요약" note="선택 기간 실제 관측">
+          {data.regions.map(r=><div className="city-summary" key={r.region_id}><span style={{background:colors[r.region_id]||'#a18acd'}}/><div><b>{r.region_name}</b><p>{r.region_id==='sejong'?'연간 추세만 제공 · 상세 패턴 비교 제외':r.hourly?peakHour(r.hourly)+'시 대여 비중 최대 · 도시 내부 패턴 참고':'시간대 자료 미확보'}</p><small>{r.coverage_note}</small></div></div>)}
+        </SectionCard>
+        <SectionCard title="세종 연간 이용 추세" note="2017~2026 · 건">
+          {ids.includes('sejong')?<><div className="chart"><ResponsiveContainer width="100%" height="100%"><LineChart data={annual}><CartesianGrid vertical={false} stroke="#e6edf5"/><XAxis dataKey="year" fontSize={10} interval="preserveStartEnd" minTickGap={20} padding={{left:6,right:15}}/><YAxis tickFormatter={v=>(Number(v)/10000).toFixed(0)+'만'} width={45}/><Tooltip formatter={v=>number(Number(v))+'건'}/><Legend/><Line dataKey="complete" name="완결 연도" stroke="#8b6ec5" strokeWidth={2} dot={{r:3}} isAnimationActive={false}/><Line dataKey="partial" name="부분 연도" stroke="#ed9a60" dot={{r:5}} isAnimationActive={false}/></LineChart></ResponsiveContainer></div><p className="muted">공식 가공 CSV의 정적 스냅샷. 2026년은 8월 31일까지의 부분 집계이며 연간 실적과 직접 비교할 수 없습니다. 상단 분석 기간과 독립적입니다.</p></>:<Empty>세종을 선택하면 연간 추세를 표시합니다.</Empty>}
+        </SectionCard>
+      </div>
+      <SummaryBulletCard title="비교 한계" items={['데이터 출처와 집계 정의가 다릅니다.','서울 OD 집계와 대전 Trip 기록은 해석 범위가 다릅니다.','도시 간 총건수 직접 비교와 중심성 점수 순위 비교는 제한됩니다.',...data.limitations]}/>
+      <details className="panel"><summary>도시별 데이터 출처와 관측 범위</summary>{data.regions.map(r=><div key={r.region_id}><h4>{r.region_name}</h4><p className="muted">{r.observed_dates.length}일 관측 · 대여소 {number(r.station_count)}개</p><SourceNote data={r}/></div>)}</details>
+    </>}
+  </>
 }

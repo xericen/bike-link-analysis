@@ -1,0 +1,12 @@
+{
+    "id": "component.bike.link",
+    "mode": "component",
+    "title": "Bike Link Analysis",
+    "namespace": "bike.link",
+    "category": "course",
+    "viewuri": "",
+    "preview": "",
+    "controller": "",
+    "layout": "",
+    "template": "wiz-component-bike-link([embeddedRegion]=\"\", [embeddedTab]=\"\", (stationNavigate)=\"\", (navigate)=\"\")"
+}

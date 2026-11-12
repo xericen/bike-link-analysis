@@ -1,0 +1,107 @@
+{
+  "run_date": "2026-11-12",
+  "screens": [
+    {
+      "page": "dashboard",
+      "desktop_overflow": false
+    },
+    {
+      "page": "station",
+      "desktop_overflow": false
+    },
+    {
+      "page": "network",
+      "desktop_overflow": false
+    },
+    {
+      "page": "compare",
+      "desktop_overflow": false
+    },
+    {
+      "page": "agent",
+      "desktop_overflow": false
+    },
+    {
+      "page": "대시보드",
+      "mobile_overflow": false
+    },
+    {
+      "page": "대여소 분석",
+      "mobile_overflow": false
+    },
+    {
+      "page": "이동 패턴 분석",
+      "mobile_overflow": false
+    },
+    {
+      "page": "도시 간 비교",
+      "mobile_overflow": false
+    },
+    {
+      "page": "AI 분석 리포트",
+      "mobile_overflow": false
+    }
+  ],
+  "interactions": [
+    {
+      "quick_days": 7,
+      "start": "2026-10-25",
+      "expected_sql": 890565,
+      "loading_observed": [
+        "분석 자료를 불러오는 중입니다…"
+      ]
+    },
+    {
+      "quick_days": 14,
+      "start": "2026-10-18",
+      "expected_sql": 1748118,
+      "loading_observed": [
+        "분석 자료를 불러오는 중입니다…",
+        "실제 이용·연결·불균형 결과를 계산 중입니다…"
+      ]
+    },
+    {
+      "quick_days": 30,
+      "start": "2026-10-02",
+      "expected_sql": 4080713,
+      "loading_observed": [
+        "분석 자료를 불러오는 중입니다…",
+        "실제 이용·연결·불균형 결과를 계산 중입니다…"
+      ]
+    },
+    {
+      "invalid_order_error": true
+    },
+    {
+      "map_station_click": "서울 ST-735"
+    },
+    {
+      "station_search": "ST-1481",
+      "history_bars": 3,
+      "cluster_stability_rendered": true
+    },
+    {
+      "network_node_click": true
+    },
+    {
+      "unified_dashboard": true
+    },
+    {
+      "sejong_annual_only": true,
+      "date_controls_disabled": true
+    },
+    {
+      "finding_card_to_detail": "ST-1481"
+    },
+    {
+      "actual_response_guard_replay": true,
+      "extra_paid_calls": 0,
+      "raw_prose_closed": true
+    },
+    {
+      "server_out_of_bounds": 422
+    }
+  ],
+  "page_errors": [],
+  "solar_replay_only": true
+}

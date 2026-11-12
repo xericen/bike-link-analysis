@@ -1,0 +1,134 @@
+{
+  "paid_calls_added": 0,
+  "tool_count": 16,
+  "questions": [
+    {
+      "id": 1,
+      "answer_basis": "tool_summary",
+      "grounding_validation": {
+        "checked_numeric_tokens": 15,
+        "matched_numeric_tokens": 15,
+        "unmatched_numeric_tokens": [],
+        "passed": true,
+        "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+      },
+      "semantic_validation": {
+        "passed": false,
+        "checked_claims": 2,
+        "unsupported_claims": [
+          {
+            "kind": "maximum",
+            "claim": "일별 최대 날짜는 2026-10-18로 35,915건이고",
+            "expected": [
+              {
+                "kind": "maximum",
+                "region_id": "seoul",
+                "value": 166657,
+                "dates": [
+                  "2026-10-02"
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "minimum",
+            "claim": "일별 최소 날짜는 2026-10-13으로 96,284건입니다.",
+            "expected": [
+              {
+                "kind": "minimum",
+                "region_id": "seoul",
+                "value": 35915,
+                "dates": [
+                  "2026-10-18"
+                ]
+              }
+            ]
+          }
+        ],
+        "method": "일별 최대·최소 비교의 날짜/건수를 실제 극값과 대조. 해석할 수 없는 비교는 보류."
+      },
+      "answer": "Solar 원문의 일부 주장을 검증하지 못해 실제 도구 결과로 요약합니다.\n서울 이용 건수: 4245954건\n서울 실제 관측일수: 31일\n서울 일별 최대 (2026-10-02): 166657건\n서울 일별 최소 (2026-10-18): 35915건\n분석 기간: 2026-10-01 ~ 2026-10-31\n서울 집계 OD와 대전 개별 Trip의 총량 배율로 운영 성과를 비교하지 않습니다. 재고 부족과 개선 효과는 추가 자료 없이 확정할 수 없습니다.",
+      "evidence_tools": [
+        "get_region_overview"
+      ]
+    },
+    {
+      "id": 4,
+      "answer_basis": "solar_interpretation",
+      "grounding_validation": {
+        "checked_numeric_tokens": 8,
+        "matched_numeric_tokens": 8,
+        "unmatched_numeric_tokens": [],
+        "passed": true,
+        "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+      },
+      "semantic_validation": {
+        "passed": true,
+        "checked_claims": 0,
+        "unsupported_claims": [],
+        "method": "일별 최대·최소 비교의 날짜/건수를 실제 극값과 대조. 해석할 수 없는 비교는 보류."
+      },
+      "answer": "서울 PageRank 1위 대여소는 **ST-3388**(서울특별시 마포구 마포나루길 429)로, 점수는 **0.003208**입니다. 이 값은 2026년 10월 1일부터 10월 31일까지의 서울 대여소 네트워크 연결 구조 기준이며, 실제 대여량·반납량은 아닙니다.",
+      "evidence_tools": [
+        "get_centrality_ranking"
+      ]
+    },
+    {
+      "id": 5,
+      "answer_basis": "tool_summary",
+      "grounding_validation": {
+        "checked_numeric_tokens": 28,
+        "matched_numeric_tokens": 28,
+        "unmatched_numeric_tokens": [],
+        "passed": true,
+        "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+      },
+      "semantic_validation": {
+        "passed": false,
+        "checked_claims": 2,
+        "unsupported_claims": [
+          {
+            "kind": "hourly_net_extremum",
+            "claim": "시간대별 순유출은 07시에서 -220건으로 가장 큰 순유입을 보였고",
+            "expected": []
+          },
+          {
+            "kind": "hourly_net_extremum",
+            "claim": "19시에서 59건으로 가장 큰 순유출을 기록했습니다.",
+            "expected": [
+              {
+                "station_id": "ST-1481",
+                "value": 69,
+                "hours": [
+                  22
+                ]
+              }
+            ]
+          }
+        ],
+        "method": "일별 최대·최소 비교의 날짜/건수를 실제 극값과 대조. 해석할 수 없는 비교는 보류."
+      },
+      "answer": "Solar 원문의 일부 주장을 검증하지 못해 실제 도구 결과로 요약합니다.\nST-1481 대여: 926건\nST-1481 반납: 1322건\nST-1481 순유출: -396건\nST-1481 실제 관측일수: 31일\n분석 기간: 2026-10-01 ~ 2026-10-31\n서울 집계 OD와 대전 개별 Trip의 총량 배율로 운영 성과를 비교하지 않습니다. 재고 부족과 개선 효과는 추가 자료 없이 확정할 수 없습니다.",
+      "evidence_tools": [
+        "get_station_details"
+      ]
+    }
+  ],
+  "sql": {
+    "ST-1481": {
+      "rentals": 926,
+      "returns": 1322
+    },
+    "maximum_day": [
+      "2026-10-02",
+      166657
+    ],
+    "total": 4245954
+  },
+  "screen_verification": {
+    "mode": "saved_paid_response_replay",
+    "intercepted_chat_requests": 1,
+    "actual_new_solar_requests": 0,
+    "screenshot": "q5-final-replay.png"
+  }
+}

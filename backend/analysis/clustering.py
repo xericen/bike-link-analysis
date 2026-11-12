@@ -23,8 +23,10 @@ def _feature_matrix(rows, feature_set):
 def _diagnostics(matrix, row_count):
     scaled = StandardScaler().fit_transform(matrix)
     diagnostics = []
-    for k in range(2, min(8, row_count - 1) + 1):
+    for k in range(2, min(8, row_count - 1, len(np.unique(scaled, axis=0))) + 1):
         model = KMeans(n_clusters=k, random_state=42, n_init=10).fit(scaled)
+        if len(set(model.labels_)) < 2 or len(set(model.labels_)) >= row_count:
+            continue
         score = silhouette_score(scaled, model.labels_, sample_size=min(row_count, 1500), random_state=42)
         diagnostics.append({"k": k, "inertia": round(float(model.inertia_), 3), "silhouette": round(float(score), 4)})
     return scaled, diagnostics
@@ -40,6 +42,9 @@ def compare_feature_sets(profiles):
                                ("combined", "시간대 비율+이용량 규모")):
         matrix, names = _feature_matrix(rows, feature_set)
         _, diagnostics = _diagnostics(matrix, len(rows))
+        if not diagnostics:
+            comparisons.append({"feature_set":feature_set, "label":label, "station_count":len(rows), "diagnostics":[], "quality":"insufficient", "best_silhouette":None, "selected_k":None})
+            continue
         best = max(diagnostics, key=lambda item: item["silhouette"])
         comparisons.append({"feature_set": feature_set, "label": label, "features": names,
             "selected_k": best["k"], "best_silhouette": best["silhouette"],
@@ -54,6 +59,8 @@ def cluster_stations(profiles):
     if len(rows) < 2:
         return {"available": False, "clusters": [], "diagnostics": [], "message": "이용 기록이 있는 대여소가 2개 이상 필요합니다."}
     matrix, feature_names = _feature_matrix(rows, "combined")
+    if len(np.unique(matrix, axis=0)) < 2:
+        return {"available":False, "clusters":[], "diagnostics":[], "quality":"insufficient", "interpretation_allowed":False, "message":"대여소 특징이 동일해 유효한 군집을 분리할 수 없습니다."}
     scaled, diagnostics = _diagnostics(matrix, len(rows))
     chosen = max(diagnostics, key=lambda x: x["silhouette"])["k"] if diagnostics else 2
     model = KMeans(n_clusters=chosen, random_state=42, n_init=10).fit(scaled)

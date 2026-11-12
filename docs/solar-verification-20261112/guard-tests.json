@@ -1,0 +1,10 @@
+{
+  "command": "python -m pytest backend/tests/test_final_review.py -q -k 'solar or truncated'",
+  "result": "2 passed, 5 deselected, 2 warnings in 1.92s",
+  "executed_at_date": "2026-11-12",
+  "warnings": [
+    "PytestRemovedIn10Warning: _pytest.python.CallSpec2 renamed to CallSpec",
+    "StarletteDeprecationWarning: using httpx with starlette.testclient deprecated"
+  ],
+  "scope": "Existing selected tests only; no paid API requests; does not certify semantic correctness of all model answers"
+}

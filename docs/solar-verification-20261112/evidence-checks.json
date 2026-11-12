@@ -1,0 +1,65 @@
+{
+  "tool_count": 14,
+  "tool_names": [
+    "get_region_overview",
+    "get_station_details",
+    "get_station_clusters",
+    "get_centrality_ranking",
+    "get_network_analysis",
+    "find_similar_stations",
+    "compare_region_patterns",
+    "get_data_availability",
+    "get_cluster_stability",
+    "get_station_imbalance",
+    "get_hidden_hubs",
+    "get_hidden_hub_validation",
+    "get_station_role_history",
+    "get_role_candidates"
+  ],
+  "source_files_unchanged": true,
+  "sql": {
+    "total_rentals": 4245954,
+    "observed_days": 31,
+    "period_start": "2026-10-01",
+    "period_end": "2026-10-31",
+    "minimum_day": [
+      "2026-10-18",
+      35915
+    ],
+    "maximum_day": [
+      "2026-10-02",
+      166657
+    ],
+    "ST-1481": {
+      "rental_count": 926,
+      "return_count": 1322
+    }
+  },
+  "q1": {
+    "total_and_period_match": true,
+    "daily_tool_matches_sql": true,
+    "answer_maximum_claim_correct": false,
+    "explanation": "Solar says 2026-10-08 / 165625 is maximum; SQL and tool show 2026-10-02 / 166657."
+  },
+  "q3": {
+    "independent_cosine_top": [
+      "ST-20",
+      0.9881
+    ],
+    "tool_top_matches": true,
+    "answer_id_score_count_ratio_match": true
+  },
+  "q4": {
+    "tool_counts_match_sql": true,
+    "raw_answer_counts_match": true,
+    "observed_days_claim_valid": true,
+    "raw_answer_withheld": true,
+    "default_answer_contains_requested_counts": false
+  },
+  "successful_questions": 3,
+  "failed_question_ids": [
+    2
+  ],
+  "period_arguments_match": true,
+  "paid_requests_added_by_this_script": 0
+}

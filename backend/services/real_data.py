@@ -7,6 +7,7 @@ from datetime import date, timedelta
 from functools import lru_cache
 from pathlib import Path
 
+from backend.services.result_cache import data_cached
 from backend.analysis.clustering import adjusted_rand, cluster_stations
 from backend.analysis.network import centrality
 from backend.analysis.similarity import station_similarity
@@ -130,6 +131,7 @@ def source_meta(region_id):
             "verification_status": "VERIFIED" if verified else ("METADATA_ONLY" if selected else "UNAVAILABLE")}
 
 
+@data_cached
 def region_stations(region_id, date_start=None, date_end=None):
     s = [row for row in snapshot()["stations"] if row["region_id"] == region_id]
     if region_id == "seoul" and any(x["source_id"] == "seoul-station-master-oa-21235" for x in snapshot()["sources"]):
@@ -146,6 +148,7 @@ def region_stations(region_id, date_start=None, date_end=None):
             for station in s]
 
 
+@data_cached
 def observed_dates(region_id, date_start=None, date_end=None):
     if database_enabled():
         where, values = _where(region_id, date_start, date_end)
@@ -156,6 +159,7 @@ def observed_dates(region_id, date_start=None, date_end=None):
                    if row["rental_count"] > 0})
 
 
+@data_cached
 def profiles(region_id, date_start=None, date_end=None):
     if database_enabled():
         where, values = _where(region_id, date_start, date_end)
@@ -219,6 +223,7 @@ def profiles(region_id, date_start=None, date_end=None):
     return list(by_id.values())
 
 
+@data_cached
 def overview(region_id, date_start=None, date_end=None):
     region = next(r for r in REGIONS if r["region_id"] == region_id)
     meta = source_meta(region_id)
@@ -273,7 +278,7 @@ def overview(region_id, date_start=None, date_end=None):
              "연도별 총 이용량만 확보해 대여소·시간대 자료가 없습니다.")}
 
 
-@lru_cache(maxsize=32)
+@data_cached
 def clusters(region_id, date_start=None, date_end=None):
     result = cluster_stations(profiles(region_id, date_start, date_end))
     days = observed_dates(region_id, date_start, date_end)
@@ -285,23 +290,23 @@ def clusters(region_id, date_start=None, date_end=None):
             "confidence_warning": warning}
 
 
-@lru_cache(maxsize=16)
-def cluster_stability(region_id, date_end=None):
-    dates = observed_dates(region_id, None, date_end)
+@data_cached
+def cluster_stability(region_id, date_end=None, date_start=None):
+    dates = observed_dates(region_id, date_start, date_end)
     if not dates:
         return {**source_meta(region_id), "available": False, "windows": [], "comparisons": [],
                 "message": "군집 안정성을 계산할 이용 기록이 없습니다."}
     end = date.fromisoformat(dates[-1])
     windows = []
     for size in (7, 14, 30):
-        start = (end - timedelta(days=size - 1)).isoformat()
+        start = max(date_start or dates[0], (end - timedelta(days=size - 1)).isoformat())
         result = clusters(region_id, start, end.isoformat())
         best_silhouette = max((x["silhouette"] for x in result.get("diagnostics", [])), default=None)
         warnings = []
         if result["observed_day_count"] < size:
             warnings.append(f"요청한 {size}일 중 {result['observed_day_count']}일만 관측되었습니다.")
-        if best_silhouette is not None and best_silhouette < 0.1:
-            warnings.append("최고 Silhouette가 0.1 미만이라 군집 분리가 약합니다.")
+        if best_silhouette is not None and best_silhouette < 0.2:
+            warnings.append("최고 Silhouette가 0.2 미만이라 군집 분리가 약합니다.")
         windows.append({"days": size, "date_start": start, "date_end": end.isoformat(),
             "observed_day_count": result["observed_day_count"], "available": result["available"],
             "selected_k": result.get("selected_k"), "diagnostics": result.get("diagnostics", []),
@@ -333,7 +338,7 @@ def _daily_station_flows(region_id, date_start=None, date_end=None):
     return [(sid, day, values[0], values[1]) for (sid, day), values in merged.items()]
 
 
-@lru_cache(maxsize=32)
+@data_cached
 def imbalance_result(region_id, date_start=None, date_end=None):
     station_names = {s["station_id"]: s.get("station_name") for s in snapshot()["stations"] if s["region_id"] == region_id}
     daily = defaultdict(list)
@@ -391,7 +396,7 @@ def imbalance_result(region_id, date_start=None, date_end=None):
             "message": "후보 임계값은 선택 기간의 실제 분포에서 계산합니다. 지속성은 0을 포함한 관측일 중 우세 방향의 비율입니다. 실제 재고가 없어 자전거 부족·재배치 필요를 확정하지 않습니다."}
 
 
-@lru_cache(maxsize=32)
+@data_cached
 def hidden_hubs(region_id, date_start=None, date_end=None, include_betweenness=True):
     records = aggregated_od(region_id, date_start, date_end)
     ids = {sid for row in records for sid in (row["origin_station_id"], row["destination_station_id"])}
@@ -432,6 +437,9 @@ def hidden_hubs(region_id, date_start=None, date_end=None, include_betweenness=T
         count = len(candidates)
         row["usage_percentile"] = round(1 - (row["usage_rank"] - 1) / max(1, count - 1), 4)
         row["pagerank_percentile"] = round(1 - (row["pagerank_rank"] - 1) / max(1, count - 1), 4)
+        if not include_betweenness:
+            row["betweenness"] = None
+            row["betweenness_rank"] = None
         row["candidate"] = bool(low_usage_threshold is not None and rank_gap_threshold is not None and
             row["rental_count"] <= low_usage_threshold and row["rank_gap"] >= rank_gap_threshold and
             row["pagerank"] >= (pagerank_threshold or 0))
@@ -450,8 +458,8 @@ def hidden_hubs(region_id, date_start=None, date_end=None, include_betweenness=T
 
 
 @lru_cache(maxsize=32)
-def hidden_hub_validation(region_id, station_id, date_end=None):
-    dates = observed_dates(region_id, None, date_end)
+def hidden_hub_validation(region_id, station_id, date_end=None, date_start=None):
+    dates = observed_dates(region_id, date_start, date_end)
     station = next((s for s in snapshot()["stations"] if s["region_id"] == region_id
                     and s["station_id"] == station_id), None)
     if station is None or not dates:
@@ -460,26 +468,37 @@ def hidden_hub_validation(region_id, station_id, date_end=None):
     end = date.fromisoformat(dates[-1])
     windows = []
     for size in (7, 14, 30):
-        start = (end - timedelta(days=size - 1)).isoformat()
+        start = max(date_start or dates[0], (end - timedelta(days=size - 1)).isoformat())
         result = hidden_hubs(region_id, start, end.isoformat(), include_betweenness=False)
         row = next((item for item in result.get("candidates", []) if item["station_id"] == station_id), None)
         profile = next((item for item in profiles(region_id, start, end.isoformat()) if item["station_id"] == station_id), None)
+        flow_result = imbalance_result(region_id, start, end.isoformat())
+        flow = next((x for x in flow_result.get("stations", []) if x["station_id"] == station_id), {})
+        grouping = next((x for x in clusters(region_id, start, end.isoformat()).get("clusters", []) if x["station_id"] == station_id), {})
+        hourly = (profile or {}).get("hourly") or []
+        volume_min = flow_result.get("selection_rule", {}).get("minimum_total_volume", 0)
         windows.append({"days": size, "date_start": start, "date_end": end.isoformat(),
             "observed_day_count": len(observed_dates(region_id, start, end.isoformat())),
+            "minimum_total_volume": volume_min,
+            "cluster_role": grouping.get("role"), "cluster_id": grouping.get("cluster_id"),
+            "peak_hour": hourly.index(max(hourly)) if hourly and sum(hourly) else None,
+            "peak_hour_share": max(hourly)/sum(hourly) if hourly and sum(hourly) else None,
+            "net_outflow": flow.get("net_outflow"), "persistence_ratio": flow.get("persistence_ratio"),
+            "persistent_direction": flow.get("persistent_direction"),
             "rental_count": profile.get("rental_count") if profile else None,
             "return_count": profile.get("return_count") if profile else None,
             **({key: row.get(key) for key in ("pagerank", "pagerank_rank", "pagerank_percentile", "usage_rank",
                 "usage_percentile", "betweenness", "betweenness_rank", "rank_gap", "candidate")} if row else {}),
             "minimum_observation_pass": bool(profile and len(observed_dates(region_id, start, end.isoformat())) >= size
-                and profile["rental_count"] + (profile.get("return_count") or 0) >= 100)})
-    full = hidden_hubs(region_id, None, date_end) if date_end else hidden_hubs(region_id)
+                and profile["rental_count"] + (profile.get("return_count") or 0) >= volume_min)})
+    full = hidden_hubs(region_id, date_start, date_end)
     detail = next((item for item in full.get("candidates", []) if item["station_id"] == station_id), None)
     if detail is None:
         return {**source_meta(region_id), "available": False, "station_id": station_id, "windows": windows,
                 "message": "선택 대여소가 유효한 OD 그래프에 포함되지 않았습니다."}
     candidate_windows = sum(bool(item.get("candidate")) for item in windows)
-    rank_span = max(item["pagerank_rank"] for item in windows if item.get("pagerank_rank")) - min(
-        item["pagerank_rank"] for item in windows if item.get("pagerank_rank"))
+    ranks = [item["pagerank_rank"] for item in windows if item.get("pagerank_rank")]
+    rank_span = max(ranks) - min(ranks) if ranks else None
     role = "기간 반복 검토 후보" if candidate_windows >= 2 else "연결 중요도 추가 검토 후보"
     return {**source_meta(region_id), "available": True, "station": station, "metrics": detail,
         "period_start": dates[0], "period_end": dates[-1], "windows": windows,
@@ -490,19 +509,19 @@ def hidden_hub_validation(region_id, station_id, date_end=None):
         "limitations": ["31일 서울 집계 OD 한 달만 검증해 계절 안정성을 판단할 수 없습니다.",
             f"매개 중심성은 {full.get('betweenness_sample_nodes')}개 노드 표본 근사입니다.",
             "PageRank·순위 차이만으로 환승 거점이나 운영 효과를 확정할 수 없습니다."],
-        "message": "7·14·30일 동일 종료일 창과 최소 100건·요청 일수 충족 여부를 함께 제시합니다."}
+        "message": "7·14·30일 동일 종료일 창을 선택 기간 안에서 비교합니다. 최소 관측량은 각 창의 총량 분포 하위 25% 제외 기준이며 요청 일수 충족 여부도 표시합니다."}
 
 
-@lru_cache(maxsize=64)
-def station_role_history(region_id, station_id, date_end=None):
-    dates = observed_dates(region_id, None, date_end)
+@data_cached
+def station_role_history(region_id, station_id, date_end=None, date_start=None):
+    dates = observed_dates(region_id, date_start, date_end)
     if not dates:
         return {**source_meta(region_id), "available": False, "station_id": station_id, "windows": [],
                 "message": "기간별 역할을 계산할 이용 기록이 없습니다."}
     end = date.fromisoformat(dates[-1])
     windows = []
     for size in (7, 14, 30):
-        start = (end - timedelta(days=size - 1)).isoformat()
+        start = max(date_start or dates[0], (end - timedelta(days=size - 1)).isoformat())
         end_text = end.isoformat()
         profile = next((row for row in profiles(region_id, start, end_text) if row["station_id"] == station_id), None)
         cluster = next((row for row in clusters(region_id, start, end_text).get("clusters", [])
@@ -518,6 +537,7 @@ def station_role_history(region_id, station_id, date_end=None):
         total = sum(hourly or [])
         windows.append({"days": size, "date_start": start, "date_end": end_text,
             "observed_day_count": len(observed_dates(region_id, start, end_text)),
+            "confidence_warning": "요청한 창보다 관측 기간이 짧습니다." if len(observed_dates(region_id, start, end_text)) < size else None,
             "rental_count": profile.get("rental_count") if profile else None,
             "return_count": profile.get("return_count") if profile else None,
             "peak_hour": max(range(24), key=lambda hour: hourly[hour]) if total else None,
@@ -530,8 +550,8 @@ def station_role_history(region_id, station_id, date_end=None):
     recent, baseline = windows[0], windows[-1]
     return {**source_meta(region_id), "available": any(row["rental_count"] is not None for row in windows),
             "station_id": station_id, "period_end": end.isoformat(), "windows": windows,
-            "role_change": {"cluster_changed": recent["cluster_id"] is not None and baseline["cluster_id"] is not None
-                and recent["cluster_id"] != baseline["cluster_id"],
+            "role_change": {"cluster_changed": recent["cluster_role"] is not None and baseline["cluster_role"] is not None
+                and recent["cluster_role"] != baseline["cluster_role"],
                 "weighted_degree_rank_change": (baseline["weighted_degree_rank"] - recent["weighted_degree_rank"])
                 if baseline["weighted_degree_rank"] is not None and recent["weighted_degree_rank"] is not None else None,
                 "peak_hour_changed": recent["peak_hour"] is not None and baseline["peak_hour"] is not None
@@ -548,7 +568,7 @@ def _weighted_degree_ranks(region_id, start, end):
     return degrees, {sid: index for index, sid in enumerate(ranked, 1)}, len(ranked)
 
 
-@lru_cache(maxsize=32)
+@data_cached
 def role_candidates(region_id, date_start=None, date_end=None):
     dates = observed_dates(region_id, date_start, date_end)
     if not dates:
@@ -572,7 +592,8 @@ def role_candidates(region_id, date_start=None, date_end=None):
                               key=lambda row: row["peak_hour_share"], reverse=True)
 
     end = date.fromisoformat(dates[-1])
-    recent_start, baseline_start = (end - timedelta(days=6)).isoformat(), (end - timedelta(days=29)).isoformat()
+    recent_start = max(date_start or dates[0], (end - timedelta(days=6)).isoformat())
+    baseline_start = max(date_start or dates[0], (end - timedelta(days=29)).isoformat())
     recent_profiles = {row["station_id"]: row for row in profiles(region_id, recent_start, end.isoformat())}
     baseline_profiles = {row["station_id"]: row for row in profiles(region_id, baseline_start, end.isoformat())}
     recent_clusters = {row["station_id"]: row for row in clusters(region_id, recent_start, end.isoformat()).get("clusters", [])}
@@ -628,7 +649,7 @@ def role_candidates(region_id, date_start=None, date_end=None):
         "message": "모든 임계값은 선택 데이터의 경험 분포에서 계산하며 후보는 운영상 검토 대상이지 실제 역할이나 효과의 확정이 아닙니다."}
 
 
-@lru_cache(maxsize=64)
+@data_cached
 def network(region_id, date_start=None, date_end=None, node_limit=40):
     records = aggregated_od(region_id, date_start, date_end)
     if not records:
@@ -656,13 +677,13 @@ def network(region_id, date_start=None, date_end=None, node_limit=40):
                         else "서울의 집계 OD 연결이며 개별 Trip 기록은 아닙니다.")}
 
 
-@lru_cache(maxsize=32)
-def centrality_result(region_id, date_start=None, date_end=None):
+@data_cached
+def centrality_result(region_id, date_start=None, date_end=None, include_betweenness=True):
     records = aggregated_od(region_id, date_start, date_end)
     ids = {s for row in records for s in (row["origin_station_id"], row["destination_station_id"])}
     stations = [s for s in snapshot()["stations"] if s["region_id"] == region_id and s["station_id"] in ids
                 and (region_id != "seoul" or (s["latitude"] is not None and s["longitude"] is not None))]
-    result = centrality(stations, records)
+    result = centrality(stations, records, include_betweenness=include_betweenness)
     return {**source_meta(region_id), **result, "rankings": result["rankings"][:100]}
 
 

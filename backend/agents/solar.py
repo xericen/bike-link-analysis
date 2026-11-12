@@ -3,6 +3,9 @@ import json
 import os
 import re
 import time
+
+from backend.agents.solar_checks import numeric_grounding, extrema_grounding, daily_extrema
+from backend.agents.solar_audit import CallAudit
 from datetime import date
 
 from fastapi import HTTPException
@@ -15,6 +18,8 @@ REGION_ALIASES = {"서울": "seoul", "따릉이": "seoul", "대전": "daejeon", 
 REGIONS = {r["region_id"] for r in real_data.REGIONS}
 METRICS = {"pagerank", "weighted_in_degree", "weighted_out_degree", "betweenness"}
 TOOL_DEFINITIONS = {
+    "get_transit_vulnerability": ("대중교통 정류장 500m 밖이며 실제 대여량이 있는 대여소 후보와 공간 시나리오. 실제 운영효과 아님", {"region_id":"string","date_range":"object"}, ["region_id"]),
+    "get_improvement_ranking": ("연계 취약도·실제 대여 수요·잠재 커버리지 기반 검토 순위. 근거와 가정 포함", {"region_id":"string","top_n":"integer","date_range":"object"}, ["region_id"]),
     "get_region_overview": ("지역의 관측 기간, 이용량, 시간대별 이용과 출처", {"region_id": "string", "date_range": "object"}, ["region_id"]),
     "get_station_details": ("대여소 실제 이용량, 좌표, 군집 세부 정보", {"region_id": "string", "station_id": "string", "date_range": "object"}, ["region_id", "station_id"]),
     "get_station_clusters": ("실제 이용 기록의 K-means 군집과 유형", {"region_id": "string", "date_range": "object"}, ["region_id"]),
@@ -75,9 +80,20 @@ def _top(value, default=5):
     return n
 
 
-def run_tool(name, arguments):
+def run_tool(name, arguments, context=None):
     """Return compact actual data. Invalid calls are explicit errors, never fabricated facts."""
     try:
+        arguments = dict(arguments) if isinstance(arguments, dict) else arguments
+        if context and isinstance(arguments, dict):
+            selected = context.get("region_ids", [])
+            if name == "compare_region_patterns":
+                ids = arguments.get("region_ids", selected)
+                if any(_region(rid) not in selected for rid in ids):
+                    raise ValueError("선택된 분석 도시 밖의 도구 호출입니다.")
+            elif _region(arguments.get("region_id")) not in selected:
+                raise ValueError("선택된 분석 도시 밖의 도구 호출입니다.")
+            if "date_range" in TOOL_DEFINITIONS.get(name, ("",{}))[1]:
+                arguments["date_range"] = {"date_start":context.get("date_start"), "date_end":context.get("date_end")}
         if name not in TOOL_DEFINITIONS or not isinstance(arguments, dict):
             raise ValueError("허용되지 않는 도구 또는 인자입니다.")
         allowed = set(TOOL_DEFINITIONS[name][1])
@@ -92,6 +108,12 @@ def run_tool(name, arguments):
             return real_data.compare(ids, start, end)
         region_id = _region(arguments.get("region_id"))
         start, end = _dates(arguments)
+        if context: start, end = context.get("date_start"), context.get("date_end")
+        if name in {"get_transit_vulnerability", "get_improvement_ranking"}:
+            from backend.services.vulnerability import analyze
+            result = analyze(region_id, start, end, top_n=_top(arguments.get("top_n")))
+            result.pop("candidates", None)
+            return result
         if name == "get_region_overview":
             result = real_data.overview(region_id, start, end)
             result.pop("map_stations", None)
@@ -110,11 +132,12 @@ def run_tool(name, arguments):
             result = real_data.clusters(region_id, start, end)
             return {**result, "clusters": result["clusters"][:20], "returned_count": min(20, len(result["clusters"]))}
         if name == "get_cluster_stability":
-            return real_data.cluster_stability(region_id, end)
+            return real_data.cluster_stability(region_id, end, start)
         if name == "get_station_imbalance":
             result = real_data.imbalance_result(region_id, start, end)
             top = _top(arguments.get("top_n"))
-            return {**result, "stations": result["stations"][:top], "returned_count": min(top, len(result["stations"]))}
+            ranked = sorted(result["stations"], key=lambda x:(bool(x.get("imbalance_candidate")), abs(x["net_outflow"])), reverse=True)
+            return {**result, "stations": ranked[:top], "returned_count": min(top, len(ranked))}
         if name == "get_hidden_hubs":
             result = real_data.hidden_hubs(region_id, start, end)
             top = _top(arguments.get("top_n"))
@@ -124,12 +147,12 @@ def run_tool(name, arguments):
             station_id = arguments.get("station_id")
             if not isinstance(station_id, str) or not station_id:
                 raise ValueError("station_id가 필요합니다.")
-            return real_data.hidden_hub_validation(region_id, station_id, end)
+            return real_data.hidden_hub_validation(region_id, station_id, end, start)
         if name == "get_station_role_history":
             station_id = arguments.get("station_id")
             if not isinstance(station_id, str) or not station_id:
                 raise ValueError("station_id가 필요합니다.")
-            return real_data.station_role_history(region_id, station_id, end)
+            return real_data.station_role_history(region_id, station_id, end, start)
         if name == "get_role_candidates":
             result = real_data.role_candidates(region_id, start, end)
             return {**result, "types": {key: rows[:5] for key, rows in result.get("types", {}).items()}}
@@ -137,13 +160,15 @@ def run_tool(name, arguments):
             metric = str(arguments.get("metric", "")).lower().replace("page_rank", "pagerank").replace("weighted_degree", "weighted_in_degree")
             if metric not in METRICS:
                 raise ValueError("metric은 pagerank, weighted_in_degree, weighted_out_degree, betweenness 중 하나여야 합니다.")
-            result = real_data.centrality_result(region_id, start, end)
-            rankings = sorted(result["rankings"], key=lambda x: x[metric], reverse=True)[:_top(arguments.get("top_n"))]
+            # PageRank needs neither hidden-hub connections nor sampled betweenness.
+            result = real_data.centrality_result(region_id, start, end, include_betweenness=metric != "pagerank")
+            full_rows = result["rankings"] if metric == "pagerank" else real_data.hidden_hubs(region_id, start, end)["candidates"]
+            rankings = sorted(full_rows, key=lambda x: x[metric], reverse=True)[:_top(arguments.get("top_n"))]
             usage = sorted((p for p in real_data.profiles(region_id, start, end) if p["rental_count"] is not None),
                            key=lambda p: p["rental_count"], reverse=True)
             usage_rank = {p["station_id"]: index for index, p in enumerate(usage, 1)}
             usage_count = {p["station_id"]: p["rental_count"] for p in usage}
-            rankings = [{**row, "centrality_rank": index,
+            rankings = [{**row, **({"betweenness": None} if metric == "pagerank" else {}), "centrality_rank": index,
                          "rental_count": usage_count.get(row["station_id"]),
                          "usage_rank": usage_rank.get(row["station_id"])}
                         for index, row in enumerate(rankings, 1)]
@@ -167,7 +192,7 @@ def run_tool(name, arguments):
             result = real_data.similarity_result(region_id, station_id, start, end)
             return {**result, "similar": result["similar"][:_top(arguments.get("top_n"))]}
         if name == "get_data_availability":
-            result = real_data.overview(region_id)
+            result = real_data.overview(region_id, start, end)
             return {k: result[k] for k in ("region_id", "region_name", "service_name", "sources",
                     "total_rentals", "annual_latest", "has_od", "coverage_note", "period_start", "period_end")}
     except (ValueError, TypeError) as exc:
@@ -195,7 +220,17 @@ def _report(question, answer, evidence):
             limitations.append(result["coverage_note"])
         if result.get("message") and result.get("available") is False:
             limitations.append(result["message"])
-        if call["tool"] == "get_region_overview":
+        if call["tool"] in {"get_transit_vulnerability","get_improvement_ranking"}:
+            algorithms.add("haversine + projected buffer union + empirical percentile ranking")
+            limitations.extend(result.get("limitations",[]))
+            if result.get("available"):
+                findings.append({"label": "정류장 500m 밖 실제 이용 후보", "value":result["candidate_count"], "unit":"개","region_id":result["city"]})
+                for row in result.get("ranking",[])[:3]:
+                    findings.append({"label":row["station_id"]+" 최근접 정류장 거리", "value":row["nearest_stop_distance_m"], "unit":"m","region_id":result["city"]})
+                    findings.append({"label":row["station_id"]+" 실제 대여", "value":row["rental_count"], "unit":"건","region_id":result["city"]})
+                    recommendations.append({"feature":"연계 취약 검토 후보", "evidence":row["station_id"]+" / "+str(row["nearest_stop_distance_m"])+"m",
+                        "action":"미수집 노선·실제 보행 경로·시설 접근성을 현장 확인하세요.", "expected_value":"검토 대상의 우선순위 참고", "additional_validation":"실제 환승·운영효과 자료 필요"})
+        elif call["tool"] == "get_region_overview":
             if result.get("total_rentals") is not None:
                 findings.append({"label": result["region_name"] + " 이용 건수", "value": result["total_rentals"],
                                  "unit": "건", "region_id": result["region_id"]})
@@ -203,6 +238,12 @@ def _report(question, answer, evidence):
                 annual = result["annual_latest"]
                 findings.append({"label": result["region_name"] + " 연간 이용량", "value": annual["rental_count"],
                                  "unit": "건", "region_id": result["region_id"], "period": str(annual["year"])})
+            if result.get("observed_dates"):
+                findings.append({"label":result["region_name"]+" 실제 관측일수","value":len(set(result["observed_dates"])),"unit":"일"})
+            for extreme in daily_extrema([call]):
+                label = "일별 최대" if extreme["kind"] == "maximum" else "일별 최소"
+                findings.append({"label":result["region_name"]+" "+label+" ("+", ".join(extreme["dates"])+")",
+                                 "value":extreme["value"],"unit":"건"})
             if result.get("daily"):
                 charts.append({"title": result["region_name"] + " 관측일 이용량", "kind": "daily", "points": result["daily"]})
         elif call["tool"] == "get_centrality_ranking" and result.get("available"):
@@ -235,7 +276,22 @@ def _report(question, answer, evidence):
                 findings.append({"label": top["station_id"] + " 순유출", "value": top["net_outflow"],
                                  "unit": "건", "region_id": call["arguments"].get("region_id", "")})
                 limitations.append(result["message"])
+                recommendations.append({"feature":top["station_id"]+" 대여·반납 방향성 검토",
+                    "evidence":"순유출 "+str(top["net_outflow"])+"건",
+                    "action":"시간대별 대여·반납과 현장 재고를 함께 관찰하세요.",
+                    "value":"불균형이 반복되는 시간과 원인을 추가 조사할 수 있습니다.",
+                    "validation":"관측 불균형만으로 재고 부족이나 재배치 효과를 확정할 수 없습니다."})
         elif call["tool"] == "get_hidden_hubs" and result.get("available"):
+            for row in result.get("candidates", [])[:3]:
+                if not row.get("candidate"): continue
+                findings.extend([
+                    {"label":row["station_id"]+" 이용량 순위","value":row["usage_rank"],"unit":"위"},
+                    {"label":row["station_id"]+" PageRank 순위","value":row["pagerank_rank"],"unit":"위"}])
+                recommendations.append({"feature":row["station_id"]+" 연결 중요도 검토",
+                    "evidence":"이용량 "+str(row["usage_rank"])+"위 / PageRank "+str(row["pagerank_rank"])+"위",
+                    "action":"상위 OD 연결과 현장 운영 상황을 함께 확인하세요.",
+                    "value":"이용량만으로 놓칠 수 있는 대여소를 검토합니다.",
+                    "validation":"관측 기간 반복성, 실제 재고·재배치 자료가 필요합니다."})
             algorithms.update(("PageRank", "betweenness centrality", "usage-centrality rank gap"))
             limitations.append(result["message"])
         elif call["tool"] == "get_hidden_hub_validation" and result.get("available"):
@@ -246,6 +302,16 @@ def _report(question, answer, evidence):
                              "period": result.get("period_end")})
             limitations.extend(result.get("limitations", []))
         elif call["tool"] == "get_station_role_history" and result.get("available"):
+            for window in result.get("windows", []):
+                if window.get("rental_count") is not None:
+                    findings.append({"label":result["station_id"]+" "+str(window["days"])+"일 창 대여",
+                        "value":window["rental_count"], "unit":"건"})
+                if window.get("confidence_warning"): limitations.append(window["confidence_warning"])
+            recommendations.append({"feature":result["station_id"]+" 기간별 역할 검토",
+                "evidence":"7·14·30일 관측 창의 실제 이용량·집중 시간·연결 순위 비교",
+                "action":"일시적인 변화인지 추가 기간 자료로 확인하세요.",
+                "value":"단기간 결과를 장기 역할로 단정하지 않도록 돕습니다.",
+                "validation":"군집 품질과 각 창의 실제 관측 일수를 함께 확인해야 합니다."})
             algorithms.update(("K-means period comparison", "weighted degree rank change"))
             limitations.append(result["message"])
         elif call["tool"] == "get_role_candidates" and result.get("available"):
@@ -258,7 +324,18 @@ def _report(question, answer, evidence):
             limitations.append(result["message"])
         elif call["tool"] == "find_similar_stations" and result.get("available"):
             algorithms.add("cosine similarity")
+            for row in result.get("similar", [])[:5]:
+                findings.append({"label":row["station_id"]+" 코사인 유사도","value":row["score"],"unit":"지표"})
+                if row.get("rental_count") is not None:
+                    findings.append({"label":row["station_id"]+" 대여","value":row["rental_count"],"unit":"건"})
         elif call["tool"] == "get_station_details" and result.get("available"):
+            station = result["station"]
+            for field, label in (("rental_count","대여"),("return_count","반납"),("net_outflow","순유출")):
+                if station.get(field) is not None:
+                    findings.append({"label":station["station_id"]+" "+label,"value":station[field],"unit":"건"})
+            if result.get("observed_dates"):
+                findings.append({"label":station["station_id"]+" 실제 관측일수","value":len(set(result["observed_dates"])),"unit":"일"})
+                periods.update((min(result["observed_dates"]),max(result["observed_dates"])))
             cluster = result.get("cluster")
             if cluster and cluster.get("role"):
                 roles.append({"station_id": result["station"]["station_id"], "role": cluster["role"],
@@ -271,8 +348,14 @@ def _report(question, answer, evidence):
                 findings.append({"label": result["region_name"] + " 연간 이용량", "value": annual["rental_count"],
                                  "unit": "건", "region_id": result["region_id"], "period": str(annual["year"])})
         elif call["tool"] == "compare_region_patterns":
+            algorithms.add("normalized hourly and weekday shares")
             limitations.extend(result.get("limitations", []))
             for row in result.get("regions", []):
+                hourly = row.get("hourly")
+                if hourly and sum(hourly):
+                    hour = hourly.index(max(hourly))
+                    findings.append({"label":row["region_name"]+" 대여 집중 시각","value":hour,"unit":"시","region_id":row["region_id"]})
+                    findings.append({"label":row["region_name"]+" 집중 시각 비중","value":round(max(hourly)/sum(hourly)*100,2),"unit":"%","region_id":row["region_id"]})
                 for source in row.get("sources", []):
                     entry = {"dataset_name": source.get("dataset_name"), "source_url": source.get("source_url"),
                              "verification_status": source.get("verification_status")}
@@ -324,71 +407,107 @@ def _report(question, answer, evidence):
 
 
 def _numeric_grounding(answer, evidence):
-    """Compare answer numbers with both numeric fields and identifiers/addresses returned by tools."""
-    pattern = r"(?<![A-Za-z-])\d[\d,]*(?:\.\d+)?"
-    evidence_numbers = set()
+    return numeric_grounding(answer, evidence)
+
+def _station_grounding(answer, evidence):
+    ids = set()
     def collect(value):
-        if isinstance(value, bool) or value is None:
-            return
-        if isinstance(value, (int, float)):
-            evidence_numbers.add(round(abs(float(value)), 8)); return
-        if isinstance(value, str):
-            for item in re.findall(pattern, value):
-                evidence_numbers.add(round(abs(float(item.replace(",", ""))), 8))
-        elif isinstance(value, dict):
+        if isinstance(value, dict):
             for child in value.values(): collect(child)
         elif isinstance(value, list):
             for child in value: collect(child)
+        elif isinstance(value, str):
+            ids.update(x.upper() for x in re.findall(r"ST-?\d+", value, flags=re.IGNORECASE))
     for item in evidence: collect(item.get("result"))
-    answer_numbers = [abs(float(value.replace(",", ""))) for value in re.findall(pattern, answer)]
-    checked = [value for value in answer_numbers if value > 30 and not 1900 <= value <= 2100]
-    unmatched = [value for value in checked if not any(abs(value - actual) <= max(1e-8, abs(actual) * 1e-6)
-                                                        for actual in evidence_numbers)]
-    return {"checked_numeric_tokens": len(checked), "matched_numeric_tokens": len(checked) - len(unmatched),
-            "unmatched_numeric_tokens": unmatched, "passed": not unmatched,
-            "method": "Solar 답변의 30 초과 수치를 도구 결과의 수치·식별자 문자열과 대조(연도 제외)"}
+    stated = set(x.upper() for x in re.findall(r"ST-?\d+", answer, flags=re.IGNORECASE))
+    missing = sorted(stated - ids)
+    return {"passed": not missing, "unmatched_station_ids": missing}
 
+def finalize_answer(question, answer, evidence, context=None, finish_reason=None, fallback_reason=None):
+    """Withhold unsupported model prose; retain it separately for inspection."""
+    grounding = _numeric_grounding(answer,evidence)
+    station_check = _station_grounding(answer,evidence)
+    semantic = extrema_grounding(answer,evidence)
+    report = _report(question,answer,evidence)
+    held = not grounding["passed"] or not station_check["passed"] or not semantic["passed"] or finish_reason == "length" or bool(fallback_reason)
+    original = answer
+    if held:
+        facts = report["key_findings"]
+        lines = [x["label"] + ": " + str(x["value"]) + x["unit"] for x in facts[:12]]
+        answer = ("Solar 최종 요약을 완료하지 못해 실제 도구 결과로 요약합니다.\n" if fallback_reason else "Solar 원문의 일부 주장을 검증하지 못해 실제 도구 결과로 요약합니다.\n") + "\n".join(lines)
+        if context:
+            answer += "\n분석 기간: " + str(context.get("date_start")) + " ~ " + str(context.get("date_end"))
+        answer += "\n서울 집계 OD와 대전 개별 Trip의 총량 배율로 운영 성과를 비교하지 않습니다. 재고 부족과 개선 효과는 추가 자료 없이 확정할 수 없습니다."
+        report = _report(question,answer,evidence)
+        report["limitations"].append("Solar 최종 요약 상태: "+fallback_reason if fallback_reason else "Solar 원문은 수치·대여소·일별 극값 또는 종료 상태 검증을 통과하지 못해 보류했습니다. 기본 본문은 실제 도구 값 요약입니다.")
+    return {"answer":answer,"solar_answer":original if held and original else None,
+            "answer_basis":"tool_summary" if held else "solar_interpretation",
+            "report":report,"grounding_validation":grounding,"station_validation":station_check,"semantic_validation":semantic,
+            "analysis_context":context, "model_finish_reason":finish_reason,"fallback_reason":fallback_reason}
 
-def chat(question):
+def chat(question, context=None):
     if not os.getenv("UPSTAGE_API_KEY"):
         raise HTTPException(503, "UPSTAGE_API_KEY가 없습니다. .env에 설정하세요.")
     if not isinstance(question, str) or not question.strip() or len(question) > 2000:
         raise HTTPException(400, "질문은 1~2000자로 입력하세요.")
+    if context:
+        from backend.services.periods import resolve
+        ids = list(dict.fromkeys(_region(rid) for rid in context.get("region_ids", [])))
+        if not ids: raise HTTPException(400, "분석 대상 도시를 지정하세요.")
+        start, end = resolve("all" if len(ids) > 1 else ids[0], context.get("date_start"), context.get("date_end"))
+        context = {"region_ids": ids, "date_start": start, "date_end": end}
     client = OpenAI(api_key=os.environ["UPSTAGE_API_KEY"], base_url="https://api.upstage.ai/v1",
-                    timeout=25.0, max_retries=0)
+                    timeout=45.0, max_retries=0)
     prompt = ("서울·대전·세종 공공자전거 분석가입니다. 질문에 맞는 실제 도구를 먼저 호출하세요. "
               "서울 OD는 집계이며 위치 ID는 공식 마스터 검증분만 사용합니다. 대전은 개별 Trip, "
-              "세종은 연간 총량만 있습니다. 관측 날짜는 불연속일 수 있습니다. "
-              "도구 수치와 대여소 ID를 그대로 인용하고 없는 값을 만들지 마세요. "
+               "세종은 연간 총량만 있습니다. 관측 날짜는 불연속일 수 있습니다. "
+              "대중교통 연계 취약 질문에는 get_transit_vulnerability 또는 get_improvement_ranking을 사용하세요. 정류장 데이터 미확보는 분석 불가이며 공간 버퍼 시나리오를 실제 환승률·운영 개선 효과로 말하지 마세요. "
+              "도구 수치와 대여소 ID를 그대로 인용하고 없는 값을 만들지 마세요. 일별 최대·최소는 daily 배열 전체를 비교해 날짜와 건수를 함께 인용하세요. 실제 관측일수는 observed_dates의 고유 날짜 수입니다. "
               "관측 사실·해석·운영 제안을 분리한 한국어 답변을 작성하세요. "
               "재고·재배치 자료가 없으므로 부족이나 재배치 필요를 단정하지 말고 PageRank를 환승의 증거로 단정하지 마세요. "
               "불균형은 대여-반납 관측값으로, 군집 안정성은 공통 대여소 ARI로만 설명하세요. "
               "답변은 핵심 발견, 분석 대상 및 기간, 실제 수치와 근거, 숨은 역할 판단 이유, 운영상 검토 조치, 추가 검증, 데이터 출처와 한계 순서로 구성하세요. "
-              "도구 오류나 자료 부족이면 불가능한 분석을 명시하세요.")
+              "중복 없이 짧은 한국어 문장 7개 안팎으로 답하고 대여소 사례는 최대 3개, 긴 표·목록은 쓰지 마세요. 도구 오류나 자료 부족이면 불가능한 분석을 명시하세요. 후보 flag가 true인 행만 후보로 설명하고, 관측일이 요청 창보다 짧으면 그 한계를 명시하세요. K-means는 이용 패턴이며 네트워크 연결 역할은 별도 중심성으로 판단하세요.")
+    if context:
+        prompt += " 화면에서 고정한 분석 조건(도구 인자보다 우선): " + json.dumps(context, ensure_ascii=False) + ". 다른 도시나 기간을 조회하지 마세요."
     messages = [{"role": "system", "content": prompt}, {"role": "user", "content": question}]
     evidence, usage = [], {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
     started = time.monotonic()
+    audit = CallAudit(os.getenv("UPSTAGE_MODEL", "solar-mini4"))
+    phase = "tool_selection"
+    def failure(code, message):
+        accounting = audit.summary()
+        if phase == "final_answer" and evidence:
+            result = finalize_answer(question, "", evidence, context, fallback_reason=message)
+            return {**result, **accounting, "evidence":evidence, "model":audit.calls[0].get("model"),
+                    "llm_status":"incomplete", "provider_error_code":code}
+        raise HTTPException(code, {"message":message,**accounting,"evidence":evidence,"llm_status":"failed"})
     try:
-        completion = client.chat.completions.create(model=os.getenv("UPSTAGE_MODEL", "solar-mini4"),
-            messages=messages, tools=TOOLS, tool_choice="required", max_tokens=550)
+        completion = audit.complete(client, "tool_selection", messages=messages, tools=TOOLS, tool_choice="required", max_tokens=550)
         if completion.usage:
             for key in usage: usage[key] += getattr(completion.usage, key, 0) or 0
         reply = completion.choices[0].message
         if not reply.tool_calls:
-            raise HTTPException(502, "Solar가 분석 도구를 선택하지 않았습니다.")
+            return failure(502, "Solar가 분석 도구를 선택하지 않았습니다.")
         messages.append(reply.model_dump(exclude_none=True))
         for call in reply.tool_calls:
             try: args = json.loads(call.function.arguments or "{}")
             except json.JSONDecodeError: args = {}
-            result = run_tool(call.function.name, args) if len(evidence) < 5 else {"error": "도구 호출 횟수 제한"}
+            if context and "date_range" in TOOL_DEFINITIONS.get(call.function.name, ("",{}))[1]:
+                args["date_range"] = {"date_start":context["date_start"], "date_end":context["date_end"]}
+            tool_started = time.monotonic()
+            result = run_tool(call.function.name, args, context) if len(evidence) < 5 else {"error": "도구 호출 횟수 제한"}
             if len(evidence) < 5:
-                evidence.append({"tool": call.function.name, "arguments": args, "result": result, "initiator": "solar"})
+                evidence.append({"tool": call.function.name, "arguments": args, "result": result, "initiator": "solar", "execution_seconds":round(time.monotonic()-tool_started,3)})
             messages.append({"role": "tool", "tool_call_id": call.id, "content": json.dumps(result, ensure_ascii=False, default=str)})
         ids = list(dict.fromkeys(REGION_ALIASES[word] for word in REGION_ALIASES if word in question))
+        if context: ids = context["region_ids"]
         if not ids:
             ids = [e["arguments"].get("region_id") for e in evidence if e["arguments"].get("region_id") in REGIONS][:1]
         dates = re.findall(r"\d{4}-\d{2}-\d{2}", question)
         date_range = {"date_start": dates[0], "date_end": dates[1]} if len(dates) > 1 else ({"date_start": dates[0], "date_end": dates[0]} if dates else {})
+        if context:
+            date_range = {"date_start":context["date_start"], "date_end":context["date_end"]}
         def ensure(name, args):
             if len(evidence) >= 8 or any(e["tool"] == name and not e["result"].get("error")
                 and REGION_ALIASES.get(e["arguments"].get("region_id"), e["arguments"].get("region_id")) == args.get("region_id")
@@ -398,8 +517,9 @@ def chat(question):
                 and (name != "compare_region_patterns" or e["arguments"].get("region_ids") == args.get("region_ids"))
                 for e in evidence):
                 return
-            result = run_tool(name, args)
-            evidence.append({"tool": name, "arguments": args, "result": result, "initiator": "metric_guard"})
+            tool_started = time.monotonic()
+            result = run_tool(name, args, context)
+            evidence.append({"tool": name, "arguments": args, "result": result, "initiator": "metric_guard", "execution_seconds":round(time.monotonic()-tool_started,3)})
             messages.append({"role": "system", "content": "필수 지표 검증 결과 " + name + ": " + json.dumps(result, ensure_ascii=False, default=str)})
         if len(ids) >= 2 and ("비교" in question or "차이" in question):
             ensure("compare_region_patterns", {"region_ids": ids[:4], "date_range": date_range})
@@ -434,11 +554,15 @@ def chat(question):
                     for item in ranking["rankings"][:3]:
                         ensure("get_station_details", {"region_id": rid, "station_id": item["station_id"],
                                                        "date_range": date_range})
+        facts = _report(question, "", evidence)["key_findings"]
+        messages.append({"role":"system","content":"서버에서 도구로 확정한 사실입니다. 최대·최소와 관측일수는 이 값을 우선 인용하세요: "+json.dumps(facts,ensure_ascii=False)})
         messages.append({"role": "system", "content": "이제 도구를 더 호출하지 마세요. 한국어 일반 문장만 작성하고 내부 도구 문법을 출력하지 마세요. 제공된 수치와 ID만 인용하세요. 오류가 난 도구 결과는 분석에 사용하지 마세요."})
-        if time.monotonic() - started > 70:
-            raise HTTPException(504, "분석 시간 제한을 초과했습니다.")
-        completion = client.chat.completions.create(model=os.getenv("UPSTAGE_MODEL", "solar-mini4"),
-            messages=messages, tools=TOOLS, tool_choice="none", max_tokens=850)
+        phase = "final_answer"
+        remaining = 100 - (time.monotonic() - started)
+        if remaining <= 0:
+            return failure(504, "분석 시간 제한을 초과했습니다.")
+        completion = audit.complete(client, "final_answer", messages=messages, tools=TOOLS,
+                                    tool_choice="none", max_tokens=450, timeout=min(45.0, remaining))
         if completion.usage:
             for key in usage: usage[key] += getattr(completion.usage, key, 0) or 0
         answer = completion.choices[0].message.content or ""
@@ -451,19 +575,15 @@ def chat(question):
             else:
                 answer = "요청한 분석을 뒷받침할 자료가 부족하거나 Solar의 답변 형식을 확인할 수 없습니다."
             if report["limitations"]: answer += " 한계: " + report["limitations"][0]
-        grounding = _numeric_grounding(answer, evidence)
-        report = _report(question, answer, evidence)
-        if unmatched:
-            report["limitations"].append("Solar 본문의 일부 수치가 도구 결과와 직접 일치하지 않아 원문 수치 사용을 보류해야 합니다.")
-        return {"answer": answer, "evidence": evidence, "report": report,
-                "usage": usage, "model": completion.model, "grounding_validation": grounding}
+        return {**finalize_answer(question, answer, evidence, context, getattr(completion.choices[0], "finish_reason", None)),
+                "evidence":evidence, **audit.summary(), "model":completion.model, "llm_status":"completed"}
     except AuthenticationError as exc:
-        raise HTTPException(502, "Solar 인증 오류: API 키를 확인하세요.") from exc
+        return failure(502, "Solar 인증 오류: API 키를 확인하세요.")
     except RateLimitError as exc:
-        raise HTTPException(429, "Solar 요청 한도에 도달했습니다. 잠시 후 다시 시도하세요.") from exc
+        return failure(429, "Solar 요청 한도에 도달했습니다. 잠시 후 다시 시도하세요.")
     except APITimeoutError as exc:
-        raise HTTPException(504, "Solar 응답 시간이 초과되었습니다.") from exc
+        return failure(504, "Solar 응답 시간이 초과되었습니다.")
     except APIConnectionError as exc:
-        raise HTTPException(502, "Solar 서버 연결에 실패했습니다.") from exc
+        return failure(502, "Solar 서버 연결에 실패했습니다.")
     except APIStatusError as exc:
-        raise HTTPException(502, f"Solar API 오류 (HTTP {exc.status_code})") from exc
+        return failure(502, f"Solar API 오류 (HTTP {exc.status_code})")

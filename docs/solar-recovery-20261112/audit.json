@@ -1,0 +1,241 @@
+{
+  "events": [
+    {
+      "timestamp": "2026-11-12T08:11:46.412269+00:00",
+      "request_id": "30cc501f90034fd991e0c27d9098c546",
+      "requested_model": "solar-mini4",
+      "call_number": 1,
+      "stage": "tool_selection",
+      "state": "pending",
+      "usage": null
+    },
+    {
+      "timestamp": "2026-11-12T08:11:47.089310+00:00",
+      "request_id": "30cc501f90034fd991e0c27d9098c546",
+      "requested_model": "solar-mini4",
+      "call_number": 1,
+      "stage": "tool_selection",
+      "state": "completed",
+      "usage": {
+        "prompt_tokens": 2336,
+        "completion_tokens": 16,
+        "total_tokens": 2352
+      },
+      "http_status": 200,
+      "response_id": "fc39f4cb-6c66-48a7-ac85-d78ea1d63e84",
+      "model": "solar-mini4-260922",
+      "finish_reason": "tool_calls"
+    },
+    {
+      "timestamp": "2026-11-12T08:11:47.123861+00:00",
+      "request_id": "30cc501f90034fd991e0c27d9098c546",
+      "requested_model": "solar-mini4",
+      "call_number": 2,
+      "stage": "final_answer",
+      "state": "pending",
+      "usage": null
+    },
+    {
+      "timestamp": "2026-11-12T08:11:50.791132+00:00",
+      "request_id": "30cc501f90034fd991e0c27d9098c546",
+      "requested_model": "solar-mini4",
+      "call_number": 2,
+      "stage": "final_answer",
+      "state": "completed",
+      "usage": {
+        "prompt_tokens": 3079,
+        "completion_tokens": 98,
+        "total_tokens": 3177
+      },
+      "http_status": 200,
+      "response_id": "26442eff-5f25-44f2-9fea-048275328e0f",
+      "model": "solar-mini4-260922",
+      "finish_reason": "stop"
+    },
+    {
+      "timestamp": "2026-11-12T08:11:51.247227+00:00",
+      "request_id": "c0e14c15c43843e5a53a7b539867b875",
+      "requested_model": "solar-mini4",
+      "call_number": 1,
+      "stage": "tool_selection",
+      "state": "pending",
+      "usage": null
+    },
+    {
+      "timestamp": "2026-11-12T08:11:53.532388+00:00",
+      "request_id": "c0e14c15c43843e5a53a7b539867b875",
+      "requested_model": "solar-mini4",
+      "call_number": 1,
+      "stage": "tool_selection",
+      "state": "completed",
+      "usage": {
+        "prompt_tokens": 2333,
+        "completion_tokens": 55,
+        "total_tokens": 2388
+      },
+      "http_status": 200,
+      "response_id": "ef34c191-a2d6-4e66-a894-e3bd2a59e7fe",
+      "model": "solar-mini4-260922",
+      "finish_reason": "tool_calls"
+    },
+    {
+      "timestamp": "2026-11-12T08:13:46.096130+00:00",
+      "request_id": "48ce56517e2f45df81e07b5b374fec43",
+      "requested_model": "solar-mini4",
+      "call_number": 1,
+      "stage": "tool_selection",
+      "state": "pending",
+      "usage": null
+    },
+    {
+      "timestamp": "2026-11-12T08:13:47.154326+00:00",
+      "request_id": "48ce56517e2f45df81e07b5b374fec43",
+      "requested_model": "solar-mini4",
+      "call_number": 1,
+      "stage": "tool_selection",
+      "state": "completed",
+      "usage": {
+        "prompt_tokens": 2351,
+        "completion_tokens": 28,
+        "total_tokens": 2379
+      },
+      "http_status": 200,
+      "response_id": "e7a07727-b317-4e7f-b366-0173d6c2b8a9",
+      "model": "solar-mini4-260922",
+      "finish_reason": "tool_calls"
+    },
+    {
+      "timestamp": "2026-11-12T08:13:47.765230+00:00",
+      "request_id": "48ce56517e2f45df81e07b5b374fec43",
+      "requested_model": "solar-mini4",
+      "call_number": 2,
+      "stage": "final_answer",
+      "state": "pending",
+      "usage": null
+    },
+    {
+      "timestamp": "2026-11-12T08:14:32.814066+00:00",
+      "request_id": "48ce56517e2f45df81e07b5b374fec43",
+      "requested_model": "solar-mini4",
+      "call_number": 2,
+      "stage": "final_answer",
+      "state": "failed",
+      "usage": null,
+      "error_type": "APITimeoutError",
+      "http_status": null
+    },
+    {
+      "timestamp": "2026-11-12T08:16:41.615898+00:00",
+      "request_id": "45e4edb8f25241669cced28b91f6f6f0",
+      "requested_model": "solar-mini4",
+      "call_number": 1,
+      "stage": "tool_selection",
+      "state": "pending",
+      "usage": null
+    },
+    {
+      "timestamp": "2026-11-12T08:16:43.456500+00:00",
+      "request_id": "45e4edb8f25241669cced28b91f6f6f0",
+      "requested_model": "solar-mini4",
+      "call_number": 1,
+      "stage": "tool_selection",
+      "state": "completed",
+      "usage": {
+        "prompt_tokens": 2333,
+        "completion_tokens": 55,
+        "total_tokens": 2388
+      },
+      "http_status": 200,
+      "response_id": "b82d6ed5-6552-4720-92e4-dc0523eb8ee5",
+      "model": "solar-mini4-260922",
+      "finish_reason": "tool_calls"
+    },
+    {
+      "timestamp": "2026-11-12T08:16:43.521632+00:00",
+      "request_id": "45e4edb8f25241669cced28b91f6f6f0",
+      "requested_model": "solar-mini4",
+      "call_number": 2,
+      "stage": "final_answer",
+      "state": "pending",
+      "usage": null
+    },
+    {
+      "timestamp": "2026-11-12T08:16:46.303218+00:00",
+      "request_id": "45e4edb8f25241669cced28b91f6f6f0",
+      "requested_model": "solar-mini4",
+      "call_number": 2,
+      "stage": "final_answer",
+      "state": "completed",
+      "usage": {
+        "prompt_tokens": 1627,
+        "completion_tokens": 81,
+        "total_tokens": 1708
+      },
+      "http_status": 200,
+      "response_id": "7f9a4ae4-5e4e-4d5f-9a1c-eb0e82dd8b42",
+      "model": "solar-mini4-260922",
+      "finish_reason": "stop"
+    },
+    {
+      "timestamp": "2026-11-12T08:16:46.741249+00:00",
+      "request_id": "cc15e9ebf2e0403d9f4d09497928aec6",
+      "requested_model": "solar-mini4",
+      "call_number": 1,
+      "stage": "tool_selection",
+      "state": "pending",
+      "usage": null
+    },
+    {
+      "timestamp": "2026-11-12T08:16:53.051944+00:00",
+      "request_id": "cc15e9ebf2e0403d9f4d09497928aec6",
+      "requested_model": "solar-mini4",
+      "call_number": 1,
+      "stage": "tool_selection",
+      "state": "completed",
+      "usage": {
+        "prompt_tokens": 2351,
+        "completion_tokens": 28,
+        "total_tokens": 2379
+      },
+      "http_status": 200,
+      "response_id": "34727fea-1593-461d-937c-d5838c8efbc9",
+      "model": "solar-mini4-260922",
+      "finish_reason": "tool_calls"
+    },
+    {
+      "timestamp": "2026-11-12T08:16:53.135723+00:00",
+      "request_id": "cc15e9ebf2e0403d9f4d09497928aec6",
+      "requested_model": "solar-mini4",
+      "call_number": 2,
+      "stage": "final_answer",
+      "state": "pending",
+      "usage": null
+    },
+    {
+      "timestamp": "2026-11-12T08:17:03.597258+00:00",
+      "request_id": "cc15e9ebf2e0403d9f4d09497928aec6",
+      "requested_model": "solar-mini4",
+      "call_number": 2,
+      "stage": "final_answer",
+      "state": "completed",
+      "usage": {
+        "prompt_tokens": 2351,
+        "completion_tokens": 324,
+        "total_tokens": 2675
+      },
+      "http_status": 200,
+      "response_id": "70b9b912-bb3d-4f60-8a1d-f9ce9c136a7e",
+      "model": "solar-mini4-260922",
+      "finish_reason": "stop"
+    }
+  ],
+  "attempted_provider_calls": 9,
+  "confirmed_http_200": 8,
+  "failed_calls_without_usage": 1,
+  "known_usage": {
+    "prompt_tokens": 18761,
+    "completion_tokens": 685,
+    "total_tokens": 19446
+  },
+  "billing_complete": false
+}

@@ -1,0 +1,11 @@
+{
+  "spark_version": "4.1.4",
+  "master": "local[*]",
+  "input_mode": "raw_zip",
+  "raw_rows": 8008537,
+  "deduplicated_rows": 7983605,
+  "duplicate_rows": 24932,
+  "admin_rows": 377867,
+  "valid_rows": 7605738,
+  "other_excluded_rows": 0
+}

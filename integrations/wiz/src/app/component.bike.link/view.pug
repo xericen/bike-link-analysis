@@ -1,0 +1,577 @@
+link(rel="stylesheet", href="/assets/bike-link/leaflet.css")
+main.bike-page([class.embedded]="embeddedRegion")
+    header.bike-header(*ngIf="!embeddedRegion")
+        div.brand-area
+            svg.brand-cycle(viewBox="0 0 70 50", fill="none", stroke="currentColor", stroke-width="2.6", aria-hidden="true")
+                circle(cx="15", cy="34", r="12")
+                circle(cx="54", cy="34", r="12")
+                path(d="M15 34 27 12 39 34 15 34m24 0 9-21 6 21M24 12h9M46 12h8")
+            div
+                strong Bike Link Analysis
+                span Team 234
+        div.title-area
+            h1 {{pageTitle()}}
+            p 대여소 이용·이동 관계 분석 · 지역별 현황 비교 · 데이터 기반 운영 제안
+        div.header-context
+            span.header-city {{allRegionsSelected ? '전체 도시' : nameOf(regionId)}}
+            span.header-period {{periodLabel()}}
+    div.bike-workspace
+        aside.bike-sidebar(*ngIf="!embeddedRegion")
+            nav.bike-nav(aria-label="Bike Link 분석 메뉴")
+                button(type="button", [class.active]="tab === 'dashboard'", (click)="changeTab('dashboard')")
+                    span.nav-icon
+                        svg(viewBox="0 0 24 24", fill="none", stroke="currentColor", stroke-width="1.7", stroke-linecap="round", stroke-linejoin="round", aria-hidden="true")
+                            path(d="M4 4h16v16H4z M8 8h3v3H8z M14 8h3 M14 11h3 M8 15h3 M14 15h3")
+                    | 대시보드
+                button(type="button", [class.active]="tab === 'stations'", (click)="changeTab('stations')")
+                    span.nav-icon
+                        svg(viewBox="0 0 24 24", fill="none", stroke="currentColor", stroke-width="1.7", stroke-linecap="round", stroke-linejoin="round", aria-hidden="true")
+                            path(d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10z")
+                    | 대여소 분석
+                button(type="button", [class.active]="tab === 'network'", (click)="changeTab('network')")
+                    span.nav-icon
+                        svg(viewBox="0 0 24 24", fill="none", stroke="currentColor", stroke-width="1.7", stroke-linecap="round", stroke-linejoin="round", aria-hidden="true")
+                            path(d="M5 6h.01 M19 6h.01 M12 18h.01 M7 7l4 9 M17 7l-4 9 M7 6h10 M5 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6 M19 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6 M12 15a3 3 0 1 0 0 6 3 3 0 0 0 0-6")
+                    | 이동 패턴 분석
+                button(type="button", [class.active]="tab === 'regions'", (click)="changeTab('regions')")
+                    span.nav-icon
+                        svg(viewBox="0 0 24 24", fill="none", stroke="currentColor", stroke-width="1.7", stroke-linecap="round", stroke-linejoin="round", aria-hidden="true")
+                            path(d="M3 7h17l-4-4 M21 17H4l4 4 M20 7l-4 4 M4 17l4-4")
+                    | 도시 간 비교
+                button(type="button", [class.active]="tab === 'agent'", (click)="changeTab('agent')")
+                    span.nav-icon
+                        svg(viewBox="0 0 24 24", fill="none", stroke="currentColor", stroke-width="1.7", stroke-linecap="round", stroke-linejoin="round", aria-hidden="true")
+                            path(d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3z")
+                    | AI 분석 리포트
+            div.sidebar-rule
+            div.sidebar-section
+                h2 분석 도시
+                button.city-option(type="button", [class.selected]="allRegionsSelected", [attr.aria-pressed]="allRegionsSelected", (click)="selectAllRegions()")
+                    span.city-check {{allRegionsSelected ? '✓' : ''}}
+                    | 전체
+                button.city-option(*ngFor="let region of regions", type="button", [class.selected]="!allRegionsSelected && regionId === region.region_id", (click)="selectRegion(region.region_id)")
+                    span.city-check {{!allRegionsSelected && regionId === region.region_id ? '✓' : ''}}
+                    | {{region.region_name}}
+            div.sidebar-section
+                h2 분석 기간
+                div.period-box {{periodLabel()}}
+                div.period-inputs
+                    label
+                        span 시작일
+                        input(type="date", aria-label="분석 시작일", [(ngModel)]="draftStart", [min]="minDate", [max]="maxDate", [disabled]="!minDate")
+                    label
+                        span 종료일
+                        input(type="date", aria-label="분석 종료일", [(ngModel)]="draftEnd", [min]="minDate", [max]="maxDate", [disabled]="!maxDate")
+                div.period-actions
+                    button(type="button", (click)="quickPeriod(7)", [disabled]="!maxDate") 7일
+                    button(type="button", (click)="quickPeriod(14)", [disabled]="!maxDate") 14일
+                    button(type="button", (click)="quickPeriod(30)", [disabled]="!maxDate") 30일
+                    button(type="button", (click)="applyPeriod()", [disabled]="!maxDate") 적용
+                p.period-error(*ngIf="periodError", role="alert") {{periodError}}
+                p.period-note {{minDate ? '선택 가능: ' + minDate + ' ~ ' + maxDate : '세종은 연간 자료만 제공'}}
+            div.sidebar-foot
+                span ●
+                | 공식 출처 확인 자료 · 가용 범위 표시
+        div.bike-content
+            ng-container
+                div.city-analysis-heading(*ngIf="embeddedRegion")
+                    h2 {{nameOf(regionId)}}
+                    p {{overview?.period_start || overview?.annual_latest?.year || '관측 기간 미확보'}} ~ {{overview?.period_end || overview?.annual_latest?.year || '관측 기간 미확보'}} · {{overview?.source_names?.join(' · ') || '공식 데이터 출처 확인 중'}}
+                    p {{overview?.coverage_note}}
+                p.loading(*ngIf="busy", role="status") 분석 자료를 불러오는 중입니다…
+                p.error(*ngIf="error", role="alert") {{error}}
+
+                p.empty(*ngIf="overview && overview.total_rentals === null && tab !== 'agent'") 선택 기간에 상세 이용 기록이 없습니다. 연간 통계는 별도 범위입니다.
+                section.dashboard-view(*ngIf="tab === 'dashboard' && overview")
+                    div.metric-grid.research-kpis
+                        article.metric-card
+                            span 분석 대여소
+                            strong {{overview.station_count === null ? 'N/A' : (overview.station_count | number)}}
+                            small 개소 · {{overview.region_name}}
+                        article.metric-card
+                            span 이용 기록
+                            strong {{overview.total_rentals === null ? 'N/A' : (overview.total_rentals | number)}}
+                            small 건 · {{overview.observed_dates?.length || 'N/A'}}일 관측
+                        article.metric-card
+                            span 숨은 연결 거점 후보
+                            strong {{research?.counts?.low_usage_high_connectivity ?? (researchBusy ? '분석 중' : 'N/A')}}
+                            small 도시 내 분포 기준 후보 · 확정 역할 아님
+                        article.metric-card
+                            span 불균형 후보
+                            strong {{research?.counts?.persistent_imbalance ?? (researchBusy ? '분석 중' : 'N/A')}}
+                            small 순유출·순유입 방향 지속성 기준
+                    article.panel.findings-panel
+                        div.panel-heading
+                            h3 이번 분석의 핵심 발견 TOP 3
+                            button.link-button(type="button", (click)="changeTab('network')") 연결 근거 보기 →
+                        p.loading(*ngIf="researchBusy") 실제 이용·연결·불균형 결과를 계산 중입니다…
+                        p.error(*ngIf="researchError") {{researchError}}
+                        div.findings-grid
+                            article.finding-card(*ngFor="let item of findings()", [ngClass]="item.tone")
+                                span.role-label {{item.label}}
+                                ng-container(*ngIf="item.row; else noFinding")
+                                    button.station-link(type="button", (click)="inspectStation(item.row.station_id, item.row.region_id)") {{item.row.region_name || ''}} {{item.row.station_id}}
+                                    p(*ngIf="item.kind === 'rank'") 이용량 {{item.row.usage_rank | number}}위 → PageRank {{item.row.pagerank_rank | number}}위
+                                    p(*ngIf="item.kind === 'time'") {{item.row.peak_hour}}시 이용 비중 {{item.row.peak_hour_share * 100 | number:'1.1-2'}}%
+                                    p(*ngIf="item.kind === 'flow'") 순유출 {{item.row.net_outflow | number}}건 · 방향 지속성 {{item.row.persistence_ratio * 100 | number:'1.1-1'}}%
+                                    small 관측 자료에 따른 운영 검토 후보입니다.
+                                ng-template(#noFinding="")
+                                    p {{researchBusy ? '계산 중' : '해당 분석 후보 미확보'}}
+                    article.panel(*ngIf="overview.annual_latest")
+                        h3 {{overview.region_name}} 연간 이용량
+                        strong {{overview.annual_latest.rental_count | number}}건 · {{overview.annual_latest.year}}년
+                        p.panel-note 상세 이용·대여소·OD 데이터 미확보
+                    p.coverage(*ngIf="allRegionsSelected") {{overview.coverage_note}} · 도시별 K-means·후보 판정 결과를 하나로 모아 표시합니다.
+                    article.panel(*ngFor="let annual of overview.annual_separate || []")
+                        h3 {{annual.region_name}} 연간 이용 통계 · 통합 이용 합계 제외
+                        strong {{annual.rental_count | number}}건 · {{annual.year}}년
+                    div.dashboard-main
+                        article.panel.map-panel
+                            div.leaflet-map([id]="'bike-leaflet-map-' + regionId", *ngIf="overview.map_stations?.length", role="img", aria-label="공공자전거 대여소 지도")
+                            div.map-title {{overview.region_name}} 대여소 역할별 지도
+                            div.map-key
+                                strong 실제 대여소 좌표
+                                span 최대 120개 위치 표본
+                                small 파랑 기타/미표시 · 청록 연결 · 주황 불균형 · 보라 집중
+                            p.empty(*ngIf="!overview.map_stations?.length") 위치 좌표가 확보되지 않았습니다.
+                        article.panel
+                            h3 주요 지표 현황
+                            p.panel-note 시간대별 대여 비중 · 단위: 건
+                            div.bar-chart.compact-chart(*ngIf="overview.hourly")
+                                div.bar-item(*ngFor="let bar of hourBars(overview.hourly)")
+                                    div.bar([style.height.%]="bar.height", [attr.title]="bar.hour + '시 · ' + bar.value + '건'")
+                                    span(*ngIf="bar.hour % 4 === 0") {{bar.hour}}시
+                            p.empty(*ngIf="!overview.hourly") 시간대 자료 미확보
+                    div.research-bottom
+                        article.panel
+                            h3 주요 연결 거점 TOP 5
+                            p.panel-note PageRank · 전체 유효 OD 그래프에서 계산
+                            div.rank-row(*ngFor="let item of dashboardRank?.rankings | slice:0:5; let i = index")
+                                span.rank {{i + 1}}
+                                button.station-link(type="button", (click)="inspectStation(item.original_station_id || item.station_id, item.region_id)") {{item.station_id}}
+                                strong {{item.station_name}}
+                                em {{item.pagerank | number:'1.4-4'}}
+                            p.empty(*ngIf="!dashboardRank?.rankings?.length") 연결 자료 미확보
+                        article.panel.cluster-card
+                            h3 K-means 대여소 유형
+                            ng-container(*ngTemplateOutlet="clusterPlot")
+                        article.panel
+                            h3 시간대별 이용 패턴
+                            p.panel-note 실제 관측일 × 24시간
+                            div.heatmap
+                                div.heatmap-row(*ngFor="let row of dashboardExtra?.heatmap")
+                                    span {{row.date.slice(5)}}
+                                    div.heat-cells
+                                        span.heat-cell(*ngFor="let value of row.hours", [style.background]="heatColor(value)", [attr.title]="row.date + ' · ' + value + '건'")
+                            p.empty(*ngIf="!dashboardExtra?.heatmap?.length") 시간대 자료 미확보
+                    details.panel.legacy-details
+                        summary OD 이동 흐름 및 기존 상세 지표
+                        p.panel-note 실제 자료 중 상위 연결 · 동일 대여소 출발·도착 제외
+                        div.od-table(*ngIf="dashboardNetwork?.available")
+                            div.od-row(*ngFor="let edge of dashboardNetwork.edges")
+                                span {{edge.origin_station_id}} → {{edge.destination_station_id}}
+                                strong {{edge.trip_count | number}}건
+                    p.dashboard-disclaimer {{overview.coverage_note}} · {{periodLabel()}} · {{overview.source_names?.join(' · ')}}
+
+                section.station-view(*ngIf="tab === 'stations'")
+                    div.section-heading
+                        div
+                            h2 대여소 이용 특성 분석
+                            p 시간대 패턴 · 군집 유형 · 유사 대여소 · 기간별 변화 분석
+                    div.station-toolbar
+                        input(type="search", [(ngModel)]="stationSearch", (keyup.enter)="searchStations()", placeholder="대여소명 또는 ID 검색", aria-label="대여소 검색")
+                        button.primary-button(type="button", (click)="searchStations()") 검색
+                        select(aria-label="대여소 선택", (change)="openStation({station_id: $any($event.target).value})")
+                            option(*ngFor="let station of stations", [value]="station.station_key || station.station_id", [selected]="(selectedStation?.station?.station_key || selectedStation?.station?.station_id) === (station.station_key || station.station_id)") {{station.region_name || ''}} {{station.station_id}} · {{station.station_name}}
+                        small 검색 결과 {{stationTotal | number}}개 · 이용량 상위 50개
+                    div.metric-grid.research-kpis
+                        article.metric-card
+                            span 선택 대여소
+                            strong {{selectedStation?.station?.station_id || '선택 대기'}}
+                            small 분석의 기준이 되는 대여소
+                        article.metric-card
+                            span 군집 유형
+                            strong.kpi-text {{selectedStation?.cluster?.role || 'N/A'}}
+                            small 군집 품질에 따라 해석 보류 가능
+                        article.metric-card
+                            span 집중 시간
+                            strong {{peakHour() === null ? 'N/A' : peakHour() + '시'}}
+                            small 실제 시간대별 대여량의 최댓값
+                        article.metric-card
+                            span 유사 대여소
+                            strong {{selectedStation?.similarity?.similar?.length ? (selectedStation.similarity.similar.length > 5 ? 5 : selectedStation.similarity.similar.length) + '개' : 'N/A'}}
+                            small 정규화 패턴 코사인 유사도
+                    div.reference-grid
+                        article.panel
+                            h3 선택 대여소 핵심 해석
+                            ng-container(*ngIf="selectedStation")
+                                strong.selected-station {{selectedStation.station.region_name || ''}} {{selectedStation.station.station_id}}
+                                p.panel-note {{selectedStation.station.station_name}}
+                                p.coverage {{selectedStation.cluster?.description || '군집 분석에 필요한 이용 기록이 없습니다.'}}
+                                div.detail-metrics
+                                    div
+                                        span 총 대여
+                                        strong {{selectedStation.station.rental_count === null ? 'N/A' : (selectedStation.station.rental_count | number)}}
+                                    div
+                                        span 총 반납
+                                        strong {{selectedStation.station.return_count === null ? 'N/A' : (selectedStation.station.return_count | number)}}
+                                    div
+                                        span 순유출
+                                        strong {{selectedStation.station.net_outflow === null ? 'N/A' : (selectedStation.station.net_outflow | number)}}
+                            p.empty(*ngIf="!selectedStation") 대여소를 선택하면 실제 분석 결과가 표시됩니다.
+                        article.panel.cluster-card
+                            h3 K-means 군집 정보
+                            ng-container(*ngTemplateOutlet="clusterPlot")
+                        article.panel
+                            h3 시간대별 이용 패턴
+                            p.chart-legend
+                                span 대여
+                                span.mint-text 반납
+                            svg.line-chart(viewBox="0 0 300 110", role="img", aria-label="선택 대여소 시간대별 대여 반납 패턴")
+                                path(d="M8 16H292 M8 40H292 M8 65H292 M8 90H292", stroke="#e4eefb", fill="none")
+                                polyline(*ngFor="let line of stationLines()", [attr.points]="line.points", [attr.stroke]="line.color", fill="none", stroke-width="2")
+                                text(x="8", y="106") 0시
+                                text(x="75", y="106") 6시
+                                text(x="145", y="106") 12시
+                                text(x="215", y="106") 18시
+                                text(x="277", y="106") 23시
+                            p.panel-note 동일 축 · 단위: 건 · {{periodLabel()}}
+                        article.panel
+                            h3 유사 대여소 TOP 5
+                            table.data-table
+                                thead
+                                    tr
+                                        th 순위
+                                        th 대여소
+                                        th 코사인 유사도
+                                tbody
+                                    tr(*ngFor="let item of selectedStation?.similarity?.similar | slice:0:5; let i = index")
+                                        td {{i + 1}}
+                                        td
+                                            button.station-link(type="button", (click)="openStation(item)") {{item.station_id}}
+                                        td {{item.score | number:'1.3-3'}}
+                            p.empty(*ngIf="!selectedStation?.similarity?.similar?.length") 비교할 이용 기록이 없습니다.
+                    div.research-bottom
+                        article.panel
+                            h3 최근 7일 vs 30일 패턴 비교
+                            button.link-button(type="button", (click)="loadHistory()", [disabled]="historyBusy || !selectedStation") {{historyBusy ? '기간별 분석 계산 중…' : '기간별 실제 분석 불러오기'}}
+                            div.history-chart(*ngIf="history")
+                                div(*ngFor="let row of historyBars()")
+                                    i([style.height.%]="row.height", [attr.title]="row.days + '일 창 · 일평균 ' + row.mean + '건'")
+                                    span {{row.days}}일
+                            p.panel-note(*ngIf="history") 단위: 관측일당 평균 대여 건수 · 비교 창은 선택 기간 안으로 제한
+                            div.history-row(*ngFor="let item of history?.windows")
+                                strong {{item.days}}일
+                                span {{item.rental_count | number}}건
+                                span 집중 {{item.peak_hour}}시
+                                small {{item.date_start}} ~ {{item.date_end}} · {{item.confidence_warning || '관측일 충족'}}
+                        article.panel
+                            h3 기간별 역할 변화
+                            p(*ngIf="!history") 왼쪽에서 기간별 분석을 실행하면 표시됩니다.
+                            p(*ngFor="let item of history?.windows") {{item.days}}일: {{item.cluster_role || 'N/A'}} · 가중 연결 {{item.weighted_degree_rank || 'N/A'}}위
+                            p.panel-note {{history?.message || '군집 번호만으로 같은 역할을 단정하지 않습니다.'}}
+                        article.panel
+                            h3 분석 해석 요약
+                            p.coverage 실제 수치로 확인한 이용 패턴과 연결 특성을 운영 검토에 활용하세요. 재고량·재배치 자료 없이 자전거 부족이나 운영 효과를 확정할 수 없습니다.
+                            button.primary-button(type="button", (click)="changeTab('network')") 이동 패턴 분석으로 이동 →
+                    details.panel
+                        summary 대여소 전체 검색 목록
+                        div.station-list
+                            button.station-row(*ngFor="let station of stations", type="button", (click)="openStation(station)")
+                                span {{station.region_name || ''}} {{station.station_id}} · {{station.station_name}}
+                                em {{station.rental_count | number}}건
+                    p.observed {{periodLabel()}} · {{selectedStation?.source?.source_names?.join(' · ')}} · 전체 이용량과 정규화 패턴은 다른 지표입니다.
+
+                section.network-view(*ngIf="tab === 'network'")
+                    div.section-heading
+                        div
+                            h2 이동 패턴 분석
+                            p OD 연결 구조 · 불균형 · 숨은 연결 거점 분석
+                    div.metric-grid.research-kpis
+                        article.metric-card
+                            span 전체 OD 연결
+                            strong {{network?.available ? (network.edge_count | number) : 'N/A'}}
+                            small 지역 내 실제 연결 관계
+                        article.metric-card
+                            span 표시 연결
+                            strong {{network?.available ? network.edges.length : 'N/A'}}
+                            small PageRank 상위 노드 사이의 상위 20개
+                        article.metric-card
+                            span 숨은 연결 거점 후보
+                            strong {{research?.counts?.low_usage_high_connectivity ?? 'N/A'}}
+                            small 이용량 대비 중심성 순위 차이
+                        article.metric-card
+                            span 불균형 후보
+                            strong {{research?.counts?.persistent_imbalance ?? 'N/A'}}
+                            small 데이터 분포·지속성 기준
+                    article.panel
+                        div.panel-heading
+                            h3 핵심 발견
+                            span.source-pill {{network?.period_start}} ~ {{network?.period_end}}
+                        p.loading(*ngIf="researchBusy") 후보의 실제 근거를 계산 중입니다…
+                        div.findings-grid
+                            article.finding-card(*ngFor="let item of findings()", [ngClass]="item.tone")
+                                span.role-label {{item.label}}
+                                strong {{item.row?.region_name || ''}} {{item.row?.station_id || '미확보'}}
+                                p(*ngIf="item.kind === 'rank' && item.row") 이용량 {{item.row.usage_rank}}위 → PageRank {{item.row.pagerank_rank}}위 · 차이 +{{item.row.rank_gap}}
+                                p(*ngIf="item.kind === 'time' && item.row") {{item.row.peak_hour}}시 비중 {{item.row.peak_hour_share * 100 | number:'1.1-1'}}%
+                                p(*ngIf="item.kind === 'flow' && item.row") 순유출 {{item.row.net_outflow | number}}건
+                    article.panel.transit-panel
+                        div.panel-heading
+                            h3 대중교통 연계 취약 후보·개선 시나리오
+                            span.source-pill {{transitResult?.period_start || dateStart}} ~ {{transitResult?.period_end || dateEnd}}
+                        p.loading(*ngIf="transitBusy") 실제 정류장 거리·대여량·공간 버퍼를 계산 중입니다…
+                        p.empty(*ngIf="transitError") {{transitError}}
+                        p(*ngIf="transitResult") {{transitResult.message || '확보된 정류장 범위에서 계산한 검토 후보입니다.'}}
+                        div(*ngIf="transitResult?.available")
+                            p.panel-note 정류장 500m 초과 + 실제 대여량 존재 · {{transitResult.candidate_count}}개 후보. 주황색 마커 클릭 시 대여소 분석으로 이동합니다.
+                            label
+                                input(type="checkbox", [checked]="transitVisible", (change)="toggleTransit()")
+                                |  취약 후보 레이어 표시
+                            div#bike-transit-map(style="height:320px; margin:12px 0; border-radius:12px", role="region", aria-label="대중교통 연계 취약 후보 지도")
+                            table.data-table
+                                thead
+                                    tr
+                                        th 도시·대여소
+                                        th 최근접 거리(m)
+                                        th 대여량(건)
+                                        th 검토 점수
+                                tbody
+                                    tr(*ngFor="let row of transitResult.ranking")
+                                        td
+                                            button(type="button", (click)="inspectStation(row.station_id,row.region_id)") {{nameOf(row.region_id)}} {{row.station_id}}
+                                        td {{row.nearest_stop_distance_m | number:'1.1-1'}}
+                                        td {{row.rental_count | number}}
+                                        td {{row.score | number:'1.3-3'}}
+                            div(*ngFor="let city of transitResult.cities")
+                                p(*ngIf="city.scenario") {{nameOf(city.city)}} 공간 시나리오: {{city.scenario.baseline_area_m2 / 1000000 | number:'1.3-3'}} → {{city.scenario.linked_area_m2 / 1000000 | number:'1.3-3'}} km² · +{{city.scenario.area_increase_ratio * 100 | number:'1.3-3'}}% · 커버 대여소 {{city.scenario.baseline_station_count}} → {{city.scenario.linked_station_count}}개
+                                p.panel-note(*ngIf="!city.available") {{nameOf(city.city)}}: 정류장 자료 미확보 · 연계 지표 N/A
+                            details
+                                summary 계산 기준·출처·한계
+                                p.panel-note 점수는 도시 내 취약도·대여량·잠재 추가 면적 백분위의 동등 가중 평균입니다. 실제 운영 효과·환승률이 아닙니다.
+                                p.panel-note 도보 500m 버퍼에 그 안의 대여소 300m 버퍼를 추가한 기하학적 시나리오입니다. 인구·보행망·행정 경계 자료 미확보로 인구 효과는 N/A입니다.
+                                p.panel-note 서울 지하철은 1~8호선 일부 운영기관 범위입니다. 미수집 노선으로 후보가 과대 탐지될 수 있습니다.
+                                a(href="https://data.seoul.go.kr/dataList/OA-15067/S/1/datasetView.do", target="_blank", rel="noopener") 서울 버스정류소 위치정보
+                                |  · 
+                                a(href="https://data.seoul.go.kr/dataList/OA-22534/F/1/datasetView.do", target="_blank", rel="noopener") 서울교통공사 역사 좌표
+                    div.network-layout(*ngIf="network?.available")
+                        article.panel.network-hero
+                            div.panel-heading
+                                h3 숨은 연결 거점과 이동 네트워크
+                                span.source-pill 지리적 위치가 아닌 연결 도식
+                            svg.network-map(viewBox="0 0 100 100", role="img", aria-label="상위 이동 연결 그래프")
+                                defs
+                                    marker([id]="'bike-arrow-' + regionId", markerWidth="5", markerHeight="5", refX="4", refY="2.5", orient="auto")
+                                        path(d="M0 0 L5 2.5 L0 5", fill="#67a8e9")
+                                line(*ngFor="let edge of graphEdges", [attr.x1]="edge.x1", [attr.y1]="edge.y1", [attr.x2]="edge.x2", [attr.y2]="edge.y2", stroke="#7ca7e4", [attr.stroke-width]="networkEdgeWidth(edge.trip_count)", [attr.marker-end]="'url(#bike-arrow-' + regionId + ')'")
+                                    title {{edge.origin_station_id}} → {{edge.destination_station_id}} · {{edge.trip_count}}건
+                                g(*ngFor="let node of graphNodes", role="button", tabindex="0", [attr.aria-label]="node.id + ' 대여소 분석 열기'", (click)="selectGraphNode(node.id)", (keydown.enter)="selectGraphNode(node.id)")
+                                    circle([attr.cx]="node.x", [attr.cy]="node.y", r="3", fill="#20b9b0", stroke="#fff", stroke-width=".8")
+                                        title {{node.id}}
+                                    text([attr.x]="node.x", [attr.y]="node.y + 5", text-anchor="middle", font-size="2.4", fill="#244461") {{node.name}}
+                            p.panel-note 전체 그래프의 PageRank로 노드를 고른 뒤 연결 상위 12개만 도식화합니다. 순위는 전체 그래프 기준입니다.
+                        div
+                            article.panel
+                                h3 숨은 연결 거점 TOP 5
+                                table.data-table
+                                    thead
+                                        tr
+                                            th 대여소
+                                            th 이용량 순위
+                                            th PageRank 순위
+                                            th 차이
+                                    tbody
+                                        tr(*ngFor="let item of research?.types?.low_usage_high_connectivity | slice:0:5")
+                                            td {{item.station_id}}
+                                            td {{item.usage_rank}}
+                                            td {{item.pagerank_rank}}
+                                            td.positive +{{item.rank_gap}}
+                            article.panel
+                                h3 주요 거점 PageRank
+                                div.rank-row(*ngFor="let item of centrality?.rankings | slice:0:5; let i = index")
+                                    span.rank {{i + 1}}
+                                    strong {{item.station_id}}
+                                    em {{item.pagerank | number:'1.4-4'}}
+                                    small 가중 입차수 {{item.weighted_in_degree | number}} / 출차수 {{item.weighted_out_degree | number}}
+                    p.empty(*ngIf="network && !network.available") {{network.message}}
+                    div.research-bottom
+                        article.panel
+                            h3 시간대별 대여·반납 불균형
+                            p.panel-note {{research?.types?.persistent_imbalance?.[0]?.station_id || '후보 미확보'}} · 순유출 = 대여 − 반납
+                            div.signed-chart
+                                div.signed-column(*ngFor="let bar of flowBars()")
+                                    i([class.negative]="bar.value < 0", [style.height.%]="bar.height", [style.bottom.%]="bar.value < 0 ? 50 - bar.height : 50", [attr.title]="bar.hour + '시 · ' + bar.value + '건'")
+                            p.panel-note 파랑: 순유출 · 분홍: 순유입 · 재고 부족을 뜻하지 않음
+                        article.panel
+                            h3 주요 OD 연결 TOP 10
+                            div.od-row(*ngFor="let edge of network?.edges | slice:0:10")
+                                span {{edge.origin_station_id}} → {{edge.destination_station_id}}
+                                strong {{edge.trip_count | number}}건
+                        article.panel
+                            h3 해석 가이드
+                            p.coverage 연결 중심성이 높은 대여소는 이용량이 많다는 의미와 반드시 같지 않으며, 이동 네트워크에서 중요한 연결 역할을 수행할 수 있습니다.
+                            p.panel-note 매개 중심성은 {{centrality?.betweenness_sample_nodes || 'N/A'}}개 노드 표본 근사입니다. 서울은 집계 OD, 대전은 개별 Trip입니다.
+                    p.coverage(*ngIf="allRegionsSelected") 서울·대전 공통 기간의 통합 그래프입니다. 도시 간 이동 간선은 없으며 세종은 OD 미확보로 네트워크에 포함되지 않습니다.
+                    p.observed {{network?.period_start}} ~ {{network?.period_end}} · {{network?.source_names?.join(' · ')}}
+
+                section.regions-view(*ngIf="tab === 'regions'")
+                    div.section-heading
+                        div
+                            h2 도시 간 비교
+                            p 공통 기간 비교 · 시간대 비율 · 요일 비중 · 세종 연간 추세
+                    div.compare-controls
+                        button(*ngFor="let region of regions", type="button", [class.selected]="compareRegions.includes(region.region_id)", (click)="toggleCompareRegion(region.region_id)") {{compareRegions.includes(region.region_id) ? '✓ ' : '+ '}}{{region.region_name}}
+                        small 현재 {{compareRegions.length}}개 도시
+                    div.metric-grid.research-kpis
+                        article.metric-card
+                            span 비교 도시 수
+                            strong {{selectedCompareItems().length}}개
+                        article.metric-card
+                            span 상세 OD 지원
+                            strong 서울 · 대전
+                        article.metric-card
+                            span 공통 분석 기간
+                            strong.kpi-text {{compare?.common_start || 'N/A'}} ~ {{compare?.common_end || 'N/A'}}
+                        article.metric-card
+                            span 세종 지원 범위
+                            strong.kpi-text 연간 추세
+                    article.panel
+                        h3 비교 해석 원칙
+                        p.coverage 서울 집계 OD와 대전 개별 Trip은 원본 단위가 다릅니다. 총량의 단순 비교 대신 공통 관측 기간의 시간대·요일 비율을 살펴봅니다. 세종의 연간 통계는 별도입니다.
+                    div.reference-grid
+                        article.panel(*ngIf="compareRegions.includes('seoul') && compareRegions.includes('daejeon')")
+                            h3 시간대 이용 비율 비교
+                            p.chart-legend
+                                span(*ngFor="let line of comparisonLines()", [style.color]="line.color") {{line.name}}
+                            svg.line-chart(viewBox="0 0 300 110", role="img", aria-label="공통 기간 도시별 시간대 이용 비율")
+                                path(d="M8 16H292 M8 40H292 M8 65H292 M8 90H292", stroke="#e4eefb", fill="none")
+                                polyline(*ngFor="let line of comparisonLines()", [attr.points]="line.points", [attr.stroke]="line.color", fill="none", stroke-width="2")
+                                text(x="8", y="106") 0시
+                                text(x="145", y="106") 12시
+                                text(x="277", y="106") 23시
+                            p.panel-note {{compare?.common_start}} ~ {{compare?.common_end}} · 도시별 대여 합계 대비 비율(%) · 동일 축
+                        article.panel(*ngIf="compareRegions.includes('seoul') && compareRegions.includes('daejeon')")
+                            h3 요일별 이용 비중 비교
+                            div.weekday-chart
+                                div.weekday-group(*ngFor="let row of weekdayRows()")
+                                    div.weekday-bars
+                                        i(*ngFor="let value of row.values; let i = index", [style.height.%]="value === null ? 0 : value * 4", [style.background]="i ? '#13b99b' : '#2787f5'", [attr.title]="(i ? '대전' : '서울') + ' ' + row.name + '요일 · ' + value + '%'")
+                                    span {{row.name}}
+                            p.panel-note 공통 기간 · 도시별 전체 대여 대비 요일 비중(%) · 서울 파랑 / 대전 청록
+                        article.panel
+                            h3 지역별 데이터 및 분석 범위
+                            div.region-summary(*ngFor="let item of selectedCompareItems()")
+                                strong {{item.region_name}}
+                                span {{item.period_start || '연간 자료'}} ~ {{item.period_end || '연간 자료'}}
+                                small 대여소 {{item.station_count === null ? 'N/A' : item.station_count}} · OD {{item.has_od ? '가능' : '미확보'}}
+                                p {{item.coverage_note}}
+                        article.panel(*ngIf="compareRegions.includes('sejong')")
+                            h3 세종 연간 이용 추세
+                            svg.line-chart(viewBox="0 0 300 110", role="img", aria-label="세종 연도별 실제 이용량 추세")
+                                path(d="M8 90H292", stroke="#d5e4f8", fill="none")
+                                polyline([attr.points]="patternPoints(annualValues())", stroke="#2787f5", fill="none", stroke-width="2")
+                            div.annual-labels
+                                span(*ngFor="let row of annualRows()") {{row.year}}{{row.complete_year ? '' : '*'}}
+                            p.panel-note 단위: 건 · *는 부분 연도, 완결 연도와 직접 비교 금지
+                    article.panel
+                        h3 공통 기간 K-means 군집별 대여소 분포
+                        p.panel-note 군집 번호는 도시 간 동일 역할을 뜻하지 않습니다. 낮은 분리도는 유형 해석을 보류합니다.
+                        div.reference-grid
+                            div(*ngFor="let item of selectedClusterCities()")
+                                strong {{item.region_name}} · {{item.period_start}} ~ {{item.period_end}}
+                                div.distribution-row(*ngFor="let cluster of item.clusters")
+                                    span 군집 {{cluster.cluster_id + 1}} · {{cluster.role}}
+                                    div.distribution-track
+                                        i([style.width.%]="clusterShare(cluster,item)")
+                                    strong {{cluster.station_count | number}}개
+                        p.loading(*ngIf="!comparisonClusters") 공통 기간 군집 결과를 불러오는 중입니다…
+                    details.panel
+                        summary 지역별 원본 총량과 상세 지표
+                        div.compare-grid
+                            article.panel(*ngFor="let item of selectedCompareItems()")
+                                h3 {{item.region_name}}
+                                p {{item.total_rentals === null ? 'N/A' : (item.total_rentals | number)}}건 · {{item.observed_dates?.length || 'N/A'}}일
+                                p 대여소당 평균 {{item.average_per_station === null ? 'N/A' : (item.average_per_station | number:'1.1-2')}}건
+                    p.observed 공통 관측 범위라도 운영방식·모집단·집계 정의가 달라 성과 순위를 뜻하지 않습니다.
+
+                section.agent-view(*ngIf="tab === 'agent'")
+                    div.section-heading
+                        div
+                            h2 AI 분석 리포트
+                            p Upstage Solar 기반 근거 중심 분석 · 실제 도구 결과로 해석
+                    article.panel.report-summary(*ngIf="answer?.report")
+                        div.panel-heading
+                            h3 실제 도구 근거 요약
+                            span.source-pill {{answer.analysis_context?.date_start}} ~ {{answer.analysis_context?.date_end}}
+                        div.report-facts
+                            article(*ngFor="let finding of answer.report.key_findings")
+                                span {{finding.label}}
+                                strong {{finding.value | number:'1.0-7'}} {{finding.unit}}
+                        p.panel-note 사용 알고리즘: {{answer.report.algorithms?.join(' · ')}}
+                        p.panel-note {{answer.model}} · 확인된 사용 토큰 {{answer.usage?.total_tokens | number}}
+                        p.error(*ngIf="answer.usage_complete === false") 일부 요청의 사용량이 반환되지 않았습니다. 표시 토큰은 확인된 하한이며 전체 청구량은 미확인입니다.
+                        p.error(*ngIf="answer.llm_status === 'incomplete'") Solar 최종 요약을 완료하지 못했습니다. 실제 실행한 도구 결과를 표시합니다.
+                        p.error(*ngIf="!answer.grounding_validation?.passed || !answer.station_validation?.passed || answer.semantic_validation?.passed === false") 자유 서술의 수치·대여소 ID 또는 일별 최대·최소 주장을 검증하지 못했습니다. 근거 카드와 원본 도구 결과를 우선 확인하세요.
+                        div.reference-grid
+                            div
+                                h3 운영 검토 대상
+                                article.review-action(*ngFor="let item of answer.report.recommendations")
+                                    strong {{item.feature}}
+                                    p {{item.evidence}}
+                                    p {{item.action}}
+                                    small 추가 확인: {{item.validation}}
+                                p.empty(*ngIf="!answer.report.recommendations?.length") 효과를 뒷받침할 운영 제안 근거가 부족합니다.
+                            div
+                                h3 추가 검증 및 데이터 한계
+                                p.panel-note(*ngFor="let note of answer.report.limitations") • {{note}}
+                                h3 데이터 출처
+                                a.report-source(*ngFor="let source of answer.report.sources", [href]="source.source_url", target="_blank", rel="noopener") {{source.dataset_name}} ↗
+                    div.agent-layout
+                        article.panel.agent-chat
+                            h3 도구 기반 질문 실행
+                            div.question-presets
+                                button(type="button", (click)="question='이용량은 적지만 네트워크에서 중요한 대여소를 찾아줘.'") 숨은 연결 거점
+                                button(type="button", (click)="question='대여·반납 불균형이 지속되는 대여소를 알려줘.'") 불균형 분석
+                                button(type="button", (click)="question='서울과 대전의 공통 기간 이용 패턴을 비교해줘.'") 도시별 패턴
+                            div.chat-stream
+                                p.empty(*ngIf="!answer && !busy") 질문을 입력하면 실제 분석 도구의 근거를 확인해 보고서를 생성합니다.
+                                p.loading(*ngIf="busy") Solar 응답을 기다리는 중입니다…
+                                div.chat-message.user(*ngIf="lastQuestion")
+                                    div.chat-bubble
+                                        p {{lastQuestion}}
+                                div.chat-message.bot(*ngIf="answer")
+                                    div.chat-bubble.answer
+                                        strong {{answer.answer_basis === 'tool_summary' ? '실제 도구 기반 요약' : 'Solar 자유 서술·해석'}}
+                                        p {{answer.answer}}
+                                        details(*ngIf="answer.solar_answer")
+                                            summary 검증 보류된 Solar 원문 보기
+                                            p {{answer.solar_answer}}
+                            div.chat-composer
+                                input(type="text", [(ngModel)]="question", (keyup.enter)="ask()", placeholder="검토할 대여소 또는 분석 질문을 입력하세요", aria-label="분석 질문")
+                                button(type="button", [disabled]="busy || !question.trim()", (click)="ask()", aria-label="메시지 보내기") {{busy ? '…' : '↑'}}
+                        aside.panel.evidence-panel
+                            h3 분석 근거 및 사용 도구
+                            p.empty(*ngIf="!answer") 실제 실행된 도구만 여기에 표시됩니다.
+                            details(*ngFor="let evidence of answer?.evidence; let i = index")
+                                summary {{i + 1}}. {{evidence.tool}} · {{evidence.initiator === 'solar' ? 'Solar 선택' : '서버 근거 보강'}}
+                                pre {{evidence.result | json}}
+                            h3 해석상 주의사항
+                            p.coverage 관측 기간·대여소 ID·출처를 함께 확인하세요. 확인되지 않은 재고 부족이나 개선 효과를 단정할 수 없습니다.
+
+                ng-template(#clusterPlot="")
+                    p.panel-note {{dashboardExtra?.selected_k || 'N/A'}}개 군집 · Silhouette {{dashboardExtra?.silhouette ?? 'N/A'}} · {{dashboardExtra?.quality === 'low' ? '분리도 낮음: 유형 해석 보류' : '시간대 비율 분포'}}
+                    svg.scatter(viewBox="0 0 100 100", role="img", aria-label="대여소 군집 분포")
+                        path(d="M8 10V90H94", stroke="#9fb2cc", stroke-width=".5", fill="none")
+                        circle(*ngFor="let point of dashboardExtra?.cluster_points", [attr.cx]="point.px", [attr.cy]="point.py", r="1.25", [attr.fill]="['#ef5c71','#f0b835','#24c99b','#4e9ff4','#9d79e9'][point.cluster_id % 5]", fill-opacity=".8")
+                    p.panel-note(*ngIf="dashboardExtra?.cluster_scope") {{dashboardExtra.cluster_scope}}
+                    div.cluster-representative(*ngFor="let row of dashboardExtra?.cluster_representatives")
+                        strong {{row.label}}
+                        svg.mini-pattern(viewBox="0 0 300 110", role="img", [attr.aria-label]="row.label + ' 시간대별 비중'")
+                            polyline([attr.points]="patternPoints(row.hourly)", stroke="#1984f4", fill="none", stroke-width="2")
+                        small 0~23시 대여 비중 · 각 군집 내 합계 100%
+                    button.link-button(type="button", (click)="loadStability()", [disabled]="stabilityBusy") {{stabilityBusy ? '군집 안정성 계산 중…' : '7·14·30일 군집 안정성 검증'}}
+                    div.stability-panel(*ngFor="let result of stabilityRegions()")
+                        strong {{result.region_name}}
+                        p.panel-note(*ngFor="let row of result.windows") {{row.days}}일 · {{row.observed_day_count}}일 관측 · k={{row.selected_k || 'N/A'}} · {{row.confidence_warning || row.quality}}
+                        p.panel-note(*ngFor="let score of result.comparisons") {{score.left_days}}↔{{score.right_days}}일 ARI {{score.ari ?? 'N/A'}} · 공통 {{score.common_station_count}}개
+                    p.panel-note {{dashboardExtra?.cluster_count || 'N/A'}}개 분석 대여소 · 오전/오후 시간대 비율 · 군집은 인과적 역할이 아님

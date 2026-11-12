@@ -1,0 +1,519 @@
+{
+  "paid_questions_attempted": 1,
+  "browser_errors": [],
+  "candidate_rows": 9,
+  "mobile_overflow": false,
+  "ranking_to_station": true,
+  "seconds": 32.144,
+  "solar": {
+    "code": 200,
+    "data": {
+      "answer": "핵심 발견: 서울 공공자전거 대여소 중 대중교통 정류장에서 500m 넘게 떨어진 연계 취약 대여소 상위 1개는 ST-3277입니다.\n\n분석 대상 및 기간: 서울 지역, 2026-10-01부터 2026-10-31까지의 관측 결과입니다. 합격 후보는 9개였으며 순위 1위는 ST-3277입니다.\n\n실제 수치와 근거: ST-3277은 서울특별시 성동구 자동차시장3길 64에 있고, 최근접 대중교통 정류장 거리는 570.948m이며, 최근접 정류장까지 500m 초과입니다. 해당 대여소의 최근 1개월 대여량은 836건이고 접근성 결핍은 0.14189599999999997, 취약도 점수는 118.62505599999997입니다.\n\n숨은 역할 판단 이유: 이 결과는 공간적 근접성과 대여 관측값만으로 산출했으며, PageRank나 네트워크 중심성 근거를 사용하지 않았습니다. 500m 초과는 정류장까지 도보 환승 가능 거리를 단정하는 증거가 아니며, 이용 패턴을 보여주는 지표로 해석해야 합니다.\n\n공간 시나리오의 한계: 이 결과는 직선거리 기반 버퍼 분석입니다. 보행 경로, 인도, 출입구 접근, 실제 환승·이동시간·운영 개선 효과는 확인하지 않았습니다. 정류장 자료가 없는 철도 노선 때문에 취약 후보가 과대 탐지될 수 있고, 실제 환승률이나 후속 운영 효과라고 말할 수 없습니다.\n\n운영상 검토 조치: ST-3277은 500m 초과 연계 취약 후보로, 신규 연결 가능 잠재 면적은 143,392.67㎡로 제시되었습니다. 실제 개선 전에 보행 경로, 접근성, 환승 가능 역을 현장 검증하고, 자전거 이용 수요가 많은 인근 역의 출퇴근 시간대 연계성을 확인해야 합니다.\n\n추가 검증: 후보 9개 중 2위는 ST-2488으로 624.494m·122건, 3위는 ST-405로 545.469m·645건입니다. 상위 1개 대여소만 다룰 때는 ST-3277 단일 결과를 사용하세요.\n\n데이터 출처와 한계: 서울 버스정류소 위치정보와 서울교통공사 1~8호선 역사 좌표를 사용했고, 정류소 11,504건, 지하철 276행이 검증되었습니다. 하지만 이 자료는 전체 수도권 철도망이 아니며, 좌표 기준일과 OD 관측 기간도 다릅니다. 관측 기간은 요청 창과 같으며, 대여소 사례는 최대 3개까지 제시했습니다.",
+      "solar_answer": null,
+      "answer_basis": "solar_interpretation",
+      "report": {
+        "question_summary": "서울의 대중교통 정류장에서 500m 넘게 떨어진 연계 취약 대여소 상위 1개를 찾아 최근접 거리와 실제 대여량을 알려줘. 공간 시나리오의 한계도 설명해줘.",
+        "key_findings": [
+          {
+            "label": "정류장 500m 밖 실제 이용 후보",
+            "value": 9,
+            "unit": "개",
+            "region_id": "seoul"
+          },
+          {
+            "label": "ST-3277 최근접 정류장 거리",
+            "value": 570.948,
+            "unit": "m",
+            "region_id": "seoul"
+          },
+          {
+            "label": "ST-3277 실제 대여",
+            "value": 836,
+            "unit": "건",
+            "region_id": "seoul"
+          },
+          {
+            "label": "ST-2488 최근접 정류장 거리",
+            "value": 624.494,
+            "unit": "m",
+            "region_id": "seoul"
+          },
+          {
+            "label": "ST-2488 실제 대여",
+            "value": 122,
+            "unit": "건",
+            "region_id": "seoul"
+          },
+          {
+            "label": "ST-405 최근접 정류장 거리",
+            "value": 545.469,
+            "unit": "m",
+            "region_id": "seoul"
+          },
+          {
+            "label": "ST-405 실제 대여",
+            "value": 645,
+            "unit": "건",
+            "region_id": "seoul"
+          }
+        ],
+        "evidence": [
+          {
+            "tool": "get_transit_vulnerability",
+            "arguments": {
+              "region_id": "seoul",
+              "date_range": {
+                "date_start": "2026-10-01",
+                "date_end": "2026-10-31"
+              }
+            },
+            "result": {
+              "city": "seoul",
+              "date_start": "2026-10-01",
+              "date_end": "2026-10-31",
+              "distance_unit": "m",
+              "radius_m": [
+                300,
+                500
+              ],
+              "available": true,
+              "source_document": "docs/TRANSIT_LINKAGE.md",
+              "sources": [
+                {
+                  "dataset_name": "서울시 버스정류소 위치정보",
+                  "verification_status": "VERIFIED",
+                  "source_url": "https://data.seoul.go.kr/dataList/OA-15067/S/1/datasetView.do",
+                  "reference_date": "2026-09-02"
+                },
+                {
+                  "dataset_name": "서울교통공사 1~8호선 역사 좌표",
+                  "verification_status": "VERIFIED",
+                  "source_url": "https://data.seoul.go.kr/dataList/OA-22534/F/1/datasetView.do",
+                  "reference_date": "2025-08-14"
+                }
+              ],
+              "limitations": [
+                "직선거리이며 보행 경로·출입구 접근성과 다릅니다.",
+                "서울 지하철 자료는 서울교통공사 1~8호선 276행으로 전체 수도권 철도망이 아닙니다. 좌표 기준일과 OD 관측 기간이 다릅니다.",
+                "역 연계 비율은 공간적 근접 이동 비중이며 실제 환승률이 아닙니다.",
+                "자료가 없는 수단의 수치와 역 연계 비율은 null입니다.",
+                "공간 버퍼 시나리오이며 실제 환승·이동시간·운영 개선 효과 검증이 아닙니다.",
+                "인구 격자·보행망·행정 경계 미확보로 인구 효과를 계산하지 않습니다.",
+                "순위 가중치는 사전 설정한 동등 가중 검토 기준이며 효과를 학습한 계수가 아닙니다.",
+                "취약 후보의 300m 추가 면적은 신규 연결이 가능하다는 가정의 잠재 면적입니다. 전체 시나리오와 별도입니다.",
+                "미수집 철도 노선 때문에 취약 후보가 과대 탐지될 수 있습니다."
+              ],
+              "stop_count": 11504,
+              "stop_types": [
+                "버스",
+                "지하철"
+              ],
+              "hourly_period_start": "2026-10-01",
+              "hourly_period_end": "2026-10-31",
+              "ranking": [
+                {
+                  "region_id": "seoul",
+                  "station_id": "ST-3277",
+                  "station_name": "서울특별시 성동구 자동차시장3길 64",
+                  "latitude": 37.554733,
+                  "longitude": 127.057762,
+                  "nearest_stop_distance_m": 570.948,
+                  "rental_count": 836,
+                  "accessibility_deficit": 0.14189599999999997,
+                  "vulnerability": 118.62505599999997,
+                  "potential_added_area_m2": 143392.67,
+                  "score_components": {
+                    "vulnerability": 0.9444444444444444,
+                    "rental_count": 0.9444444444444444,
+                    "potential_added_area_m2": 0.7222222222222222
+                  },
+                  "score": 0.8703703703703703,
+                  "demand_weighted_sensitivity_score": 0.8888888888888888,
+                  "rank": 1
+                },
+                {
+                  "region_id": "seoul",
+                  "station_id": "ST-2488",
+                  "station_name": "서울특별시 강서구 금낭화로26가길 130",
+                  "latitude": 37.584583,
+                  "longitude": 126.810921,
+                  "nearest_stop_distance_m": 624.494,
+                  "rental_count": 122,
+                  "accessibility_deficit": 0.24898800000000004,
+                  "vulnerability": 30.376536000000005,
+                  "potential_added_area_m2": 204566.02,
+                  "score_components": {
+                    "vulnerability": 0.6111111111111112,
+                    "rental_count": 0.16666666666666666,
+                    "potential_added_area_m2": 0.9444444444444444
+                  },
+                  "score": 0.5740740740740741,
+                  "demand_weighted_sensitivity_score": 0.4722222222222222,
+                  "rank": 2
+                },
+                {
+                  "region_id": "seoul",
+                  "station_id": "ST-405",
+                  "station_name": "서울시립대 정보기술관",
+                  "latitude": 37.583008,
+                  "longitude": 127.060974,
+                  "nearest_stop_distance_m": 545.469,
+                  "rental_count": 645,
+                  "accessibility_deficit": 0.0909380000000001,
+                  "vulnerability": 58.65501000000007,
+                  "potential_added_area_m2": 61782.539,
+                  "score_components": {
+                    "vulnerability": 0.7222222222222222,
+                    "rental_count": 0.7222222222222222,
+                    "potential_added_area_m2": 0.2777777777777778
+                  },
+                  "score": 0.5740740740740741,
+                  "demand_weighted_sensitivity_score": 0.611111111111111,
+                  "rank": 3
+                },
+                {
+                  "region_id": "seoul",
+                  "station_id": "ST-2474",
+                  "station_name": "서울특별시 강남구 양재대로 781",
+                  "latitude": 37.492294,
+                  "longitude": 127.094337,
+                  "nearest_stop_distance_m": 589.617,
+                  "rental_count": 545,
+                  "accessibility_deficit": 0.17923399999999992,
+                  "vulnerability": 97.68252999999996,
+                  "potential_added_area_m2": 102540.292,
+                  "score_components": {
+                    "vulnerability": 0.8333333333333334,
+                    "rental_count": 0.2777777777777778,
+                    "potential_added_area_m2": 0.3888888888888889
+                  },
+                  "score": 0.5,
+                  "demand_weighted_sensitivity_score": 0.4444444444444444,
+                  "rank": 4
+                },
+                {
+                  "region_id": "seoul",
+                  "station_id": "ST-2728",
+                  "station_name": "서울특별시 송파구 백제고분로 11 신천중학교",
+                  "latitude": 37.516403,
+                  "longitude": 127.077614,
+                  "nearest_stop_distance_m": 516.399,
+                  "rental_count": 546,
+                  "accessibility_deficit": 0.032798,
+                  "vulnerability": 17.907708,
+                  "potential_added_area_m2": 138956.824,
+                  "score_components": {
+                    "vulnerability": 0.3888888888888889,
+                    "rental_count": 0.3888888888888889,
+                    "potential_added_area_m2": 0.6111111111111112
+                  },
+                  "score": 0.46296296296296297,
+                  "demand_weighted_sensitivity_score": 0.4444444444444445,
+                  "rank": 5
+                }
+              ],
+              "candidate_count": 9,
+              "station_count": 2762,
+              "observed_station_count": 2759,
+              "period_start": "2026-10-01",
+              "period_end": "2026-10-31",
+              "score_formula": "(ECDF_midrank(vulnerability) + ECDF_midrank(rental_count) + ECDF_midrank(potential_added_area_m2))/3",
+              "weights": {
+                "vulnerability": 0.3333333333333333,
+                "rental_count": 0.3333333333333333,
+                "potential_added_area_m2": 0.3333333333333333
+              },
+              "scenario": {
+                "crs": "EPSG:5179",
+                "method": "union of 64-segment straight-line buffers; no administrative clipping",
+                "walking_radius_m": 500,
+                "bike_station_buffer_m": 300,
+                "baseline_area_m2": 540162488.691,
+                "linked_area_m2": 541035186.121,
+                "added_area_m2": 872697.43,
+                "area_increase_ratio": 0.0016156202027710455,
+                "baseline_station_count": 2753,
+                "linked_station_count": 2756,
+                "station_count_increase_ratio": 0.0010897203051216855,
+                "population_increase_ratio": null
+              }
+            },
+            "initiator": "solar"
+          }
+        ],
+        "algorithms": [
+          "haversine + projected buffer union + empirical percentile ranking"
+        ],
+        "station_roles": [],
+        "recommendations": [
+          {
+            "feature": "연계 취약 검토 후보",
+            "evidence": "ST-3277 / 570.948m",
+            "action": "미수집 노선·실제 보행 경로·시설 접근성을 현장 확인하세요.",
+            "expected_value": "검토 대상의 우선순위 참고",
+            "additional_validation": "실제 환승·운영효과 자료 필요"
+          },
+          {
+            "feature": "연계 취약 검토 후보",
+            "evidence": "ST-2488 / 624.494m",
+            "action": "미수집 노선·실제 보행 경로·시설 접근성을 현장 확인하세요.",
+            "expected_value": "검토 대상의 우선순위 참고",
+            "additional_validation": "실제 환승·운영효과 자료 필요"
+          },
+          {
+            "feature": "연계 취약 검토 후보",
+            "evidence": "ST-405 / 545.469m",
+            "action": "미수집 노선·실제 보행 경로·시설 접근성을 현장 확인하세요.",
+            "expected_value": "검토 대상의 우선순위 참고",
+            "additional_validation": "실제 환승·운영효과 자료 필요"
+          }
+        ],
+        "limitations": [
+          "직선거리이며 보행 경로·출입구 접근성과 다릅니다.",
+          "서울 지하철 자료는 서울교통공사 1~8호선 276행으로 전체 수도권 철도망이 아닙니다. 좌표 기준일과 OD 관측 기간이 다릅니다.",
+          "역 연계 비율은 공간적 근접 이동 비중이며 실제 환승률이 아닙니다.",
+          "자료가 없는 수단의 수치와 역 연계 비율은 null입니다.",
+          "공간 버퍼 시나리오이며 실제 환승·이동시간·운영 개선 효과 검증이 아닙니다.",
+          "인구 격자·보행망·행정 경계 미확보로 인구 효과를 계산하지 않습니다.",
+          "순위 가중치는 사전 설정한 동등 가중 검토 기준이며 효과를 학습한 계수가 아닙니다.",
+          "취약 후보의 300m 추가 면적은 신규 연결이 가능하다는 가정의 잠재 면적입니다. 전체 시나리오와 별도입니다.",
+          "미수집 철도 노선 때문에 취약 후보가 과대 탐지될 수 있습니다."
+        ],
+        "sources": [
+          {
+            "dataset_name": "서울시 버스정류소 위치정보",
+            "source_url": "https://data.seoul.go.kr/dataList/OA-15067/S/1/datasetView.do",
+            "verification_status": "VERIFIED"
+          },
+          {
+            "dataset_name": "서울교통공사 1~8호선 역사 좌표",
+            "source_url": "https://data.seoul.go.kr/dataList/OA-22534/F/1/datasetView.do",
+            "verification_status": "VERIFIED"
+          }
+        ],
+        "periods": [
+          "2026-10-01",
+          "2026-10-31"
+        ],
+        "charts": [],
+        "station_comparison": [],
+        "interpretation": "핵심 발견: 서울 공공자전거 대여소 중 대중교통 정류장에서 500m 넘게 떨어진 연계 취약 대여소 상위 1개는 ST-3277입니다.\n\n분석 대상 및 기간: 서울 지역, 2026-10-01부터 2026-10-31까지의 관측 결과입니다. 합격 후보는 9개였으며 순위 1위는 ST-3277입니다.\n\n실제 수치와 근거: ST-3277은 서울특별시 성동구 자동차시장3길 64에 있고, 최근접 대중교통 정류장 거리는 570.948m이며, 최근접 정류장까지 500m 초과입니다. 해당 대여소의 최근 1개월 대여량은 836건이고 접근성 결핍은 0.14189599999999997, 취약도 점수는 118.62505599999997입니다.\n\n숨은 역할 판단 이유: 이 결과는 공간적 근접성과 대여 관측값만으로 산출했으며, PageRank나 네트워크 중심성 근거를 사용하지 않았습니다. 500m 초과는 정류장까지 도보 환승 가능 거리를 단정하는 증거가 아니며, 이용 패턴을 보여주는 지표로 해석해야 합니다.\n\n공간 시나리오의 한계: 이 결과는 직선거리 기반 버퍼 분석입니다. 보행 경로, 인도, 출입구 접근, 실제 환승·이동시간·운영 개선 효과는 확인하지 않았습니다. 정류장 자료가 없는 철도 노선 때문에 취약 후보가 과대 탐지될 수 있고, 실제 환승률이나 후속 운영 효과라고 말할 수 없습니다.\n\n운영상 검토 조치: ST-3277은 500m 초과 연계 취약 후보로, 신규 연결 가능 잠재 면적은 143,392.67㎡로 제시되었습니다. 실제 개선 전에 보행 경로, 접근성, 환승 가능 역을 현장 검증하고, 자전거 이용 수요가 많은 인근 역의 출퇴근 시간대 연계성을 확인해야 합니다.\n\n추가 검증: 후보 9개 중 2위는 ST-2488으로 624.494m·122건, 3위는 ST-405로 545.469m·645건입니다. 상위 1개 대여소만 다룰 때는 ST-3277 단일 결과를 사용하세요.\n\n데이터 출처와 한계: 서울 버스정류소 위치정보와 서울교통공사 1~8호선 역사 좌표를 사용했고, 정류소 11,504건, 지하철 276행이 검증되었습니다. 하지만 이 자료는 전체 수도권 철도망이 아니며, 좌표 기준일과 OD 관측 기간도 다릅니다. 관측 기간은 요청 창과 같으며, 대여소 사례는 최대 3개까지 제시했습니다."
+      },
+      "grounding_validation": {
+        "checked_numeric_tokens": 41,
+        "matched_numeric_tokens": 41,
+        "unmatched_numeric_tokens": [],
+        "passed": true,
+        "method": "전체 수치 토큰을 도구 값·식별자와 대조. 비율의 백분율 표현과 표시 자릿수 반올림 허용. 문장 의미의 자동 보증은 아님."
+      },
+      "station_validation": {
+        "passed": true,
+        "unmatched_station_ids": []
+      },
+      "analysis_context": {
+        "region_ids": [
+          "seoul"
+        ],
+        "date_start": "2026-10-01",
+        "date_end": "2026-10-31"
+      },
+      "model_finish_reason": "stop",
+      "evidence": [
+        {
+          "tool": "get_transit_vulnerability",
+          "arguments": {
+            "region_id": "seoul",
+            "date_range": {
+              "date_start": "2026-10-01",
+              "date_end": "2026-10-31"
+            }
+          },
+          "result": {
+            "city": "seoul",
+            "date_start": "2026-10-01",
+            "date_end": "2026-10-31",
+            "distance_unit": "m",
+            "radius_m": [
+              300,
+              500
+            ],
+            "available": true,
+            "source_document": "docs/TRANSIT_LINKAGE.md",
+            "sources": [
+              {
+                "dataset_name": "서울시 버스정류소 위치정보",
+                "verification_status": "VERIFIED",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-15067/S/1/datasetView.do",
+                "reference_date": "2026-09-02"
+              },
+              {
+                "dataset_name": "서울교통공사 1~8호선 역사 좌표",
+                "verification_status": "VERIFIED",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-22534/F/1/datasetView.do",
+                "reference_date": "2025-08-14"
+              }
+            ],
+            "limitations": [
+              "직선거리이며 보행 경로·출입구 접근성과 다릅니다.",
+              "서울 지하철 자료는 서울교통공사 1~8호선 276행으로 전체 수도권 철도망이 아닙니다. 좌표 기준일과 OD 관측 기간이 다릅니다.",
+              "역 연계 비율은 공간적 근접 이동 비중이며 실제 환승률이 아닙니다.",
+              "자료가 없는 수단의 수치와 역 연계 비율은 null입니다.",
+              "공간 버퍼 시나리오이며 실제 환승·이동시간·운영 개선 효과 검증이 아닙니다.",
+              "인구 격자·보행망·행정 경계 미확보로 인구 효과를 계산하지 않습니다.",
+              "순위 가중치는 사전 설정한 동등 가중 검토 기준이며 효과를 학습한 계수가 아닙니다.",
+              "취약 후보의 300m 추가 면적은 신규 연결이 가능하다는 가정의 잠재 면적입니다. 전체 시나리오와 별도입니다.",
+              "미수집 철도 노선 때문에 취약 후보가 과대 탐지될 수 있습니다."
+            ],
+            "stop_count": 11504,
+            "stop_types": [
+              "버스",
+              "지하철"
+            ],
+            "hourly_period_start": "2026-10-01",
+            "hourly_period_end": "2026-10-31",
+            "ranking": [
+              {
+                "region_id": "seoul",
+                "station_id": "ST-3277",
+                "station_name": "서울특별시 성동구 자동차시장3길 64",
+                "latitude": 37.554733,
+                "longitude": 127.057762,
+                "nearest_stop_distance_m": 570.948,
+                "rental_count": 836,
+                "accessibility_deficit": 0.14189599999999997,
+                "vulnerability": 118.62505599999997,
+                "potential_added_area_m2": 143392.67,
+                "score_components": {
+                  "vulnerability": 0.9444444444444444,
+                  "rental_count": 0.9444444444444444,
+                  "potential_added_area_m2": 0.7222222222222222
+                },
+                "score": 0.8703703703703703,
+                "demand_weighted_sensitivity_score": 0.8888888888888888,
+                "rank": 1
+              },
+              {
+                "region_id": "seoul",
+                "station_id": "ST-2488",
+                "station_name": "서울특별시 강서구 금낭화로26가길 130",
+                "latitude": 37.584583,
+                "longitude": 126.810921,
+                "nearest_stop_distance_m": 624.494,
+                "rental_count": 122,
+                "accessibility_deficit": 0.24898800000000004,
+                "vulnerability": 30.376536000000005,
+                "potential_added_area_m2": 204566.02,
+                "score_components": {
+                  "vulnerability": 0.6111111111111112,
+                  "rental_count": 0.16666666666666666,
+                  "potential_added_area_m2": 0.9444444444444444
+                },
+                "score": 0.5740740740740741,
+                "demand_weighted_sensitivity_score": 0.4722222222222222,
+                "rank": 2
+              },
+              {
+                "region_id": "seoul",
+                "station_id": "ST-405",
+                "station_name": "서울시립대 정보기술관",
+                "latitude": 37.583008,
+                "longitude": 127.060974,
+                "nearest_stop_distance_m": 545.469,
+                "rental_count": 645,
+                "accessibility_deficit": 0.0909380000000001,
+                "vulnerability": 58.65501000000007,
+                "potential_added_area_m2": 61782.539,
+                "score_components": {
+                  "vulnerability": 0.7222222222222222,
+                  "rental_count": 0.7222222222222222,
+                  "potential_added_area_m2": 0.2777777777777778
+                },
+                "score": 0.5740740740740741,
+                "demand_weighted_sensitivity_score": 0.611111111111111,
+                "rank": 3
+              },
+              {
+                "region_id": "seoul",
+                "station_id": "ST-2474",
+                "station_name": "서울특별시 강남구 양재대로 781",
+                "latitude": 37.492294,
+                "longitude": 127.094337,
+                "nearest_stop_distance_m": 589.617,
+                "rental_count": 545,
+                "accessibility_deficit": 0.17923399999999992,
+                "vulnerability": 97.68252999999996,
+                "potential_added_area_m2": 102540.292,
+                "score_components": {
+                  "vulnerability": 0.8333333333333334,
+                  "rental_count": 0.2777777777777778,
+                  "potential_added_area_m2": 0.3888888888888889
+                },
+                "score": 0.5,
+                "demand_weighted_sensitivity_score": 0.4444444444444444,
+                "rank": 4
+              },
+              {
+                "region_id": "seoul",
+                "station_id": "ST-2728",
+                "station_name": "서울특별시 송파구 백제고분로 11 신천중학교",
+                "latitude": 37.516403,
+                "longitude": 127.077614,
+                "nearest_stop_distance_m": 516.399,
+                "rental_count": 546,
+                "accessibility_deficit": 0.032798,
+                "vulnerability": 17.907708,
+                "potential_added_area_m2": 138956.824,
+                "score_components": {
+                  "vulnerability": 0.3888888888888889,
+                  "rental_count": 0.3888888888888889,
+                  "potential_added_area_m2": 0.6111111111111112
+                },
+                "score": 0.46296296296296297,
+                "demand_weighted_sensitivity_score": 0.4444444444444445,
+                "rank": 5
+              }
+            ],
+            "candidate_count": 9,
+            "station_count": 2762,
+            "observed_station_count": 2759,
+            "period_start": "2026-10-01",
+            "period_end": "2026-10-31",
+            "score_formula": "(ECDF_midrank(vulnerability) + ECDF_midrank(rental_count) + ECDF_midrank(potential_added_area_m2))/3",
+            "weights": {
+              "vulnerability": 0.3333333333333333,
+              "rental_count": 0.3333333333333333,
+              "potential_added_area_m2": 0.3333333333333333
+            },
+            "scenario": {
+              "crs": "EPSG:5179",
+              "method": "union of 64-segment straight-line buffers; no administrative clipping",
+              "walking_radius_m": 500,
+              "bike_station_buffer_m": 300,
+              "baseline_area_m2": 540162488.691,
+              "linked_area_m2": 541035186.121,
+              "added_area_m2": 872697.43,
+              "area_increase_ratio": 0.0016156202027710455,
+              "baseline_station_count": 2753,
+              "linked_station_count": 2756,
+              "station_count_increase_ratio": 0.0010897203051216855,
+              "population_increase_ratio": null
+            }
+          },
+          "initiator": "solar"
+        }
+      ],
+      "usage": {
+        "prompt_tokens": 5066,
+        "completion_tokens": 567,
+        "total_tokens": 5633
+      },
+      "model": "solar-mini4-260922"
+    }
+  },
+  "solar_tools": [
+    "get_transit_vulnerability"
+  ],
+  "new_tool_used": true,
+  "rendered_fact_cards": 7,
+  "rendered_sources": 2
+}

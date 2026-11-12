@@ -1,0 +1,2905 @@
+{
+  "started_at": "2026-11-12T08:11:42.818843+00:00",
+  "questions": [
+    {
+      "id": 1,
+      "question": "서울 관측 기간과 총 대여 건수, 일별 최대 날짜와 건수를 알려줘.",
+      "started_at": "2026-11-12T08:11:46.253602+00:00",
+      "state": "received",
+      "seconds": 4.562,
+      "http_status": 200,
+      "body": {
+        "code": 200,
+        "data": {
+          "answer": "Solar 원문의 일부 주장을 검증하지 못해 실제 도구 결과로 요약합니다.\n서울 이용 건수: 4245954건\n서울 실제 관측일수: 31일\n서울 일별 최대 (2026-10-02): 166657건\n서울 일별 최소 (2026-10-18): 35915건\n분석 기간: 2026-10-01 ~ 2026-10-31\n서울 집계 OD와 대전 개별 Trip의 총량 배율로 운영 성과를 비교하지 않습니다. 재고 부족과 개선 효과는 추가 자료 없이 확정할 수 없습니다.",
+          "solar_answer": "서울 관측 기간은 2026-10-01부터 2026-10-31까지이며, 총 대여 건수는 4,245,954건입니다. 일별 최대 날짜는 2026-10-18로 35,915건이고, 일별 최소 날짜는 2026-10-13으로 96,284건입니다.",
+          "answer_basis": "tool_summary",
+          "report": {
+            "question_summary": "서울 관측 기간과 총 대여 건수, 일별 최대 날짜와 건수를 알려줘.",
+            "key_findings": [
+              {
+                "label": "서울 이용 건수",
+                "value": 4245954,
+                "unit": "건",
+                "region_id": "seoul"
+              },
+              {
+                "label": "서울 실제 관측일수",
+                "value": 31,
+                "unit": "일"
+              },
+              {
+                "label": "서울 일별 최대 (2026-10-02)",
+                "value": 166657,
+                "unit": "건"
+              },
+              {
+                "label": "서울 일별 최소 (2026-10-18)",
+                "value": 35915,
+                "unit": "건"
+              }
+            ],
+            "evidence": [
+              {
+                "tool": "get_region_overview",
+                "arguments": {
+                  "region_id": "seoul",
+                  "date_range": {
+                    "date_start": "2026-10-01",
+                    "date_end": "2026-10-31"
+                  }
+                },
+                "result": {
+                  "region_id": "seoul",
+                  "region_name": "서울",
+                  "service_name": "따릉이",
+                  "operator": "서울특별시",
+                  "sources": [
+                    {
+                      "source_id": "seoul-stations-202606",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                      "date_start": "2026-06-30",
+                      "date_end": "2026-06-30",
+                      "collected_at": "2026-11-04T04:53:59.993091Z",
+                      "verification_status": "VERIFIED",
+                      "available_columns": [
+                        "대여소 번호",
+                        "보관소(대여소)명",
+                        "소재지(위치)",
+                        "위도",
+                        "경도",
+                        "설치 시기",
+                        "LCD 거치대수",
+                        "QR 거치대수",
+                        "운영 방식"
+                      ]
+                    },
+                    {
+                      "source_id": "seoul-od-202610",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-21229/F/1/datasetView.do",
+                      "date_start": "2026-10-01",
+                      "date_end": "2026-10-31",
+                      "collected_at": "2026-11-09T01:37:07.685993Z",
+                      "verification_status": "VERIFIED",
+                      "available_columns": [
+                        "기준_날짜",
+                        "집계_기준",
+                        "기준_시간대",
+                        "시작_대여소_ID",
+                        "시작_대여소명",
+                        "종료_대여소_ID",
+                        "종료_대여소명",
+                        "전체_건수",
+                        "전체_이용_분",
+                        "전체_이용_거리"
+                      ]
+                    },
+                    {
+                      "source_id": "seoul-od-replacement-oa-14994",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+                      "date_start": null,
+                      "date_end": null,
+                      "collected_at": null,
+                      "verification_status": "METADATA_ONLY",
+                      "available_columns": []
+                    },
+                    {
+                      "source_id": "seoul-station-master-oa-21235",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                      "date_start": null,
+                      "date_end": null,
+                      "collected_at": "2026-11-09T01:56:36.503651+00:00",
+                      "verification_status": "VERIFIED",
+                      "available_columns": [
+                        "RNTLS_ID",
+                        "ADDR1",
+                        "ADDR2",
+                        "LAT",
+                        "LOT"
+                      ],
+                      "origin": "official_sheet",
+                      "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"
+                    }
+                  ],
+                  "source_names": [
+                    "서울시 공공자전거 따릉이 대여소 정보",
+                    "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                    "서울시 따릉이대여소 마스터 정보"
+                  ],
+                  "last_updated": "2026-11-09T01:56:36.503651+00:00",
+                  "verification_status": "VERIFIED",
+                  "total_rentals": 4245954,
+                  "station_count": 2759,
+                  "inventory_station_count": 2762,
+                  "average_per_station": 1538.95,
+                  "hourly": [
+                    77454,
+                    52120,
+                    35145,
+                    25585,
+                    22383,
+                    42882,
+                    88327,
+                    210188,
+                    296276,
+                    184664,
+                    155150,
+                    180945,
+                    200403,
+                    202510,
+                    211187,
+                    240365,
+                    287305,
+                    371508,
+                    412367,
+                    280239,
+                    230216,
+                    201613,
+                    160608,
+                    76514
+                  ],
+                  "period_start": "2026-10-01",
+                  "period_end": "2026-10-31",
+                  "observed_dates": [
+                    "2026-10-01",
+                    "2026-10-02",
+                    "2026-10-03",
+                    "2026-10-04",
+                    "2026-10-05",
+                    "2026-10-06",
+                    "2026-10-07",
+                    "2026-10-08",
+                    "2026-10-09",
+                    "2026-10-10",
+                    "2026-10-11",
+                    "2026-10-12",
+                    "2026-10-13",
+                    "2026-10-14",
+                    "2026-10-15",
+                    "2026-10-16",
+                    "2026-10-17",
+                    "2026-10-18",
+                    "2026-10-19",
+                    "2026-10-20",
+                    "2026-10-21",
+                    "2026-10-22",
+                    "2026-10-23",
+                    "2026-10-24",
+                    "2026-10-25",
+                    "2026-10-26",
+                    "2026-10-27",
+                    "2026-10-28",
+                    "2026-10-29",
+                    "2026-10-30",
+                    "2026-10-31"
+                  ],
+                  "daily": [
+                    {
+                      "date": "2026-10-01",
+                      "rental_count": 165241
+                    },
+                    {
+                      "date": "2026-10-02",
+                      "rental_count": 166657
+                    },
+                    {
+                      "date": "2026-10-03",
+                      "rental_count": 139098
+                    },
+                    {
+                      "date": "2026-10-04",
+                      "rental_count": 122967
+                    },
+                    {
+                      "date": "2026-10-05",
+                      "rental_count": 127969
+                    },
+                    {
+                      "date": "2026-10-06",
+                      "rental_count": 157874
+                    },
+                    {
+                      "date": "2026-10-07",
+                      "rental_count": 163546
+                    },
+                    {
+                      "date": "2026-10-08",
+                      "rental_count": 165625
+                    },
+                    {
+                      "date": "2026-10-09",
+                      "rental_count": 141561
+                    },
+                    {
+                      "date": "2026-10-10",
+                      "rental_count": 148094
+                    },
+                    {
+                      "date": "2026-10-11",
+                      "rental_count": 136319
+                    },
+                    {
+                      "date": "2026-10-12",
+                      "rental_count": 151099
+                    },
+                    {
+                      "date": "2026-10-13",
+                      "rental_count": 96284
+                    },
+                    {
+                      "date": "2026-10-14",
+                      "rental_count": 155430
+                    },
+                    {
+                      "date": "2026-10-15",
+                      "rental_count": 151811
+                    },
+                    {
+                      "date": "2026-10-16",
+                      "rental_count": 162860
+                    },
+                    {
+                      "date": "2026-10-17",
+                      "rental_count": 145401
+                    },
+                    {
+                      "date": "2026-10-18",
+                      "rental_count": 35915
+                    },
+                    {
+                      "date": "2026-10-19",
+                      "rental_count": 145222
+                    },
+                    {
+                      "date": "2026-10-20",
+                      "rental_count": 152813
+                    },
+                    {
+                      "date": "2026-10-21",
+                      "rental_count": 118648
+                    },
+                    {
+                      "date": "2026-10-22",
+                      "rental_count": 136513
+                    },
+                    {
+                      "date": "2026-10-23",
+                      "rental_count": 150343
+                    },
+                    {
+                      "date": "2026-10-24",
+                      "rental_count": 118099
+                    },
+                    {
+                      "date": "2026-10-25",
+                      "rental_count": 123168
+                    },
+                    {
+                      "date": "2026-10-26",
+                      "rental_count": 142812
+                    },
+                    {
+                      "date": "2026-10-27",
+                      "rental_count": 133627
+                    },
+                    {
+                      "date": "2026-10-28",
+                      "rental_count": 129645
+                    },
+                    {
+                      "date": "2026-10-29",
+                      "rental_count": 108176
+                    },
+                    {
+                      "date": "2026-10-30",
+                      "rental_count": 137149
+                    },
+                    {
+                      "date": "2026-10-31",
+                      "rental_count": 115988
+                    }
+                  ],
+                  "monthly": [
+                    {
+                      "month": "2026-10",
+                      "rental_count": 4245954
+                    }
+                  ],
+                  "weekday": [
+                    {
+                      "weekday": 0,
+                      "rental_count": 567102
+                    },
+                    {
+                      "weekday": 1,
+                      "rental_count": 540598
+                    },
+                    {
+                      "weekday": 2,
+                      "rental_count": 567269
+                    },
+                    {
+                      "weekday": 3,
+                      "rental_count": 727366
+                    },
+                    {
+                      "weekday": 4,
+                      "rental_count": 758570
+                    },
+                    {
+                      "weekday": 5,
+                      "rental_count": 666680
+                    },
+                    {
+                      "weekday": 6,
+                      "rental_count": 418369
+                    }
+                  ],
+                  "weekend_share": 0.2555,
+                  "weekday_share": 0.7445,
+                  "annual_latest": null,
+                  "has_od": true,
+                  "coverage_note": "서울은 2026년 10월 집계 OD입니다. 공식 대여소 마스터의 ST ID와 유효 좌표를 확인한 항목만 지도에 연결합니다."
+                },
+                "initiator": "solar"
+              }
+            ],
+            "algorithms": [],
+            "station_roles": [],
+            "recommendations": [],
+            "limitations": [
+              "서울은 2026년 10월 집계 OD입니다. 공식 대여소 마스터의 ST ID와 유효 좌표를 확인한 항목만 지도에 연결합니다.",
+              "Solar 원문은 수치·대여소·일별 극값 또는 종료 상태 검증을 통과하지 못해 보류했습니다. 기본 본문은 실제 도구 값 요약입니다."
+            ],
+            "sources": [
+              {
+                "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                "verification_status": "VERIFIED"
+              },
+              {
+                "dataset_name": "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-21229/F/1/datasetView.do",
+                "verification_status": "VERIFIED"
+              },
+              {
+                "dataset_name": "서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+                "verification_status": "METADATA_ONLY"
+              },
+              {
+                "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                "verification_status": "VERIFIED"
+              }
+            ],
+            "periods": [
+              "2026-10-01",
+              "2026-10-31"
+            ],
+            "charts": [
+              {
+                "title": "서울 관측일 이용량",
+                "kind": "daily",
+                "points": [
+                  {
+                    "date": "2026-10-01",
+                    "rental_count": 165241
+                  },
+                  {
+                    "date": "2026-10-02",
+                    "rental_count": 166657
+                  },
+                  {
+                    "date": "2026-10-03",
+                    "rental_count": 139098
+                  },
+                  {
+                    "date": "2026-10-04",
+                    "rental_count": 122967
+                  },
+                  {
+                    "date": "2026-10-05",
+                    "rental_count": 127969
+                  },
+                  {
+                    "date": "2026-10-06",
+                    "rental_count": 157874
+                  },
+                  {
+                    "date": "2026-10-07",
+                    "rental_count": 163546
+                  },
+                  {
+                    "date": "2026-10-08",
+                    "rental_count": 165625
+                  },
+                  {
+                    "date": "2026-10-09",
+                    "rental_count": 141561
+                  },
+                  {
+                    "date": "2026-10-10",
+                    "rental_count": 148094
+                  },
+                  {
+                    "date": "2026-10-11",
+                    "rental_count": 136319
+                  },
+                  {
+                    "date": "2026-10-12",
+                    "rental_count": 151099
+                  },
+                  {
+                    "date": "2026-10-13",
+                    "rental_count": 96284
+                  },
+                  {
+                    "date": "2026-10-14",
+                    "rental_count": 155430
+                  },
+                  {
+                    "date": "2026-10-15",
+                    "rental_count": 151811
+                  },
+                  {
+                    "date": "2026-10-16",
+                    "rental_count": 162860
+                  },
+                  {
+                    "date": "2026-10-17",
+                    "rental_count": 145401
+                  },
+                  {
+                    "date": "2026-10-18",
+                    "rental_count": 35915
+                  },
+                  {
+                    "date": "2026-10-19",
+                    "rental_count": 145222
+                  },
+                  {
+                    "date": "2026-10-20",
+                    "rental_count": 152813
+                  },
+                  {
+                    "date": "2026-10-21",
+                    "rental_count": 118648
+                  },
+                  {
+                    "date": "2026-10-22",
+                    "rental_count": 136513
+                  },
+                  {
+                    "date": "2026-10-23",
+                    "rental_count": 150343
+                  },
+                  {
+                    "date": "2026-10-24",
+                    "rental_count": 118099
+                  },
+                  {
+                    "date": "2026-10-25",
+                    "rental_count": 123168
+                  },
+                  {
+                    "date": "2026-10-26",
+                    "rental_count": 142812
+                  },
+                  {
+                    "date": "2026-10-27",
+                    "rental_count": 133627
+                  },
+                  {
+                    "date": "2026-10-28",
+                    "rental_count": 129645
+                  },
+                  {
+                    "date": "2026-10-29",
+                    "rental_count": 108176
+                  },
+                  {
+                    "date": "2026-10-30",
+                    "rental_count": 137149
+                  },
+                  {
+                    "date": "2026-10-31",
+                    "rental_count": 115988
+                  }
+                ]
+              }
+            ],
+            "station_comparison": [],
+            "interpretation": "Solar 원문의 일부 주장을 검증하지 못해 실제 도구 결과로 요약합니다.\n서울 이용 건수: 4245954건\n서울 실제 관측일수: 31일\n서울 일별 최대 (2026-10-02): 166657건\n서울 일별 최소 (2026-10-18): 35915건\n분석 기간: 2026-10-01 ~ 2026-10-31\n서울 집계 OD와 대전 개별 Trip의 총량 배율로 운영 성과를 비교하지 않습니다. 재고 부족과 개선 효과는 추가 자료 없이 확정할 수 없습니다."
+          },
+          "grounding_validation": {
+            "checked_numeric_tokens": 15,
+            "matched_numeric_tokens": 15,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "station_validation": {
+            "passed": true,
+            "unmatched_station_ids": []
+          },
+          "semantic_validation": {
+            "passed": false,
+            "checked_claims": 2,
+            "unsupported_claims": [
+              {
+                "kind": "maximum",
+                "claim": "일별 최대 날짜는 2026-10-18로 35,915건이고",
+                "expected": [
+                  {
+                    "kind": "maximum",
+                    "region_id": "seoul",
+                    "value": 166657,
+                    "dates": [
+                      "2026-10-02"
+                    ]
+                  }
+                ]
+              },
+              {
+                "kind": "minimum",
+                "claim": "일별 최소 날짜는 2026-10-13으로 96,284건입니다.",
+                "expected": [
+                  {
+                    "kind": "minimum",
+                    "region_id": "seoul",
+                    "value": 35915,
+                    "dates": [
+                      "2026-10-18"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "method": "일별 최대·최소 비교의 날짜/건수를 실제 극값과 대조. 해석할 수 없는 비교는 보류."
+          },
+          "analysis_context": {
+            "region_ids": [
+              "seoul"
+            ],
+            "date_start": "2026-10-01",
+            "date_end": "2026-10-31"
+          },
+          "model_finish_reason": "stop",
+          "fallback_reason": null,
+          "evidence": [
+            {
+              "tool": "get_region_overview",
+              "arguments": {
+                "region_id": "seoul",
+                "date_range": {
+                  "date_start": "2026-10-01",
+                  "date_end": "2026-10-31"
+                }
+              },
+              "result": {
+                "region_id": "seoul",
+                "region_name": "서울",
+                "service_name": "따릉이",
+                "operator": "서울특별시",
+                "sources": [
+                  {
+                    "source_id": "seoul-stations-202606",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                    "date_start": "2026-06-30",
+                    "date_end": "2026-06-30",
+                    "collected_at": "2026-11-04T04:53:59.993091Z",
+                    "verification_status": "VERIFIED",
+                    "available_columns": [
+                      "대여소 번호",
+                      "보관소(대여소)명",
+                      "소재지(위치)",
+                      "위도",
+                      "경도",
+                      "설치 시기",
+                      "LCD 거치대수",
+                      "QR 거치대수",
+                      "운영 방식"
+                    ]
+                  },
+                  {
+                    "source_id": "seoul-od-202610",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-21229/F/1/datasetView.do",
+                    "date_start": "2026-10-01",
+                    "date_end": "2026-10-31",
+                    "collected_at": "2026-11-09T01:37:07.685993Z",
+                    "verification_status": "VERIFIED",
+                    "available_columns": [
+                      "기준_날짜",
+                      "집계_기준",
+                      "기준_시간대",
+                      "시작_대여소_ID",
+                      "시작_대여소명",
+                      "종료_대여소_ID",
+                      "종료_대여소명",
+                      "전체_건수",
+                      "전체_이용_분",
+                      "전체_이용_거리"
+                    ]
+                  },
+                  {
+                    "source_id": "seoul-od-replacement-oa-14994",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+                    "date_start": null,
+                    "date_end": null,
+                    "collected_at": null,
+                    "verification_status": "METADATA_ONLY",
+                    "available_columns": []
+                  },
+                  {
+                    "source_id": "seoul-station-master-oa-21235",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                    "date_start": null,
+                    "date_end": null,
+                    "collected_at": "2026-11-09T01:56:36.503651+00:00",
+                    "verification_status": "VERIFIED",
+                    "available_columns": [
+                      "RNTLS_ID",
+                      "ADDR1",
+                      "ADDR2",
+                      "LAT",
+                      "LOT"
+                    ],
+                    "origin": "official_sheet",
+                    "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"
+                  }
+                ],
+                "source_names": [
+                  "서울시 공공자전거 따릉이 대여소 정보",
+                  "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                  "서울시 따릉이대여소 마스터 정보"
+                ],
+                "last_updated": "2026-11-09T01:56:36.503651+00:00",
+                "verification_status": "VERIFIED",
+                "total_rentals": 4245954,
+                "station_count": 2759,
+                "inventory_station_count": 2762,
+                "average_per_station": 1538.95,
+                "hourly": [
+                  77454,
+                  52120,
+                  35145,
+                  25585,
+                  22383,
+                  42882,
+                  88327,
+                  210188,
+                  296276,
+                  184664,
+                  155150,
+                  180945,
+                  200403,
+                  202510,
+                  211187,
+                  240365,
+                  287305,
+                  371508,
+                  412367,
+                  280239,
+                  230216,
+                  201613,
+                  160608,
+                  76514
+                ],
+                "period_start": "2026-10-01",
+                "period_end": "2026-10-31",
+                "observed_dates": [
+                  "2026-10-01",
+                  "2026-10-02",
+                  "2026-10-03",
+                  "2026-10-04",
+                  "2026-10-05",
+                  "2026-10-06",
+                  "2026-10-07",
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31"
+                ],
+                "daily": [
+                  {
+                    "date": "2026-10-01",
+                    "rental_count": 165241
+                  },
+                  {
+                    "date": "2026-10-02",
+                    "rental_count": 166657
+                  },
+                  {
+                    "date": "2026-10-03",
+                    "rental_count": 139098
+                  },
+                  {
+                    "date": "2026-10-04",
+                    "rental_count": 122967
+                  },
+                  {
+                    "date": "2026-10-05",
+                    "rental_count": 127969
+                  },
+                  {
+                    "date": "2026-10-06",
+                    "rental_count": 157874
+                  },
+                  {
+                    "date": "2026-10-07",
+                    "rental_count": 163546
+                  },
+                  {
+                    "date": "2026-10-08",
+                    "rental_count": 165625
+                  },
+                  {
+                    "date": "2026-10-09",
+                    "rental_count": 141561
+                  },
+                  {
+                    "date": "2026-10-10",
+                    "rental_count": 148094
+                  },
+                  {
+                    "date": "2026-10-11",
+                    "rental_count": 136319
+                  },
+                  {
+                    "date": "2026-10-12",
+                    "rental_count": 151099
+                  },
+                  {
+                    "date": "2026-10-13",
+                    "rental_count": 96284
+                  },
+                  {
+                    "date": "2026-10-14",
+                    "rental_count": 155430
+                  },
+                  {
+                    "date": "2026-10-15",
+                    "rental_count": 151811
+                  },
+                  {
+                    "date": "2026-10-16",
+                    "rental_count": 162860
+                  },
+                  {
+                    "date": "2026-10-17",
+                    "rental_count": 145401
+                  },
+                  {
+                    "date": "2026-10-18",
+                    "rental_count": 35915
+                  },
+                  {
+                    "date": "2026-10-19",
+                    "rental_count": 145222
+                  },
+                  {
+                    "date": "2026-10-20",
+                    "rental_count": 152813
+                  },
+                  {
+                    "date": "2026-10-21",
+                    "rental_count": 118648
+                  },
+                  {
+                    "date": "2026-10-22",
+                    "rental_count": 136513
+                  },
+                  {
+                    "date": "2026-10-23",
+                    "rental_count": 150343
+                  },
+                  {
+                    "date": "2026-10-24",
+                    "rental_count": 118099
+                  },
+                  {
+                    "date": "2026-10-25",
+                    "rental_count": 123168
+                  },
+                  {
+                    "date": "2026-10-26",
+                    "rental_count": 142812
+                  },
+                  {
+                    "date": "2026-10-27",
+                    "rental_count": 133627
+                  },
+                  {
+                    "date": "2026-10-28",
+                    "rental_count": 129645
+                  },
+                  {
+                    "date": "2026-10-29",
+                    "rental_count": 108176
+                  },
+                  {
+                    "date": "2026-10-30",
+                    "rental_count": 137149
+                  },
+                  {
+                    "date": "2026-10-31",
+                    "rental_count": 115988
+                  }
+                ],
+                "monthly": [
+                  {
+                    "month": "2026-10",
+                    "rental_count": 4245954
+                  }
+                ],
+                "weekday": [
+                  {
+                    "weekday": 0,
+                    "rental_count": 567102
+                  },
+                  {
+                    "weekday": 1,
+                    "rental_count": 540598
+                  },
+                  {
+                    "weekday": 2,
+                    "rental_count": 567269
+                  },
+                  {
+                    "weekday": 3,
+                    "rental_count": 727366
+                  },
+                  {
+                    "weekday": 4,
+                    "rental_count": 758570
+                  },
+                  {
+                    "weekday": 5,
+                    "rental_count": 666680
+                  },
+                  {
+                    "weekday": 6,
+                    "rental_count": 418369
+                  }
+                ],
+                "weekend_share": 0.2555,
+                "weekday_share": 0.7445,
+                "annual_latest": null,
+                "has_od": true,
+                "coverage_note": "서울은 2026년 10월 집계 OD입니다. 공식 대여소 마스터의 ST ID와 유효 좌표를 확인한 항목만 지도에 연결합니다."
+              },
+              "initiator": "solar"
+            }
+          ],
+          "request_id": "30cc501f90034fd991e0c27d9098c546",
+          "provider_calls": [
+            {
+              "stage": "tool_selection",
+              "state": "completed",
+              "usage": {
+                "prompt_tokens": 2336,
+                "completion_tokens": 16,
+                "total_tokens": 2352
+              },
+              "http_status": 200,
+              "response_id": "fc39f4cb-6c66-48a7-ac85-d78ea1d63e84",
+              "model": "solar-mini4-260922",
+              "finish_reason": "tool_calls"
+            },
+            {
+              "stage": "final_answer",
+              "state": "completed",
+              "usage": {
+                "prompt_tokens": 3079,
+                "completion_tokens": 98,
+                "total_tokens": 3177
+              },
+              "http_status": 200,
+              "response_id": "26442eff-5f25-44f2-9fea-048275328e0f",
+              "model": "solar-mini4-260922",
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 5415,
+            "completion_tokens": 114,
+            "total_tokens": 5529
+          },
+          "usage_complete": true,
+          "billing_status": "provider_usage_reported",
+          "model": "solar-mini4-260922",
+          "llm_status": "completed"
+        }
+      },
+      "fact_cards": 4,
+      "visible_answer": "실제 도구 기반 요약\n\nSolar 원문의 일부 주장을 검증하지 못해 실제 도구 결과로 요약합니다.\n서울 이용 건수: 4245954건\n서울 실제 관측일수: 31일\n서울 일별 최대 (2026-10-02): 166657건\n서울 일별 최소 (2026-10-18): 35915건\n분석 기간: 2026-10-01 ~ 2026-10-31\n서울 집계 OD와 대전 개별 Trip의 총량 배율로 운영 성과를 비교하지 않습니다. 재고 부족과 개선 효과는 추가 자료 없이 확정할 수 없습니다.\n\n검증 보류된 Solar 원문 보기",
+      "tool_summaries": [
+        "1. get_region_overview · Solar 선택"
+      ],
+      "screenshot": "q1.png"
+    },
+    {
+      "id": 2,
+      "question": "서울 PageRank 1위 대여소의 ID와 점수를 알려줘.",
+      "started_at": "2026-11-12T08:11:51.093581+00:00",
+      "state": "received",
+      "seconds": 114.587,
+      "http_status": 200,
+      "body": {
+        "code": 200,
+        "data": {
+          "answer": "Solar 최종 요약을 완료하지 못해 실제 도구 결과로 요약합니다.\nST-3388 pagerank: 0.003208지표\n분석 기간: 2026-10-01 ~ 2026-10-31\n서울 집계 OD와 대전 개별 Trip의 총량 배율로 운영 성과를 비교하지 않습니다. 재고 부족과 개선 효과는 추가 자료 없이 확정할 수 없습니다.",
+          "solar_answer": null,
+          "answer_basis": "tool_summary",
+          "report": {
+            "question_summary": "서울 PageRank 1위 대여소의 ID와 점수를 알려줘.",
+            "key_findings": [
+              {
+                "label": "ST-3388 pagerank",
+                "value": 0.003208,
+                "unit": "지표",
+                "region_id": "seoul"
+              }
+            ],
+            "evidence": [
+              {
+                "tool": "get_centrality_ranking",
+                "arguments": {
+                  "date_range": {
+                    "date_start": "2026-10-01",
+                    "date_end": "2026-10-31"
+                  },
+                  "metric": "pagerank",
+                  "region_id": "seoul",
+                  "top_n": 1
+                },
+                "result": {
+                  "sources": [
+                    {
+                      "source_id": "seoul-stations-202606",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                      "date_start": "2026-06-30",
+                      "date_end": "2026-06-30",
+                      "collected_at": "2026-11-04T04:53:59.993091Z",
+                      "verification_status": "VERIFIED",
+                      "available_columns": [
+                        "대여소 번호",
+                        "보관소(대여소)명",
+                        "소재지(위치)",
+                        "위도",
+                        "경도",
+                        "설치 시기",
+                        "LCD 거치대수",
+                        "QR 거치대수",
+                        "운영 방식"
+                      ]
+                    },
+                    {
+                      "source_id": "seoul-od-202610",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-21229/F/1/datasetView.do",
+                      "date_start": "2026-10-01",
+                      "date_end": "2026-10-31",
+                      "collected_at": "2026-11-09T01:37:07.685993Z",
+                      "verification_status": "VERIFIED",
+                      "available_columns": [
+                        "기준_날짜",
+                        "집계_기준",
+                        "기준_시간대",
+                        "시작_대여소_ID",
+                        "시작_대여소명",
+                        "종료_대여소_ID",
+                        "종료_대여소명",
+                        "전체_건수",
+                        "전체_이용_분",
+                        "전체_이용_거리"
+                      ]
+                    },
+                    {
+                      "source_id": "seoul-od-replacement-oa-14994",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+                      "date_start": null,
+                      "date_end": null,
+                      "collected_at": null,
+                      "verification_status": "METADATA_ONLY",
+                      "available_columns": []
+                    },
+                    {
+                      "source_id": "seoul-station-master-oa-21235",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                      "date_start": null,
+                      "date_end": null,
+                      "collected_at": "2026-11-09T01:56:36.503651+00:00",
+                      "verification_status": "VERIFIED",
+                      "available_columns": [
+                        "RNTLS_ID",
+                        "ADDR1",
+                        "ADDR2",
+                        "LAT",
+                        "LOT"
+                      ],
+                      "origin": "official_sheet",
+                      "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"
+                    }
+                  ],
+                  "source_names": [
+                    "서울시 공공자전거 따릉이 대여소 정보",
+                    "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                    "서울시 따릉이대여소 마스터 정보"
+                  ],
+                  "last_updated": "2026-11-09T01:56:36.503651+00:00",
+                  "verification_status": "VERIFIED",
+                  "available": true,
+                  "rankings": [
+                    {
+                      "station_id": "ST-3388",
+                      "station_name": "서울특별시 마포구 마포나루길 429",
+                      "pagerank": 0.003208,
+                      "weighted_out_degree": 15476,
+                      "weighted_in_degree": 14726,
+                      "betweenness": null,
+                      "centrality_rank": 1,
+                      "rental_count": 15552,
+                      "usage_rank": 1
+                    }
+                  ],
+                  "components": 1,
+                  "betweenness_sample_nodes": 0,
+                  "message": "PageRank·가중 차수는 연결 구조 지표이며 실제 대여량과 다릅니다. 매개 중심성은 표본 근사입니다.",
+                  "metric": "pagerank",
+                  "period_start": "2026-10-01",
+                  "period_end": "2026-10-31"
+                },
+                "initiator": "solar"
+              }
+            ],
+            "algorithms": [
+              "pagerank"
+            ],
+            "station_roles": [],
+            "recommendations": [
+              {
+                "feature": "pagerank 상위 연결 대여소",
+                "evidence": "ST-3388 / pagerank 0.003208",
+                "action": "해당 대여소의 운영 현황을 우선 모니터링하세요.",
+                "value": "연결 구조상 중요한 지점을 검토할 수 있습니다.",
+                "validation": "실제 재고와 장기간 이용 기록으로 운영 효과를 추가 검증해야 합니다."
+              }
+            ],
+            "limitations": [
+              "중심성은 이용량과 다른 지표입니다. 서울은 집계 OD, 대전은 개별 Trip을 사용합니다.",
+              "Solar 최종 요약 상태: 분석 시간 제한을 초과했습니다."
+            ],
+            "sources": [
+              {
+                "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                "verification_status": "VERIFIED"
+              },
+              {
+                "dataset_name": "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-21229/F/1/datasetView.do",
+                "verification_status": "VERIFIED"
+              },
+              {
+                "dataset_name": "서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+                "verification_status": "METADATA_ONLY"
+              },
+              {
+                "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                "verification_status": "VERIFIED"
+              }
+            ],
+            "periods": [
+              "2026-10-01",
+              "2026-10-31"
+            ],
+            "charts": [
+              {
+                "title": "ST-3388 등 pagerank 순위",
+                "kind": "ranking",
+                "metric": "pagerank",
+                "points": [
+                  {
+                    "station_id": "ST-3388",
+                    "station_name": "서울특별시 마포구 마포나루길 429",
+                    "value": 0.003208
+                  }
+                ]
+              }
+            ],
+            "station_comparison": [],
+            "interpretation": "Solar 최종 요약을 완료하지 못해 실제 도구 결과로 요약합니다.\nST-3388 pagerank: 0.003208지표\n분석 기간: 2026-10-01 ~ 2026-10-31\n서울 집계 OD와 대전 개별 Trip의 총량 배율로 운영 성과를 비교하지 않습니다. 재고 부족과 개선 효과는 추가 자료 없이 확정할 수 없습니다."
+          },
+          "grounding_validation": {
+            "checked_numeric_tokens": 0,
+            "matched_numeric_tokens": 0,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "station_validation": {
+            "passed": true,
+            "unmatched_station_ids": []
+          },
+          "semantic_validation": {
+            "passed": true,
+            "checked_claims": 0,
+            "unsupported_claims": [],
+            "method": "일별 최대·최소 비교의 날짜/건수를 실제 극값과 대조. 해석할 수 없는 비교는 보류."
+          },
+          "analysis_context": {
+            "region_ids": [
+              "seoul"
+            ],
+            "date_start": "2026-10-01",
+            "date_end": "2026-10-31"
+          },
+          "model_finish_reason": null,
+          "fallback_reason": "분석 시간 제한을 초과했습니다.",
+          "request_id": "c0e14c15c43843e5a53a7b539867b875",
+          "provider_calls": [
+            {
+              "stage": "tool_selection",
+              "state": "completed",
+              "usage": {
+                "prompt_tokens": 2333,
+                "completion_tokens": 55,
+                "total_tokens": 2388
+              },
+              "http_status": 200,
+              "response_id": "ef34c191-a2d6-4e66-a894-e3bd2a59e7fe",
+              "model": "solar-mini4-260922",
+              "finish_reason": "tool_calls"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 2333,
+            "completion_tokens": 55,
+            "total_tokens": 2388
+          },
+          "usage_complete": true,
+          "billing_status": "provider_usage_reported",
+          "evidence": [
+            {
+              "tool": "get_centrality_ranking",
+              "arguments": {
+                "date_range": {
+                  "date_start": "2026-10-01",
+                  "date_end": "2026-10-31"
+                },
+                "metric": "pagerank",
+                "region_id": "seoul",
+                "top_n": 1
+              },
+              "result": {
+                "sources": [
+                  {
+                    "source_id": "seoul-stations-202606",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                    "date_start": "2026-06-30",
+                    "date_end": "2026-06-30",
+                    "collected_at": "2026-11-04T04:53:59.993091Z",
+                    "verification_status": "VERIFIED",
+                    "available_columns": [
+                      "대여소 번호",
+                      "보관소(대여소)명",
+                      "소재지(위치)",
+                      "위도",
+                      "경도",
+                      "설치 시기",
+                      "LCD 거치대수",
+                      "QR 거치대수",
+                      "운영 방식"
+                    ]
+                  },
+                  {
+                    "source_id": "seoul-od-202610",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-21229/F/1/datasetView.do",
+                    "date_start": "2026-10-01",
+                    "date_end": "2026-10-31",
+                    "collected_at": "2026-11-09T01:37:07.685993Z",
+                    "verification_status": "VERIFIED",
+                    "available_columns": [
+                      "기준_날짜",
+                      "집계_기준",
+                      "기준_시간대",
+                      "시작_대여소_ID",
+                      "시작_대여소명",
+                      "종료_대여소_ID",
+                      "종료_대여소명",
+                      "전체_건수",
+                      "전체_이용_분",
+                      "전체_이용_거리"
+                    ]
+                  },
+                  {
+                    "source_id": "seoul-od-replacement-oa-14994",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+                    "date_start": null,
+                    "date_end": null,
+                    "collected_at": null,
+                    "verification_status": "METADATA_ONLY",
+                    "available_columns": []
+                  },
+                  {
+                    "source_id": "seoul-station-master-oa-21235",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                    "date_start": null,
+                    "date_end": null,
+                    "collected_at": "2026-11-09T01:56:36.503651+00:00",
+                    "verification_status": "VERIFIED",
+                    "available_columns": [
+                      "RNTLS_ID",
+                      "ADDR1",
+                      "ADDR2",
+                      "LAT",
+                      "LOT"
+                    ],
+                    "origin": "official_sheet",
+                    "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"
+                  }
+                ],
+                "source_names": [
+                  "서울시 공공자전거 따릉이 대여소 정보",
+                  "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                  "서울시 따릉이대여소 마스터 정보"
+                ],
+                "last_updated": "2026-11-09T01:56:36.503651+00:00",
+                "verification_status": "VERIFIED",
+                "available": true,
+                "rankings": [
+                  {
+                    "station_id": "ST-3388",
+                    "station_name": "서울특별시 마포구 마포나루길 429",
+                    "pagerank": 0.003208,
+                    "weighted_out_degree": 15476,
+                    "weighted_in_degree": 14726,
+                    "betweenness": null,
+                    "centrality_rank": 1,
+                    "rental_count": 15552,
+                    "usage_rank": 1
+                  }
+                ],
+                "components": 1,
+                "betweenness_sample_nodes": 0,
+                "message": "PageRank·가중 차수는 연결 구조 지표이며 실제 대여량과 다릅니다. 매개 중심성은 표본 근사입니다.",
+                "metric": "pagerank",
+                "period_start": "2026-10-01",
+                "period_end": "2026-10-31"
+              },
+              "initiator": "solar"
+            }
+          ],
+          "model": "solar-mini4-260922",
+          "llm_status": "incomplete",
+          "provider_error_code": 504
+        }
+      },
+      "fact_cards": 1,
+      "visible_answer": "실제 도구 기반 요약\n\nSolar 최종 요약을 완료하지 못해 실제 도구 결과로 요약합니다.\nST-3388 pagerank: 0.003208지표\n분석 기간: 2026-10-01 ~ 2026-10-31\n서울 집계 OD와 대전 개별 Trip의 총량 배율로 운영 성과를 비교하지 않습니다. 재고 부족과 개선 효과는 추가 자료 없이 확정할 수 없습니다.",
+      "tool_summaries": [
+        "1. get_centrality_ranking · Solar 선택"
+      ],
+      "screenshot": "q2.png"
+    },
+    {
+      "id": 3,
+      "question": "서울 ST-1481의 대여 건수와 반납 건수, 실제 관측일수를 알려줘. 대여소 상세 정보만 조회해줘.",
+      "started_at": "2026-11-12T08:13:45.960350+00:00",
+      "state": "received",
+      "seconds": 46.846,
+      "http_status": 200,
+      "body": {
+        "code": 200,
+        "data": {
+          "answer": "Solar 최종 요약을 완료하지 못해 실제 도구 결과로 요약합니다.\nST-1481 대여: 926건\nST-1481 반납: 1322건\nST-1481 순유출: -396건\nST-1481 실제 관측일수: 31일\n분석 기간: 2026-10-01 ~ 2026-10-31\n서울 집계 OD와 대전 개별 Trip의 총량 배율로 운영 성과를 비교하지 않습니다. 재고 부족과 개선 효과는 추가 자료 없이 확정할 수 없습니다.",
+          "solar_answer": null,
+          "answer_basis": "tool_summary",
+          "report": {
+            "question_summary": "서울 ST-1481의 대여 건수와 반납 건수, 실제 관측일수를 알려줘. 대여소 상세 정보만 조회해줘.",
+            "key_findings": [
+              {
+                "label": "ST-1481 대여",
+                "value": 926,
+                "unit": "건"
+              },
+              {
+                "label": "ST-1481 반납",
+                "value": 1322,
+                "unit": "건"
+              },
+              {
+                "label": "ST-1481 순유출",
+                "value": -396,
+                "unit": "건"
+              },
+              {
+                "label": "ST-1481 실제 관측일수",
+                "value": 31,
+                "unit": "일"
+              }
+            ],
+            "evidence": [
+              {
+                "tool": "get_station_details",
+                "arguments": {
+                  "region_id": "seoul",
+                  "station_id": "ST-1481",
+                  "date_range": {
+                    "date_start": "2026-10-01",
+                    "date_end": "2026-10-31"
+                  }
+                },
+                "result": {
+                  "sources": [
+                    {
+                      "source_id": "seoul-stations-202606",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                      "date_start": "2026-06-30",
+                      "date_end": "2026-06-30",
+                      "collected_at": "2026-11-04T04:53:59.993091Z",
+                      "verification_status": "VERIFIED",
+                      "available_columns": [
+                        "대여소 번호",
+                        "보관소(대여소)명",
+                        "소재지(위치)",
+                        "위도",
+                        "경도",
+                        "설치 시기",
+                        "LCD 거치대수",
+                        "QR 거치대수",
+                        "운영 방식"
+                      ]
+                    },
+                    {
+                      "source_id": "seoul-od-202610",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-21229/F/1/datasetView.do",
+                      "date_start": "2026-10-01",
+                      "date_end": "2026-10-31",
+                      "collected_at": "2026-11-09T01:37:07.685993Z",
+                      "verification_status": "VERIFIED",
+                      "available_columns": [
+                        "기준_날짜",
+                        "집계_기준",
+                        "기준_시간대",
+                        "시작_대여소_ID",
+                        "시작_대여소명",
+                        "종료_대여소_ID",
+                        "종료_대여소명",
+                        "전체_건수",
+                        "전체_이용_분",
+                        "전체_이용_거리"
+                      ]
+                    },
+                    {
+                      "source_id": "seoul-od-replacement-oa-14994",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+                      "date_start": null,
+                      "date_end": null,
+                      "collected_at": null,
+                      "verification_status": "METADATA_ONLY",
+                      "available_columns": []
+                    },
+                    {
+                      "source_id": "seoul-station-master-oa-21235",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                      "date_start": null,
+                      "date_end": null,
+                      "collected_at": "2026-11-09T01:56:36.503651+00:00",
+                      "verification_status": "VERIFIED",
+                      "available_columns": [
+                        "RNTLS_ID",
+                        "ADDR1",
+                        "ADDR2",
+                        "LAT",
+                        "LOT"
+                      ],
+                      "origin": "official_sheet",
+                      "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"
+                    }
+                  ],
+                  "source_names": [
+                    "서울시 공공자전거 따릉이 대여소 정보",
+                    "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                    "서울시 따릉이대여소 마스터 정보"
+                  ],
+                  "last_updated": "2026-11-09T01:56:36.503651+00:00",
+                  "verification_status": "VERIFIED",
+                  "available": true,
+                  "station": {
+                    "region_id": "seoul",
+                    "station_id": "ST-1481",
+                    "station_name": "구파발역 환승센터",
+                    "latitude": 37.638252,
+                    "longitude": 126.919456,
+                    "capacity": null,
+                    "rental_count": 926,
+                    "return_count": 1322,
+                    "hourly": [
+                      34,
+                      18,
+                      4,
+                      2,
+                      1,
+                      4,
+                      5,
+                      14,
+                      8,
+                      15,
+                      21,
+                      42,
+                      51,
+                      37,
+                      37,
+                      51,
+                      44,
+                      70,
+                      124,
+                      100,
+                      64,
+                      67,
+                      72,
+                      41
+                    ],
+                    "weekend_share": 0.23542116630669546,
+                    "net_outflow": -396,
+                    "imbalance_ratio": -0.1762,
+                    "hourly_net_outflow": [
+                      32,
+                      14,
+                      4,
+                      1,
+                      1,
+                      -18,
+                      -79,
+                      -220,
+                      -170,
+                      -115,
+                      -36,
+                      -16,
+                      -20,
+                      -14,
+                      -34,
+                      -10,
+                      -20,
+                      4,
+                      50,
+                      59,
+                      38,
+                      44,
+                      69,
+                      40
+                    ],
+                    "persistent_direction": "net_inflow",
+                    "persistence_ratio": 0.871
+                  },
+                  "cluster": {
+                    "station_id": "ST-1481",
+                    "cluster_id": 0,
+                    "role": "유형 해석 보류",
+                    "description": "Silhouette가 0.2 미만입니다. 시간대 대표 패턴은 참고값이며 유형으로 확정하지 않습니다.",
+                    "station_count": 1267,
+                    "mean_rentals": 1748.3,
+                    "morning_share": 0.1478,
+                    "evening_share": 0.3147,
+                    "weekend_share": 0.2714
+                  },
+                  "observed_dates": [
+                    "2026-10-01",
+                    "2026-10-02",
+                    "2026-10-03",
+                    "2026-10-04",
+                    "2026-10-05",
+                    "2026-10-06",
+                    "2026-10-07",
+                    "2026-10-08",
+                    "2026-10-09",
+                    "2026-10-10",
+                    "2026-10-11",
+                    "2026-10-12",
+                    "2026-10-13",
+                    "2026-10-14",
+                    "2026-10-15",
+                    "2026-10-16",
+                    "2026-10-17",
+                    "2026-10-18",
+                    "2026-10-19",
+                    "2026-10-20",
+                    "2026-10-21",
+                    "2026-10-22",
+                    "2026-10-23",
+                    "2026-10-24",
+                    "2026-10-25",
+                    "2026-10-26",
+                    "2026-10-27",
+                    "2026-10-28",
+                    "2026-10-29",
+                    "2026-10-30",
+                    "2026-10-31"
+                  ]
+                },
+                "initiator": "solar"
+              }
+            ],
+            "algorithms": [],
+            "station_roles": [
+              {
+                "station_id": "ST-1481",
+                "role": "유형 해석 보류",
+                "cluster_id": 0
+              }
+            ],
+            "recommendations": [],
+            "limitations": [
+              "Solar 최종 요약 상태: Solar 응답 시간이 초과되었습니다."
+            ],
+            "sources": [
+              {
+                "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                "verification_status": "VERIFIED"
+              },
+              {
+                "dataset_name": "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-21229/F/1/datasetView.do",
+                "verification_status": "VERIFIED"
+              },
+              {
+                "dataset_name": "서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+                "verification_status": "METADATA_ONLY"
+              },
+              {
+                "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                "verification_status": "VERIFIED"
+              }
+            ],
+            "periods": [
+              "2026-10-01",
+              "2026-10-31"
+            ],
+            "charts": [],
+            "station_comparison": [],
+            "interpretation": "Solar 최종 요약을 완료하지 못해 실제 도구 결과로 요약합니다.\nST-1481 대여: 926건\nST-1481 반납: 1322건\nST-1481 순유출: -396건\nST-1481 실제 관측일수: 31일\n분석 기간: 2026-10-01 ~ 2026-10-31\n서울 집계 OD와 대전 개별 Trip의 총량 배율로 운영 성과를 비교하지 않습니다. 재고 부족과 개선 효과는 추가 자료 없이 확정할 수 없습니다."
+          },
+          "grounding_validation": {
+            "checked_numeric_tokens": 0,
+            "matched_numeric_tokens": 0,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "station_validation": {
+            "passed": true,
+            "unmatched_station_ids": []
+          },
+          "semantic_validation": {
+            "passed": true,
+            "checked_claims": 0,
+            "unsupported_claims": [],
+            "method": "일별 최대·최소 비교의 날짜/건수를 실제 극값과 대조. 해석할 수 없는 비교는 보류."
+          },
+          "analysis_context": {
+            "region_ids": [
+              "seoul"
+            ],
+            "date_start": "2026-10-01",
+            "date_end": "2026-10-31"
+          },
+          "model_finish_reason": null,
+          "fallback_reason": "Solar 응답 시간이 초과되었습니다.",
+          "request_id": "48ce56517e2f45df81e07b5b374fec43",
+          "provider_calls": [
+            {
+              "stage": "tool_selection",
+              "state": "completed",
+              "usage": {
+                "prompt_tokens": 2351,
+                "completion_tokens": 28,
+                "total_tokens": 2379
+              },
+              "http_status": 200,
+              "response_id": "e7a07727-b317-4e7f-b366-0173d6c2b8a9",
+              "model": "solar-mini4-260922",
+              "finish_reason": "tool_calls"
+            },
+            {
+              "stage": "final_answer",
+              "state": "failed",
+              "usage": null,
+              "error_type": "APITimeoutError",
+              "http_status": null
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 2351,
+            "completion_tokens": 28,
+            "total_tokens": 2379
+          },
+          "usage_complete": false,
+          "billing_status": "unknown_for_unreported_calls",
+          "evidence": [
+            {
+              "tool": "get_station_details",
+              "arguments": {
+                "region_id": "seoul",
+                "station_id": "ST-1481",
+                "date_range": {
+                  "date_start": "2026-10-01",
+                  "date_end": "2026-10-31"
+                }
+              },
+              "result": {
+                "sources": [
+                  {
+                    "source_id": "seoul-stations-202606",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                    "date_start": "2026-06-30",
+                    "date_end": "2026-06-30",
+                    "collected_at": "2026-11-04T04:53:59.993091Z",
+                    "verification_status": "VERIFIED",
+                    "available_columns": [
+                      "대여소 번호",
+                      "보관소(대여소)명",
+                      "소재지(위치)",
+                      "위도",
+                      "경도",
+                      "설치 시기",
+                      "LCD 거치대수",
+                      "QR 거치대수",
+                      "운영 방식"
+                    ]
+                  },
+                  {
+                    "source_id": "seoul-od-202610",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-21229/F/1/datasetView.do",
+                    "date_start": "2026-10-01",
+                    "date_end": "2026-10-31",
+                    "collected_at": "2026-11-09T01:37:07.685993Z",
+                    "verification_status": "VERIFIED",
+                    "available_columns": [
+                      "기준_날짜",
+                      "집계_기준",
+                      "기준_시간대",
+                      "시작_대여소_ID",
+                      "시작_대여소명",
+                      "종료_대여소_ID",
+                      "종료_대여소명",
+                      "전체_건수",
+                      "전체_이용_분",
+                      "전체_이용_거리"
+                    ]
+                  },
+                  {
+                    "source_id": "seoul-od-replacement-oa-14994",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+                    "date_start": null,
+                    "date_end": null,
+                    "collected_at": null,
+                    "verification_status": "METADATA_ONLY",
+                    "available_columns": []
+                  },
+                  {
+                    "source_id": "seoul-station-master-oa-21235",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                    "date_start": null,
+                    "date_end": null,
+                    "collected_at": "2026-11-09T01:56:36.503651+00:00",
+                    "verification_status": "VERIFIED",
+                    "available_columns": [
+                      "RNTLS_ID",
+                      "ADDR1",
+                      "ADDR2",
+                      "LAT",
+                      "LOT"
+                    ],
+                    "origin": "official_sheet",
+                    "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"
+                  }
+                ],
+                "source_names": [
+                  "서울시 공공자전거 따릉이 대여소 정보",
+                  "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                  "서울시 따릉이대여소 마스터 정보"
+                ],
+                "last_updated": "2026-11-09T01:56:36.503651+00:00",
+                "verification_status": "VERIFIED",
+                "available": true,
+                "station": {
+                  "region_id": "seoul",
+                  "station_id": "ST-1481",
+                  "station_name": "구파발역 환승센터",
+                  "latitude": 37.638252,
+                  "longitude": 126.919456,
+                  "capacity": null,
+                  "rental_count": 926,
+                  "return_count": 1322,
+                  "hourly": [
+                    34,
+                    18,
+                    4,
+                    2,
+                    1,
+                    4,
+                    5,
+                    14,
+                    8,
+                    15,
+                    21,
+                    42,
+                    51,
+                    37,
+                    37,
+                    51,
+                    44,
+                    70,
+                    124,
+                    100,
+                    64,
+                    67,
+                    72,
+                    41
+                  ],
+                  "weekend_share": 0.23542116630669546,
+                  "net_outflow": -396,
+                  "imbalance_ratio": -0.1762,
+                  "hourly_net_outflow": [
+                    32,
+                    14,
+                    4,
+                    1,
+                    1,
+                    -18,
+                    -79,
+                    -220,
+                    -170,
+                    -115,
+                    -36,
+                    -16,
+                    -20,
+                    -14,
+                    -34,
+                    -10,
+                    -20,
+                    4,
+                    50,
+                    59,
+                    38,
+                    44,
+                    69,
+                    40
+                  ],
+                  "persistent_direction": "net_inflow",
+                  "persistence_ratio": 0.871
+                },
+                "cluster": {
+                  "station_id": "ST-1481",
+                  "cluster_id": 0,
+                  "role": "유형 해석 보류",
+                  "description": "Silhouette가 0.2 미만입니다. 시간대 대표 패턴은 참고값이며 유형으로 확정하지 않습니다.",
+                  "station_count": 1267,
+                  "mean_rentals": 1748.3,
+                  "morning_share": 0.1478,
+                  "evening_share": 0.3147,
+                  "weekend_share": 0.2714
+                },
+                "observed_dates": [
+                  "2026-10-01",
+                  "2026-10-02",
+                  "2026-10-03",
+                  "2026-10-04",
+                  "2026-10-05",
+                  "2026-10-06",
+                  "2026-10-07",
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31"
+                ]
+              },
+              "initiator": "solar"
+            }
+          ],
+          "model": "solar-mini4-260922",
+          "llm_status": "incomplete",
+          "provider_error_code": 504
+        }
+      },
+      "fact_cards": 4,
+      "visible_answer": "실제 도구 기반 요약\n\nSolar 최종 요약을 완료하지 못해 실제 도구 결과로 요약합니다.\nST-1481 대여: 926건\nST-1481 반납: 1322건\nST-1481 순유출: -396건\nST-1481 실제 관측일수: 31일\n분석 기간: 2026-10-01 ~ 2026-10-31\n서울 집계 OD와 대전 개별 Trip의 총량 배율로 운영 성과를 비교하지 않습니다. 재고 부족과 개선 효과는 추가 자료 없이 확정할 수 없습니다.",
+      "tool_summaries": [
+        "1. get_station_details · Solar 선택"
+      ],
+      "screenshot": "q3.png"
+    },
+    {
+      "id": 4,
+      "question": "서울 PageRank 1위 대여소의 ID와 점수를 알려줘.",
+      "started_at": "2026-11-12T08:16:41.523941+00:00",
+      "state": "received",
+      "seconds": 4.79,
+      "http_status": 200,
+      "body": {
+        "code": 200,
+        "data": {
+          "answer": "서울 PageRank 1위 대여소는 **ST-3388**(서울특별시 마포구 마포나루길 429)로, 점수는 **0.003208**입니다. 이 값은 2026년 10월 1일부터 10월 31일까지의 서울 대여소 네트워크 연결 구조 기준이며, 실제 대여량·반납량은 아닙니다.",
+          "solar_answer": null,
+          "answer_basis": "solar_interpretation",
+          "report": {
+            "question_summary": "서울 PageRank 1위 대여소의 ID와 점수를 알려줘.",
+            "key_findings": [
+              {
+                "label": "ST-3388 pagerank",
+                "value": 0.003208,
+                "unit": "지표",
+                "region_id": "seoul"
+              }
+            ],
+            "evidence": [
+              {
+                "tool": "get_centrality_ranking",
+                "arguments": {
+                  "date_range": {
+                    "date_start": "2026-10-01",
+                    "date_end": "2026-10-31"
+                  },
+                  "metric": "pagerank",
+                  "region_id": "seoul",
+                  "top_n": 1
+                },
+                "result": {
+                  "sources": [
+                    {
+                      "source_id": "seoul-stations-202606",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                      "date_start": "2026-06-30",
+                      "date_end": "2026-06-30",
+                      "collected_at": "2026-11-04T04:53:59.993091Z",
+                      "verification_status": "VERIFIED",
+                      "available_columns": [
+                        "대여소 번호",
+                        "보관소(대여소)명",
+                        "소재지(위치)",
+                        "위도",
+                        "경도",
+                        "설치 시기",
+                        "LCD 거치대수",
+                        "QR 거치대수",
+                        "운영 방식"
+                      ]
+                    },
+                    {
+                      "source_id": "seoul-od-202610",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-21229/F/1/datasetView.do",
+                      "date_start": "2026-10-01",
+                      "date_end": "2026-10-31",
+                      "collected_at": "2026-11-09T01:37:07.685993Z",
+                      "verification_status": "VERIFIED",
+                      "available_columns": [
+                        "기준_날짜",
+                        "집계_기준",
+                        "기준_시간대",
+                        "시작_대여소_ID",
+                        "시작_대여소명",
+                        "종료_대여소_ID",
+                        "종료_대여소명",
+                        "전체_건수",
+                        "전체_이용_분",
+                        "전체_이용_거리"
+                      ]
+                    },
+                    {
+                      "source_id": "seoul-od-replacement-oa-14994",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+                      "date_start": null,
+                      "date_end": null,
+                      "collected_at": null,
+                      "verification_status": "METADATA_ONLY",
+                      "available_columns": []
+                    },
+                    {
+                      "source_id": "seoul-station-master-oa-21235",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                      "date_start": null,
+                      "date_end": null,
+                      "collected_at": "2026-11-09T01:56:36.503651+00:00",
+                      "verification_status": "VERIFIED",
+                      "available_columns": [
+                        "RNTLS_ID",
+                        "ADDR1",
+                        "ADDR2",
+                        "LAT",
+                        "LOT"
+                      ],
+                      "origin": "official_sheet",
+                      "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"
+                    }
+                  ],
+                  "source_names": [
+                    "서울시 공공자전거 따릉이 대여소 정보",
+                    "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                    "서울시 따릉이대여소 마스터 정보"
+                  ],
+                  "last_updated": "2026-11-09T01:56:36.503651+00:00",
+                  "verification_status": "VERIFIED",
+                  "available": true,
+                  "rankings": [
+                    {
+                      "station_id": "ST-3388",
+                      "station_name": "서울특별시 마포구 마포나루길 429",
+                      "pagerank": 0.003208,
+                      "weighted_out_degree": 15476,
+                      "weighted_in_degree": 14726,
+                      "betweenness": null,
+                      "centrality_rank": 1,
+                      "rental_count": 15552,
+                      "usage_rank": 1
+                    }
+                  ],
+                  "components": 1,
+                  "betweenness_sample_nodes": 0,
+                  "message": "PageRank·가중 차수는 연결 구조 지표이며 실제 대여량과 다릅니다. 매개 중심성은 표본 근사입니다.",
+                  "metric": "pagerank",
+                  "period_start": "2026-10-01",
+                  "period_end": "2026-10-31"
+                },
+                "initiator": "solar",
+                "execution_seconds": 0.064
+              }
+            ],
+            "algorithms": [
+              "pagerank"
+            ],
+            "station_roles": [],
+            "recommendations": [
+              {
+                "feature": "pagerank 상위 연결 대여소",
+                "evidence": "ST-3388 / pagerank 0.003208",
+                "action": "해당 대여소의 운영 현황을 우선 모니터링하세요.",
+                "value": "연결 구조상 중요한 지점을 검토할 수 있습니다.",
+                "validation": "실제 재고와 장기간 이용 기록으로 운영 효과를 추가 검증해야 합니다."
+              }
+            ],
+            "limitations": [
+              "중심성은 이용량과 다른 지표입니다. 서울은 집계 OD, 대전은 개별 Trip을 사용합니다."
+            ],
+            "sources": [
+              {
+                "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                "verification_status": "VERIFIED"
+              },
+              {
+                "dataset_name": "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-21229/F/1/datasetView.do",
+                "verification_status": "VERIFIED"
+              },
+              {
+                "dataset_name": "서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+                "verification_status": "METADATA_ONLY"
+              },
+              {
+                "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                "verification_status": "VERIFIED"
+              }
+            ],
+            "periods": [
+              "2026-10-01",
+              "2026-10-31"
+            ],
+            "charts": [
+              {
+                "title": "ST-3388 등 pagerank 순위",
+                "kind": "ranking",
+                "metric": "pagerank",
+                "points": [
+                  {
+                    "station_id": "ST-3388",
+                    "station_name": "서울특별시 마포구 마포나루길 429",
+                    "value": 0.003208
+                  }
+                ]
+              }
+            ],
+            "station_comparison": [],
+            "interpretation": "서울 PageRank 1위 대여소는 **ST-3388**(서울특별시 마포구 마포나루길 429)로, 점수는 **0.003208**입니다. 이 값은 2026년 10월 1일부터 10월 31일까지의 서울 대여소 네트워크 연결 구조 기준이며, 실제 대여량·반납량은 아닙니다."
+          },
+          "grounding_validation": {
+            "checked_numeric_tokens": 8,
+            "matched_numeric_tokens": 8,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "station_validation": {
+            "passed": true,
+            "unmatched_station_ids": []
+          },
+          "semantic_validation": {
+            "passed": true,
+            "checked_claims": 0,
+            "unsupported_claims": [],
+            "method": "일별 최대·최소 비교의 날짜/건수를 실제 극값과 대조. 해석할 수 없는 비교는 보류."
+          },
+          "analysis_context": {
+            "region_ids": [
+              "seoul"
+            ],
+            "date_start": "2026-10-01",
+            "date_end": "2026-10-31"
+          },
+          "model_finish_reason": "stop",
+          "fallback_reason": null,
+          "evidence": [
+            {
+              "tool": "get_centrality_ranking",
+              "arguments": {
+                "date_range": {
+                  "date_start": "2026-10-01",
+                  "date_end": "2026-10-31"
+                },
+                "metric": "pagerank",
+                "region_id": "seoul",
+                "top_n": 1
+              },
+              "result": {
+                "sources": [
+                  {
+                    "source_id": "seoul-stations-202606",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                    "date_start": "2026-06-30",
+                    "date_end": "2026-06-30",
+                    "collected_at": "2026-11-04T04:53:59.993091Z",
+                    "verification_status": "VERIFIED",
+                    "available_columns": [
+                      "대여소 번호",
+                      "보관소(대여소)명",
+                      "소재지(위치)",
+                      "위도",
+                      "경도",
+                      "설치 시기",
+                      "LCD 거치대수",
+                      "QR 거치대수",
+                      "운영 방식"
+                    ]
+                  },
+                  {
+                    "source_id": "seoul-od-202610",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-21229/F/1/datasetView.do",
+                    "date_start": "2026-10-01",
+                    "date_end": "2026-10-31",
+                    "collected_at": "2026-11-09T01:37:07.685993Z",
+                    "verification_status": "VERIFIED",
+                    "available_columns": [
+                      "기준_날짜",
+                      "집계_기준",
+                      "기준_시간대",
+                      "시작_대여소_ID",
+                      "시작_대여소명",
+                      "종료_대여소_ID",
+                      "종료_대여소명",
+                      "전체_건수",
+                      "전체_이용_분",
+                      "전체_이용_거리"
+                    ]
+                  },
+                  {
+                    "source_id": "seoul-od-replacement-oa-14994",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+                    "date_start": null,
+                    "date_end": null,
+                    "collected_at": null,
+                    "verification_status": "METADATA_ONLY",
+                    "available_columns": []
+                  },
+                  {
+                    "source_id": "seoul-station-master-oa-21235",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                    "date_start": null,
+                    "date_end": null,
+                    "collected_at": "2026-11-09T01:56:36.503651+00:00",
+                    "verification_status": "VERIFIED",
+                    "available_columns": [
+                      "RNTLS_ID",
+                      "ADDR1",
+                      "ADDR2",
+                      "LAT",
+                      "LOT"
+                    ],
+                    "origin": "official_sheet",
+                    "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"
+                  }
+                ],
+                "source_names": [
+                  "서울시 공공자전거 따릉이 대여소 정보",
+                  "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                  "서울시 따릉이대여소 마스터 정보"
+                ],
+                "last_updated": "2026-11-09T01:56:36.503651+00:00",
+                "verification_status": "VERIFIED",
+                "available": true,
+                "rankings": [
+                  {
+                    "station_id": "ST-3388",
+                    "station_name": "서울특별시 마포구 마포나루길 429",
+                    "pagerank": 0.003208,
+                    "weighted_out_degree": 15476,
+                    "weighted_in_degree": 14726,
+                    "betweenness": null,
+                    "centrality_rank": 1,
+                    "rental_count": 15552,
+                    "usage_rank": 1
+                  }
+                ],
+                "components": 1,
+                "betweenness_sample_nodes": 0,
+                "message": "PageRank·가중 차수는 연결 구조 지표이며 실제 대여량과 다릅니다. 매개 중심성은 표본 근사입니다.",
+                "metric": "pagerank",
+                "period_start": "2026-10-01",
+                "period_end": "2026-10-31"
+              },
+              "initiator": "solar",
+              "execution_seconds": 0.064
+            }
+          ],
+          "request_id": "45e4edb8f25241669cced28b91f6f6f0",
+          "provider_calls": [
+            {
+              "stage": "tool_selection",
+              "state": "completed",
+              "usage": {
+                "prompt_tokens": 2333,
+                "completion_tokens": 55,
+                "total_tokens": 2388
+              },
+              "http_status": 200,
+              "response_id": "b82d6ed5-6552-4720-92e4-dc0523eb8ee5",
+              "model": "solar-mini4-260922",
+              "finish_reason": "tool_calls"
+            },
+            {
+              "stage": "final_answer",
+              "state": "completed",
+              "usage": {
+                "prompt_tokens": 1627,
+                "completion_tokens": 81,
+                "total_tokens": 1708
+              },
+              "http_status": 200,
+              "response_id": "7f9a4ae4-5e4e-4d5f-9a1c-eb0e82dd8b42",
+              "model": "solar-mini4-260922",
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 3960,
+            "completion_tokens": 136,
+            "total_tokens": 4096
+          },
+          "usage_complete": true,
+          "billing_status": "provider_usage_reported",
+          "model": "solar-mini4-260922",
+          "llm_status": "completed"
+        }
+      },
+      "fact_cards": 1,
+      "visible_answer": "Solar 자유 서술·해석\n\n서울 PageRank 1위 대여소는 **ST-3388**(서울특별시 마포구 마포나루길 429)로, 점수는 **0.003208**입니다. 이 값은 2026년 10월 1일부터 10월 31일까지의 서울 대여소 네트워크 연결 구조 기준이며, 실제 대여량·반납량은 아닙니다.",
+      "tool_summaries": [
+        "1. get_centrality_ranking · Solar 선택"
+      ],
+      "screenshot": "q4.png"
+    },
+    {
+      "id": 5,
+      "question": "서울 ST-1481의 대여 건수와 반납 건수, 실제 관측일수를 알려줘. 대여소 상세 정보만 조회해줘.",
+      "started_at": "2026-11-12T08:16:46.633599+00:00",
+      "state": "received",
+      "seconds": 16.953,
+      "http_status": 200,
+      "body": {
+        "code": 200,
+        "data": {
+          "answer": "서울 ST-1481(구파발역 환승센터)의 대여 건수는 926건, 반납 건수는 1322건이며, 실제 관측일수는 31일입니다. 이 값은 2026년 10월 1일부터 10월 31일까지의 집계 기간 안에서 확인된 사실입니다. 대여소 상세 정보는 구파발역 환승센터로, 위도 37.638252, 경도 126.919456에 위치하며 대여소와 반납 관측 모두 가능한 대여소 정보만 조회되었습니다. 시간대별 대여·반납은 0시부터 23시까지 하루 24개 시간대로 집계되었고, 순유출은 -396건으로 반납이 대여보다 많았으며, 불균형 비율은 -0.1762입니다. 시간대별 순유출은 07시에서 -220건으로 가장 큰 순유입을 보였고, 19시에서 59건으로 가장 큰 순유출을 기록했습니다. 군집 분석에서는 cluster_id 0으로 분류되었지만 Silhouette가 0.2 미만이라 유형 해석은 보류했고, 해당 대여소는 station_count 1267 중 평균 대여 1748.3건, 아침 시간대 비중 0.1478, 저녁 시간대 비중 0.3147, 주말 비중 0.2714를 보입니다. 다만 자료는 대여소 정보, 2026년 10월 OD, 마스터 정보만 사용한 것으로, 재고·재배치 자료나 다른 노선 세부 기록은 포함하지 않았습니다.",
+          "solar_answer": null,
+          "answer_basis": "solar_interpretation",
+          "report": {
+            "question_summary": "서울 ST-1481의 대여 건수와 반납 건수, 실제 관측일수를 알려줘. 대여소 상세 정보만 조회해줘.",
+            "key_findings": [
+              {
+                "label": "ST-1481 대여",
+                "value": 926,
+                "unit": "건"
+              },
+              {
+                "label": "ST-1481 반납",
+                "value": 1322,
+                "unit": "건"
+              },
+              {
+                "label": "ST-1481 순유출",
+                "value": -396,
+                "unit": "건"
+              },
+              {
+                "label": "ST-1481 실제 관측일수",
+                "value": 31,
+                "unit": "일"
+              }
+            ],
+            "evidence": [
+              {
+                "tool": "get_station_details",
+                "arguments": {
+                  "region_id": "seoul",
+                  "station_id": "ST-1481",
+                  "date_range": {
+                    "date_start": "2026-10-01",
+                    "date_end": "2026-10-31"
+                  }
+                },
+                "result": {
+                  "sources": [
+                    {
+                      "source_id": "seoul-stations-202606",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                      "date_start": "2026-06-30",
+                      "date_end": "2026-06-30",
+                      "collected_at": "2026-11-04T04:53:59.993091Z",
+                      "verification_status": "VERIFIED",
+                      "available_columns": [
+                        "대여소 번호",
+                        "보관소(대여소)명",
+                        "소재지(위치)",
+                        "위도",
+                        "경도",
+                        "설치 시기",
+                        "LCD 거치대수",
+                        "QR 거치대수",
+                        "운영 방식"
+                      ]
+                    },
+                    {
+                      "source_id": "seoul-od-202610",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-21229/F/1/datasetView.do",
+                      "date_start": "2026-10-01",
+                      "date_end": "2026-10-31",
+                      "collected_at": "2026-11-09T01:37:07.685993Z",
+                      "verification_status": "VERIFIED",
+                      "available_columns": [
+                        "기준_날짜",
+                        "집계_기준",
+                        "기준_시간대",
+                        "시작_대여소_ID",
+                        "시작_대여소명",
+                        "종료_대여소_ID",
+                        "종료_대여소명",
+                        "전체_건수",
+                        "전체_이용_분",
+                        "전체_이용_거리"
+                      ]
+                    },
+                    {
+                      "source_id": "seoul-od-replacement-oa-14994",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+                      "date_start": null,
+                      "date_end": null,
+                      "collected_at": null,
+                      "verification_status": "METADATA_ONLY",
+                      "available_columns": []
+                    },
+                    {
+                      "source_id": "seoul-station-master-oa-21235",
+                      "region_id": "seoul",
+                      "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                      "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                      "date_start": null,
+                      "date_end": null,
+                      "collected_at": "2026-11-09T01:56:36.503651+00:00",
+                      "verification_status": "VERIFIED",
+                      "available_columns": [
+                        "RNTLS_ID",
+                        "ADDR1",
+                        "ADDR2",
+                        "LAT",
+                        "LOT"
+                      ],
+                      "origin": "official_sheet",
+                      "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"
+                    }
+                  ],
+                  "source_names": [
+                    "서울시 공공자전거 따릉이 대여소 정보",
+                    "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                    "서울시 따릉이대여소 마스터 정보"
+                  ],
+                  "last_updated": "2026-11-09T01:56:36.503651+00:00",
+                  "verification_status": "VERIFIED",
+                  "available": true,
+                  "station": {
+                    "region_id": "seoul",
+                    "station_id": "ST-1481",
+                    "station_name": "구파발역 환승센터",
+                    "latitude": 37.638252,
+                    "longitude": 126.919456,
+                    "capacity": null,
+                    "rental_count": 926,
+                    "return_count": 1322,
+                    "hourly": [
+                      34,
+                      18,
+                      4,
+                      2,
+                      1,
+                      4,
+                      5,
+                      14,
+                      8,
+                      15,
+                      21,
+                      42,
+                      51,
+                      37,
+                      37,
+                      51,
+                      44,
+                      70,
+                      124,
+                      100,
+                      64,
+                      67,
+                      72,
+                      41
+                    ],
+                    "weekend_share": 0.23542116630669546,
+                    "net_outflow": -396,
+                    "imbalance_ratio": -0.1762,
+                    "hourly_net_outflow": [
+                      32,
+                      14,
+                      4,
+                      1,
+                      1,
+                      -18,
+                      -79,
+                      -220,
+                      -170,
+                      -115,
+                      -36,
+                      -16,
+                      -20,
+                      -14,
+                      -34,
+                      -10,
+                      -20,
+                      4,
+                      50,
+                      59,
+                      38,
+                      44,
+                      69,
+                      40
+                    ],
+                    "persistent_direction": "net_inflow",
+                    "persistence_ratio": 0.871
+                  },
+                  "cluster": {
+                    "station_id": "ST-1481",
+                    "cluster_id": 0,
+                    "role": "유형 해석 보류",
+                    "description": "Silhouette가 0.2 미만입니다. 시간대 대표 패턴은 참고값이며 유형으로 확정하지 않습니다.",
+                    "station_count": 1267,
+                    "mean_rentals": 1748.3,
+                    "morning_share": 0.1478,
+                    "evening_share": 0.3147,
+                    "weekend_share": 0.2714
+                  },
+                  "observed_dates": [
+                    "2026-10-01",
+                    "2026-10-02",
+                    "2026-10-03",
+                    "2026-10-04",
+                    "2026-10-05",
+                    "2026-10-06",
+                    "2026-10-07",
+                    "2026-10-08",
+                    "2026-10-09",
+                    "2026-10-10",
+                    "2026-10-11",
+                    "2026-10-12",
+                    "2026-10-13",
+                    "2026-10-14",
+                    "2026-10-15",
+                    "2026-10-16",
+                    "2026-10-17",
+                    "2026-10-18",
+                    "2026-10-19",
+                    "2026-10-20",
+                    "2026-10-21",
+                    "2026-10-22",
+                    "2026-10-23",
+                    "2026-10-24",
+                    "2026-10-25",
+                    "2026-10-26",
+                    "2026-10-27",
+                    "2026-10-28",
+                    "2026-10-29",
+                    "2026-10-30",
+                    "2026-10-31"
+                  ]
+                },
+                "initiator": "solar",
+                "execution_seconds": 0.083
+              }
+            ],
+            "algorithms": [],
+            "station_roles": [
+              {
+                "station_id": "ST-1481",
+                "role": "유형 해석 보류",
+                "cluster_id": 0
+              }
+            ],
+            "recommendations": [],
+            "limitations": [],
+            "sources": [
+              {
+                "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                "verification_status": "VERIFIED"
+              },
+              {
+                "dataset_name": "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-21229/F/1/datasetView.do",
+                "verification_status": "VERIFIED"
+              },
+              {
+                "dataset_name": "서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+                "verification_status": "METADATA_ONLY"
+              },
+              {
+                "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                "verification_status": "VERIFIED"
+              }
+            ],
+            "periods": [
+              "2026-10-01",
+              "2026-10-31"
+            ],
+            "charts": [],
+            "station_comparison": [],
+            "interpretation": "서울 ST-1481(구파발역 환승센터)의 대여 건수는 926건, 반납 건수는 1322건이며, 실제 관측일수는 31일입니다. 이 값은 2026년 10월 1일부터 10월 31일까지의 집계 기간 안에서 확인된 사실입니다. 대여소 상세 정보는 구파발역 환승센터로, 위도 37.638252, 경도 126.919456에 위치하며 대여소와 반납 관측 모두 가능한 대여소 정보만 조회되었습니다. 시간대별 대여·반납은 0시부터 23시까지 하루 24개 시간대로 집계되었고, 순유출은 -396건으로 반납이 대여보다 많았으며, 불균형 비율은 -0.1762입니다. 시간대별 순유출은 07시에서 -220건으로 가장 큰 순유입을 보였고, 19시에서 59건으로 가장 큰 순유출을 기록했습니다. 군집 분석에서는 cluster_id 0으로 분류되었지만 Silhouette가 0.2 미만이라 유형 해석은 보류했고, 해당 대여소는 station_count 1267 중 평균 대여 1748.3건, 아침 시간대 비중 0.1478, 저녁 시간대 비중 0.3147, 주말 비중 0.2714를 보입니다. 다만 자료는 대여소 정보, 2026년 10월 OD, 마스터 정보만 사용한 것으로, 재고·재배치 자료나 다른 노선 세부 기록은 포함하지 않았습니다."
+          },
+          "grounding_validation": {
+            "checked_numeric_tokens": 28,
+            "matched_numeric_tokens": 28,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "station_validation": {
+            "passed": true,
+            "unmatched_station_ids": []
+          },
+          "semantic_validation": {
+            "passed": true,
+            "checked_claims": 0,
+            "unsupported_claims": [],
+            "method": "일별 최대·최소 비교의 날짜/건수를 실제 극값과 대조. 해석할 수 없는 비교는 보류."
+          },
+          "analysis_context": {
+            "region_ids": [
+              "seoul"
+            ],
+            "date_start": "2026-10-01",
+            "date_end": "2026-10-31"
+          },
+          "model_finish_reason": "stop",
+          "fallback_reason": null,
+          "evidence": [
+            {
+              "tool": "get_station_details",
+              "arguments": {
+                "region_id": "seoul",
+                "station_id": "ST-1481",
+                "date_range": {
+                  "date_start": "2026-10-01",
+                  "date_end": "2026-10-31"
+                }
+              },
+              "result": {
+                "sources": [
+                  {
+                    "source_id": "seoul-stations-202606",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                    "date_start": "2026-06-30",
+                    "date_end": "2026-06-30",
+                    "collected_at": "2026-11-04T04:53:59.993091Z",
+                    "verification_status": "VERIFIED",
+                    "available_columns": [
+                      "대여소 번호",
+                      "보관소(대여소)명",
+                      "소재지(위치)",
+                      "위도",
+                      "경도",
+                      "설치 시기",
+                      "LCD 거치대수",
+                      "QR 거치대수",
+                      "운영 방식"
+                    ]
+                  },
+                  {
+                    "source_id": "seoul-od-202610",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-21229/F/1/datasetView.do",
+                    "date_start": "2026-10-01",
+                    "date_end": "2026-10-31",
+                    "collected_at": "2026-11-09T01:37:07.685993Z",
+                    "verification_status": "VERIFIED",
+                    "available_columns": [
+                      "기준_날짜",
+                      "집계_기준",
+                      "기준_시간대",
+                      "시작_대여소_ID",
+                      "시작_대여소명",
+                      "종료_대여소_ID",
+                      "종료_대여소명",
+                      "전체_건수",
+                      "전체_이용_분",
+                      "전체_이용_거리"
+                    ]
+                  },
+                  {
+                    "source_id": "seoul-od-replacement-oa-14994",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 공공자전거 따릉이 이용현황 (OA-21229 대체 예정)",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-14994/F/1/datasetView.do",
+                    "date_start": null,
+                    "date_end": null,
+                    "collected_at": null,
+                    "verification_status": "METADATA_ONLY",
+                    "available_columns": []
+                  },
+                  {
+                    "source_id": "seoul-station-master-oa-21235",
+                    "region_id": "seoul",
+                    "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                    "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                    "date_start": null,
+                    "date_end": null,
+                    "collected_at": "2026-11-09T01:56:36.503651+00:00",
+                    "verification_status": "VERIFIED",
+                    "available_columns": [
+                      "RNTLS_ID",
+                      "ADDR1",
+                      "ADDR2",
+                      "LAT",
+                      "LOT"
+                    ],
+                    "origin": "official_sheet",
+                    "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"
+                  }
+                ],
+                "source_names": [
+                  "서울시 공공자전거 따릉이 대여소 정보",
+                  "서울시 공공자전거 따릉이 대여소별 대여/반납 승객수 정보 (2026년 10월)",
+                  "서울시 따릉이대여소 마스터 정보"
+                ],
+                "last_updated": "2026-11-09T01:56:36.503651+00:00",
+                "verification_status": "VERIFIED",
+                "available": true,
+                "station": {
+                  "region_id": "seoul",
+                  "station_id": "ST-1481",
+                  "station_name": "구파발역 환승센터",
+                  "latitude": 37.638252,
+                  "longitude": 126.919456,
+                  "capacity": null,
+                  "rental_count": 926,
+                  "return_count": 1322,
+                  "hourly": [
+                    34,
+                    18,
+                    4,
+                    2,
+                    1,
+                    4,
+                    5,
+                    14,
+                    8,
+                    15,
+                    21,
+                    42,
+                    51,
+                    37,
+                    37,
+                    51,
+                    44,
+                    70,
+                    124,
+                    100,
+                    64,
+                    67,
+                    72,
+                    41
+                  ],
+                  "weekend_share": 0.23542116630669546,
+                  "net_outflow": -396,
+                  "imbalance_ratio": -0.1762,
+                  "hourly_net_outflow": [
+                    32,
+                    14,
+                    4,
+                    1,
+                    1,
+                    -18,
+                    -79,
+                    -220,
+                    -170,
+                    -115,
+                    -36,
+                    -16,
+                    -20,
+                    -14,
+                    -34,
+                    -10,
+                    -20,
+                    4,
+                    50,
+                    59,
+                    38,
+                    44,
+                    69,
+                    40
+                  ],
+                  "persistent_direction": "net_inflow",
+                  "persistence_ratio": 0.871
+                },
+                "cluster": {
+                  "station_id": "ST-1481",
+                  "cluster_id": 0,
+                  "role": "유형 해석 보류",
+                  "description": "Silhouette가 0.2 미만입니다. 시간대 대표 패턴은 참고값이며 유형으로 확정하지 않습니다.",
+                  "station_count": 1267,
+                  "mean_rentals": 1748.3,
+                  "morning_share": 0.1478,
+                  "evening_share": 0.3147,
+                  "weekend_share": 0.2714
+                },
+                "observed_dates": [
+                  "2026-10-01",
+                  "2026-10-02",
+                  "2026-10-03",
+                  "2026-10-04",
+                  "2026-10-05",
+                  "2026-10-06",
+                  "2026-10-07",
+                  "2026-10-08",
+                  "2026-10-09",
+                  "2026-10-10",
+                  "2026-10-11",
+                  "2026-10-12",
+                  "2026-10-13",
+                  "2026-10-14",
+                  "2026-10-15",
+                  "2026-10-16",
+                  "2026-10-17",
+                  "2026-10-18",
+                  "2026-10-19",
+                  "2026-10-20",
+                  "2026-10-21",
+                  "2026-10-22",
+                  "2026-10-23",
+                  "2026-10-24",
+                  "2026-10-25",
+                  "2026-10-26",
+                  "2026-10-27",
+                  "2026-10-28",
+                  "2026-10-29",
+                  "2026-10-30",
+                  "2026-10-31"
+                ]
+              },
+              "initiator": "solar",
+              "execution_seconds": 0.083
+            }
+          ],
+          "request_id": "cc15e9ebf2e0403d9f4d09497928aec6",
+          "provider_calls": [
+            {
+              "stage": "tool_selection",
+              "state": "completed",
+              "usage": {
+                "prompt_tokens": 2351,
+                "completion_tokens": 28,
+                "total_tokens": 2379
+              },
+              "http_status": 200,
+              "response_id": "34727fea-1593-461d-937c-d5838c8efbc9",
+              "model": "solar-mini4-260922",
+              "finish_reason": "tool_calls"
+            },
+            {
+              "stage": "final_answer",
+              "state": "completed",
+              "usage": {
+                "prompt_tokens": 2351,
+                "completion_tokens": 324,
+                "total_tokens": 2675
+              },
+              "http_status": 200,
+              "response_id": "70b9b912-bb3d-4f60-8a1d-f9ce9c136a7e",
+              "model": "solar-mini4-260922",
+              "finish_reason": "stop"
+            }
+          ],
+          "usage": {
+            "prompt_tokens": 4702,
+            "completion_tokens": 352,
+            "total_tokens": 5054
+          },
+          "usage_complete": true,
+          "billing_status": "provider_usage_reported",
+          "model": "solar-mini4-260922",
+          "llm_status": "completed"
+        }
+      },
+      "fact_cards": 4,
+      "visible_answer": "Solar 자유 서술·해석\n\n서울 ST-1481(구파발역 환승센터)의 대여 건수는 926건, 반납 건수는 1322건이며, 실제 관측일수는 31일입니다. 이 값은 2026년 10월 1일부터 10월 31일까지의 집계 기간 안에서 확인된 사실입니다. 대여소 상세 정보는 구파발역 환승센터로, 위도 37.638252, 경도 126.919456에 위치하며 대여소와 반납 관측 모두 가능한 대여소 정보만 조회되었습니다. 시간대별 대여·반납은 0시부터 23시까지 하루 24개 시간대로 집계되었고, 순유출은 -396건으로 반납이 대여보다 많았으며, 불균형 비율은 -0.1762입니다. 시간대별 순유출은 07시에서 -220건으로 가장 큰 순유입을 보였고, 19시에서 59건으로 가장 큰 순유출을 기록했습니다. 군집 분석에서는 cluster_id 0으로 분류되었지만 Silhouette가 0.2 미만이라 유형 해석은 보류했고, 해당 대여소는 station_count 1267 중 평균 대여 1748.3건, 아침 시간대 비중 0.1478, 저녁 시간대 비중 0.3147, 주말 비중 0.2714를 보입니다. 다만 자료는 대여소 정보, 2026년 10월 OD, 마스터 정보만 사용한 것으로, 재고·재배치 자료나 다른 노선 세부 기록은 포함하지 않았습니다.",
+      "tool_summaries": [
+        "1. get_station_details · Solar 선택"
+      ],
+      "screenshot": "q5.png"
+    }
+  ],
+  "page_errors": [],
+  "external_retries": 0,
+  "known_usage": {
+    "prompt_tokens": 18761,
+    "completion_tokens": 685,
+    "total_tokens": 19446
+  },
+  "usage_complete": false,
+  "completed_at": "2026-11-12T08:17:04.032655+00:00",
+  "targeted_rechecks_after_initial_network_idle": true
+}

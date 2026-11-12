@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "rows": {
+    "od_daily": 5350360,
+    "station_usage": 4502831,
+    "od_hourly": 6855588,
+    "od_monthly_hourly": 4164960
+  },
+  "trip_count": 7605738,
+  "date_start": "2025-12-01",
+  "date_end": "2026-10-31",
+  "checks": {
+    "od_daily": {
+      "spark_minus_sqlite": 0,
+      "sqlite_minus_spark": 0
+    },
+    "station_usage": {
+      "spark_minus_sqlite": 0,
+      "sqlite_minus_spark": 0
+    },
+    "monthly_from_hourly": {
+      "left_minus_right": 0,
+      "right_minus_left": 0
+    },
+    "hourly_from_python_sqlite_reference": {
+      "spark_minus_reference": 0,
+      "reference_minus_spark": 0,
+      "reference_trip_rows": 7605738
+    }
+  },
+  "original_database_modified": false
+}
