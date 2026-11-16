@@ -1,0 +1,86 @@
+{
+  "schema": [
+    "city",
+    "stop_id",
+    "name",
+    "type",
+    "lat",
+    "lon"
+  ],
+  "integrated_at": "2026-11-16T10:15:57.375189+00:00",
+  "sources": [
+    {
+      "dataset_name": "국토교통부 전국 버스정류장 위치정보",
+      "source_url": "https://www.data.go.kr/data/15067528/fileData.do",
+      "downloaded_at": "2026-11-16",
+      "reference_date": "2026-11-09",
+      "sha256": "ed0d652469aa0983241a2fff73237b1aa4893955bbfe09511b8f1399d1d8f5ba",
+      "raw_rows": 227102
+    },
+    {
+      "dataset_name": "전국 도시철도 역사정보 전체기관",
+      "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+      "downloaded_at": "2026-11-16",
+      "reference_date": "file 20260630; per-row dates vary",
+      "sha256": "cdf1d84a7e5c898b2aacd622783ba8ba9af35c40bee0561dc97d55ce8e063f94",
+      "raw_rows": 1099
+    }
+  ],
+  "stops_sha256": "b832c114229754f0e5db76eadfb6011b101884aa63059c1b015d1a23a8a12f12",
+  "stats": {
+    "bus_raw_rows": 227102,
+    "rail_raw_rows": 1099,
+    "bus": {
+      "daejeon": 3259,
+      "seoul": 17082,
+      "sejong": 3035
+    },
+    "rail_before": {
+      "seoul": 342,
+      "daejeon": 22
+    },
+    "rail_after": {
+      "seoul": 340,
+      "daejeon": 22
+    },
+    "rail_duplicates": [
+      {
+        "city": "seoul",
+        "stop_id": "rail:%EC%84%9C%EC%9A%B8%EA%B5%90%ED%86%B5%EA%B3%B5%EC%82%AC|S1107|0736",
+        "rule": "same operator/line/station and identical coordinates; latest per-row reference date/name retained"
+      },
+      {
+        "city": "seoul",
+        "stop_id": "rail:%ED%95%9C%EA%B5%AD%EC%B2%A0%EB%8F%84%EA%B3%B5%EC%82%AC|I4108|1201",
+        "rule": "same operator/line/station and identical coordinates; latest per-row reference date/name retained"
+      }
+    ],
+    "bbox_warnings": {
+      "daejeon": 199,
+      "sejong": 725,
+      "seoul": 576
+    },
+    "total_normalized": 23738
+  },
+  "bbox_rule": {
+    "seoul": [
+      37.413,
+      37.716,
+      126.734,
+      127.27
+    ],
+    "daejeon": [
+      36.17,
+      36.5,
+      127.24,
+      127.57
+    ],
+    "sejong": [
+      36.4,
+      36.76,
+      127.12,
+      127.42
+    ]
+  },
+  "bbox_policy": "warnings retained, source city classification preserved; not administrative clipping"
+}

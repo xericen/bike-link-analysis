@@ -1,0 +1,159 @@
+{
+  "scope": "new independent SQL audit + raw ZIP reprocessing by build_transit_linkage; not a reproduction of absent uploader JSON",
+  "raw_zip": "data/raw/seoul-od-202610.zip",
+  "raw_zip_sha256": "8299c673cf6eb876bfc61566349fb8843177d9db29a7c5181daf3c57051997eb",
+  "period_start": "2026-10-01",
+  "period_end": "2026-10-31",
+  "raw_reprocessing": {
+    "raw_rows": 7955264,
+    "departure_rows": 3988192,
+    "duplicate_rows": 0,
+    "invalid_rows": 0,
+    "trip_count": 4245954,
+    "linked_count": 2641440,
+    "unknown_endpoint_count": 18535,
+    "hourly_rows": 744
+  },
+  "sqlite_od_trip_count": 4245954,
+  "all_od_pairs": 435906,
+  "daily": [
+    {
+      "date": "2026-10-01",
+      "trip_count": 165241
+    },
+    {
+      "date": "2026-10-02",
+      "trip_count": 166657
+    },
+    {
+      "date": "2026-10-03",
+      "trip_count": 139098
+    },
+    {
+      "date": "2026-10-04",
+      "trip_count": 122967
+    },
+    {
+      "date": "2026-10-05",
+      "trip_count": 127969
+    },
+    {
+      "date": "2026-10-06",
+      "trip_count": 157874
+    },
+    {
+      "date": "2026-10-07",
+      "trip_count": 163546
+    },
+    {
+      "date": "2026-10-08",
+      "trip_count": 165625
+    },
+    {
+      "date": "2026-10-09",
+      "trip_count": 141561
+    },
+    {
+      "date": "2026-10-10",
+      "trip_count": 148094
+    },
+    {
+      "date": "2026-10-11",
+      "trip_count": 136319
+    },
+    {
+      "date": "2026-10-12",
+      "trip_count": 151099
+    },
+    {
+      "date": "2026-10-13",
+      "trip_count": 96284
+    },
+    {
+      "date": "2026-10-14",
+      "trip_count": 155430
+    },
+    {
+      "date": "2026-10-15",
+      "trip_count": 151811
+    },
+    {
+      "date": "2026-10-16",
+      "trip_count": 162860
+    },
+    {
+      "date": "2026-10-17",
+      "trip_count": 145401
+    },
+    {
+      "date": "2026-10-18",
+      "trip_count": 35915
+    },
+    {
+      "date": "2026-10-19",
+      "trip_count": 145222
+    },
+    {
+      "date": "2026-10-20",
+      "trip_count": 152813
+    },
+    {
+      "date": "2026-10-21",
+      "trip_count": 118648
+    },
+    {
+      "date": "2026-10-22",
+      "trip_count": 136513
+    },
+    {
+      "date": "2026-10-23",
+      "trip_count": 150343
+    },
+    {
+      "date": "2026-10-24",
+      "trip_count": 118099
+    },
+    {
+      "date": "2026-10-25",
+      "trip_count": 123168
+    },
+    {
+      "date": "2026-10-26",
+      "trip_count": 142812
+    },
+    {
+      "date": "2026-10-27",
+      "trip_count": 133627
+    },
+    {
+      "date": "2026-10-28",
+      "trip_count": 129645
+    },
+    {
+      "date": "2026-10-29",
+      "trip_count": 108176
+    },
+    {
+      "date": "2026-10-30",
+      "trip_count": 137149
+    },
+    {
+      "date": "2026-10-31",
+      "trip_count": 115988
+    }
+  ],
+  "pagerank_config": {
+    "directed": true,
+    "alpha": 0.85,
+    "tol": 1e-06,
+    "max_iter": 100,
+    "weight": "weight",
+    "self_loops": true,
+    "teleportation": "uniform",
+    "dangling": "uniform",
+    "initial_vector": "uniform",
+    "ranking_precision_decimals": 7,
+    "tie_breaker": "stable station input order after seven-decimal score rounding",
+    "edge_filter": "both endpoints in supplied station master; exclude X; positive trip_count only"
+  }
+}

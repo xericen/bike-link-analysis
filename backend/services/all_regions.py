@@ -9,7 +9,7 @@ REGIONS = ("seoul", "daejeon", "sejong")
 NAMES = {"seoul": "서울", "daejeon": "대전", "sejong": "세종"}
 
 def scope(date_start=None, date_end=None):
-    ranges = [data.observed_dates(rid) for rid in REGIONS]
+    ranges = [data.observed_dates(rid) for rid in ("seoul","daejeon")]
     ranges = [days for days in ranges if days]
     if not ranges:
         return None, None
@@ -84,7 +84,7 @@ def projection(action, source_revision, date_start=None, date_end=None):
         return {**base, **result, "rankings": result["rankings"][:100],
                 "message": "통합 그래프의 중심성입니다. 도시 간 이동 간선은 없고 도시별 연결 성분만 존재합니다."}
     if action == "network":
-        stations, records = graph_data()
+        stations, records = graph_data(start, end)
         ranking = get("centrality", start, end).get("rankings", [])
         selected = {r["station_id"] for r in ranking[:40]}
         edges = [r for r in records if r["origin_station_id"] in selected and r["destination_station_id"] in selected

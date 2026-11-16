@@ -1,0 +1,16 @@
+[
+  {
+    "file": "현재 분석에서 발견된 숨은 연결 거점 후보 TOP 10 확인 및 특징 분석.hwp",
+    "sha256": "c06d5c36a85c42a5d3ccfc070cf2405a684a9f891a07cfa5b19242ae77a7f535",
+    "characters": 3307,
+    "success": true,
+    "sejong_source_15106191": false
+  },
+  {
+    "file": "현재 분석에서 발견된 숨은 연결 거점 후보 TOP 10 확인 및 특징 분석 (1).hwp",
+    "sha256": "b88fbc9f1d4f66aa39204225045e729a3c0bfbc2a1ee8c094e5a7f94529f6ee9",
+    "characters": 4536,
+    "success": true,
+    "sejong_source_15106191": true
+  }
+]

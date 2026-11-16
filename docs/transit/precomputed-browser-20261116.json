@@ -1,0 +1,18 @@
+{
+  "page_errors": [],
+  "actions": [
+    {
+      "city": "대전",
+      "core_visible_ms": 475.772,
+      "expected_imbalance_candidates": 62
+    },
+    {
+      "city": "전체",
+      "core_visible_ms": 863.981,
+      "expected_imbalance_candidates": 269
+    }
+  ],
+  "station_linkage_visible": true,
+  "network_visible": true,
+  "mobile_overflow": false
+}

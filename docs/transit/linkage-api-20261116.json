@@ -1,0 +1,35 @@
+{
+  "seoul": {
+    "stops": 17422,
+    "stations": 2762,
+    "located_stations": 2762,
+    "hourly_trip_count": 4245954,
+    "hourly_linked_count": 2641440,
+    "hourly_available": true,
+    "snapshot_valid": true
+  },
+  "daejeon": {
+    "stops": 3281,
+    "stations": 1405,
+    "located_stations": 1403,
+    "hourly_trip_count": 923578,
+    "hourly_linked_count": 262419,
+    "hourly_available": true,
+    "snapshot_valid": true
+  },
+  "sejong": {
+    "stops": 3035,
+    "stations": 728,
+    "located_stations": 0,
+    "hourly_trip_count": null,
+    "hourly_linked_count": null,
+    "hourly_available": false,
+    "snapshot_valid": false
+  },
+  "sejong_overview": {
+    "total_rentals": 259143,
+    "observed_days": 31,
+    "station_count": 728,
+    "has_od": true
+  }
+}

@@ -589,3 +589,8 @@ details.panel[open] summary { margin-bottom:15px; }
 
 /* Keep date bounds and controls reachable in shorter desktop viewports. */
 .bike-sidebar { overflow-y:auto; }
+
+.transit-map-block .transit-layer-toggle { display:block; margin:8px 0; font-size:12px; }
+.transit-map-block > .panel-note { margin:6px 0; }
+.transit-station-metrics { padding:10px; margin:10px 0; border:1px solid #d8e4f0; border-radius:8px; background:#f5f9ff; }
+.transit-station-metrics p { margin:5px 0; font-size:12px; }

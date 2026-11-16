@@ -1,0 +1,304 @@
+{
+  "environment": "current local main, not externally deployed",
+  "os_cache_not_flushed": true,
+  "first_request": "first per key in this new Python process; not a cold OS disk",
+  "entries_current_revision": 135,
+  "fastapi_reads": [
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "overview",
+      "first_request_ms": 37.926,
+      "repeat_request_ms": [
+        23.822,
+        19.194
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "research",
+      "first_request_ms": 212.862,
+      "repeat_request_ms": [
+        214.001,
+        251.993
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "network",
+      "first_request_ms": 15.361,
+      "repeat_request_ms": [
+        15.132,
+        18.128
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "first_request_ms": 32.052,
+      "repeat_request_ms": [
+        19.9,
+        19.3
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "first_request_ms": 33.243,
+      "repeat_request_ms": [
+        40.515,
+        42.738
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "overview",
+      "first_request_ms": 23.68,
+      "repeat_request_ms": [
+        26.484,
+        23.386
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "research",
+      "first_request_ms": 58.571,
+      "repeat_request_ms": [
+        48.377,
+        50.04
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "network",
+      "first_request_ms": 18.472,
+      "repeat_request_ms": [
+        11.772,
+        16.615
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "first_request_ms": 10.637,
+      "repeat_request_ms": [
+        10.182,
+        16.181
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "first_request_ms": 17.821,
+      "repeat_request_ms": [
+        21.555,
+        22.37
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "overview",
+      "first_request_ms": 28.451,
+      "repeat_request_ms": [
+        24.725,
+        22.642
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "research",
+      "first_request_ms": 75.029,
+      "repeat_request_ms": [
+        76.373,
+        74.57
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "network",
+      "first_request_ms": 13.12,
+      "repeat_request_ms": [
+        21.454,
+        19.962
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "first_request_ms": 28.03,
+      "repeat_request_ms": [
+        25.738,
+        26.005
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "first_request_ms": 18.871,
+      "repeat_request_ms": [
+        29.257,
+        21.939
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "overview",
+      "first_request_ms": 20.423,
+      "repeat_request_ms": [
+        23.975,
+        29.222
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "research",
+      "first_request_ms": 52.651,
+      "repeat_request_ms": [
+        53.719,
+        54.189
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "network",
+      "first_request_ms": 13.243,
+      "repeat_request_ms": [
+        15.259,
+        15.893
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "first_request_ms": 16.186,
+      "repeat_request_ms": [
+        16.625,
+        17.323
+      ],
+      "stored_only": true
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "first_request_ms": 22.555,
+      "repeat_request_ms": [
+        21.562,
+        23.791
+      ],
+      "stored_only": true
+    }
+  ],
+  "wiz_http_reads": [
+    {
+      "city": "daejeon",
+      "action": "overview",
+      "milliseconds": 362.729
+    },
+    {
+      "city": "daejeon",
+      "action": "research",
+      "milliseconds": 40.379
+    },
+    {
+      "city": "daejeon",
+      "action": "network",
+      "milliseconds": 26.507
+    },
+    {
+      "city": "daejeon",
+      "action": "centrality",
+      "milliseconds": 17.589
+    },
+    {
+      "city": "daejeon",
+      "action": "dashboard_extra",
+      "milliseconds": 26.047
+    },
+    {
+      "city": "all",
+      "action": "overview",
+      "milliseconds": 18.612
+    },
+    {
+      "city": "all",
+      "action": "research",
+      "milliseconds": 61.7
+    },
+    {
+      "city": "all",
+      "action": "network",
+      "milliseconds": 23.744
+    },
+    {
+      "city": "all",
+      "action": "centrality",
+      "milliseconds": 19.986
+    },
+    {
+      "city": "all",
+      "action": "dashboard_extra",
+      "milliseconds": 19.94
+    }
+  ],
+  "unprepared_period": {
+    "status": 409,
+    "milliseconds": 15.246
+  }
+}

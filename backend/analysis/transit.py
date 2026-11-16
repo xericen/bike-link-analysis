@@ -36,6 +36,9 @@ def match_stations(stations, stops):
                 for radius in [300, 500]:
                     row[f"{prefix}_within_{radius}m"] = int(tree.query_radius(point, r=radius / EARTH_M, count_only=True)[0])
         row["nearest_stop_distance_m"] = round(min(distances), 3) if distances else None
+        for radius in [300,500]:
+            values=[row[f"{prefix}_within_{radius}m"] for prefix in ["bus","subway"]]
+            row[f"stops_within_{radius}m"] = sum(v for v in values if v is not None) if good and any(v is not None for v in values) else None
         row["coordinate_valid"] = good
         matched.append(row)
     return matched

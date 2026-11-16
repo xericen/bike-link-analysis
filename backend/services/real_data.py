@@ -275,7 +275,8 @@ def overview(region_id, date_start=None, date_end=None):
             "coverage_note": "서울은 2026년 10월 집계 OD입니다. 공식 대여소 마스터의 ST ID와 유효 좌표를 확인한 항목만 지도에 연결합니다." if region_id == "seoul" else
             ("대전 월별 Trip 원본 전체 유효 기간을 분석하며 관리 목적 반납과 검증 실패 행은 제외했습니다." if region_id == "daejeon" and rows else
              "대여소 위치 목록만 확보해 이용량·좌표가 없습니다." if region_id == "daejeon" else
-             "연도별 총 이용량만 확보해 대여소·시간대 자료가 없습니다.")}
+             "세종2025년10월 상세 이용이력을 연결했습니다. 대여소 좌표/명칭 대응표가 없어 지도·정류장 거리 지표는 N/A이며 연간 통계와 별도로 봅니다." if rows else
+             "선택 기간에는 상세 기록이 없습니다. 세종2025-10 이력 및 연간 통계를 별도로 제공합니다.")}
 
 
 @data_cached
@@ -368,12 +369,12 @@ def imbalance_result(region_id, date_start=None, date_end=None):
                     "imbalance_ratio": round((day_rentals - day_returns) / denominator, 4) if denominator else None}
         results.append({"station_id": profile["station_id"], "station_name": station_names.get(profile["station_id"]),
             "rental_count": rentals, "return_count": returns, "net_outflow": net,
-            "imbalance_ratio": round(net / total, 4) if total else None,
+            "imbalance_ratio": net / total if total else None,
             "hourly_net_outflow": [r - v for r, v in zip(profile["hourly"] or [0] * 24, profile["return_hourly"] or [0] * 24)],
             "daily_net_outflow": daily_rows, "weekday": day_type(weekday_rows), "weekend": day_type(weekend_rows),
             "nonzero_imbalance_days": positive + negative,
             "persistent_direction": "net_outflow" if positive > negative else ("net_inflow" if negative > positive else "mixed"),
-            "persistence_ratio": round(dominant / len(values), 4) if values else None})
+            "persistence_ratio": dominant / len(values) if values else None})
     named = [row for row in results if row.get("station_name")]
     volume_floor = percentile((row["rental_count"] + row["return_count"] for row in named), 0.25)
     eligible = [row for row in named if row["rental_count"] + row["return_count"] >= (volume_floor or 0)]
@@ -389,8 +390,9 @@ def imbalance_result(region_id, date_start=None, date_end=None):
             "period_start": date_start or (observed_dates(region_id, date_start, date_end) or [None])[0],
             "period_end": date_end or (observed_dates(region_id, date_start, date_end) or [None])[-1],
             "selection_rule": {"minimum_total_volume": round(volume_floor or 0, 2),
-                "absolute_ratio_min": round(ratio_threshold or 0, 4),
-                "persistence_min": round(persistence_threshold or 0, 4),
+                "absolute_ratio_min": ratio_threshold or 0,
+                "persistence_min": persistence_threshold or 0,
+                "decision_precision": "full precision; rounding is presentation-only",
                 "basis": "총량 하위 25% 제외 후 절대 불균형 비율 상위 10%와 지속성 상위 25% 동시 충족"},
             "definition": "순유출 = 대여 - 반납. 양수는 순유출, 음수는 순유입입니다.",
             "message": "후보 임계값은 선택 기간의 실제 분포에서 계산합니다. 지속성은 0을 포함한 관측일 중 우세 방향의 비율입니다. 실제 재고가 없어 자전거 부족·재배치 필요를 확정하지 않습니다."}
@@ -698,7 +700,8 @@ def compare(region_ids, date_start=None, date_end=None, align_common=False):
     common_period = None
     if align_common and not date_start and not date_end:
         ranges = []
-        for rid in selected:
+        comparable = ["seoul","daejeon"] if {"seoul","daejeon"} <= set(selected) else selected
+        for rid in comparable:
             dates = observed_dates(rid)
             if dates:
                 ranges.append((dates[0], dates[-1]))

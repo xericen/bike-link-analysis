@@ -53,7 +53,20 @@ def handle():
             return wiz.response.status(400, message="대여소의 실제 도시를 지정하세요.")
         region_id = station_region
     try:
-        if action == "transit_vulnerability":
+        if action in ("overview","research","network","centrality","dashboard_extra"):
+            from backend.services.precomputed import read
+            result=read(action,region_id,date_start,date_end)
+        elif action == "transit_linkage":
+            from backend.services.transit import linkage
+            if unified:
+                cities=[linkage(rid,date_start,date_end) for rid in ("seoul","daejeon","sejong")]
+                result={"available":any(c["available"] for c in cities),"cities":cities,
+                    "stations":[s for c in cities for s in c["stations"]],
+                    "map_stops":[s for c in cities for s in c.get("map_stops",[])],
+                    "stop_count":sum(c.get("stop_count",0) for c in cities),
+                    "map_display_note":"거리 분석은 전체 정류장 사용·지도는 도시별 최대600개 표본. 세종2025-10은 공통2026-10 합계에서 제외."}
+            else:result=linkage(region_id,date_start,date_end)
+        elif action == "transit_vulnerability":
             from backend.services.vulnerability import analyze
             if unified:
                 results = [analyze(rid, date_start, date_end) for rid in valid_regions]
@@ -184,7 +197,9 @@ def handle():
             cluster = next((row for row in real_data.clusters(region_id, date_start, date_end)["clusters"]
                             if row["station_id"] == station_id), None) if item.get("rental_count") else None
             item = {**item, "region_id": region_id, "region_name": next(r["region_name"] for r in real_data.REGIONS if r["region_id"] == region_id), "station_key": region_id + "::" + station_id}
-            result = {"station": item, "cluster": cluster, "source": real_data.source_meta(region_id),
+            from backend.services.transit import linkage
+            transit_item=next((x for x in linkage(region_id,date_start,date_end)["stations"] if x["station_id"]==station_id),None)
+            result = {"transit":transit_item, "station": item, "cluster": cluster, "source": real_data.source_meta(region_id),
                       "similarity": real_data.similarity_result(region_id, station_id, date_start, date_end) if item.get("rental_count") else {"similar": []},
                       "profile": next((p for p in real_data.profiles(region_id, date_start, date_end) if p["station_id"] == station_id), None)}
             for row in result["similarity"].get("similar", []):

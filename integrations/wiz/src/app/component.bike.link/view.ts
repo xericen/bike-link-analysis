@@ -42,6 +42,8 @@ export class Component implements OnInit, OnDestroy, OnChanges {
     public selectedStation: any = null;
     public network: any = null;
     public transitResult: any = null;
+    public transitLinkage: any = null;
+    public showTransitStops = true;
     public transitBusy = false;
     public transitError = "";
     public transitVisible = true;
@@ -156,7 +158,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
         this.map?.remove(); this.map = null;
         this.stationSearch = '';
         this.overview = null; this.dashboardNetwork = null; this.dashboardRank = null; this.dashboardExtra = null;
-        this.transitMap?.remove(); this.transitMap = null; this.transitResult = null; this.transitError = ""; this.transitBusy = false;
+        this.transitMap?.remove(); this.transitMap = null; this.transitResult = null; this.transitLinkage = null; this.transitError = ""; this.transitBusy = false;
         this.network = null; this.centrality = null; this.stations = []; this.stationTotal = 0;
         this.compare = null; this.comparisonClusters = null;
         this.stabilityBusy = false; this.historyBusy = false;
@@ -252,6 +254,10 @@ export class Component implements OnInit, OnDestroy, OnChanges {
                 const result = await this.request('overview');
                 if (current !== this.generation) return;
                 this.overview = result;
+                void this.request('transit_linkage').then(async result=>{
+                    if(current !== this.generation) return;
+                    this.transitLinkage=result;await this.service.render();this.renderMap();
+                }).catch(error=>{if(current===this.generation)this.error=error.message;});
                 void this.loadResearch(current);
                 await this.service.render();
                 if (current === this.generation) this.renderMap();
@@ -609,6 +615,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
         return Math.max(5, count / max * 100);
     }
 
+    public toggleTransitStops() {this.showTransitStops=!this.showTransitStops;this.renderMap();}
     private renderMap() {
         const element = document.getElementById('bike-leaflet-map-' + this.regionId);
         if (!element || this.tab !== 'dashboard') return;
@@ -621,7 +628,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
         }).addTo(this.map);
         const rows = (this.overview?.map_stations || []).filter((item: any) =>
             Number.isFinite(item.latitude) && Number.isFinite(item.longitude));
-        if (!rows.length) { this.map.setView([37.5665, 126.978], 10); return; }
+        if (!rows.length) this.map.setView(this.regionId === 'sejong' ? [36.5,127.27] : [37.5665,126.978], 10);
         const bounds: L.LatLngTuple[] = [];
         for (const item of rows) {
             const point: L.LatLngTuple = [item.latitude, item.longitude];
@@ -638,7 +645,21 @@ export class Component implements OnInit, OnDestroy, OnChanges {
             L.circleMarker(point, { radius: 5, color: color, weight: 1.5,
                 fillColor: color, fillOpacity: 0.8 }).addTo(this.map).bindPopup(caption).on('click', () => { void this.inspectStation(item.station_id, item.region_id); });
         }
-        this.map.fitBounds(L.latLngBounds(bounds).pad(0.12), { maxZoom: 12 });
+        if(this.showTransitStops) {
+            for(const stop of this.transitLinkage?.map_stops || []) {
+                const point: L.LatLngTuple=[stop.lat,stop.lon];
+                if(!rows.length) bounds.push(point);
+                const label=document.createElement('span');label.textContent=stop.type+' · '+stop.name;
+                L.circleMarker(point,{radius:stop.type==='지하철'?4:2.5,color:stop.type==='지하철'?'#233b6e':'#7189a6',weight:1,fillOpacity:.6}).addTo(this.map).bindPopup(label);
+            }
+            for(const station of rows) {
+                const link=(this.transitLinkage?.stations || []).find((x:any)=>x.region_id===station.region_id && x.station_id===station.station_id);
+                if(link?.nearest_stop_distance_m <= 500 && link.nearest_stop_lat != null)
+                    L.polyline([[station.latitude,station.longitude],[link.nearest_stop_lat,link.nearest_stop_lon]],
+                      {color:'#60a8ad',weight:1,opacity:.6,dashArray:'3 3'}).addTo(this.map);
+            }
+        }
+        if(bounds.length) this.map.fitBounds(L.latLngBounds(bounds).pad(0.12), { maxZoom: 12 });
         setTimeout(() => this.map?.invalidateSize(), 100);
     }
 

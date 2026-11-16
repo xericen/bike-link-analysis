@@ -8,6 +8,7 @@ import { PageHeader, StatCard, SectionCard, InsightBanner, RoleTag, SimpleDataTa
 import { peakHour, clusterSilhouette } from '../services/presentation'
 import type { HiddenHubsResult } from '../types'
 import { StationMap } from '../maps/StationMap'
+import { TransitStationMetrics } from '../components/TransitLinkage'
 
 export function StationAnalysis({regionId,filter}:{regionId:string;filter:DateFilter}) {
   const [showMap,setShowMap]=useState(false)
@@ -69,7 +70,7 @@ export function StationAnalysis({regionId,filter}:{regionId:string;filter:DateFi
     </SectionCard>
     {loading?<Skeleton rows={4}/>:!selected?<Empty>선택 기간의 대여소 자료가 없습니다.</Empty>:<>
     <div className="grid-two station-overview">
-      <SectionCard title="선택 대여소 핵심 해석" note={detail?.station.station_name||'이름 확인 중'}>
+      <TransitStationMetrics city={regionId} start={filter.start} end={filter.end} stationId={selected}/><SectionCard title="선택 대여소 핵심 해석" note={detail?.station.station_name||'이름 확인 중'}>
         <InsightBanner title={selected}><p>{hub?.candidate?'이용량에 비해 연결 중심성이 높아 숨은 연결 거점 후보로 해석됩니다.':hub?'이용량과 연결 순위를 함께 확인하세요. 현재 엄격한 숨은 연결 후보 규칙을 충족하지 않습니다.':'네트워크 근거가 부족해 연결 역할을 확정하지 않습니다.'}</p></InsightBanner>
         <div className="tri-metrics"><div><small>이용량 순위</small><strong>{hub?number(hub.usage_rank)+'위':'미확보'}</strong></div><div><small>PageRank 순위</small><strong>{hub?number(hub.pagerank_rank)+'위':'미확보'}</strong></div><div><small>순위 차이</small><strong>{hub?number(hub.rank_gap):'미확보'}</strong></div></div>
         <p className="muted">대여 {number(detail?.station.rental_count)}건 · 반납 {number(detail?.station.return_count)}건. 순위 차이만으로 운영 중요도를 확정하지 않습니다.</p>

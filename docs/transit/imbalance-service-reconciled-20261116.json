@@ -1,0 +1,15 @@
+{
+  "period_start": "2026-10-01",
+  "period_end": "2026-10-31",
+  "service_candidates": 207,
+  "independent_candidates": 207,
+  "ids_exact_match": true,
+  "selection_rule": {
+    "minimum_total_volume": 1163.25,
+    "absolute_ratio_min": 0.09600433917917194,
+    "persistence_min": 0.7096774193548387,
+    "decision_precision": "full precision; rounding is presentation-only",
+    "basis": "총량 하위 25% 제외 후 절대 불균형 비율 상위 10%와 지속성 상위 25% 동시 충족"
+  },
+  "boundary_case": "ST-753"
+}

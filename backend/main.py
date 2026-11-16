@@ -74,7 +74,8 @@ def station(region_id: str, station_id: str, date_start: date | None = None, dat
         raise HTTPException(404, "대여소를 찾을 수 없습니다.")
     cluster = (next((c for c in real_data.clusters(region_id, start, end)["clusters"]
                      if c["station_id"] == station_id), None) if include_cluster else None)
-    return {**real_data.source_meta(region_id), "station": item, "cluster": cluster}
+    transit_item=next((s for s in transit.linkage(region_id,start,end)["stations"] if s["station_id"]==station_id),None)
+    return {**real_data.source_meta(region_id), "station": item, "cluster": cluster, "transit":transit_item}
 
 
 @app.get("/api/regions/{region_id}/stations/{station_id}/role-history")
@@ -239,3 +240,11 @@ def improvement_ranking(city: str = "seoul", date_start: date | None = None, dat
     if not 1 <= top_n <= 20:
         raise HTTPException(422,"top_n은 1~20이어야 합니다.")
     return analyze(city, *period(date_start,date_end), top_n=top_n)
+
+
+@app.get("/api/precomputed/{city}/{action}")
+def precomputed_kpi(city: str, action: str, date_start: date | None = None, date_end: date | None = None):
+    from backend.services import periods, precomputed
+    try: start,end=periods.resolve(city,*period(date_start,date_end))
+    except ValueError as error: raise HTTPException(422,str(error))
+    return precomputed.read(action,city,start,end)

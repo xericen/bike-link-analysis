@@ -76,17 +76,48 @@ def build_seoul_hourly(source, output):
     write_new_csv(output, rows, ["date", "hour", "total_count", "linked_count", "unknown_endpoint_count"])
     return stats
 
-if __name__ == "__main__":
-    p = argparse.ArgumentParser()
-    p.add_argument("--seoul-od")
-    args = p.parse_args()
-    stations = []
-    for city in ["seoul", "daejeon", "sejong"]:
-        stations.extend(transit.linkage(city)["stations"])
+
+def build_daejeon_hourly(trips, output):
+    from collections import Counter
+    stations=transit.matched("daejeon")
+    known={s["station_id"] for s in stations if s["coordinate_valid"]}
+    near={s["station_id"] for s in stations if s.get("subway_within_300m")}
+    totals=Counter();linked=Counter();unknown=Counter();n=0
+    for path in sorted(Path(trips).glob("*.csv")):
+        for chunk in pd.read_csv(path,dtype=str,chunksize=50000):
+            n+=len(chunk)
+            data=pd.DataFrame({"date":chunk.started_at.str[:10],"hour":chunk.started_at.str[11:13].astype(int),
+                "linked":(chunk.origin_station_id.isin(near)|chunk.destination_station_id.isin(near)).astype(int),
+                "unknown":(~chunk.origin_station_id.isin(known)|~chunk.destination_station_id.isin(known)).astype(int)})
+            for (d,h),group in data.groupby(["date","hour"]):
+                totals[d,int(h)]+=len(group);linked[d,int(h)]+=int(group.linked.sum());unknown[d,int(h)]+=int(group.unknown.sum())
+    rows=[{"date":d,"hour":h,"total_count":v,"linked_count":linked[d,h],"unknown_endpoint_count":unknown[d,h]} for (d,h),v in sorted(totals.items())]
+    write_new_csv(output,rows,["date","hour","total_count","linked_count","unknown_endpoint_count"])
+    return {"trip_count":n,"linked_count":sum(linked.values()),"unknown_endpoint_count":sum(unknown.values()),"hourly_rows":len(rows)}
+def build_current(seoul_zip=None,daejeon_trips=None):
+    from scripts.preprocess.integrate_transit_uploads import replace_versioned
+    import io
+    archive=real_data.PROCESSED/"transit_archive"
+    report={}
+    for city,source,builder in [("seoul",seoul_zip,build_seoul_hourly),("daejeon",daejeon_trips,build_daejeon_hourly)]:
+        if not source:continue
+        with tempfile.TemporaryDirectory(prefix="bike-linkage-") as tmp:
+            output=Path(tmp)/"hourly.csv"
+            report[city]=builder(source,output)
+            target=real_data.PROCESSED/f"transit_hourly_{city}_verified.csv"
+            replace_versioned(target,output.read_bytes(),archive)
+            replace_versioned(target.with_suffix(".meta.json"),json.dumps({"stops_sha256":transit.stops_digest(),
+                "source":str(source),"stats":report[city]},ensure_ascii=False,indent=2),archive)
+    stations=[row for city in ["seoul","daejeon","sejong"] for row in transit.matched(city)]
     if stations:
-        # Enrichment keeps all master rows for acquired cities. Other cities remain in original master.
-        fields = list(dict.fromkeys(k for row in stations for k in row))
-        clean = [{k: (json.dumps(v,ensure_ascii=False) if isinstance(v,(dict,list)) else v) for k,v in r.items()} for r in stations]
-        write_new_csv(real_data.PROCESSED / "stations_transit.csv", clean, fields)
-    if args.seoul_od:
-        print(json.dumps(build_seoul_hourly(args.seoul_od, real_data.PROCESSED / "transit_hourly_seoul_verified.csv"), ensure_ascii=False))
+        buf=io.StringIO(newline="");fields=list(dict.fromkeys(k for r in stations for k in r))
+        w=csv.DictWriter(buf,fieldnames=fields);w.writeheader();w.writerows(stations)
+        replace_versioned(real_data.PROCESSED/"stations_transit.csv",buf.getvalue(),archive)
+    return report
+if __name__=="__main__":
+    p=argparse.ArgumentParser();p.add_argument("--seoul-od");p.add_argument("--daejeon-trips");p.add_argument("--report")
+    a=p.parse_args();result=build_current(a.seoul_od,a.daejeon_trips)
+    if a.report:
+        Path(a.report).parent.mkdir(parents=True,exist_ok=True)
+        Path(a.report).write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding="utf-8")
+    print(json.dumps(result,ensure_ascii=False))

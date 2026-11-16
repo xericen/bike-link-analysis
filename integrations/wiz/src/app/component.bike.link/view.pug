@@ -104,7 +104,7 @@ main.bike-page([class.embedded]="embeddedRegion")
                         div.panel-heading
                             h3 이번 분석의 핵심 발견 TOP 3
                             button.link-button(type="button", (click)="changeTab('network')") 연결 근거 보기 →
-                        p.loading(*ngIf="researchBusy") 실제 이용·연결·불균형 결과를 계산 중입니다…
+                        p.loading(*ngIf="researchBusy") 저장된 이용·연결·불균형 분석 결과를 불러오는 중입니다…
                         p.error(*ngIf="researchError") {{researchError}}
                         div.findings-grid
                             article.finding-card(*ngFor="let item of findings()", [ngClass]="item.tone")
@@ -116,24 +116,31 @@ main.bike-page([class.embedded]="embeddedRegion")
                                     p(*ngIf="item.kind === 'flow'") 순유출 {{item.row.net_outflow | number}}건 · 방향 지속성 {{item.row.persistence_ratio * 100 | number:'1.1-1'}}%
                                     small 관측 자료에 따른 운영 검토 후보입니다.
                                 ng-template(#noFinding="")
-                                    p {{researchBusy ? '계산 중' : '해당 분석 후보 미확보'}}
+                                    p {{researchBusy ? '불러오는 중' : '해당 분석 후보 미확보'}}
                     article.panel(*ngIf="overview.annual_latest")
                         h3 {{overview.region_name}} 연간 이용량
                         strong {{overview.annual_latest.rental_count | number}}건 · {{overview.annual_latest.year}}년
-                        p.panel-note 상세 이용·대여소·OD 데이터 미확보
+                        p.panel-note 연간 통계는 별도입니다. 세종2025년10월 상세 이력은 선택 기간 KPI·추이로 제공하며 대여소 좌표는 미확보입니다.
+                    p.panel-note 화면 수치는 서비스 정규화 데이터·현재 정류장 버전·선택 기간 기준입니다. 업로드 보고서의 다른 기간·선정 기준 수치를 합치지 않습니다.
                     p.coverage(*ngIf="allRegionsSelected") {{overview.coverage_note}} · 도시별 K-means·후보 판정 결과를 하나로 모아 표시합니다.
                     article.panel(*ngFor="let annual of overview.annual_separate || []")
                         h3 {{annual.region_name}} 연간 이용 통계 · 통합 이용 합계 제외
                         strong {{annual.rental_count | number}}건 · {{annual.year}}년
                     div.dashboard-main
-                        article.panel.map-panel
-                            div.leaflet-map([id]="'bike-leaflet-map-' + regionId", *ngIf="overview.map_stations?.length", role="img", aria-label="공공자전거 대여소 지도")
-                            div.map-title {{overview.region_name}} 대여소 역할별 지도
-                            div.map-key
-                                strong 실제 대여소 좌표
-                                span 최대 120개 위치 표본
-                                small 파랑 기타/미표시 · 청록 연결 · 주황 불균형 · 보라 집중
-                            p.empty(*ngIf="!overview.map_stations?.length") 위치 좌표가 확보되지 않았습니다.
+                        div.transit-map-block
+                            label.transit-layer-toggle
+                                input(type="checkbox", [checked]="showTransitStops", (change)="toggleTransitStops()")
+                                |  정류장·500m 이내 최근접 연계 표시
+                            p.panel-note 버스: 회청색 · 지하철: 네이비 · 점선: 최근접 정류장 연계. 대여소 역할 색상은 유지합니다.
+                            p.panel-note {{transitLinkage?.map_display_note}}
+                            article.panel.map-panel
+                                div.leaflet-map([id]="'bike-leaflet-map-' + regionId", *ngIf="overview.map_stations?.length || transitLinkage?.map_stops?.length", role="img", aria-label="공공자전거 대여소 지도")
+                                div.map-title {{overview.region_name}} 대여소 역할별 지도
+                                div.map-key
+                                    strong 실제 대여소 좌표
+                                    span 최대 120개 위치 표본
+                                    small 파랑 기타/미표시 · 청록 연결 · 주황 불균형 · 보라 집중
+                                p.empty(*ngIf="!overview.map_stations?.length") 대여소 좌표 미확보: 정류장만 표시하며 대여소 위치를 추정하지 않습니다.
                         article.panel
                             h3 주요 지표 현황
                             p.panel-note 시간대별 대여 비중 · 단위: 건
@@ -207,6 +214,11 @@ main.bike-page([class.embedded]="embeddedRegion")
                             ng-container(*ngIf="selectedStation")
                                 strong.selected-station {{selectedStation.station.region_name || ''}} {{selectedStation.station.station_id}}
                                 p.panel-note {{selectedStation.station.station_name}}
+                                div.transit-station-metrics(*ngIf="selectedStation.transit")
+                                    p 최근접 정류장: {{selectedStation.transit.nearest_stop_distance_m == null ? 'N/A' : (selectedStation.transit.nearest_stop_distance_m | number:'1.1-1') + 'm'}}
+                                    p 300m 내 정류장: {{selectedStation.transit.stops_within_300m ?? 'N/A'}}개
+                                    p 500m 내 버스 {{selectedStation.transit.bus_within_500m ?? 'N/A'}} / 지하철 {{selectedStation.transit.subway_within_500m ?? 'N/A'}}
+                                    small 직선거리 기준 · 실제 환승률이 아닙니다. 세종 대여소 좌표 미확보는 N/A입니다.
                                 p.coverage {{selectedStation.cluster?.description || '군집 분석에 필요한 이용 기록이 없습니다.'}}
                                 div.detail-metrics
                                     div
@@ -308,7 +320,7 @@ main.bike-page([class.embedded]="embeddedRegion")
                         div.panel-heading
                             h3 핵심 발견
                             span.source-pill {{network?.period_start}} ~ {{network?.period_end}}
-                        p.loading(*ngIf="researchBusy") 후보의 실제 근거를 계산 중입니다…
+                        p.loading(*ngIf="researchBusy") 저장된 후보 근거를 불러오는 중입니다…
                         div.findings-grid
                             article.finding-card(*ngFor="let item of findings()", [ngClass]="item.tone")
                                 span.role-label {{item.label}}
@@ -411,7 +423,7 @@ main.bike-page([class.embedded]="embeddedRegion")
                             h3 해석 가이드
                             p.coverage 연결 중심성이 높은 대여소는 이용량이 많다는 의미와 반드시 같지 않으며, 이동 네트워크에서 중요한 연결 역할을 수행할 수 있습니다.
                             p.panel-note 매개 중심성은 {{centrality?.betweenness_sample_nodes || 'N/A'}}개 노드 표본 근사입니다. 서울은 집계 OD, 대전은 개별 Trip입니다.
-                    p.coverage(*ngIf="allRegionsSelected") 서울·대전 공통 기간의 통합 그래프입니다. 도시 간 이동 간선은 없으며 세종은 OD 미확보로 네트워크에 포함되지 않습니다.
+                    p.coverage(*ngIf="allRegionsSelected") 서울·대전 공통 기간의 통합 그래프입니다. 도시 간 이동 간선은 없으며 세종 상세 OD는 2025년10월로 공통2026년10월 네트워크에 합산하지 않습니다.
                     p.observed {{network?.period_start}} ~ {{network?.period_end}} · {{network?.source_names?.join(' · ')}}
 
                 section.regions-view(*ngIf="tab === 'regions'")

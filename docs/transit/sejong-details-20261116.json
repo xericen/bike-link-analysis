@@ -1,0 +1,25 @@
+{
+  "source_url": "https://www.data.go.kr/data/15106191/fileData.do",
+  "period_start": "2025-10-01",
+  "period_end": "2025-10-31",
+  "files": [
+    {
+      "name": "세종도시교통공사_공공자전거(어울링) 이용 현황 2025년 4분기.csv",
+      "encoding": "cp949",
+      "member_raw_rows": 654432,
+      "selected_raw_rows": 259143
+    }
+  ],
+  "member_raw_rows": 654432,
+  "selected_raw_rows": 259143,
+  "duplicate_source_ids": 0,
+  "valid_trip_rows": 259143,
+  "od_rows": 199042,
+  "station_ids": 728,
+  "station_coordinates_available": false,
+  "limitations": [
+    "정류장 원본의 SJ ID와 어울링 대여소 좌표 대응표 미확보. 지도와 거리 지표는 N/A.",
+    "환승 유무 필드의 공식 산정 정의 미검증: 실제 환승률로 사용하지 않음.",
+    "서울·대전2026-10과 세종2025-10을 동일 기간으로 합산하지 않음."
+  ]
+}

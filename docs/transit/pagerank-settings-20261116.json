@@ -1,0 +1,77 @@
+{
+  "period_start": "2026-10-01",
+  "period_end": "2026-10-31",
+  "config": {
+    "directed": true,
+    "alpha": 0.85,
+    "tol": 1e-06,
+    "max_iter": 100,
+    "weight": "weight",
+    "self_loops": true,
+    "teleportation": "uniform",
+    "dangling": "uniform",
+    "initial_vector": "uniform",
+    "ranking_precision_decimals": 7,
+    "tie_breaker": "stable station input order after seven-decimal score rounding",
+    "edge_filter": "both endpoints in supplied station master; exclude X; positive trip_count only"
+  },
+  "valid_nodes": 2762,
+  "valid_edges": 433400,
+  "valid_trip_count": 4227419,
+  "all_od_pairs": 435906,
+  "all_trip_count": 4245954,
+  "sensitivity": [
+    {
+      "tol": 1e-06,
+      "ST-1481_rank": 280,
+      "top5": [
+        {
+          "station_id": "ST-3388",
+          "score": 0.0032079590664652645
+        },
+        {
+          "station_id": "ST-891",
+          "score": 0.0022559903164431788
+        },
+        {
+          "station_id": "ST-3403",
+          "score": 0.002232325077432388
+        },
+        {
+          "station_id": "ST-3402",
+          "score": 0.0019711537890408195
+        },
+        {
+          "station_id": "ST-2031",
+          "score": 0.0018659404998770089
+        }
+      ]
+    },
+    {
+      "tol": 1e-12,
+      "ST-1481_rank": 301,
+      "top5": [
+        {
+          "station_id": "ST-3388",
+          "score": 0.0031923709157806895
+        },
+        {
+          "station_id": "ST-891",
+          "score": 0.0022757067997390724
+        },
+        {
+          "station_id": "ST-3403",
+          "score": 0.002224487194118181
+        },
+        {
+          "station_id": "ST-3402",
+          "score": 0.0019667033691975182
+        },
+        {
+          "station_id": "ST-2031",
+          "score": 0.0018995983024612585
+        }
+      ]
+    }
+  ]
+}

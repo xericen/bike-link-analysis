@@ -4,7 +4,8 @@ from backend.services import real_data
 
 def bounds(region_id):
     if region_id == "all":
-        days = [real_data.observed_dates(r["region_id"]) for r in real_data.REGIONS]
+        days = [real_data.observed_dates(rid) for rid in ("seoul","daejeon")]
+        # Sejong 2025 detail is shown separately; do not erase the 2026 common scope.
         days = [x for x in days if x]
         low = max((x[0] for x in days), default=None)
         high = min((x[-1] for x in days), default=None)

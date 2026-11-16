@@ -1,0 +1,60 @@
+{
+  "scope": "Selected observations retained from the first actual run while batch preparation was still active. Not a cold OS disk benchmark.",
+  "entries_current_revision_at_measurement": 123,
+  "first_run_wiz_http_reads": [
+    {
+      "city": "daejeon",
+      "action": "overview",
+      "milliseconds": 4843.333
+    },
+    {
+      "city": "daejeon",
+      "action": "research",
+      "milliseconds": 789.247
+    },
+    {
+      "city": "daejeon",
+      "action": "network",
+      "milliseconds": 35.907
+    },
+    {
+      "city": "daejeon",
+      "action": "centrality",
+      "milliseconds": 36.337
+    },
+    {
+      "city": "daejeon",
+      "action": "dashboard_extra",
+      "milliseconds": 39.246
+    },
+    {
+      "city": "all",
+      "action": "overview",
+      "milliseconds": 36.763
+    },
+    {
+      "city": "all",
+      "action": "research",
+      "milliseconds": 69.777
+    },
+    {
+      "city": "all",
+      "action": "network",
+      "milliseconds": 38.993
+    },
+    {
+      "city": "all",
+      "action": "centrality",
+      "milliseconds": 1817.865
+    },
+    {
+      "city": "all",
+      "action": "dashboard_extra",
+      "milliseconds": 695.731
+    }
+  ],
+  "initial_browser_attempt": {
+    "status": "not verified",
+    "reason": "research counts remained pending at the 30s assertion during source/cache preparation; final completed-state browser run separately passed"
+  }
+}

@@ -1,0 +1,58 @@
+"""Offline KPI materialization. Run after data refresh and before deployment."""
+import argparse,json,time
+from datetime import date,timedelta
+from backend.services import precomputed,periods
+
+def combinations():
+    combos=set()
+    for city in ("seoul","daejeon","sejong","all"):
+        b=periods.bounds(city)
+        if not b["available"]:continue
+        start,end=b["min"],b["max"]
+        combos.add((city,start,end))
+        for days in (7,14,30):
+            combos.add((city,max(start,(date.fromisoformat(end)-timedelta(days=days-1)).isoformat()),end))
+    # Calendar months are useful in the 11-month Daejeon history.
+    import calendar
+    b=periods.bounds("daejeon")
+    if b["available"]:
+        cur=date.fromisoformat(b["min"]).replace(day=1)
+        end=date.fromisoformat(b["max"])
+        while cur<=end:
+            last=cur.replace(day=calendar.monthrange(cur.year,cur.month)[1])
+            combos.add(("daejeon",max(b["min"],cur.isoformat()),min(b["max"],last.isoformat())))
+            cur=(last+timedelta(days=1))
+    return sorted(combos)
+
+def run(combos,force=False):
+    from backend.services.kpi_projection import build
+    version=precomputed.revision()
+    stats=[]
+    for city,start,end in combos:
+        periods.resolve(city,start,end)
+        for action in precomputed.ACTIONS:
+            began=time.perf_counter()
+            try:
+                if force:raise LookupError
+                precomputed.read(action,city,start,end,expected_revision=version)
+                status="unchanged"
+            except (LookupError,precomputed.HTTPException):
+                value=build(action,city,start,end)
+                if precomputed.revision()!=version:
+                    raise RuntimeError("Data/code changed during preparation; rerun before serving this revision.")
+                precomputed.put(action,city,start,end,value,expected_revision=version)
+                status="built"
+            row={"city":city,"start":start,"end":end,"action":action,"status":status,"seconds":round(time.perf_counter()-began,4)}
+            stats.append(row);print(json.dumps(row),flush=True)
+    return {"revision":version,"entries":stats}
+
+if __name__=="__main__":
+    p=argparse.ArgumentParser(__doc__);p.add_argument("--city",choices=("seoul","daejeon","sejong","all"))
+    p.add_argument("--start");p.add_argument("--end");p.add_argument("--force",action="store_true")
+    p.add_argument("--report",default="docs/transit/precomputed-build-20261116.json")
+    a=p.parse_args()
+    if a.city and bool(a.start)!=bool(a.end):p.error("--start and --end must be supplied together")
+    combos=[(a.city,*periods.resolve(a.city,a.start,a.end))] if a.city else combinations()
+    report=run(combos,a.force)
+    from pathlib import Path
+    Path(a.report).write_text(json.dumps(report,ensure_ascii=False,indent=2))
