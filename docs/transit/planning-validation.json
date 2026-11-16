@@ -1,0 +1,94 @@
+{
+  "cities": [
+    {
+      "city": "seoul",
+      "period": [
+        "2026-10-01",
+        "2026-10-31"
+      ],
+      "new_site_count": 842,
+      "existing_candidates": 5,
+      "coverage_unique_locations": 17421,
+      "coverage_area_m2": 516950296.51326567,
+      "simplification_area_error_ratio": 7.090945957350655e-05,
+      "facility_count": 1341,
+      "scenario_combinations": 64
+    },
+    {
+      "city": "daejeon",
+      "period": [
+        "2025-12-01",
+        "2026-10-31"
+      ],
+      "new_site_count": 484,
+      "existing_candidates": 1,
+      "coverage_unique_locations": 3276,
+      "coverage_area_m2": 323246348.3443876,
+      "simplification_area_error_ratio": 0.00014919067226486858,
+      "facility_count": 194,
+      "scenario_combinations": 16
+    },
+    {
+      "city": "sejong",
+      "period": [
+        "2025-10-01",
+        "2025-10-31"
+      ],
+      "new_site_count": 198,
+      "existing_candidates": 4,
+      "coverage_unique_locations": 3001,
+      "coverage_area_m2": 260436178.6918569,
+      "simplification_area_error_ratio": 0.0002029471803478502,
+      "facility_count": 63,
+      "scenario_combinations": 64
+    }
+  ],
+  "http": [
+    {
+      "city": "daejeon",
+      "action": "planning",
+      "milliseconds": 234.8286909982562
+    },
+    {
+      "city": "daejeon",
+      "action": "transit_vulnerability",
+      "milliseconds": 91.9665340334177
+    },
+    {
+      "city": "daejeon",
+      "action": "readiness",
+      "milliseconds": 741.84869392775
+    }
+  ],
+  "readiness": {
+    "ready": true,
+    "revision": "a48d8215ec84372a5ce51d6b07960b3c85b6d985b39c31fb096e3ef0a1339e9f",
+    "cities": {
+      "seoul": {
+        "ready": true,
+        "date_start": "2026-10-01",
+        "date_end": "2026-10-31",
+        "missing_actions": []
+      },
+      "daejeon": {
+        "ready": true,
+        "date_start": "2025-12-01",
+        "date_end": "2026-10-31",
+        "missing_actions": []
+      },
+      "sejong": {
+        "ready": true,
+        "date_start": "2025-10-01",
+        "date_end": "2025-10-31",
+        "missing_actions": []
+      }
+    }
+  },
+  "sejong_master": {
+    "station_count": 728,
+    "located_count": 726,
+    "coordinate_date": "2026-05-26",
+    "observation_period": "2025-10",
+    "historical_position_verified": false
+  }
+}

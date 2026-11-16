@@ -2,9 +2,11 @@ import { OnInit, OnDestroy, OnChanges, Input, Output, EventEmitter } from '@angu
 import * as L from 'leaflet';
 import { Service } from '@wiz/libs/portal/season/service';
 
+let bikeMapSequence = 0;
 const analysisResponses = new Map<string, {at: number, value: Promise<any>}>();
 
 export class Component implements OnInit, OnDestroy, OnChanges {
+    public mapKey = 'bike-map-' + (++bikeMapSequence);
     @Input() embeddedRegion = '';
     @Input() embeddedTab = 'dashboard';
     @Output() stationNavigate = new EventEmitter<any>();
@@ -44,6 +46,12 @@ export class Component implements OnInit, OnDestroy, OnChanges {
     public selectedStation: any = null;
     public network: any = null;
     public transitResult: any = null;
+    public planningResult: any = null;
+    public planningError = "";
+    public scenarioCity = "";
+    public selectedSites: string[] = [];
+    public selectedScenario: any = null;
+    private planningMap: L.Map | null = null;
     public transitLinkage: any = null;
     public showTransitStops = true;
     public transitBusy = false;
@@ -95,7 +103,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
         await this.loadTab();
     }
 
-    ngOnDestroy() { this.transitMap?.remove(); this.transitMap = null; this.generation++; this.initialized = false; this.map?.remove(); this.map = null; }
+    ngOnDestroy() { this.planningMap?.remove(); this.planningMap = null; this.transitMap?.remove(); this.transitMap = null; this.generation++; this.initialized = false; this.map?.remove(); this.map = null; }
 
     private async request(action: string, extra: any = {}) {
         const params = { action, region_id: this.allRegionsSelected ? 'all' : this.regionId,
@@ -136,6 +144,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
         if (!['dashboard', 'vulnerability', 'stations', 'network', 'regions', 'agent'].includes(tab)) return;
         if (this.embeddedRegion) { this.navigate.emit(tab); return; }
         this.transitMap?.remove(); this.transitMap = null;
+        this.planningMap?.remove(); this.planningMap = null;
         if (tab !== 'dashboard') { this.map?.remove(); this.map = null; }
         this.tab = tab;
         this.configurePeriod();
@@ -158,6 +167,8 @@ export class Component implements OnInit, OnDestroy, OnChanges {
 
     public async changeRegion() {
         this.map?.remove(); this.map = null;
+        this.planningMap?.remove(); this.planningMap = null;
+        this.planningResult = null; this.selectedSites=[]; this.selectedScenario=null;
         this.stationSearch = '';
         this.overview = null; this.dashboardNetwork = null; this.dashboardRank = null; this.dashboardExtra = null;
         this.transitMap?.remove(); this.transitMap = null; this.transitResult = null; this.transitLinkage = null; this.transitError = ""; this.transitBusy = false;
@@ -243,6 +254,8 @@ export class Component implements OnInit, OnDestroy, OnChanges {
     }
 
     public async loadTab() {
+        // Dispose before Angular can replace the dashboard map node.
+        if(this.tab === 'dashboard') {this.map?.remove();this.map=null;}
         const current = ++this.generation;
         this.busy = true;
         this.error = '';
@@ -278,6 +291,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
                 }).catch(error=>{if(current===this.generation)this.error=error.message;});
                 void this.loadResearch(current);
                 void this.loadTransit(current);
+                void this.loadPlanning(current);
                 await this.service.render();
                 if (current === this.generation) this.renderMap();
                 await Promise.all([
@@ -300,7 +314,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
                     })
                 ]);
             } else if (this.tab === 'vulnerability') {
-                await this.loadTransit(current);
+                await Promise.all([this.loadTransit(current),this.loadPlanning(current)]);
             } else if (this.tab === 'stations') {
                 const [result, linkage] = await Promise.all([this.request('stations', { query: this.stationSearch }), this.request('transit_linkage')]);
                 if (current === this.generation) this.transitLinkage = linkage;
@@ -481,7 +495,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
         else this.transitMarkers.removeFrom(this.transitMap);
     }
     private renderTransitMap() {
-        const element = document.getElementById('bike-transit-map');
+        const element = document.getElementById(this.mapKey + '-transit');
         if(!element) return;
         this.transitMap?.remove();
         this.transitMap = L.map(element, {scrollWheelZoom:false, zoomAnimation:false, fadeAnimation:false, markerZoomAnimation:false});
@@ -502,6 +516,61 @@ export class Component implements OnInit, OnDestroy, OnChanges {
         if(bounds.length) this.transitMap.fitBounds(L.latLngBounds(bounds).pad(.15),{maxZoom:13, animate:false});
         else this.transitMap.setView(this.regionId === 'daejeon' ? [36.35,127.38] : this.regionId === 'sejong' ? [36.5,127.27] : [37.5665,126.978],11);
         setTimeout(()=>this.transitMap?.invalidateSize(),100);
+    }
+
+    public planningCities() {return this.planningResult?.cities || (this.planningResult ? [this.planningResult] : []);}
+    public scenarioPlan() {return this.planningCities().find((c:any)=>c.city === this.scenarioCity);}
+    public reasonLabel(result: any) {
+        const codes:any={transit_missing:'정류장 자료 미확보',station_coordinates_missing:'대여소 좌표 미확보',usage_missing:'선택 기간 이용 기록 없음',boundary_missing:'행정 경계 미확보'};
+        return codes[result?.reason_code] || result?.message || '분석 자료 미확보';
+    }
+    private async loadPlanning(current: number) {
+        this.planningError='';
+        try {
+            const result=await this.request('planning');
+            if(current !== this.generation)return;
+            this.planningResult=result;
+            this.scenarioCity=this.allRegionsSelected ? 'seoul' : this.regionId;
+            this.selectedSites=[];
+            await this.updateScenario();
+            await this.service.render();
+            if(this.tab === 'dashboard')this.renderMap();
+        }catch(error:any){if(current===this.generation){this.planningError=error.message;await this.service.render();}}
+    }
+    public async changeScenarioCity() {this.selectedSites=[];await this.updateScenario();}
+    public async toggleSite(id:string) {
+        this.selectedSites=this.selectedSites.includes(id) ? this.selectedSites.filter(x=>x!==id) : [...this.selectedSites,id];
+        await this.updateScenario();
+    }
+    public async updateScenario() {
+        const ids=[...this.selectedSites].sort();
+        this.selectedScenario=(this.scenarioPlan()?.selection_states || []).find((s:any)=>JSON.stringify(s.selected_ids)===JSON.stringify(ids)) || null;
+        await this.service.render();
+        if(this.tab === 'vulnerability')setTimeout(()=>{if(this.tab === 'vulnerability')this.renderPlanningMap();},0);
+    }
+    private renderPlanningMap() {
+        const element=document.getElementById(this.mapKey + '-planning');
+        if(!element)return;
+        this.planningMap?.remove();
+        const map=L.map(element,{scrollWheelZoom:false,zoomAnimation:false,fadeAnimation:false,preferCanvas:false});
+        this.planningMap=map;
+        map.setView(this.scenarioCity === 'seoul' ? [37.5665,126.978] : this.scenarioCity === 'sejong' ? [36.5,127.27] : [36.35,127.38],11);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
+        const plan=this.scenarioPlan();
+        for(const feature of plan?.coverage_features || [])L.geoJSON(feature as any,{style:{color:'#939eab',weight:.5,fillOpacity:.18},interactive:false}).addTo(map);
+        if(this.selectedScenario?.added_geometry)L.geoJSON(this.selectedScenario.added_geometry as any,{style:{color:'#259d83',weight:2,fillOpacity:.35}}).addTo(map);
+        const bounds:L.LatLngTuple[]=[];
+        for(const row of plan?.new_sites || []) {
+            const point:L.LatLngTuple=[row.latitude,row.longitude];bounds.push(point);
+            const label=document.createElement('span');label.textContent=row.district+' · 신규 후보 '+row.rank;
+            L.circleMarker(point,{radius:5,color:'#347fc4',fillOpacity:.8}).addTo(map).bindPopup(label);
+        }
+        for(const row of plan?.scenario_pool || []){
+            const label=document.createElement('span');label.textContent=row.kind+' · '+row.site_id;
+            L.circleMarker([row.latitude,row.longitude],{radius:7,color:this.selectedSites.includes(row.site_id)?'#dc7043':'#164f77',fillOpacity:.9}).addTo(map).bindPopup(label).on('click',()=>{void this.toggleSite(row.site_id);});
+        }
+        if(bounds.length)map.fitBounds(L.latLngBounds(bounds).pad(.2),{maxZoom:13,animate:false});
+        else map.setView(this.scenarioCity==='sejong'?[36.5,127.27]:[36.35,127.38],11);
     }
 
     public goalMetric(key: string) { return this.transitLinkage?.goal_metrics?.[key] ?? null; }
@@ -653,11 +722,12 @@ export class Component implements OnInit, OnDestroy, OnChanges {
 
     public toggleTransitStops() {this.showTransitStops=!this.showTransitStops;this.renderMap();}
     private renderMap() {
-        const element = document.getElementById('bike-leaflet-map-' + this.regionId);
+        const element = document.getElementById(this.mapKey + '-dashboard');
         if (!element || this.tab !== 'dashboard') return;
         this.map?.remove();
-        this.map = L.map(element, { scrollWheelZoom:false, zoomControl:false, zoomAnimation:false, fadeAnimation:false, markerZoomAnimation:false, preferCanvas:true });
+        this.map = L.map(element, { scrollWheelZoom:false, zoomControl:false, zoomAnimation:false, fadeAnimation:false, markerZoomAnimation:false, preferCanvas:false });
         const activeMap = this.map;
+        activeMap.setView(this.regionId === 'sejong' ? [36.5,127.27] : this.regionId === 'daejeon' ? [36.35,127.38] : [37.5665,126.978],11);
         L.control.zoom({position:'topright'}).addTo(activeMap);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(activeMap);
         const located = (this.transitLinkage?.stations || []).filter((s:any)=>s.coordinate_valid && Number.isFinite(s.latitude) && Number.isFinite(s.longitude));
@@ -665,10 +735,12 @@ export class Component implements OnInit, OnDestroy, OnChanges {
         const rows = located.filter((s:any,i:number)=>i % stride === 0 || (s.nearest_stop_distance_m > 500 && s.rental_count > 0));
         const bounds: L.LatLngTuple[] = [];
         if (this.showTransitStops) {
+            for(const feature of this.planningResult?.coverage_features || [])
+                L.geoJSON(feature as any,{style:{color:'#8b929a',weight:.5,fillColor:'#9ca3af',fillOpacity:.18},interactive:false}).addTo(activeMap);
             for (const stop of this.transitLinkage?.map_stops || []) {
                 const point: L.LatLngTuple = [stop.lat,stop.lon];
                 if (!rows.length) bounds.push(point);
-                L.circle(point,{radius:500,color:'#8b929a',weight:.5,fillColor:'#9ca3af',fillOpacity:.09,interactive:false}).addTo(activeMap);
+
                 const label=document.createElement('span'); label.textContent=stop.type+' · '+stop.name+' · 직선거리 500m';
                 L.circleMarker(point,{radius:2,color:'#818b97',weight:1,fillOpacity:.6}).addTo(activeMap).bindPopup(label);
             }

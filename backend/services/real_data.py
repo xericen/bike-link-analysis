@@ -275,7 +275,7 @@ def overview(region_id, date_start=None, date_end=None):
             "coverage_note": "서울은 2026년 10월 집계 OD입니다. 공식 대여소 마스터의 ST ID와 유효 좌표를 확인한 항목만 지도에 연결합니다." if region_id == "seoul" else
             ("대전 월별 Trip 원본 전체 유효 기간을 분석하며 관리 목적 반납과 검증 실패 행은 제외했습니다." if region_id == "daejeon" and rows else
              "대여소 위치 목록만 확보해 이용량·좌표가 없습니다." if region_id == "daejeon" else
-             "세종2025년10월 상세 이용이력을 연결했습니다. 대여소 좌표/명칭 대응표가 없어 지도·정류장 거리 지표는 N/A이며 연간 통계와 별도로 봅니다." if rows else
+             "세종2025년10월 이용이력에 공식2026-05 대여소 마스터를 ID로 연결했습니다. 위치 자료의 시점 차이가 있으며 미매칭 ID는 지도에서 제외합니다." if rows else
              "선택 기간에는 상세 기록이 없습니다. 세종2025-10 이력 및 연간 통계를 별도로 제공합니다.")}
 
 

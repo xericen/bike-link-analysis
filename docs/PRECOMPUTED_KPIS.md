@@ -1,3 +1,5 @@
+> 최신: planning을 포함한 **27조합×8액션=216개**, SHA256 입력 manifest·대상 서버 verify-only·readiness 점검을 사용합니다. 아래 mtime·189/162/135개 설명은 이전 단계 기록입니다. [현재 운영·자료·공식](PLANNING_IMPROVEMENTS.md).
+
 > 목표 화면 개편 후 최신 상태: transit_linkage를 추가하여 **27조합×7액션=189개**를 준비했다. 연계 KPI·시간대 OD·지도 데이터도 WIZ와 Solar에서 저장값만 조회한다. [화면 개편 및 검증](GOAL_ALIGNED_REDESIGN.md). 아래162/135개는 이전 단계 기록이다.
 
 > 최신 확장: vulnerability 액션을 추가하여27조합×6액션=162개가 준비됐다. `/api/vulnerability`·`/api/improvement-ranking`·WIZ·Solar도 저장값만 조회한다. 아래135개와55개 테스트·속도 기록은 앞 단계의 역사적 실행 결과이며 이번 측정과 구분한다. [최종 공식·가중치·실행 결과](TRANSIT_VULNERABILITY_FINAL.md).

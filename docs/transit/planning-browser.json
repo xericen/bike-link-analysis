@@ -1,0 +1,32 @@
+{
+  "url": "https://project.wizide.com",
+  "page_errors": [],
+  "cities": [
+    {
+      "city": "서울",
+      "new_sites_displayed": 10,
+      "sensitivity_cases": 9,
+      "relocation_rows": 10,
+      "scenario_options": 6,
+      "toggle": true
+    },
+    {
+      "city": "대전",
+      "new_sites_displayed": 10,
+      "sensitivity_cases": 9,
+      "relocation_rows": 10,
+      "scenario_options": 4,
+      "toggle": true
+    },
+    {
+      "city": "세종",
+      "new_sites_displayed": 10,
+      "sensitivity_cases": 9,
+      "relocation_rows": 10,
+      "scenario_options": 6,
+      "toggle": true
+    }
+  ],
+  "mobile_overflow": false,
+  "common_scope_city_switch": true
+}

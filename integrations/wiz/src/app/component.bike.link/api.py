@@ -40,7 +40,7 @@ def handle():
     try:
         date_start, date_end = periods.resolve(selected_region,
             str(wiz.request.query("date_start", "")).strip() or None,
-            str(wiz.request.query("date_end", "")).strip() or None) if action not in ("regions", "period_bounds", "prepared_periods") else (None, None)
+            str(wiz.request.query("date_end", "")).strip() or None) if action not in ("regions", "period_bounds", "prepared_periods", "readiness") else (None, None)
     except ValueError as error:
         return wiz.response.status(422, message=str(error))
     context = {"region_ids": [r["region_id"] for r in real_data.REGIONS] if unified else [region_id],
@@ -63,6 +63,19 @@ def handle():
             from backend.services.vulnerability import prepared
             result=prepared(region_id,date_start,date_end,top_n=20)
             if not unified:result={**result,"cities":[dict(result)]}
+        elif action == "planning":
+            from backend.services.planning import prepared
+            result=prepared(region_id,date_start,date_end)
+        elif action == "planning_scenario":
+            from backend.services.planning import scenario
+            try:
+                result=scenario(region_id,date_start,date_end,[s for s in str(wiz.request.query("selected","")).split(",") if s])
+            except ValueError as error:
+                return wiz.response.status(422,message=str(error))
+        elif action == "readiness":
+            from backend.services.deployment import readiness
+            result=readiness()
+            if not result["ready"]:return wiz.response.status(503,result,message="집계 준비 필요")
         elif action == "prepared_periods":
             from backend.services.deployment import available_periods
             result = {"periods": available_periods(region_id)}

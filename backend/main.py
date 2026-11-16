@@ -248,3 +248,25 @@ def precomputed_kpi(city: str, action: str, date_start: date | None = None, date
     try: start,end=periods.resolve(city,*period(date_start,date_end))
     except ValueError as error: raise HTTPException(422,str(error))
     return precomputed.read(action,city,start,end)
+
+
+@app.get("/api/readiness")
+def readiness():
+    from backend.services.deployment import readiness as status
+    from fastapi.responses import JSONResponse
+    result=status()
+    return JSONResponse(result,status_code=200 if result["ready"] else 503)
+
+@app.get("/api/planning")
+def planning(city:str="seoul",date_start:date|None=None,date_end:date|None=None):
+    from backend.services.planning import prepared
+    check_region(city)
+    try:return prepared(city,*period(date_start,date_end))
+    except ValueError as error:raise HTTPException(422,str(error))
+
+@app.get("/api/planning/scenario")
+def planning_scenario(city:str="seoul",selected:str="",date_start:date|None=None,date_end:date|None=None):
+    from backend.services.planning import scenario
+    check_region(city)
+    try:return scenario(city,*period(date_start,date_end),[s for s in selected.split(",") if s])
+    except ValueError as error:raise HTTPException(422,str(error))

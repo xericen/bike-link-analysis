@@ -24,9 +24,9 @@ def combinations():
             cur=(last+timedelta(days=1))
     return sorted(combos)
 
-def run(combos,force=False,actions=None):
+def _run(combos,force=False,actions=None,version=None):
     from backend.services.kpi_projection import build
-    version=precomputed.revision()
+    version=version or precomputed.revision()
     stats=[]
     for city,start,end in combos:
         periods.resolve(city,start,end)
@@ -46,14 +46,29 @@ def run(combos,force=False,actions=None):
             stats.append(row);print(json.dumps(row),flush=True)
     return {"revision":version,"entries":stats}
 
+def _worker(task):
+    combo,force,actions,version=task
+    return _run([combo],force,actions,version)["entries"]
+
+def run(combos,force=False,actions=None,workers=1):
+    from backend.services.input_manifest import verify
+    version=verify(precomputed.PROCESSED,create=True)
+    if workers==1:return _run(combos,force,actions,version)
+    if not 1<=workers<=4:raise ValueError("workers must be1~4")
+    from concurrent.futures import ProcessPoolExecutor
+    with ProcessPoolExecutor(max_workers=workers) as pool:
+        batches=list(pool.map(_worker,[(combo,force,actions,version) for combo in combos]))
+    return {"revision":version,"entries":[row for batch in batches for row in batch]}
+
 if __name__=="__main__":
     p=argparse.ArgumentParser(__doc__);p.add_argument("--city",choices=("seoul","daejeon","sejong","all"))
     p.add_argument("--start");p.add_argument("--end");p.add_argument("--force",action="store_true")
     p.add_argument("--report",default="docs/transit/precomputed-build-20261116.json")
+    p.add_argument("--workers",type=int,choices=range(1,5),default=1)
     p.add_argument("--actions",nargs="+",choices=precomputed.ACTIONS,help="Prepare only selected actions; default is all")
     a=p.parse_args()
     if a.city and bool(a.start)!=bool(a.end):p.error("--start and --end must be supplied together")
     combos=[(a.city,*periods.resolve(a.city,a.start,a.end))] if a.city else combinations()
-    report=run(combos,a.force,a.actions)
+    report=run(combos,a.force,a.actions,a.workers)
     from pathlib import Path
     Path(a.report).write_text(json.dumps(report,ensure_ascii=False,indent=2))

@@ -5,19 +5,11 @@ from fastapi import HTTPException
 
 ROOT=Path(__file__).resolve().parents[2]
 PROCESSED=ROOT/"data/processed"
-ACTIONS=("overview","research","network","centrality","dashboard_extra","vulnerability","transit_linkage")
+ACTIONS=("overview","research","network","centrality","dashboard_extra","vulnerability","transit_linkage","planning")
 
 def revision(processed=None):
-    folder=Path(processed or PROCESSED)
-    paths=[folder/"analysis.sqlite",folder/"stations.csv",folder/"sources.json",folder/"yearly.csv"]
-    paths+=list(folder.glob("transit*.csv"))+list(folder.glob("transit*meta*.json"))
-    paths+=list((ROOT/"backend/analysis").glob("*.py"))
-    paths+=[ROOT/"backend/services"/p for p in
-            ("real_data.py","all_regions.py","kpi_projection.py","precomputed.py","transit.py","vulnerability.py","goal_linkage.py")]
-    # Stat fingerprint: no scan of million-row data and no query-time calculation.
-    values=[(str(p.relative_to(ROOT)) if p.is_relative_to(ROOT) else str(p),p.stat().st_size,p.stat().st_mtime_ns)
-            for p in paths if p.exists()]
-    return hashlib.sha256(json.dumps(sorted(values)).encode()).hexdigest()
+    from backend.services.input_manifest import current
+    return current(Path(processed or PROCESSED))
 
 def path(processed=None):
     return Path(processed or PROCESSED)/"kpi_cache.sqlite"

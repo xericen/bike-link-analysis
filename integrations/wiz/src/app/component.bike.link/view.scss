@@ -664,3 +664,17 @@ details.panel[open] summary { margin-bottom:15px; }
 .vulnerability-view .transit-panel > div > details {margin-top:20px;padding-top:14px;border-top:1px solid #e5ebf1;}
 .vulnerability-view .transit-panel > div > details summary {font-size:12px;color:#64748b;cursor:pointer;}
 @media(max-width:600px){.vulnerability-view .transit-panel{padding:16px;}.vulnerability-view .panel-heading{align-items:flex-start;flex-wrap:wrap;}.vulnerability-view .data-table td{padding:12px 8px;}}
+
+.planning-panel .planning-map{border:1px solid #dbe5ee;border-radius:8px;margin:14px 0;}
+.planning-city-control label{display:flex;align-items:center;gap:12px;font-size:13px;}
+.planning-city-control select{padding:7px 12px;}
+.planning-method{margin-top:14px;font-size:12px;color:#64748b;}
+.planning-subtitle{margin-top:26px!important;}
+.scenario-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0;}
+.scenario-options label{display:flex;align-items:center;gap:8px;font-size:13px;padding:10px;background:#f5f8fa;border-radius:7px;}
+.scenario-options input{appearance:auto;width:16px;height:16px;padding:0;accent-color:#178779;}
+.scenario-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0;}
+.scenario-summary article{background:#ecf6f2;border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:8px;}
+.scenario-summary span{font-size:12px;color:#60766e;}
+.scenario-summary strong{font-size:20px;font-weight:600;color:#176d61;}
+@media(max-width:600px){.scenario-options,.scenario-summary{grid-template-columns:1fr;}.scenario-summary strong{font-size:18px;}}

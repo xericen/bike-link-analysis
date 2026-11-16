@@ -116,7 +116,7 @@ main.bike-page([class.embedded]="embeddedRegion")
                             span 연계 커버 면적 증가율
                             strong {{percent(coverageIncrease())}}
                             small 정류장 500m + 연계 대여소 300m 시나리오
-                    p.coverage(*ngIf="regionId === 'sejong' && !allRegionsSelected") 세종 2025-10 · 대여소 좌표 미확보로 연계 지표 N/A
+                    p.coverage(*ngIf="regionId === 'sejong' && !allRegionsSelected") 세종 2025-10 이용 기록 · 위치는 2026-05 마스터 연결
                     article.panel(*ngIf="overview.annual_latest")
                         h3 {{overview.region_name}} 연간 이용량
                         strong {{overview.annual_latest.rental_count | number}}건 · {{overview.annual_latest.year}}년
@@ -129,17 +129,17 @@ main.bike-page([class.embedded]="embeddedRegion")
                                 input(type="checkbox", [checked]="showTransitStops", (change)="toggleTransitStops()")
                                 |  정류장 500m 커버 영역 표시
                             article.panel.map-panel
-                                div.leaflet-map([id]="'bike-leaflet-map-' + regionId", *ngIf="overview.map_stations?.length || transitLinkage?.map_stops?.length", role="img", aria-label="정류장 커버 영역과 공유자전거 보완 관계 지도")
+                                div.leaflet-map([id]="mapKey + '-dashboard'", *ngIf="overview.map_stations?.length || transitLinkage?.map_stops?.length", role="img", aria-label="정류장 커버 영역과 공유자전거 보완 관계 지도")
                                 div.map-title {{overview.region_name}} 대중교통·자전거 보완 관계
                                 div.map-key
                                     strong 정류장 접근 공백과 실제 이용
                                     span 대여소 최대 300개 표본 + 취약 후보 전체
-                                    small 음영은 정류장 표본 · KPI는 전체 자료 기준
+                                    small 음영은 전체 정류장 커버 영역 · 행정 경계 내
                                     div.coverage-legend
                                         span.inside 커버 내
                                         span.outside 커버 밖
                                         span.vulnerable 취약 후보
-                                p.empty(*ngIf="!overview.map_stations?.length") 대여소 좌표 미확보: 정류장만 표시하며 대여소 위치를 추정하지 않습니다.
+                                p.empty(*ngIf="!overview.map_stations?.length") 대여소 좌표 미확보
                         article.panel
                             h3 시간대별 역 연계 이동 비중
                             p.panel-note 한쪽 이상 역 300m 내 OD / 해당 시간 전체 OD · 실제 환승 아님
@@ -221,18 +221,110 @@ main.bike-page([class.embedded]="embeddedRegion")
                         div
                             h2 취약 구간 & 개선 후보
                             p 실제 이용이 있는 연계 취약 대여소와 개선 순위를 확인합니다.
+                    p.error(*ngIf="planningError") {{planningError}}
+                    article.panel.planning-panel(*ngIf="planningResult?.available")
+                        div.panel-heading
+                            h3 신규 대여소 확충 후보
+                            span.source-pill 500m 격자
+                        p.panel-note 기존 대여소 300m 밖 · 구·시 인구밀도, 공개 시설, 주변 이용 수요 기준
+                        div.planning-city-control
+                            label
+                                span 분석 도시
+                                select([(ngModel)]="scenarioCity", (change)="changeScenarioCity()", aria-label="신규 입지 분석 도시")
+                                    option(*ngFor="let city of planningCities()", [value]="city.city") {{nameOf(city.city)}}
+                        div.planning-map([id]="mapKey + '-planning'", role="region", aria-label="전체 정류장 커버 영역과 신규 입지 후보 지도", style="height:340px")
+                        div.ranking-scroll
+                            table.data-table.new-sites-table
+                                thead
+                                    tr
+                                        th 신규 후보
+                                        th 인구밀도(명/km²)
+                                        th 시설(500m)
+                                        th 주변 대여(1km)
+                                        th 최근접 대여소(m)
+                                        th 공백 비율
+                                tbody
+                                    tr(*ngFor="let row of scenarioPlan()?.new_sites | slice:0:10")
+                                        td {{row.rank}}위 · {{row.district}}
+                                        td {{row.population_density_km2 | number:'1.0-0'}}
+                                        td {{row.facilities_within_500m}}
+                                        td {{row.nearby_rentals_1000m | number}}
+                                        td {{row.nearest_station_distance_m | number:'1.1-1'}}
+                                        td {{percent(row.gap_ratio)}}
+                        details.planning-method
+                            summary 자료 기준
+                            p.panel-note 인구는 2026-10 구·시 밀도이며 실측 격자인구가 아닙니다. 시설은 도서관·공공개방시설 공개 좌표입니다. 경계는 SGIS 2020이며 설치 가능 토지·보행 경로는 별도 확인이 필요합니다.
+                        h3.planning-subtitle 후보 선택 시나리오
+                        p.panel-note 신규 상위 3곳 · 기존 취약 상위 3곳 조합
+                        div.scenario-options
+                            label(*ngFor="let row of scenarioPlan()?.scenario_pool")
+                                input(type="checkbox", [checked]="selectedSites.includes(row.site_id)", (change)="toggleSite(row.site_id)")
+                                | {{row.kind}} {{row.rank}}위 · {{row.district || row.station_id}}
+                        div.scenario-summary(*ngIf="selectedScenario")
+                            article
+                                span 추가 커버 면적
+                                strong {{selectedScenario.added_area_m2 / 1000000 | number:'1.4-4'}} km²
+                            article
+                                span 후보 간 중복 면적
+                                strong {{selectedScenario.overlap_area_m2 / 1000000 | number:'1.4-4'}} km²
+                            article
+                                span 기준 대비 증가
+                                strong {{percent(selectedScenario.increase_ratio)}}
+                        p.panel-note 후보300m 추가 연결 가정 · 중복 면적 제외 · 실제 환승·운영 효과 아님
+                    article.panel.sensitivity-panel(*ngIf="scenarioPlan()?.sensitivity")
+                        div.panel-heading
+                            h3 거리·가중치에 따른 순위 안정성
+                        p.panel-note 기준: 500m·균등 가중 · 후보가 적으면 점수 대신 거리와 실제 수요를 확인합니다.
+                        div.ranking-scroll
+                            table.data-table
+                                thead
+                                    tr
+                                        th 거리
+                                        th 가중치
+                                        th 후보 수
+                                        th TOP10 유사도
+                                        th 평균 순위 변동
+                                tbody
+                                    tr(*ngFor="let row of scenarioPlan()?.sensitivity")
+                                        td {{row.distance_m}}m
+                                        td {{row.policy}}
+                                        td {{row.candidate_count}}
+                                        td {{percent(row.top10_jaccard)}}
+                                        td {{row.mean_rank_shift == null ? 'N/A' : (row.mean_rank_shift | number:'1.1-1')}}
+                    article.panel.relocation-panel(*ngIf="scenarioPlan()?.relocation")
+                        div.panel-heading
+                            h3 재배치 검토 대상
+                            span.source-pill 확충 후보와 별도
+                        p.panel-note 대여·반납 순유출입 기준 · 재고 미확보로 실제 부족 여부와 이동 수량은 제안하지 않습니다.
+                        div.ranking-scroll
+                            table.data-table
+                                thead
+                                    tr
+                                        th 대여소
+                                        th 관측 순유출(건)
+                                        th 변동 최대 시간
+                                        th 해당 시간 순유출
+                                        th 거치 용량
+                                tbody
+                                    tr(*ngFor="let row of scenarioPlan()?.relocation?.items")
+                                        td {{row.station_id}}
+                                        td {{row.net_outflow | number}}
+                                        td {{row.peak_hour}}시
+                                        td {{row.peak_net_outflow | number}}
+                                        td {{row.capacity ?? '미확보'}}
+                        p.empty(*ngIf="!scenarioPlan()?.relocation?.available") 해당 기간 대여·반납 자료 미확보
                     article.panel.transit-panel
                         div.panel-heading
                             h3 취약 후보 {{transitResult?.candidate_count == null ? '' : transitResult.candidate_count + '곳'}}
                             span.source-pill {{transitResult?.period_start || dateStart}} ~ {{transitResult?.period_end || dateEnd}}
                         p.loading(*ngIf="transitBusy") 취약 후보를 불러오는 중입니다…
                         p.empty(*ngIf="transitError") {{transitError}}
-                        p.empty(*ngIf="transitResult && !transitResult.available") 대여소 좌표 미확보로 취약 후보와 공간 분석을 제공할 수 없습니다.
+                        p.empty(*ngIf="transitResult && !transitResult.available") {{reasonLabel(transitResult)}}
                         div(*ngIf="transitResult?.available")
                             label
                                 input(type="checkbox", [checked]="transitVisible", (change)="toggleTransit()")
                                 |  취약 후보 레이어 표시
-                            div#bike-transit-map(style="height:320px; margin:12px 0; border-radius:12px", role="region", aria-label="대중교통 연계 취약 후보 지도")
+                            div.transit-candidate-map([id]="mapKey + '-transit'", style="height:320px; margin:12px 0; border-radius:12px", role="region", aria-label="대중교통 연계 취약 후보 지도")
                             div.ranking-scroll
                                 table.data-table
                                     thead
@@ -252,10 +344,10 @@ main.bike-page([class.embedded]="embeddedRegion")
                                             td {{row.vulnerability | number:'1.3-3'}}
                                             td {{row.potential_added_area_m2 | number:'1.1-1'}}
                                             td
-                                                span {{row.score | number:'1.3-3'}}
+                                                span {{row.score_confidence === 'insufficient_candidates' ? '후보 수 부족' : (row.score | number:'1.3-3')}}
                                                 details.score-evidence
                                                     summary 점수 근거
-                                                    small 근거 백분위: 취약 {{row.score_components?.vulnerability | number:'1.3-3'}} / 수요 {{row.score_components?.rental_count | number:'1.3-3'}} / 면적 {{row.score_components?.potential_added_area_m2 | number:'1.3-3'}}
+                                                    small 근거 백분위: 접근 결손 {{row.score_components?.accessibility_deficit | number:'1.3-3'}} / 수요 {{row.score_components?.rental_count | number:'1.3-3'}} / 면적 {{row.score_components?.potential_added_area_m2 | number:'1.3-3'}}
                             div.scenario-grid
                                 article.scenario-card(*ngFor="let city of scenarioCities()")
                                     h4 {{nameOf(city.city)}} · 연계 전후 커버 면적
@@ -273,7 +365,7 @@ main.bike-page([class.embedded]="embeddedRegion")
                                         small {{percent(city.scenario.station_count_increase_ratio)}}
                                     p 증가 면적 {{(city.scenario.linked_area_m2-city.scenario.baseline_area_m2)/1000000 | number:'1.3-3'}} km² · +{{percent(city.scenario.area_increase_ratio)}}
                             p.panel-note(*ngFor="let city of transitResult.cities")
-                                span(*ngIf="!city.available") {{nameOf(city.city)}} · 대여소 좌표 미확보
+                                span(*ngIf="!city.available") {{nameOf(city.city)}} · {{reasonLabel(city)}}
                             details
                                 summary 계산 기준·출처·한계
                                 p.panel-note 점수: 도시 내 취약도·대여량·잠재 면적 백분위의 동등 가중 평균
@@ -327,7 +419,7 @@ main.bike-page([class.embedded]="embeddedRegion")
                                         div.bar-item(*ngFor="let bar of stationTransitHours()")
                                             div.bar([style.height.%]="bar.height", [attr.title]="bar.hour + '시 · ' + percent(bar.linkage_share)")
                                             span(*ngIf="bar.hour % 6 === 0") {{bar.hour}}시
-                                    small 직선거리 기준 · 실제 환승률이 아닙니다. 세종 대여소 좌표 미확보는 N/A입니다.
+                                    small 직선거리 기준 · 실제 환승률이 아닙니다.
                                 p.coverage {{selectedStation.cluster?.description || '군집 분석에 필요한 이용 기록이 없습니다.'}}
                                 div.detail-metrics
                                     div

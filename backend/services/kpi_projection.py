@@ -64,6 +64,9 @@ def dashboard_extra(region_id,date_start,date_end):
               "cluster_representatives": representatives}
 
 def build(action,region_id,start,end):
+    if action == "planning":
+        from backend.services.planning import build as planning_build
+        return planning_build(region_id,start,end)
     if action == "transit_linkage":
         from backend.services.goal_linkage import build as linkage_build
         return linkage_build(region_id,start,end)

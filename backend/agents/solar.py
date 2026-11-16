@@ -18,9 +18,11 @@ REGION_ALIASES = {"서울": "seoul", "따릉이": "seoul", "대전": "daejeon", 
 REGIONS = {r["region_id"] for r in real_data.REGIONS}
 METRICS = {"pagerank", "weighted_in_degree", "weighted_out_degree", "betweenness"}
 TOOL_DEFINITIONS = {
+    "get_site_planning": ("기존 대여소가 없는 격자의 신규 입지 후보. 인구밀도·시설·주변 수요 근거와 자료 시점 포함", {"region_id":"string","date_range":"object"}, ["region_id"]),
+    "get_relocation_candidates": ("시간대 대여·반납 순유출입 기반 재배치 검토. 재고 미확보 시 이동 수량은 제안 불가", {"region_id":"string","date_range":"object"}, ["region_id"]),
     "get_transit_linkage": ("선택 도시·기간의 역300m 연계 OD 시간대별 건수와 비중. 실제 환승률 아님. 사전 집계만 조회", {"region_id":"string","date_range":"object"}, ["region_id"]),
     "get_transit_vulnerability": ("대중교통 정류장 500m 밖이며 실제 대여량이 있는 대여소 후보와 공간 시나리오. 실제 운영효과 아님", {"region_id":"string","date_range":"object"}, ["region_id"]),
-    "get_improvement_ranking": ("연계 취약도·실제 대여 수요·잠재 커버리지 기반 검토 순위. 근거와 가정 포함", {"region_id":"string","top_n":"integer","date_range":"object"}, ["region_id"]),
+    "get_improvement_ranking": ("기존 대여소의 접근 결손·대여 수요·잠재 커버리지 검토 순위. 신규 입지는 get_site_planning 사용", {"region_id":"string","top_n":"integer","date_range":"object"}, ["region_id"]),
     "get_region_overview": ("지역의 관측 기간, 이용량, 시간대별 이용과 출처", {"region_id": "string", "date_range": "object"}, ["region_id"]),
     "get_station_details": ("대여소 실제 이용량, 좌표, 군집 세부 정보", {"region_id": "string", "station_id": "string", "date_range": "object"}, ["region_id", "station_id"]),
     "get_station_clusters": ("실제 이용 기록의 K-means 군집과 유형", {"region_id": "string", "date_range": "object"}, ["region_id"]),
@@ -110,6 +112,14 @@ def run_tool(name, arguments, context=None):
         region_id = _region(arguments.get("region_id"))
         start, end = _dates(arguments)
         if context: start, end = context.get("date_start"), context.get("date_end")
+        if name in {"get_site_planning","get_relocation_candidates"}:
+            from backend.services.planning import prepared
+            try: result=prepared(region_id,start,end)
+            except (HTTPException,ValueError) as error:
+                return {"available":False,"message":str(getattr(error,"detail",error))}
+            if name=="get_relocation_candidates":
+                return {**result.get("relocation",{}),"city":region_id,"period_start":start,"period_end":end}
+            return {k:result.get(k) for k in ("available","city","new_sites","new_site_count","population_basis","facility_count","source_provenance","assumptions")} | {"period_start":start,"period_end":end}
         if name == "get_transit_linkage":
             from backend.services.precomputed import read
             from backend.services.periods import resolve
@@ -235,7 +245,17 @@ def _report(question, answer, evidence):
             limitations.append(result["coverage_note"])
         if result.get("message") and result.get("available") is False:
             limitations.append(result["message"])
-        if call["tool"] == "get_transit_linkage":
+        if call["tool"] == "get_site_planning":
+            algorithms.add("500m grid + district population density + facility/nearby demand ranking")
+            limitations.extend(result.get("assumptions") or [])
+            if result.get("new_site_count") is not None:
+                findings.append({"label":"신규 입지 검토 격자","value":result["new_site_count"],"unit":"개","region_id":result["city"]})
+        elif call["tool"] == "get_relocation_candidates":
+            algorithms.add("observed hourly net rentals; inventory unavailable")
+            limitations.append(result.get("message","재고 미확보: 재배치 수량 제안 불가"))
+            for row in result.get("items",[])[:3]:
+                findings.append({"label":row["station_id"]+" 관측 순유출","value":row["net_outflow"],"unit":"건","region_id":result["city"]})
+        elif call["tool"] == "get_transit_linkage":
             algorithms.add("verified OD endpoint within subway 300m; precomputed lookup")
             limitations.extend(result.get("limitations",[]))
             hours=result.get("hourly_station_linkage") or []
@@ -485,8 +505,8 @@ def chat(question, context=None):
                     timeout=45.0, max_retries=0)
     prompt = ("서울·대전·세종 공공자전거 분석가입니다. 질문에 맞는 실제 도구를 먼저 호출하세요. "
               "서울 OD는 집계이며 위치 ID는 공식 마스터 검증분만 사용합니다. 대전은 개별 Trip, "
-               "세종은 연간 총량과2025년10월 실제 상세이력이 있으며 대여소 좌표대응은 미확보입니다. 선택 기간의 도구 반환값을 우선하고 기간 밖은 분석할 수 없다고 설명하세요. 관측 날짜는 불연속일 수 있습니다. "
-              "역 연계 시간대 질문에는 get_transit_linkage를 사용하고 linked_count 최대 시간과 linkage_share 최대 시간을 구분하세요. 대중교통 연계 취약 질문에는 get_transit_vulnerability 또는 get_improvement_ranking을 사용하세요. 정류장 데이터 미확보는 분석 불가이며 공간 버퍼 시나리오를 실제 환승률·운영 개선 효과로 말하지 마세요. "
+               "세종은2025년10월 상세이력에2026-05 공식 위치 마스터를 ID 연결했습니다. 과거 좌표 동일성은 미검증이며 미매칭 ID는 제외합니다. 선택 기간의 도구 반환값을 우선하고 기간 밖은 분석할 수 없다고 설명하세요. 관측 날짜는 불연속일 수 있습니다. "
+              "기존 후보가5개 미만이면 점수를 우수성으로 해석하지 말고 거리·실제 수요 근거를 우선하세요. 신규 입지·대여소 없는 지역 질문은 get_site_planning, 재배치는 get_relocation_candidates를 사용하세요. 구 단위 인구밀도를 실측 격자인구로 말하지 말고 재고 없이 재배치 수량을 생성하지 마세요. 역 연계 시간대 질문에는 get_transit_linkage를 사용하고 linked_count 최대 시간과 linkage_share 최대 시간을 구분하세요. 대중교통 연계 취약 질문에는 get_transit_vulnerability 또는 get_improvement_ranking을 사용하세요. 정류장 데이터 미확보는 분석 불가이며 공간 버퍼 시나리오를 실제 환승률·운영 개선 효과로 말하지 마세요. "
               "도구 수치와 대여소 ID를 그대로 인용하고 없는 값을 만들지 마세요. 일별 최대·최소는 daily 배열 전체를 비교해 날짜와 건수를 함께 인용하세요. 실제 관측일수는 observed_dates의 고유 날짜 수입니다. "
               "관측 사실·해석·운영 제안을 분리한 한국어 답변을 작성하세요. "
               "재고·재배치 자료가 없으므로 부족이나 재배치 필요를 단정하지 말고 PageRank를 환승의 증거로 단정하지 마세요. "

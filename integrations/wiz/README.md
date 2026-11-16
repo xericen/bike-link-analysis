@@ -21,4 +21,4 @@
 
 ## 현재 핵심 지표 조회 조건 (2026-11-16)
 
-WIZ의 overview/research/network/centrality/dashboard_extra/vulnerability/transit_linkage는 사전 집계 DB를 조회합니다. 실제 데이터와 분석 코드가 확정된 뒤 `scripts/deploy/release.py`로 사전 집계 생성과 조회 검증을 완료해야 합니다. 후속 배포 명령을 지정하지 않으면 생성·검증만 수행합니다. 정확한 도시·기간·자료 버전이 준비되지 않았으면 409 안내를 반환하며 요청 시 계산으로 우회하지 않습니다. 다른 환경에 자료를 복사한 뒤에도 사전 집계를 재생성하세요. 자세한 갱신 절차는 [KPI 운영 문서](../../docs/PRECOMPUTED_KPIS.md)를 참고하세요.
+WIZ의 overview/research/network/centrality/dashboard_extra/vulnerability/transit_linkage/planning은 사전 집계 DB를 조회합니다. 실제 데이터와 분석 코드가 확정된 뒤 `scripts/deploy/release.py`로 사전 집계 생성과 조회 검증을 완료해야 합니다. 후속 배포 명령을 지정하지 않으면 생성·검증만 수행합니다. 정확한 도시·기간·자료 버전이 준비되지 않았으면 409 안내를 반환하며 요청 시 계산으로 우회하지 않습니다. 다른 환경에 자료·집계·manifest를 복사한 뒤 release.py --verify-only로 내용 검증을 수행하세요. 내용이 다르면 재생성해야 합니다. 자세한 갱신 절차는 [KPI 운영 문서](../../docs/PRECOMPUTED_KPIS.md)를 참고하세요.

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { PlanningPanel } from '../components/PlanningPanel'
 import { TransitPanel } from '../components/TransitPanel'
 import { Link, useSearchParams } from 'react-router-dom'
 import { api } from '../services/api'
@@ -47,7 +48,7 @@ export function NetworkAnalysis({regionId,filter}:{regionId:string;filter:DateFi
   })) as Record<string,{x:number;y:number}>,[displayNodes])
   if(error)return <ErrorBox message={error}/>
   if(!network||!centrality||!hidden)return <Skeleton rows={5}/>
-  if(!network.available)return <><PageHeader title="이동 패턴 분석" subtitle="OD 연결 구조 · 중심성 · 불균형 · 숨은 연결 거점 분석"><SourceBadge data={network}/></PageHeader><div className="stats"><StatCard label="OD 이동 건수" value="미확보" note="임의 경로를 생성하지 않습니다."/><StatCard label="분석 간선 수" value="미확보" note="선택 기간의 OD 자료가 필요합니다." tone="mint"/><StatCard label="숨은 연결 후보 수" value="판정 불가" note="네트워크 자료가 필요합니다." tone="lavender"/><StatCard label="불균형 후보 수" value="판정 불가" note="대여·반납 자료가 필요합니다." tone="peach"/></div><Empty>{network.message}</Empty><TransitPanel city={regionId} start={filter.start} end={filter.end}/><SourceNote data={network}/></>
+  if(!network.available)return <><PageHeader title="이동 패턴 분석" subtitle="OD 연결 구조 · 중심성 · 불균형 · 숨은 연결 거점 분석"><SourceBadge data={network}/></PageHeader><div className="stats"><StatCard label="OD 이동 건수" value="미확보" note="임의 경로를 생성하지 않습니다."/><StatCard label="분석 간선 수" value="미확보" note="선택 기간의 OD 자료가 필요합니다." tone="mint"/><StatCard label="숨은 연결 후보 수" value="판정 불가" note="네트워크 자료가 필요합니다." tone="lavender"/><StatCard label="불균형 후보 수" value="판정 불가" note="대여·반납 자료가 필요합니다." tone="peach"/></div><Empty>{network.message}</Empty><TransitPanel city={regionId} start={filter.start} end={filter.end}/><PlanningPanel city={regionId} start={filter.start} end={filter.end}/><SourceNote data={network}/></>
   const drawn=graphMode==='all'?network.edges.slice(0,250):focusEdges, maxFlow=Math.max(1,...drawn.map(x=>x.trip_count))
   const maxRank=Math.max(...centrality.rankings.map(x=>x.pagerank),0.0000001)
   const odTotal=centrality.rankings.length?centrality.rankings.reduce((sum,x)=>sum+x.weighted_out_degree,0):null
@@ -92,6 +93,6 @@ export function NetworkAnalysis({regionId,filter}:{regionId:string;filter:DateFi
     </SectionCard>
     </div>
     {validation?.available&&<section className="panel"><div className="panel-title"><h3>숨은 연결 거점 검증</h3><span>{validation.role}</span></div><div className="metric-table">{validation.windows.map(w=><div key={w.days}><b>{w.days}일 · PageRank {w.pagerank_rank??'N/A'}위</b><span>이용량 {w.usage_rank??'N/A'}위 · 백분위 {w.pagerank_percentile==null?'N/A':(w.pagerank_percentile*100).toFixed(1)+'%'}</span><span>대여 {number(w.rental_count)} · 반납 {number(w.return_count)} · 최소 관측 {w.minimum_observation_pass?'충족':'미충족'}</span></div>)}</div><p>{validation.why_not_usage_top}</p><p className="muted">3개 기간 중 후보 판정 {validation.sensitivity.candidate_windows}회 · PageRank 순위 범위 {validation.sensitivity.pagerank_rank_span}위. {validation.message}</p><details><summary>검증 한계</summary><ul>{validation.limitations.map(x=><li key={x}>{x}</li>)}</ul></details></section>}
-    <TransitPanel city={regionId} start={filter.start} end={filter.end}/>
+    <TransitPanel city={regionId} start={filter.start} end={filter.end}/><PlanningPanel city={regionId} start={filter.start} end={filter.end}/>
     <div className="notice">연결 중심성이 높은 대여소는 이용량이 많다는 의미와 반드시 같지 않으며, 이동 네트워크에서 중요한 연결 역할을 수행할 수 있습니다.</div><SourceNote data={network}/></>
 }

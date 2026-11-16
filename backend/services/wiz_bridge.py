@@ -13,7 +13,7 @@ _MODULES = (
     "backend.services.result_cache",
     "backend.analysis.clustering", "backend.analysis.network", "backend.analysis.similarity",
     "backend.models.schemas", "backend.models.normalized",
-    "backend.services.real_data", "backend.services.precomputed", "backend.analysis.transit", "backend.analysis.vulnerability", "backend.services.transit", "backend.services.vulnerability", "backend.services.periods", "backend.services.all_regions", "backend.services.data", "backend.services.imports",
+    "backend.services.real_data", "backend.services.precomputed", "backend.services.input_manifest", "backend.analysis.planning", "backend.analysis.transit", "backend.analysis.vulnerability", "backend.services.transit", "backend.services.vulnerability", "backend.services.planning", "backend.services.goal_linkage", "backend.services.deployment", "backend.services.periods", "backend.services.all_regions", "backend.services.data", "backend.services.imports",
     "backend.agents.solar_checks", "backend.agents.solar_audit", "backend.agents.solar", "backend.main",
 )
 _lock = threading.Lock()

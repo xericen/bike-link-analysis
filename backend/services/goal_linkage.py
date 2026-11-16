@@ -20,7 +20,7 @@ def summarize(result):
 def build(city,start,end):
     if city != "all":
         return summarize(transit.linkage(city,start,end))
-    cities = [summarize(transit.linkage(c,start,end)) for c in ("seoul","daejeon","sejong")]
+    cities = [summarize(transit.linkage(c,start,end)) for c in ("seoul","daejeon")]
     hours = {}
     for c in cities:
         for row in c.get("hourly_station_linkage") or []:
