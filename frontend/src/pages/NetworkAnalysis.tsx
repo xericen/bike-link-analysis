@@ -92,5 +92,6 @@ export function NetworkAnalysis({regionId,filter}:{regionId:string;filter:DateFi
     </SectionCard>
     </div>
     {validation?.available&&<section className="panel"><div className="panel-title"><h3>숨은 연결 거점 검증</h3><span>{validation.role}</span></div><div className="metric-table">{validation.windows.map(w=><div key={w.days}><b>{w.days}일 · PageRank {w.pagerank_rank??'N/A'}위</b><span>이용량 {w.usage_rank??'N/A'}위 · 백분위 {w.pagerank_percentile==null?'N/A':(w.pagerank_percentile*100).toFixed(1)+'%'}</span><span>대여 {number(w.rental_count)} · 반납 {number(w.return_count)} · 최소 관측 {w.minimum_observation_pass?'충족':'미충족'}</span></div>)}</div><p>{validation.why_not_usage_top}</p><p className="muted">3개 기간 중 후보 판정 {validation.sensitivity.candidate_windows}회 · PageRank 순위 범위 {validation.sensitivity.pagerank_rank_span}위. {validation.message}</p><details><summary>검증 한계</summary><ul>{validation.limitations.map(x=><li key={x}>{x}</li>)}</ul></details></section>}
+    <TransitPanel city={regionId} start={filter.start} end={filter.end}/>
     <div className="notice">연결 중심성이 높은 대여소는 이용량이 많다는 의미와 반드시 같지 않으며, 이동 네트워크에서 중요한 연결 역할을 수행할 수 있습니다.</div><SourceNote data={network}/></>
 }

@@ -1,0 +1,86 @@
+{
+  "url": "https://project.wizide.com",
+  "page_errors": [],
+  "checks": [
+    {
+      "city": "서울",
+      "tab": "대시보드",
+      "visible": true
+    },
+    {
+      "city": "서울",
+      "tab": "이동 패턴",
+      "visible": true
+    },
+    {
+      "city": "서울",
+      "tab": "대여소 분석",
+      "visible": true
+    },
+    {
+      "city": "서울",
+      "tab": "도시 간 비교",
+      "visible": true
+    },
+    {
+      "city": "서울",
+      "tab": "AI 분석 리포트",
+      "visible": true
+    },
+    {
+      "city": "대전",
+      "tab": "대시보드",
+      "visible": true
+    },
+    {
+      "city": "대전",
+      "tab": "이동 패턴",
+      "visible": true
+    },
+    {
+      "city": "대전",
+      "tab": "대여소 분석",
+      "visible": true
+    },
+    {
+      "city": "대전",
+      "tab": "도시 간 비교",
+      "visible": true
+    },
+    {
+      "city": "대전",
+      "tab": "AI 분석 리포트",
+      "visible": true
+    },
+    {
+      "city": "세종",
+      "tab": "대시보드",
+      "visible": true
+    },
+    {
+      "city": "세종",
+      "tab": "이동 패턴",
+      "visible": true
+    },
+    {
+      "city": "세종",
+      "tab": "대여소 분석",
+      "visible": true
+    },
+    {
+      "city": "세종",
+      "tab": "도시 간 비교",
+      "visible": true
+    },
+    {
+      "city": "세종",
+      "tab": "AI 분석 리포트",
+      "visible": true
+    }
+  ],
+  "ai_generation": "not executed",
+  "unprepared_period": {
+    "explicit_notice": true,
+    "navigation_to_prepared_period": true
+  }
+}

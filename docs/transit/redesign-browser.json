@@ -1,0 +1,23 @@
+{
+  "page_errors": [],
+  "cities": [
+    {
+      "city": "서울",
+      "candidates": 5,
+      "legacy_tabs_visible": true
+    },
+    {
+      "city": "대전",
+      "candidates": 1,
+      "legacy_tabs_visible": true
+    },
+    {
+      "city": "세종",
+      "candidates": null,
+      "legacy_tabs_visible": true
+    }
+  ],
+  "url": "https://project.wizide.com",
+  "mobile_candidate_overflow": false,
+  "mobile_dashboard_overflow": false
+}

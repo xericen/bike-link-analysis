@@ -5,7 +5,7 @@ from fastapi import HTTPException
 
 ROOT=Path(__file__).resolve().parents[2]
 PROCESSED=ROOT/"data/processed"
-ACTIONS=("overview","research","network","centrality","dashboard_extra")
+ACTIONS=("overview","research","network","centrality","dashboard_extra","vulnerability","transit_linkage")
 
 def revision(processed=None):
     folder=Path(processed or PROCESSED)
@@ -13,7 +13,7 @@ def revision(processed=None):
     paths+=list(folder.glob("transit*.csv"))+list(folder.glob("transit*meta*.json"))
     paths+=list((ROOT/"backend/analysis").glob("*.py"))
     paths+=[ROOT/"backend/services"/p for p in
-            ("real_data.py","all_regions.py","kpi_projection.py","precomputed.py")]
+            ("real_data.py","all_regions.py","kpi_projection.py","precomputed.py","transit.py","vulnerability.py","goal_linkage.py")]
     # Stat fingerprint: no scan of million-row data and no query-time calculation.
     values=[(str(p.relative_to(ROOT)) if p.is_relative_to(ROOT) else str(p),p.stat().st_size,p.stat().st_mtime_ns)
             for p in paths if p.exists()]

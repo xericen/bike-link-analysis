@@ -18,6 +18,7 @@ REGION_ALIASES = {"서울": "seoul", "따릉이": "seoul", "대전": "daejeon", 
 REGIONS = {r["region_id"] for r in real_data.REGIONS}
 METRICS = {"pagerank", "weighted_in_degree", "weighted_out_degree", "betweenness"}
 TOOL_DEFINITIONS = {
+    "get_transit_linkage": ("선택 도시·기간의 역300m 연계 OD 시간대별 건수와 비중. 실제 환승률 아님. 사전 집계만 조회", {"region_id":"string","date_range":"object"}, ["region_id"]),
     "get_transit_vulnerability": ("대중교통 정류장 500m 밖이며 실제 대여량이 있는 대여소 후보와 공간 시나리오. 실제 운영효과 아님", {"region_id":"string","date_range":"object"}, ["region_id"]),
     "get_improvement_ranking": ("연계 취약도·실제 대여 수요·잠재 커버리지 기반 검토 순위. 근거와 가정 포함", {"region_id":"string","top_n":"integer","date_range":"object"}, ["region_id"]),
     "get_region_overview": ("지역의 관측 기간, 이용량, 시간대별 이용과 출처", {"region_id": "string", "date_range": "object"}, ["region_id"]),
@@ -109,9 +110,23 @@ def run_tool(name, arguments, context=None):
         region_id = _region(arguments.get("region_id"))
         start, end = _dates(arguments)
         if context: start, end = context.get("date_start"), context.get("date_end")
+        if name == "get_transit_linkage":
+            from backend.services.precomputed import read
+            from backend.services.periods import resolve
+            start,end=resolve(region_id,start,end)
+            try: result=read("transit_linkage",region_id,start,end)
+            except HTTPException as error:
+                return {"available":False,"error":str(error.detail),"period_start":start,"period_end":end}
+            hours=result.get("hourly_station_linkage") or []
+            return {"available":bool(hours),"city":region_id,"period_start":start,"period_end":end,
+                    "goal_metrics":result.get("goal_metrics"),"hourly_station_linkage":hours,
+                    "sources":result.get("sources",[]),"limitations":result.get("limitations",[]),
+                    "message":"" if hours else "역 연계 시간대 자료 미확보"}
         if name in {"get_transit_vulnerability", "get_improvement_ranking"}:
-            from backend.services.vulnerability import analyze
-            result = analyze(region_id, start, end, top_n=_top(arguments.get("top_n")))
+            from backend.services.vulnerability import prepared
+            try: result = prepared(region_id, start, end, top_n=_top(arguments.get("top_n")))
+            except HTTPException as error:
+                return {"error":str(error.detail),"available":False,"region_id":region_id,"period_start":start,"period_end":end}
             result.pop("candidates", None)
             return result
         if name == "get_region_overview":
@@ -220,7 +235,17 @@ def _report(question, answer, evidence):
             limitations.append(result["coverage_note"])
         if result.get("message") and result.get("available") is False:
             limitations.append(result["message"])
-        if call["tool"] in {"get_transit_vulnerability","get_improvement_ranking"}:
+        if call["tool"] == "get_transit_linkage":
+            algorithms.add("verified OD endpoint within subway 300m; precomputed lookup")
+            limitations.extend(result.get("limitations",[]))
+            hours=result.get("hourly_station_linkage") or []
+            if hours:
+                peak=max(hours,key=lambda h:h["linked_count"])
+                findings.extend([
+                    {"label":"역 연계 이동 최다 시각","value":peak["hour"],"unit":"시","region_id":result["city"]},
+                    {"label":"최다 시각 역 연계 이동","value":peak["linked_count"],"unit":"건","region_id":result["city"]},
+                    {"label":"최다 시각 역 연계 비중","value":peak["linkage_share"]*100,"unit":"%","region_id":result["city"]}])
+        elif call["tool"] in {"get_transit_vulnerability","get_improvement_ranking"}:
             algorithms.add("haversine + projected buffer union + empirical percentile ranking")
             limitations.extend(result.get("limitations",[]))
             if result.get("available"):
@@ -461,7 +486,7 @@ def chat(question, context=None):
     prompt = ("서울·대전·세종 공공자전거 분석가입니다. 질문에 맞는 실제 도구를 먼저 호출하세요. "
               "서울 OD는 집계이며 위치 ID는 공식 마스터 검증분만 사용합니다. 대전은 개별 Trip, "
                "세종은 연간 총량과2025년10월 실제 상세이력이 있으며 대여소 좌표대응은 미확보입니다. 선택 기간의 도구 반환값을 우선하고 기간 밖은 분석할 수 없다고 설명하세요. 관측 날짜는 불연속일 수 있습니다. "
-              "대중교통 연계 취약 질문에는 get_transit_vulnerability 또는 get_improvement_ranking을 사용하세요. 정류장 데이터 미확보는 분석 불가이며 공간 버퍼 시나리오를 실제 환승률·운영 개선 효과로 말하지 마세요. "
+              "역 연계 시간대 질문에는 get_transit_linkage를 사용하고 linked_count 최대 시간과 linkage_share 최대 시간을 구분하세요. 대중교통 연계 취약 질문에는 get_transit_vulnerability 또는 get_improvement_ranking을 사용하세요. 정류장 데이터 미확보는 분석 불가이며 공간 버퍼 시나리오를 실제 환승률·운영 개선 효과로 말하지 마세요. "
               "도구 수치와 대여소 ID를 그대로 인용하고 없는 값을 만들지 마세요. 일별 최대·최소는 daily 배열 전체를 비교해 날짜와 건수를 함께 인용하세요. 실제 관측일수는 observed_dates의 고유 날짜 수입니다. "
               "관측 사실·해석·운영 제안을 분리한 한국어 답변을 작성하세요. "
               "재고·재배치 자료가 없으므로 부족이나 재배치 필요를 단정하지 말고 PageRank를 환승의 증거로 단정하지 마세요. "
@@ -557,6 +582,8 @@ def chat(question, context=None):
         facts = _report(question, "", evidence)["key_findings"]
         messages.append({"role":"system","content":"서버에서 도구로 확정한 사실입니다. 최대·최소와 관측일수는 이 값을 우선 인용하세요: "+json.dumps(facts,ensure_ascii=False)})
         messages.append({"role": "system", "content": "이제 도구를 더 호출하지 마세요. 한국어 일반 문장만 작성하고 내부 도구 문법을 출력하지 마세요. 제공된 수치와 ID만 인용하세요. 오류가 난 도구 결과는 분석에 사용하지 마세요."})
+        if any(e["tool"] in {"get_transit_vulnerability","get_improvement_ranking"} for e in evidence):
+            messages.append({"role":"system","content":"공간 분석 최종 답변은 짧은 한국어 네 문장으로 제한하세요. 첫 문장에 대상 기간과 후보 수, 둘째 문장에 최대 TOP3 대여소 ID와 실제 대여 건수만 인용하세요. 셋째 문장은 공간 버퍼 시나리오와 실제 개선 효과의 차이, 마지막 문장은 인구·보행망 등 추가 검증 한계입니다. 주소·거리·소수 점수·산식은 근거 패널에서 제공하므로 본문에 긴 원시 소수나 전체 도구 값을 나열하지 마세요."})
         phase = "final_answer"
         remaining = 100 - (time.monotonic() - started)
         if remaining <= 0:

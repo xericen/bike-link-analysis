@@ -64,6 +64,12 @@ def dashboard_extra(region_id,date_start,date_end):
               "cluster_representatives": representatives}
 
 def build(action,region_id,start,end):
+    if action == "transit_linkage":
+        from backend.services.goal_linkage import build as linkage_build
+        return linkage_build(region_id,start,end)
+    if action == "vulnerability":
+        from backend.services.vulnerability import analyze,build_all
+        return build_all(start,end) if region_id=="all" else analyze(region_id,start,end,top_n=20)
     if region_id == "all":
         return all_regions.get(action,start,end)
     if action == "research":

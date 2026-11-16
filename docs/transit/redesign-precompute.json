@@ -1,0 +1,1517 @@
+{
+  "revision": "be30ddc0674328a6e8c206c154096c592e6df34617113f97ac99b131151da9d0",
+  "entries": [
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1172
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1731
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1386
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1169
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.1164
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 7.3206
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 1.5179
+    },
+    {
+      "city": "all",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1166
+    },
+    {
+      "city": "all",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1681
+    },
+    {
+      "city": "all",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1297
+    },
+    {
+      "city": "all",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1167
+    },
+    {
+      "city": "all",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.1278
+    },
+    {
+      "city": "all",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 1.2682
+    },
+    {
+      "city": "all",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 1.4306
+    },
+    {
+      "city": "all",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1155
+    },
+    {
+      "city": "all",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1455
+    },
+    {
+      "city": "all",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1121
+    },
+    {
+      "city": "all",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1182
+    },
+    {
+      "city": "all",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.1171
+    },
+    {
+      "city": "all",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.6258
+    },
+    {
+      "city": "all",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.8458
+    },
+    {
+      "city": "all",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1187
+    },
+    {
+      "city": "all",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.138
+    },
+    {
+      "city": "all",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.112
+    },
+    {
+      "city": "all",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1231
+    },
+    {
+      "city": "all",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.1272
+    },
+    {
+      "city": "all",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.4156
+    },
+    {
+      "city": "all",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.6276
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1337
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1655
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1362
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.11
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.3332
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.28
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.3178
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1356
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.2591
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1272
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1177
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 2.9753
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 2.9019
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 2.9309
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1155
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1307
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1284
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1116
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.3217
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.2878
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.2972
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1358
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1324
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1204
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1075
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.3328
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.2827
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.3035
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1205
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1328
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1157
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1194
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.389
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.3412
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.3616
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1259
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1327
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1196
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1133
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.4139
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.3802
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.4322
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1197
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1561
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1206
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1183
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.4681
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.381
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.4263
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1304
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1385
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1206
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1149
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.475
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.3883
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.4148
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1224
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1332
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1292
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.13
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.4245
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.4001
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.4133
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.178
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1507
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1158
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1205
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.4215
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.3676
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.3964
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1335
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1542
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.154
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1037
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.4269
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.3939
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.435
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1678
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1408
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1353
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.0966
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.4599
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.4033
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.4285
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1462
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1748
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1322
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1252
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.4427
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.3637
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.3962
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1381
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1435
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1155
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1169
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.2762
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.2411
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.2918
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1313
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1364
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1258
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1246
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.2126
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.1996
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.214
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-01",
+      "end": "2025-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1119
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-01",
+      "end": "2025-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1273
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-01",
+      "end": "2025-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1202
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-01",
+      "end": "2025-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.132
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-01",
+      "end": "2025-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.3354
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-01",
+      "end": "2025-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.2422
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-01",
+      "end": "2025-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.2468
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-02",
+      "end": "2025-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.0956
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-02",
+      "end": "2025-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.0983
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-02",
+      "end": "2025-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1108
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-02",
+      "end": "2025-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1041
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-02",
+      "end": "2025-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.32
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-02",
+      "end": "2025-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.2377
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-02",
+      "end": "2025-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.2398
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-18",
+      "end": "2025-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1022
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-18",
+      "end": "2025-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1029
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-18",
+      "end": "2025-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1033
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-18",
+      "end": "2025-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1103
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-18",
+      "end": "2025-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.2774
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-18",
+      "end": "2025-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.2277
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-18",
+      "end": "2025-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.2215
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-25",
+      "end": "2025-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1258
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-25",
+      "end": "2025-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1196
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-25",
+      "end": "2025-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1247
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-25",
+      "end": "2025-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1165
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-25",
+      "end": "2025-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.1932
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-25",
+      "end": "2025-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.1532
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-25",
+      "end": "2025-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.1636
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1413
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1534
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1169
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1122
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 1.1701
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 1.0123
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 1.0522
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1384
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.16
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1344
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1286
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 1.1475
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.9998
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 1.0502
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.1509
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1352
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1172
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1162
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.5947
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.5006
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.5467
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "built",
+      "seconds": 0.2014
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "built",
+      "seconds": 0.1242
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "built",
+      "seconds": 0.1151
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "built",
+      "seconds": 0.1212
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "built",
+      "seconds": 0.4439
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "built",
+      "seconds": 0.3362
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "transit_linkage",
+      "status": "built",
+      "seconds": 0.3988
+    }
+  ]
+}

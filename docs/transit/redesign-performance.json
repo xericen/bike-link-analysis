@@ -1,0 +1,14 @@
+[
+  {
+    "city": "daejeon",
+    "action": "transit_linkage",
+    "code": 200,
+    "milliseconds": 166.33816808462143
+  },
+  {
+    "city": "daejeon",
+    "action": "transit_vulnerability",
+    "code": 200,
+    "milliseconds": 53.97205986082554
+  }
+]

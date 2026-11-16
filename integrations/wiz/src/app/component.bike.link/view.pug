@@ -22,7 +22,13 @@ main.bike-page([class.embedded]="embeddedRegion")
                     span.nav-icon
                         svg(viewBox="0 0 24 24", fill="none", stroke="currentColor", stroke-width="1.7", stroke-linecap="round", stroke-linejoin="round", aria-hidden="true")
                             path(d="M4 4h16v16H4z M8 8h3v3H8z M14 8h3 M14 11h3 M8 15h3 M14 15h3")
-                    | 대시보드
+                    | 연계 보완 대시보드
+                button(type="button", [class.active]="tab === 'vulnerability'", (click)="changeTab('vulnerability')")
+                    span.nav-icon
+                        svg(viewBox="0 0 24 24", fill="none", stroke="currentColor", stroke-width="1.7", aria-hidden="true")
+                            circle(cx="12", cy="12", r="8")
+                            path(d="m15 8-2 6-5 2 2-6z")
+                    | 취약 구간 & 개선 후보
                 button(type="button", [class.active]="tab === 'stations'", (click)="changeTab('stations')")
                     span.nav-icon
                         svg(viewBox="0 0 24 24", fill="none", stroke="currentColor", stroke-width="1.7", stroke-linecap="round", stroke-linejoin="round", aria-hidden="true")
@@ -80,9 +86,72 @@ main.bike-page([class.embedded]="embeddedRegion")
                     p {{overview?.coverage_note}}
                 p.loading(*ngIf="busy", role="status") 분석 자료를 불러오는 중입니다…
                 p.error(*ngIf="error", role="alert") {{error}}
+                article.panel(*ngIf="unprocessed && !busy", role="status")
+                    h3 이 도시·기간은 아직 데이터 미처리
+                    p 선택 기간의 집계가 준비되지 않았습니다. 이용 가능한 기간을 직접 선택해 이동하세요.
+                    button.link-button(*ngFor="let period of preparedPeriods", type="button", (click)="usePreparedPeriod(period)") {{period.start}} ~ {{period.end}} 보기
+                    p(*ngIf="!preparedPeriods.length") 현재 이용 가능한 집계 기간이 없습니다. 데이터 갱신 후 다시 확인해 주세요.
 
                 p.empty(*ngIf="overview && overview.total_rentals === null && tab !== 'agent'") 선택 기간에 상세 이용 기록이 없습니다. 연간 통계는 별도 범위입니다.
                 section.dashboard-view(*ngIf="tab === 'dashboard' && overview")
+                    div.goal-intro
+                        div
+                            h2 정류장과 자전거를 함께 보면, 어디까지 닿을까
+                            p 정류장 접근 공백과 실제 자전거 이용을 함께 살펴봅니다.
+                        button.primary-button(type="button", (click)="changeTab('vulnerability')") 취약 구간·개선 후보 보기 →
+                    div.metric-grid.goal-kpis
+                        article.metric-card
+                            span 역 300m 내 대여소 비율
+                            strong {{percent(goalMetric('subway_300m_ratio'))}}
+                            small 역 거리 확보 대여소 {{goalMetric('subway_station_count') ?? 0 | number}}개 기준
+                        article.metric-card
+                            span 정류장 500m 밖 이용 대여소
+                            strong {{goalMetric('outside_500m_active_count') === null ? 'N/A' : (goalMetric('outside_500m_active_count') | number)}}
+                            small 개소 · 직선거리 500m 초과 + 실제 대여
+                        article.metric-card
+                            span 역 연계 이동 비중
+                            strong {{percent(goalMetric('linked_trip_share'))}}
+                            small 출발·도착 중 한쪽 이상이 역 300m 이내
+                        article.metric-card
+                            span 연계 커버 면적 증가율
+                            strong {{percent(coverageIncrease())}}
+                            small 정류장 500m + 연계 대여소 300m 시나리오
+                    p.coverage(*ngIf="regionId === 'sejong' && !allRegionsSelected") 세종 2025-10 · 대여소 좌표 미확보로 연계 지표 N/A
+                    article.panel(*ngIf="overview.annual_latest")
+                        h3 {{overview.region_name}} 연간 이용량
+                        strong {{overview.annual_latest.rental_count | number}}건 · {{overview.annual_latest.year}}년
+                    article.panel(*ngFor="let annual of overview.annual_separate || []")
+                        h3 {{annual.region_name}} 연간 이용 통계 · 통합 이용 합계 제외
+                        strong {{annual.rental_count | number}}건 · {{annual.year}}년
+                    div.dashboard-main
+                        div.transit-map-block
+                            label.transit-layer-toggle
+                                input(type="checkbox", [checked]="showTransitStops", (change)="toggleTransitStops()")
+                                |  정류장 500m 커버 영역 표시
+                            article.panel.map-panel
+                                div.leaflet-map([id]="'bike-leaflet-map-' + regionId", *ngIf="overview.map_stations?.length || transitLinkage?.map_stops?.length", role="img", aria-label="정류장 커버 영역과 공유자전거 보완 관계 지도")
+                                div.map-title {{overview.region_name}} 대중교통·자전거 보완 관계
+                                div.map-key
+                                    strong 정류장 접근 공백과 실제 이용
+                                    span 대여소 최대 300개 표본 + 취약 후보 전체
+                                    small 음영은 정류장 표본 · KPI는 전체 자료 기준
+                                    div.coverage-legend
+                                        span.inside 커버 내
+                                        span.outside 커버 밖
+                                        span.vulnerable 취약 후보
+                                p.empty(*ngIf="!overview.map_stations?.length") 대여소 좌표 미확보: 정류장만 표시하며 대여소 위치를 추정하지 않습니다.
+                        article.panel
+                            h3 시간대별 역 연계 이동 비중
+                            p.panel-note 한쪽 이상 역 300m 내 OD / 해당 시간 전체 OD · 실제 환승 아님
+                            div.bar-chart.compact-chart(*ngIf="transitLinkage?.hourly_station_linkage")
+                                div.bar-item(*ngFor="let bar of linkageBars()")
+                                    div.bar([style.height.%]="bar.height", [attr.title]="bar.hour + '시 · ' + percent(bar.linkage_share)")
+                                    span(*ngIf="bar.hour % 4 === 0") {{bar.hour}}시
+                            p.empty(*ngIf="!transitLinkage?.hourly_station_linkage") 이 도시·기간의 역 연계 시간대 자료 미확보
+                    div.section-heading.network-depth-heading
+                        div
+                            h2 네트워크 심층 분석
+                            p 이용량·PageRank·불균형·군집은 연계 후보를 검토하는 보조 근거입니다.
                     div.metric-grid.research-kpis
                         article.metric-card
                             span 분석 대여소
@@ -117,38 +186,6 @@ main.bike-page([class.embedded]="embeddedRegion")
                                     small 관측 자료에 따른 운영 검토 후보입니다.
                                 ng-template(#noFinding="")
                                     p {{researchBusy ? '불러오는 중' : '해당 분석 후보 미확보'}}
-                    article.panel(*ngIf="overview.annual_latest")
-                        h3 {{overview.region_name}} 연간 이용량
-                        strong {{overview.annual_latest.rental_count | number}}건 · {{overview.annual_latest.year}}년
-                        p.panel-note 연간 통계는 별도입니다. 세종2025년10월 상세 이력은 선택 기간 KPI·추이로 제공하며 대여소 좌표는 미확보입니다.
-                    p.panel-note 화면 수치는 서비스 정규화 데이터·현재 정류장 버전·선택 기간 기준입니다. 업로드 보고서의 다른 기간·선정 기준 수치를 합치지 않습니다.
-                    p.coverage(*ngIf="allRegionsSelected") {{overview.coverage_note}} · 도시별 K-means·후보 판정 결과를 하나로 모아 표시합니다.
-                    article.panel(*ngFor="let annual of overview.annual_separate || []")
-                        h3 {{annual.region_name}} 연간 이용 통계 · 통합 이용 합계 제외
-                        strong {{annual.rental_count | number}}건 · {{annual.year}}년
-                    div.dashboard-main
-                        div.transit-map-block
-                            label.transit-layer-toggle
-                                input(type="checkbox", [checked]="showTransitStops", (change)="toggleTransitStops()")
-                                |  정류장·500m 이내 최근접 연계 표시
-                            p.panel-note 버스: 회청색 · 지하철: 네이비 · 점선: 최근접 정류장 연계. 대여소 역할 색상은 유지합니다.
-                            p.panel-note {{transitLinkage?.map_display_note}}
-                            article.panel.map-panel
-                                div.leaflet-map([id]="'bike-leaflet-map-' + regionId", *ngIf="overview.map_stations?.length || transitLinkage?.map_stops?.length", role="img", aria-label="공공자전거 대여소 지도")
-                                div.map-title {{overview.region_name}} 대여소 역할별 지도
-                                div.map-key
-                                    strong 실제 대여소 좌표
-                                    span 최대 120개 위치 표본
-                                    small 파랑 기타/미표시 · 청록 연결 · 주황 불균형 · 보라 집중
-                                p.empty(*ngIf="!overview.map_stations?.length") 대여소 좌표 미확보: 정류장만 표시하며 대여소 위치를 추정하지 않습니다.
-                        article.panel
-                            h3 주요 지표 현황
-                            p.panel-note 시간대별 대여 비중 · 단위: 건
-                            div.bar-chart.compact-chart(*ngIf="overview.hourly")
-                                div.bar-item(*ngFor="let bar of hourBars(overview.hourly)")
-                                    div.bar([style.height.%]="bar.height", [attr.title]="bar.hour + '시 · ' + bar.value + '건'")
-                                    span(*ngIf="bar.hour % 4 === 0") {{bar.hour}}시
-                            p.empty(*ngIf="!overview.hourly") 시간대 자료 미확보
                     div.research-bottom
                         article.panel
                             h3 주요 연결 거점 TOP 5
@@ -178,9 +215,75 @@ main.bike-page([class.embedded]="embeddedRegion")
                             div.od-row(*ngFor="let edge of dashboardNetwork.edges")
                                 span {{edge.origin_station_id}} → {{edge.destination_station_id}}
                                 strong {{edge.trip_count | number}}건
-                    p.dashboard-disclaimer {{overview.coverage_note}} · {{periodLabel()}} · {{overview.source_names?.join(' · ')}}
 
-                section.station-view(*ngIf="tab === 'stations'")
+                section.vulnerability-view(*ngIf="tab === 'vulnerability' && !unprocessed")
+                    div.section-heading
+                        div
+                            h2 취약 구간 & 개선 후보
+                            p 실제 이용이 있는 연계 취약 대여소와 개선 순위를 확인합니다.
+                    article.panel.transit-panel
+                        div.panel-heading
+                            h3 취약 후보 {{transitResult?.candidate_count == null ? '' : transitResult.candidate_count + '곳'}}
+                            span.source-pill {{transitResult?.period_start || dateStart}} ~ {{transitResult?.period_end || dateEnd}}
+                        p.loading(*ngIf="transitBusy") 취약 후보를 불러오는 중입니다…
+                        p.empty(*ngIf="transitError") {{transitError}}
+                        p.empty(*ngIf="transitResult && !transitResult.available") 대여소 좌표 미확보로 취약 후보와 공간 분석을 제공할 수 없습니다.
+                        div(*ngIf="transitResult?.available")
+                            label
+                                input(type="checkbox", [checked]="transitVisible", (change)="toggleTransit()")
+                                |  취약 후보 레이어 표시
+                            div#bike-transit-map(style="height:320px; margin:12px 0; border-radius:12px", role="region", aria-label="대중교통 연계 취약 후보 지도")
+                            div.ranking-scroll
+                                table.data-table
+                                    thead
+                                        tr
+                                            th 도시 내 순위·대여소
+                                            th 최근접 거리(m)
+                                            th 대여량(건)
+                                            th 취약도
+                                            th 잠재 추가 면적(m²)
+                                            th 검토 점수
+                                    tbody
+                                        tr(*ngFor="let row of transitResult.ranking")
+                                            td
+                                                button(type="button", (click)="inspectStation(row.station_id,row.region_id)") {{nameOf(row.region_id)}} {{row.rank}}위 · {{row.station_id}}
+                                            td {{row.nearest_stop_distance_m | number:'1.1-1'}}
+                                            td {{row.rental_count | number}}
+                                            td {{row.vulnerability | number:'1.3-3'}}
+                                            td {{row.potential_added_area_m2 | number:'1.1-1'}}
+                                            td
+                                                span {{row.score | number:'1.3-3'}}
+                                                details.score-evidence
+                                                    summary 점수 근거
+                                                    small 근거 백분위: 취약 {{row.score_components?.vulnerability | number:'1.3-3'}} / 수요 {{row.score_components?.rental_count | number:'1.3-3'}} / 면적 {{row.score_components?.potential_added_area_m2 | number:'1.3-3'}}
+                            div.scenario-grid
+                                article.scenario-card(*ngFor="let city of scenarioCities()")
+                                    h4 {{nameOf(city.city)}} · 연계 전후 커버 면적
+                                    div.scenario-bar
+                                        span 대중교통 단독
+                                        div([style.width.%]="city.scenario.baseline_area_m2/city.scenario.linked_area_m2*100", style="background:#a8b3c1")
+                                        strong {{city.scenario.baseline_area_m2 / 1000000 | number:'1.3-3'}} km²
+                                    div.scenario-bar
+                                        span 자전거 연계
+                                        div(style="width:100%; background:#159b88")
+                                        strong {{city.scenario.linked_area_m2 / 1000000 | number:'1.3-3'}} km²
+                                    div.scenario-stations
+                                        span 커버 대여소
+                                        strong {{city.scenario.baseline_station_count | number}} → {{city.scenario.linked_station_count | number}}개
+                                        small {{percent(city.scenario.station_count_increase_ratio)}}
+                                    p 증가 면적 {{(city.scenario.linked_area_m2-city.scenario.baseline_area_m2)/1000000 | number:'1.3-3'}} km² · +{{percent(city.scenario.area_increase_ratio)}}
+                            p.panel-note(*ngFor="let city of transitResult.cities")
+                                span(*ngIf="!city.available") {{nameOf(city.city)}} · 대여소 좌표 미확보
+                            details
+                                summary 계산 기준·출처·한계
+                                p.panel-note 점수: 도시 내 취약도·대여량·잠재 면적 백분위의 동등 가중 평균
+                                p.panel-note 범위: 정류장 직선거리 500m + 연계 대여소 300m 버퍼
+                                p.panel-note 기준: 전체 정밀도로 판정하며 표시만 반올림합니다. 실제 환승·운영 효과와 인구·보행망은 분석하지 않습니다.
+                                a(href="https://www.data.go.kr/data/15067528/fileData.do", target="_blank", rel="noopener") 전국 버스정류장 위치정보
+                                |  ·
+                                a(href="https://data.kric.go.kr/rips/M_01_01/detail.do?id=32", target="_blank", rel="noopener") 전국 도시철도 역사정보
+
+                section.station-view(*ngIf="tab === 'stations' && !unprocessed")
                     div.section-heading
                         div
                             h2 대여소 이용 특성 분석
@@ -215,9 +318,15 @@ main.bike-page([class.embedded]="embeddedRegion")
                                 strong.selected-station {{selectedStation.station.region_name || ''}} {{selectedStation.station.station_id}}
                                 p.panel-note {{selectedStation.station.station_name}}
                                 div.transit-station-metrics(*ngIf="selectedStation.transit")
-                                    p 최근접 정류장: {{selectedStation.transit.nearest_stop_distance_m == null ? 'N/A' : (selectedStation.transit.nearest_stop_distance_m | number:'1.1-1') + 'm'}}
-                                    p 300m 내 정류장: {{selectedStation.transit.stops_within_300m ?? 'N/A'}}개
+                                    h4 이 대여소가 보완하는 정류장
+                                    p 최근접 정류장 {{selectedStation.transit.nearest_stop_name || '미확보'}} · {{selectedStation.transit.nearest_stop_distance_m == null ? 'N/A' : (selectedStation.transit.nearest_stop_distance_m | number:'1.1-1') + 'm'}}
+                                    p 300m 내 버스 {{selectedStation.transit.bus_within_300m ?? 'N/A'}} / 지하철 {{selectedStation.transit.subway_within_300m ?? 'N/A'}}
                                     p 500m 내 버스 {{selectedStation.transit.bus_within_500m ?? 'N/A'}} / 지하철 {{selectedStation.transit.subway_within_500m ?? 'N/A'}}
+                                    p.panel-note 대여소별 시간대 역 연계 OD는 미확보입니다. 아래는 선택 도시 전체의 시간대 연계 비중입니다.
+                                    div.bar-chart.compact-chart(*ngIf="transitLinkage?.hourly_station_linkage")
+                                        div.bar-item(*ngFor="let bar of stationTransitHours()")
+                                            div.bar([style.height.%]="bar.height", [attr.title]="bar.hour + '시 · ' + percent(bar.linkage_share)")
+                                            span(*ngIf="bar.hour % 6 === 0") {{bar.hour}}시
                                     small 직선거리 기준 · 실제 환승률이 아닙니다. 세종 대여소 좌표 미확보는 N/A입니다.
                                 p.coverage {{selectedStation.cluster?.description || '군집 분석에 필요한 이용 기록이 없습니다.'}}
                                 div.detail-metrics
@@ -294,7 +403,7 @@ main.bike-page([class.embedded]="embeddedRegion")
                                 em {{station.rental_count | number}}건
                     p.observed {{periodLabel()}} · {{selectedStation?.source?.source_names?.join(' · ')}} · 전체 이용량과 정규화 패턴은 다른 지표입니다.
 
-                section.network-view(*ngIf="tab === 'network'")
+                section.network-view(*ngIf="tab === 'network' && !unprocessed")
                     div.section-heading
                         div
                             h2 이동 패턴 분석
@@ -328,44 +437,6 @@ main.bike-page([class.embedded]="embeddedRegion")
                                 p(*ngIf="item.kind === 'rank' && item.row") 이용량 {{item.row.usage_rank}}위 → PageRank {{item.row.pagerank_rank}}위 · 차이 +{{item.row.rank_gap}}
                                 p(*ngIf="item.kind === 'time' && item.row") {{item.row.peak_hour}}시 비중 {{item.row.peak_hour_share * 100 | number:'1.1-1'}}%
                                 p(*ngIf="item.kind === 'flow' && item.row") 순유출 {{item.row.net_outflow | number}}건
-                    article.panel.transit-panel
-                        div.panel-heading
-                            h3 대중교통 연계 취약 후보·개선 시나리오
-                            span.source-pill {{transitResult?.period_start || dateStart}} ~ {{transitResult?.period_end || dateEnd}}
-                        p.loading(*ngIf="transitBusy") 실제 정류장 거리·대여량·공간 버퍼를 계산 중입니다…
-                        p.empty(*ngIf="transitError") {{transitError}}
-                        p(*ngIf="transitResult") {{transitResult.message || '확보된 정류장 범위에서 계산한 검토 후보입니다.'}}
-                        div(*ngIf="transitResult?.available")
-                            p.panel-note 정류장 500m 초과 + 실제 대여량 존재 · {{transitResult.candidate_count}}개 후보. 주황색 마커 클릭 시 대여소 분석으로 이동합니다.
-                            label
-                                input(type="checkbox", [checked]="transitVisible", (change)="toggleTransit()")
-                                |  취약 후보 레이어 표시
-                            div#bike-transit-map(style="height:320px; margin:12px 0; border-radius:12px", role="region", aria-label="대중교통 연계 취약 후보 지도")
-                            table.data-table
-                                thead
-                                    tr
-                                        th 도시·대여소
-                                        th 최근접 거리(m)
-                                        th 대여량(건)
-                                        th 검토 점수
-                                tbody
-                                    tr(*ngFor="let row of transitResult.ranking")
-                                        td
-                                            button(type="button", (click)="inspectStation(row.station_id,row.region_id)") {{nameOf(row.region_id)}} {{row.station_id}}
-                                        td {{row.nearest_stop_distance_m | number:'1.1-1'}}
-                                        td {{row.rental_count | number}}
-                                        td {{row.score | number:'1.3-3'}}
-                            div(*ngFor="let city of transitResult.cities")
-                                p(*ngIf="city.scenario") {{nameOf(city.city)}} 공간 시나리오: {{city.scenario.baseline_area_m2 / 1000000 | number:'1.3-3'}} → {{city.scenario.linked_area_m2 / 1000000 | number:'1.3-3'}} km² · +{{city.scenario.area_increase_ratio * 100 | number:'1.3-3'}}% · 커버 대여소 {{city.scenario.baseline_station_count}} → {{city.scenario.linked_station_count}}개
-                                p.panel-note(*ngIf="!city.available") {{nameOf(city.city)}}: 정류장 자료 미확보 · 연계 지표 N/A
-                            details
-                                summary 계산 기준·출처·한계
-                                p.panel-note 점수는 도시 내 취약도·대여량·잠재 추가 면적 백분위의 동등 가중 평균입니다. 실제 운영 효과·환승률이 아닙니다.
-                                p.panel-note 도보 500m 버퍼에 그 안의 대여소 300m 버퍼를 추가한 기하학적 시나리오입니다. 인구·보행망·행정 경계 자료 미확보로 인구 효과는 N/A입니다.
-                                p.panel-note 서울 지하철은 1~8호선 일부 운영기관 범위입니다. 미수집 노선으로 후보가 과대 탐지될 수 있습니다.
-                                a(href="https://data.seoul.go.kr/dataList/OA-15067/S/1/datasetView.do", target="_blank", rel="noopener") 서울 버스정류소 위치정보
-                                |  · 
-                                a(href="https://data.seoul.go.kr/dataList/OA-22534/F/1/datasetView.do", target="_blank", rel="noopener") 서울교통공사 역사 좌표
                     div.network-layout(*ngIf="network?.available")
                         article.panel.network-hero
                             div.panel-heading
@@ -542,9 +613,9 @@ main.bike-page([class.embedded]="embeddedRegion")
                         article.panel.agent-chat
                             h3 도구 기반 질문 실행
                             div.question-presets
-                                button(type="button", (click)="question='이용량은 적지만 네트워크에서 중요한 대여소를 찾아줘.'") 숨은 연결 거점
-                                button(type="button", (click)="question='대여·반납 불균형이 지속되는 대여소를 알려줘.'") 불균형 분석
-                                button(type="button", (click)="question='서울과 대전의 공통 기간 이용 패턴을 비교해줘.'") 도시별 패턴
+                                button(type="button", (click)="question='가장 연계가 취약한 대여소 10곳을 근거와 함께 알려줘.'") 가장 연계가 취약한 대여소 10곳
+                                button(type="button", (click)="question='대여소 확충 우선 순위 TOP 10을 점수 근거와 함께 알려줘.'") 대여소 확충 우선 순위 TOP 10
+                                button(type="button", (click)="question='역 연계 이용이 가장 많은 시간대를 실제 자료로 알려줘.'") 역 연계 이용이 가장 많은 시간대
                             div.chat-stream
                                 p.empty(*ngIf="!answer && !busy") 질문을 입력하면 실제 분석 도구의 근거를 확인해 보고서를 생성합니다.
                                 p.loading(*ngIf="busy") Solar 응답을 기다리는 중입니다…

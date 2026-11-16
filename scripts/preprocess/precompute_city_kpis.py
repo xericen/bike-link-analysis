@@ -24,13 +24,13 @@ def combinations():
             cur=(last+timedelta(days=1))
     return sorted(combos)
 
-def run(combos,force=False):
+def run(combos,force=False,actions=None):
     from backend.services.kpi_projection import build
     version=precomputed.revision()
     stats=[]
     for city,start,end in combos:
         periods.resolve(city,start,end)
-        for action in precomputed.ACTIONS:
+        for action in (actions or precomputed.ACTIONS):
             began=time.perf_counter()
             try:
                 if force:raise LookupError
@@ -50,9 +50,10 @@ if __name__=="__main__":
     p=argparse.ArgumentParser(__doc__);p.add_argument("--city",choices=("seoul","daejeon","sejong","all"))
     p.add_argument("--start");p.add_argument("--end");p.add_argument("--force",action="store_true")
     p.add_argument("--report",default="docs/transit/precomputed-build-20261116.json")
+    p.add_argument("--actions",nargs="+",choices=precomputed.ACTIONS,help="Prepare only selected actions; default is all")
     a=p.parse_args()
     if a.city and bool(a.start)!=bool(a.end):p.error("--start and --end must be supplied together")
     combos=[(a.city,*periods.resolve(a.city,a.start,a.end))] if a.city else combinations()
-    report=run(combos,a.force)
+    report=run(combos,a.force,a.actions)
     from pathlib import Path
     Path(a.report).write_text(json.dumps(report,ensure_ascii=False,indent=2))

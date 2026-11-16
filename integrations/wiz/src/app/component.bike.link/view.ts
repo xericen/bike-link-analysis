@@ -19,6 +19,8 @@ export class Component implements OnInit, OnDestroy, OnChanges {
     public draftStart = '';
     public draftEnd = '';
     public periodError = '';
+    public unprocessed = false;
+    public preparedPeriods: any[] = [];
     public stability: any = null;
     public stabilityBusy = false;
     private responseGeneration = 0;
@@ -97,7 +99,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
 
     private async request(action: string, extra: any = {}) {
         const params = { action, region_id: this.allRegionsSelected ? 'all' : this.regionId,
-            ...(action === 'regions' || action === 'period_bounds' ? {} : {date_start:this.dateStart, date_end:this.dateEnd}), ...extra };
+            ...(action === 'regions' || action === 'period_bounds' || action === 'prepared_periods' ? {} : {date_start:this.dateStart, date_end:this.dateEnd}), ...extra };
         const key = JSON.stringify(params);
         const saved = analysisResponses.get(key);
         if (action !== 'chat' && saved && Date.now() - saved.at < 300000) return saved.value;
@@ -131,7 +133,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
     }
 
     public async changeTab(tab: string) {
-        if (!['dashboard', 'stations', 'network', 'regions', 'agent'].includes(tab)) return;
+        if (!['dashboard', 'vulnerability', 'stations', 'network', 'regions', 'agent'].includes(tab)) return;
         if (this.embeddedRegion) { this.navigate.emit(tab); return; }
         this.transitMap?.remove(); this.transitMap = null;
         if (tab !== 'dashboard') { this.map?.remove(); this.map = null; }
@@ -235,12 +237,28 @@ export class Component implements OnInit, OnDestroy, OnChanges {
         await this.inspectStation(item?.original_station_id || parts[parts.length-1], item?.region_id || (parts.length > 1 ? parts[0] : this.regionId));
     }
 
+    public async usePreparedPeriod(period: any) {
+        this.draftStart = period.start; this.draftEnd = period.end;
+        await this.applyPeriod();
+    }
+
     public async loadTab() {
         const current = ++this.generation;
         this.busy = true;
         this.error = '';
         this.researchBusy = false;
+        this.unprocessed = false;
         try {
+            if (['dashboard','vulnerability','stations','network'].includes(this.tab)) {
+                const prepared = await this.request('prepared_periods');
+                if (current !== this.generation) return;
+                this.preparedPeriods = prepared.periods || [];
+                if (!this.preparedPeriods.some(p => p.start === this.dateStart && p.end === this.dateEnd)) {
+                    this.unprocessed = true;
+                    this.overview = null; this.network = null; this.selectedStation = null;
+                    return;
+                }
+            }
             if (['stations','network'].includes(this.tab)) {
                 const overview = await this.request('overview');
                 if (current !== this.generation) return;
@@ -259,6 +277,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
                     this.transitLinkage=result;await this.service.render();this.renderMap();
                 }).catch(error=>{if(current===this.generation)this.error=error.message;});
                 void this.loadResearch(current);
+                void this.loadTransit(current);
                 await this.service.render();
                 if (current === this.generation) this.renderMap();
                 await Promise.all([
@@ -280,8 +299,11 @@ export class Component implements OnInit, OnDestroy, OnChanges {
                         await this.service.render();
                     })
                 ]);
+            } else if (this.tab === 'vulnerability') {
+                await this.loadTransit(current);
             } else if (this.tab === 'stations') {
-                const result = await this.request('stations', { query: this.stationSearch });
+                const [result, linkage] = await Promise.all([this.request('stations', { query: this.stationSearch }), this.request('transit_linkage')]);
+                if (current === this.generation) this.transitLinkage = linkage;
                 if (current !== this.generation) return;
                 this.stations = result.stations || [];
                 this.stationTotal = result.total || 0;
@@ -292,7 +314,6 @@ export class Component implements OnInit, OnDestroy, OnChanges {
                 }).catch(error => { if (current === this.generation) this.error = error.message; });
                 if (!this.selectedStation && this.stations.length) void this.openStation(this.stations[0]);
             } else if (this.tab === 'network') {
-                void this.loadTransit(current);
                 const result = await this.request('network');
                 if (current !== this.generation) return;
                 this.network = result;
@@ -378,7 +399,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
     }
 
     public pageTitle() {
-        const titles: any = {dashboard:'공공자전거 이용 현황과 숨은 연결 거점 분석', stations:'대여소 이용 특성 분석',
+        const titles: any = {dashboard:'공공자전거 이용 현황과 숨은 연결 거점 분석', vulnerability:'취약 구간 & 개선 후보', stations:'대여소 이용 특성 분석',
             network:'이동 패턴 분석', regions:'도시 간 비교', agent:'AI 분석 리포트'};
         return titles[this.tab] || 'Bike Link Analysis';
     }
@@ -446,7 +467,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
             if (current !== this.generation) return;
             this.transitResult = result;
             await this.service.render();
-            setTimeout(()=>{if(current === this.generation && this.tab === 'network') this.renderTransitMap();},0);
+            setTimeout(()=>{if(current === this.generation && this.tab === 'vulnerability') this.renderTransitMap();},0);
         } catch(error:any) {
             if(current === this.generation) this.transitError = error.message;
         } finally {
@@ -463,7 +484,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
         const element = document.getElementById('bike-transit-map');
         if(!element) return;
         this.transitMap?.remove();
-        this.transitMap = L.map(element, {scrollWheelZoom:false});
+        this.transitMap = L.map(element, {scrollWheelZoom:false, zoomAnimation:false, fadeAnimation:false, markerZoomAnimation:false});
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           attribution:'&copy; OpenStreetMap contributors', maxZoom:19}).addTo(this.transitMap);
         this.transitMarkers = L.layerGroup();
@@ -478,9 +499,24 @@ export class Component implements OnInit, OnDestroy, OnChanges {
             marker.addTo(this.transitMarkers);
         }
         if(this.transitVisible) this.transitMarkers.addTo(this.transitMap);
-        if(bounds.length) this.transitMap.fitBounds(L.latLngBounds(bounds).pad(.15),{maxZoom:13});
-        else this.transitMap.setView([37.5665,126.978],11);
+        if(bounds.length) this.transitMap.fitBounds(L.latLngBounds(bounds).pad(.15),{maxZoom:13, animate:false});
+        else this.transitMap.setView(this.regionId === 'daejeon' ? [36.35,127.38] : this.regionId === 'sejong' ? [36.5,127.27] : [37.5665,126.978],11);
         setTimeout(()=>this.transitMap?.invalidateSize(),100);
+    }
+
+    public goalMetric(key: string) { return this.transitLinkage?.goal_metrics?.[key] ?? null; }
+    public percent(value: number | null) { return value == null ? 'N/A' : (value * 100).toLocaleString('ko-KR', {maximumFractionDigits:3}) + '%'; }
+    public scenarioCities() { return (this.transitResult?.cities || []).filter((c:any)=>c.scenario); }
+    public coverageIncrease() {
+        const cities = this.scenarioCities();
+        const base = cities.reduce((n:number,c:any)=>n+c.scenario.baseline_area_m2,0);
+        return base ? cities.reduce((n:number,c:any)=>n+c.scenario.linked_area_m2-c.scenario.baseline_area_m2,0)/base : null;
+    }
+    public linkageBars() {
+        return (this.transitLinkage?.hourly_station_linkage || []).map((h:any)=>({...h, height:(h.linkage_share || 0)*100}));
+    }
+    public stationTransitHours() {
+        return this.linkageBars(); // City-level OD only; never invent per-station transfer patterns.
     }
 
     public flowBars() {
@@ -620,47 +656,35 @@ export class Component implements OnInit, OnDestroy, OnChanges {
         const element = document.getElementById('bike-leaflet-map-' + this.regionId);
         if (!element || this.tab !== 'dashboard') return;
         this.map?.remove();
-        this.map = L.map(element, { scrollWheelZoom: false, zoomControl: false });
-        L.control.zoom({ position: 'topright' }).addTo(this.map);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors',
-            maxZoom: 19
-        }).addTo(this.map);
-        const rows = (this.overview?.map_stations || []).filter((item: any) =>
-            Number.isFinite(item.latitude) && Number.isFinite(item.longitude));
-        if (!rows.length) this.map.setView(this.regionId === 'sejong' ? [36.5,127.27] : [37.5665,126.978], 10);
+        this.map = L.map(element, { scrollWheelZoom:false, zoomControl:false, zoomAnimation:false, fadeAnimation:false, markerZoomAnimation:false, preferCanvas:true });
+        const activeMap = this.map;
+        L.control.zoom({position:'topright'}).addTo(activeMap);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(activeMap);
+        const located = (this.transitLinkage?.stations || []).filter((s:any)=>s.coordinate_valid && Number.isFinite(s.latitude) && Number.isFinite(s.longitude));
+        const stride = Math.max(1, Math.ceil(located.length / 300));
+        const rows = located.filter((s:any,i:number)=>i % stride === 0 || (s.nearest_stop_distance_m > 500 && s.rental_count > 0));
         const bounds: L.LatLngTuple[] = [];
-        for (const item of rows) {
-            const point: L.LatLngTuple = [item.latitude, item.longitude];
-            const types = this.research?.types || {};
-            const hidden = (types.low_usage_high_connectivity || []).some((row:any)=>row.station_id === item.station_id && (!row.region_id || row.region_id === item.region_id));
-            const imbalance = (types.persistent_imbalance || []).some((row:any)=>row.station_id === item.station_id && (!row.region_id || row.region_id === item.region_id));
-            const concentrated = (types.time_concentrated || []).some((row:any)=>row.station_id === item.station_id && (!row.region_id || row.region_id === item.region_id));
-            const color = hidden ? '#08ad98' : imbalance ? '#f59842' : concentrated ? '#a45edc' : '#328bed';
-            bounds.push(point);
-            const caption = document.createElement('div');
-            const name = document.createElement('strong');
-            name.textContent = item.station_id + ' · ' + (item.station_name || '') + (hidden ? ' · 숨은 연결 후보' : imbalance ? ' · 불균형 후보' : concentrated ? ' · 시간대 집중 후보' : '');
-            caption.appendChild(name);
-            L.circleMarker(point, { radius: 5, color: color, weight: 1.5,
-                fillColor: color, fillOpacity: 0.8 }).addTo(this.map).bindPopup(caption).on('click', () => { void this.inspectStation(item.station_id, item.region_id); });
-        }
-        if(this.showTransitStops) {
-            for(const stop of this.transitLinkage?.map_stops || []) {
-                const point: L.LatLngTuple=[stop.lat,stop.lon];
-                if(!rows.length) bounds.push(point);
-                const label=document.createElement('span');label.textContent=stop.type+' · '+stop.name;
-                L.circleMarker(point,{radius:stop.type==='지하철'?4:2.5,color:stop.type==='지하철'?'#233b6e':'#7189a6',weight:1,fillOpacity:.6}).addTo(this.map).bindPopup(label);
-            }
-            for(const station of rows) {
-                const link=(this.transitLinkage?.stations || []).find((x:any)=>x.region_id===station.region_id && x.station_id===station.station_id);
-                if(link?.nearest_stop_distance_m <= 500 && link.nearest_stop_lat != null)
-                    L.polyline([[station.latitude,station.longitude],[link.nearest_stop_lat,link.nearest_stop_lon]],
-                      {color:'#60a8ad',weight:1,opacity:.6,dashArray:'3 3'}).addTo(this.map);
+        if (this.showTransitStops) {
+            for (const stop of this.transitLinkage?.map_stops || []) {
+                const point: L.LatLngTuple = [stop.lat,stop.lon];
+                if (!rows.length) bounds.push(point);
+                L.circle(point,{radius:500,color:'#8b929a',weight:.5,fillColor:'#9ca3af',fillOpacity:.09,interactive:false}).addTo(activeMap);
+                const label=document.createElement('span'); label.textContent=stop.type+' · '+stop.name+' · 직선거리 500m';
+                L.circleMarker(point,{radius:2,color:'#818b97',weight:1,fillOpacity:.6}).addTo(activeMap).bindPopup(label);
             }
         }
-        if(bounds.length) this.map.fitBounds(L.latLngBounds(bounds).pad(0.12), { maxZoom: 12 });
-        setTimeout(() => this.map?.invalidateSize(), 100);
+        for (const s of rows) {
+            const outside = s.nearest_stop_distance_m != null && s.nearest_stop_distance_m > 500;
+            const vulnerable = outside && s.rental_count > 0;
+            const color = vulnerable ? '#dc7043' : outside ? '#6784bc' : s.nearest_stop_distance_m == null ? '#949da8' : '#1b9d8b';
+            const label = vulnerable ? '취약 후보 · 500m 밖 + 실제 이용' : outside ? '500m 밖 · 실제 이용 미확인' : s.nearest_stop_distance_m == null ? '정류장 거리 미확보' : '정류장 500m 이내';
+            const point: L.LatLngTuple = [s.latitude,s.longitude]; bounds.push(point);
+            const caption=document.createElement('span');caption.textContent=s.station_id+' · '+(s.station_name || '')+' · '+label;
+            L.circleMarker(point,{radius:vulnerable ? 7 : 4.5,color,weight:1.5,fillColor:color,fillOpacity:.9}).addTo(activeMap).bindPopup(caption).on('click',()=>{void this.inspectStation(s.station_id,s.region_id);});
+        }
+        if (bounds.length) activeMap.fitBounds(L.latLngBounds(bounds).pad(.08),{maxZoom:12,animate:false});
+        else activeMap.setView(this.regionId === 'sejong' ? [36.5,127.27] : [37.5665,126.978],10);
+        setTimeout(()=>{if(this.map === activeMap) activeMap.invalidateSize();},100);
     }
 
     private makeGraph(network: any, limit = 12) {

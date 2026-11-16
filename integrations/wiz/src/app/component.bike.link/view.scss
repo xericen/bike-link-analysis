@@ -1,4 +1,4 @@
-:host { display:block; background:#f5f8fc; color:#18314f; min-height:100%; font-family:Inter,"Noto Sans KR",sans-serif; }
+:host { display:block; background:#f5f8fc; color:#18314f; min-height:100%; font-family:"SUIT",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
 .bike-page { max-width:1440px; margin:0 auto; padding:32px 34px 72px; }
 .bike-header { display:flex; justify-content:space-between; align-items:center; gap:20px; padding:28px 30px; background:#102d50; color:white; border-radius:19px; }
 .bike-header h1 { margin:4px 0; font-size:28px; letter-spacing:-.04em; }
@@ -246,7 +246,7 @@ select, input { border:1px solid #d4e1ee; border-radius:9px; padding:10px 12px; 
 
 
 /* Supplied five-screen visual reference: existing data and chart structures retained. */
-:host { --ink:#082a61; --muted:#647d9e; --line:#c9dff7; --blue:#1673f5; --navy:#042454; color:var(--ink); font-family:"Noto Sans KR",Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+:host { --ink:#082a61; --muted:#647d9e; --line:#c9dff7; --blue:#1673f5; --navy:#042454; color:var(--ink); font-family:"SUIT",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
 .bike-page { background:#f5faff; }
 .bike-header { height:76px; flex-basis:76px; grid-template-columns:190px minmax(0,1fr) auto; padding:0 18px; background:linear-gradient(105deg,#00245a,#07366d); border-bottom:1px solid #1767b0; }
 .brand-area { gap:8px; }
@@ -594,3 +594,73 @@ details.panel[open] summary { margin-bottom:15px; }
 .transit-map-block > .panel-note { margin:6px 0; }
 .transit-station-metrics { padding:10px; margin:10px 0; border:1px solid #d8e4f0; border-radius:8px; background:#f5f9ff; }
 .transit-station-metrics p { margin:5px 0; font-size:12px; }
+
+/* Goal-aligned discovery and improvement workflow */
+.goal-intro {display:flex;align-items:center;justify-content:space-between;gap:24px;margin:4px 0 20px;padding:24px 26px;background:#edf6f4;border:1px solid #cce5de;border-radius:16px;}
+.goal-intro h2 {font-size:24px;letter-spacing:-.04em;margin:8px 0;color:#184c45;line-height:1.4;}
+.goal-intro p {font-size:13px;line-height:1.7;color:#59746e;margin:0;max-width:640px;}
+.goal-intro button {flex-shrink:0;background:#197d70;}
+.goal-kpis .metric-card {border-top:3px solid #2c9d8d;}
+.goal-kpis .metric-card strong {color:#176d61;font-size:30px;}
+.goal-kpis .metric-card small {line-height:1.6;color:#61758a;}
+.network-depth-heading {padding-top:26px;border-top:1px solid #dde5ee;margin-top:30px;}
+.ranking-scroll {overflow-x:auto;width:100%;}
+.ranking-scroll table {min-width:760px;}
+.ranking-scroll small {display:block;max-width:230px;font-size:10px;color:#6f7d8f;}
+.scenario-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:24px;}
+.scenario-card {padding:20px;background:#f4f8f8;border-radius:12px;}
+.scenario-card h4 {margin:0 0 16px;font-size:15px;}
+.scenario-bar {display:grid;grid-template-columns:110px 1fr;align-items:center;gap:7px 12px;margin-bottom:12px;font-size:12px;}
+.scenario-bar div {height:12px;border-radius:3px;}
+.scenario-bar strong {grid-column:2;font-size:12px;}
+.scenario-card p {font-size:12px;color:#176d61;font-weight:700;}
+.scenario-card small {font-size:11px;color:#718096;}
+.vulnerability-view .transit-panel {margin-top:20px;}
+.transit-station-metrics h4 {margin-top:4px;color:#176d61;}
+.bike-header .title-area {min-width:0;}
+@media(max-width:900px){.goal-intro{display:block;padding:20px;}.goal-intro h2{font-size:21px;}.goal-intro button{margin-top:16px;}.scenario-grid{grid-template-columns:1fr;}}
+@media(max-width:600px){.goal-kpis .metric-card strong{font-size:25px;}.goal-intro h2{font-size:19px;}.scenario-bar{grid-template-columns:95px 1fr;}}
+
+.transit-layer-toggle input[type=checkbox],.transit-panel input[type=checkbox] {appearance:auto !important;width:16px;height:16px;padding:0;vertical-align:middle;accent-color:#168c7c;cursor:pointer;}
+.coverage-legend {display:flex;flex-wrap:wrap;gap:12px;margin-top:7px;font-size:10px;}
+.coverage-legend span:before {content:'';display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;background:#1b9d8b;}
+.coverage-legend .outside:before {background:#6784bc;}
+.coverage-legend .vulnerable:before {background:#dc7043;}
+
+/* Use the site's existing Korean typeface and a calmer heading hierarchy. */
+:host {font-size:14px;font-weight:400;line-height:1.55;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;}
+.bike-page button,.bike-page input,.bike-page select,.leaflet-container {font-family:inherit;}
+.title-area h1 {font-weight:700;letter-spacing:-.025em;line-height:1.4;}
+.title-area p {font-size:12px;line-height:1.5;letter-spacing:0;}
+.goal-intro {padding:22px 24px;margin-bottom:18px;}
+.goal-intro h2 {font-weight:600;font-size:23px;letter-spacing:-.025em;margin:0 0 8px;line-height:1.45;word-break:keep-all;}
+.goal-intro p {font-size:14px;font-weight:400;line-height:1.6;}
+.section-heading h2 {font-weight:600;letter-spacing:-.025em;line-height:1.4;}
+.panel h3,.map-title {font-weight:600;letter-spacing:-.015em;}
+.metric-card span,.finding-card .role-label {font-weight:500;}
+.metric-card strong {font-weight:700;font-variant-numeric:tabular-nums;}
+.metric-card small {line-height:1.55;}
+.goal-kpis {margin-bottom:22px;}
+.transit-layer-toggle {margin-bottom:10px;}
+@media(max-width:600px){.goal-intro{padding:18px;}.goal-intro h2{font-size:20px;}.goal-intro p{font-size:13px;}.title-area p{font-size:11px;}}
+
+/* Keep candidate review as compact as the dashboard. */
+.vulnerability-view .section-heading {padding-top:4px;margin-bottom:18px;}
+.vulnerability-view .transit-panel {margin-top:0;padding:20px;}
+.vulnerability-view .panel-heading {margin-bottom:16px;}
+.vulnerability-view .panel-heading h3 {font-size:16px;font-weight:600;}
+.vulnerability-view .transit-panel > div > label {font-size:13px;font-weight:500;}
+.vulnerability-view .data-table th {font-size:12px;font-weight:600;line-height:1.5;padding:12px 10px;}
+.vulnerability-view .data-table td {font-size:13px;font-weight:400;line-height:1.6;padding:14px 10px;vertical-align:top;font-variant-numeric:tabular-nums;}
+.vulnerability-view .data-table td:last-child > span {font-weight:600;}
+.score-evidence {margin-top:4px;}
+.score-evidence summary {font-size:11px;color:#718096;cursor:pointer;font-weight:400;}
+.score-evidence small {margin-top:6px;line-height:1.6;font-weight:400;}
+.vulnerability-view .scenario-card h4 {font-size:15px;font-weight:600;letter-spacing:-.015em;}
+.vulnerability-view .scenario-card p {font-size:13px;font-weight:500;}
+.scenario-stations {display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin-top:16px;font-size:13px;}
+.scenario-stations span {color:#64748b;}
+.scenario-stations strong {font-weight:600;}
+.vulnerability-view .transit-panel > div > details {margin-top:20px;padding-top:14px;border-top:1px solid #e5ebf1;}
+.vulnerability-view .transit-panel > div > details summary {font-size:12px;color:#64748b;cursor:pointer;}
+@media(max-width:600px){.vulnerability-view .transit-panel{padding:16px;}.vulnerability-view .panel-heading{align-items:flex-start;flex-wrap:wrap;}.vulnerability-view .data-table td{padding:12px 8px;}}

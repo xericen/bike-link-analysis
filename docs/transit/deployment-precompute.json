@@ -1,0 +1,1301 @@
+{
+  "revision": "9dc4cfe2374246b1faae93a402c45c0a6565dd98b15d9eefa4face6bf4b55004",
+  "entries": [
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.003
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0091
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0008
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0009
+    },
+    {
+      "city": "all",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "all",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0008
+    },
+    {
+      "city": "all",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0075
+    },
+    {
+      "city": "all",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "all",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "all",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0009
+    },
+    {
+      "city": "all",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "all",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "all",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0047
+    },
+    {
+      "city": "all",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "all",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "all",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0008
+    },
+    {
+      "city": "all",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "all",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "all",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0038
+    },
+    {
+      "city": "all",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "all",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "all",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0008
+    },
+    {
+      "city": "all",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0037
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0009
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0306
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.002
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0043
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0045
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0043
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0044
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0008
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0008
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0044
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0044
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0003
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0046
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0044
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0045
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0048
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0046
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0031
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0026
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0003
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-01",
+      "end": "2025-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-01",
+      "end": "2025-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0008
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-01",
+      "end": "2025-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-01",
+      "end": "2025-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-01",
+      "end": "2025-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-01",
+      "end": "2025-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-02",
+      "end": "2025-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-02",
+      "end": "2025-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0008
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-02",
+      "end": "2025-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-02",
+      "end": "2025-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-02",
+      "end": "2025-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0008
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-02",
+      "end": "2025-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-18",
+      "end": "2025-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-18",
+      "end": "2025-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0009
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-18",
+      "end": "2025-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-18",
+      "end": "2025-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-18",
+      "end": "2025-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0009
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-18",
+      "end": "2025-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-25",
+      "end": "2025-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-25",
+      "end": "2025-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0008
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-25",
+      "end": "2025-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-25",
+      "end": "2025-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-25",
+      "end": "2025-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-25",
+      "end": "2025-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0008
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0054
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0007
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0008
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0052
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.003
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "overview",
+      "status": "unchanged",
+      "seconds": 0.0006
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "research",
+      "status": "unchanged",
+      "seconds": 0.0024
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "network",
+      "status": "unchanged",
+      "seconds": 0.0004
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "centrality",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "dashboard_extra",
+      "status": "unchanged",
+      "seconds": 0.0005
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "action": "vulnerability",
+      "status": "unchanged",
+      "seconds": 0.0005
+    }
+  ]
+}

@@ -40,7 +40,7 @@ def handle():
     try:
         date_start, date_end = periods.resolve(selected_region,
             str(wiz.request.query("date_start", "")).strip() or None,
-            str(wiz.request.query("date_end", "")).strip() or None) if action not in ("regions", "period_bounds") else (None, None)
+            str(wiz.request.query("date_end", "")).strip() or None) if action not in ("regions", "period_bounds", "prepared_periods") else (None, None)
     except ValueError as error:
         return wiz.response.status(422, message=str(error))
     context = {"region_ids": [r["region_id"] for r in real_data.REGIONS] if unified else [region_id],
@@ -57,28 +57,15 @@ def handle():
             from backend.services.precomputed import read
             result=read(action,region_id,date_start,date_end)
         elif action == "transit_linkage":
-            from backend.services.transit import linkage
-            if unified:
-                cities=[linkage(rid,date_start,date_end) for rid in ("seoul","daejeon","sejong")]
-                result={"available":any(c["available"] for c in cities),"cities":cities,
-                    "stations":[s for c in cities for s in c["stations"]],
-                    "map_stops":[s for c in cities for s in c.get("map_stops",[])],
-                    "stop_count":sum(c.get("stop_count",0) for c in cities),
-                    "map_display_note":"거리 분석은 전체 정류장 사용·지도는 도시별 최대600개 표본. 세종2025-10은 공통2026-10 합계에서 제외."}
-            else:result=linkage(region_id,date_start,date_end)
+            from backend.services.precomputed import read
+            result=read("transit_linkage",region_id,date_start,date_end)
         elif action == "transit_vulnerability":
-            from backend.services.vulnerability import analyze
-            if unified:
-                results = [analyze(rid, date_start, date_end) for rid in valid_regions]
-                available = [r for r in results if r["available"]]
-                result = {"available":bool(available),"cities":results,"candidates":[row for r in available for row in r["candidates"]],
-                          "ranking":[row for r in available for row in r["ranking"]],
-                          "candidate_count":sum(r["candidate_count"] for r in available),
-                          "period_start":date_start,"period_end":date_end,
-                          "message":"정류장 자료를 확보한 도시만 계산합니다. 미확보 도시 지표는 N/A입니다."}
-            else:
-                item = analyze(region_id,date_start,date_end)
-                result = {**item,"cities":[item]}
+            from backend.services.vulnerability import prepared
+            result=prepared(region_id,date_start,date_end,top_n=20)
+            if not unified:result={**result,"cities":[dict(result)]}
+        elif action == "prepared_periods":
+            from backend.services.deployment import available_periods
+            result = {"periods": available_periods(region_id)}
         elif action == "period_bounds":
             result = {"regions": periods.all_bounds()}
         elif unified and action in ("overview", "network", "centrality", "research", "dashboard_extra"):

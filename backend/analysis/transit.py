@@ -31,11 +31,11 @@ def match_stations(stations, stops):
                 distance, index = tree.query(point, k=1)
                 value = float(distance[0][0] * EARTH_M)
                 distances.append(value)
-                row[f"nearest_{prefix}_distance_m"] = round(value, 3)
+                row[f"nearest_{prefix}_distance_m"] = value
                 row[f"nearest_{prefix}_stop_id"] = stops_k[int(index[0][0])]["stop_id"]
                 for radius in [300, 500]:
                     row[f"{prefix}_within_{radius}m"] = int(tree.query_radius(point, r=radius / EARTH_M, count_only=True)[0])
-        row["nearest_stop_distance_m"] = round(min(distances), 3) if distances else None
+        row["nearest_stop_distance_m"] = min(distances) if distances else None
         for radius in [300,500]:
             values=[row[f"{prefix}_within_{radius}m"] for prefix in ["bus","subway"]]
             row[f"stops_within_{radius}m"] = sum(v for v in values if v is not None) if good and any(v is not None for v in values) else None
