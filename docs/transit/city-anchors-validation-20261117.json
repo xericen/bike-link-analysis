@@ -1,0 +1,5155 @@
+{
+  "environment": "local current main, no actual deployment",
+  "cities": [
+    {
+      "city": "seoul",
+      "period": [
+        "2026-10-01",
+        "2026-10-31"
+      ],
+      "goal_metrics": {
+        "anchor_label": "지하철역",
+        "anchor_300m_ratio": 0.3149891383055757,
+        "first_last_mile_count": 473,
+        "reference_all_stops_outside500": 5,
+        "located_station_count": 2762,
+        "subway_station_count": 2762,
+        "subway_300m_ratio": 0.3149891383055757,
+        "outside_500m_active_count": 1276,
+        "linked_trip_share": 0.6221075404961994,
+        "linked_trip_total": 4245954
+      },
+      "candidate_count": 1276,
+      "first_last_mile_count": 473,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 196710871.79670292,
+        "linked_area_m2": 230786538.2558227,
+        "added_area_m2": 34075666.45911977,
+        "uncovered_area_m2": 408586270.41863066,
+        "uncovered_recovery_ratio": 0.08339895127706178,
+        "area_increase_ratio": 0.17322716404986677,
+        "baseline_station_count": 1485,
+        "linked_station_count": 1675,
+        "added_station_count": 190,
+        "station_count_increase_ratio": 0.12794612794612795,
+        "population_increase_ratio": null
+      },
+      "ranking": [
+        {
+          "region_id": "seoul",
+          "station_id": "ST-919",
+          "station_name": "구로구 고척동 63-3",
+          "latitude": 37.499889,
+          "longitude": 126.867699,
+          "nearest_stop_distance_m": 1395.7293777807695,
+          "rental_count": 5161,
+          "return_count": 5222,
+          "accessibility_deficit": 1.7914587555615389,
+          "vulnerability": 9245.718637453103,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_confidence": "relative_within_city",
+          "candidate_population": 1276,
+          "score_components": {
+            "accessibility_deficit": 0.8365987460815048,
+            "rental_count": 0.9839341692789969,
+            "potential_added_area_m2": 0.7786050156739812
+          },
+          "score": 0.8663793103448276,
+          "demand_weighted_sensitivity_score": 0.89576802507837,
+          "rank": 1,
+          "distance_band": "800–1500m 첫·끝마일"
+        },
+        {
+          "region_id": "seoul",
+          "station_id": "ST-660",
+          "station_name": "서울특별시 금천구 독산동 727-1",
+          "latitude": 37.456726,
+          "longitude": 126.893066,
+          "nearest_stop_distance_m": 2784.231937012441,
+          "rental_count": 2077,
+          "return_count": 2159,
+          "accessibility_deficit": 4.568463874024882,
+          "vulnerability": 9488.69946634968,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_confidence": "relative_within_city",
+          "candidate_population": 1276,
+          "score_components": {
+            "accessibility_deficit": 0.9839341692789969,
+            "rental_count": 0.8217084639498433,
+            "potential_added_area_m2": 0.7786050156739812
+          },
+          "score": 0.8614158829676071,
+          "demand_weighted_sensitivity_score": 0.8514890282131662,
+          "rank": 2,
+          "distance_band": "500m 밖"
+        },
+        {
+          "region_id": "seoul",
+          "station_id": "ST-1226",
+          "station_name": "원메디타운 앞",
+          "latitude": 37.49789,
+          "longitude": 126.864502,
+          "nearest_stop_distance_m": 1608.4718849342494,
+          "rental_count": 2967,
+          "return_count": 3108,
+          "accessibility_deficit": 2.216943769868499,
+          "vulnerability": 6577.672165199836,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_confidence": "relative_within_city",
+          "candidate_population": 1276,
+          "score_components": {
+            "accessibility_deficit": 0.8945924764890282,
+            "rental_count": 0.908307210031348,
+            "potential_added_area_m2": 0.7786050156739812
+          },
+          "score": 0.8605015673981191,
+          "demand_weighted_sensitivity_score": 0.8724529780564263,
+          "rank": 3,
+          "distance_band": "500m 밖"
+        }
+      ],
+      "gap_grid_features": 2471,
+      "new_site_count": 842,
+      "population_basis": "2026-10 구 주민등록 인구밀도. 실측 격자인구 아님.",
+      "relocation": {
+        "available": true,
+        "items": [
+          {
+            "station_id": "ST-3251",
+            "region_id": "seoul",
+            "station_name": "서울특별시 강서구 마곡중앙10로 70 LG사이언스파크",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 5,
+                "returns": 1,
+                "net_outflow": 4
+              },
+              {
+                "hour": 1,
+                "rentals": 2,
+                "returns": 1,
+                "net_outflow": 1
+              },
+              {
+                "hour": 2,
+                "rentals": 0,
+                "returns": 1,
+                "net_outflow": -1
+              },
+              {
+                "hour": 3,
+                "rentals": 2,
+                "returns": 0,
+                "net_outflow": 2
+              },
+              {
+                "hour": 4,
+                "rentals": 0,
+                "returns": 4,
+                "net_outflow": -4
+              },
+              {
+                "hour": 5,
+                "rentals": 0,
+                "returns": 21,
+                "net_outflow": -21
+              },
+              {
+                "hour": 6,
+                "rentals": 4,
+                "returns": 148,
+                "net_outflow": -144
+              },
+              {
+                "hour": 7,
+                "rentals": 51,
+                "returns": 828,
+                "net_outflow": -777
+              },
+              {
+                "hour": 8,
+                "rentals": 164,
+                "returns": 2251,
+                "net_outflow": -2087
+              },
+              {
+                "hour": 9,
+                "rentals": 92,
+                "returns": 907,
+                "net_outflow": -815
+              },
+              {
+                "hour": 10,
+                "rentals": 70,
+                "returns": 89,
+                "net_outflow": -19
+              },
+              {
+                "hour": 11,
+                "rentals": 405,
+                "returns": 189,
+                "net_outflow": 216
+              },
+              {
+                "hour": 12,
+                "rentals": 229,
+                "returns": 309,
+                "net_outflow": -80
+              },
+              {
+                "hour": 13,
+                "rentals": 95,
+                "returns": 122,
+                "net_outflow": -27
+              },
+              {
+                "hour": 14,
+                "rentals": 104,
+                "returns": 66,
+                "net_outflow": 38
+              },
+              {
+                "hour": 15,
+                "rentals": 158,
+                "returns": 65,
+                "net_outflow": 93
+              },
+              {
+                "hour": 16,
+                "rentals": 375,
+                "returns": 66,
+                "net_outflow": 309
+              },
+              {
+                "hour": 17,
+                "rentals": 1246,
+                "returns": 104,
+                "net_outflow": 1142
+              },
+              {
+                "hour": 18,
+                "rentals": 1444,
+                "returns": 70,
+                "net_outflow": 1374
+              },
+              {
+                "hour": 19,
+                "rentals": 351,
+                "returns": 38,
+                "net_outflow": 313
+              },
+              {
+                "hour": 20,
+                "rentals": 153,
+                "returns": 26,
+                "net_outflow": 127
+              },
+              {
+                "hour": 21,
+                "rentals": 79,
+                "returns": 14,
+                "net_outflow": 65
+              },
+              {
+                "hour": 22,
+                "rentals": 44,
+                "returns": 11,
+                "net_outflow": 33
+              },
+              {
+                "hour": 23,
+                "rentals": 19,
+                "returns": 7,
+                "net_outflow": 12
+              }
+            ],
+            "rentals": 5092,
+            "returns": 5338,
+            "net_outflow": -246,
+            "peak_hour": 8,
+            "peak_net_outflow": -2087,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST-2033",
+            "region_id": "seoul",
+            "station_name": "서울특별시 강서구 마곡중앙8로 71 엘지사이언스파크",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 45,
+                "returns": 13,
+                "net_outflow": 32
+              },
+              {
+                "hour": 1,
+                "rentals": 18,
+                "returns": 10,
+                "net_outflow": 8
+              },
+              {
+                "hour": 2,
+                "rentals": 24,
+                "returns": 2,
+                "net_outflow": 22
+              },
+              {
+                "hour": 3,
+                "rentals": 15,
+                "returns": 4,
+                "net_outflow": 11
+              },
+              {
+                "hour": 4,
+                "rentals": 3,
+                "returns": 6,
+                "net_outflow": -3
+              },
+              {
+                "hour": 5,
+                "rentals": 9,
+                "returns": 23,
+                "net_outflow": -14
+              },
+              {
+                "hour": 6,
+                "rentals": 17,
+                "returns": 329,
+                "net_outflow": -312
+              },
+              {
+                "hour": 7,
+                "rentals": 238,
+                "returns": 1004,
+                "net_outflow": -766
+              },
+              {
+                "hour": 8,
+                "rentals": 118,
+                "returns": 1500,
+                "net_outflow": -1382
+              },
+              {
+                "hour": 9,
+                "rentals": 45,
+                "returns": 976,
+                "net_outflow": -931
+              },
+              {
+                "hour": 10,
+                "rentals": 45,
+                "returns": 124,
+                "net_outflow": -79
+              },
+              {
+                "hour": 11,
+                "rentals": 342,
+                "returns": 278,
+                "net_outflow": 64
+              },
+              {
+                "hour": 12,
+                "rentals": 150,
+                "returns": 253,
+                "net_outflow": -103
+              },
+              {
+                "hour": 13,
+                "rentals": 180,
+                "returns": 182,
+                "net_outflow": -2
+              },
+              {
+                "hour": 14,
+                "rentals": 174,
+                "returns": 101,
+                "net_outflow": 73
+              },
+              {
+                "hour": 15,
+                "rentals": 246,
+                "returns": 120,
+                "net_outflow": 126
+              },
+              {
+                "hour": 16,
+                "rentals": 580,
+                "returns": 192,
+                "net_outflow": 388
+              },
+              {
+                "hour": 17,
+                "rentals": 1352,
+                "returns": 237,
+                "net_outflow": 1115
+              },
+              {
+                "hour": 18,
+                "rentals": 1105,
+                "returns": 257,
+                "net_outflow": 848
+              },
+              {
+                "hour": 19,
+                "rentals": 485,
+                "returns": 155,
+                "net_outflow": 330
+              },
+              {
+                "hour": 20,
+                "rentals": 270,
+                "returns": 93,
+                "net_outflow": 177
+              },
+              {
+                "hour": 21,
+                "rentals": 204,
+                "returns": 62,
+                "net_outflow": 142
+              },
+              {
+                "hour": 22,
+                "rentals": 119,
+                "returns": 32,
+                "net_outflow": 87
+              },
+              {
+                "hour": 23,
+                "rentals": 53,
+                "returns": 23,
+                "net_outflow": 30
+              }
+            ],
+            "rentals": 5837,
+            "returns": 5976,
+            "net_outflow": -139,
+            "peak_hour": 8,
+            "peak_net_outflow": -1382,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST-3044",
+            "region_id": "seoul",
+            "station_name": "서울특별시 성동구 성동구 광나루로 310",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 25,
+                "returns": 17,
+                "net_outflow": 8
+              },
+              {
+                "hour": 1,
+                "rentals": 6,
+                "returns": 6,
+                "net_outflow": 0
+              },
+              {
+                "hour": 2,
+                "rentals": 4,
+                "returns": 4,
+                "net_outflow": 0
+              },
+              {
+                "hour": 3,
+                "rentals": 10,
+                "returns": 7,
+                "net_outflow": 3
+              },
+              {
+                "hour": 4,
+                "rentals": 4,
+                "returns": 4,
+                "net_outflow": 0
+              },
+              {
+                "hour": 5,
+                "rentals": 4,
+                "returns": 7,
+                "net_outflow": -3
+              },
+              {
+                "hour": 6,
+                "rentals": 28,
+                "returns": 52,
+                "net_outflow": -24
+              },
+              {
+                "hour": 7,
+                "rentals": 49,
+                "returns": 395,
+                "net_outflow": -346
+              },
+              {
+                "hour": 8,
+                "rentals": 173,
+                "returns": 1403,
+                "net_outflow": -1230
+              },
+              {
+                "hour": 9,
+                "rentals": 141,
+                "returns": 373,
+                "net_outflow": -232
+              },
+              {
+                "hour": 10,
+                "rentals": 69,
+                "returns": 74,
+                "net_outflow": -5
+              },
+              {
+                "hour": 11,
+                "rentals": 115,
+                "returns": 98,
+                "net_outflow": 17
+              },
+              {
+                "hour": 12,
+                "rentals": 106,
+                "returns": 122,
+                "net_outflow": -16
+              },
+              {
+                "hour": 13,
+                "rentals": 72,
+                "returns": 76,
+                "net_outflow": -4
+              },
+              {
+                "hour": 14,
+                "rentals": 92,
+                "returns": 58,
+                "net_outflow": 34
+              },
+              {
+                "hour": 15,
+                "rentals": 98,
+                "returns": 67,
+                "net_outflow": 31
+              },
+              {
+                "hour": 16,
+                "rentals": 128,
+                "returns": 83,
+                "net_outflow": 45
+              },
+              {
+                "hour": 17,
+                "rentals": 639,
+                "returns": 93,
+                "net_outflow": 546
+              },
+              {
+                "hour": 18,
+                "rentals": 167,
+                "returns": 96,
+                "net_outflow": 71
+              },
+              {
+                "hour": 19,
+                "rentals": 74,
+                "returns": 94,
+                "net_outflow": -20
+              },
+              {
+                "hour": 20,
+                "rentals": 60,
+                "returns": 46,
+                "net_outflow": 14
+              },
+              {
+                "hour": 21,
+                "rentals": 52,
+                "returns": 46,
+                "net_outflow": 6
+              },
+              {
+                "hour": 22,
+                "rentals": 31,
+                "returns": 37,
+                "net_outflow": -6
+              },
+              {
+                "hour": 23,
+                "rentals": 18,
+                "returns": 28,
+                "net_outflow": -10
+              }
+            ],
+            "rentals": 2165,
+            "returns": 3286,
+            "net_outflow": -1121,
+            "peak_hour": 8,
+            "peak_net_outflow": -1230,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST-2050",
+            "region_id": "seoul",
+            "station_name": "서울특별시 강서구 마곡중앙1로 71 마곡 13단지 힐스테이트 마스터",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 41,
+                "returns": 89,
+                "net_outflow": -48
+              },
+              {
+                "hour": 1,
+                "rentals": 9,
+                "returns": 31,
+                "net_outflow": -22
+              },
+              {
+                "hour": 2,
+                "rentals": 9,
+                "returns": 21,
+                "net_outflow": -12
+              },
+              {
+                "hour": 3,
+                "rentals": 5,
+                "returns": 11,
+                "net_outflow": -6
+              },
+              {
+                "hour": 4,
+                "rentals": 9,
+                "returns": 58,
+                "net_outflow": -49
+              },
+              {
+                "hour": 5,
+                "rentals": 55,
+                "returns": 8,
+                "net_outflow": 47
+              },
+              {
+                "hour": 6,
+                "rentals": 582,
+                "returns": 59,
+                "net_outflow": 523
+              },
+              {
+                "hour": 7,
+                "rentals": 1235,
+                "returns": 74,
+                "net_outflow": 1161
+              },
+              {
+                "hour": 8,
+                "rentals": 562,
+                "returns": 184,
+                "net_outflow": 378
+              },
+              {
+                "hour": 9,
+                "rentals": 342,
+                "returns": 152,
+                "net_outflow": 190
+              },
+              {
+                "hour": 10,
+                "rentals": 286,
+                "returns": 135,
+                "net_outflow": 151
+              },
+              {
+                "hour": 11,
+                "rentals": 252,
+                "returns": 166,
+                "net_outflow": 86
+              },
+              {
+                "hour": 12,
+                "rentals": 268,
+                "returns": 237,
+                "net_outflow": 31
+              },
+              {
+                "hour": 13,
+                "rentals": 249,
+                "returns": 221,
+                "net_outflow": 28
+              },
+              {
+                "hour": 14,
+                "rentals": 235,
+                "returns": 267,
+                "net_outflow": -32
+              },
+              {
+                "hour": 15,
+                "rentals": 244,
+                "returns": 349,
+                "net_outflow": -105
+              },
+              {
+                "hour": 16,
+                "rentals": 276,
+                "returns": 440,
+                "net_outflow": -164
+              },
+              {
+                "hour": 17,
+                "rentals": 309,
+                "returns": 680,
+                "net_outflow": -371
+              },
+              {
+                "hour": 18,
+                "rentals": 307,
+                "returns": 879,
+                "net_outflow": -572
+              },
+              {
+                "hour": 19,
+                "rentals": 285,
+                "returns": 650,
+                "net_outflow": -365
+              },
+              {
+                "hour": 20,
+                "rentals": 175,
+                "returns": 441,
+                "net_outflow": -266
+              },
+              {
+                "hour": 21,
+                "rentals": 146,
+                "returns": 362,
+                "net_outflow": -216
+              },
+              {
+                "hour": 22,
+                "rentals": 70,
+                "returns": 380,
+                "net_outflow": -310
+              },
+              {
+                "hour": 23,
+                "rentals": 59,
+                "returns": 163,
+                "net_outflow": -104
+              }
+            ],
+            "rentals": 6010,
+            "returns": 6057,
+            "net_outflow": -47,
+            "peak_hour": 7,
+            "peak_net_outflow": 1161,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST-2045",
+            "region_id": "seoul",
+            "station_name": "서울특별시 강서구 마곡동로 115",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 301,
+                "returns": 24,
+                "net_outflow": 277
+              },
+              {
+                "hour": 1,
+                "rentals": 62,
+                "returns": 11,
+                "net_outflow": 51
+              },
+              {
+                "hour": 2,
+                "rentals": 48,
+                "returns": 3,
+                "net_outflow": 45
+              },
+              {
+                "hour": 3,
+                "rentals": 18,
+                "returns": 2,
+                "net_outflow": 16
+              },
+              {
+                "hour": 4,
+                "rentals": 7,
+                "returns": 31,
+                "net_outflow": -24
+              },
+              {
+                "hour": 5,
+                "rentals": 39,
+                "returns": 169,
+                "net_outflow": -130
+              },
+              {
+                "hour": 6,
+                "rentals": 219,
+                "returns": 251,
+                "net_outflow": -32
+              },
+              {
+                "hour": 7,
+                "rentals": 548,
+                "returns": 747,
+                "net_outflow": -199
+              },
+              {
+                "hour": 8,
+                "rentals": 1144,
+                "returns": 904,
+                "net_outflow": 240
+              },
+              {
+                "hour": 9,
+                "rentals": 390,
+                "returns": 375,
+                "net_outflow": 15
+              },
+              {
+                "hour": 10,
+                "rentals": 214,
+                "returns": 261,
+                "net_outflow": -47
+              },
+              {
+                "hour": 11,
+                "rentals": 237,
+                "returns": 340,
+                "net_outflow": -103
+              },
+              {
+                "hour": 12,
+                "rentals": 215,
+                "returns": 400,
+                "net_outflow": -185
+              },
+              {
+                "hour": 13,
+                "rentals": 225,
+                "returns": 364,
+                "net_outflow": -139
+              },
+              {
+                "hour": 14,
+                "rentals": 277,
+                "returns": 338,
+                "net_outflow": -61
+              },
+              {
+                "hour": 15,
+                "rentals": 301,
+                "returns": 450,
+                "net_outflow": -149
+              },
+              {
+                "hour": 16,
+                "rentals": 432,
+                "returns": 1110,
+                "net_outflow": -678
+              },
+              {
+                "hour": 17,
+                "rentals": 892,
+                "returns": 1963,
+                "net_outflow": -1071
+              },
+              {
+                "hour": 18,
+                "rentals": 1456,
+                "returns": 1899,
+                "net_outflow": -443
+              },
+              {
+                "hour": 19,
+                "rentals": 1205,
+                "returns": 746,
+                "net_outflow": 459
+              },
+              {
+                "hour": 20,
+                "rentals": 872,
+                "returns": 567,
+                "net_outflow": 305
+              },
+              {
+                "hour": 21,
+                "rentals": 1035,
+                "returns": 417,
+                "net_outflow": 618
+              },
+              {
+                "hour": 22,
+                "rentals": 999,
+                "returns": 199,
+                "net_outflow": 800
+              },
+              {
+                "hour": 23,
+                "rentals": 438,
+                "returns": 75,
+                "net_outflow": 363
+              }
+            ],
+            "rentals": 11574,
+            "returns": 11646,
+            "net_outflow": -72,
+            "peak_hour": 17,
+            "peak_net_outflow": -1071,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST-2961",
+            "region_id": "seoul",
+            "station_name": "서울특별시 양천구 신정동 330-5",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 5,
+                "returns": 4,
+                "net_outflow": 1
+              },
+              {
+                "hour": 1,
+                "rentals": 3,
+                "returns": 2,
+                "net_outflow": 1
+              },
+              {
+                "hour": 2,
+                "rentals": 2,
+                "returns": 0,
+                "net_outflow": 2
+              },
+              {
+                "hour": 3,
+                "rentals": 6,
+                "returns": 2,
+                "net_outflow": 4
+              },
+              {
+                "hour": 4,
+                "rentals": 1,
+                "returns": 0,
+                "net_outflow": 1
+              },
+              {
+                "hour": 5,
+                "rentals": 0,
+                "returns": 4,
+                "net_outflow": -4
+              },
+              {
+                "hour": 6,
+                "rentals": 2,
+                "returns": 55,
+                "net_outflow": -53
+              },
+              {
+                "hour": 7,
+                "rentals": 17,
+                "returns": 1078,
+                "net_outflow": -1061
+              },
+              {
+                "hour": 8,
+                "rentals": 64,
+                "returns": 233,
+                "net_outflow": -169
+              },
+              {
+                "hour": 9,
+                "rentals": 72,
+                "returns": 110,
+                "net_outflow": -38
+              },
+              {
+                "hour": 10,
+                "rentals": 97,
+                "returns": 76,
+                "net_outflow": 21
+              },
+              {
+                "hour": 11,
+                "rentals": 114,
+                "returns": 58,
+                "net_outflow": 56
+              },
+              {
+                "hour": 12,
+                "rentals": 74,
+                "returns": 43,
+                "net_outflow": 31
+              },
+              {
+                "hour": 13,
+                "rentals": 44,
+                "returns": 39,
+                "net_outflow": 5
+              },
+              {
+                "hour": 14,
+                "rentals": 232,
+                "returns": 55,
+                "net_outflow": 177
+              },
+              {
+                "hour": 15,
+                "rentals": 336,
+                "returns": 57,
+                "net_outflow": 279
+              },
+              {
+                "hour": 16,
+                "rentals": 189,
+                "returns": 40,
+                "net_outflow": 149
+              },
+              {
+                "hour": 17,
+                "rentals": 118,
+                "returns": 45,
+                "net_outflow": 73
+              },
+              {
+                "hour": 18,
+                "rentals": 60,
+                "returns": 36,
+                "net_outflow": 24
+              },
+              {
+                "hour": 19,
+                "rentals": 14,
+                "returns": 30,
+                "net_outflow": -16
+              },
+              {
+                "hour": 20,
+                "rentals": 22,
+                "returns": 17,
+                "net_outflow": 5
+              },
+              {
+                "hour": 21,
+                "rentals": 27,
+                "returns": 18,
+                "net_outflow": 9
+              },
+              {
+                "hour": 22,
+                "rentals": 11,
+                "returns": 13,
+                "net_outflow": -2
+              },
+              {
+                "hour": 23,
+                "rentals": 8,
+                "returns": 4,
+                "net_outflow": 4
+              }
+            ],
+            "rentals": 1518,
+            "returns": 2019,
+            "net_outflow": -501,
+            "peak_hour": 7,
+            "peak_net_outflow": -1061,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST-3311",
+            "region_id": "seoul",
+            "station_name": "서울특별시 구로구 새말로 117-23 가로판매대",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 69,
+                "returns": 35,
+                "net_outflow": 34
+              },
+              {
+                "hour": 1,
+                "rentals": 10,
+                "returns": 5,
+                "net_outflow": 5
+              },
+              {
+                "hour": 2,
+                "rentals": 7,
+                "returns": 20,
+                "net_outflow": -13
+              },
+              {
+                "hour": 3,
+                "rentals": 12,
+                "returns": 16,
+                "net_outflow": -4
+              },
+              {
+                "hour": 4,
+                "rentals": 4,
+                "returns": 111,
+                "net_outflow": -107
+              },
+              {
+                "hour": 5,
+                "rentals": 42,
+                "returns": 390,
+                "net_outflow": -348
+              },
+              {
+                "hour": 6,
+                "rentals": 112,
+                "returns": 680,
+                "net_outflow": -568
+              },
+              {
+                "hour": 7,
+                "rentals": 291,
+                "returns": 1313,
+                "net_outflow": -1022
+              },
+              {
+                "hour": 8,
+                "rentals": 459,
+                "returns": 949,
+                "net_outflow": -490
+              },
+              {
+                "hour": 9,
+                "rentals": 238,
+                "returns": 604,
+                "net_outflow": -366
+              },
+              {
+                "hour": 10,
+                "rentals": 190,
+                "returns": 445,
+                "net_outflow": -255
+              },
+              {
+                "hour": 11,
+                "rentals": 318,
+                "returns": 481,
+                "net_outflow": -163
+              },
+              {
+                "hour": 12,
+                "rentals": 302,
+                "returns": 489,
+                "net_outflow": -187
+              },
+              {
+                "hour": 13,
+                "rentals": 372,
+                "returns": 444,
+                "net_outflow": -72
+              },
+              {
+                "hour": 14,
+                "rentals": 401,
+                "returns": 414,
+                "net_outflow": -13
+              },
+              {
+                "hour": 15,
+                "rentals": 463,
+                "returns": 429,
+                "net_outflow": 34
+              },
+              {
+                "hour": 16,
+                "rentals": 627,
+                "returns": 414,
+                "net_outflow": 213
+              },
+              {
+                "hour": 17,
+                "rentals": 908,
+                "returns": 658,
+                "net_outflow": 250
+              },
+              {
+                "hour": 18,
+                "rentals": 1348,
+                "returns": 579,
+                "net_outflow": 769
+              },
+              {
+                "hour": 19,
+                "rentals": 864,
+                "returns": 268,
+                "net_outflow": 596
+              },
+              {
+                "hour": 20,
+                "rentals": 468,
+                "returns": 195,
+                "net_outflow": 273
+              },
+              {
+                "hour": 21,
+                "rentals": 387,
+                "returns": 165,
+                "net_outflow": 222
+              },
+              {
+                "hour": 22,
+                "rentals": 286,
+                "returns": 116,
+                "net_outflow": 170
+              },
+              {
+                "hour": 23,
+                "rentals": 116,
+                "returns": 39,
+                "net_outflow": 77
+              }
+            ],
+            "rentals": 8294,
+            "returns": 9259,
+            "net_outflow": -965,
+            "peak_hour": 7,
+            "peak_net_outflow": -1022,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST-1521",
+            "region_id": "seoul",
+            "station_name": "태평양물산IT빌딩 앞",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 23,
+                "returns": 26,
+                "net_outflow": -3
+              },
+              {
+                "hour": 1,
+                "rentals": 19,
+                "returns": 11,
+                "net_outflow": 8
+              },
+              {
+                "hour": 2,
+                "rentals": 26,
+                "returns": 30,
+                "net_outflow": -4
+              },
+              {
+                "hour": 3,
+                "rentals": 19,
+                "returns": 11,
+                "net_outflow": 8
+              },
+              {
+                "hour": 4,
+                "rentals": 10,
+                "returns": 8,
+                "net_outflow": 2
+              },
+              {
+                "hour": 5,
+                "rentals": 16,
+                "returns": 9,
+                "net_outflow": 7
+              },
+              {
+                "hour": 6,
+                "rentals": 9,
+                "returns": 123,
+                "net_outflow": -114
+              },
+              {
+                "hour": 7,
+                "rentals": 36,
+                "returns": 428,
+                "net_outflow": -392
+              },
+              {
+                "hour": 8,
+                "rentals": 28,
+                "returns": 1005,
+                "net_outflow": -977
+              },
+              {
+                "hour": 9,
+                "rentals": 59,
+                "returns": 427,
+                "net_outflow": -368
+              },
+              {
+                "hour": 10,
+                "rentals": 67,
+                "returns": 174,
+                "net_outflow": -107
+              },
+              {
+                "hour": 11,
+                "rentals": 114,
+                "returns": 173,
+                "net_outflow": -59
+              },
+              {
+                "hour": 12,
+                "rentals": 147,
+                "returns": 172,
+                "net_outflow": -25
+              },
+              {
+                "hour": 13,
+                "rentals": 154,
+                "returns": 137,
+                "net_outflow": 17
+              },
+              {
+                "hour": 14,
+                "rentals": 156,
+                "returns": 133,
+                "net_outflow": 23
+              },
+              {
+                "hour": 15,
+                "rentals": 179,
+                "returns": 109,
+                "net_outflow": 70
+              },
+              {
+                "hour": 16,
+                "rentals": 247,
+                "returns": 113,
+                "net_outflow": 134
+              },
+              {
+                "hour": 17,
+                "rentals": 581,
+                "returns": 138,
+                "net_outflow": 443
+              },
+              {
+                "hour": 18,
+                "rentals": 767,
+                "returns": 140,
+                "net_outflow": 627
+              },
+              {
+                "hour": 19,
+                "rentals": 192,
+                "returns": 79,
+                "net_outflow": 113
+              },
+              {
+                "hour": 20,
+                "rentals": 119,
+                "returns": 74,
+                "net_outflow": 45
+              },
+              {
+                "hour": 21,
+                "rentals": 141,
+                "returns": 76,
+                "net_outflow": 65
+              },
+              {
+                "hour": 22,
+                "rentals": 100,
+                "returns": 51,
+                "net_outflow": 49
+              },
+              {
+                "hour": 23,
+                "rentals": 36,
+                "returns": 21,
+                "net_outflow": 15
+              }
+            ],
+            "rentals": 3245,
+            "returns": 3668,
+            "net_outflow": -423,
+            "peak_hour": 8,
+            "peak_net_outflow": -977,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST-1938",
+            "region_id": "seoul",
+            "station_name": "서울특별시 금천구 벚꽃로 298 대륭포스트타워6차",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 127,
+                "returns": 28,
+                "net_outflow": 99
+              },
+              {
+                "hour": 1,
+                "rentals": 24,
+                "returns": 18,
+                "net_outflow": 6
+              },
+              {
+                "hour": 2,
+                "rentals": 39,
+                "returns": 15,
+                "net_outflow": 24
+              },
+              {
+                "hour": 3,
+                "rentals": 8,
+                "returns": 5,
+                "net_outflow": 3
+              },
+              {
+                "hour": 4,
+                "rentals": 5,
+                "returns": 11,
+                "net_outflow": -6
+              },
+              {
+                "hour": 5,
+                "rentals": 14,
+                "returns": 98,
+                "net_outflow": -84
+              },
+              {
+                "hour": 6,
+                "rentals": 29,
+                "returns": 194,
+                "net_outflow": -165
+              },
+              {
+                "hour": 7,
+                "rentals": 148,
+                "returns": 674,
+                "net_outflow": -526
+              },
+              {
+                "hour": 8,
+                "rentals": 487,
+                "returns": 1427,
+                "net_outflow": -940
+              },
+              {
+                "hour": 9,
+                "rentals": 311,
+                "returns": 452,
+                "net_outflow": -141
+              },
+              {
+                "hour": 10,
+                "rentals": 121,
+                "returns": 217,
+                "net_outflow": -96
+              },
+              {
+                "hour": 11,
+                "rentals": 118,
+                "returns": 223,
+                "net_outflow": -105
+              },
+              {
+                "hour": 12,
+                "rentals": 161,
+                "returns": 210,
+                "net_outflow": -49
+              },
+              {
+                "hour": 13,
+                "rentals": 152,
+                "returns": 220,
+                "net_outflow": -68
+              },
+              {
+                "hour": 14,
+                "rentals": 133,
+                "returns": 180,
+                "net_outflow": -47
+              },
+              {
+                "hour": 15,
+                "rentals": 162,
+                "returns": 173,
+                "net_outflow": -11
+              },
+              {
+                "hour": 16,
+                "rentals": 199,
+                "returns": 276,
+                "net_outflow": -77
+              },
+              {
+                "hour": 17,
+                "rentals": 637,
+                "returns": 481,
+                "net_outflow": 156
+              },
+              {
+                "hour": 18,
+                "rentals": 1048,
+                "returns": 605,
+                "net_outflow": 443
+              },
+              {
+                "hour": 19,
+                "rentals": 477,
+                "returns": 267,
+                "net_outflow": 210
+              },
+              {
+                "hour": 20,
+                "rentals": 379,
+                "returns": 200,
+                "net_outflow": 179
+              },
+              {
+                "hour": 21,
+                "rentals": 299,
+                "returns": 145,
+                "net_outflow": 154
+              },
+              {
+                "hour": 22,
+                "rentals": 225,
+                "returns": 100,
+                "net_outflow": 125
+              },
+              {
+                "hour": 23,
+                "rentals": 135,
+                "returns": 60,
+                "net_outflow": 75
+              }
+            ],
+            "rentals": 5438,
+            "returns": 6279,
+            "net_outflow": -841,
+            "peak_hour": 8,
+            "peak_net_outflow": -940,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST-3370",
+            "region_id": "seoul",
+            "station_name": "서울특별시 강서구 마곡중앙로 200",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 9,
+                "returns": 3,
+                "net_outflow": 6
+              },
+              {
+                "hour": 1,
+                "rentals": 2,
+                "returns": 5,
+                "net_outflow": -3
+              },
+              {
+                "hour": 2,
+                "rentals": 2,
+                "returns": 0,
+                "net_outflow": 2
+              },
+              {
+                "hour": 4,
+                "rentals": 1,
+                "returns": 1,
+                "net_outflow": 0
+              },
+              {
+                "hour": 5,
+                "rentals": 0,
+                "returns": 27,
+                "net_outflow": -27
+              },
+              {
+                "hour": 6,
+                "rentals": 2,
+                "returns": 30,
+                "net_outflow": -28
+              },
+              {
+                "hour": 7,
+                "rentals": 19,
+                "returns": 174,
+                "net_outflow": -155
+              },
+              {
+                "hour": 8,
+                "rentals": 23,
+                "returns": 956,
+                "net_outflow": -933
+              },
+              {
+                "hour": 9,
+                "rentals": 25,
+                "returns": 141,
+                "net_outflow": -116
+              },
+              {
+                "hour": 10,
+                "rentals": 14,
+                "returns": 26,
+                "net_outflow": -12
+              },
+              {
+                "hour": 11,
+                "rentals": 143,
+                "returns": 115,
+                "net_outflow": 28
+              },
+              {
+                "hour": 12,
+                "rentals": 135,
+                "returns": 125,
+                "net_outflow": 10
+              },
+              {
+                "hour": 13,
+                "rentals": 47,
+                "returns": 70,
+                "net_outflow": -23
+              },
+              {
+                "hour": 14,
+                "rentals": 46,
+                "returns": 25,
+                "net_outflow": 21
+              },
+              {
+                "hour": 15,
+                "rentals": 53,
+                "returns": 26,
+                "net_outflow": 27
+              },
+              {
+                "hour": 16,
+                "rentals": 73,
+                "returns": 25,
+                "net_outflow": 48
+              },
+              {
+                "hour": 17,
+                "rentals": 223,
+                "returns": 30,
+                "net_outflow": 193
+              },
+              {
+                "hour": 18,
+                "rentals": 668,
+                "returns": 40,
+                "net_outflow": 628
+              },
+              {
+                "hour": 19,
+                "rentals": 107,
+                "returns": 22,
+                "net_outflow": 85
+              },
+              {
+                "hour": 20,
+                "rentals": 61,
+                "returns": 15,
+                "net_outflow": 46
+              },
+              {
+                "hour": 21,
+                "rentals": 25,
+                "returns": 15,
+                "net_outflow": 10
+              },
+              {
+                "hour": 22,
+                "rentals": 36,
+                "returns": 6,
+                "net_outflow": 30
+              },
+              {
+                "hour": 23,
+                "rentals": 7,
+                "returns": 2,
+                "net_outflow": 5
+              }
+            ],
+            "rentals": 1721,
+            "returns": 1879,
+            "net_outflow": -158,
+            "peak_hour": 8,
+            "peak_net_outflow": -933,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          }
+        ],
+        "inventory_available": false,
+        "message": "대여·반납 관측 기반 검토 대상. 재고·실제 부족·이동 수량은 미확보."
+      },
+      "api_ms": {
+        "transit-linkage": [
+          187.03004601411521,
+          175.92839896678925
+        ],
+        "vulnerability": [
+          120.20156788639724,
+          119.46022394113243
+        ],
+        "planning": [
+          562.401965027675,
+          325.9343758691102
+        ]
+      }
+    },
+    {
+      "city": "daejeon",
+      "period": [
+        "2026-10-01",
+        "2026-10-31"
+      ],
+      "goal_metrics": {
+        "anchor_label": "지하철역",
+        "anchor_300m_ratio": 0.09836065573770492,
+        "first_last_mile_count": 258,
+        "reference_all_stops_outside500": 1,
+        "located_station_count": 1403,
+        "subway_station_count": 1403,
+        "subway_300m_ratio": 0.09836065573770492,
+        "outside_500m_active_count": 1127,
+        "linked_trip_share": 0.28413301312937295,
+        "linked_trip_total": 923578
+      },
+      "candidate_count": 1127,
+      "first_last_mile_count": 258,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 16206891.226654623,
+        "linked_area_m2": 22933810.255814403,
+        "added_area_m2": 6726919.029159781,
+        "uncovered_area_m2": 523224469.0781939,
+        "uncovered_recovery_ratio": 0.012856659859603142,
+        "area_increase_ratio": 0.41506535307007986,
+        "baseline_station_count": 259,
+        "linked_station_count": 339,
+        "added_station_count": 80,
+        "station_count_increase_ratio": 0.3088803088803089,
+        "population_increase_ratio": null
+      },
+      "ranking": [
+        {
+          "region_id": "daejeon",
+          "station_id": "ST0952",
+          "station_name": "목상동 다사랑아파트 104동",
+          "latitude": 36.447099,
+          "longitude": 127.414697,
+          "nearest_stop_distance_m": 10391.053941287166,
+          "rental_count": 1582,
+          "return_count": 1570,
+          "accessibility_deficit": 19.78210788257433,
+          "vulnerability": 31295.29467023259,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_confidence": "relative_within_city",
+          "candidate_population": 1127,
+          "score_components": {
+            "accessibility_deficit": 0.9729370008873115,
+            "rental_count": 0.9205856255545697,
+            "potential_added_area_m2": 0.5740905057675244
+          },
+          "score": 0.8225377107364684,
+          "demand_weighted_sensitivity_score": 0.8470496894409938,
+          "rank": 1,
+          "distance_band": "500m 밖"
+        },
+        {
+          "region_id": "daejeon",
+          "station_id": "ST0150",
+          "station_name": "관평동 롯데마트대덕점(관평중학교 방면) 정류장",
+          "latitude": 36.426897,
+          "longitude": 127.38951,
+          "nearest_stop_distance_m": 7735.880763301632,
+          "rental_count": 1839,
+          "return_count": 1867,
+          "accessibility_deficit": 14.471761526603265,
+          "vulnerability": 26613.569447423404,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_confidence": "relative_within_city",
+          "candidate_population": 1127,
+          "score_components": {
+            "accessibility_deficit": 0.9188110026619344,
+            "rental_count": 0.9436557231588287,
+            "potential_added_area_m2": 0.5740905057675244
+          },
+          "score": 0.8121857438627624,
+          "demand_weighted_sensitivity_score": 0.8450532386867791,
+          "rank": 2,
+          "distance_band": "500m 밖"
+        },
+        {
+          "region_id": "daejeon",
+          "station_id": "ST0151",
+          "station_name": "관평동 티플라자",
+          "latitude": 36.425805,
+          "longitude": 127.389969,
+          "nearest_stop_distance_m": 7619.245786969862,
+          "rental_count": 1872,
+          "return_count": 1848,
+          "accessibility_deficit": 14.238491573939724,
+          "vulnerability": 26654.456226415165,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_confidence": "relative_within_city",
+          "candidate_population": 1127,
+          "score_components": {
+            "accessibility_deficit": 0.917036379769299,
+            "rental_count": 0.945430346051464,
+            "potential_added_area_m2": 0.5740905057675244
+          },
+          "score": 0.8121857438627624,
+          "demand_weighted_sensitivity_score": 0.8454968944099379,
+          "rank": 3,
+          "distance_band": "500m 밖"
+        }
+      ],
+      "gap_grid_features": 2335,
+      "new_site_count": 483,
+      "population_basis": "2026-10 구 주민등록 인구밀도. 실측 격자인구 아님.",
+      "relocation": {
+        "available": true,
+        "items": [
+          {
+            "station_id": "ST1033",
+            "region_id": "daejeon",
+            "station_name": "둔산동 정부청사 입구(남문)",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 1,
+                "returns": 3,
+                "net_outflow": -2
+              },
+              {
+                "hour": 1,
+                "rentals": 1,
+                "returns": 2,
+                "net_outflow": -1
+              },
+              {
+                "hour": 2,
+                "rentals": 2,
+                "returns": 0,
+                "net_outflow": 2
+              },
+              {
+                "hour": 3,
+                "rentals": 1,
+                "returns": 2,
+                "net_outflow": -1
+              },
+              {
+                "hour": 4,
+                "rentals": 2,
+                "returns": 16,
+                "net_outflow": -14
+              },
+              {
+                "hour": 5,
+                "rentals": 4,
+                "returns": 31,
+                "net_outflow": -27
+              },
+              {
+                "hour": 6,
+                "rentals": 10,
+                "returns": 180,
+                "net_outflow": -170
+              },
+              {
+                "hour": 7,
+                "rentals": 80,
+                "returns": 539,
+                "net_outflow": -459
+              },
+              {
+                "hour": 8,
+                "rentals": 275,
+                "returns": 1247,
+                "net_outflow": -972
+              },
+              {
+                "hour": 9,
+                "rentals": 207,
+                "returns": 175,
+                "net_outflow": 32
+              },
+              {
+                "hour": 10,
+                "rentals": 147,
+                "returns": 62,
+                "net_outflow": 85
+              },
+              {
+                "hour": 11,
+                "rentals": 648,
+                "returns": 87,
+                "net_outflow": 561
+              },
+              {
+                "hour": 12,
+                "rentals": 245,
+                "returns": 389,
+                "net_outflow": -144
+              },
+              {
+                "hour": 13,
+                "rentals": 171,
+                "returns": 122,
+                "net_outflow": 49
+              },
+              {
+                "hour": 14,
+                "rentals": 191,
+                "returns": 79,
+                "net_outflow": 112
+              },
+              {
+                "hour": 15,
+                "rentals": 285,
+                "returns": 68,
+                "net_outflow": 217
+              },
+              {
+                "hour": 16,
+                "rentals": 386,
+                "returns": 84,
+                "net_outflow": 302
+              },
+              {
+                "hour": 17,
+                "rentals": 333,
+                "returns": 72,
+                "net_outflow": 261
+              },
+              {
+                "hour": 18,
+                "rentals": 80,
+                "returns": 62,
+                "net_outflow": 18
+              },
+              {
+                "hour": 19,
+                "rentals": 48,
+                "returns": 52,
+                "net_outflow": -4
+              },
+              {
+                "hour": 20,
+                "rentals": 41,
+                "returns": 27,
+                "net_outflow": 14
+              },
+              {
+                "hour": 21,
+                "rentals": 31,
+                "returns": 13,
+                "net_outflow": 18
+              },
+              {
+                "hour": 22,
+                "rentals": 14,
+                "returns": 10,
+                "net_outflow": 4
+              },
+              {
+                "hour": 23,
+                "rentals": 5,
+                "returns": 3,
+                "net_outflow": 2
+              }
+            ],
+            "rentals": 3208,
+            "returns": 3325,
+            "net_outflow": -117,
+            "peak_hour": 8,
+            "peak_net_outflow": -972,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST1341",
+            "region_id": "daejeon",
+            "station_name": "구성동 카이스트 정보전자동 (1410)",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 37,
+                "returns": 25,
+                "net_outflow": 12
+              },
+              {
+                "hour": 1,
+                "rentals": 19,
+                "returns": 12,
+                "net_outflow": 7
+              },
+              {
+                "hour": 2,
+                "rentals": 11,
+                "returns": 9,
+                "net_outflow": 2
+              },
+              {
+                "hour": 3,
+                "rentals": 13,
+                "returns": 8,
+                "net_outflow": 5
+              },
+              {
+                "hour": 4,
+                "rentals": 7,
+                "returns": 6,
+                "net_outflow": 1
+              },
+              {
+                "hour": 5,
+                "rentals": 6,
+                "returns": 21,
+                "net_outflow": -15
+              },
+              {
+                "hour": 6,
+                "rentals": 17,
+                "returns": 35,
+                "net_outflow": -18
+              },
+              {
+                "hour": 7,
+                "rentals": 23,
+                "returns": 144,
+                "net_outflow": -121
+              },
+              {
+                "hour": 8,
+                "rentals": 56,
+                "returns": 526,
+                "net_outflow": -470
+              },
+              {
+                "hour": 9,
+                "rentals": 71,
+                "returns": 494,
+                "net_outflow": -423
+              },
+              {
+                "hour": 10,
+                "rentals": 172,
+                "returns": 505,
+                "net_outflow": -333
+              },
+              {
+                "hour": 11,
+                "rentals": 457,
+                "returns": 385,
+                "net_outflow": 72
+              },
+              {
+                "hour": 12,
+                "rentals": 357,
+                "returns": 513,
+                "net_outflow": -156
+              },
+              {
+                "hour": 13,
+                "rentals": 251,
+                "returns": 407,
+                "net_outflow": -156
+              },
+              {
+                "hour": 14,
+                "rentals": 384,
+                "returns": 376,
+                "net_outflow": 8
+              },
+              {
+                "hour": 15,
+                "rentals": 403,
+                "returns": 340,
+                "net_outflow": 63
+              },
+              {
+                "hour": 16,
+                "rentals": 484,
+                "returns": 231,
+                "net_outflow": 253
+              },
+              {
+                "hour": 17,
+                "rentals": 1001,
+                "returns": 261,
+                "net_outflow": 740
+              },
+              {
+                "hour": 18,
+                "rentals": 530,
+                "returns": 271,
+                "net_outflow": 259
+              },
+              {
+                "hour": 19,
+                "rentals": 304,
+                "returns": 249,
+                "net_outflow": 55
+              },
+              {
+                "hour": 20,
+                "rentals": 187,
+                "returns": 141,
+                "net_outflow": 46
+              },
+              {
+                "hour": 21,
+                "rentals": 130,
+                "returns": 106,
+                "net_outflow": 24
+              },
+              {
+                "hour": 22,
+                "rentals": 90,
+                "returns": 77,
+                "net_outflow": 13
+              },
+              {
+                "hour": 23,
+                "rentals": 36,
+                "returns": 28,
+                "net_outflow": 8
+              }
+            ],
+            "rentals": 5046,
+            "returns": 5170,
+            "net_outflow": -124,
+            "peak_hour": 17,
+            "peak_net_outflow": 740,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST1016",
+            "region_id": "daejeon",
+            "station_name": "궁동 충남대학교 학생회관",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 97,
+                "returns": 87,
+                "net_outflow": 10
+              },
+              {
+                "hour": 1,
+                "rentals": 45,
+                "returns": 36,
+                "net_outflow": 9
+              },
+              {
+                "hour": 2,
+                "rentals": 25,
+                "returns": 21,
+                "net_outflow": 4
+              },
+              {
+                "hour": 3,
+                "rentals": 16,
+                "returns": 12,
+                "net_outflow": 4
+              },
+              {
+                "hour": 4,
+                "rentals": 9,
+                "returns": 9,
+                "net_outflow": 0
+              },
+              {
+                "hour": 5,
+                "rentals": 9,
+                "returns": 14,
+                "net_outflow": -5
+              },
+              {
+                "hour": 6,
+                "rentals": 8,
+                "returns": 41,
+                "net_outflow": -33
+              },
+              {
+                "hour": 7,
+                "rentals": 35,
+                "returns": 107,
+                "net_outflow": -72
+              },
+              {
+                "hour": 8,
+                "rentals": 94,
+                "returns": 729,
+                "net_outflow": -635
+              },
+              {
+                "hour": 9,
+                "rentals": 151,
+                "returns": 530,
+                "net_outflow": -379
+              },
+              {
+                "hour": 10,
+                "rentals": 348,
+                "returns": 414,
+                "net_outflow": -66
+              },
+              {
+                "hour": 11,
+                "rentals": 835,
+                "returns": 400,
+                "net_outflow": 435
+              },
+              {
+                "hour": 12,
+                "rentals": 537,
+                "returns": 612,
+                "net_outflow": -75
+              },
+              {
+                "hour": 13,
+                "rentals": 464,
+                "returns": 691,
+                "net_outflow": -227
+              },
+              {
+                "hour": 14,
+                "rentals": 634,
+                "returns": 500,
+                "net_outflow": 134
+              },
+              {
+                "hour": 15,
+                "rentals": 771,
+                "returns": 341,
+                "net_outflow": 430
+              },
+              {
+                "hour": 16,
+                "rentals": 595,
+                "returns": 298,
+                "net_outflow": 297
+              },
+              {
+                "hour": 17,
+                "rentals": 292,
+                "returns": 237,
+                "net_outflow": 55
+              },
+              {
+                "hour": 18,
+                "rentals": 259,
+                "returns": 283,
+                "net_outflow": -24
+              },
+              {
+                "hour": 19,
+                "rentals": 220,
+                "returns": 231,
+                "net_outflow": -11
+              },
+              {
+                "hour": 20,
+                "rentals": 211,
+                "returns": 215,
+                "net_outflow": -4
+              },
+              {
+                "hour": 21,
+                "rentals": 201,
+                "returns": 188,
+                "net_outflow": 13
+              },
+              {
+                "hour": 22,
+                "rentals": 211,
+                "returns": 170,
+                "net_outflow": 41
+              },
+              {
+                "hour": 23,
+                "rentals": 113,
+                "returns": 101,
+                "net_outflow": 12
+              }
+            ],
+            "rentals": 6180,
+            "returns": 6267,
+            "net_outflow": -87,
+            "peak_hour": 8,
+            "peak_net_outflow": -635,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST0375",
+            "region_id": "daejeon",
+            "station_name": "구성동 카이스트 창의학습관",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 22,
+                "returns": 16,
+                "net_outflow": 6
+              },
+              {
+                "hour": 1,
+                "rentals": 8,
+                "returns": 7,
+                "net_outflow": 1
+              },
+              {
+                "hour": 2,
+                "rentals": 12,
+                "returns": 9,
+                "net_outflow": 3
+              },
+              {
+                "hour": 3,
+                "rentals": 6,
+                "returns": 4,
+                "net_outflow": 2
+              },
+              {
+                "hour": 4,
+                "rentals": 2,
+                "returns": 2,
+                "net_outflow": 0
+              },
+              {
+                "hour": 5,
+                "rentals": 1,
+                "returns": 9,
+                "net_outflow": -8
+              },
+              {
+                "hour": 6,
+                "rentals": 3,
+                "returns": 7,
+                "net_outflow": -4
+              },
+              {
+                "hour": 7,
+                "rentals": 12,
+                "returns": 85,
+                "net_outflow": -73
+              },
+              {
+                "hour": 8,
+                "rentals": 33,
+                "returns": 435,
+                "net_outflow": -402
+              },
+              {
+                "hour": 9,
+                "rentals": 59,
+                "returns": 326,
+                "net_outflow": -267
+              },
+              {
+                "hour": 10,
+                "rentals": 189,
+                "returns": 396,
+                "net_outflow": -207
+              },
+              {
+                "hour": 11,
+                "rentals": 354,
+                "returns": 207,
+                "net_outflow": 147
+              },
+              {
+                "hour": 12,
+                "rentals": 279,
+                "returns": 405,
+                "net_outflow": -126
+              },
+              {
+                "hour": 13,
+                "rentals": 208,
+                "returns": 255,
+                "net_outflow": -47
+              },
+              {
+                "hour": 14,
+                "rentals": 419,
+                "returns": 349,
+                "net_outflow": 70
+              },
+              {
+                "hour": 15,
+                "rentals": 508,
+                "returns": 279,
+                "net_outflow": 229
+              },
+              {
+                "hour": 16,
+                "rentals": 357,
+                "returns": 180,
+                "net_outflow": 177
+              },
+              {
+                "hour": 17,
+                "rentals": 498,
+                "returns": 197,
+                "net_outflow": 301
+              },
+              {
+                "hour": 18,
+                "rentals": 246,
+                "returns": 158,
+                "net_outflow": 88
+              },
+              {
+                "hour": 19,
+                "rentals": 142,
+                "returns": 124,
+                "net_outflow": 18
+              },
+              {
+                "hour": 20,
+                "rentals": 111,
+                "returns": 106,
+                "net_outflow": 5
+              },
+              {
+                "hour": 21,
+                "rentals": 65,
+                "returns": 62,
+                "net_outflow": 3
+              },
+              {
+                "hour": 22,
+                "rentals": 83,
+                "returns": 59,
+                "net_outflow": 24
+              },
+              {
+                "hour": 23,
+                "rentals": 35,
+                "returns": 20,
+                "net_outflow": 15
+              }
+            ],
+            "rentals": 3652,
+            "returns": 3697,
+            "net_outflow": -45,
+            "peak_hour": 8,
+            "peak_net_outflow": -402,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST1194",
+            "region_id": "daejeon",
+            "station_name": "관평동 대덕비즈센터 남문 맞은편",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 5,
+                "returns": 5,
+                "net_outflow": 0
+              },
+              {
+                "hour": 1,
+                "rentals": 3,
+                "returns": 1,
+                "net_outflow": 2
+              },
+              {
+                "hour": 2,
+                "rentals": 1,
+                "returns": 2,
+                "net_outflow": -1
+              },
+              {
+                "hour": 4,
+                "rentals": 1,
+                "returns": 4,
+                "net_outflow": -3
+              },
+              {
+                "hour": 5,
+                "rentals": 0,
+                "returns": 2,
+                "net_outflow": -2
+              },
+              {
+                "hour": 6,
+                "rentals": 6,
+                "returns": 20,
+                "net_outflow": -14
+              },
+              {
+                "hour": 7,
+                "rentals": 12,
+                "returns": 153,
+                "net_outflow": -141
+              },
+              {
+                "hour": 8,
+                "rentals": 80,
+                "returns": 331,
+                "net_outflow": -251
+              },
+              {
+                "hour": 9,
+                "rentals": 32,
+                "returns": 98,
+                "net_outflow": -66
+              },
+              {
+                "hour": 10,
+                "rentals": 33,
+                "returns": 26,
+                "net_outflow": 7
+              },
+              {
+                "hour": 11,
+                "rentals": 71,
+                "returns": 48,
+                "net_outflow": 23
+              },
+              {
+                "hour": 12,
+                "rentals": 83,
+                "returns": 67,
+                "net_outflow": 16
+              },
+              {
+                "hour": 13,
+                "rentals": 52,
+                "returns": 86,
+                "net_outflow": -34
+              },
+              {
+                "hour": 14,
+                "rentals": 53,
+                "returns": 28,
+                "net_outflow": 25
+              },
+              {
+                "hour": 15,
+                "rentals": 44,
+                "returns": 23,
+                "net_outflow": 21
+              },
+              {
+                "hour": 16,
+                "rentals": 94,
+                "returns": 31,
+                "net_outflow": 63
+              },
+              {
+                "hour": 17,
+                "rentals": 333,
+                "returns": 40,
+                "net_outflow": 293
+              },
+              {
+                "hour": 18,
+                "rentals": 99,
+                "returns": 55,
+                "net_outflow": 44
+              },
+              {
+                "hour": 19,
+                "rentals": 20,
+                "returns": 22,
+                "net_outflow": -2
+              },
+              {
+                "hour": 20,
+                "rentals": 21,
+                "returns": 19,
+                "net_outflow": 2
+              },
+              {
+                "hour": 21,
+                "rentals": 18,
+                "returns": 15,
+                "net_outflow": 3
+              },
+              {
+                "hour": 22,
+                "rentals": 18,
+                "returns": 11,
+                "net_outflow": 7
+              },
+              {
+                "hour": 23,
+                "rentals": 5,
+                "returns": 3,
+                "net_outflow": 2
+              }
+            ],
+            "rentals": 1084,
+            "returns": 1090,
+            "net_outflow": -6,
+            "peak_hour": 17,
+            "peak_net_outflow": 293,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST1315",
+            "region_id": "daejeon",
+            "station_name": "삼성동 한밭중네거리(북부교 방면)",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 5,
+                "returns": 4,
+                "net_outflow": 1
+              },
+              {
+                "hour": 1,
+                "rentals": 1,
+                "returns": 6,
+                "net_outflow": -5
+              },
+              {
+                "hour": 2,
+                "rentals": 4,
+                "returns": 6,
+                "net_outflow": -2
+              },
+              {
+                "hour": 3,
+                "rentals": 1,
+                "returns": 0,
+                "net_outflow": 1
+              },
+              {
+                "hour": 4,
+                "rentals": 3,
+                "returns": 3,
+                "net_outflow": 0
+              },
+              {
+                "hour": 5,
+                "rentals": 7,
+                "returns": 7,
+                "net_outflow": 0
+              },
+              {
+                "hour": 6,
+                "rentals": 0,
+                "returns": 5,
+                "net_outflow": -5
+              },
+              {
+                "hour": 7,
+                "rentals": 5,
+                "returns": 282,
+                "net_outflow": -277
+              },
+              {
+                "hour": 8,
+                "rentals": 44,
+                "returns": 21,
+                "net_outflow": 23
+              },
+              {
+                "hour": 9,
+                "rentals": 33,
+                "returns": 10,
+                "net_outflow": 23
+              },
+              {
+                "hour": 10,
+                "rentals": 16,
+                "returns": 7,
+                "net_outflow": 9
+              },
+              {
+                "hour": 11,
+                "rentals": 28,
+                "returns": 11,
+                "net_outflow": 17
+              },
+              {
+                "hour": 12,
+                "rentals": 71,
+                "returns": 29,
+                "net_outflow": 42
+              },
+              {
+                "hour": 13,
+                "rentals": 17,
+                "returns": 10,
+                "net_outflow": 7
+              },
+              {
+                "hour": 14,
+                "rentals": 44,
+                "returns": 10,
+                "net_outflow": 34
+              },
+              {
+                "hour": 15,
+                "rentals": 138,
+                "returns": 25,
+                "net_outflow": 113
+              },
+              {
+                "hour": 16,
+                "rentals": 39,
+                "returns": 25,
+                "net_outflow": 14
+              },
+              {
+                "hour": 17,
+                "rentals": 20,
+                "returns": 11,
+                "net_outflow": 9
+              },
+              {
+                "hour": 18,
+                "rentals": 18,
+                "returns": 17,
+                "net_outflow": 1
+              },
+              {
+                "hour": 19,
+                "rentals": 13,
+                "returns": 11,
+                "net_outflow": 2
+              },
+              {
+                "hour": 20,
+                "rentals": 5,
+                "returns": 5,
+                "net_outflow": 0
+              },
+              {
+                "hour": 21,
+                "rentals": 20,
+                "returns": 26,
+                "net_outflow": -6
+              },
+              {
+                "hour": 22,
+                "rentals": 10,
+                "returns": 12,
+                "net_outflow": -2
+              },
+              {
+                "hour": 23,
+                "rentals": 8,
+                "returns": 7,
+                "net_outflow": 1
+              }
+            ],
+            "rentals": 550,
+            "returns": 550,
+            "net_outflow": 0,
+            "peak_hour": 7,
+            "peak_net_outflow": -277,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "관측 균형"
+          },
+          {
+            "station_id": "ST0925",
+            "region_id": "daejeon",
+            "station_name": "용산동 대전테크노파크용산동 에스피에스",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 0,
+                "returns": 2,
+                "net_outflow": -2
+              },
+              {
+                "hour": 1,
+                "rentals": 0,
+                "returns": 1,
+                "net_outflow": -1
+              },
+              {
+                "hour": 2,
+                "rentals": 0,
+                "returns": 1,
+                "net_outflow": -1
+              },
+              {
+                "hour": 3,
+                "rentals": 1,
+                "returns": 0,
+                "net_outflow": 1
+              },
+              {
+                "hour": 4,
+                "rentals": 1,
+                "returns": 1,
+                "net_outflow": 0
+              },
+              {
+                "hour": 6,
+                "rentals": 0,
+                "returns": 13,
+                "net_outflow": -13
+              },
+              {
+                "hour": 7,
+                "rentals": 21,
+                "returns": 105,
+                "net_outflow": -84
+              },
+              {
+                "hour": 8,
+                "rentals": 10,
+                "returns": 284,
+                "net_outflow": -274
+              },
+              {
+                "hour": 9,
+                "rentals": 7,
+                "returns": 99,
+                "net_outflow": -92
+              },
+              {
+                "hour": 10,
+                "rentals": 9,
+                "returns": 9,
+                "net_outflow": 0
+              },
+              {
+                "hour": 11,
+                "rentals": 32,
+                "returns": 15,
+                "net_outflow": 17
+              },
+              {
+                "hour": 12,
+                "rentals": 58,
+                "returns": 36,
+                "net_outflow": 22
+              },
+              {
+                "hour": 13,
+                "rentals": 18,
+                "returns": 24,
+                "net_outflow": -6
+              },
+              {
+                "hour": 14,
+                "rentals": 30,
+                "returns": 25,
+                "net_outflow": 5
+              },
+              {
+                "hour": 15,
+                "rentals": 35,
+                "returns": 19,
+                "net_outflow": 16
+              },
+              {
+                "hour": 16,
+                "rentals": 49,
+                "returns": 19,
+                "net_outflow": 30
+              },
+              {
+                "hour": 17,
+                "rentals": 212,
+                "returns": 20,
+                "net_outflow": 192
+              },
+              {
+                "hour": 18,
+                "rentals": 164,
+                "returns": 24,
+                "net_outflow": 140
+              },
+              {
+                "hour": 19,
+                "rentals": 24,
+                "returns": 43,
+                "net_outflow": -19
+              },
+              {
+                "hour": 20,
+                "rentals": 16,
+                "returns": 5,
+                "net_outflow": 11
+              },
+              {
+                "hour": 21,
+                "rentals": 11,
+                "returns": 7,
+                "net_outflow": 4
+              },
+              {
+                "hour": 22,
+                "rentals": 26,
+                "returns": 3,
+                "net_outflow": 23
+              },
+              {
+                "hour": 23,
+                "rentals": 3,
+                "returns": 1,
+                "net_outflow": 2
+              }
+            ],
+            "rentals": 727,
+            "returns": 756,
+            "net_outflow": -29,
+            "peak_hour": 8,
+            "peak_net_outflow": -274,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST0412",
+            "region_id": "daejeon",
+            "station_name": "도룡동 무역전시관입구(미래에너지움 앞)",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 30,
+                "returns": 25,
+                "net_outflow": 5
+              },
+              {
+                "hour": 1,
+                "rentals": 13,
+                "returns": 13,
+                "net_outflow": 0
+              },
+              {
+                "hour": 2,
+                "rentals": 11,
+                "returns": 15,
+                "net_outflow": -4
+              },
+              {
+                "hour": 3,
+                "rentals": 3,
+                "returns": 5,
+                "net_outflow": -2
+              },
+              {
+                "hour": 4,
+                "rentals": 8,
+                "returns": 5,
+                "net_outflow": 3
+              },
+              {
+                "hour": 5,
+                "rentals": 2,
+                "returns": 8,
+                "net_outflow": -6
+              },
+              {
+                "hour": 6,
+                "rentals": 12,
+                "returns": 14,
+                "net_outflow": -2
+              },
+              {
+                "hour": 7,
+                "rentals": 29,
+                "returns": 85,
+                "net_outflow": -56
+              },
+              {
+                "hour": 8,
+                "rentals": 96,
+                "returns": 191,
+                "net_outflow": -95
+              },
+              {
+                "hour": 9,
+                "rentals": 109,
+                "returns": 196,
+                "net_outflow": -87
+              },
+              {
+                "hour": 10,
+                "rentals": 175,
+                "returns": 225,
+                "net_outflow": -50
+              },
+              {
+                "hour": 11,
+                "rentals": 213,
+                "returns": 263,
+                "net_outflow": -50
+              },
+              {
+                "hour": 12,
+                "rentals": 289,
+                "returns": 413,
+                "net_outflow": -124
+              },
+              {
+                "hour": 13,
+                "rentals": 363,
+                "returns": 541,
+                "net_outflow": -178
+              },
+              {
+                "hour": 14,
+                "rentals": 498,
+                "returns": 565,
+                "net_outflow": -67
+              },
+              {
+                "hour": 15,
+                "rentals": 713,
+                "returns": 701,
+                "net_outflow": 12
+              },
+              {
+                "hour": 16,
+                "rentals": 920,
+                "returns": 786,
+                "net_outflow": 134
+              },
+              {
+                "hour": 17,
+                "rentals": 1126,
+                "returns": 866,
+                "net_outflow": 260
+              },
+              {
+                "hour": 18,
+                "rentals": 864,
+                "returns": 839,
+                "net_outflow": 25
+              },
+              {
+                "hour": 19,
+                "rentals": 589,
+                "returns": 580,
+                "net_outflow": 9
+              },
+              {
+                "hour": 20,
+                "rentals": 553,
+                "returns": 493,
+                "net_outflow": 60
+              },
+              {
+                "hour": 21,
+                "rentals": 287,
+                "returns": 197,
+                "net_outflow": 90
+              },
+              {
+                "hour": 22,
+                "rentals": 111,
+                "returns": 97,
+                "net_outflow": 14
+              },
+              {
+                "hour": 23,
+                "rentals": 64,
+                "returns": 52,
+                "net_outflow": 12
+              }
+            ],
+            "rentals": 7078,
+            "returns": 7175,
+            "net_outflow": -97,
+            "peak_hour": 17,
+            "peak_net_outflow": 260,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST0065",
+            "region_id": "daejeon",
+            "station_name": "정동 대전역(대한통운 건너편)",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 14,
+                "returns": 7,
+                "net_outflow": 7
+              },
+              {
+                "hour": 1,
+                "rentals": 2,
+                "returns": 7,
+                "net_outflow": -5
+              },
+              {
+                "hour": 2,
+                "rentals": 3,
+                "returns": 3,
+                "net_outflow": 0
+              },
+              {
+                "hour": 3,
+                "rentals": 2,
+                "returns": 3,
+                "net_outflow": -1
+              },
+              {
+                "hour": 4,
+                "rentals": 3,
+                "returns": 16,
+                "net_outflow": -13
+              },
+              {
+                "hour": 5,
+                "rentals": 31,
+                "returns": 163,
+                "net_outflow": -132
+              },
+              {
+                "hour": 6,
+                "rentals": 65,
+                "returns": 297,
+                "net_outflow": -232
+              },
+              {
+                "hour": 7,
+                "rentals": 153,
+                "returns": 227,
+                "net_outflow": -74
+              },
+              {
+                "hour": 8,
+                "rentals": 206,
+                "returns": 207,
+                "net_outflow": -1
+              },
+              {
+                "hour": 9,
+                "rentals": 189,
+                "returns": 127,
+                "net_outflow": 62
+              },
+              {
+                "hour": 10,
+                "rentals": 118,
+                "returns": 129,
+                "net_outflow": -11
+              },
+              {
+                "hour": 11,
+                "rentals": 149,
+                "returns": 133,
+                "net_outflow": 16
+              },
+              {
+                "hour": 12,
+                "rentals": 154,
+                "returns": 177,
+                "net_outflow": -23
+              },
+              {
+                "hour": 13,
+                "rentals": 195,
+                "returns": 187,
+                "net_outflow": 8
+              },
+              {
+                "hour": 14,
+                "rentals": 223,
+                "returns": 182,
+                "net_outflow": 41
+              },
+              {
+                "hour": 15,
+                "rentals": 259,
+                "returns": 177,
+                "net_outflow": 82
+              },
+              {
+                "hour": 16,
+                "rentals": 270,
+                "returns": 188,
+                "net_outflow": 82
+              },
+              {
+                "hour": 17,
+                "rentals": 290,
+                "returns": 231,
+                "net_outflow": 59
+              },
+              {
+                "hour": 18,
+                "rentals": 248,
+                "returns": 195,
+                "net_outflow": 53
+              },
+              {
+                "hour": 19,
+                "rentals": 118,
+                "returns": 95,
+                "net_outflow": 23
+              },
+              {
+                "hour": 20,
+                "rentals": 98,
+                "returns": 78,
+                "net_outflow": 20
+              },
+              {
+                "hour": 21,
+                "rentals": 81,
+                "returns": 83,
+                "net_outflow": -2
+              },
+              {
+                "hour": 22,
+                "rentals": 58,
+                "returns": 39,
+                "net_outflow": 19
+              },
+              {
+                "hour": 23,
+                "rentals": 40,
+                "returns": 32,
+                "net_outflow": 8
+              }
+            ],
+            "rentals": 2969,
+            "returns": 2983,
+            "net_outflow": -14,
+            "peak_hour": 6,
+            "peak_net_outflow": -232,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "ST1343",
+            "region_id": "daejeon",
+            "station_name": "용문동 둔산더샵엘리프 2단지(204동)",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 69,
+                "returns": 74,
+                "net_outflow": -5
+              },
+              {
+                "hour": 1,
+                "rentals": 44,
+                "returns": 41,
+                "net_outflow": 3
+              },
+              {
+                "hour": 2,
+                "rentals": 17,
+                "returns": 25,
+                "net_outflow": -8
+              },
+              {
+                "hour": 3,
+                "rentals": 21,
+                "returns": 7,
+                "net_outflow": 14
+              },
+              {
+                "hour": 4,
+                "rentals": 33,
+                "returns": 9,
+                "net_outflow": 24
+              },
+              {
+                "hour": 5,
+                "rentals": 19,
+                "returns": 7,
+                "net_outflow": 12
+              },
+              {
+                "hour": 6,
+                "rentals": 175,
+                "returns": 32,
+                "net_outflow": 143
+              },
+              {
+                "hour": 7,
+                "rentals": 286,
+                "returns": 62,
+                "net_outflow": 224
+              },
+              {
+                "hour": 8,
+                "rentals": 131,
+                "returns": 69,
+                "net_outflow": 62
+              },
+              {
+                "hour": 9,
+                "rentals": 104,
+                "returns": 89,
+                "net_outflow": 15
+              },
+              {
+                "hour": 10,
+                "rentals": 132,
+                "returns": 118,
+                "net_outflow": 14
+              },
+              {
+                "hour": 11,
+                "rentals": 119,
+                "returns": 130,
+                "net_outflow": -11
+              },
+              {
+                "hour": 12,
+                "rentals": 167,
+                "returns": 159,
+                "net_outflow": 8
+              },
+              {
+                "hour": 13,
+                "rentals": 172,
+                "returns": 176,
+                "net_outflow": -4
+              },
+              {
+                "hour": 14,
+                "rentals": 119,
+                "returns": 149,
+                "net_outflow": -30
+              },
+              {
+                "hour": 15,
+                "rentals": 171,
+                "returns": 217,
+                "net_outflow": -46
+              },
+              {
+                "hour": 16,
+                "rentals": 195,
+                "returns": 223,
+                "net_outflow": -28
+              },
+              {
+                "hour": 17,
+                "rentals": 295,
+                "returns": 307,
+                "net_outflow": -12
+              },
+              {
+                "hour": 18,
+                "rentals": 255,
+                "returns": 342,
+                "net_outflow": -87
+              },
+              {
+                "hour": 19,
+                "rentals": 234,
+                "returns": 302,
+                "net_outflow": -68
+              },
+              {
+                "hour": 20,
+                "rentals": 166,
+                "returns": 277,
+                "net_outflow": -111
+              },
+              {
+                "hour": 21,
+                "rentals": 149,
+                "returns": 285,
+                "net_outflow": -136
+              },
+              {
+                "hour": 22,
+                "rentals": 135,
+                "returns": 245,
+                "net_outflow": -110
+              },
+              {
+                "hour": 23,
+                "rentals": 151,
+                "returns": 108,
+                "net_outflow": 43
+              }
+            ],
+            "rentals": 3359,
+            "returns": 3453,
+            "net_outflow": -94,
+            "peak_hour": 7,
+            "peak_net_outflow": 224,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          }
+        ],
+        "inventory_available": false,
+        "message": "대여·반납 관측 기반 검토 대상. 재고·실제 부족·이동 수량은 미확보."
+      },
+      "api_ms": {
+        "transit-linkage": [
+          106.9805019069463,
+          99.59844592958689
+        ],
+        "vulnerability": [
+          102.32185898348689,
+          103.90509990975261
+        ],
+        "planning": [
+          201.95082598365843,
+          194.93641494773328
+        ]
+      }
+    },
+    {
+      "city": "sejong",
+      "period": [
+        "2025-10-01",
+        "2025-10-31"
+      ],
+      "goal_metrics": {
+        "anchor_label": "BRT 정류장·노선상 터미널",
+        "anchor_300m_ratio": 0.465564738292011,
+        "first_last_mile_count": 66,
+        "reference_all_stops_outside500": 4,
+        "located_station_count": 726,
+        "subway_station_count": 726,
+        "subway_300m_ratio": 0.465564738292011,
+        "outside_500m_active_count": 236,
+        "linked_trip_share": 0.7289990468582983,
+        "linked_trip_total": 259143
+      },
+      "candidate_count": 236,
+      "first_last_mile_count": 66,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 25307753.870773062,
+        "linked_area_m2": 29306273.420268614,
+        "added_area_m2": 3998519.5494955517,
+        "uncovered_area_m2": 439811801.5113221,
+        "uncovered_recovery_ratio": 0.00909143305330932,
+        "area_increase_ratio": 0.15799582886386793,
+        "baseline_station_count": 490,
+        "linked_station_count": 581,
+        "added_station_count": 91,
+        "station_count_increase_ratio": 0.18571428571428572,
+        "population_increase_ratio": null
+      },
+      "ranking": [
+        {
+          "region_id": "sejong",
+          "station_id": "SJ_00515",
+          "station_name": "세종동_세종중앙공원(남쪽)주차장",
+          "latitude": 36.4918561,
+          "longitude": 127.2698918,
+          "nearest_stop_distance_m": 1180.7698299804479,
+          "rental_count": 802,
+          "return_count": 791,
+          "accessibility_deficit": 1.3615396599608958,
+          "vulnerability": 1091.9548072886384,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_confidence": "relative_within_city",
+          "candidate_population": 236,
+          "score_components": {
+            "accessibility_deficit": 0.8665254237288136,
+            "rental_count": 0.972457627118644,
+            "potential_added_area_m2": 0.8072033898305084
+          },
+          "score": 0.8820621468926553,
+          "demand_weighted_sensitivity_score": 0.9046610169491525,
+          "rank": 1,
+          "distance_band": "800–1500m 첫·끝마일"
+        },
+        {
+          "region_id": "sejong",
+          "station_id": "SJ_00216",
+          "station_name": "세종동_행복도시세종홍보관",
+          "latitude": 36.489532,
+          "longitude": 127.2700741,
+          "nearest_stop_distance_m": 1121.4708803587916,
+          "rental_count": 1135,
+          "return_count": 1440,
+          "accessibility_deficit": 1.2429417607175832,
+          "vulnerability": 1410.738898414457,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_confidence": "relative_within_city",
+          "candidate_population": 236,
+          "score_components": {
+            "accessibility_deficit": 0.8453389830508474,
+            "rental_count": 0.989406779661017,
+            "potential_added_area_m2": 0.8072033898305084
+          },
+          "score": 0.8806497175141241,
+          "demand_weighted_sensitivity_score": 0.9078389830508474,
+          "rank": 2,
+          "distance_band": "800–1500m 첫·끝마일"
+        },
+        {
+          "region_id": "sejong",
+          "station_id": "SJ_00428",
+          "station_name": "조치원_욱일아파트",
+          "latitude": 36.602844,
+          "longitude": 127.289963,
+          "nearest_stop_distance_m": 3794.9395379270604,
+          "rental_count": 528,
+          "return_count": 534,
+          "accessibility_deficit": 6.589879075854121,
+          "vulnerability": 3479.456152050976,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_confidence": "relative_within_city",
+          "candidate_population": 236,
+          "score_components": {
+            "accessibility_deficit": 0.9470338983050848,
+            "rental_count": 0.8792372881355932,
+            "potential_added_area_m2": 0.8072033898305084
+          },
+          "score": 0.8778248587570621,
+          "demand_weighted_sensitivity_score": 0.8781779661016949,
+          "rank": 3,
+          "distance_band": "500m 밖"
+        }
+      ],
+      "gap_grid_features": 1988,
+      "new_site_count": 198,
+      "population_basis": "세종은 동·읍면별 공간 대응이 없어 인구밀도 점수에서 제외",
+      "relocation": {
+        "available": true,
+        "items": [
+          {
+            "station_id": "SJ_00602",
+            "region_id": "sejong",
+            "station_name": "어진동_해양수산부_농림축산식품부(5동-1) 로터리",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 4,
+                "returns": 2,
+                "net_outflow": 2
+              },
+              {
+                "hour": 1,
+                "rentals": 6,
+                "returns": 1,
+                "net_outflow": 5
+              },
+              {
+                "hour": 2,
+                "rentals": 2,
+                "returns": 1,
+                "net_outflow": 1
+              },
+              {
+                "hour": 3,
+                "rentals": 3,
+                "returns": 0,
+                "net_outflow": 3
+              },
+              {
+                "hour": 4,
+                "rentals": 1,
+                "returns": 1,
+                "net_outflow": 0
+              },
+              {
+                "hour": 5,
+                "rentals": 0,
+                "returns": 1,
+                "net_outflow": -1
+              },
+              {
+                "hour": 6,
+                "rentals": 3,
+                "returns": 10,
+                "net_outflow": -7
+              },
+              {
+                "hour": 7,
+                "rentals": 10,
+                "returns": 118,
+                "net_outflow": -108
+              },
+              {
+                "hour": 8,
+                "rentals": 157,
+                "returns": 1208,
+                "net_outflow": -1051
+              },
+              {
+                "hour": 9,
+                "rentals": 65,
+                "returns": 92,
+                "net_outflow": -27
+              },
+              {
+                "hour": 10,
+                "rentals": 41,
+                "returns": 28,
+                "net_outflow": 13
+              },
+              {
+                "hour": 11,
+                "rentals": 248,
+                "returns": 46,
+                "net_outflow": 202
+              },
+              {
+                "hour": 12,
+                "rentals": 62,
+                "returns": 156,
+                "net_outflow": -94
+              },
+              {
+                "hour": 13,
+                "rentals": 27,
+                "returns": 72,
+                "net_outflow": -45
+              },
+              {
+                "hour": 14,
+                "rentals": 41,
+                "returns": 25,
+                "net_outflow": 16
+              },
+              {
+                "hour": 15,
+                "rentals": 58,
+                "returns": 34,
+                "net_outflow": 24
+              },
+              {
+                "hour": 16,
+                "rentals": 76,
+                "returns": 43,
+                "net_outflow": 33
+              },
+              {
+                "hour": 17,
+                "rentals": 132,
+                "returns": 28,
+                "net_outflow": 104
+              },
+              {
+                "hour": 18,
+                "rentals": 399,
+                "returns": 52,
+                "net_outflow": 347
+              },
+              {
+                "hour": 19,
+                "rentals": 32,
+                "returns": 25,
+                "net_outflow": 7
+              },
+              {
+                "hour": 20,
+                "rentals": 15,
+                "returns": 9,
+                "net_outflow": 6
+              },
+              {
+                "hour": 21,
+                "rentals": 10,
+                "returns": 4,
+                "net_outflow": 6
+              },
+              {
+                "hour": 22,
+                "rentals": 6,
+                "returns": 3,
+                "net_outflow": 3
+              },
+              {
+                "hour": 23,
+                "rentals": 1,
+                "returns": 1,
+                "net_outflow": 0
+              }
+            ],
+            "rentals": 1399,
+            "returns": 1960,
+            "net_outflow": -561,
+            "peak_hour": 8,
+            "peak_net_outflow": -1051,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "SJ_00681",
+            "region_id": "sejong",
+            "station_name": "어진동_정부세종청사 중앙동 입구",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 7,
+                "returns": 0,
+                "net_outflow": 7
+              },
+              {
+                "hour": 1,
+                "rentals": 3,
+                "returns": 0,
+                "net_outflow": 3
+              },
+              {
+                "hour": 2,
+                "rentals": 0,
+                "returns": 1,
+                "net_outflow": -1
+              },
+              {
+                "hour": 3,
+                "rentals": 0,
+                "returns": 2,
+                "net_outflow": -2
+              },
+              {
+                "hour": 4,
+                "rentals": 0,
+                "returns": 6,
+                "net_outflow": -6
+              },
+              {
+                "hour": 5,
+                "rentals": 0,
+                "returns": 3,
+                "net_outflow": -3
+              },
+              {
+                "hour": 6,
+                "rentals": 1,
+                "returns": 34,
+                "net_outflow": -33
+              },
+              {
+                "hour": 7,
+                "rentals": 0,
+                "returns": 181,
+                "net_outflow": -181
+              },
+              {
+                "hour": 8,
+                "rentals": 27,
+                "returns": 895,
+                "net_outflow": -868
+              },
+              {
+                "hour": 9,
+                "rentals": 27,
+                "returns": 108,
+                "net_outflow": -81
+              },
+              {
+                "hour": 10,
+                "rentals": 23,
+                "returns": 36,
+                "net_outflow": -13
+              },
+              {
+                "hour": 11,
+                "rentals": 292,
+                "returns": 46,
+                "net_outflow": 246
+              },
+              {
+                "hour": 12,
+                "rentals": 53,
+                "returns": 189,
+                "net_outflow": -136
+              },
+              {
+                "hour": 13,
+                "rentals": 53,
+                "returns": 138,
+                "net_outflow": -85
+              },
+              {
+                "hour": 14,
+                "rentals": 36,
+                "returns": 36,
+                "net_outflow": 0
+              },
+              {
+                "hour": 15,
+                "rentals": 40,
+                "returns": 36,
+                "net_outflow": 4
+              },
+              {
+                "hour": 16,
+                "rentals": 91,
+                "returns": 34,
+                "net_outflow": 57
+              },
+              {
+                "hour": 17,
+                "rentals": 149,
+                "returns": 50,
+                "net_outflow": 99
+              },
+              {
+                "hour": 18,
+                "rentals": 712,
+                "returns": 76,
+                "net_outflow": 636
+              },
+              {
+                "hour": 19,
+                "rentals": 124,
+                "returns": 28,
+                "net_outflow": 96
+              },
+              {
+                "hour": 20,
+                "rentals": 67,
+                "returns": 38,
+                "net_outflow": 29
+              },
+              {
+                "hour": 21,
+                "rentals": 36,
+                "returns": 18,
+                "net_outflow": 18
+              },
+              {
+                "hour": 22,
+                "rentals": 20,
+                "returns": 6,
+                "net_outflow": 14
+              },
+              {
+                "hour": 23,
+                "rentals": 17,
+                "returns": 3,
+                "net_outflow": 14
+              }
+            ],
+            "rentals": 1778,
+            "returns": 1964,
+            "net_outflow": -186,
+            "peak_hour": 8,
+            "peak_net_outflow": -868,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "SJ_00400",
+            "region_id": "sejong",
+            "station_name": "어진동_푸르지오시티2차",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 15,
+                "returns": 78,
+                "net_outflow": -63
+              },
+              {
+                "hour": 1,
+                "rentals": 2,
+                "returns": 37,
+                "net_outflow": -35
+              },
+              {
+                "hour": 2,
+                "rentals": 2,
+                "returns": 5,
+                "net_outflow": -3
+              },
+              {
+                "hour": 3,
+                "rentals": 1,
+                "returns": 5,
+                "net_outflow": -4
+              },
+              {
+                "hour": 4,
+                "rentals": 2,
+                "returns": 3,
+                "net_outflow": -1
+              },
+              {
+                "hour": 5,
+                "rentals": 37,
+                "returns": 3,
+                "net_outflow": 34
+              },
+              {
+                "hour": 6,
+                "rentals": 129,
+                "returns": 35,
+                "net_outflow": 94
+              },
+              {
+                "hour": 7,
+                "rentals": 382,
+                "returns": 62,
+                "net_outflow": 320
+              },
+              {
+                "hour": 8,
+                "rentals": 810,
+                "returns": 112,
+                "net_outflow": 698
+              },
+              {
+                "hour": 9,
+                "rentals": 69,
+                "returns": 50,
+                "net_outflow": 19
+              },
+              {
+                "hour": 10,
+                "rentals": 93,
+                "returns": 55,
+                "net_outflow": 38
+              },
+              {
+                "hour": 11,
+                "rentals": 124,
+                "returns": 136,
+                "net_outflow": -12
+              },
+              {
+                "hour": 12,
+                "rentals": 206,
+                "returns": 167,
+                "net_outflow": 39
+              },
+              {
+                "hour": 13,
+                "rentals": 145,
+                "returns": 110,
+                "net_outflow": 35
+              },
+              {
+                "hour": 14,
+                "rentals": 132,
+                "returns": 116,
+                "net_outflow": 16
+              },
+              {
+                "hour": 15,
+                "rentals": 106,
+                "returns": 126,
+                "net_outflow": -20
+              },
+              {
+                "hour": 16,
+                "rentals": 144,
+                "returns": 187,
+                "net_outflow": -43
+              },
+              {
+                "hour": 17,
+                "rentals": 163,
+                "returns": 269,
+                "net_outflow": -106
+              },
+              {
+                "hour": 18,
+                "rentals": 314,
+                "returns": 591,
+                "net_outflow": -277
+              },
+              {
+                "hour": 19,
+                "rentals": 244,
+                "returns": 386,
+                "net_outflow": -142
+              },
+              {
+                "hour": 20,
+                "rentals": 170,
+                "returns": 314,
+                "net_outflow": -144
+              },
+              {
+                "hour": 21,
+                "rentals": 215,
+                "returns": 307,
+                "net_outflow": -92
+              },
+              {
+                "hour": 22,
+                "rentals": 103,
+                "returns": 167,
+                "net_outflow": -64
+              },
+              {
+                "hour": 23,
+                "rentals": 37,
+                "returns": 125,
+                "net_outflow": -88
+              }
+            ],
+            "rentals": 3645,
+            "returns": 3446,
+            "net_outflow": 199,
+            "peak_hour": 8,
+            "peak_net_outflow": 698,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "SJ_00682",
+            "region_id": "sejong",
+            "station_name": "어진동_정부세종청사 중앙동 기획재정부 입구",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 21,
+                "returns": 4,
+                "net_outflow": 17
+              },
+              {
+                "hour": 1,
+                "rentals": 4,
+                "returns": 1,
+                "net_outflow": 3
+              },
+              {
+                "hour": 2,
+                "rentals": 1,
+                "returns": 0,
+                "net_outflow": 1
+              },
+              {
+                "hour": 3,
+                "rentals": 3,
+                "returns": 1,
+                "net_outflow": 2
+              },
+              {
+                "hour": 4,
+                "rentals": 1,
+                "returns": 2,
+                "net_outflow": -1
+              },
+              {
+                "hour": 5,
+                "rentals": 0,
+                "returns": 1,
+                "net_outflow": -1
+              },
+              {
+                "hour": 6,
+                "rentals": 2,
+                "returns": 10,
+                "net_outflow": -8
+              },
+              {
+                "hour": 7,
+                "rentals": 0,
+                "returns": 109,
+                "net_outflow": -109
+              },
+              {
+                "hour": 8,
+                "rentals": 14,
+                "returns": 648,
+                "net_outflow": -634
+              },
+              {
+                "hour": 9,
+                "rentals": 23,
+                "returns": 200,
+                "net_outflow": -177
+              },
+              {
+                "hour": 10,
+                "rentals": 28,
+                "returns": 23,
+                "net_outflow": 5
+              },
+              {
+                "hour": 11,
+                "rentals": 298,
+                "returns": 27,
+                "net_outflow": 271
+              },
+              {
+                "hour": 12,
+                "rentals": 41,
+                "returns": 167,
+                "net_outflow": -126
+              },
+              {
+                "hour": 13,
+                "rentals": 25,
+                "returns": 102,
+                "net_outflow": -77
+              },
+              {
+                "hour": 14,
+                "rentals": 36,
+                "returns": 26,
+                "net_outflow": 10
+              },
+              {
+                "hour": 15,
+                "rentals": 37,
+                "returns": 24,
+                "net_outflow": 13
+              },
+              {
+                "hour": 16,
+                "rentals": 91,
+                "returns": 26,
+                "net_outflow": 65
+              },
+              {
+                "hour": 17,
+                "rentals": 109,
+                "returns": 29,
+                "net_outflow": 80
+              },
+              {
+                "hour": 18,
+                "rentals": 565,
+                "returns": 50,
+                "net_outflow": 515
+              },
+              {
+                "hour": 19,
+                "rentals": 53,
+                "returns": 32,
+                "net_outflow": 21
+              },
+              {
+                "hour": 20,
+                "rentals": 47,
+                "returns": 38,
+                "net_outflow": 9
+              },
+              {
+                "hour": 21,
+                "rentals": 27,
+                "returns": 15,
+                "net_outflow": 12
+              },
+              {
+                "hour": 22,
+                "rentals": 14,
+                "returns": 10,
+                "net_outflow": 4
+              },
+              {
+                "hour": 23,
+                "rentals": 5,
+                "returns": 2,
+                "net_outflow": 3
+              }
+            ],
+            "rentals": 1445,
+            "returns": 1547,
+            "net_outflow": -102,
+            "peak_hour": 8,
+            "peak_net_outflow": -634,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "SJ_00283",
+            "region_id": "sejong",
+            "station_name": "어진동_보건복지부(10동-1)",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 10,
+                "returns": 3,
+                "net_outflow": 7
+              },
+              {
+                "hour": 1,
+                "rentals": 1,
+                "returns": 0,
+                "net_outflow": 1
+              },
+              {
+                "hour": 4,
+                "rentals": 1,
+                "returns": 1,
+                "net_outflow": 0
+              },
+              {
+                "hour": 5,
+                "rentals": 0,
+                "returns": 5,
+                "net_outflow": -5
+              },
+              {
+                "hour": 6,
+                "rentals": 2,
+                "returns": 7,
+                "net_outflow": -5
+              },
+              {
+                "hour": 7,
+                "rentals": 2,
+                "returns": 61,
+                "net_outflow": -59
+              },
+              {
+                "hour": 8,
+                "rentals": 13,
+                "returns": 461,
+                "net_outflow": -448
+              },
+              {
+                "hour": 9,
+                "rentals": 9,
+                "returns": 94,
+                "net_outflow": -85
+              },
+              {
+                "hour": 10,
+                "rentals": 11,
+                "returns": 9,
+                "net_outflow": 2
+              },
+              {
+                "hour": 11,
+                "rentals": 135,
+                "returns": 30,
+                "net_outflow": 105
+              },
+              {
+                "hour": 12,
+                "rentals": 19,
+                "returns": 101,
+                "net_outflow": -82
+              },
+              {
+                "hour": 13,
+                "rentals": 11,
+                "returns": 35,
+                "net_outflow": -24
+              },
+              {
+                "hour": 14,
+                "rentals": 10,
+                "returns": 20,
+                "net_outflow": -10
+              },
+              {
+                "hour": 15,
+                "rentals": 16,
+                "returns": 16,
+                "net_outflow": 0
+              },
+              {
+                "hour": 16,
+                "rentals": 45,
+                "returns": 22,
+                "net_outflow": 23
+              },
+              {
+                "hour": 17,
+                "rentals": 32,
+                "returns": 13,
+                "net_outflow": 19
+              },
+              {
+                "hour": 18,
+                "rentals": 208,
+                "returns": 26,
+                "net_outflow": 182
+              },
+              {
+                "hour": 19,
+                "rentals": 43,
+                "returns": 17,
+                "net_outflow": 26
+              },
+              {
+                "hour": 20,
+                "rentals": 33,
+                "returns": 17,
+                "net_outflow": 16
+              },
+              {
+                "hour": 21,
+                "rentals": 18,
+                "returns": 4,
+                "net_outflow": 14
+              },
+              {
+                "hour": 22,
+                "rentals": 8,
+                "returns": 4,
+                "net_outflow": 4
+              },
+              {
+                "hour": 23,
+                "rentals": 1,
+                "returns": 3,
+                "net_outflow": -2
+              }
+            ],
+            "rentals": 628,
+            "returns": 949,
+            "net_outflow": -321,
+            "peak_hour": 8,
+            "peak_net_outflow": -448,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "SJ_00684",
+            "region_id": "sejong",
+            "station_name": "어진동_행정안전부 중앙동 동편입구",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 4,
+                "returns": 2,
+                "net_outflow": 2
+              },
+              {
+                "hour": 1,
+                "rentals": 2,
+                "returns": 0,
+                "net_outflow": 2
+              },
+              {
+                "hour": 4,
+                "rentals": 1,
+                "returns": 2,
+                "net_outflow": -1
+              },
+              {
+                "hour": 5,
+                "rentals": 0,
+                "returns": 7,
+                "net_outflow": -7
+              },
+              {
+                "hour": 6,
+                "rentals": 0,
+                "returns": 13,
+                "net_outflow": -13
+              },
+              {
+                "hour": 7,
+                "rentals": 3,
+                "returns": 73,
+                "net_outflow": -70
+              },
+              {
+                "hour": 8,
+                "rentals": 13,
+                "returns": 378,
+                "net_outflow": -365
+              },
+              {
+                "hour": 9,
+                "rentals": 27,
+                "returns": 52,
+                "net_outflow": -25
+              },
+              {
+                "hour": 10,
+                "rentals": 13,
+                "returns": 11,
+                "net_outflow": 2
+              },
+              {
+                "hour": 11,
+                "rentals": 237,
+                "returns": 20,
+                "net_outflow": 217
+              },
+              {
+                "hour": 12,
+                "rentals": 66,
+                "returns": 151,
+                "net_outflow": -85
+              },
+              {
+                "hour": 13,
+                "rentals": 18,
+                "returns": 84,
+                "net_outflow": -66
+              },
+              {
+                "hour": 14,
+                "rentals": 24,
+                "returns": 22,
+                "net_outflow": 2
+              },
+              {
+                "hour": 15,
+                "rentals": 26,
+                "returns": 14,
+                "net_outflow": 12
+              },
+              {
+                "hour": 16,
+                "rentals": 53,
+                "returns": 9,
+                "net_outflow": 44
+              },
+              {
+                "hour": 17,
+                "rentals": 70,
+                "returns": 20,
+                "net_outflow": 50
+              },
+              {
+                "hour": 18,
+                "rentals": 277,
+                "returns": 48,
+                "net_outflow": 229
+              },
+              {
+                "hour": 19,
+                "rentals": 18,
+                "returns": 20,
+                "net_outflow": -2
+              },
+              {
+                "hour": 20,
+                "rentals": 16,
+                "returns": 11,
+                "net_outflow": 5
+              },
+              {
+                "hour": 21,
+                "rentals": 17,
+                "returns": 5,
+                "net_outflow": 12
+              },
+              {
+                "hour": 22,
+                "rentals": 2,
+                "returns": 4,
+                "net_outflow": -2
+              },
+              {
+                "hour": 23,
+                "rentals": 1,
+                "returns": 0,
+                "net_outflow": 1
+              }
+            ],
+            "rentals": 888,
+            "returns": 946,
+            "net_outflow": -58,
+            "peak_hour": 8,
+            "peak_net_outflow": -365,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "SJ_00208",
+            "region_id": "sejong",
+            "station_name": "어진동_정부청사관리본부(3동)",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 3,
+                "returns": 2,
+                "net_outflow": 1
+              },
+              {
+                "hour": 1,
+                "rentals": 5,
+                "returns": 0,
+                "net_outflow": 5
+              },
+              {
+                "hour": 2,
+                "rentals": 1,
+                "returns": 0,
+                "net_outflow": 1
+              },
+              {
+                "hour": 3,
+                "rentals": 1,
+                "returns": 0,
+                "net_outflow": 1
+              },
+              {
+                "hour": 4,
+                "rentals": 0,
+                "returns": 3,
+                "net_outflow": -3
+              },
+              {
+                "hour": 5,
+                "rentals": 1,
+                "returns": 0,
+                "net_outflow": 1
+              },
+              {
+                "hour": 6,
+                "rentals": 3,
+                "returns": 22,
+                "net_outflow": -19
+              },
+              {
+                "hour": 7,
+                "rentals": 14,
+                "returns": 99,
+                "net_outflow": -85
+              },
+              {
+                "hour": 8,
+                "rentals": 90,
+                "returns": 413,
+                "net_outflow": -323
+              },
+              {
+                "hour": 9,
+                "rentals": 49,
+                "returns": 74,
+                "net_outflow": -25
+              },
+              {
+                "hour": 10,
+                "rentals": 25,
+                "returns": 25,
+                "net_outflow": 0
+              },
+              {
+                "hour": 11,
+                "rentals": 161,
+                "returns": 31,
+                "net_outflow": 130
+              },
+              {
+                "hour": 12,
+                "rentals": 36,
+                "returns": 88,
+                "net_outflow": -52
+              },
+              {
+                "hour": 13,
+                "rentals": 31,
+                "returns": 54,
+                "net_outflow": -23
+              },
+              {
+                "hour": 14,
+                "rentals": 46,
+                "returns": 31,
+                "net_outflow": 15
+              },
+              {
+                "hour": 15,
+                "rentals": 52,
+                "returns": 33,
+                "net_outflow": 19
+              },
+              {
+                "hour": 16,
+                "rentals": 70,
+                "returns": 24,
+                "net_outflow": 46
+              },
+              {
+                "hour": 17,
+                "rentals": 89,
+                "returns": 30,
+                "net_outflow": 59
+              },
+              {
+                "hour": 18,
+                "rentals": 130,
+                "returns": 42,
+                "net_outflow": 88
+              },
+              {
+                "hour": 19,
+                "rentals": 26,
+                "returns": 22,
+                "net_outflow": 4
+              },
+              {
+                "hour": 20,
+                "rentals": 31,
+                "returns": 25,
+                "net_outflow": 6
+              },
+              {
+                "hour": 21,
+                "rentals": 17,
+                "returns": 9,
+                "net_outflow": 8
+              },
+              {
+                "hour": 22,
+                "rentals": 13,
+                "returns": 11,
+                "net_outflow": 2
+              },
+              {
+                "hour": 23,
+                "rentals": 11,
+                "returns": 10,
+                "net_outflow": 1
+              }
+            ],
+            "rentals": 905,
+            "returns": 1048,
+            "net_outflow": -143,
+            "peak_hour": 8,
+            "peak_net_outflow": -323,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "SJ_00324",
+            "region_id": "sejong",
+            "station_name": "어진동_건설청건너편BRT1",
+            "hourly": [
+              {
+                "hour": 1,
+                "rentals": 5,
+                "returns": 1,
+                "net_outflow": 4
+              },
+              {
+                "hour": 3,
+                "rentals": 1,
+                "returns": 0,
+                "net_outflow": 1
+              },
+              {
+                "hour": 4,
+                "rentals": 0,
+                "returns": 1,
+                "net_outflow": -1
+              },
+              {
+                "hour": 5,
+                "rentals": 0,
+                "returns": 7,
+                "net_outflow": -7
+              },
+              {
+                "hour": 6,
+                "rentals": 3,
+                "returns": 8,
+                "net_outflow": -5
+              },
+              {
+                "hour": 7,
+                "rentals": 12,
+                "returns": 66,
+                "net_outflow": -54
+              },
+              {
+                "hour": 8,
+                "rentals": 88,
+                "returns": 385,
+                "net_outflow": -297
+              },
+              {
+                "hour": 9,
+                "rentals": 37,
+                "returns": 37,
+                "net_outflow": 0
+              },
+              {
+                "hour": 10,
+                "rentals": 22,
+                "returns": 26,
+                "net_outflow": -4
+              },
+              {
+                "hour": 11,
+                "rentals": 92,
+                "returns": 46,
+                "net_outflow": 46
+              },
+              {
+                "hour": 12,
+                "rentals": 37,
+                "returns": 59,
+                "net_outflow": -22
+              },
+              {
+                "hour": 13,
+                "rentals": 32,
+                "returns": 45,
+                "net_outflow": -13
+              },
+              {
+                "hour": 14,
+                "rentals": 36,
+                "returns": 27,
+                "net_outflow": 9
+              },
+              {
+                "hour": 15,
+                "rentals": 35,
+                "returns": 21,
+                "net_outflow": 14
+              },
+              {
+                "hour": 16,
+                "rentals": 58,
+                "returns": 36,
+                "net_outflow": 22
+              },
+              {
+                "hour": 17,
+                "rentals": 89,
+                "returns": 42,
+                "net_outflow": 47
+              },
+              {
+                "hour": 18,
+                "rentals": 207,
+                "returns": 68,
+                "net_outflow": 139
+              },
+              {
+                "hour": 19,
+                "rentals": 50,
+                "returns": 21,
+                "net_outflow": 29
+              },
+              {
+                "hour": 20,
+                "rentals": 27,
+                "returns": 13,
+                "net_outflow": 14
+              },
+              {
+                "hour": 21,
+                "rentals": 17,
+                "returns": 11,
+                "net_outflow": 6
+              },
+              {
+                "hour": 22,
+                "rentals": 12,
+                "returns": 11,
+                "net_outflow": 1
+              },
+              {
+                "hour": 23,
+                "rentals": 9,
+                "returns": 4,
+                "net_outflow": 5
+              }
+            ],
+            "rentals": 869,
+            "returns": 935,
+            "net_outflow": -66,
+            "peak_hour": 8,
+            "peak_net_outflow": -297,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "SJ_00320",
+            "region_id": "sejong",
+            "station_name": "어진동_정부세종청사남측 BRT(다정동방향)",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 13,
+                "returns": 9,
+                "net_outflow": 4
+              },
+              {
+                "hour": 1,
+                "rentals": 7,
+                "returns": 1,
+                "net_outflow": 6
+              },
+              {
+                "hour": 2,
+                "rentals": 0,
+                "returns": 1,
+                "net_outflow": -1
+              },
+              {
+                "hour": 4,
+                "rentals": 0,
+                "returns": 4,
+                "net_outflow": -4
+              },
+              {
+                "hour": 5,
+                "rentals": 0,
+                "returns": 49,
+                "net_outflow": -49
+              },
+              {
+                "hour": 6,
+                "rentals": 11,
+                "returns": 75,
+                "net_outflow": -64
+              },
+              {
+                "hour": 7,
+                "rentals": 80,
+                "returns": 273,
+                "net_outflow": -193
+              },
+              {
+                "hour": 8,
+                "rentals": 142,
+                "returns": 431,
+                "net_outflow": -289
+              },
+              {
+                "hour": 9,
+                "rentals": 84,
+                "returns": 121,
+                "net_outflow": -37
+              },
+              {
+                "hour": 10,
+                "rentals": 49,
+                "returns": 75,
+                "net_outflow": -26
+              },
+              {
+                "hour": 11,
+                "rentals": 198,
+                "returns": 241,
+                "net_outflow": -43
+              },
+              {
+                "hour": 12,
+                "rentals": 177,
+                "returns": 196,
+                "net_outflow": -19
+              },
+              {
+                "hour": 13,
+                "rentals": 129,
+                "returns": 145,
+                "net_outflow": -16
+              },
+              {
+                "hour": 14,
+                "rentals": 163,
+                "returns": 163,
+                "net_outflow": 0
+              },
+              {
+                "hour": 15,
+                "rentals": 175,
+                "returns": 156,
+                "net_outflow": 19
+              },
+              {
+                "hour": 16,
+                "rentals": 217,
+                "returns": 198,
+                "net_outflow": 19
+              },
+              {
+                "hour": 17,
+                "rentals": 302,
+                "returns": 239,
+                "net_outflow": 63
+              },
+              {
+                "hour": 18,
+                "rentals": 452,
+                "returns": 259,
+                "net_outflow": 193
+              },
+              {
+                "hour": 19,
+                "rentals": 172,
+                "returns": 124,
+                "net_outflow": 48
+              },
+              {
+                "hour": 20,
+                "rentals": 108,
+                "returns": 71,
+                "net_outflow": 37
+              },
+              {
+                "hour": 21,
+                "rentals": 58,
+                "returns": 55,
+                "net_outflow": 3
+              },
+              {
+                "hour": 22,
+                "rentals": 38,
+                "returns": 31,
+                "net_outflow": 7
+              },
+              {
+                "hour": 23,
+                "rentals": 40,
+                "returns": 15,
+                "net_outflow": 25
+              }
+            ],
+            "rentals": 2615,
+            "returns": 2932,
+            "net_outflow": -317,
+            "peak_hour": 8,
+            "peak_net_outflow": -289,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          },
+          {
+            "station_id": "SJ_00282",
+            "region_id": "sejong",
+            "station_name": "어진동_교육부(14동-1)",
+            "hourly": [
+              {
+                "hour": 0,
+                "rentals": 5,
+                "returns": 0,
+                "net_outflow": 5
+              },
+              {
+                "hour": 1,
+                "rentals": 1,
+                "returns": 0,
+                "net_outflow": 1
+              },
+              {
+                "hour": 6,
+                "rentals": 0,
+                "returns": 1,
+                "net_outflow": -1
+              },
+              {
+                "hour": 7,
+                "rentals": 2,
+                "returns": 51,
+                "net_outflow": -49
+              },
+              {
+                "hour": 8,
+                "rentals": 61,
+                "returns": 345,
+                "net_outflow": -284
+              },
+              {
+                "hour": 9,
+                "rentals": 15,
+                "returns": 77,
+                "net_outflow": -62
+              },
+              {
+                "hour": 10,
+                "rentals": 12,
+                "returns": 11,
+                "net_outflow": 1
+              },
+              {
+                "hour": 11,
+                "rentals": 118,
+                "returns": 20,
+                "net_outflow": 98
+              },
+              {
+                "hour": 12,
+                "rentals": 24,
+                "returns": 79,
+                "net_outflow": -55
+              },
+              {
+                "hour": 13,
+                "rentals": 18,
+                "returns": 41,
+                "net_outflow": -23
+              },
+              {
+                "hour": 14,
+                "rentals": 15,
+                "returns": 10,
+                "net_outflow": 5
+              },
+              {
+                "hour": 15,
+                "rentals": 41,
+                "returns": 12,
+                "net_outflow": 29
+              },
+              {
+                "hour": 16,
+                "rentals": 26,
+                "returns": 21,
+                "net_outflow": 5
+              },
+              {
+                "hour": 17,
+                "rentals": 69,
+                "returns": 28,
+                "net_outflow": 41
+              },
+              {
+                "hour": 18,
+                "rentals": 242,
+                "returns": 32,
+                "net_outflow": 210
+              },
+              {
+                "hour": 19,
+                "rentals": 40,
+                "returns": 25,
+                "net_outflow": 15
+              },
+              {
+                "hour": 20,
+                "rentals": 24,
+                "returns": 9,
+                "net_outflow": 15
+              },
+              {
+                "hour": 21,
+                "rentals": 8,
+                "returns": 1,
+                "net_outflow": 7
+              },
+              {
+                "hour": 22,
+                "rentals": 6,
+                "returns": 0,
+                "net_outflow": 6
+              },
+              {
+                "hour": 23,
+                "rentals": 5,
+                "returns": 1,
+                "net_outflow": 4
+              }
+            ],
+            "rentals": 732,
+            "returns": 764,
+            "net_outflow": -32,
+            "peak_hour": 8,
+            "peak_net_outflow": -284,
+            "capacity": null,
+            "inventory_available": false,
+            "recommended_bike_count": null,
+            "decision": "재배치 검토"
+          }
+        ],
+        "inventory_available": false,
+        "message": "대여·반납 관측 기반 검토 대상. 재고·실제 부족·이동 수량은 미확보."
+      },
+      "api_ms": {
+        "transit-linkage": [
+          67.31709907762706,
+          68.9284591935575
+        ],
+        "vulnerability": [
+          49.26305590197444,
+          50.82858703099191
+        ],
+        "planning": [
+          198.28745792619884,
+          245.07510010153055
+        ]
+      }
+    }
+  ],
+  "unknown_X": {
+    "cause": "raw OD destination ID absent from station master; not a generated total row",
+    "rentals": 0,
+    "returns": 18535,
+    "station_hour_rows": 717,
+    "excluded_from_relocation": true
+  },
+  "sejong_display_ids": {
+    "count": 728,
+    "distinct_count": 728,
+    "raw_preserved": true,
+    "collision_suffix": "_H only for hyphen family collisions",
+    "examples": {
+      "SJ_00045": "SJ_00045",
+      "SJ-00682": "SJ_00682_H",
+      "SJ_00681": "SJ_00681",
+      "SJ_00682": "SJ_00682",
+      "SJ-00692": "SJ_00692",
+      "SJ-00045": "SJ_00045_H",
+      "SJ-00681": "SJ_00681_H"
+    }
+  },
+  "cached_entries": 216
+}

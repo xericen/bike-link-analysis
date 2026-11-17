@@ -1,0 +1,55 @@
+{
+  "page_errors": [],
+  "solar_calls": [
+    {
+      "code": 200,
+      "answer": "2025-10-01~2025-10-31 선택 기간에 세종 앵커 기준 취약 대여소 후보는 236개이며, TOP3는 세종중앙공원남쪽주차장(SJ_00515, 802건), 행복도시세종홍보관(SJ_00216, 1135건), 조치원욱일아파트(SJ_00428, 528건)입니다. 이들은 800~1500m 또는 500m 밖 거리 구간에 있고, 2026-05 공식 대여소 좌표와 2025-10 이력 간 시점 차이로 실제 이동·보행 연결은 입증되지 않습니다. 이 결과는 공간 버퍼 시나리오일 뿐 실제 환승률·운영 개선 효과를 입증하지 않습니다. 인구밀도·보행망 등 추가 근거는 미포함이며, 상위 5개 밖 치수는 별도 도구와 대조해야 합니다.",
+      "answer_basis": "solar_interpretation",
+      "usage": {
+        "prompt_tokens": 15657,
+        "completion_tokens": 290,
+        "total_tokens": 15947
+      },
+      "evidence": [
+        {
+          "tool": "get_transit_vulnerability",
+          "arguments": {
+            "date_range": {
+              "date_start": "2025-10-01",
+              "date_end": "2025-10-31"
+            },
+            "region_id": "sejong"
+          },
+          "initiator": "solar"
+        },
+        {
+          "tool": "get_improvement_ranking",
+          "arguments": {
+            "date_range": {
+              "date_start": "2025-10-01",
+              "date_end": "2025-10-31"
+            },
+            "region_id": "sejong",
+            "top_n": 5
+          },
+          "initiator": "solar"
+        },
+        {
+          "tool": "get_data_availability",
+          "arguments": {
+            "region_id": "sejong"
+          },
+          "initiator": "metric_guard"
+        }
+      ]
+    }
+  ],
+  "sejong_dashboard": "BRT 정류장 300m 내 대여소 비율\n46.556%\n앵커 거리 확보 대여소 726개 기준\n앵커 500m 밖 이용 대여소\n236\n개소 · 직선거리 500m 초과 + 실제 대여\nBRT 앵커 연계 이동 비중\n72.9%\n출발·도착 중 한쪽 이상이 해당 앵커 300m 이내\n앵커 접근 공백 보완율\n0.909%\n앵커 500m 밖 행정면적 중 보완되는 비중",
+  "gap_grid_paths": 1988,
+  "sejong_population_column_hidden": true,
+  "relocation_direction_text": "SJ_00602\t순유입 561건\t8시\t순유입 1,051건",
+  "mobile_overflow": false,
+  "loading_visible_ms": 51.78146297112107,
+  "preset_to_completion_ms": 3887.4326839577407,
+  "automatic_chat_sent": true
+}

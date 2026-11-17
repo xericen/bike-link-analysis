@@ -5,9 +5,9 @@ from functools import lru_cache
 from shapely.geometry import shape,Point
 from shapely.ops import unary_union
 from shapely import to_wkb
-from backend.services import real_data,transit,precomputed,periods
+from backend.services import real_data,transit,precomputed,periods,city_anchors
 from backend.analysis.vulnerability import _geometry
-from backend.analysis.planning import PROJECT,vector,grid_sites,selection_scenarios,sensitivity
+from backend.analysis.planning import PROJECT,vector,grid_sites,selection_scenarios,sensitivity,gap_grid
 
 @lru_cache(maxsize=4)
 def boundaries(city,stamp=None):
@@ -43,7 +43,7 @@ def relocation(city,start,end,top=10):
     lookup={s["station_id"]:s for s in transit.station_master(city)}
     aggregate={}
     for sid,h,r,b in rows:
-        if b is None:continue
+        if b is None or sid not in lookup or sid=="X":continue
         item=aggregate.setdefault(sid,{"station_id":sid,"region_id":city,"station_name":lookup.get(sid,{}).get("station_name",""),"hourly":[],"rentals":0,"returns":0})
         item["rentals"]+=int(r);item["returns"]+=int(b)
         item["hourly"].append({"hour":h,"rentals":int(r),"returns":int(b),"net_outflow":int(r-b)})
@@ -66,8 +66,8 @@ def build(city,start,end):
                 "new_sites":[r for c in cities for r in c.get("new_sites",[])],
                 "scenario_pool":[],"selection_states":[],
                 "comparison":{"date_start":start,"date_end":end,"excluded":["sejong"],"reason":"세종은2025-10 관측, 공통 기간이 다름"}}
-    linked=transit.linkage(city,start,end);located=[s for s in linked["stations"] if s.get("coordinate_valid")]
-    points=tuple(sorted(set((float(s["lat"]),float(s["lon"])) for s in transit.stops() if s["city"]==city)))
+    linked=city_anchors.linkage(city,start,end);located=[s for s in linked["stations"] if s.get("coordinate_valid")]
+    points=tuple(sorted(set((float(s["lat"]),float(s["lon"])) for s in city_anchors.stops() if s["city"]==city)))
     clip,districts=boundaries(city,(real_data.PROCESSED/f"planning_boundary_{city}.json").stat().st_mtime_ns if (real_data.PROCESSED/f"planning_boundary_{city}.json").exists() else None)
     if not located or not points or clip is None:
         reason="station_coordinates_missing" if not located else "transit_missing" if not points else "boundary_missing"
@@ -75,7 +75,7 @@ def build(city,start,end):
     baseline=_geometry(points).intersection(clip)
     facilities_path=real_data.PROCESSED/f"planning_facilities_{city}.json"
     facilities=json.loads(facilities_path.read_text()) if facilities_path.exists() else []
-    candidates=grid_sites(clip,baseline,linked["stations"],facilities,districts)
+    candidates=grid_sites(clip,baseline,linked["stations"],facilities,districts,use_population=city!="sejong")
     from backend.services.vulnerability import analyze
     old=analyze(city,start,end,top_n=20)
     # Boundary-clipped potential area for every observed station, including threshold sensitivity cohorts.
@@ -86,16 +86,17 @@ def build(city,start,end):
     states=selection_scenarios(to_wkb(clip),to_wkb(baseline),locations)
     for r in candidates:r["region_id"]=city
     return {"city":city,"available":True,"date_start":start,"date_end":end,
-            "coverage_features":[vector(baseline)],"boundary":vector(clip),
+            "coverage_features":[vector(baseline)],"gap_grid":gap_grid(clip,baseline),
+            "anchor_label":city_anchors.LABELS[city],"boundary":vector(clip),
             "coverage_all_stop_count":len(points),"boundary_year":2020,"simplification_m":2,
             "new_sites":candidates[:20],"new_site_count":len(candidates),
-            "facility_count":len(facilities),"population_basis":"2026-10 구·시 주민등록 인구밀도. 실측 격자인구 아님.",
+            "facility_count":len(facilities),"population_basis":"세종은 동·읍면별 공간 대응이 없어 인구밀도 점수에서 제외" if city=="sejong" else "2026-10 구 주민등록 인구밀도. 실측 격자인구 아님.",
             "scenario_pool":pool,"selection_states":states,"sensitivity":sensitivity_rows,
             "rank_confidence":"insufficient_candidates" if old["candidate_count"]<5 else "relative_within_city",
             "relocation":relocation(city,start,end),
             "source_provenance":real_data.read_json("planning_sources.json",[]),
             "assumptions":["500m 격자, 기존 대여소300m 밖, 주변1000m 실제 대여 또는 시설500m 존재",
-              "신규 입지 점수는 인구밀도·시설·주변대여·접근공백 백분위 동등가중",
+              "신규 입지 점수: 시설·주변대여·접근공백 동등가중, 서울·대전은 구 인구밀도 추가. 세종은 동일 시 밀도를 지역 차이로 쓰지 않음",
               "2020 경계·2026 인구/시설/위치자료의 시점 차이. 도로·토지·실제 설치 가능성 미검증",
               "선택 시나리오는 후보300m 추가 연결 가정이며 실제 환승·재배치 효과가 아님"]}
 

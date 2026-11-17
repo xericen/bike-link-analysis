@@ -32,6 +32,11 @@ def handle():
     region_id = str(wiz.request.query("region_id", "seoul"))
     station_id = str(wiz.request.query("station_id", ""))
     query = str(wiz.request.query("query", "")).strip()[:100]
+    from backend.services.station_labels import display_ids
+    label_map={raw:(shown if shown.startswith("SJ_") else "SJ_RAW_"+shown) for raw,shown in display_ids().items()}
+    reverse_labels={shown:raw for raw,shown in label_map.items()}
+    station_id=reverse_labels.get(station_id,station_id)
+    query=reverse_labels.get(query,query)
     valid_regions = {item["region_id"] for item in real_data.REGIONS}
     if region_id not in valid_regions | {"all"}:
         return wiz.response.status(404, message="지역을 찾을 수 없습니다.")
@@ -90,7 +95,8 @@ def handle():
             items.sort(key=lambda item: item.get("rental_count") or 0, reverse=True)
             result = {"stations": items[:50], "total": len(items), "message": "공통 기간 통합 목록 · 실제 도시와 ID로 구분"}
         elif action == "regions":
-            result = {"regions": [{**item, "availability": real_data.source_meta(item["region_id"])["verification_status"]}
+            from backend.services.station_labels import display_ids
+            result = {"station_display_ids":label_map,"regions": [{**item, "availability": real_data.source_meta(item["region_id"])["verification_status"]}
                                   for item in real_data.REGIONS]}
         elif action == "overview":
             result = real_data.overview(region_id, date_start, date_end)

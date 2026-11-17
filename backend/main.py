@@ -224,7 +224,10 @@ def demo_overview(region_id: str = "seoul"):
 def transit_linkage(city: str = "seoul", date_start: date | None = None, date_end: date | None = None):
     check_region(city)
     start, end = period(date_start, date_end)
-    return transit.linkage(city, start, end)
+    from backend.services import periods,precomputed
+    try: start,end=periods.resolve(city,start,end)
+    except ValueError as error: raise HTTPException(422,str(error))
+    return precomputed.read("transit_linkage",city,start,end)
 
 
 @app.get("/api/vulnerability")

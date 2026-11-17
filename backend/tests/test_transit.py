@@ -46,7 +46,7 @@ def test_original_artifacts_cannot_be_overwritten(tmp_path):
     with pytest.raises(ValueError):
         store(b"other",raw,{"method":"fixture"})
 
-def test_transit_api_period_and_missing_data(fixture_data):
+def test_transit_api_period_and_missing_data(fixture_data,monkeypatch):
     path=real_data.PROCESSED/"transit_stops.csv"
     write_new_csv(path,[{"city":"seoul","stop_id":"S","name":"역","type":"지하철","lat":37.5,"lon":127}],
                   ["city","stop_id","name","type","lat","lon"])
@@ -54,6 +54,10 @@ def test_transit_api_period_and_missing_data(fixture_data):
                   [{"date":"2026-10-25","hour":8,"total_count":10,"linked_count":4,"unknown_endpoint_count":0},
                    {"date":"2026-10-29","hour":8,"total_count":20,"linked_count":6,"unknown_endpoint_count":2}],
                   ["date","hour","total_count","linked_count","unknown_endpoint_count"])
+    from backend.services import precomputed,transit
+    monkeypatch.setattr(precomputed,"PROCESSED",real_data.PROCESSED)
+    precomputed.put("transit_linkage","seoul","2026-10-29","2026-10-29",transit.linkage("seoul","2026-10-29","2026-10-29"))
+    precomputed.put("transit_linkage","sejong",None,None,{"available":False,"message":"정류장 자료 미확보"})
     client=TestClient(app)
     result=client.get("/api/transit-linkage?city=seoul&date_start=2026-10-29").json()
     assert result["hourly_station_linkage"][0]["linkage_share"] == .3

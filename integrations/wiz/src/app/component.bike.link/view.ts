@@ -80,6 +80,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
         try {
             const result = await this.request('regions');
             this.regions = result.regions || [];
+            this.stationDisplayIds = result.station_display_ids || {};
         } catch (error: any) {
             this.error = error.message;
         }
@@ -413,7 +414,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
     }
 
     public pageTitle() {
-        const titles: any = {dashboard:'공공자전거 이용 현황과 숨은 연결 거점 분석', vulnerability:'취약 구간 & 개선 후보', stations:'대여소 이용 특성 분석',
+        const titles: any = {dashboard:'공유자전거, 대중교통 연결 공백을 얼마나 메우는가', vulnerability:'취약 구간 & 개선 후보', stations:'대여소 이용 특성 분석',
             network:'이동 패턴 분석', regions:'도시 간 비교', agent:'AI 분석 리포트'};
         return titles[this.tab] || 'Bike Link Analysis';
     }
@@ -508,7 +509,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
             bounds.push(point);
             const marker = L.circleMarker(point,{radius:9,color:'#a3432e',fillColor:'#df704f',fillOpacity:.8});
             const caption = document.createElement('span');
-            caption.textContent = row.station_id + ' · '+ row.nearest_stop_distance_m.toFixed(1) + 'm · 대여 ' + row.rental_count + '건';
+            caption.textContent = this.displayStationId(row.station_id) + ' · '+ row.nearest_stop_distance_m.toFixed(1) + 'm · 대여 ' + row.rental_count + '건';
             marker.bindPopup(caption).on('click',()=>{void this.inspectStation(row.station_id,row.region_id);});
             marker.addTo(this.transitMarkers);
         }
@@ -557,6 +558,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
         map.setView(this.scenarioCity === 'seoul' ? [37.5665,126.978] : this.scenarioCity === 'sejong' ? [36.5,127.27] : [36.35,127.38],11);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'&copy; OpenStreetMap contributors',maxZoom:19}).addTo(map);
         const plan=this.scenarioPlan();
+        for(const feature of plan?.gap_grid?.features || [])L.geoJSON(feature as any,{style:{color:"#c28755",weight:.5,fillColor:"#e7b787",fillOpacity:.3},interactive:false}).addTo(map);
         for(const feature of plan?.coverage_features || [])L.geoJSON(feature as any,{style:{color:'#939eab',weight:.5,fillOpacity:.18},interactive:false}).addTo(map);
         if(this.selectedScenario?.added_geometry)L.geoJSON(this.selectedScenario.added_geometry as any,{style:{color:'#259d83',weight:2,fillOpacity:.35}}).addTo(map);
         const bounds:L.LatLngTuple[]=[];
@@ -579,7 +581,8 @@ export class Component implements OnInit, OnDestroy, OnChanges {
     public coverageIncrease() {
         const cities = this.scenarioCities();
         const base = cities.reduce((n:number,c:any)=>n+c.scenario.baseline_area_m2,0);
-        return base ? cities.reduce((n:number,c:any)=>n+c.scenario.linked_area_m2-c.scenario.baseline_area_m2,0)/base : null;
+        const gap=cities.reduce((n:number,c:any)=>n+(c.scenario.uncovered_area_m2 || 0),0);
+        return gap ? cities.reduce((n:number,c:any)=>n+c.scenario.linked_area_m2-c.scenario.baseline_area_m2,0)/gap : null;
     }
     public linkageBars() {
         return (this.transitLinkage?.hourly_station_linkage || []).map((h:any)=>({...h, height:(h.linkage_share || 0)*100}));
@@ -594,6 +597,18 @@ export class Component implements OnInit, OnDestroy, OnChanges {
         return values.map((value:number,hour:number)=>({value,hour,height:Math.abs(value)/max*48}));
     }
 
+    public stationDisplayIds: any = {};
+    public displayStationId(id: string) {
+        if(!id)return id;
+        const parts=id.split("::"),sid=parts[parts.length-1];
+        return this.stationDisplayIds[sid] || sid.replace(/^SJ-/,"SJ_H_");
+    }
+    public displayText(value: string) {return (value || "").replace(/SJ[-_]\d+/g,id=>this.displayStationId(id));}
+    public flowLabel(value: number) {
+        if(value == null)return "N/A";
+        return (value>0 ? "순유출 " : value<0 ? "순유입 " : "균형 ") + Math.abs(value).toLocaleString("ko-KR") + "건";
+    }
+    public async runQuestion(text: string) {if(this.busy)return; this.question=text; await this.ask();}
     public async ask() {
         const message = this.question.trim();
         if (!message || this.busy) return;
@@ -751,7 +766,7 @@ export class Component implements OnInit, OnDestroy, OnChanges {
             const color = vulnerable ? '#dc7043' : outside ? '#6784bc' : s.nearest_stop_distance_m == null ? '#949da8' : '#1b9d8b';
             const label = vulnerable ? '취약 후보 · 500m 밖 + 실제 이용' : outside ? '500m 밖 · 실제 이용 미확인' : s.nearest_stop_distance_m == null ? '정류장 거리 미확보' : '정류장 500m 이내';
             const point: L.LatLngTuple = [s.latitude,s.longitude]; bounds.push(point);
-            const caption=document.createElement('span');caption.textContent=s.station_id+' · '+(s.station_name || '')+' · '+label;
+            const caption=document.createElement('span');caption.textContent=this.displayStationId(s.station_id)+' · '+(s.station_name || '')+' · '+label;
             L.circleMarker(point,{radius:vulnerable ? 7 : 4.5,color,weight:1.5,fillColor:color,fillOpacity:.9}).addTo(activeMap).bindPopup(caption).on('click',()=>{void this.inspectStation(s.station_id,s.region_id);});
         }
         if (bounds.length) activeMap.fitBounds(L.latLngBounds(bounds).pad(.08),{maxZoom:12,animate:false});

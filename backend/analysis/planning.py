@@ -43,7 +43,7 @@ def vector(geometry,tolerance=2):
             "simplified_area_m2":simplified.area,"area_error_ratio":abs(simplified.area-geometry.area)/geometry.area if geometry.area else 0},
             "geometry":mapping(transform(UNPROJECT,simplified))}
 
-def grid_sites(boundary,baseline,stations,facilities,districts,step=500):
+def grid_sites(boundary,baseline,stations,facilities,districts,step=500,use_population=True):
     located=[r for r in stations if r.get("coordinate_valid")]
     if not located:return []
     tree=BallTree(np.radians([[r["latitude"],r["longitude"]] for r in located]),metric="haversine")
@@ -64,15 +64,15 @@ def grid_sites(boundary,baseline,stations,facilities,districts,step=500):
             if not demand and not facilities_count:continue
             district=next((d for d in districts if d["geometry"].covers(centre)),None)
             density=district.get("population_density_km2") if district else None
-            if density is None:continue
+            if density is None and use_population:continue
             candidates.append({"site_id":f"grid-{x}-{y}","station_id":f"grid-{x}-{y}",
-                "latitude":lat,"longitude":lon,"district":district["name"],"population_density_km2":density,
+                "latitude":lat,"longitude":lon,"district":district["name"],"population_density_km2":density if use_population else None,
                 "population_basis":"administrative district density; not measured grid population",
                 "facilities_within_500m":facilities_count,"nearby_rentals_1000m":demand,
                 "nearest_station_distance_m":nearest,"gap_ratio":cell.difference(baseline).area/cell.area,
                 "potential_added_area_m2":centre.buffer(300,quad_segs=16).intersection(boundary).difference(baseline).area})
     if not candidates:return []
-    keys=("population_density_km2","facilities_within_500m","nearby_rentals_1000m","gap_ratio")
+    keys=(("population_density_km2",) if use_population else ())+("facilities_within_500m","nearby_rentals_1000m","gap_ratio")
     for c in candidates:
         c["score_components"]={k:(sum(r[k]<c[k] for r in candidates)+.5*sum(r[k]==c[k] for r in candidates))/len(candidates) for k in keys}
         c["score"]=sum(c["score_components"].values())/len(keys)
@@ -96,3 +96,17 @@ def selection_scenarios(boundary_wkb,baseline_wkb,locations):
                 "increase_ratio":added.area/baseline.area if baseline.area else None,
                 "added_geometry":vector(added)["geometry"]})
     return states
+
+
+def gap_grid(boundary,baseline,step=500):
+    features=[]
+    x0,y0,x1,y1=boundary.bounds
+    for x in range(int(x0//step)*step,int(x1)+step,step):
+        for y in range(int(y0//step)*step,int(y1)+step,step):
+            cell=box(x,y,x+step,y+step).intersection(boundary)
+            if cell.is_empty:continue
+            gap=cell.difference(baseline)
+            if gap.is_empty or gap.area<=0:continue
+            f=vector(gap);f["properties"].update(grid_size_m=step,gap_area_m2=gap.area,gap_ratio=gap.area/cell.area)
+            features.append(f)
+    return {"type":"FeatureCollection","features":features}

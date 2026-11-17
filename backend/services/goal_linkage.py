@@ -1,16 +1,20 @@
 """Offline goal-aligned linkage metrics. No web-request analysis."""
-from backend.services import transit
+from backend.services import transit,city_anchors
 
 def summarize(result):
     rows = result.get("stations", [])
     located = [s for s in rows if s.get("coordinate_valid") and s.get("nearest_stop_distance_m") is not None]
-    subway = [s for s in located if s.get("nearest_subway_distance_m") is not None]
+    subway = located
     hours = result.get("hourly_station_linkage") or []
     total = sum(h["total_count"] for h in hours)
     result["goal_metrics"] = {
+        "anchor_label":result.get("anchor_label","도시별 앵커"),
+        "anchor_300m_ratio":sum(s.get("nearest_anchor_distance_m",s.get("nearest_subway_distance_m",s.get("nearest_stop_distance_m")))<=300 for s in located)/len(located) if located else None,
+        "first_last_mile_count":sum(800<=s["nearest_stop_distance_m"]<=1500 and (s.get("rental_count") or 0)>0 for s in located) if located else None,
+        "reference_all_stops_outside500":sum((s.get("nearest_all_stop_distance_m") or 0)>500 and (s.get("rental_count") or 0)>0 for s in located) if located else None,
         "located_station_count": len(located),
         "subway_station_count": len(subway),
-        "subway_300m_ratio": sum(s["nearest_subway_distance_m"] <= 300 for s in subway) / len(subway) if subway else None,
+        "subway_300m_ratio": sum(s.get("nearest_anchor_distance_m",s.get("nearest_subway_distance_m",float("inf"))) <= 300 for s in subway) / len(subway) if subway else None,
         "outside_500m_active_count": sum(s["nearest_stop_distance_m"] > 500 and (s.get("rental_count") or 0) > 0 for s in located) if located else None,
         "linked_trip_share": sum(h["linked_count"] for h in hours) / total if total else None,
         "linked_trip_total": total or None,
@@ -19,8 +23,8 @@ def summarize(result):
 
 def build(city,start,end):
     if city != "all":
-        return summarize(transit.linkage(city,start,end))
-    cities = [summarize(transit.linkage(c,start,end)) for c in ("seoul","daejeon")]
+        return summarize(city_anchors.linkage(city,start,end))
+    cities = [summarize(city_anchors.linkage(c,start,end)) for c in ("seoul","daejeon")]
     hours = {}
     for c in cities:
         for row in c.get("hourly_station_linkage") or []:
@@ -34,5 +38,5 @@ def build(city,start,end):
         "stations":[s for c in cities for s in c["stations"]],
         "map_stops":[s for c in cities for s in c.get("map_stops",[])],
         "hourly_station_linkage":sorted(hours.values(),key=lambda r:r["hour"]) or None,
-        "map_display_note":"정류장 음영은 도시별 최대600개 표본. 거리·면적·KPI는 전체 자료로 계산. 세종2025-10은 공통2026-10에 합산하지 않음.",
+        "anchor_label":"도시별 앵커","map_display_note":"지하철·BRT 앵커 기준. 세종 2025-10은 공통2026-10에 합산하지 않음.",
     })

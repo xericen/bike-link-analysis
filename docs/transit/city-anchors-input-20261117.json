@@ -1,0 +1,26 @@
+{
+  "source": {
+    "dataset_name": "세종특별자치시 BRT노선별 정류장 현황",
+    "source_url": "https://www.data.go.kr/data/15118026/fileData.do",
+    "reference_date": "2025-07-17",
+    "downloaded_at": "2026-11-17T07:57:16.444633+00:00",
+    "raw_rows": 343,
+    "unique_id_coordinate_rows": 152,
+    "sha256": "8c234e496b494bd3b6a94c4d2d8d9cf7d22e584ad9d212df5c163f60413ecfaf",
+    "verification_status": "VERIFIED"
+  },
+  "anchor_counts": {
+    "seoul": 340,
+    "daejeon": 22,
+    "sejong": 152
+  },
+  "sejong_raw_period": [
+    "2025-10-01",
+    "2025-10-31"
+  ],
+  "sejong_trips": 259143,
+  "sejong_linked": 188915,
+  "known_station_ids": 726,
+  "within300_station_ids": 338,
+  "member": "세종도시교통공사_공공자전거(어울링) 이용 현황 2025년 4분기.csv"
+}

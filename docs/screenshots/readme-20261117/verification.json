@@ -1,0 +1,17 @@
+{
+  "url": "http://localhost:3000/course/aafa5691f92f40e89818200a14c98a90?public=1",
+  "page_errors": [],
+  "captures": [
+    "dashboard-sejong.png",
+    "planning-sejong.png",
+    "selected-scenario.png",
+    "planning-mobile.png",
+    "dashboard-seoul.png"
+  ],
+  "paid_model_calls": 0,
+  "sejong_kpis": "BRT 정류장 300m 내 대여소 비율\n46.556%\n앵커 거리 확보 대여소 726개 기준\n앵커 500m 밖 이용 대여소\n236\n개소 · 직선거리 500m 초과 + 실제 대여\nBRT 앵커 연계 이동 비중\n72.9%\n출발·도착 중 한쪽 이상이 해당 앵커 300m 이내\n앵커 접근 공백 보완율\n0.909%\n앵커 500m 밖 행정면적 중 보완되는 비중",
+  "grid_paths": 1988,
+  "sejong_population_column_hidden": true,
+  "selected_scenario_area": "0.2823 km²",
+  "mobile_overflow": false
+}

@@ -22,3 +22,7 @@
 ## 현재 핵심 지표 조회 조건 (2026-11-16)
 
 WIZ의 overview/research/network/centrality/dashboard_extra/vulnerability/transit_linkage/planning은 사전 집계 DB를 조회합니다. 실제 데이터와 분석 코드가 확정된 뒤 `scripts/deploy/release.py`로 사전 집계 생성과 조회 검증을 완료해야 합니다. 후속 배포 명령을 지정하지 않으면 생성·검증만 수행합니다. 정확한 도시·기간·자료 버전이 준비되지 않았으면 409 안내를 반환하며 요청 시 계산으로 우회하지 않습니다. 다른 환경에 자료·집계·manifest를 복사한 뒤 release.py --verify-only로 내용 검증을 수행하세요. 내용이 다르면 재생성해야 합니다. 자세한 갱신 절차는 [KPI 운영 문서](../../docs/PRECOMPUTED_KPIS.md)를 참고하세요.
+
+## 도시별 앵커 (2026-11-17)
+
+현재 주요 지표는 서울·대전 지하철, 세종 BRT 기준입니다. 원본·위치 마스터를 준비한 뒤 `python -m scripts.collect.collect_city_anchors`, `python -m scripts.preprocess.build_city_anchors`를 실행하고 KPI를 재생성합니다. 일반 버스 포함 지표는 보조로 보존합니다. 세종 인구밀도는 미검증 연결을 대체하지 않고 제외하며, 원본 ID와 화면의 SJ_ 표시 ID를 구분합니다. [입력·산정·검증](../../docs/CITY_TRANSIT_ANCHORS.md)을 확인하세요.
