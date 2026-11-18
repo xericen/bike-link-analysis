@@ -1,0 +1,1436 @@
+{
+  "page_errors": [],
+  "cities": [
+    {
+      "city": "seoul",
+      "text": [
+        "숨은 역할과 최종 판단서울 · 2026-10-01 ~ 2026-10-31ST-1481 · 연결 유지 검토대여 926건 · 이용량 1640위 → PageRank 280위대여량만 보면 낮은 우선순위이나 PageRank가 높아 연결 유지 검토 사례로 추가합니다. 설치 우선순위 가산점이나 실제 환승 근거로 사용하지 않습니다.같은 수요, 다른 집중 시간ST-790 · 416건 · 집중 17시ST-1934 · 433건 · 집중 7시Cosine 0.288 · 총대여량이 유사해도 집중 시간이 다르면 현장 관찰·재배치 검토 시간대를 달리합니다. 실제 부족·이동 필요 수량은 추정하지 않습니다.K-means Silhouette 0.124 · 군집 역할 해석 보류",
+        "개선 후보 3곳 비교서울 · 2026-10-01 ~ 2026-10-31신규 격자 후보최근접 앵커 직선거리선정 근거주변 관측 대여(1km)모델상 추가 면적설치 전 확인1위 · 동대문구 · grid-961000-19525001,040m앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 25,586건, 500m 시설 17개25,586건0.2823 km²부지 소유·사용 허가 · 보도 유효 폭·출입구 · 안전·하천·철도 횡단 · 설치 비용·운영 용량 · 과거와 현재 위치 동일성2위 · 동대문구 · grid-961500-19525001,337m앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 25,264건, 500m 시설 15개25,264건0.2823 km²부지 소유·사용 허가 · 보도 유효 폭·출입구 · 안전·하천·철도 횡단 · 설치 비용·운영 용량 · 과거와 현재 위치 동일성3위 · 양천구 · grid-942000-1946000912m앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 19,805건, 500m 시설 6개19,805건0.2823 km²부지 소유·사용 허가 · 보도 유효 폭·출입구 · 안전·하천·철도 횡단 · 설치 비용·운영 용량 · 과거와 현재 위치 동일성주변 기존 대여소 이용량은 신규 수요 예측값이 아니며 후보 간 중복될 수 있습니다.3곳 모두 선택 · 중복 제거 추가 면적0.8245 km²후보 간 중복 면적0.0223 km²기준 대비 공간 증가0.419%공간 모델상 검토 후보이며 실제 설치 후 이용량·환승 증가 예측 아님실제 도로망 경로와 직선거리 비교도시별 신규 상위 2곳·기존 취약 1위 검증 · OSM 보행·자전거 경로 · 각 3곳 내 거리 순위후보직선거리보행 경로자전거 경로직선 → 보행 순위grid-961000-19525001,040m1.56 km1.50 km1 → 1grid-961500-19525001,337m2.10 km1.71 km2 → 3ST-9191,396m2.05 km2.08 km3 → 2최근접 직선거리 앵커까지의 현재 도로망 모델입니다. 도로 연결 오차 50m 초과는 제외하며 현장 통행·과거 경로는 미검증입니다.실제 환승 검증 상태실제 환승 여부 미확인. 앵커 근접 이동은 환승 가능성 지표입니다."
+      ]
+    },
+    {
+      "city": "daejeon",
+      "text": [
+        "숨은 역할과 최종 판단대전 · 2026-10-01 ~ 2026-10-31ST1186 · 연결 유지 검토대여 59건 · 이용량 1258위 → PageRank 467위대여량만 보면 낮은 우선순위이나 PageRank가 높아 연결 유지 검토 사례로 추가합니다. 설치 우선순위 가산점이나 실제 환승 근거로 사용하지 않습니다.같은 수요, 다른 집중 시간ST1081 · 153건 · 집중 11시ST1496 · 153건 · 집중 17시Cosine 0.250 · 총대여량이 유사해도 집중 시간이 다르면 현장 관찰·재배치 검토 시간대를 달리합니다. 실제 부족·이동 필요 수량은 추정하지 않습니다.K-means Silhouette 0.153 · 군집 역할 해석 보류",
+        "개선 후보 3곳 비교대전 · 2026-10-01 ~ 2026-10-31신규 격자 후보최근접 앵커 직선거리선정 근거주변 관측 대여(1km)모델상 추가 면적설치 전 확인1위 · 서구 · grid-987000-18115005,039m앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 15,106건, 500m 시설 3개15,106건0.2823 km²부지 소유·사용 허가 · 보도 유효 폭·출입구 · 안전·하천·철도 횡단 · 설치 비용·운영 용량 · 과거와 현재 위치 동일성2위 · 서구 · grid-987500-18165001,084m앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 20,350건, 500m 시설 2개20,350건0.2823 km²부지 소유·사용 허가 · 보도 유효 폭·출입구 · 안전·하천·철도 횡단 · 설치 비용·운영 용량 · 과거와 현재 위치 동일성3위 · 서구 · grid-986500-18110005,743m앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 12,355건, 500m 시설 2개12,355건0.2823 km²부지 소유·사용 허가 · 보도 유효 폭·출입구 · 안전·하천·철도 횡단 · 설치 비용·운영 용량 · 과거와 현재 위치 동일성주변 기존 대여소 이용량은 신규 수요 예측값이 아니며 후보 간 중복될 수 있습니다.3곳 모두 선택 · 중복 제거 추가 면적0.8469 km²후보 간 중복 면적0.0000 km²기준 대비 공간 증가5.225%공간 모델상 검토 후보이며 실제 설치 후 이용량·환승 증가 예측 아님실제 도로망 경로와 직선거리 비교도시별 신규 상위 2곳·기존 취약 1위 검증 · OSM 보행·자전거 경로 · 각 3곳 내 거리 순위후보직선거리보행 경로자전거 경로직선 → 보행 순위grid-987000-18115005,039m도로 연결 오차 · 제외도로 연결 오차 · 제외제외 → 제외grid-987500-18165001,084m1.69 km1.80 km1 → 1ST095210,391m13.49 km17.60 km2 → 2최근접 직선거리 앵커까지의 현재 도로망 모델입니다. 도로 연결 오차 50m 초과는 제외하며 현장 통행·과거 경로는 미검증입니다.실제 환승 검증 상태실제 환승 여부 미확인. 앵커 근접 이동은 환승 가능성 지표입니다."
+      ]
+    },
+    {
+      "city": "sejong",
+      "text": [
+        "숨은 역할과 최종 판단세종 · 2025-10-01 ~ 2025-10-31SJ_00442 · 연결 유지 검토대여 244건 · 이용량 393위 → PageRank 235위대여량만 보면 낮은 우선순위이나 PageRank가 높아 연결 유지 검토 사례로 추가합니다. 설치 우선순위 가산점이나 실제 환승 근거로 사용하지 않습니다.같은 수요, 다른 집중 시간SJ_00367 · 460건 · 집중 8시SJ_01001 · 481건 · 집중 21시Cosine 0.293 · 총대여량이 유사해도 집중 시간이 다르면 현장 관찰·재배치 검토 시간대를 달리합니다. 실제 부족·이동 필요 수량은 추정하지 않습니다.K-means Silhouette 0.094 · 군집 역할 해석 보류",
+        "개선 후보 3곳 비교세종 · 2025-10-01 ~ 2025-10-31신규 격자 후보최근접 앵커 직선거리선정 근거주변 관측 대여(1km)모델상 추가 면적설치 전 확인1위 · 세종시 · grid-981000-1830000991m앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 11,235건, 500m 시설 1개11,235건0.2823 km²부지 소유·사용 허가 · 보도 유효 폭·출입구 · 안전·하천·철도 횡단 · 설치 비용·운영 용량 · 과거와 현재 위치 동일성2위 · 세종시 · grid-980000-18325001,342m앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 6,732건, 500m 시설 1개6,732건0.2823 km²부지 소유·사용 허가 · 보도 유효 폭·출입구 · 안전·하천·철도 횡단 · 설치 비용·운영 용량 · 과거와 현재 위치 동일성3위 · 세종시 · grid-982000-18440003,463m앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 1,606건, 500m 시설 1개1,606건0.2801 km²부지 소유·사용 허가 · 보도 유효 폭·출입구 · 안전·하천·철도 횡단 · 설치 비용·운영 용량 · 과거와 현재 위치 동일성주변 기존 대여소 이용량은 신규 수요 예측값이 아니며 후보 간 중복될 수 있습니다.3곳 모두 선택 · 중복 제거 추가 면적0.8446 km²후보 간 중복 면적0.0000 km²기준 대비 공간 증가3.337%공간 모델상 검토 후보이며 실제 설치 후 이용량·환승 증가 예측 아님실제 도로망 경로와 직선거리 비교도시별 신규 상위 2곳·기존 취약 1위 검증 · OSM 보행·자전거 경로 · 각 3곳 내 거리 순위후보직선거리보행 경로자전거 경로직선 → 보행 순위grid-981000-1830000991m도로 연결 오차 · 제외도로 연결 오차 · 제외제외 → 제외grid-980000-18325001,342m2.42 km2.42 km2 → 2SJ_005151,181m1.55 km1.97 km1 → 1최근접 직선거리 앵커까지의 현재 도로망 모델입니다. 도로 연결 오차 50m 초과는 제외하며 현장 통행·과거 경로는 미검증입니다.실제 환승 검증 상태공식 공개 설명에서 환승 유무 컬럼의 판정 정의를 확인하지 못했습니다. N을 실제 비환승으로 확정하거나 실제 환승률 0%로 해석하지 않습니다.세종 원본 259,143건 · 코드 N 259,143건 · 실제 환승률 미확정2025-10 이용 이력 × 2026-05 위치 마스터 × 현재 BRT 앵커. 근접성 대조이며 실제 환승 검증 아님.원본 코드출발 BRT 300m도착 BRT 300m기록 수N밖밖69,363N밖거리 미확인363N밖이내53,056N거리 미확인밖382N거리 미확인거리 미확인120N거리 미확인이내338N이내밖48,683N이내거리 미확인301N이내이내86,537"
+      ]
+    }
+  ],
+  "url": "http://127.0.0.1:5173/course/aafa5691f92f40e89818200a14c98a90?public=1",
+  "evaluation": "Solar 도구 사용 비교 실험\n동일 모델 · 동일 질문 · 2도시\n도시\t조건\t확인값 응답\t근거 일치율\t대여소 ID\t근거 불일치 주장\t자동 검증 밖 서술\n서울\t도구 없음\t0 / 5\t응답 없음\t미응답\t0\t0\n서울\t실제 도구 사용\t5 / 5\t100%\t일치\t0\t4\n세종\t도구 없음\t0 / 5\t응답 없음\t미응답\t0\t0\n세종\t실제 도구 사용\t5 / 5\t100%\t일치\t0\t0\n실험 조건과 원본 응답",
+  "solar": {
+    "answer": "Solar 원문의 일부 주장을 검증하지 못해 실제 도구 결과로 요약합니다.\n후보3곳 중복 제거 추가 면적: 844637.8002465707m²\n후보 간 중복 면적: 2.3283064365386963e-10m²\ngrid-981000-1830000 주변1km 관측 대여: 11235건\ngrid-980000-1832500 주변1km 관측 대여: 6732건\ngrid-982000-1844000 주변1km 관측 대여: 1606건\n세종 연간 이용량: 2629483건\n분석 기간: 2025-10-01 ~ 2025-10-31\n서울 집계 OD와 대전 개별 Trip의 총량 배율로 운영 성과를 비교하지 않습니다. 재고 부족과 개선 효과는 추가 자료 없이 확정할 수 없습니다.",
+    "solar_answer": "추천 후보 3곳은 grid-981000-1830000, grid-980000-1832500, grid-982000-1844000이며, 후보 간 중복 면적은 2.3283064365386963e-10 m²로 사실상 중복이 없고, 제외 후 추가한 면적은 844637.8002465707 m²입니다. 세 후보는 앵커 접근 공백 비율 1.00을 공통으로 가지며, 주변 1km 관측 대여는 각각 11,235건, 6,732건, 1,606건으로 확인했습니다.\n\n도로망 검증은 OSM 도로망 기반 경로 비교만 확인했으며, grid-981000-1830000은 시청·시의회·교육청·세무서 BRT 정류장까지 도보 1,800.3m·자전거 1,801.1m로 스넵 불확실 상태이고, grid-980000-1832500은 전통문화체험관 BRT 정류장까지 도보 2,420.2m·자전거 2,423.2m로 정상 상태, grid-982000-1844000은 한국산업인력공단(세종지사) BRT 정류장까지 도보 1,549m·자전거 1,969m로 정상 상태입니다. 단, 이 거리는 직선거리가 아니라 앵커 유형별 경로 시나리오이며, 스넵 50m 초과 구간과 과거 좌표 동일성은 미검증입니다.\n\n현장 확인 사항으로는 부지 소유·사용 허가, 보도 유효 폭·출입구, 안전·하천·철도 횡단, 설치 비용·운영 용량, 과거와 현재 위치 동일성이 아직 확인되지 않았고, 인구밀도는 행정구 전체 밀도로 대체했으며 측정 격자인구는 사용하지 않았습니다.\n\n관측은 2025-10-01부터 2025-10-31",
+    "answer_basis": "tool_summary",
+    "report": {
+      "question_summary": "현재 도시의 검증된 개선 후보 3곳 비교와 중복 제거 면적, 도로망 검증 결과 및 현장 확인 사항을 get_decision_evidence로 확인해 보고서로 정리해줘.",
+      "key_findings": [
+        {
+          "label": "후보3곳 중복 제거 추가 면적",
+          "value": 844637.8002465707,
+          "unit": "m²",
+          "region_id": "sejong"
+        },
+        {
+          "label": "후보 간 중복 면적",
+          "value": 2.3283064365386963e-10,
+          "unit": "m²",
+          "region_id": "sejong"
+        },
+        {
+          "label": "grid-981000-1830000 주변1km 관측 대여",
+          "value": 11235,
+          "unit": "건",
+          "region_id": "sejong"
+        },
+        {
+          "label": "grid-980000-1832500 주변1km 관측 대여",
+          "value": 6732,
+          "unit": "건",
+          "region_id": "sejong"
+        },
+        {
+          "label": "grid-982000-1844000 주변1km 관측 대여",
+          "value": 1606,
+          "unit": "건",
+          "region_id": "sejong"
+        },
+        {
+          "label": "세종 연간 이용량",
+          "value": 2629483,
+          "unit": "건",
+          "region_id": "sejong",
+          "period": "2025"
+        }
+      ],
+      "evidence": [
+        {
+          "tool": "get_decision_evidence",
+          "arguments": {
+            "region_id": "sejong",
+            "date_range": {
+              "date_start": "2025-10-01",
+              "date_end": "2025-10-31"
+            }
+          },
+          "result": {
+            "city": "sejong",
+            "period_start": "2025-10-01",
+            "period_end": "2025-10-31",
+            "top3": [
+              {
+                "site_id": "grid-981000-1830000",
+                "station_id": "grid-981000-1830000",
+                "latitude": 36.4696780788357,
+                "longitude": 127.29071378261396,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 1,
+                "nearby_rentals_1000m": 11235,
+                "nearest_station_distance_m": 712.7495786143038,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.8737373737373737,
+                  "nearby_rentals_1000m": 0.9570707070707071,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.8063973063973063,
+                "rank": 1,
+                "region_id": "sejong",
+                "nearest_anchor_distance_m": 991.0187831477576,
+                "selection_reason": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 11,235건, 500m 시설 1개",
+                "observed_demand_label": "주변 기존 대여소 관측량(후보 간 중복 가능); 신규 수요 예측 아님",
+                "feasibility_unchecked": [
+                  "부지 소유·사용 허가",
+                  "보도 유효 폭·출입구",
+                  "안전·하천·철도 횡단",
+                  "설치 비용·운영 용량",
+                  "과거와 현재 위치 동일성"
+                ]
+              },
+              {
+                "site_id": "grid-980000-1832500",
+                "station_id": "grid-980000-1832500",
+                "latitude": 36.49219586062595,
+                "longitude": 127.27948807100312,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 1,
+                "nearby_rentals_1000m": 6732,
+                "nearest_station_distance_m": 516.2199391627163,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.8737373737373737,
+                  "nearby_rentals_1000m": 0.9116161616161617,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.7912457912457912,
+                "rank": 2,
+                "region_id": "sejong",
+                "nearest_anchor_distance_m": 1342.4298315709518,
+                "selection_reason": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 6,732건, 500m 시설 1개",
+                "observed_demand_label": "주변 기존 대여소 관측량(후보 간 중복 가능); 신규 수요 예측 아님",
+                "feasibility_unchecked": [
+                  "부지 소유·사용 허가",
+                  "보도 유효 폭·출입구",
+                  "안전·하천·철도 횡단",
+                  "설치 비용·운영 용량",
+                  "과거와 현재 위치 동일성"
+                ]
+              },
+              {
+                "site_id": "grid-982000-1844000",
+                "station_id": "grid-982000-1844000",
+                "latitude": 36.59590832266544,
+                "longitude": 127.30155346285264,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 1,
+                "nearby_rentals_1000m": 1606,
+                "nearest_station_distance_m": 397.08633966200404,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 280059.0719484916,
+                "score_components": {
+                  "facilities_within_500m": 0.8737373737373737,
+                  "nearby_rentals_1000m": 0.7348484848484849,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.7323232323232323,
+                "rank": 3,
+                "region_id": "sejong",
+                "nearest_anchor_distance_m": 3463.328920072227,
+                "selection_reason": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 1,606건, 500m 시설 1개",
+                "observed_demand_label": "주변 기존 대여소 관측량(후보 간 중복 가능); 신규 수요 예측 아님",
+                "feasibility_unchecked": [
+                  "부지 소유·사용 허가",
+                  "보도 유효 폭·출입구",
+                  "안전·하천·철도 횡단",
+                  "설치 비용·운영 용량",
+                  "과거와 현재 위치 동일성"
+                ]
+              }
+            ],
+            "top3_union": {
+              "selected_ids": [
+                "grid-980000-1832500",
+                "grid-981000-1830000",
+                "grid-982000-1844000"
+              ],
+              "baseline_area_m2": 25307753.870773062,
+              "added_area_m2": 844637.8002465707,
+              "overlap_area_m2": 2.3283064365386963e-10,
+              "linked_area_m2": 26152391.671019632,
+              "increase_ratio": 0.03337466471973279
+            },
+            "route_audit": [
+              {
+                "city": "sejong",
+                "period_start": "2025-10-01",
+                "period_end": "2025-10-31",
+                "candidate_id": "grid-981000-1830000",
+                "kind": "신규 입지",
+                "anchor_id": "brt:51111:36.478356:127.288188",
+                "anchor_name": "시청,시의회,교육청,세무서",
+                "latitude": 36.4696780788357,
+                "longitude": 127.29071378261396,
+                "straight_distance_m": 991.0187831477576,
+                "routes": {
+                  "foot": {
+                    "status": "snap_uncertain",
+                    "distance_m": 1800.3,
+                    "duration_s": 1427.1,
+                    "snap_distances_m": [
+                      63.16972918,
+                      3.640797775
+                    ],
+                    "snapped_coordinates": [
+                      [
+                        127.290021,
+                        36.469574
+                      ],
+                      [
+                        127.288207,
+                        36.478327
+                      ]
+                    ],
+                    "detour_ratio": 1.8166154169971782,
+                    "retrieved_at": "2026-11-17T11:20:45.911552+00:00",
+                    "response_sha256": "a2dde5dcddcef2a8d500510c888d521c8e4a2e29d5dfaae2e0a0d27aab755659"
+                  },
+                  "bike": {
+                    "status": "snap_uncertain",
+                    "distance_m": 1801.1,
+                    "duration_s": 479.1,
+                    "snap_distances_m": [
+                      63.16972918,
+                      3.640797775
+                    ],
+                    "snapped_coordinates": [
+                      [
+                        127.290021,
+                        36.469574
+                      ],
+                      [
+                        127.288207,
+                        36.478327
+                      ]
+                    ],
+                    "detour_ratio": 1.8174226670852733,
+                    "retrieved_at": "2026-11-17T11:20:47.657460+00:00",
+                    "response_sha256": "47f42786db2c0f2073d47a559f01d3ef572f6c6dc1068ba76a799cb8348307ac"
+                  }
+                },
+                "straight_rank": 1
+              },
+              {
+                "city": "sejong",
+                "period_start": "2025-10-01",
+                "period_end": "2025-10-31",
+                "candidate_id": "grid-980000-1832500",
+                "kind": "신규 입지",
+                "anchor_id": "brt:64065:36.5038919:127.2832104",
+                "anchor_name": "전통문화체험관",
+                "latitude": 36.49219586062595,
+                "longitude": 127.27948807100312,
+                "straight_distance_m": 1342.4298315709518,
+                "routes": {
+                  "foot": {
+                    "status": "ok",
+                    "distance_m": 2420.2,
+                    "duration_s": 1935.2,
+                    "snap_distances_m": [
+                      21.49596413,
+                      2.264102816
+                    ],
+                    "snapped_coordinates": [
+                      [
+                        127.279563,
+                        36.49238
+                      ],
+                      [
+                        127.283205,
+                        36.503872
+                      ]
+                    ],
+                    "detour_ratio": 1.802850281692421,
+                    "retrieved_at": "2026-11-17T11:20:49.416430+00:00",
+                    "response_sha256": "83b0c1cb73e39f181cca1932846f7a1cb9b50fca9e75b4553e529d2c297f99f5",
+                    "comparable_straight_rank": 2,
+                    "distance_rank": 2
+                  },
+                  "bike": {
+                    "status": "ok",
+                    "distance_m": 2423.2,
+                    "duration_s": 526.5,
+                    "snap_distances_m": [
+                      21.49596413,
+                      2.264102816
+                    ],
+                    "snapped_coordinates": [
+                      [
+                        127.279563,
+                        36.49238
+                      ],
+                      [
+                        127.283205,
+                        36.503872
+                      ]
+                    ],
+                    "detour_ratio": 1.805085035367769,
+                    "retrieved_at": "2026-11-17T11:20:51.170767+00:00",
+                    "response_sha256": "ec58632aa57d86465989778f530a98b179bc7c9dd7cb9978767ebe12c0a1c7d0",
+                    "comparable_straight_rank": 2,
+                    "distance_rank": 2
+                  }
+                },
+                "straight_rank": 3
+              },
+              {
+                "city": "sejong",
+                "period_start": "2025-10-01",
+                "period_end": "2025-10-31",
+                "candidate_id": "SJ_00515",
+                "kind": "기존 취약",
+                "anchor_id": "brt:51137:36.490395:127.256809",
+                "anchor_name": "한국산업인력공단(세종지사)",
+                "latitude": 36.4918561,
+                "longitude": 127.2698918,
+                "straight_distance_m": 1180.7698299804479,
+                "routes": {
+                  "foot": {
+                    "status": "ok",
+                    "distance_m": 1549,
+                    "duration_s": 1239.1,
+                    "snap_distances_m": [
+                      2.290459608,
+                      7.698090692
+                    ],
+                    "snapped_coordinates": [
+                      [
+                        127.269915,
+                        36.491865
+                      ],
+                      [
+                        127.256724,
+                        36.490385
+                      ]
+                    ],
+                    "detour_ratio": 1.3118560117899096,
+                    "retrieved_at": "2026-11-17T11:20:52.943115+00:00",
+                    "response_sha256": "76f87eaa49daa771d87f9911404f7028cd1a4663218cd64be9a658579e4defff",
+                    "comparable_straight_rank": 1,
+                    "distance_rank": 1
+                  },
+                  "bike": {
+                    "status": "ok",
+                    "distance_m": 1969,
+                    "duration_s": 341.1,
+                    "snap_distances_m": [
+                      2.290459608,
+                      7.698090692
+                    ],
+                    "snapped_coordinates": [
+                      [
+                        127.269915,
+                        36.491865
+                      ],
+                      [
+                        127.256724,
+                        36.490385
+                      ]
+                    ],
+                    "detour_ratio": 1.6675561570137716,
+                    "retrieved_at": "2026-11-17T11:20:55.133836+00:00",
+                    "response_sha256": "69c3e53653d2903cc5e9b6d83b62667a620b9fef64c0943b58311dcccdc6f464",
+                    "comparable_straight_rank": 1,
+                    "distance_rank": 1
+                  }
+                },
+                "straight_rank": 2
+              }
+            ],
+            "route_source": "https://routing.openstreetmap.de/about.html",
+            "route_limitations": [
+              "각 도시3후보의 같은 최근접 직선 앵커까지의 경로 비교. 다른 앵커의 네트워크 최단 경로는 탐색하지 않음.",
+              "현재 OSM 도로망 모델이며 과거 관측 시점·실제 현장 보행·자전거 통행 가능성의 보장은 아님.",
+              "스냅50m 초과는 순위 비교에서 제외. 스냅 접속 구간의 통행 가능성은 미검증. 서로 다른 도시의 거리 순위는 합산하지 않음."
+            ],
+            "hidden_hub": {
+              "station_id": "SJ_00442",
+              "station_name": "조치원_고려대학교",
+              "pagerank": 0.0015611,
+              "weighted_out_degree": 244,
+              "weighted_in_degree": 243,
+              "betweenness": 0.0,
+              "rental_count": 244,
+              "usage_rank": 393,
+              "pagerank_rank": 235,
+              "betweenness_rank": 393,
+              "rank_gap": 158,
+              "top_connections": [
+                {
+                  "station_id": "SJ_00432",
+                  "station_name": "조치원_중앙요양병원",
+                  "trip_count": 32,
+                  "direction": "out"
+                },
+                {
+                  "station_id": "SJ_00520",
+                  "station_name": "조치원_조치원역",
+                  "trip_count": 30,
+                  "direction": "in"
+                },
+                {
+                  "station_id": "SJ_00429",
+                  "station_name": "조치원_조치원역 서편",
+                  "trip_count": 26,
+                  "direction": "in"
+                },
+                {
+                  "station_id": "SJ_00428",
+                  "station_name": "조치원_욱일아파트",
+                  "trip_count": 22,
+                  "direction": "out"
+                },
+                {
+                  "station_id": "SJ_00431",
+                  "station_name": "조치원_홍익대학교 정문",
+                  "trip_count": 22,
+                  "direction": "out"
+                },
+                {
+                  "station_id": "SJ-00754",
+                  "station_name": "조치원_엘리프세종아파트 104동 앞",
+                  "trip_count": 21,
+                  "direction": "in"
+                },
+                {
+                  "station_id": "SJ_00431",
+                  "station_name": "조치원_홍익대학교 정문",
+                  "trip_count": 20,
+                  "direction": "in"
+                },
+                {
+                  "station_id": "SJ_00432",
+                  "station_name": "조치원_중앙요양병원",
+                  "trip_count": 20,
+                  "direction": "in"
+                },
+                {
+                  "station_id": "SJ_00520",
+                  "station_name": "조치원_조치원역",
+                  "trip_count": 20,
+                  "direction": "out"
+                },
+                {
+                  "station_id": "SJ_00428",
+                  "station_name": "조치원_욱일아파트",
+                  "trip_count": 16,
+                  "direction": "in"
+                }
+              ],
+              "usage_percentile": 0.4608,
+              "pagerank_percentile": 0.6781,
+              "candidate": true,
+              "decision": "대여량만 보면 낮은 우선순위이나 PageRank가 높아 연결 유지 검토 사례로 추가합니다. 설치 우선순위 가산점이나 실제 환승 근거로 사용하지 않습니다."
+            },
+            "pattern_case": {
+              "cosine": 0.29325003492387347,
+              "max_demand_difference_ratio": 0.05,
+              "stations": [
+                {
+                  "station_id": "SJ_00367",
+                  "rental_count": 460,
+                  "peak_hour": 8
+                },
+                {
+                  "station_id": "SJ-01001",
+                  "rental_count": 481,
+                  "peak_hour": 21
+                }
+              ],
+              "decision": "총대여량이 유사해도 집중 시간이 다르면 현장 관찰·재배치 검토 시간대를 달리합니다. 실제 부족·이동 필요 수량은 추정하지 않습니다."
+            },
+            "cluster_quality": {
+              "selected_k": 3,
+              "silhouette": 0.094,
+              "quality": "low"
+            },
+            "cluster_decision": "낮은 Silhouette로 군집 역할 해석 보류. 최종 입지 점수에 군집명을 강제로 반영하지 않습니다.",
+            "planning_scope": "공간 모델상 검토 후보이며 실제 설치 후 이용량·환승 증가 예측 아님",
+            "population_basis": "세종은 동·읍면별 공간 대응이 없어 인구밀도 점수에서 제외",
+            "transfer_audit": {
+              "period_start": "2025-10-01",
+              "period_end": "2025-10-31",
+              "row_count": 259143,
+              "raw_codes": {
+                "N": 259143
+              },
+              "cross_tab": [
+                {
+                  "raw_code": "N",
+                  "origin": "outside300",
+                  "destination": "outside300",
+                  "count": 69363
+                },
+                {
+                  "raw_code": "N",
+                  "origin": "outside300",
+                  "destination": "unknown",
+                  "count": 363
+                },
+                {
+                  "raw_code": "N",
+                  "origin": "outside300",
+                  "destination": "within300",
+                  "count": 53056
+                },
+                {
+                  "raw_code": "N",
+                  "origin": "unknown",
+                  "destination": "outside300",
+                  "count": 382
+                },
+                {
+                  "raw_code": "N",
+                  "origin": "unknown",
+                  "destination": "unknown",
+                  "count": 120
+                },
+                {
+                  "raw_code": "N",
+                  "origin": "unknown",
+                  "destination": "within300",
+                  "count": 338
+                },
+                {
+                  "raw_code": "N",
+                  "origin": "within300",
+                  "destination": "outside300",
+                  "count": 48683
+                },
+                {
+                  "raw_code": "N",
+                  "origin": "within300",
+                  "destination": "unknown",
+                  "count": 301
+                },
+                {
+                  "raw_code": "N",
+                  "origin": "within300",
+                  "destination": "within300",
+                  "count": 86537
+                }
+              ],
+              "definition_status": "unverified",
+              "actual_transfer_rate": null,
+              "csv_sha256": "34dd6dcabc5a942587fb1237ba786312335e1800cf0d9238e536cc5a764eb022",
+              "source_url": "https://www.data.go.kr/data/15106191/fileData.do",
+              "checked_at": "2026-11-17",
+              "message": "공식 공개 설명에서 환승 유무 컬럼의 판정 정의를 확인하지 못했습니다. N을 실제 비환승으로 확정하거나 실제 환승률 0%로 해석하지 않습니다.",
+              "cross_tab_basis": "2025-10 이용 이력 × 2026-05 위치 마스터 × 현재 BRT 앵커. 근접성 대조이며 실제 환승 검증 아님."
+            },
+            "available": true,
+            "matches_selected_period": true,
+            "selected_period": {
+              "start": "2025-10-01",
+              "end": "2025-10-31"
+            }
+          },
+          "initiator": "solar",
+          "execution_seconds": 0.008
+        },
+        {
+          "tool": "get_data_availability",
+          "arguments": {
+            "region_id": "sejong"
+          },
+          "result": {
+            "region_id": "sejong",
+            "region_name": "세종",
+            "service_name": "어울링",
+            "sources": [
+              {
+                "source_id": "sejong-yearly-20260831",
+                "region_id": "sejong",
+                "dataset_name": "세종도시교통공사_공공자전거 어울링 연도별 이용건수",
+                "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+                "date_start": "2017-01-01",
+                "date_end": "2026-08-31",
+                "collected_at": "2026-11-04T04:54:00.764456Z",
+                "verification_status": "VERIFIED",
+                "available_columns": [
+                  "구분",
+                  "어울링 이용건수"
+                ]
+              },
+              {
+                "source_id": "sejong-stations-metadata",
+                "region_id": "sejong",
+                "dataset_name": "세담터 어울링 수집 대여소정보",
+                "source_url": "https://www2.sejong.go.kr/bigdata/metaDataView.do?order_type=rcd",
+                "date_start": null,
+                "date_end": null,
+                "collected_at": null,
+                "verification_status": "ACCESS_REQUIRED",
+                "available_columns": []
+              },
+              {
+                "source_id": "sejong-portal-api",
+                "region_id": "sejong",
+                "dataset_name": "어울링 연도별 이용건수 자동변환 OpenAPI",
+                "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+                "date_start": null,
+                "date_end": null,
+                "collected_at": null,
+                "verification_status": "ACCESS_REQUIRED",
+                "available_columns": []
+              },
+              {
+                "source_id": "sejong-trip-15106191",
+                "region_id": "sejong",
+                "dataset_name": "세종 어울링 개별 이용이력(선택 기간)",
+                "source_url": "https://www.data.go.kr/data/15106191/fileData.do",
+                "date_start": "2025-10-01",
+                "date_end": "2025-10-31",
+                "collected_at": "2026-11-16T10:19:57.586209+00:00",
+                "verification_status": "VERIFIED",
+                "available_columns": [
+                  "순번",
+                  "시작 대여소",
+                  "대여시간",
+                  "반납 대여소",
+                  "반납시간",
+                  "주행시간"
+                ],
+                "note": "원본 ZIP2020~2025 확보. 최초 서비스 연결은 명시한 기간만. 좌표/명칭 대응표 미확보."
+              },
+              {
+                "source_id": "sejong-master-15091421",
+                "region_id": "sejong",
+                "dataset_name": "세종 어울링 대여소 위치 마스터",
+                "source_url": "https://www.data.go.kr/data/15091421/fileData.do",
+                "date_start": "2026-05-26",
+                "date_end": "2026-05-26",
+                "collected_at": "2026-11-16T14:04:09.067324+00:00",
+                "verification_status": "VERIFIED",
+                "available_columns": [
+                  "대여소 아이디",
+                  "대여소 이름",
+                  "사용유무",
+                  "주소(동)",
+                  "상세주소",
+                  "경도",
+                  "위도",
+                  "권역",
+                  "지오펜스 거리",
+                  "등록일",
+                  "수정일"
+                ],
+                "note": "2025-10 등록 이내 ID만 연결. 좌표는2026-05 기준으로 과거 위치 변경 가능성이 있음."
+              }
+            ],
+            "total_rentals": 259143,
+            "annual_latest": {
+              "region_id": "sejong",
+              "year": 2025,
+              "period_end": "2025-12-31",
+              "complete_year": true,
+              "rental_count": 2629483
+            },
+            "has_od": true,
+            "coverage_note": "세종 2025년10월 이용이력에 공식2026-05 대여소 마스터를 ID로 연결했습니다. 위치 자료의 시점 차이가 있으며 미매칭 ID는 지도에서 제외합니다.",
+            "period_start": "2025-10-01",
+            "period_end": "2025-10-31"
+          },
+          "initiator": "metric_guard",
+          "execution_seconds": 0.281
+        }
+      ],
+      "algorithms": [
+        "Cosine similarity",
+        "OSM route audit",
+        "PageRank",
+        "projected buffer union"
+      ],
+      "station_roles": [],
+      "recommendations": [
+        {
+          "feature": "grid-981000-1830000 신규 설치 검토",
+          "evidence": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 11,235건, 500m 시설 1개",
+          "action": "부지·보도 폭·출입구·통행 장벽과 설치 비용을 현장 확인하세요.",
+          "value": "공간 모델상 검토 우선순위이며 신규 수요 예측이 아닙니다.",
+          "validation": "부지 소유·사용 허가 · 보도 유효 폭·출입구 · 안전·하천·철도 횡단 · 설치 비용·운영 용량 · 과거와 현재 위치 동일성"
+        },
+        {
+          "feature": "grid-980000-1832500 신규 설치 검토",
+          "evidence": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 6,732건, 500m 시설 1개",
+          "action": "부지·보도 폭·출입구·통행 장벽과 설치 비용을 현장 확인하세요.",
+          "value": "공간 모델상 검토 우선순위이며 신규 수요 예측이 아닙니다.",
+          "validation": "부지 소유·사용 허가 · 보도 유효 폭·출입구 · 안전·하천·철도 횡단 · 설치 비용·운영 용량 · 과거와 현재 위치 동일성"
+        },
+        {
+          "feature": "grid-982000-1844000 신규 설치 검토",
+          "evidence": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 1,606건, 500m 시설 1개",
+          "action": "부지·보도 폭·출입구·통행 장벽과 설치 비용을 현장 확인하세요.",
+          "value": "공간 모델상 검토 우선순위이며 신규 수요 예측이 아닙니다.",
+          "validation": "부지 소유·사용 허가 · 보도 유효 폭·출입구 · 안전·하천·철도 횡단 · 설치 비용·운영 용량 · 과거와 현재 위치 동일성"
+        }
+      ],
+      "limitations": [
+        "공간 모델상 검토 후보이며 실제 설치 후 이용량·환승 증가 예측 아님",
+        "낮은 Silhouette로 군집 역할 해석 보류. 최종 입지 점수에 군집명을 강제로 반영하지 않습니다.",
+        "공식 공개 설명에서 환승 유무 컬럼의 판정 정의를 확인하지 못했습니다. N을 실제 비환승으로 확정하거나 실제 환승률 0%로 해석하지 않습니다.",
+        "세종 2025년10월 이용이력에 공식2026-05 대여소 마스터를 ID로 연결했습니다. 위치 자료의 시점 차이가 있으며 미매칭 ID는 지도에서 제외합니다.",
+        "Solar 원문은 수치·대여소·일별 극값 또는 종료 상태 검증을 통과하지 못해 보류했습니다. 기본 본문은 실제 도구 값 요약입니다."
+      ],
+      "sources": [
+        {
+          "dataset_name": "세종도시교통공사_공공자전거 어울링 연도별 이용건수",
+          "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "dataset_name": "세담터 어울링 수집 대여소정보",
+          "source_url": "https://www2.sejong.go.kr/bigdata/metaDataView.do?order_type=rcd",
+          "verification_status": "ACCESS_REQUIRED"
+        },
+        {
+          "dataset_name": "어울링 연도별 이용건수 자동변환 OpenAPI",
+          "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+          "verification_status": "ACCESS_REQUIRED"
+        },
+        {
+          "dataset_name": "세종 어울링 개별 이용이력(선택 기간)",
+          "source_url": "https://www.data.go.kr/data/15106191/fileData.do",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "dataset_name": "세종 어울링 대여소 위치 마스터",
+          "source_url": "https://www.data.go.kr/data/15091421/fileData.do",
+          "verification_status": "VERIFIED"
+        }
+      ],
+      "periods": [
+        "2025-10-01",
+        "2025-10-31"
+      ],
+      "charts": [],
+      "station_comparison": [],
+      "interpretation": "Solar 원문의 일부 주장을 검증하지 못해 실제 도구 결과로 요약합니다.\n후보3곳 중복 제거 추가 면적: 844637.8002465707m²\n후보 간 중복 면적: 2.3283064365386963e-10m²\ngrid-981000-1830000 주변1km 관측 대여: 11235건\ngrid-980000-1832500 주변1km 관측 대여: 6732건\ngrid-982000-1844000 주변1km 관측 대여: 1606건\n세종 연간 이용량: 2629483건\n분석 기간: 2025-10-01 ~ 2025-10-31\n서울 집계 OD와 대전 개별 Trip의 총량 배율로 운영 성과를 비교하지 않습니다. 재고 부족과 개선 효과는 추가 자료 없이 확정할 수 없습니다."
+    },
+    "grounding_validation": {
+      "checked_numeric_tokens": 21,
+      "matched_numeric_tokens": 20,
+      "unmatched_numeric_tokens": [
+        "2.3283064365386963"
+      ],
+      "passed": false,
+      "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+    },
+    "station_validation": {
+      "passed": true,
+      "unmatched_station_ids": []
+    },
+    "semantic_validation": {
+      "passed": true,
+      "checked_claims": 0,
+      "unsupported_claims": [],
+      "method": "일별 최대·최소 비교의 날짜/건수를 실제 극값과 대조. 해석할 수 없는 비교는 보류."
+    },
+    "anchor_population_validation": {
+      "passed": true,
+      "reason": null
+    },
+    "analysis_context": {
+      "region_ids": [
+        "sejong"
+      ],
+      "date_start": "2025-10-01",
+      "date_end": "2025-10-31"
+    },
+    "model_finish_reason": "length",
+    "fallback_reason": null,
+    "evidence": [
+      {
+        "tool": "get_decision_evidence",
+        "arguments": {
+          "region_id": "sejong",
+          "date_range": {
+            "date_start": "2025-10-01",
+            "date_end": "2025-10-31"
+          }
+        },
+        "result": {
+          "city": "sejong",
+          "period_start": "2025-10-01",
+          "period_end": "2025-10-31",
+          "top3": [
+            {
+              "site_id": "grid-981000-1830000",
+              "station_id": "grid-981000-1830000",
+              "latitude": 36.4696780788357,
+              "longitude": 127.29071378261396,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 1,
+              "nearby_rentals_1000m": 11235,
+              "nearest_station_distance_m": 712.7495786143038,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.8737373737373737,
+                "nearby_rentals_1000m": 0.9570707070707071,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.8063973063973063,
+              "rank": 1,
+              "region_id": "sejong",
+              "nearest_anchor_distance_m": 991.0187831477576,
+              "selection_reason": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 11,235건, 500m 시설 1개",
+              "observed_demand_label": "주변 기존 대여소 관측량(후보 간 중복 가능); 신규 수요 예측 아님",
+              "feasibility_unchecked": [
+                "부지 소유·사용 허가",
+                "보도 유효 폭·출입구",
+                "안전·하천·철도 횡단",
+                "설치 비용·운영 용량",
+                "과거와 현재 위치 동일성"
+              ]
+            },
+            {
+              "site_id": "grid-980000-1832500",
+              "station_id": "grid-980000-1832500",
+              "latitude": 36.49219586062595,
+              "longitude": 127.27948807100312,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 1,
+              "nearby_rentals_1000m": 6732,
+              "nearest_station_distance_m": 516.2199391627163,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.8737373737373737,
+                "nearby_rentals_1000m": 0.9116161616161617,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.7912457912457912,
+              "rank": 2,
+              "region_id": "sejong",
+              "nearest_anchor_distance_m": 1342.4298315709518,
+              "selection_reason": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 6,732건, 500m 시설 1개",
+              "observed_demand_label": "주변 기존 대여소 관측량(후보 간 중복 가능); 신규 수요 예측 아님",
+              "feasibility_unchecked": [
+                "부지 소유·사용 허가",
+                "보도 유효 폭·출입구",
+                "안전·하천·철도 횡단",
+                "설치 비용·운영 용량",
+                "과거와 현재 위치 동일성"
+              ]
+            },
+            {
+              "site_id": "grid-982000-1844000",
+              "station_id": "grid-982000-1844000",
+              "latitude": 36.59590832266544,
+              "longitude": 127.30155346285264,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 1,
+              "nearby_rentals_1000m": 1606,
+              "nearest_station_distance_m": 397.08633966200404,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 280059.0719484916,
+              "score_components": {
+                "facilities_within_500m": 0.8737373737373737,
+                "nearby_rentals_1000m": 0.7348484848484849,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.7323232323232323,
+              "rank": 3,
+              "region_id": "sejong",
+              "nearest_anchor_distance_m": 3463.328920072227,
+              "selection_reason": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 1,606건, 500m 시설 1개",
+              "observed_demand_label": "주변 기존 대여소 관측량(후보 간 중복 가능); 신규 수요 예측 아님",
+              "feasibility_unchecked": [
+                "부지 소유·사용 허가",
+                "보도 유효 폭·출입구",
+                "안전·하천·철도 횡단",
+                "설치 비용·운영 용량",
+                "과거와 현재 위치 동일성"
+              ]
+            }
+          ],
+          "top3_union": {
+            "selected_ids": [
+              "grid-980000-1832500",
+              "grid-981000-1830000",
+              "grid-982000-1844000"
+            ],
+            "baseline_area_m2": 25307753.870773062,
+            "added_area_m2": 844637.8002465707,
+            "overlap_area_m2": 2.3283064365386963e-10,
+            "linked_area_m2": 26152391.671019632,
+            "increase_ratio": 0.03337466471973279
+          },
+          "route_audit": [
+            {
+              "city": "sejong",
+              "period_start": "2025-10-01",
+              "period_end": "2025-10-31",
+              "candidate_id": "grid-981000-1830000",
+              "kind": "신규 입지",
+              "anchor_id": "brt:51111:36.478356:127.288188",
+              "anchor_name": "시청,시의회,교육청,세무서",
+              "latitude": 36.4696780788357,
+              "longitude": 127.29071378261396,
+              "straight_distance_m": 991.0187831477576,
+              "routes": {
+                "foot": {
+                  "status": "snap_uncertain",
+                  "distance_m": 1800.3,
+                  "duration_s": 1427.1,
+                  "snap_distances_m": [
+                    63.16972918,
+                    3.640797775
+                  ],
+                  "snapped_coordinates": [
+                    [
+                      127.290021,
+                      36.469574
+                    ],
+                    [
+                      127.288207,
+                      36.478327
+                    ]
+                  ],
+                  "detour_ratio": 1.8166154169971782,
+                  "retrieved_at": "2026-11-17T11:20:45.911552+00:00",
+                  "response_sha256": "a2dde5dcddcef2a8d500510c888d521c8e4a2e29d5dfaae2e0a0d27aab755659"
+                },
+                "bike": {
+                  "status": "snap_uncertain",
+                  "distance_m": 1801.1,
+                  "duration_s": 479.1,
+                  "snap_distances_m": [
+                    63.16972918,
+                    3.640797775
+                  ],
+                  "snapped_coordinates": [
+                    [
+                      127.290021,
+                      36.469574
+                    ],
+                    [
+                      127.288207,
+                      36.478327
+                    ]
+                  ],
+                  "detour_ratio": 1.8174226670852733,
+                  "retrieved_at": "2026-11-17T11:20:47.657460+00:00",
+                  "response_sha256": "47f42786db2c0f2073d47a559f01d3ef572f6c6dc1068ba76a799cb8348307ac"
+                }
+              },
+              "straight_rank": 1
+            },
+            {
+              "city": "sejong",
+              "period_start": "2025-10-01",
+              "period_end": "2025-10-31",
+              "candidate_id": "grid-980000-1832500",
+              "kind": "신규 입지",
+              "anchor_id": "brt:64065:36.5038919:127.2832104",
+              "anchor_name": "전통문화체험관",
+              "latitude": 36.49219586062595,
+              "longitude": 127.27948807100312,
+              "straight_distance_m": 1342.4298315709518,
+              "routes": {
+                "foot": {
+                  "status": "ok",
+                  "distance_m": 2420.2,
+                  "duration_s": 1935.2,
+                  "snap_distances_m": [
+                    21.49596413,
+                    2.264102816
+                  ],
+                  "snapped_coordinates": [
+                    [
+                      127.279563,
+                      36.49238
+                    ],
+                    [
+                      127.283205,
+                      36.503872
+                    ]
+                  ],
+                  "detour_ratio": 1.802850281692421,
+                  "retrieved_at": "2026-11-17T11:20:49.416430+00:00",
+                  "response_sha256": "83b0c1cb73e39f181cca1932846f7a1cb9b50fca9e75b4553e529d2c297f99f5",
+                  "comparable_straight_rank": 2,
+                  "distance_rank": 2
+                },
+                "bike": {
+                  "status": "ok",
+                  "distance_m": 2423.2,
+                  "duration_s": 526.5,
+                  "snap_distances_m": [
+                    21.49596413,
+                    2.264102816
+                  ],
+                  "snapped_coordinates": [
+                    [
+                      127.279563,
+                      36.49238
+                    ],
+                    [
+                      127.283205,
+                      36.503872
+                    ]
+                  ],
+                  "detour_ratio": 1.805085035367769,
+                  "retrieved_at": "2026-11-17T11:20:51.170767+00:00",
+                  "response_sha256": "ec58632aa57d86465989778f530a98b179bc7c9dd7cb9978767ebe12c0a1c7d0",
+                  "comparable_straight_rank": 2,
+                  "distance_rank": 2
+                }
+              },
+              "straight_rank": 3
+            },
+            {
+              "city": "sejong",
+              "period_start": "2025-10-01",
+              "period_end": "2025-10-31",
+              "candidate_id": "SJ_00515",
+              "kind": "기존 취약",
+              "anchor_id": "brt:51137:36.490395:127.256809",
+              "anchor_name": "한국산업인력공단(세종지사)",
+              "latitude": 36.4918561,
+              "longitude": 127.2698918,
+              "straight_distance_m": 1180.7698299804479,
+              "routes": {
+                "foot": {
+                  "status": "ok",
+                  "distance_m": 1549,
+                  "duration_s": 1239.1,
+                  "snap_distances_m": [
+                    2.290459608,
+                    7.698090692
+                  ],
+                  "snapped_coordinates": [
+                    [
+                      127.269915,
+                      36.491865
+                    ],
+                    [
+                      127.256724,
+                      36.490385
+                    ]
+                  ],
+                  "detour_ratio": 1.3118560117899096,
+                  "retrieved_at": "2026-11-17T11:20:52.943115+00:00",
+                  "response_sha256": "76f87eaa49daa771d87f9911404f7028cd1a4663218cd64be9a658579e4defff",
+                  "comparable_straight_rank": 1,
+                  "distance_rank": 1
+                },
+                "bike": {
+                  "status": "ok",
+                  "distance_m": 1969,
+                  "duration_s": 341.1,
+                  "snap_distances_m": [
+                    2.290459608,
+                    7.698090692
+                  ],
+                  "snapped_coordinates": [
+                    [
+                      127.269915,
+                      36.491865
+                    ],
+                    [
+                      127.256724,
+                      36.490385
+                    ]
+                  ],
+                  "detour_ratio": 1.6675561570137716,
+                  "retrieved_at": "2026-11-17T11:20:55.133836+00:00",
+                  "response_sha256": "69c3e53653d2903cc5e9b6d83b62667a620b9fef64c0943b58311dcccdc6f464",
+                  "comparable_straight_rank": 1,
+                  "distance_rank": 1
+                }
+              },
+              "straight_rank": 2
+            }
+          ],
+          "route_source": "https://routing.openstreetmap.de/about.html",
+          "route_limitations": [
+            "각 도시3후보의 같은 최근접 직선 앵커까지의 경로 비교. 다른 앵커의 네트워크 최단 경로는 탐색하지 않음.",
+            "현재 OSM 도로망 모델이며 과거 관측 시점·실제 현장 보행·자전거 통행 가능성의 보장은 아님.",
+            "스냅50m 초과는 순위 비교에서 제외. 스냅 접속 구간의 통행 가능성은 미검증. 서로 다른 도시의 거리 순위는 합산하지 않음."
+          ],
+          "hidden_hub": {
+            "station_id": "SJ_00442",
+            "station_name": "조치원_고려대학교",
+            "pagerank": 0.0015611,
+            "weighted_out_degree": 244,
+            "weighted_in_degree": 243,
+            "betweenness": 0.0,
+            "rental_count": 244,
+            "usage_rank": 393,
+            "pagerank_rank": 235,
+            "betweenness_rank": 393,
+            "rank_gap": 158,
+            "top_connections": [
+              {
+                "station_id": "SJ_00432",
+                "station_name": "조치원_중앙요양병원",
+                "trip_count": 32,
+                "direction": "out"
+              },
+              {
+                "station_id": "SJ_00520",
+                "station_name": "조치원_조치원역",
+                "trip_count": 30,
+                "direction": "in"
+              },
+              {
+                "station_id": "SJ_00429",
+                "station_name": "조치원_조치원역 서편",
+                "trip_count": 26,
+                "direction": "in"
+              },
+              {
+                "station_id": "SJ_00428",
+                "station_name": "조치원_욱일아파트",
+                "trip_count": 22,
+                "direction": "out"
+              },
+              {
+                "station_id": "SJ_00431",
+                "station_name": "조치원_홍익대학교 정문",
+                "trip_count": 22,
+                "direction": "out"
+              },
+              {
+                "station_id": "SJ-00754",
+                "station_name": "조치원_엘리프세종아파트 104동 앞",
+                "trip_count": 21,
+                "direction": "in"
+              },
+              {
+                "station_id": "SJ_00431",
+                "station_name": "조치원_홍익대학교 정문",
+                "trip_count": 20,
+                "direction": "in"
+              },
+              {
+                "station_id": "SJ_00432",
+                "station_name": "조치원_중앙요양병원",
+                "trip_count": 20,
+                "direction": "in"
+              },
+              {
+                "station_id": "SJ_00520",
+                "station_name": "조치원_조치원역",
+                "trip_count": 20,
+                "direction": "out"
+              },
+              {
+                "station_id": "SJ_00428",
+                "station_name": "조치원_욱일아파트",
+                "trip_count": 16,
+                "direction": "in"
+              }
+            ],
+            "usage_percentile": 0.4608,
+            "pagerank_percentile": 0.6781,
+            "candidate": true,
+            "decision": "대여량만 보면 낮은 우선순위이나 PageRank가 높아 연결 유지 검토 사례로 추가합니다. 설치 우선순위 가산점이나 실제 환승 근거로 사용하지 않습니다."
+          },
+          "pattern_case": {
+            "cosine": 0.29325003492387347,
+            "max_demand_difference_ratio": 0.05,
+            "stations": [
+              {
+                "station_id": "SJ_00367",
+                "rental_count": 460,
+                "peak_hour": 8
+              },
+              {
+                "station_id": "SJ-01001",
+                "rental_count": 481,
+                "peak_hour": 21
+              }
+            ],
+            "decision": "총대여량이 유사해도 집중 시간이 다르면 현장 관찰·재배치 검토 시간대를 달리합니다. 실제 부족·이동 필요 수량은 추정하지 않습니다."
+          },
+          "cluster_quality": {
+            "selected_k": 3,
+            "silhouette": 0.094,
+            "quality": "low"
+          },
+          "cluster_decision": "낮은 Silhouette로 군집 역할 해석 보류. 최종 입지 점수에 군집명을 강제로 반영하지 않습니다.",
+          "planning_scope": "공간 모델상 검토 후보이며 실제 설치 후 이용량·환승 증가 예측 아님",
+          "population_basis": "세종은 동·읍면별 공간 대응이 없어 인구밀도 점수에서 제외",
+          "transfer_audit": {
+            "period_start": "2025-10-01",
+            "period_end": "2025-10-31",
+            "row_count": 259143,
+            "raw_codes": {
+              "N": 259143
+            },
+            "cross_tab": [
+              {
+                "raw_code": "N",
+                "origin": "outside300",
+                "destination": "outside300",
+                "count": 69363
+              },
+              {
+                "raw_code": "N",
+                "origin": "outside300",
+                "destination": "unknown",
+                "count": 363
+              },
+              {
+                "raw_code": "N",
+                "origin": "outside300",
+                "destination": "within300",
+                "count": 53056
+              },
+              {
+                "raw_code": "N",
+                "origin": "unknown",
+                "destination": "outside300",
+                "count": 382
+              },
+              {
+                "raw_code": "N",
+                "origin": "unknown",
+                "destination": "unknown",
+                "count": 120
+              },
+              {
+                "raw_code": "N",
+                "origin": "unknown",
+                "destination": "within300",
+                "count": 338
+              },
+              {
+                "raw_code": "N",
+                "origin": "within300",
+                "destination": "outside300",
+                "count": 48683
+              },
+              {
+                "raw_code": "N",
+                "origin": "within300",
+                "destination": "unknown",
+                "count": 301
+              },
+              {
+                "raw_code": "N",
+                "origin": "within300",
+                "destination": "within300",
+                "count": 86537
+              }
+            ],
+            "definition_status": "unverified",
+            "actual_transfer_rate": null,
+            "csv_sha256": "34dd6dcabc5a942587fb1237ba786312335e1800cf0d9238e536cc5a764eb022",
+            "source_url": "https://www.data.go.kr/data/15106191/fileData.do",
+            "checked_at": "2026-11-17",
+            "message": "공식 공개 설명에서 환승 유무 컬럼의 판정 정의를 확인하지 못했습니다. N을 실제 비환승으로 확정하거나 실제 환승률 0%로 해석하지 않습니다.",
+            "cross_tab_basis": "2025-10 이용 이력 × 2026-05 위치 마스터 × 현재 BRT 앵커. 근접성 대조이며 실제 환승 검증 아님."
+          },
+          "available": true,
+          "matches_selected_period": true,
+          "selected_period": {
+            "start": "2025-10-01",
+            "end": "2025-10-31"
+          }
+        },
+        "initiator": "solar",
+        "execution_seconds": 0.008
+      },
+      {
+        "tool": "get_data_availability",
+        "arguments": {
+          "region_id": "sejong"
+        },
+        "result": {
+          "region_id": "sejong",
+          "region_name": "세종",
+          "service_name": "어울링",
+          "sources": [
+            {
+              "source_id": "sejong-yearly-20260831",
+              "region_id": "sejong",
+              "dataset_name": "세종도시교통공사_공공자전거 어울링 연도별 이용건수",
+              "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+              "date_start": "2017-01-01",
+              "date_end": "2026-08-31",
+              "collected_at": "2026-11-04T04:54:00.764456Z",
+              "verification_status": "VERIFIED",
+              "available_columns": [
+                "구분",
+                "어울링 이용건수"
+              ]
+            },
+            {
+              "source_id": "sejong-stations-metadata",
+              "region_id": "sejong",
+              "dataset_name": "세담터 어울링 수집 대여소정보",
+              "source_url": "https://www2.sejong.go.kr/bigdata/metaDataView.do?order_type=rcd",
+              "date_start": null,
+              "date_end": null,
+              "collected_at": null,
+              "verification_status": "ACCESS_REQUIRED",
+              "available_columns": []
+            },
+            {
+              "source_id": "sejong-portal-api",
+              "region_id": "sejong",
+              "dataset_name": "어울링 연도별 이용건수 자동변환 OpenAPI",
+              "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+              "date_start": null,
+              "date_end": null,
+              "collected_at": null,
+              "verification_status": "ACCESS_REQUIRED",
+              "available_columns": []
+            },
+            {
+              "source_id": "sejong-trip-15106191",
+              "region_id": "sejong",
+              "dataset_name": "세종 어울링 개별 이용이력(선택 기간)",
+              "source_url": "https://www.data.go.kr/data/15106191/fileData.do",
+              "date_start": "2025-10-01",
+              "date_end": "2025-10-31",
+              "collected_at": "2026-11-16T10:19:57.586209+00:00",
+              "verification_status": "VERIFIED",
+              "available_columns": [
+                "순번",
+                "시작 대여소",
+                "대여시간",
+                "반납 대여소",
+                "반납시간",
+                "주행시간"
+              ],
+              "note": "원본 ZIP2020~2025 확보. 최초 서비스 연결은 명시한 기간만. 좌표/명칭 대응표 미확보."
+            },
+            {
+              "source_id": "sejong-master-15091421",
+              "region_id": "sejong",
+              "dataset_name": "세종 어울링 대여소 위치 마스터",
+              "source_url": "https://www.data.go.kr/data/15091421/fileData.do",
+              "date_start": "2026-05-26",
+              "date_end": "2026-05-26",
+              "collected_at": "2026-11-16T14:04:09.067324+00:00",
+              "verification_status": "VERIFIED",
+              "available_columns": [
+                "대여소 아이디",
+                "대여소 이름",
+                "사용유무",
+                "주소(동)",
+                "상세주소",
+                "경도",
+                "위도",
+                "권역",
+                "지오펜스 거리",
+                "등록일",
+                "수정일"
+              ],
+              "note": "2025-10 등록 이내 ID만 연결. 좌표는2026-05 기준으로 과거 위치 변경 가능성이 있음."
+            }
+          ],
+          "total_rentals": 259143,
+          "annual_latest": {
+            "region_id": "sejong",
+            "year": 2025,
+            "period_end": "2025-12-31",
+            "complete_year": true,
+            "rental_count": 2629483
+          },
+          "has_od": true,
+          "coverage_note": "세종 2025년10월 이용이력에 공식2026-05 대여소 마스터를 ID로 연결했습니다. 위치 자료의 시점 차이가 있으며 미매칭 ID는 지도에서 제외합니다.",
+          "period_start": "2025-10-01",
+          "period_end": "2025-10-31"
+        },
+        "initiator": "metric_guard",
+        "execution_seconds": 0.281
+      }
+    ],
+    "request_id": "b4b6b618fdd24731bd4bf3b1854efba5",
+    "provider_calls": [
+      {
+        "stage": "tool_selection",
+        "state": "completed",
+        "usage": {
+          "prompt_tokens": 3726,
+          "completion_tokens": 17,
+          "total_tokens": 3743
+        },
+        "http_status": 200,
+        "response_id": "e914ac61-b90e-4afc-b57d-823f9892ef5e",
+        "model": "solar-mini4-260922",
+        "finish_reason": "tool_calls"
+      },
+      {
+        "stage": "final_answer",
+        "state": "completed",
+        "usage": {
+          "prompt_tokens": 7429,
+          "completion_tokens": 450,
+          "total_tokens": 7879
+        },
+        "http_status": 200,
+        "response_id": "483219ca-5332-47d3-a6ef-85d0d791a153",
+        "model": "solar-mini4-260922",
+        "finish_reason": "length"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 11155,
+      "completion_tokens": 467,
+      "total_tokens": 11622
+    },
+    "usage_complete": true,
+    "billing_status": "provider_usage_reported",
+    "model": "solar-mini4-260922",
+    "llm_status": "completed"
+  },
+  "solar_execution_note": "이전 실제 호출 원문 보존. 이번 UI 재검사에서는 모델을 호출하지 않음.",
+  "mobile_overflow": false
+}

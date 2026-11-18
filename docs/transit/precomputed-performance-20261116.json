@@ -245,7 +245,7 @@
       "stored_only": true
     }
   ],
-  "wiz_http_reads": [
+  "web_http_reads": [
     {
       "city": "daejeon",
       "action": "overview",

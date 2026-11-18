@@ -1,7 +1,7 @@
 # 목표 기반 화면 개편 및 검증
 
 ## 적용 화면
-WIZ Bike Link Analysis: 연계 보완 대시보드 → 취약 구간 & 개선 후보 → 대여소 분석 → 이동 패턴 분석 → 도시 간 비교 → AI 분석 리포트. 기존 네트워크 기능을 보존하고 상위 목적을 연계 보완으로 변경했다.
+웹 Bike Link Analysis: 연계 보완 대시보드 → 취약 구간 & 개선 후보 → 대여소 분석 → 이동 패턴 분석 → 도시 간 비교 → AI 분석 리포트. 기존 네트워크 기능을 보존하고 상위 목적을 연계 보완으로 변경했다.
 
 첫 화면의 제목·소개·4개 KPI·보완 관계 지도·시간대별 연계 비중을 목표에 맞췄다. 기존 이용량·PageRank·군집·불균형은 아래 네트워크 심층 분석에 유지했다. 새 후보 탭에는 지도, 도시 내 순위·점수 근거, 전후 커버 면적 차트, 대여소 수 변화, 계산 기준·출처를 배치했다.
 
@@ -15,13 +15,13 @@ WIZ Bike Link Analysis: 연계 보완 대시보드 → 취약 구간 & 개선 �
 공식·가중치·순위는 [기존 분석 문서](TRANSIT_VULNERABILITY_FINAL.md)를 유지한다. 직선거리와 다각형 버퍼 시나리오이며 보행망·인구·실제 환승·운영 효과의 추정은 아니다. 세종은2025-10 이용 자료만 있으며 좌표 미확보라 공간 지표 N/A. 대여소별 시간대 역 연계 OD가 없으므로 상세 화면에는 도시 전체 시간대 비중으로 명시한다.
 
 ## 집계와 AI
-새 transit_linkage 액션을 포함해27×7=189개를 생성했다. WIZ와 get_transit_linkage AI 도구는 조회만 수행한다. 기존 수동 상세 분석 경로는 유지한다. 미처리 기간 안내·준비 기간 이동 버튼도 보존했다.
+새 transit_linkage 액션을 포함해27×7=189개를 생성했다. 웹와 get_transit_linkage AI 도구는 조회만 수행한다. 기존 수동 상세 분석 경로는 유지한다. 미처리 기간 안내·준비 기간 이동 버튼도 보존했다.
 
 ## 검증
 - 서버 Python pytest:66 passed, 경고2건.
-- WIZ 일반 빌드 및 React TypeScript/Vite 빌드 성공.
+- 웹 일반 빌드 및 React TypeScript/Vite 빌드 성공.
 - 외부 URL Chromium: 서울5/대전1/세종N/A, KPI·후보 탭·상세 이동·기존 탭·정류장 레이어 토글, 모바일390px 가로 넘침 없음, 페이지 오류0.
 - 외부 대전 연계 조회166.34ms, 취약도53.97ms. OS 캐시를 비운 콜드 부팅 수치나 모든 요청의 상한 보장은 아니다.
 - 실제 Solar 질문1회: 모델이 get_transit_vulnerability, get_improvement_ranking, get_transit_linkage를 직접 선택. 서울 후보5개·ST-3277 대여836건·18시 연계265239건을 실제 집계와 대조. 자유 서술 수치·대여소 검증 통과, answer_basis solar_interpretation, llm_status completed. 사용11240토큰.
 - [브라우저 결과](transit/redesign-browser.json), [189개 배치 기록](transit/redesign-precompute.json), [조회 속도](transit/redesign-performance.json), [Solar 결과](transit/redesign-solar.json).
-- 별도 Git push·호스팅 파이프라인 발행은 수행하지 않았다. 현재 WIZ main을 빌드하고 연결된 외부 URL에서 확인했다.
+- 별도 Git push·호스팅 파이프라인 발행은 수행하지 않았다. 현재 웹 main을 빌드하고 연결된 외부 URL에서 확인했다.

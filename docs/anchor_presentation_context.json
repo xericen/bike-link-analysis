@@ -1,0 +1,3280 @@
+{
+  "revision": "db8f8796b46163593e67df116d42984aef1f92dedb659b549467acef43951f35",
+  "cache_sha256": "cd67024fa4897c68fa832e85007f91a09ed246115c361104e0f7de4c47e7ac3c",
+  "contexts": {
+    "all|2025-12-01|2025-12-31": {
+      "city": "all",
+      "cities": [
+        {
+          "city": "seoul",
+          "period_start": "2025-12-01",
+          "period_end": "2025-12-31",
+          "denominator_count": 2757,
+          "analysis_station_count": 2770,
+          "master_total": 2778,
+          "unlocated_master_count": 21,
+          "denominator_only": {
+            "ST-1052": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST-3072": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST-380": {
+              "rows": 5,
+              "rentals": 0,
+              "returns": 5
+            },
+            "ST-48": {
+              "rows": 80,
+              "rentals": 0,
+              "returns": 118
+            },
+            "ST-57": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST-74": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            }
+          },
+          "analysis_only": {
+            "ST-1199": {
+              "rows": 236,
+              "rentals": 254,
+              "returns": 231
+            },
+            "ST-1254": {
+              "rows": 642,
+              "rentals": 1933,
+              "returns": 1928
+            },
+            "ST-1374": {
+              "rows": 451,
+              "rentals": 575,
+              "returns": 574
+            },
+            "ST-1546": {
+              "rows": 4,
+              "rentals": 2,
+              "returns": 2
+            },
+            "ST-2284": {
+              "rows": 314,
+              "rentals": 207,
+              "returns": 219
+            },
+            "ST-2540": {
+              "rows": 1,
+              "rentals": 1,
+              "returns": 1
+            },
+            "ST-2549": {
+              "rows": 475,
+              "rentals": 716,
+              "returns": 847
+            },
+            "ST-2799": {
+              "rows": 430,
+              "rentals": 558,
+              "returns": 581
+            },
+            "ST-284": {
+              "rows": 458,
+              "rentals": 514,
+              "returns": 505
+            },
+            "ST-29": {
+              "rows": 226,
+              "rentals": 190,
+              "returns": 115
+            },
+            "ST-2912": {
+              "rows": 108,
+              "rentals": 115,
+              "returns": 30
+            },
+            "ST-3097": {
+              "rows": 78,
+              "rentals": 58,
+              "returns": 32
+            },
+            "ST-3109": {
+              "rows": 33,
+              "rentals": 30,
+              "returns": 26
+            },
+            "ST-3187": {
+              "rows": 675,
+              "rentals": 3029,
+              "returns": 3102
+            },
+            "ST-319": {
+              "rows": 465,
+              "rentals": 469,
+              "returns": 574
+            },
+            "ST-499": {
+              "rows": 401,
+              "rentals": 423,
+              "returns": 408
+            },
+            "ST-506": {
+              "rows": 608,
+              "rentals": 1735,
+              "returns": 1766
+            },
+            "ST-863": {
+              "rows": 137,
+              "rentals": 83,
+              "returns": 87
+            },
+            "ST-996": {
+              "rows": 122,
+              "rentals": 79,
+              "returns": 79
+            }
+          },
+          "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 2,757개 기준이며, 대여 기록이 연결된 분석 대여소는 2,770개입니다(6개는 반납 기록만 있고 대여 0건; 분석 대여소 중 19개는 위치 미연결로 분모 제외).",
+          "anchor_name": "지하철역",
+          "distance_label": "최근접 지하철역(앵커) 거리",
+          "anchor_count": 340,
+          "source_name": "전국 도시철도 역사정보 전체기관",
+          "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+          "source_note": "지하철역 앵커: 340개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+          "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+          "brt_line_geometry_available": false,
+          "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+        },
+        {
+          "city": "daejeon",
+          "period_start": "2025-12-01",
+          "period_end": "2025-12-31",
+          "denominator_count": 1374,
+          "analysis_station_count": 1372,
+          "master_total": 1374,
+          "unlocated_master_count": 0,
+          "denominator_only": {
+            "ST0088": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST1461": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            }
+          },
+          "analysis_only": {},
+          "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 1,374개 기준이며, 대여 기록이 연결된 분석 대여소는 1,372개입니다(2개는 반납 기록만 있고 대여 0건).",
+          "anchor_name": "지하철역",
+          "distance_label": "최근접 지하철역(앵커) 거리",
+          "anchor_count": 22,
+          "source_name": "전국 도시철도 역사정보 전체기관",
+          "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+          "source_note": "지하철역 앵커: 22개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+          "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+          "brt_line_geometry_available": false,
+          "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+        },
+        {
+          "city": "sejong",
+          "period_start": "2025-12-01",
+          "period_end": "2025-12-31",
+          "denominator_count": 725,
+          "analysis_station_count": 726,
+          "master_total": 727,
+          "unlocated_master_count": 2,
+          "denominator_only": {},
+          "analysis_only": {
+            "251107": {
+              "rows": 1,
+              "rentals": 1,
+              "returns": 0
+            }
+          },
+          "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 725개 기준이며, 대여 기록이 연결된 분석 대여소는 726개입니다(분석 대여소 중 1개는 위치 미연결로 분모 제외).",
+          "anchor_name": "BRT 정류장",
+          "distance_label": "최근접 BRT 정류장(앵커) 거리",
+          "anchor_count": 152,
+          "source_name": "세종특별자치시 BRT노선별 정류장 현황",
+          "source_url": "https://www.data.go.kr/data/15118026/fileData.do",
+          "source_note": "BRT 정류장 앵커: 152개 기준(출처: 세종특별자치시 BRT노선별 정류장 현황)",
+          "station_map_note": "대여소 전체 725개 표시(위치 마스터 727개 중 좌표 미확보 2개 제외) + 취약 후보 전체",
+          "brt_line_geometry_available": false,
+          "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+        }
+      ],
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 2,757개 기준이며, 대여 기록이 연결된 분석 대여소는 2,770개입니다(6개는 반납 기록만 있고 대여 0건; 분석 대여소 중 19개는 위치 미연결로 분모 제외). / 분모는 앵커 거리를 확인한 위치 마스터 1,374개 기준이며, 대여 기록이 연결된 분석 대여소는 1,372개입니다(2개는 반납 기록만 있고 대여 0건). / 분모는 앵커 거리를 확인한 위치 마스터 725개 기준이며, 대여 기록이 연결된 분석 대여소는 726개입니다(분석 대여소 중 1개는 위치 미연결로 분모 제외).",
+      "source_note": "지하철역 앵커: 340개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준 / 지하철역 앵커: 22개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준 / BRT 정류장 앵커: 152개 기준(출처: 세종특별자치시 BRT노선별 정류장 현황)"
+    },
+    "all|2025-12-02|2025-12-31": {
+      "city": "all",
+      "cities": [
+        {
+          "city": "seoul",
+          "period_start": "2025-12-02",
+          "period_end": "2025-12-31",
+          "denominator_count": 2757,
+          "analysis_station_count": 2770,
+          "master_total": 2778,
+          "unlocated_master_count": 21,
+          "denominator_only": {
+            "ST-1052": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST-3072": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST-380": {
+              "rows": 4,
+              "rentals": 0,
+              "returns": 4
+            },
+            "ST-48": {
+              "rows": 77,
+              "rentals": 0,
+              "returns": 112
+            },
+            "ST-57": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST-74": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            }
+          },
+          "analysis_only": {
+            "ST-1199": {
+              "rows": 224,
+              "rentals": 232,
+              "returns": 218
+            },
+            "ST-1254": {
+              "rows": 620,
+              "rentals": 1865,
+              "returns": 1854
+            },
+            "ST-1374": {
+              "rows": 434,
+              "rentals": 552,
+              "returns": 547
+            },
+            "ST-1546": {
+              "rows": 4,
+              "rentals": 2,
+              "returns": 2
+            },
+            "ST-2284": {
+              "rows": 300,
+              "rentals": 198,
+              "returns": 208
+            },
+            "ST-2540": {
+              "rows": 1,
+              "rentals": 1,
+              "returns": 1
+            },
+            "ST-2549": {
+              "rows": 457,
+              "rentals": 669,
+              "returns": 797
+            },
+            "ST-2799": {
+              "rows": 411,
+              "rentals": 534,
+              "returns": 549
+            },
+            "ST-284": {
+              "rows": 440,
+              "rentals": 481,
+              "returns": 478
+            },
+            "ST-29": {
+              "rows": 214,
+              "rentals": 178,
+              "returns": 109
+            },
+            "ST-2912": {
+              "rows": 107,
+              "rentals": 115,
+              "returns": 29
+            },
+            "ST-3097": {
+              "rows": 75,
+              "rentals": 57,
+              "returns": 30
+            },
+            "ST-3109": {
+              "rows": 23,
+              "rentals": 19,
+              "returns": 18
+            },
+            "ST-3187": {
+              "rows": 653,
+              "rentals": 2871,
+              "returns": 2949
+            },
+            "ST-319": {
+              "rows": 447,
+              "rentals": 449,
+              "returns": 547
+            },
+            "ST-499": {
+              "rows": 385,
+              "rentals": 396,
+              "returns": 384
+            },
+            "ST-506": {
+              "rows": 588,
+              "rentals": 1664,
+              "returns": 1695
+            },
+            "ST-863": {
+              "rows": 125,
+              "rentals": 74,
+              "returns": 80
+            },
+            "ST-996": {
+              "rows": 121,
+              "rentals": 78,
+              "returns": 79
+            }
+          },
+          "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 2,757개 기준이며, 대여 기록이 연결된 분석 대여소는 2,770개입니다(6개는 반납 기록만 있고 대여 0건; 분석 대여소 중 19개는 위치 미연결로 분모 제외).",
+          "anchor_name": "지하철역",
+          "distance_label": "최근접 지하철역(앵커) 거리",
+          "anchor_count": 340,
+          "source_name": "전국 도시철도 역사정보 전체기관",
+          "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+          "source_note": "지하철역 앵커: 340개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+          "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+          "brt_line_geometry_available": false,
+          "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+        },
+        {
+          "city": "daejeon",
+          "period_start": "2025-12-02",
+          "period_end": "2025-12-31",
+          "denominator_count": 1374,
+          "analysis_station_count": 1371,
+          "master_total": 1374,
+          "unlocated_master_count": 0,
+          "denominator_only": {
+            "ST0088": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0370": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1461": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            }
+          },
+          "analysis_only": {},
+          "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 1,374개 기준이며, 대여 기록이 연결된 분석 대여소는 1,371개입니다(1개는 반납 기록만 있고 대여 0건; 2개는 선택 기간 이용 기록 미연결).",
+          "anchor_name": "지하철역",
+          "distance_label": "최근접 지하철역(앵커) 거리",
+          "anchor_count": 22,
+          "source_name": "전국 도시철도 역사정보 전체기관",
+          "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+          "source_note": "지하철역 앵커: 22개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+          "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+          "brt_line_geometry_available": false,
+          "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+        },
+        {
+          "city": "sejong",
+          "period_start": "2025-12-02",
+          "period_end": "2025-12-31",
+          "denominator_count": 725,
+          "analysis_station_count": 726,
+          "master_total": 727,
+          "unlocated_master_count": 2,
+          "denominator_only": {},
+          "analysis_only": {
+            "251107": {
+              "rows": 1,
+              "rentals": 1,
+              "returns": 0
+            }
+          },
+          "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 725개 기준이며, 대여 기록이 연결된 분석 대여소는 726개입니다(분석 대여소 중 1개는 위치 미연결로 분모 제외).",
+          "anchor_name": "BRT 정류장",
+          "distance_label": "최근접 BRT 정류장(앵커) 거리",
+          "anchor_count": 152,
+          "source_name": "세종특별자치시 BRT노선별 정류장 현황",
+          "source_url": "https://www.data.go.kr/data/15118026/fileData.do",
+          "source_note": "BRT 정류장 앵커: 152개 기준(출처: 세종특별자치시 BRT노선별 정류장 현황)",
+          "station_map_note": "대여소 전체 725개 표시(위치 마스터 727개 중 좌표 미확보 2개 제외) + 취약 후보 전체",
+          "brt_line_geometry_available": false,
+          "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+        }
+      ],
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 2,757개 기준이며, 대여 기록이 연결된 분석 대여소는 2,770개입니다(6개는 반납 기록만 있고 대여 0건; 분석 대여소 중 19개는 위치 미연결로 분모 제외). / 분모는 앵커 거리를 확인한 위치 마스터 1,374개 기준이며, 대여 기록이 연결된 분석 대여소는 1,371개입니다(1개는 반납 기록만 있고 대여 0건; 2개는 선택 기간 이용 기록 미연결). / 분모는 앵커 거리를 확인한 위치 마스터 725개 기준이며, 대여 기록이 연결된 분석 대여소는 726개입니다(분석 대여소 중 1개는 위치 미연결로 분모 제외).",
+      "source_note": "지하철역 앵커: 340개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준 / 지하철역 앵커: 22개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준 / BRT 정류장 앵커: 152개 기준(출처: 세종특별자치시 BRT노선별 정류장 현황)"
+    },
+    "all|2025-12-18|2025-12-31": {
+      "city": "all",
+      "cities": [
+        {
+          "city": "seoul",
+          "period_start": "2025-12-18",
+          "period_end": "2025-12-31",
+          "denominator_count": 2757,
+          "analysis_station_count": 2765,
+          "master_total": 2778,
+          "unlocated_master_count": 21,
+          "denominator_only": {
+            "ST-1052": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST-2672": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST-3072": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST-3216": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST-380": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST-48": {
+              "rows": 28,
+              "rentals": 0,
+              "returns": 33
+            },
+            "ST-57": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST-708": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST-74": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            }
+          },
+          "analysis_only": {
+            "ST-1199": {
+              "rows": 97,
+              "rentals": 101,
+              "returns": 90
+            },
+            "ST-1254": {
+              "rows": 287,
+              "rentals": 846,
+              "returns": 825
+            },
+            "ST-1374": {
+              "rows": 195,
+              "rentals": 246,
+              "returns": 227
+            },
+            "ST-2284": {
+              "rows": 140,
+              "rentals": 93,
+              "returns": 100
+            },
+            "ST-2540": {
+              "rows": 1,
+              "rentals": 1,
+              "returns": 1
+            },
+            "ST-2549": {
+              "rows": 204,
+              "rentals": 290,
+              "returns": 321
+            },
+            "ST-2799": {
+              "rows": 191,
+              "rentals": 259,
+              "returns": 257
+            },
+            "ST-284": {
+              "rows": 212,
+              "rentals": 217,
+              "returns": 223
+            },
+            "ST-29": {
+              "rows": 107,
+              "rentals": 80,
+              "returns": 58
+            },
+            "ST-2912": {
+              "rows": 47,
+              "rentals": 49,
+              "returns": 13
+            },
+            "ST-3097": {
+              "rows": 26,
+              "rentals": 15,
+              "returns": 14
+            },
+            "ST-3187": {
+              "rows": 302,
+              "rentals": 1198,
+              "returns": 1239
+            },
+            "ST-319": {
+              "rows": 200,
+              "rentals": 208,
+              "returns": 239
+            },
+            "ST-499": {
+              "rows": 181,
+              "rentals": 173,
+              "returns": 171
+            },
+            "ST-506": {
+              "rows": 272,
+              "rentals": 737,
+              "returns": 757
+            },
+            "ST-863": {
+              "rows": 19,
+              "rentals": 9,
+              "returns": 13
+            },
+            "ST-996": {
+              "rows": 70,
+              "rentals": 43,
+              "returns": 43
+            }
+          },
+          "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 2,757개 기준이며, 대여 기록이 연결된 분석 대여소는 2,765개입니다(6개는 반납 기록만 있고 대여 0건; 3개는 선택 기간 이용 기록 미연결; 분석 대여소 중 17개는 위치 미연결로 분모 제외).",
+          "anchor_name": "지하철역",
+          "distance_label": "최근접 지하철역(앵커) 거리",
+          "anchor_count": 340,
+          "source_name": "전국 도시철도 역사정보 전체기관",
+          "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+          "source_note": "지하철역 앵커: 340개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+          "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+          "brt_line_geometry_available": false,
+          "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+        },
+        {
+          "city": "daejeon",
+          "period_start": "2025-12-18",
+          "period_end": "2025-12-31",
+          "denominator_count": 1374,
+          "analysis_station_count": 1359,
+          "master_total": 1374,
+          "unlocated_master_count": 0,
+          "denominator_only": {
+            "ST0026": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0088": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0370": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0502": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0728": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0933": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0970": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1159": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1161": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST1283": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1307": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1461": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST1523": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1525": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1526": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            }
+          },
+          "analysis_only": {},
+          "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 1,374개 기준이며, 대여 기록이 연결된 분석 대여소는 1,359개입니다(2개는 반납 기록만 있고 대여 0건; 13개는 선택 기간 이용 기록 미연결).",
+          "anchor_name": "지하철역",
+          "distance_label": "최근접 지하철역(앵커) 거리",
+          "anchor_count": 22,
+          "source_name": "전국 도시철도 역사정보 전체기관",
+          "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+          "source_note": "지하철역 앵커: 22개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+          "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+          "brt_line_geometry_available": false,
+          "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+        },
+        {
+          "city": "sejong",
+          "period_start": "2025-12-18",
+          "period_end": "2025-12-31",
+          "denominator_count": 725,
+          "analysis_station_count": 716,
+          "master_total": 727,
+          "unlocated_master_count": 2,
+          "denominator_only": {
+            "SJ-00699": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ-00706": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ-00738": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "SJ_00003": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ_00004": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ_00156": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ_00216": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ_00458": {
+              "rows": 6,
+              "rentals": 0,
+              "returns": 7
+            },
+            "SJ_00624": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            }
+          },
+          "analysis_only": {},
+          "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 725개 기준이며, 대여 기록이 연결된 분석 대여소는 716개입니다(2개는 반납 기록만 있고 대여 0건; 7개는 선택 기간 이용 기록 미연결).",
+          "anchor_name": "BRT 정류장",
+          "distance_label": "최근접 BRT 정류장(앵커) 거리",
+          "anchor_count": 152,
+          "source_name": "세종특별자치시 BRT노선별 정류장 현황",
+          "source_url": "https://www.data.go.kr/data/15118026/fileData.do",
+          "source_note": "BRT 정류장 앵커: 152개 기준(출처: 세종특별자치시 BRT노선별 정류장 현황)",
+          "station_map_note": "대여소 전체 725개 표시(위치 마스터 727개 중 좌표 미확보 2개 제외) + 취약 후보 전체",
+          "brt_line_geometry_available": false,
+          "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+        }
+      ],
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 2,757개 기준이며, 대여 기록이 연결된 분석 대여소는 2,765개입니다(6개는 반납 기록만 있고 대여 0건; 3개는 선택 기간 이용 기록 미연결; 분석 대여소 중 17개는 위치 미연결로 분모 제외). / 분모는 앵커 거리를 확인한 위치 마스터 1,374개 기준이며, 대여 기록이 연결된 분석 대여소는 1,359개입니다(2개는 반납 기록만 있고 대여 0건; 13개는 선택 기간 이용 기록 미연결). / 분모는 앵커 거리를 확인한 위치 마스터 725개 기준이며, 대여 기록이 연결된 분석 대여소는 716개입니다(2개는 반납 기록만 있고 대여 0건; 7개는 선택 기간 이용 기록 미연결).",
+      "source_note": "지하철역 앵커: 340개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준 / 지하철역 앵커: 22개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준 / BRT 정류장 앵커: 152개 기준(출처: 세종특별자치시 BRT노선별 정류장 현황)"
+    },
+    "all|2025-12-25|2025-12-31": {
+      "city": "all",
+      "cities": [
+        {
+          "city": "seoul",
+          "period_start": "2025-12-25",
+          "period_end": "2025-12-31",
+          "denominator_count": 2757,
+          "analysis_station_count": 2759,
+          "master_total": 2778,
+          "unlocated_master_count": 21,
+          "denominator_only": {
+            "ST-1052": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST-1146": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST-137": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST-138": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST-2521": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST-2527": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST-2672": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST-3072": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST-3216": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST-380": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST-48": {
+              "rows": 11,
+              "rentals": 0,
+              "returns": 11
+            },
+            "ST-57": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST-708": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST-74": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            }
+          },
+          "analysis_only": {
+            "ST-1199": {
+              "rows": 46,
+              "rentals": 46,
+              "returns": 46
+            },
+            "ST-1254": {
+              "rows": 144,
+              "rentals": 390,
+              "returns": 381
+            },
+            "ST-1374": {
+              "rows": 95,
+              "rentals": 116,
+              "returns": 110
+            },
+            "ST-2284": {
+              "rows": 70,
+              "rentals": 48,
+              "returns": 49
+            },
+            "ST-2540": {
+              "rows": 1,
+              "rentals": 1,
+              "returns": 1
+            },
+            "ST-2549": {
+              "rows": 91,
+              "rentals": 125,
+              "returns": 129
+            },
+            "ST-2799": {
+              "rows": 89,
+              "rentals": 109,
+              "returns": 108
+            },
+            "ST-284": {
+              "rows": 100,
+              "rentals": 106,
+              "returns": 108
+            },
+            "ST-29": {
+              "rows": 51,
+              "rentals": 36,
+              "returns": 27
+            },
+            "ST-2912": {
+              "rows": 21,
+              "rentals": 19,
+              "returns": 7
+            },
+            "ST-3097": {
+              "rows": 11,
+              "rentals": 6,
+              "returns": 6
+            },
+            "ST-3187": {
+              "rows": 151,
+              "rentals": 506,
+              "returns": 519
+            },
+            "ST-319": {
+              "rows": 90,
+              "rentals": 86,
+              "returns": 100
+            },
+            "ST-499": {
+              "rows": 85,
+              "rentals": 81,
+              "returns": 80
+            },
+            "ST-506": {
+              "rows": 136,
+              "rentals": 306,
+              "returns": 323
+            },
+            "ST-996": {
+              "rows": 31,
+              "rentals": 19,
+              "returns": 19
+            }
+          },
+          "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 2,757개 기준이며, 대여 기록이 연결된 분석 대여소는 2,759개입니다(4개는 반납 기록만 있고 대여 0건; 10개는 선택 기간 이용 기록 미연결; 분석 대여소 중 16개는 위치 미연결로 분모 제외).",
+          "anchor_name": "지하철역",
+          "distance_label": "최근접 지하철역(앵커) 거리",
+          "anchor_count": 340,
+          "source_name": "전국 도시철도 역사정보 전체기관",
+          "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+          "source_note": "지하철역 앵커: 340개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+          "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+          "brt_line_geometry_available": false,
+          "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+        },
+        {
+          "city": "daejeon",
+          "period_start": "2025-12-25",
+          "period_end": "2025-12-31",
+          "denominator_count": 1374,
+          "analysis_station_count": 1333,
+          "master_total": 1374,
+          "unlocated_master_count": 0,
+          "denominator_only": {
+            "ST0026": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0086": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0088": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0110": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0300": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0370": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0371": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0372": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0502": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0551": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0570": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0649": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0653": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0676": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0728": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0867": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST0894": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0933": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0964": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0967": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0970": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST0972": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1074": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1156": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST1158": {
+              "rows": 2,
+              "rentals": 0,
+              "returns": 2
+            },
+            "ST1159": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1161": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST1283": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1290": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1307": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1388": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1442": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1445": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1458": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1461": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1462": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1491": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "ST1508": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1523": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1525": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "ST1526": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            }
+          },
+          "analysis_only": {},
+          "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 1,374개 기준이며, 대여 기록이 연결된 분석 대여소는 1,333개입니다(5개는 반납 기록만 있고 대여 0건; 36개는 선택 기간 이용 기록 미연결).",
+          "anchor_name": "지하철역",
+          "distance_label": "최근접 지하철역(앵커) 거리",
+          "anchor_count": 22,
+          "source_name": "전국 도시철도 역사정보 전체기관",
+          "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+          "source_note": "지하철역 앵커: 22개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+          "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+          "brt_line_geometry_available": false,
+          "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+        },
+        {
+          "city": "sejong",
+          "period_start": "2025-12-25",
+          "period_end": "2025-12-31",
+          "denominator_count": 725,
+          "analysis_station_count": 709,
+          "master_total": 727,
+          "unlocated_master_count": 2,
+          "denominator_only": {
+            "HD_TEST": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ-00699": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ-00706": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ-00738": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "SJ-00747": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ-00767": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "SJ-00780": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ_00003": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ_00004": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ_00133": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ_00156": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ_00216": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ_00377": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            },
+            "SJ_00458": {
+              "rows": 1,
+              "rentals": 0,
+              "returns": 1
+            },
+            "SJ_00507": {
+              "rows": 2,
+              "rentals": 0,
+              "returns": 3
+            },
+            "SJ_00624": {
+              "rows": 0,
+              "rentals": 0,
+              "returns": 0
+            }
+          },
+          "analysis_only": {},
+          "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 725개 기준이며, 대여 기록이 연결된 분석 대여소는 709개입니다(4개는 반납 기록만 있고 대여 0건; 12개는 선택 기간 이용 기록 미연결).",
+          "anchor_name": "BRT 정류장",
+          "distance_label": "최근접 BRT 정류장(앵커) 거리",
+          "anchor_count": 152,
+          "source_name": "세종특별자치시 BRT노선별 정류장 현황",
+          "source_url": "https://www.data.go.kr/data/15118026/fileData.do",
+          "source_note": "BRT 정류장 앵커: 152개 기준(출처: 세종특별자치시 BRT노선별 정류장 현황)",
+          "station_map_note": "대여소 전체 725개 표시(위치 마스터 727개 중 좌표 미확보 2개 제외) + 취약 후보 전체",
+          "brt_line_geometry_available": false,
+          "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+        }
+      ],
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 2,757개 기준이며, 대여 기록이 연결된 분석 대여소는 2,759개입니다(4개는 반납 기록만 있고 대여 0건; 10개는 선택 기간 이용 기록 미연결; 분석 대여소 중 16개는 위치 미연결로 분모 제외). / 분모는 앵커 거리를 확인한 위치 마스터 1,374개 기준이며, 대여 기록이 연결된 분석 대여소는 1,333개입니다(5개는 반납 기록만 있고 대여 0건; 36개는 선택 기간 이용 기록 미연결). / 분모는 앵커 거리를 확인한 위치 마스터 725개 기준이며, 대여 기록이 연결된 분석 대여소는 709개입니다(4개는 반납 기록만 있고 대여 0건; 12개는 선택 기간 이용 기록 미연결).",
+      "source_note": "지하철역 앵커: 340개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준 / 지하철역 앵커: 22개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준 / BRT 정류장 앵커: 152개 기준(출처: 세종특별자치시 BRT노선별 정류장 현황)"
+    },
+    "daejeon|2025-12-01|2025-12-31": {
+      "city": "daejeon",
+      "period_start": "2025-12-01",
+      "period_end": "2025-12-31",
+      "denominator_count": 1374,
+      "analysis_station_count": 1372,
+      "master_total": 1374,
+      "unlocated_master_count": 0,
+      "denominator_only": {
+        "ST0088": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST1461": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        }
+      },
+      "analysis_only": {},
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 1,374개 기준이며, 대여 기록이 연결된 분석 대여소는 1,372개입니다(2개는 반납 기록만 있고 대여 0건).",
+      "anchor_name": "지하철역",
+      "distance_label": "최근접 지하철역(앵커) 거리",
+      "anchor_count": 22,
+      "source_name": "전국 도시철도 역사정보 전체기관",
+      "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+      "source_note": "지하철역 앵커: 22개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+      "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+      "brt_line_geometry_available": false,
+      "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+    },
+    "daejeon|2025-12-02|2025-12-31": {
+      "city": "daejeon",
+      "period_start": "2025-12-02",
+      "period_end": "2025-12-31",
+      "denominator_count": 1374,
+      "analysis_station_count": 1371,
+      "master_total": 1374,
+      "unlocated_master_count": 0,
+      "denominator_only": {
+        "ST0088": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0370": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1461": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        }
+      },
+      "analysis_only": {},
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 1,374개 기준이며, 대여 기록이 연결된 분석 대여소는 1,371개입니다(1개는 반납 기록만 있고 대여 0건; 2개는 선택 기간 이용 기록 미연결).",
+      "anchor_name": "지하철역",
+      "distance_label": "최근접 지하철역(앵커) 거리",
+      "anchor_count": 22,
+      "source_name": "전국 도시철도 역사정보 전체기관",
+      "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+      "source_note": "지하철역 앵커: 22개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+      "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+      "brt_line_geometry_available": false,
+      "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+    },
+    "daejeon|2025-12-18|2025-12-31": {
+      "city": "daejeon",
+      "period_start": "2025-12-18",
+      "period_end": "2025-12-31",
+      "denominator_count": 1374,
+      "analysis_station_count": 1359,
+      "master_total": 1374,
+      "unlocated_master_count": 0,
+      "denominator_only": {
+        "ST0026": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0088": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0370": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0502": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0728": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0933": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0970": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1159": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1161": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST1283": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1307": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1461": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST1523": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1525": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1526": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        }
+      },
+      "analysis_only": {},
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 1,374개 기준이며, 대여 기록이 연결된 분석 대여소는 1,359개입니다(2개는 반납 기록만 있고 대여 0건; 13개는 선택 기간 이용 기록 미연결).",
+      "anchor_name": "지하철역",
+      "distance_label": "최근접 지하철역(앵커) 거리",
+      "anchor_count": 22,
+      "source_name": "전국 도시철도 역사정보 전체기관",
+      "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+      "source_note": "지하철역 앵커: 22개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+      "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+      "brt_line_geometry_available": false,
+      "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+    },
+    "daejeon|2025-12-25|2025-12-31": {
+      "city": "daejeon",
+      "period_start": "2025-12-25",
+      "period_end": "2025-12-31",
+      "denominator_count": 1374,
+      "analysis_station_count": 1333,
+      "master_total": 1374,
+      "unlocated_master_count": 0,
+      "denominator_only": {
+        "ST0026": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0086": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0088": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0110": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0300": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0370": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0371": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0372": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0502": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0551": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0570": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0649": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0653": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0676": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0728": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0867": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST0894": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0933": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0964": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0967": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0970": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST0972": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1074": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1156": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST1158": {
+          "rows": 2,
+          "rentals": 0,
+          "returns": 2
+        },
+        "ST1159": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1161": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST1283": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1290": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1307": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1388": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1442": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1445": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1458": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1461": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1462": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1491": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST1508": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1523": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1525": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST1526": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        }
+      },
+      "analysis_only": {},
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 1,374개 기준이며, 대여 기록이 연결된 분석 대여소는 1,333개입니다(5개는 반납 기록만 있고 대여 0건; 36개는 선택 기간 이용 기록 미연결).",
+      "anchor_name": "지하철역",
+      "distance_label": "최근접 지하철역(앵커) 거리",
+      "anchor_count": 22,
+      "source_name": "전국 도시철도 역사정보 전체기관",
+      "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+      "source_note": "지하철역 앵커: 22개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+      "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+      "brt_line_geometry_available": false,
+      "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+    },
+    "sejong|2025-12-01|2025-12-31": {
+      "city": "sejong",
+      "period_start": "2025-12-01",
+      "period_end": "2025-12-31",
+      "denominator_count": 725,
+      "analysis_station_count": 726,
+      "master_total": 727,
+      "unlocated_master_count": 2,
+      "denominator_only": {},
+      "analysis_only": {
+        "251107": {
+          "rows": 1,
+          "rentals": 1,
+          "returns": 0
+        }
+      },
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 725개 기준이며, 대여 기록이 연결된 분석 대여소는 726개입니다(분석 대여소 중 1개는 위치 미연결로 분모 제외).",
+      "anchor_name": "BRT 정류장",
+      "distance_label": "최근접 BRT 정류장(앵커) 거리",
+      "anchor_count": 152,
+      "source_name": "세종특별자치시 BRT노선별 정류장 현황",
+      "source_url": "https://www.data.go.kr/data/15118026/fileData.do",
+      "source_note": "BRT 정류장 앵커: 152개 기준(출처: 세종특별자치시 BRT노선별 정류장 현황)",
+      "station_map_note": "대여소 전체 725개 표시(위치 마스터 727개 중 좌표 미확보 2개 제외) + 취약 후보 전체",
+      "brt_line_geometry_available": false,
+      "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+    },
+    "sejong|2025-12-02|2025-12-31": {
+      "city": "sejong",
+      "period_start": "2025-12-02",
+      "period_end": "2025-12-31",
+      "denominator_count": 725,
+      "analysis_station_count": 726,
+      "master_total": 727,
+      "unlocated_master_count": 2,
+      "denominator_only": {},
+      "analysis_only": {
+        "251107": {
+          "rows": 1,
+          "rentals": 1,
+          "returns": 0
+        }
+      },
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 725개 기준이며, 대여 기록이 연결된 분석 대여소는 726개입니다(분석 대여소 중 1개는 위치 미연결로 분모 제외).",
+      "anchor_name": "BRT 정류장",
+      "distance_label": "최근접 BRT 정류장(앵커) 거리",
+      "anchor_count": 152,
+      "source_name": "세종특별자치시 BRT노선별 정류장 현황",
+      "source_url": "https://www.data.go.kr/data/15118026/fileData.do",
+      "source_note": "BRT 정류장 앵커: 152개 기준(출처: 세종특별자치시 BRT노선별 정류장 현황)",
+      "station_map_note": "대여소 전체 725개 표시(위치 마스터 727개 중 좌표 미확보 2개 제외) + 취약 후보 전체",
+      "brt_line_geometry_available": false,
+      "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+    },
+    "sejong|2025-12-18|2025-12-31": {
+      "city": "sejong",
+      "period_start": "2025-12-18",
+      "period_end": "2025-12-31",
+      "denominator_count": 725,
+      "analysis_station_count": 716,
+      "master_total": 727,
+      "unlocated_master_count": 2,
+      "denominator_only": {
+        "SJ-00699": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ-00706": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ-00738": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "SJ_00003": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ_00004": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ_00156": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ_00216": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ_00458": {
+          "rows": 6,
+          "rentals": 0,
+          "returns": 7
+        },
+        "SJ_00624": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        }
+      },
+      "analysis_only": {},
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 725개 기준이며, 대여 기록이 연결된 분석 대여소는 716개입니다(2개는 반납 기록만 있고 대여 0건; 7개는 선택 기간 이용 기록 미연결).",
+      "anchor_name": "BRT 정류장",
+      "distance_label": "최근접 BRT 정류장(앵커) 거리",
+      "anchor_count": 152,
+      "source_name": "세종특별자치시 BRT노선별 정류장 현황",
+      "source_url": "https://www.data.go.kr/data/15118026/fileData.do",
+      "source_note": "BRT 정류장 앵커: 152개 기준(출처: 세종특별자치시 BRT노선별 정류장 현황)",
+      "station_map_note": "대여소 전체 725개 표시(위치 마스터 727개 중 좌표 미확보 2개 제외) + 취약 후보 전체",
+      "brt_line_geometry_available": false,
+      "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+    },
+    "sejong|2025-12-25|2025-12-31": {
+      "city": "sejong",
+      "period_start": "2025-12-25",
+      "period_end": "2025-12-31",
+      "denominator_count": 725,
+      "analysis_station_count": 709,
+      "master_total": 727,
+      "unlocated_master_count": 2,
+      "denominator_only": {
+        "HD_TEST": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ-00699": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ-00706": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ-00738": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "SJ-00747": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ-00767": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "SJ-00780": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ_00003": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ_00004": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ_00133": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ_00156": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ_00216": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ_00377": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "SJ_00458": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "SJ_00507": {
+          "rows": 2,
+          "rentals": 0,
+          "returns": 3
+        },
+        "SJ_00624": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        }
+      },
+      "analysis_only": {},
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 725개 기준이며, 대여 기록이 연결된 분석 대여소는 709개입니다(4개는 반납 기록만 있고 대여 0건; 12개는 선택 기간 이용 기록 미연결).",
+      "anchor_name": "BRT 정류장",
+      "distance_label": "최근접 BRT 정류장(앵커) 거리",
+      "anchor_count": 152,
+      "source_name": "세종특별자치시 BRT노선별 정류장 현황",
+      "source_url": "https://www.data.go.kr/data/15118026/fileData.do",
+      "source_note": "BRT 정류장 앵커: 152개 기준(출처: 세종특별자치시 BRT노선별 정류장 현황)",
+      "station_map_note": "대여소 전체 725개 표시(위치 마스터 727개 중 좌표 미확보 2개 제외) + 취약 후보 전체",
+      "brt_line_geometry_available": false,
+      "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+    },
+    "seoul|2025-12-01|2025-12-31": {
+      "city": "seoul",
+      "period_start": "2025-12-01",
+      "period_end": "2025-12-31",
+      "denominator_count": 2757,
+      "analysis_station_count": 2770,
+      "master_total": 2778,
+      "unlocated_master_count": 21,
+      "denominator_only": {
+        "ST-1052": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST-3072": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST-380": {
+          "rows": 5,
+          "rentals": 0,
+          "returns": 5
+        },
+        "ST-48": {
+          "rows": 80,
+          "rentals": 0,
+          "returns": 118
+        },
+        "ST-57": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST-74": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        }
+      },
+      "analysis_only": {
+        "ST-1199": {
+          "rows": 236,
+          "rentals": 254,
+          "returns": 231
+        },
+        "ST-1254": {
+          "rows": 642,
+          "rentals": 1933,
+          "returns": 1928
+        },
+        "ST-1374": {
+          "rows": 451,
+          "rentals": 575,
+          "returns": 574
+        },
+        "ST-1546": {
+          "rows": 4,
+          "rentals": 2,
+          "returns": 2
+        },
+        "ST-2284": {
+          "rows": 314,
+          "rentals": 207,
+          "returns": 219
+        },
+        "ST-2540": {
+          "rows": 1,
+          "rentals": 1,
+          "returns": 1
+        },
+        "ST-2549": {
+          "rows": 475,
+          "rentals": 716,
+          "returns": 847
+        },
+        "ST-2799": {
+          "rows": 430,
+          "rentals": 558,
+          "returns": 581
+        },
+        "ST-284": {
+          "rows": 458,
+          "rentals": 514,
+          "returns": 505
+        },
+        "ST-29": {
+          "rows": 226,
+          "rentals": 190,
+          "returns": 115
+        },
+        "ST-2912": {
+          "rows": 108,
+          "rentals": 115,
+          "returns": 30
+        },
+        "ST-3097": {
+          "rows": 78,
+          "rentals": 58,
+          "returns": 32
+        },
+        "ST-3109": {
+          "rows": 33,
+          "rentals": 30,
+          "returns": 26
+        },
+        "ST-3187": {
+          "rows": 675,
+          "rentals": 3029,
+          "returns": 3102
+        },
+        "ST-319": {
+          "rows": 465,
+          "rentals": 469,
+          "returns": 574
+        },
+        "ST-499": {
+          "rows": 401,
+          "rentals": 423,
+          "returns": 408
+        },
+        "ST-506": {
+          "rows": 608,
+          "rentals": 1735,
+          "returns": 1766
+        },
+        "ST-863": {
+          "rows": 137,
+          "rentals": 83,
+          "returns": 87
+        },
+        "ST-996": {
+          "rows": 122,
+          "rentals": 79,
+          "returns": 79
+        }
+      },
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 2,757개 기준이며, 대여 기록이 연결된 분석 대여소는 2,770개입니다(6개는 반납 기록만 있고 대여 0건; 분석 대여소 중 19개는 위치 미연결로 분모 제외).",
+      "anchor_name": "지하철역",
+      "distance_label": "최근접 지하철역(앵커) 거리",
+      "anchor_count": 340,
+      "source_name": "전국 도시철도 역사정보 전체기관",
+      "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+      "source_note": "지하철역 앵커: 340개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+      "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+      "brt_line_geometry_available": false,
+      "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+    },
+    "seoul|2025-12-02|2025-12-31": {
+      "city": "seoul",
+      "period_start": "2025-12-02",
+      "period_end": "2025-12-31",
+      "denominator_count": 2757,
+      "analysis_station_count": 2770,
+      "master_total": 2778,
+      "unlocated_master_count": 21,
+      "denominator_only": {
+        "ST-1052": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST-3072": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST-380": {
+          "rows": 4,
+          "rentals": 0,
+          "returns": 4
+        },
+        "ST-48": {
+          "rows": 77,
+          "rentals": 0,
+          "returns": 112
+        },
+        "ST-57": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST-74": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        }
+      },
+      "analysis_only": {
+        "ST-1199": {
+          "rows": 224,
+          "rentals": 232,
+          "returns": 218
+        },
+        "ST-1254": {
+          "rows": 620,
+          "rentals": 1865,
+          "returns": 1854
+        },
+        "ST-1374": {
+          "rows": 434,
+          "rentals": 552,
+          "returns": 547
+        },
+        "ST-1546": {
+          "rows": 4,
+          "rentals": 2,
+          "returns": 2
+        },
+        "ST-2284": {
+          "rows": 300,
+          "rentals": 198,
+          "returns": 208
+        },
+        "ST-2540": {
+          "rows": 1,
+          "rentals": 1,
+          "returns": 1
+        },
+        "ST-2549": {
+          "rows": 457,
+          "rentals": 669,
+          "returns": 797
+        },
+        "ST-2799": {
+          "rows": 411,
+          "rentals": 534,
+          "returns": 549
+        },
+        "ST-284": {
+          "rows": 440,
+          "rentals": 481,
+          "returns": 478
+        },
+        "ST-29": {
+          "rows": 214,
+          "rentals": 178,
+          "returns": 109
+        },
+        "ST-2912": {
+          "rows": 107,
+          "rentals": 115,
+          "returns": 29
+        },
+        "ST-3097": {
+          "rows": 75,
+          "rentals": 57,
+          "returns": 30
+        },
+        "ST-3109": {
+          "rows": 23,
+          "rentals": 19,
+          "returns": 18
+        },
+        "ST-3187": {
+          "rows": 653,
+          "rentals": 2871,
+          "returns": 2949
+        },
+        "ST-319": {
+          "rows": 447,
+          "rentals": 449,
+          "returns": 547
+        },
+        "ST-499": {
+          "rows": 385,
+          "rentals": 396,
+          "returns": 384
+        },
+        "ST-506": {
+          "rows": 588,
+          "rentals": 1664,
+          "returns": 1695
+        },
+        "ST-863": {
+          "rows": 125,
+          "rentals": 74,
+          "returns": 80
+        },
+        "ST-996": {
+          "rows": 121,
+          "rentals": 78,
+          "returns": 79
+        }
+      },
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 2,757개 기준이며, 대여 기록이 연결된 분석 대여소는 2,770개입니다(6개는 반납 기록만 있고 대여 0건; 분석 대여소 중 19개는 위치 미연결로 분모 제외).",
+      "anchor_name": "지하철역",
+      "distance_label": "최근접 지하철역(앵커) 거리",
+      "anchor_count": 340,
+      "source_name": "전국 도시철도 역사정보 전체기관",
+      "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+      "source_note": "지하철역 앵커: 340개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+      "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+      "brt_line_geometry_available": false,
+      "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+    },
+    "seoul|2025-12-18|2025-12-31": {
+      "city": "seoul",
+      "period_start": "2025-12-18",
+      "period_end": "2025-12-31",
+      "denominator_count": 2757,
+      "analysis_station_count": 2765,
+      "master_total": 2778,
+      "unlocated_master_count": 21,
+      "denominator_only": {
+        "ST-1052": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST-2672": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST-3072": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST-3216": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST-380": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST-48": {
+          "rows": 28,
+          "rentals": 0,
+          "returns": 33
+        },
+        "ST-57": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST-708": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST-74": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        }
+      },
+      "analysis_only": {
+        "ST-1199": {
+          "rows": 97,
+          "rentals": 101,
+          "returns": 90
+        },
+        "ST-1254": {
+          "rows": 287,
+          "rentals": 846,
+          "returns": 825
+        },
+        "ST-1374": {
+          "rows": 195,
+          "rentals": 246,
+          "returns": 227
+        },
+        "ST-2284": {
+          "rows": 140,
+          "rentals": 93,
+          "returns": 100
+        },
+        "ST-2540": {
+          "rows": 1,
+          "rentals": 1,
+          "returns": 1
+        },
+        "ST-2549": {
+          "rows": 204,
+          "rentals": 290,
+          "returns": 321
+        },
+        "ST-2799": {
+          "rows": 191,
+          "rentals": 259,
+          "returns": 257
+        },
+        "ST-284": {
+          "rows": 212,
+          "rentals": 217,
+          "returns": 223
+        },
+        "ST-29": {
+          "rows": 107,
+          "rentals": 80,
+          "returns": 58
+        },
+        "ST-2912": {
+          "rows": 47,
+          "rentals": 49,
+          "returns": 13
+        },
+        "ST-3097": {
+          "rows": 26,
+          "rentals": 15,
+          "returns": 14
+        },
+        "ST-3187": {
+          "rows": 302,
+          "rentals": 1198,
+          "returns": 1239
+        },
+        "ST-319": {
+          "rows": 200,
+          "rentals": 208,
+          "returns": 239
+        },
+        "ST-499": {
+          "rows": 181,
+          "rentals": 173,
+          "returns": 171
+        },
+        "ST-506": {
+          "rows": 272,
+          "rentals": 737,
+          "returns": 757
+        },
+        "ST-863": {
+          "rows": 19,
+          "rentals": 9,
+          "returns": 13
+        },
+        "ST-996": {
+          "rows": 70,
+          "rentals": 43,
+          "returns": 43
+        }
+      },
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 2,757개 기준이며, 대여 기록이 연결된 분석 대여소는 2,765개입니다(6개는 반납 기록만 있고 대여 0건; 3개는 선택 기간 이용 기록 미연결; 분석 대여소 중 17개는 위치 미연결로 분모 제외).",
+      "anchor_name": "지하철역",
+      "distance_label": "최근접 지하철역(앵커) 거리",
+      "anchor_count": 340,
+      "source_name": "전국 도시철도 역사정보 전체기관",
+      "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+      "source_note": "지하철역 앵커: 340개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+      "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+      "brt_line_geometry_available": false,
+      "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+    },
+    "seoul|2025-12-25|2025-12-31": {
+      "city": "seoul",
+      "period_start": "2025-12-25",
+      "period_end": "2025-12-31",
+      "denominator_count": 2757,
+      "analysis_station_count": 2759,
+      "master_total": 2778,
+      "unlocated_master_count": 21,
+      "denominator_only": {
+        "ST-1052": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST-1146": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST-137": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST-138": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST-2521": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST-2527": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST-2672": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST-3072": {
+          "rows": 1,
+          "rentals": 0,
+          "returns": 1
+        },
+        "ST-3216": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST-380": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST-48": {
+          "rows": 11,
+          "rentals": 0,
+          "returns": 11
+        },
+        "ST-57": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST-708": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        },
+        "ST-74": {
+          "rows": 0,
+          "rentals": 0,
+          "returns": 0
+        }
+      },
+      "analysis_only": {
+        "ST-1199": {
+          "rows": 46,
+          "rentals": 46,
+          "returns": 46
+        },
+        "ST-1254": {
+          "rows": 144,
+          "rentals": 390,
+          "returns": 381
+        },
+        "ST-1374": {
+          "rows": 95,
+          "rentals": 116,
+          "returns": 110
+        },
+        "ST-2284": {
+          "rows": 70,
+          "rentals": 48,
+          "returns": 49
+        },
+        "ST-2540": {
+          "rows": 1,
+          "rentals": 1,
+          "returns": 1
+        },
+        "ST-2549": {
+          "rows": 91,
+          "rentals": 125,
+          "returns": 129
+        },
+        "ST-2799": {
+          "rows": 89,
+          "rentals": 109,
+          "returns": 108
+        },
+        "ST-284": {
+          "rows": 100,
+          "rentals": 106,
+          "returns": 108
+        },
+        "ST-29": {
+          "rows": 51,
+          "rentals": 36,
+          "returns": 27
+        },
+        "ST-2912": {
+          "rows": 21,
+          "rentals": 19,
+          "returns": 7
+        },
+        "ST-3097": {
+          "rows": 11,
+          "rentals": 6,
+          "returns": 6
+        },
+        "ST-3187": {
+          "rows": 151,
+          "rentals": 506,
+          "returns": 519
+        },
+        "ST-319": {
+          "rows": 90,
+          "rentals": 86,
+          "returns": 100
+        },
+        "ST-499": {
+          "rows": 85,
+          "rentals": 81,
+          "returns": 80
+        },
+        "ST-506": {
+          "rows": 136,
+          "rentals": 306,
+          "returns": 323
+        },
+        "ST-996": {
+          "rows": 31,
+          "rentals": 19,
+          "returns": 19
+        }
+      },
+      "denominator_note": "분모는 앵커 거리를 확인한 위치 마스터 2,757개 기준이며, 대여 기록이 연결된 분석 대여소는 2,759개입니다(4개는 반납 기록만 있고 대여 0건; 10개는 선택 기간 이용 기록 미연결; 분석 대여소 중 16개는 위치 미연결로 분모 제외).",
+      "anchor_name": "지하철역",
+      "distance_label": "최근접 지하철역(앵커) 거리",
+      "anchor_count": 340,
+      "source_name": "전국 도시철도 역사정보 전체기관",
+      "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+      "source_note": "지하철역 앵커: 340개 기준(출처: 전국 도시철도 역사정보 전체기관) · 운영기관·노선별 행 기준",
+      "station_map_note": "대여소 최대 300개 표본 + 취약 후보 전체",
+      "brt_line_geometry_available": false,
+      "brt_scope": "BRT 정류장 좌표·순번 CSV, 실제 노선 선형 자료 미확보"
+    }
+  },
+  "kpi_baseline": {
+    "all|2025-12-01|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "도시별 앵커",
+        "anchor_300m_ratio": 0.27697693574958815,
+        "anchor_300m_denominator_count": 4856,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 788,
+        "reference_all_stops_outside500": 11,
+        "located_station_count": 4856,
+        "subway_station_count": 4856,
+        "subway_300m_ratio": 0.27697693574958815,
+        "outside_500m_active_count": 2625,
+        "linked_trip_share": 0.5831169254113359,
+        "linked_trip_total": 2487201
+      },
+      "candidate_count": 2625,
+      "scenario": null,
+      "city_scenarios": [
+        {
+          "city": "seoul",
+          "scenario": {
+            "crs": "EPSG:5179",
+            "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+            "boundary_clipped": true,
+            "walking_radius_m": 500,
+            "bike_station_buffer_m": 300,
+            "baseline_area_m2": 196710871.79670292,
+            "linked_area_m2": 230848704.61731496,
+            "added_area_m2": 34137832.82061204,
+            "uncovered_area_m2": 408586270.41863066,
+            "uncovered_recovery_ratio": 0.0835511011802599,
+            "area_increase_ratio": 0.17354319315860114,
+            "baseline_station_count": 1484,
+            "linked_station_count": 1683,
+            "added_station_count": 199,
+            "station_count_increase_ratio": 0.13409703504043127,
+            "population_increase_ratio": null
+          }
+        },
+        {
+          "city": "daejeon",
+          "scenario": {
+            "crs": "EPSG:5179",
+            "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+            "boundary_clipped": true,
+            "walking_radius_m": 500,
+            "bike_station_buffer_m": 300,
+            "baseline_area_m2": 16206891.226654623,
+            "linked_area_m2": 22933810.255814403,
+            "added_area_m2": 6726919.029159781,
+            "uncovered_area_m2": 523224469.0781939,
+            "uncovered_recovery_ratio": 0.012856659859603142,
+            "area_increase_ratio": 0.41506535307007986,
+            "baseline_station_count": 256,
+            "linked_station_count": 336,
+            "added_station_count": 80,
+            "station_count_increase_ratio": 0.3125,
+            "population_increase_ratio": null
+          }
+        },
+        {
+          "city": "sejong",
+          "scenario": {
+            "crs": "EPSG:5179",
+            "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+            "boundary_clipped": true,
+            "walking_radius_m": 500,
+            "bike_station_buffer_m": 300,
+            "baseline_area_m2": 25307753.870773062,
+            "linked_area_m2": 29293245.026080485,
+            "added_area_m2": 3985491.1553074233,
+            "uncovered_area_m2": 439811801.5113221,
+            "uncovered_recovery_ratio": 0.009061810396201532,
+            "area_increase_ratio": 0.15748103034580685,
+            "baseline_station_count": 488,
+            "linked_station_count": 579,
+            "added_station_count": 91,
+            "station_count_increase_ratio": 0.1864754098360656,
+            "population_increase_ratio": null
+          }
+        }
+      ]
+    },
+    "all|2025-12-02|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "도시별 앵커",
+        "anchor_300m_ratio": 0.27697693574958815,
+        "anchor_300m_denominator_count": 4856,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 788,
+        "reference_all_stops_outside500": 11,
+        "located_station_count": 4856,
+        "subway_station_count": 4856,
+        "subway_300m_ratio": 0.27697693574958815,
+        "outside_500m_active_count": 2624,
+        "linked_trip_share": 0.5827329357167746,
+        "linked_trip_total": 2361907
+      },
+      "candidate_count": 2624,
+      "scenario": null,
+      "city_scenarios": [
+        {
+          "city": "seoul",
+          "scenario": {
+            "crs": "EPSG:5179",
+            "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+            "boundary_clipped": true,
+            "walking_radius_m": 500,
+            "bike_station_buffer_m": 300,
+            "baseline_area_m2": 196710871.79670292,
+            "linked_area_m2": 230848704.61731496,
+            "added_area_m2": 34137832.82061204,
+            "uncovered_area_m2": 408586270.41863066,
+            "uncovered_recovery_ratio": 0.0835511011802599,
+            "area_increase_ratio": 0.17354319315860114,
+            "baseline_station_count": 1484,
+            "linked_station_count": 1683,
+            "added_station_count": 199,
+            "station_count_increase_ratio": 0.13409703504043127,
+            "population_increase_ratio": null
+          }
+        },
+        {
+          "city": "daejeon",
+          "scenario": {
+            "crs": "EPSG:5179",
+            "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+            "boundary_clipped": true,
+            "walking_radius_m": 500,
+            "bike_station_buffer_m": 300,
+            "baseline_area_m2": 16206891.226654623,
+            "linked_area_m2": 22933810.255814403,
+            "added_area_m2": 6726919.029159781,
+            "uncovered_area_m2": 523224469.0781939,
+            "uncovered_recovery_ratio": 0.012856659859603142,
+            "area_increase_ratio": 0.41506535307007986,
+            "baseline_station_count": 256,
+            "linked_station_count": 336,
+            "added_station_count": 80,
+            "station_count_increase_ratio": 0.3125,
+            "population_increase_ratio": null
+          }
+        },
+        {
+          "city": "sejong",
+          "scenario": {
+            "crs": "EPSG:5179",
+            "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+            "boundary_clipped": true,
+            "walking_radius_m": 500,
+            "bike_station_buffer_m": 300,
+            "baseline_area_m2": 25307753.870773062,
+            "linked_area_m2": 29293245.026080485,
+            "added_area_m2": 3985491.1553074233,
+            "uncovered_area_m2": 439811801.5113221,
+            "uncovered_recovery_ratio": 0.009061810396201532,
+            "area_increase_ratio": 0.15748103034580685,
+            "baseline_station_count": 488,
+            "linked_station_count": 579,
+            "added_station_count": 91,
+            "station_count_increase_ratio": 0.1864754098360656,
+            "population_increase_ratio": null
+          }
+        }
+      ]
+    },
+    "all|2025-12-18|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "도시별 앵커",
+        "anchor_300m_ratio": 0.27697693574958815,
+        "anchor_300m_denominator_count": 4856,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 787,
+        "reference_all_stops_outside500": 11,
+        "located_station_count": 4856,
+        "subway_station_count": 4856,
+        "subway_300m_ratio": 0.27697693574958815,
+        "outside_500m_active_count": 2608,
+        "linked_trip_share": 0.5837745596960902,
+        "linked_trip_total": 1020829
+      },
+      "candidate_count": 2608,
+      "scenario": null,
+      "city_scenarios": [
+        {
+          "city": "seoul",
+          "scenario": {
+            "crs": "EPSG:5179",
+            "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+            "boundary_clipped": true,
+            "walking_radius_m": 500,
+            "bike_station_buffer_m": 300,
+            "baseline_area_m2": 196710871.79670292,
+            "linked_area_m2": 230848704.61731496,
+            "added_area_m2": 34137832.82061204,
+            "uncovered_area_m2": 408586270.41863066,
+            "uncovered_recovery_ratio": 0.0835511011802599,
+            "area_increase_ratio": 0.17354319315860114,
+            "baseline_station_count": 1484,
+            "linked_station_count": 1683,
+            "added_station_count": 199,
+            "station_count_increase_ratio": 0.13409703504043127,
+            "population_increase_ratio": null
+          }
+        },
+        {
+          "city": "daejeon",
+          "scenario": {
+            "crs": "EPSG:5179",
+            "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+            "boundary_clipped": true,
+            "walking_radius_m": 500,
+            "bike_station_buffer_m": 300,
+            "baseline_area_m2": 16206891.226654623,
+            "linked_area_m2": 22933810.255814403,
+            "added_area_m2": 6726919.029159781,
+            "uncovered_area_m2": 523224469.0781939,
+            "uncovered_recovery_ratio": 0.012856659859603142,
+            "area_increase_ratio": 0.41506535307007986,
+            "baseline_station_count": 256,
+            "linked_station_count": 336,
+            "added_station_count": 80,
+            "station_count_increase_ratio": 0.3125,
+            "population_increase_ratio": null
+          }
+        },
+        {
+          "city": "sejong",
+          "scenario": {
+            "crs": "EPSG:5179",
+            "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+            "boundary_clipped": true,
+            "walking_radius_m": 500,
+            "bike_station_buffer_m": 300,
+            "baseline_area_m2": 25307753.870773062,
+            "linked_area_m2": 29293245.026080485,
+            "added_area_m2": 3985491.1553074233,
+            "uncovered_area_m2": 439811801.5113221,
+            "uncovered_recovery_ratio": 0.009061810396201532,
+            "area_increase_ratio": 0.15748103034580685,
+            "baseline_station_count": 488,
+            "linked_station_count": 579,
+            "added_station_count": 91,
+            "station_count_increase_ratio": 0.1864754098360656,
+            "population_increase_ratio": null
+          }
+        }
+      ]
+    },
+    "all|2025-12-25|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "도시별 앵커",
+        "anchor_300m_ratio": 0.27697693574958815,
+        "anchor_300m_denominator_count": 4856,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 786,
+        "reference_all_stops_outside500": 11,
+        "located_station_count": 4856,
+        "subway_station_count": 4856,
+        "subway_300m_ratio": 0.27697693574958815,
+        "outside_500m_active_count": 2580,
+        "linked_trip_share": 0.5790983283615692,
+        "linked_trip_total": 444175
+      },
+      "candidate_count": 2580,
+      "scenario": null,
+      "city_scenarios": [
+        {
+          "city": "seoul",
+          "scenario": {
+            "crs": "EPSG:5179",
+            "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+            "boundary_clipped": true,
+            "walking_radius_m": 500,
+            "bike_station_buffer_m": 300,
+            "baseline_area_m2": 196710871.79670292,
+            "linked_area_m2": 230848704.61731496,
+            "added_area_m2": 34137832.82061204,
+            "uncovered_area_m2": 408586270.41863066,
+            "uncovered_recovery_ratio": 0.0835511011802599,
+            "area_increase_ratio": 0.17354319315860114,
+            "baseline_station_count": 1484,
+            "linked_station_count": 1683,
+            "added_station_count": 199,
+            "station_count_increase_ratio": 0.13409703504043127,
+            "population_increase_ratio": null
+          }
+        },
+        {
+          "city": "daejeon",
+          "scenario": {
+            "crs": "EPSG:5179",
+            "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+            "boundary_clipped": true,
+            "walking_radius_m": 500,
+            "bike_station_buffer_m": 300,
+            "baseline_area_m2": 16206891.226654623,
+            "linked_area_m2": 22933810.255814403,
+            "added_area_m2": 6726919.029159781,
+            "uncovered_area_m2": 523224469.0781939,
+            "uncovered_recovery_ratio": 0.012856659859603142,
+            "area_increase_ratio": 0.41506535307007986,
+            "baseline_station_count": 256,
+            "linked_station_count": 336,
+            "added_station_count": 80,
+            "station_count_increase_ratio": 0.3125,
+            "population_increase_ratio": null
+          }
+        },
+        {
+          "city": "sejong",
+          "scenario": {
+            "crs": "EPSG:5179",
+            "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+            "boundary_clipped": true,
+            "walking_radius_m": 500,
+            "bike_station_buffer_m": 300,
+            "baseline_area_m2": 25307753.870773062,
+            "linked_area_m2": 29293245.026080485,
+            "added_area_m2": 3985491.1553074233,
+            "uncovered_area_m2": 439811801.5113221,
+            "uncovered_recovery_ratio": 0.009061810396201532,
+            "area_increase_ratio": 0.15748103034580685,
+            "baseline_station_count": 488,
+            "linked_station_count": 579,
+            "added_station_count": 91,
+            "station_count_increase_ratio": 0.1864754098360656,
+            "population_increase_ratio": null
+          }
+        }
+      ]
+    },
+    "daejeon|2025-12-01|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "지하철역",
+        "anchor_300m_ratio": 0.0982532751091703,
+        "anchor_300m_denominator_count": 1374,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 252,
+        "reference_all_stops_outside500": 1,
+        "located_station_count": 1374,
+        "subway_station_count": 1374,
+        "subway_300m_ratio": 0.0982532751091703,
+        "outside_500m_active_count": 1116,
+        "linked_trip_share": 0.29336401703162357,
+        "linked_trip_total": 368491
+      },
+      "candidate_count": 1116,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 16206891.226654623,
+        "linked_area_m2": 22933810.255814403,
+        "added_area_m2": 6726919.029159781,
+        "uncovered_area_m2": 523224469.0781939,
+        "uncovered_recovery_ratio": 0.012856659859603142,
+        "area_increase_ratio": 0.41506535307007986,
+        "baseline_station_count": 256,
+        "linked_station_count": 336,
+        "added_station_count": 80,
+        "station_count_increase_ratio": 0.3125,
+        "population_increase_ratio": null
+      },
+      "city_scenarios": []
+    },
+    "daejeon|2025-12-02|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "지하철역",
+        "anchor_300m_ratio": 0.0982532751091703,
+        "anchor_300m_denominator_count": 1374,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 252,
+        "reference_all_stops_outside500": 1,
+        "located_station_count": 1374,
+        "subway_station_count": 1374,
+        "subway_300m_ratio": 0.0982532751091703,
+        "outside_500m_active_count": 1115,
+        "linked_trip_share": 0.29416575558363744,
+        "linked_trip_total": 352145
+      },
+      "candidate_count": 1115,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 16206891.226654623,
+        "linked_area_m2": 22933810.255814403,
+        "added_area_m2": 6726919.029159781,
+        "uncovered_area_m2": 523224469.0781939,
+        "uncovered_recovery_ratio": 0.012856659859603142,
+        "area_increase_ratio": 0.41506535307007986,
+        "baseline_station_count": 256,
+        "linked_station_count": 336,
+        "added_station_count": 80,
+        "station_count_increase_ratio": 0.3125,
+        "population_increase_ratio": null
+      },
+      "city_scenarios": []
+    },
+    "daejeon|2025-12-18|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "지하철역",
+        "anchor_300m_ratio": 0.0982532751091703,
+        "anchor_300m_denominator_count": 1374,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 252,
+        "reference_all_stops_outside500": 1,
+        "located_station_count": 1374,
+        "subway_station_count": 1374,
+        "subway_300m_ratio": 0.0982532751091703,
+        "outside_500m_active_count": 1103,
+        "linked_trip_share": 0.29973706680400636,
+        "linked_trip_total": 147566
+      },
+      "candidate_count": 1103,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 16206891.226654623,
+        "linked_area_m2": 22933810.255814403,
+        "added_area_m2": 6726919.029159781,
+        "uncovered_area_m2": 523224469.0781939,
+        "uncovered_recovery_ratio": 0.012856659859603142,
+        "area_increase_ratio": 0.41506535307007986,
+        "baseline_station_count": 256,
+        "linked_station_count": 336,
+        "added_station_count": 80,
+        "station_count_increase_ratio": 0.3125,
+        "population_increase_ratio": null
+      },
+      "city_scenarios": []
+    },
+    "daejeon|2025-12-25|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "지하철역",
+        "anchor_300m_ratio": 0.0982532751091703,
+        "anchor_300m_denominator_count": 1374,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 252,
+        "reference_all_stops_outside500": 1,
+        "located_station_count": 1374,
+        "subway_station_count": 1374,
+        "subway_300m_ratio": 0.0982532751091703,
+        "outside_500m_active_count": 1079,
+        "linked_trip_share": 0.29991493310648826,
+        "linked_trip_total": 64655
+      },
+      "candidate_count": 1079,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 16206891.226654623,
+        "linked_area_m2": 22933810.255814403,
+        "added_area_m2": 6726919.029159781,
+        "uncovered_area_m2": 523224469.0781939,
+        "uncovered_recovery_ratio": 0.012856659859603142,
+        "area_increase_ratio": 0.41506535307007986,
+        "baseline_station_count": 256,
+        "linked_station_count": 336,
+        "added_station_count": 80,
+        "station_count_increase_ratio": 0.3125,
+        "population_increase_ratio": null
+      },
+      "city_scenarios": []
+    },
+    "sejong|2025-12-01|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "BRT 정류장·노선상 터미널",
+        "anchor_300m_ratio": 0.463448275862069,
+        "anchor_300m_denominator_count": 725,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 67,
+        "reference_all_stops_outside500": 4,
+        "located_station_count": 725,
+        "subway_station_count": 725,
+        "subway_300m_ratio": 0.463448275862069,
+        "outside_500m_active_count": 237,
+        "linked_trip_share": 0.7535500042587883,
+        "linked_trip_total": 164366
+      },
+      "candidate_count": 237,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 25307753.870773062,
+        "linked_area_m2": 29293245.026080485,
+        "added_area_m2": 3985491.1553074233,
+        "uncovered_area_m2": 439811801.5113221,
+        "uncovered_recovery_ratio": 0.009061810396201532,
+        "area_increase_ratio": 0.15748103034580685,
+        "baseline_station_count": 488,
+        "linked_station_count": 579,
+        "added_station_count": 91,
+        "station_count_increase_ratio": 0.1864754098360656,
+        "population_increase_ratio": null
+      },
+      "city_scenarios": []
+    },
+    "sejong|2025-12-02|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "BRT 정류장·노선상 터미널",
+        "anchor_300m_ratio": 0.463448275862069,
+        "anchor_300m_denominator_count": 725,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 67,
+        "reference_all_stops_outside500": 4,
+        "located_station_count": 725,
+        "subway_station_count": 725,
+        "subway_300m_ratio": 0.463448275862069,
+        "outside_500m_active_count": 237,
+        "linked_trip_share": 0.753293321316945,
+        "linked_trip_total": 156453
+      },
+      "candidate_count": 237,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 25307753.870773062,
+        "linked_area_m2": 29293245.026080485,
+        "added_area_m2": 3985491.1553074233,
+        "uncovered_area_m2": 439811801.5113221,
+        "uncovered_recovery_ratio": 0.009061810396201532,
+        "area_increase_ratio": 0.15748103034580685,
+        "baseline_station_count": 488,
+        "linked_station_count": 579,
+        "added_station_count": 91,
+        "station_count_increase_ratio": 0.1864754098360656,
+        "population_increase_ratio": null
+      },
+      "city_scenarios": []
+    },
+    "sejong|2025-12-18|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "BRT 정류장·노선상 터미널",
+        "anchor_300m_ratio": 0.463448275862069,
+        "anchor_300m_denominator_count": 725,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 66,
+        "reference_all_stops_outside500": 4,
+        "located_station_count": 725,
+        "subway_station_count": 725,
+        "subway_300m_ratio": 0.463448275862069,
+        "outside_500m_active_count": 234,
+        "linked_trip_share": 0.754080368761857,
+        "linked_trip_total": 63781
+      },
+      "candidate_count": 234,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 25307753.870773062,
+        "linked_area_m2": 29293245.026080485,
+        "added_area_m2": 3985491.1553074233,
+        "uncovered_area_m2": 439811801.5113221,
+        "uncovered_recovery_ratio": 0.009061810396201532,
+        "area_increase_ratio": 0.15748103034580685,
+        "baseline_station_count": 488,
+        "linked_station_count": 579,
+        "added_station_count": 91,
+        "station_count_increase_ratio": 0.1864754098360656,
+        "population_increase_ratio": null
+      },
+      "city_scenarios": []
+    },
+    "sejong|2025-12-25|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "BRT 정류장·노선상 터미널",
+        "anchor_300m_ratio": 0.463448275862069,
+        "anchor_300m_denominator_count": 725,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 65,
+        "reference_all_stops_outside500": 4,
+        "located_station_count": 725,
+        "subway_station_count": 725,
+        "subway_300m_ratio": 0.463448275862069,
+        "outside_500m_active_count": 231,
+        "linked_trip_share": 0.7498797676741519,
+        "linked_trip_total": 27031
+      },
+      "candidate_count": 231,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 25307753.870773062,
+        "linked_area_m2": 29293245.026080485,
+        "added_area_m2": 3985491.1553074233,
+        "uncovered_area_m2": 439811801.5113221,
+        "uncovered_recovery_ratio": 0.009061810396201532,
+        "area_increase_ratio": 0.15748103034580685,
+        "baseline_station_count": 488,
+        "linked_station_count": 579,
+        "added_station_count": 91,
+        "station_count_increase_ratio": 0.1864754098360656,
+        "population_increase_ratio": null
+      },
+      "city_scenarios": []
+    },
+    "seoul|2025-12-01|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "지하철역",
+        "anchor_300m_ratio": 0.31701124410591225,
+        "anchor_300m_denominator_count": 2757,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 469,
+        "reference_all_stops_outside500": 6,
+        "located_station_count": 2757,
+        "subway_station_count": 2757,
+        "subway_300m_ratio": 0.31701124410591225,
+        "outside_500m_active_count": 1272,
+        "linked_trip_share": 0.6234158367206593,
+        "linked_trip_total": 1954344
+      },
+      "candidate_count": 1272,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 196710871.79670292,
+        "linked_area_m2": 230848704.61731496,
+        "added_area_m2": 34137832.82061204,
+        "uncovered_area_m2": 408586270.41863066,
+        "uncovered_recovery_ratio": 0.0835511011802599,
+        "area_increase_ratio": 0.17354319315860114,
+        "baseline_station_count": 1484,
+        "linked_station_count": 1683,
+        "added_station_count": 199,
+        "station_count_increase_ratio": 0.13409703504043127,
+        "population_increase_ratio": null
+      },
+      "city_scenarios": []
+    },
+    "seoul|2025-12-02|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "지하철역",
+        "anchor_300m_ratio": 0.31701124410591225,
+        "anchor_300m_denominator_count": 2757,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 469,
+        "reference_all_stops_outside500": 6,
+        "located_station_count": 2757,
+        "subway_station_count": 2757,
+        "subway_300m_ratio": 0.31701124410591225,
+        "outside_500m_active_count": 1272,
+        "linked_trip_share": 0.6231648365167385,
+        "linked_trip_total": 1853309
+      },
+      "candidate_count": 1272,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 196710871.79670292,
+        "linked_area_m2": 230848704.61731496,
+        "added_area_m2": 34137832.82061204,
+        "uncovered_area_m2": 408586270.41863066,
+        "uncovered_recovery_ratio": 0.0835511011802599,
+        "area_increase_ratio": 0.17354319315860114,
+        "baseline_station_count": 1484,
+        "linked_station_count": 1683,
+        "added_station_count": 199,
+        "station_count_increase_ratio": 0.13409703504043127,
+        "population_increase_ratio": null
+      },
+      "city_scenarios": []
+    },
+    "seoul|2025-12-18|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "지하철역",
+        "anchor_300m_ratio": 0.31701124410591225,
+        "anchor_300m_denominator_count": 2757,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 469,
+        "reference_all_stops_outside500": 6,
+        "located_station_count": 2757,
+        "subway_station_count": 2757,
+        "subway_300m_ratio": 0.31701124410591225,
+        "outside_500m_active_count": 1271,
+        "linked_trip_share": 0.6221348961434596,
+        "linked_trip_total": 809482
+      },
+      "candidate_count": 1271,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 196710871.79670292,
+        "linked_area_m2": 230848704.61731496,
+        "added_area_m2": 34137832.82061204,
+        "uncovered_area_m2": 408586270.41863066,
+        "uncovered_recovery_ratio": 0.0835511011802599,
+        "area_increase_ratio": 0.17354319315860114,
+        "baseline_station_count": 1484,
+        "linked_station_count": 1683,
+        "added_station_count": 199,
+        "station_count_increase_ratio": 0.13409703504043127,
+        "population_increase_ratio": null
+      },
+      "city_scenarios": []
+    },
+    "seoul|2025-12-25|2025-12-31": {
+      "goal_metrics": {
+        "anchor_label": "지하철역",
+        "anchor_300m_ratio": 0.31701124410591225,
+        "anchor_300m_denominator_count": 2757,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 469,
+        "reference_all_stops_outside500": 6,
+        "located_station_count": 2757,
+        "subway_station_count": 2757,
+        "subway_300m_ratio": 0.31701124410591225,
+        "outside_500m_active_count": 1270,
+        "linked_trip_share": 0.617210749839002,
+        "linked_trip_total": 352489
+      },
+      "candidate_count": 1270,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 196710871.79670292,
+        "linked_area_m2": 230848704.61731496,
+        "added_area_m2": 34137832.82061204,
+        "uncovered_area_m2": 408586270.41863066,
+        "uncovered_recovery_ratio": 0.0835511011802599,
+        "area_increase_ratio": 0.17354319315860114,
+        "baseline_station_count": 1484,
+        "linked_station_count": 1683,
+        "added_station_count": 199,
+        "station_count_increase_ratio": 0.13409703504043127,
+        "population_increase_ratio": null
+      },
+      "city_scenarios": []
+    }
+  },
+  "line_geometry_inspection": {
+    "data/raw/sejong-brt-20250717.csv": "노선명·정류장 순번·정류장 좌표만, LineString 또는 도로 선형 없음",
+    "repo_brt_geometry_files": []
+  }
+}

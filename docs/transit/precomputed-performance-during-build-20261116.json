@@ -1,7 +1,7 @@
 {
   "scope": "Selected observations retained from the first actual run while batch preparation was still active. Not a cold OS disk benchmark.",
   "entries_current_revision_at_measurement": 123,
-  "first_run_wiz_http_reads": [
+  "first_run_web_http_reads": [
     {
       "city": "daejeon",
       "action": "overview",

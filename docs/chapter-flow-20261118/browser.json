@@ -1,0 +1,18 @@
+{
+  "page_errors": [],
+  "checks": [
+    "home: 3 cached priorities, no generic improvement CTA",
+    "home detail opens existing tab and selects exact candidate",
+    "all six candidate combination renders stored scenario",
+    "relocation tab separates operational decision",
+    "OD details collapsed by default and expandable",
+    "selected candidate survives navigation to AI; Sejong 2025 scope explicit",
+    "server rejects candidate outside actual stored pool",
+    "city switch clears candidate; all scope excludes Sejong different year"
+  ],
+  "solar": {
+    "executed": false,
+    "reason": "Live invocation disabled; no fake provider response."
+  },
+  "mobile_overflow": false
+}

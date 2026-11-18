@@ -1,0 +1,78 @@
+{
+  "errors": [],
+  "requests": [
+    "action=regions&region_id=seoul",
+    "action=period_bounds&region_id=seoul",
+    "action=presentation_context&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=prepared_periods&region_id=seoul",
+    "action=overview&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=transit_linkage&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=transit_vulnerability&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=planning&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=compare&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=overview&region_id=sejong&date_start=2025-10-01&date_end=2025-10-31",
+    "action=compare_clusters&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=stations&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31&query=",
+    "action=dashboard_extra&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=station&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31&station_id=ST-3388&station_region_id=seoul",
+    "action=network&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=research&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=centrality&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=station&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31&station_id=ST-1681&station_region_id=seoul",
+    "action=decision_evidence&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=presentation_context&region_id=daejeon&date_start=2026-10-01&date_end=2026-10-31",
+    "action=prepared_periods&region_id=daejeon",
+    "action=overview&region_id=daejeon&date_start=2026-10-01&date_end=2026-10-31",
+    "action=transit_linkage&region_id=daejeon&date_start=2026-10-01&date_end=2026-10-31",
+    "action=transit_vulnerability&region_id=daejeon&date_start=2026-10-01&date_end=2026-10-31",
+    "action=planning&region_id=daejeon&date_start=2026-10-01&date_end=2026-10-31",
+    "action=compare&region_id=daejeon&date_start=2026-10-01&date_end=2026-10-31",
+    "action=presentation_context&region_id=sejong&date_start=2025-10-01&date_end=2025-10-31",
+    "action=prepared_periods&region_id=sejong",
+    "action=transit_linkage&region_id=sejong&date_start=2025-10-01&date_end=2025-10-31",
+    "action=transit_vulnerability&region_id=sejong&date_start=2025-10-01&date_end=2025-10-31",
+    "action=planning&region_id=sejong&date_start=2025-10-01&date_end=2025-10-31",
+    "action=compare&region_id=sejong&date_start=2026-10-01&date_end=2026-10-31",
+    "action=presentation_context&region_id=all&date_start=2026-10-01&date_end=2026-10-31",
+    "action=prepared_periods&region_id=all",
+    "action=overview&region_id=all&date_start=2026-10-01&date_end=2026-10-31",
+    "action=transit_linkage&region_id=all&date_start=2026-10-01&date_end=2026-10-31",
+    "action=transit_vulnerability&region_id=all&date_start=2026-10-01&date_end=2026-10-31",
+    "action=planning&region_id=all&date_start=2026-10-01&date_end=2026-10-31",
+    "action=compare&region_id=all&date_start=2026-10-01&date_end=2026-10-31",
+    "action=decision_evidence&region_id=all&date_start=2026-10-01&date_end=2026-10-31",
+    "action=stations&region_id=all&date_start=2026-10-01&date_end=2026-10-31&query=",
+    "action=dashboard_extra&region_id=all&date_start=2026-10-01&date_end=2026-10-31",
+    "action=station&region_id=all&date_start=2026-10-01&date_end=2026-10-31&station_id=seoul%3A%3AST-3388&station_region_id=seoul"
+  ],
+  "cities": [
+    {
+      "city": "서울",
+      "metrics": "지하철역 300m 내 대여소 비율\n31.499%\n앵커 거리 확보 대여소 2,762개 기준\n앵커 500m 밖 이용 대여소\n1,276\n개소 · 직선거리 500m 초과 + 실제 대여\n역 연계 이동 비중\n62.211%\n출발·도착 중 한쪽 이상이 해당 앵커 300m 이내\n앵커 접근 공백 보완율\n8.34%\n앵커 500m 밖 행정면적 중 보완되는 비중"
+    },
+    {
+      "city": "대전",
+      "metrics": "지하철역 300m 내 대여소 비율\n31.499%\n앵커 거리 확보 대여소 2,762개 기준\n앵커 500m 밖 이용 대여소\n1,276\n개소 · 직선거리 500m 초과 + 실제 대여\n역 연계 이동 비중\n62.211%\n출발·도착 중 한쪽 이상이 해당 앵커 300m 이내\n앵커 접근 공백 보완율\n8.34%\n앵커 500m 밖 행정면적 중 보완되는 비중"
+    },
+    {
+      "city": "세종",
+      "metrics": "BRT 정류장 300m 내 대여소 비율\n46.556%\n앵커 거리 확보 대여소 726개 기준\n앵커 500m 밖 이용 대여소\n236\n개소 · 직선거리 500m 초과 + 실제 대여\nBRT 앵커 연계 이동 비중\n72.9%\n출발·도착 중 한쪽 이상이 해당 앵커 300m 이내\n앵커 접근 공백 보완율\n0.909%\n앵커 500m 밖 행정면적 중 보완되는 비중"
+    },
+    {
+      "city": "전체",
+      "metrics": "BRT 정류장 300m 내 대여소 비율\n46.556%\n앵커 거리 확보 대여소 726개 기준\n앵커 500m 밖 이용 대여소\n236\n개소 · 직선거리 500m 초과 + 실제 대여\nBRT 앵커 연계 이동 비중\n72.9%\n출발·도착 중 한쪽 이상이 해당 앵커 300m 이내\n앵커 접근 공백 보완율\n0.909%\n앵커 500m 밖 행정면적 중 보완되는 비중"
+    }
+  ],
+  "overview_requests": [
+    "action=regions&region_id=seoul",
+    "action=period_bounds&region_id=seoul",
+    "action=presentation_context&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=prepared_periods&region_id=seoul",
+    "action=overview&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=transit_linkage&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=transit_vulnerability&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=planning&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=compare&region_id=seoul&date_start=2026-10-01&date_end=2026-10-31",
+    "action=overview&region_id=sejong&date_start=2025-10-01&date_end=2025-10-31"
+  ]
+}

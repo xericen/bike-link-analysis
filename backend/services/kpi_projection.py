@@ -1,4 +1,4 @@
-"""Offline-only WIZ-compatible projections. Never imported by cache lookup."""
+"""Offline-only 웹-compatible projections. Never imported by cache lookup."""
 from backend.services import real_data, all_regions
 
 def dashboard_extra(region_id,date_start,date_end):
@@ -42,19 +42,16 @@ def dashboard_extra(region_id,date_start,date_end):
     for label, rows in grouped.items():
         stride = max(1, len(rows) // 30)
         points.extend(rows[::stride][:30])
-    usage_rows = real_data.snapshot()["usage"]
-    seoul_dates = {row["date"] for row in usage_rows if row["region_id"] == "seoul"
-                   and row["rental_count"] > 0}
-    daejeon_dates = {row["date"] for row in usage_rows if row["region_id"] == "daejeon"
-                     and row["rental_count"] > 0}
-    common_dates = sorted(seoul_dates & daejeon_dates)
-    comparison = []
-    for rid, name in (("seoul", "서울"), ("daejeon", "대전")):
-        total = sum(row["rental_count"] for row in usage_rows
-                    if row["region_id"] == rid and row["date"] in common_dates)
-        comparison.append({"region_id": rid, "name": name,
-            "total_rentals": total if common_dates else None,
-            "observed_dates": common_dates})
+    date_sets=[set(real_data.observed_dates(rid,date_start,date_end)) for rid in ("seoul","daejeon","sejong")]
+    common_dates=sorted(set.intersection(*date_sets))
+    comparison=[]
+    for rid,name in (("seoul","서울"),("daejeon","대전"),("sejong","세종")):
+        if real_data.database_enabled() and common_dates:
+            with sqlite3.connect(real_data.database_path()) as connection:
+                total=connection.execute("SELECT SUM(rental_count) FROM station_usage WHERE region_id=? AND date IN ("+",".join("?" for _ in common_dates)+")",[rid,*common_dates]).fetchone()[0]
+        else:
+            total=sum(row["rental_count"] for row in real_data.filtered(real_data.snapshot()["usage"],rid,date_start,date_end) if row["date"] in common_dates) if common_dates else None
+        comparison.append({"region_id":rid,"name":name,"total_rentals":total,"observed_dates":common_dates})
     return {"heatmap": heatmap, "cluster_points": points,
               "cluster_count": len(result_clusters["clusters"]),
               "selected_k": result_clusters.get("selected_k"),

@@ -30,8 +30,8 @@
     {
       "id": 1,
       "question": "서울 관측 기간과 총 대여 건수를 알려줘.",
-      "wiz_http_status": 200,
-      "wiz_code": 200,
+      "web_http_status": 200,
+      "web_code": 200,
       "seconds": 3.924,
       "response": {
         "answer": "서울 관측 기간은 2026-10-01부터 2026-10-31까지이며, 총 대여 건수는 4,245,954건입니다. 일일 대여 건수는 2026-10-18이 35,915건으로 가장 적고, 같은 날 관측에서 2026-10-08이 165,625건으로 가장 많습니다.",
@@ -917,8 +917,8 @@
     {
       "id": 2,
       "question": "서울 PageRank 1위 대여소의 ID와 점수를 알려줘.",
-      "wiz_http_status": 200,
-      "wiz_code": 504,
+      "web_http_status": 200,
+      "web_code": 504,
       "seconds": 44.708,
       "response": {
         "message": "Solar 응답 시간이 초과되었습니다."
@@ -928,8 +928,8 @@
     {
       "id": 3,
       "question": "서울 ST-1481과 시간대가 가장 유사한 대여소 1곳의 ID와 코사인 유사도를 알려줘.",
-      "wiz_http_status": 200,
-      "wiz_code": 200,
+      "web_http_status": 200,
+      "web_code": 200,
       "seconds": 4.766,
       "response": {
         "answer": "서울 ST-1481과 시간대가 가장 유사한 대여소는 **ST-20 (192-5)**이며, 코사인 유사도는 **0.9881**입니다.  \n해당 대여소는 2026년 10월 기준 대여 1,835건, 이용량 비율 1.982로 확인됩니다.  \n이 값은 정규화한 시간대·주말 비중의 코사인 유사도이며 절대 이용량은 별도 표시입니다.",
@@ -1521,8 +1521,8 @@
     {
       "id": 4,
       "question": "서울 ST-1481의 대여 건수와 반납 건수를 알려줘. 대여소 상세 정보만 조회해줘.",
-      "wiz_http_status": 200,
-      "wiz_code": 200,
+      "web_http_status": 200,
+      "web_code": 200,
       "seconds": 5.383,
       "response": {
         "answer": "Solar 원문의 일부 주장을 검증하지 못해 실제 도구 결과로 요약합니다.\n\n분석 기간: 2026-10-01 ~ 2026-10-31\n서울 집계 OD와 대전 개별 Trip의 총량 배율로 운영 성과를 비교하지 않습니다. 재고 부족과 개선 효과는 추가 자료 없이 확정할 수 없습니다.",
@@ -2530,12 +2530,9 @@
   "page_errors": [],
   "source_sha256": {
     "backend/agents/solar.py": "b0af27c66ac5ba6eb1df61c4dc9eabff01b958bc34018d41976b997230317469",
-    "backend/services/wiz_bridge.py": "36ff785c7c45482ac9aed8ed3082ea82823f0ce850af40502e81a141777e1e4c",
-    "../src/app/component.bike.link/api.py": "10a28d9024a5fa6dfce2b3b099ab985fc9efd0d82e292a25568e0c5986d09d17",
-    "../src/app/component.bike.link/view.ts": "fa9763f980dc3f893d11c56110cbc5b6c2d7937ba2d016610fc7a4c8ea3a344e",
-    "../src/app/component.bike.link/view.pug": "572a014fa047323d43f30c5c164313409ce14934a75e183d5726996e70d1834c"
+    "backend/main.py": "36ff785c7c45482ac9aed8ed3082ea82823f0ce850af40502e81a141777e1e4c"
   },
-  "browser_url": "http://localhost:3000/course/aafa5691f92f40e89818200a14c98a90?public=1",
+  "browser_url": "legacy integration URL removed",
   "total_usage": {
     "prompt_tokens": 12724,
     "completion_tokens": 426,

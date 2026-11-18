@@ -1,0 +1,859 @@
+{
+  "revision": "db8f8796b46163593e67df116d42984aef1f92dedb659b549467acef43951f35",
+  "period_start": "2025-12-01",
+  "period_end": "2025-12-31",
+  "metrics": {
+    "seoul": {
+      "rentals": 1954344,
+      "station_count": 2770,
+      "goal_metrics": {
+        "anchor_label": "지하철역",
+        "anchor_300m_ratio": 0.31701124410591225,
+        "anchor_300m_denominator_count": 2757,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 469,
+        "reference_all_stops_outside500": 6,
+        "located_station_count": 2757,
+        "subway_station_count": 2757,
+        "subway_300m_ratio": 0.31701124410591225,
+        "outside_500m_active_count": 1272,
+        "linked_trip_share": 0.6234158367206593,
+        "linked_trip_total": 1954344
+      },
+      "candidate_count": 1272,
+      "top3_union_added_m2": 824530.4497509211,
+      "read_seconds": 0.02377899899147451
+    },
+    "daejeon": {
+      "rentals": 368491,
+      "station_count": 1372,
+      "goal_metrics": {
+        "anchor_label": "지하철역",
+        "anchor_300m_ratio": 0.0982532751091703,
+        "anchor_300m_denominator_count": 1374,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 252,
+        "reference_all_stops_outside500": 1,
+        "located_station_count": 1374,
+        "subway_station_count": 1374,
+        "subway_300m_ratio": 0.0982532751091703,
+        "outside_500m_active_count": 1116,
+        "linked_trip_share": 0.29336401703162357,
+        "linked_trip_total": 368491
+      },
+      "candidate_count": 1116,
+      "top3_union_added_m2": 846868.0924474159,
+      "read_seconds": 0.01629399717785418
+    },
+    "sejong": {
+      "rentals": 164366,
+      "station_count": 726,
+      "goal_metrics": {
+        "anchor_label": "BRT 정류장·노선상 터미널",
+        "anchor_300m_ratio": 0.463448275862069,
+        "anchor_300m_denominator_count": 725,
+        "anchor_distance_missing_or_invalid_count": 0,
+        "first_last_mile_count": 67,
+        "reference_all_stops_outside500": 4,
+        "located_station_count": 725,
+        "subway_station_count": 725,
+        "subway_300m_ratio": 0.463448275862069,
+        "outside_500m_active_count": 237,
+        "linked_trip_share": 0.7535500042587883,
+        "linked_trip_total": 164366
+      },
+      "candidate_count": 237,
+      "top3_union_added_m2": 844637.8002465707,
+      "read_seconds": 0.005606472957879305
+    }
+  },
+  "seoul": {
+    "od_station_ids": 2778,
+    "inventory_located_ids": 2757,
+    "id_matches": 2757,
+    "id_match_rate": 0.9924406047516199,
+    "unmatched_id_count": 21,
+    "unmatched_ids": [
+      "ST-1199",
+      "ST-1254",
+      "ST-1374",
+      "ST-1546",
+      "ST-1747",
+      "ST-2284",
+      "ST-2540",
+      "ST-2549",
+      "ST-2799",
+      "ST-284",
+      "ST-29",
+      "ST-2912",
+      "ST-3097",
+      "ST-3109",
+      "ST-3187",
+      "ST-319",
+      "ST-499",
+      "ST-506",
+      "ST-618",
+      "ST-863",
+      "ST-996"
+    ],
+    "coordinate_link_status": "official number crosswalk / exact ST lookup; unknown retained"
+  },
+  "daejeon": {
+    "trip_rows": 393628,
+    "possible_duplicate_rows": 0,
+    "invalid_or_reversed_times": 0,
+    "negative_or_invalid_durations": 0,
+    "missing_trip_id_count": 0
+  },
+  "common": {
+    "all_rental_od_totals_match": true,
+    "by_date": [
+      {
+        "region_id": "seoul",
+        "date": "2025-12-01",
+        "station_rentals": 101035,
+        "od_flow": 101035,
+        "trip_rows": 101035,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-02",
+        "station_rentals": 85272,
+        "od_flow": 85272,
+        "trip_rows": 85272,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-03",
+        "station_rentals": 67749,
+        "od_flow": 67749,
+        "trip_rows": 67749,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-04",
+        "station_rentals": 56426,
+        "od_flow": 56426,
+        "trip_rows": 56426,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-05",
+        "station_rentals": 35648,
+        "od_flow": 35648,
+        "trip_rows": 35648,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-06",
+        "station_rentals": 40280,
+        "od_flow": 40280,
+        "trip_rows": 40280,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-07",
+        "station_rentals": 56596,
+        "od_flow": 56596,
+        "trip_rows": 56596,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-08",
+        "station_rentals": 84686,
+        "od_flow": 84686,
+        "trip_rows": 84686,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-09",
+        "station_rentals": 89887,
+        "od_flow": 89887,
+        "trip_rows": 89887,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-10",
+        "station_rentals": 94533,
+        "od_flow": 94533,
+        "trip_rows": 94533,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-11",
+        "station_rentals": 71529,
+        "od_flow": 71529,
+        "trip_rows": 71529,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-12",
+        "station_rentals": 86467,
+        "od_flow": 86467,
+        "trip_rows": 86467,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-13",
+        "station_rentals": 19050,
+        "od_flow": 19050,
+        "trip_rows": 19050,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-14",
+        "station_rentals": 42965,
+        "od_flow": 42965,
+        "trip_rows": 42965,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-15",
+        "station_rentals": 79996,
+        "od_flow": 79996,
+        "trip_rows": 79996,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-16",
+        "station_rentals": 48299,
+        "od_flow": 48299,
+        "trip_rows": 48299,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-17",
+        "station_rentals": 84444,
+        "od_flow": 84444,
+        "trip_rows": 84444,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-18",
+        "station_rentals": 87051,
+        "od_flow": 87051,
+        "trip_rows": 87051,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-19",
+        "station_rentals": 91007,
+        "od_flow": 91007,
+        "trip_rows": 91007,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-20",
+        "station_rentals": 46222,
+        "od_flow": 46222,
+        "trip_rows": 46222,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-21",
+        "station_rentals": 44912,
+        "od_flow": 44912,
+        "trip_rows": 44912,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-22",
+        "station_rentals": 76425,
+        "od_flow": 76425,
+        "trip_rows": 76425,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-23",
+        "station_rentals": 38471,
+        "od_flow": 38471,
+        "trip_rows": 38471,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-24",
+        "station_rentals": 72905,
+        "od_flow": 72905,
+        "trip_rows": 72905,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-25",
+        "station_rentals": 32141,
+        "od_flow": 32141,
+        "trip_rows": 32141,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-26",
+        "station_rentals": 45397,
+        "od_flow": 45397,
+        "trip_rows": 45397,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-27",
+        "station_rentals": 42183,
+        "od_flow": 42183,
+        "trip_rows": 42183,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-28",
+        "station_rentals": 40611,
+        "od_flow": 40611,
+        "trip_rows": 40611,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-29",
+        "station_rentals": 66269,
+        "od_flow": 66269,
+        "trip_rows": 66269,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-30",
+        "station_rentals": 70666,
+        "od_flow": 70666,
+        "trip_rows": 70666,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "seoul",
+        "date": "2025-12-31",
+        "station_rentals": 55222,
+        "od_flow": 55222,
+        "trip_rows": 55222,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-01",
+        "station_rentals": 16346,
+        "od_flow": 16346,
+        "trip_rows": 16346,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-02",
+        "station_rentals": 14352,
+        "od_flow": 14352,
+        "trip_rows": 14352,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-03",
+        "station_rentals": 11251,
+        "od_flow": 11251,
+        "trip_rows": 11251,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-04",
+        "station_rentals": 11216,
+        "od_flow": 11216,
+        "trip_rows": 11216,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-05",
+        "station_rentals": 11945,
+        "od_flow": 11945,
+        "trip_rows": 11945,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-06",
+        "station_rentals": 12566,
+        "od_flow": 12566,
+        "trip_rows": 12566,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-07",
+        "station_rentals": 12939,
+        "od_flow": 12939,
+        "trip_rows": 12939,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-08",
+        "station_rentals": 14209,
+        "od_flow": 14209,
+        "trip_rows": 14209,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-09",
+        "station_rentals": 14804,
+        "od_flow": 14804,
+        "trip_rows": 14804,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-10",
+        "station_rentals": 16249,
+        "od_flow": 16249,
+        "trip_rows": 16249,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-11",
+        "station_rentals": 11834,
+        "od_flow": 11834,
+        "trip_rows": 11834,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-12",
+        "station_rentals": 15443,
+        "od_flow": 15443,
+        "trip_rows": 15443,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-13",
+        "station_rentals": 4938,
+        "od_flow": 4938,
+        "trip_rows": 4938,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-14",
+        "station_rentals": 8992,
+        "od_flow": 8992,
+        "trip_rows": 8992,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-15",
+        "station_rentals": 13411,
+        "od_flow": 13411,
+        "trip_rows": 13411,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-16",
+        "station_rentals": 15054,
+        "od_flow": 15054,
+        "trip_rows": 15054,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-17",
+        "station_rentals": 15376,
+        "od_flow": 15376,
+        "trip_rows": 15376,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-18",
+        "station_rentals": 15086,
+        "od_flow": 15086,
+        "trip_rows": 15086,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-19",
+        "station_rentals": 17089,
+        "od_flow": 17089,
+        "trip_rows": 17089,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-20",
+        "station_rentals": 10233,
+        "od_flow": 10233,
+        "trip_rows": 10233,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-21",
+        "station_rentals": 9391,
+        "od_flow": 9391,
+        "trip_rows": 9391,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-22",
+        "station_rentals": 12535,
+        "od_flow": 12535,
+        "trip_rows": 12535,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-23",
+        "station_rentals": 6650,
+        "od_flow": 6650,
+        "trip_rows": 6650,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-24",
+        "station_rentals": 11927,
+        "od_flow": 11927,
+        "trip_rows": 11927,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-25",
+        "station_rentals": 6922,
+        "od_flow": 6922,
+        "trip_rows": 6922,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-26",
+        "station_rentals": 8411,
+        "od_flow": 8411,
+        "trip_rows": 8411,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-27",
+        "station_rentals": 7528,
+        "od_flow": 7528,
+        "trip_rows": 7528,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-28",
+        "station_rentals": 9505,
+        "od_flow": 9505,
+        "trip_rows": 9505,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-29",
+        "station_rentals": 10625,
+        "od_flow": 10625,
+        "trip_rows": 10625,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-30",
+        "station_rentals": 11883,
+        "od_flow": 11883,
+        "trip_rows": 11883,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "daejeon",
+        "date": "2025-12-31",
+        "station_rentals": 9781,
+        "od_flow": 9781,
+        "trip_rows": 9781,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-01",
+        "station_rentals": 7913,
+        "od_flow": 7913,
+        "trip_rows": 7913,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-02",
+        "station_rentals": 7125,
+        "od_flow": 7125,
+        "trip_rows": 7125,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-03",
+        "station_rentals": 5625,
+        "od_flow": 5625,
+        "trip_rows": 5625,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-04",
+        "station_rentals": 5107,
+        "od_flow": 5107,
+        "trip_rows": 5107,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-05",
+        "station_rentals": 5626,
+        "od_flow": 5626,
+        "trip_rows": 5626,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-06",
+        "station_rentals": 4528,
+        "od_flow": 4528,
+        "trip_rows": 4528,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-07",
+        "station_rentals": 4659,
+        "od_flow": 4659,
+        "trip_rows": 4659,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-08",
+        "station_rentals": 7054,
+        "od_flow": 7054,
+        "trip_rows": 7054,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-09",
+        "station_rentals": 7123,
+        "od_flow": 7123,
+        "trip_rows": 7123,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-10",
+        "station_rentals": 7596,
+        "od_flow": 7596,
+        "trip_rows": 7596,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-11",
+        "station_rentals": 5541,
+        "od_flow": 5541,
+        "trip_rows": 5541,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-12",
+        "station_rentals": 6946,
+        "od_flow": 6946,
+        "trip_rows": 6946,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-13",
+        "station_rentals": 1802,
+        "od_flow": 1802,
+        "trip_rows": 1802,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-14",
+        "station_rentals": 3184,
+        "od_flow": 3184,
+        "trip_rows": 3184,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-15",
+        "station_rentals": 6356,
+        "od_flow": 6356,
+        "trip_rows": 6356,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-16",
+        "station_rentals": 7155,
+        "od_flow": 7155,
+        "trip_rows": 7155,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-17",
+        "station_rentals": 7245,
+        "od_flow": 7245,
+        "trip_rows": 7245,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-18",
+        "station_rentals": 6723,
+        "od_flow": 6723,
+        "trip_rows": 6723,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-19",
+        "station_rentals": 7127,
+        "od_flow": 7127,
+        "trip_rows": 7127,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-20",
+        "station_rentals": 4189,
+        "od_flow": 4189,
+        "trip_rows": 4189,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-21",
+        "station_rentals": 3615,
+        "od_flow": 3615,
+        "trip_rows": 3615,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-22",
+        "station_rentals": 6081,
+        "od_flow": 6081,
+        "trip_rows": 6081,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-23",
+        "station_rentals": 3556,
+        "od_flow": 3556,
+        "trip_rows": 3556,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-24",
+        "station_rentals": 5459,
+        "od_flow": 5459,
+        "trip_rows": 5459,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-25",
+        "station_rentals": 2269,
+        "od_flow": 2269,
+        "trip_rows": 2269,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-26",
+        "station_rentals": 3535,
+        "od_flow": 3535,
+        "trip_rows": 3535,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-27",
+        "station_rentals": 2445,
+        "od_flow": 2445,
+        "trip_rows": 2445,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-28",
+        "station_rentals": 2960,
+        "od_flow": 2960,
+        "trip_rows": 2960,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-29",
+        "station_rentals": 5101,
+        "od_flow": 5101,
+        "trip_rows": 5101,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-30",
+        "station_rentals": 5908,
+        "od_flow": 5908,
+        "trip_rows": 5908,
+        "rental_vs_od_match": true
+      },
+      {
+        "region_id": "sejong",
+        "date": "2025-12-31",
+        "station_rentals": 4813,
+        "od_flow": 4813,
+        "trip_rows": 4813,
+        "rental_vs_od_match": true
+      }
+    ]
+  },
+  "all_total_rentals": 2487201,
+  "all_city_count": 3
+}

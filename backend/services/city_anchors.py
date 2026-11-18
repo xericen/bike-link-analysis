@@ -42,5 +42,5 @@ def linkage(city,start=None,end=None):
         "hourly_snapshot_valid":valid,"hourly_scope":"city-specific anchors; source-hash verified",
         "sources":real_data.read_json("transit_anchors_sources.json",[]),
         "limitations":original["limitations"]+["앵커: 서울·대전은 확보된 지하철 위치, 세종은 공식 BRT 노선 정류장. 별도 버스 환승센터 전수 자료 미확보.",
-        "세종 이력2025-10·BRT목록2025-07·대여소 좌표2026-05의 시점 차이. 실제 환승 여부는 입증하지 않습니다."],
+        "세종 이력2025-12·BRT목록2025-07·대여소 좌표2026-05의 시점 차이. 실제 환승 여부는 입증하지 않습니다."],
         "map_display_note":"도시별 실제 앵커 전체 표시. 일반 버스 포함 정류장 거리는 보조 참고입니다."}

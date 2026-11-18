@@ -1,7 +1,7 @@
 # 입지·지도·순위·운영 개선
 
 ## 구현 범위
-WIZ 취약 구간 탭과 React 이동 패턴 화면에 신규 입지, 선택 시나리오, 순위 민감도, 재배치 검토를 연결했다. 모든 공간 연산은 배치이며 조회 중에는 준비된 결과와 선택 조합만 읽는다.
+웹 취약 구간 탭과 React 이동 패턴 화면에 신규 입지, 선택 시나리오, 순위 민감도, 재배치 검토를 연결했다. 모든 공간 연산은 배치이며 조회 중에는 준비된 결과와 선택 조합만 읽는다.
 
 ## 실제 자료와 시점
 - 주민등록 인구: 행정안전부2026-10-31, [15097972](https://www.data.go.kr/data/15097972/fileData.do). 행정동을 구·시로 합산하고 행정 경계 면적으로 나눈 밀도. 실측 격자인구나 유동인구를 생성하지 않는다.
@@ -43,11 +43,11 @@ cd bike-link-analysis
 PYTHONPATH=. python scripts/collect/planning_sources.py
 PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python scripts/preprocess/precompute_city_kpis.py --workers 2 --report docs/transit/planning-build.json
 # 다른 서버로 코드·입력·집계·manifest를 복사한 후, 재계산 없이 내용 검증
-PYTHONPATH=. python scripts/deploy/release.py --verify-only --check-url https://project.wizide.com
+PYTHONPATH=. python scripts/deploy/release.py --verify-only --check-url http://127.0.0.1:5173
 ```
 kpi_inputs.json은 파일별 SHA256과 내용 기반 revision을 보관한다. 파일 수정시각은 버전 자체에 들어가지 않는다. 대상 서버에서 내용 검증 후 로컬 stat receipt를 생성하므로 복사 시각이 달라도 같은 내용은 같은 집계를 사용할 수 있다. 요청 시 거대 DB를 해시하지 않고 검증 영수증과 로컬 변경 여부만 검사한다.
 입력이 달라지면 verify-only가 실패하며 배치 재생성이 필요하다. 배치는 코드·자료가 도중에 바뀌면 중단한다. 배포 작업은 단일 입력 스냅샷으로 실행한다.
-실제 배포 명령은 release.py의 -- 뒤에 전달한다. 배치·필수 도시·전 액션 검증 성공 후에만 명령을 실행하며, --check-url로 배포 후 준비 상태를 검사한다. /api/health는 생존 확인, /api/readiness 및 WIZ readiness는 집계 준비 확인이다. 별도 외부 CI나 GitHub push는 이 작업에서 수행하지 않는다.
+실제 배포 명령은 release.py의 -- 뒤에 전달한다. 배치·필수 도시·전 액션 검증 성공 후에만 명령을 실행하며, --check-url로 배포 후 준비 상태를 검사한다. /api/health는 생존 확인, /api/readiness 및 웹 readiness는 집계 준비 확인이다. 별도 외부 CI나 GitHub push는 이 작업에서 수행하지 않는다.
 
 ## 검증 근거
 - backend/tests/test_planning.py: 신규 무대여소 격자, 경계 클리핑, 중복 면적, 점수 수요 중복 방지, 복사 검증·동일 크기 내용 변경 차단, API 조회 전용.
@@ -64,6 +64,6 @@ kpi_inputs.json은 파일별 SHA256과 내용 기반 revision을 보관한다. �
 | 세종2025-10 | 198 | 4 | 63 | 64 |
 
 행정 경계 내 기준 정류장 커버 면적은 서울516.950km², 대전323.246km², 세종260.436km². 단순화 면적 오차는 각각0.0071%/0.0149%/0.0203%다.
-27조합×8액션216개, 입력 내용 SHA256 manifest 검증 및 외부 readiness 성공. 대전 외부 API 입지234.83ms/기존 취약91.97ms. Python74개 테스트 통과, WIZ·React 빌드 성공. 기존 경고와 Shapely 변환 API deprecation 경고는 남아 있다.
+27조합×8액션216개, 입력 내용 SHA256 manifest 검증 및 외부 readiness 성공. 대전 외부 API 입지234.83ms/기존 취약91.97ms. Python74개 테스트 통과, 웹·React 빌드 성공. 기존 경고와 Shapely 변환 API deprecation 경고는 남아 있다.
 브라우저에서3도시 신규 후보10행·민감도9조건·재배치10행·시나리오 선택/해제·전체 도시 선택 후 대전 전환·모바일390px를 확인했다. 지도에 컴포넌트별 ID와 SVG 렌더러를 사용해 빠른 전환 시 Canvas 경로 해제 오류를 해결했고 최종 페이지 오류0·가로 넘침 없음.
 AI 신규 입지/재배치 도구는 실제 저장값으로 직접 실행해 확인했으며 새 유료 모델 생성은 수행하지 않았다.

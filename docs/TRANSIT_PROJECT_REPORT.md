@@ -4,7 +4,7 @@
 | Phase | 완료 근거 | 로컬 커밋 |
 |---|---|---|
 | 1 | 서울 정류장11,504개, 대여소2,762개 연계, 서울 OD합계4,245,954건 일치, 28 tests·compileall·React 통과 | 43b40df / feat: add transit stop linkage analysis |
-| 2 | 실제 후보9개 지도·순위·시나리오 API·Solar 신규 도구 실호출, 30 tests·React·WIZ 통과 | add2940 / feat: detect transit-vulnerable segments and improvement ranking |
+| 2 | 실제 후보9개 지도·순위·시나리오 API·Solar 신규 도구 실호출, 30 tests·React·웹 통과 | add2940 / feat: detect transit-vulnerable segments and improvement ranking |
 | 3 | 원본8,008,537행 Spark실행, 유효7,605,738건 및 상세 집계 동등성, 31 tests | 2a796f4 / feat: add pyspark batch aggregation pipeline for tashu trips |
 | 4 | 세종 원본 미확보·신청 절차 공식 근거, README 연구 질문·기능·API·검증 정렬 | docs: realign research question to transit-linkage theme |
 
@@ -19,12 +19,12 @@ Spark 일별OD5,350,360행·station_usage4,502,831행이 기존SQLite와 양방�
 - 수집: collect_transit_stops.py, normalize_transit.py, build_transit_linkage.py.
 - 분석/API: analysis/transit.py, services/transit.py·vulnerability.py, backend/main.py.
 - Solar: 기존14개+신규2개 도구, 구조화 거리·수요 카드·출처·제안, 기존 기간·수치 보호 유지.
-- 화면: WIZ component.bike.link api.py/view.ts/view.pug, React TransitPanel·NetworkAnalysis.
+- 화면: 웹 component.bike.link api.py/view.ts/view.pug, React TransitPanel·NetworkAnalysis.
 - Spark: spark_tashu.py 전처리·검증, 선택형 requirements, fixture·스모크.
 - 문서/기록: README, DATA_SOURCES, data-contract, 아래 전문 문서, 날짜별 개발로그.
 
 ## 검증 기록
-최종 백엔드31 tests passed(2개 기존 경고), compileall 통과. React tsc/Vite489모듈·WIZ 빌드 성공. WIZ 데스크톱·모바일 취약 지도9마커·토글·상세 이동·AI근거 카드7개·출처2개 렌더링, 페이지 오류0·가로넘침 없음. React의 별도 브라우저 조작은 이번에 하지 않았고 빌드로 확인했다.
+최종 백엔드31 tests passed(2개 기존 경고), compileall 통과. React tsc/Vite489모듈·웹 빌드 성공. 웹 데스크톱·모바일 취약 지도9마커·토글·상세 이동·AI근거 카드7개·출처2개 렌더링, 페이지 오류0·가로넘침 없음. React의 별도 브라우저 조작은 이번에 하지 않았고 빌드로 확인했다.
 실제 원본/대용량 산출물은 기존 gitignore 정책으로 제외했다. 파일 삭제·운영DB 교체·Git push·실제 배포 없음. 다른 사용자 변경은 스테이징하지 않았다. 개발로그 요약은 기존 미커밋 이력을 포함하지 않고 이번 행만 부분 스테이징했다.
 
 ## 한계·필요한 수동 작업

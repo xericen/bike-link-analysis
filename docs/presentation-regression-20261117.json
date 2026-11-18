@@ -1,0 +1,275 @@
+{
+  "combinations": [
+    {
+      "key": "all|2026-10-01|2026-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "all|2026-10-02|2026-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "all|2026-10-18|2026-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "all|2026-10-25|2026-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "daejeon|2025-12-01|2025-12-31",
+      "unchanged": true
+    },
+    {
+      "key": "daejeon|2025-12-01|2026-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "daejeon|2026-01-01|2026-01-31",
+      "unchanged": true
+    },
+    {
+      "key": "daejeon|2026-02-01|2026-02-28",
+      "unchanged": true
+    },
+    {
+      "key": "daejeon|2026-03-01|2026-03-31",
+      "unchanged": true
+    },
+    {
+      "key": "daejeon|2026-04-01|2026-04-30",
+      "unchanged": true
+    },
+    {
+      "key": "daejeon|2026-05-01|2026-05-31",
+      "unchanged": true
+    },
+    {
+      "key": "daejeon|2026-06-01|2026-06-30",
+      "unchanged": true
+    },
+    {
+      "key": "daejeon|2026-07-01|2026-07-31",
+      "unchanged": true
+    },
+    {
+      "key": "daejeon|2026-08-01|2026-08-31",
+      "unchanged": true
+    },
+    {
+      "key": "daejeon|2026-09-01|2026-09-30",
+      "unchanged": true
+    },
+    {
+      "key": "daejeon|2026-10-01|2026-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "daejeon|2026-10-02|2026-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "daejeon|2026-10-18|2026-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "daejeon|2026-10-25|2026-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "sejong|2025-10-01|2025-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "sejong|2025-10-02|2025-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "sejong|2025-10-18|2025-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "sejong|2025-10-25|2025-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "seoul|2026-10-01|2026-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "seoul|2026-10-02|2026-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "seoul|2026-10-18|2026-10-31",
+      "unchanged": true
+    },
+    {
+      "key": "seoul|2026-10-25|2026-10-31",
+      "unchanged": true
+    }
+  ],
+  "http": [
+    {
+      "city": "seoul",
+      "endpoint": "presentation-context",
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "city": "seoul",
+      "endpoint": "transit-linkage",
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "city": "seoul",
+      "endpoint": "vulnerability",
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "city": "daejeon",
+      "endpoint": "presentation-context",
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "city": "daejeon",
+      "endpoint": "transit-linkage",
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "city": "daejeon",
+      "endpoint": "vulnerability",
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "city": "sejong",
+      "endpoint": "presentation-context",
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "city": "sejong",
+      "endpoint": "transit-linkage",
+      "status": 200,
+      "unchanged": true
+    },
+    {
+      "city": "sejong",
+      "endpoint": "vulnerability",
+      "status": 200,
+      "unchanged": true
+    }
+  ],
+  "revision_unchanged": true,
+  "cache_bytes_unchanged": true,
+  "cache_sha256": "3400515982a03aaf68cafabfc3c05106386bc2cbe82f808dff371c36a8726771",
+  "kpi_october": {
+    "daejeon|2026-10-01|2026-10-31": {
+      "goal_metrics": {
+        "anchor_label": "지하철역",
+        "anchor_300m_ratio": 0.09836065573770492,
+        "first_last_mile_count": 258,
+        "reference_all_stops_outside500": 1,
+        "located_station_count": 1403,
+        "subway_station_count": 1403,
+        "subway_300m_ratio": 0.09836065573770492,
+        "outside_500m_active_count": 1127,
+        "linked_trip_share": 0.28413301312937295,
+        "linked_trip_total": 923578
+      },
+      "candidate_count": 1127,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 16206891.226654623,
+        "linked_area_m2": 22933810.255814403,
+        "added_area_m2": 6726919.029159781,
+        "uncovered_area_m2": 523224469.0781939,
+        "uncovered_recovery_ratio": 0.012856659859603142,
+        "area_increase_ratio": 0.41506535307007986,
+        "baseline_station_count": 259,
+        "linked_station_count": 339,
+        "added_station_count": 80,
+        "station_count_increase_ratio": 0.3088803088803089,
+        "population_increase_ratio": null
+      },
+      "city_scenarios": []
+    },
+    "sejong|2025-10-01|2025-10-31": {
+      "goal_metrics": {
+        "anchor_label": "BRT 정류장·노선상 터미널",
+        "anchor_300m_ratio": 0.465564738292011,
+        "first_last_mile_count": 66,
+        "reference_all_stops_outside500": 4,
+        "located_station_count": 726,
+        "subway_station_count": 726,
+        "subway_300m_ratio": 0.465564738292011,
+        "outside_500m_active_count": 236,
+        "linked_trip_share": 0.7289990468582983,
+        "linked_trip_total": 259143
+      },
+      "candidate_count": 236,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 25307753.870773062,
+        "linked_area_m2": 29306273.420268614,
+        "added_area_m2": 3998519.5494955517,
+        "uncovered_area_m2": 439811801.5113221,
+        "uncovered_recovery_ratio": 0.00909143305330932,
+        "area_increase_ratio": 0.15799582886386793,
+        "baseline_station_count": 490,
+        "linked_station_count": 581,
+        "added_station_count": 91,
+        "station_count_increase_ratio": 0.18571428571428572,
+        "population_increase_ratio": null
+      },
+      "city_scenarios": []
+    },
+    "seoul|2026-10-01|2026-10-31": {
+      "goal_metrics": {
+        "anchor_label": "지하철역",
+        "anchor_300m_ratio": 0.3149891383055757,
+        "first_last_mile_count": 473,
+        "reference_all_stops_outside500": 5,
+        "located_station_count": 2762,
+        "subway_station_count": 2762,
+        "subway_300m_ratio": 0.3149891383055757,
+        "outside_500m_active_count": 1276,
+        "linked_trip_share": 0.6221075404961994,
+        "linked_trip_total": 4245954
+      },
+      "candidate_count": 1276,
+      "scenario": {
+        "crs": "EPSG:5179",
+        "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+        "boundary_clipped": true,
+        "walking_radius_m": 500,
+        "bike_station_buffer_m": 300,
+        "baseline_area_m2": 196710871.79670292,
+        "linked_area_m2": 230786538.2558227,
+        "added_area_m2": 34075666.45911977,
+        "uncovered_area_m2": 408586270.41863066,
+        "uncovered_recovery_ratio": 0.08339895127706178,
+        "area_increase_ratio": 0.17322716404986677,
+        "baseline_station_count": 1485,
+        "linked_station_count": 1675,
+        "added_station_count": 190,
+        "station_count_increase_ratio": 0.12794612794612795,
+        "population_increase_ratio": null
+      },
+      "city_scenarios": []
+    }
+  }
+}

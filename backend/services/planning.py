@@ -60,12 +60,12 @@ def relocation(city,start,end,top=10):
 
 def build(city,start,end):
     if city=="all":
-        cities=[build(c,start,end) for c in ("seoul","daejeon")] # Exact common-period cohorts only.
+        cities=[build(c,start,end) for c in ("seoul","daejeon","sejong")] # Exact common-period cohorts only.
         return {"city":"all","cities":cities,"available":any(c["available"] for c in cities),
                 "coverage_features":[f for c in cities for f in c.get("coverage_features",[])],
                 "new_sites":[r for c in cities for r in c.get("new_sites",[])],
                 "scenario_pool":[],"selection_states":[],
-                "comparison":{"date_start":start,"date_end":end,"excluded":["sejong"],"reason":"세종은2025-10 관측, 공통 기간이 다름"}}
+                "comparison":{"date_start":start,"date_end":end,"excluded":[],"reason":"세 도시 공통 2025-12 관측 기간"}}
     linked=city_anchors.linkage(city,start,end);located=[s for s in linked["stations"] if s.get("coordinate_valid")]
     points=tuple(sorted(set((float(s["lat"]),float(s["lon"])) for s in city_anchors.stops() if s["city"]==city)))
     clip,districts=boundaries(city,(real_data.PROCESSED/f"planning_boundary_{city}.json").stat().st_mtime_ns if (real_data.PROCESSED/f"planning_boundary_{city}.json").exists() else None)

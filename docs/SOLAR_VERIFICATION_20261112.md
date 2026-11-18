@@ -2,8 +2,8 @@
 
 > 이 문서는 수정 전 최초 검증 기록입니다. 후속 수정·재확인 결과는 [Solar 검증 오류 수정 결과](SOLAR_RECOVERY_20261112.md)를 확인하세요. 최초 실행 로그는 비교 근거로 보존합니다.
 - 리뷰: hpvgdafxkclbrixczgryxevuyzafjovb / 김민주
-- 실행일: 2026-11-12 UTC. 현재 WIZ 프로젝트: main.
-- 검증 범위: 현재 Solar 에이전트와 14개 도구 보존, 실제 API 접근·도구 실행·답변 근거·WIZ 화면 검증.
+- 실행일: 2026-11-12 UTC. 현재 웹 프로젝트: main.
+- 검증 범위: 현재 Solar 에이전트와 14개 도구 보존, 실제 API 접근·도구 실행·답변 근거·웹 화면 검증.
 - **최종 판정: 부분 성공. API 실접근과 LLM의 실제 도구 호출은 증명했다. 모든 답변의 정확성과 정상 완료는 증명하지 못했으며 실제 실패를 발견했다.**
 - 기존 다른 리뷰의 5개 질문·89,772토큰 기록은 이번 실행 실적으로 합산하지 않았다.
 
@@ -11,11 +11,11 @@
 | 조건 | 확인한 증거 | 판정 |
 |---|---|---|
 | 빅데이터 알고리즘 사용 | backend/analysis/clustering.py의 StandardScaler·KMeans·Silhouette·ARI, network.py의 가중 PageRank·차수·표본 매개 중심성, similarity.py의 코사인 유사도 확인. 이번 Q3는 코사인 유사도를 실제 실행하고 독립 계산과 대조. Q4 상세 조회에 실제 군집 결과 포함 | 구현·일부 실행 확인. 강의계획서가 없어 “수업에서 배운” 알고리즘과의 정확한 일치는 별도 확인 필요 |
-| 분석 도구를 호출하는 LLM 에이전트 | 실제 WIZ 응답 evidence의 initiator=solar로 get_region_overview / find_similar_stations / get_station_details 호출 확인 | 성공 |
-| Upstage Solar 및 실제 API 접근 | api.upstage.ai 직접 POST HTTP 200, 응답 모델 solar-mini4-260922. WIZ 성공 응답도 같은 모델명 | 성공 |
+| 분석 도구를 호출하는 LLM 에이전트 | 실제 웹 응답 evidence의 initiator=solar로 get_region_overview / find_similar_stations / get_station_details 호출 확인 | 성공 |
+| Upstage Solar 및 실제 API 접근 | api.upstage.ai 직접 POST HTTP 200, 응답 모델 solar-mini4-260922. 웹 성공 응답도 같은 모델명 | 성공 |
 
 ## 2. 환경·모델·HTTP
-- UPSTAGE_API_KEY: .env 로드 후 테스트 프로세스에서 설정 여부 true만 확인했다. WIZ의 실제 인증 성공으로 서비스에서도 사용 가능함을 확인했다. 키 값·일부 문자열·길이·Authorization 헤더는 기록하지 않았다.
+- UPSTAGE_API_KEY: .env 로드 후 테스트 프로세스에서 설정 여부 true만 확인했다. 웹의 실제 인증 성공으로 서비스에서도 사용 가능함을 확인했다. 키 값·일부 문자열·길이·Authorization 헤더는 기록하지 않았다.
 - .env 위치: bike-link-analysis/.env. 파일 내용은 보고서에 포함하지 않는다.
 - 설정 모델: UPSTAGE_MODEL 또는 기본값 solar-mini4. 이번 환경의 적용 모델은 solar-mini4.
 - 제공자 실제 응답 모델: **solar-mini4-260922**.
@@ -23,12 +23,12 @@
 - 별도 연결 확인 1회: “Reply OK.” / max_tokens=16 / HTTP **200** / 0.488초 / 종료 stop.
 - 연결 확인 응답 ID: 74b7cac6-24c2-4995-9e95-43e3590d957e.
 - 직접 제공자 HTTP 상태는 execution.json의 provider_probe.http_status에 보관했다.
-- WIZ 요청의 전송 HTTP와 본문 code는 다르다. Q2는 HTTP 200이지만 본문 code=504이며 실패다.
-- WIZ 내부 각 Upstage 요청의 HTTP 상태·응답 ID는 기존 에이전트가 반환하지 않는다. 직접 확인 요청의 HTTP 200을 모든 내부 호출의 개별 HTTP 기록으로 대체 해석하지 않는다.
+- 웹 요청의 전송 HTTP와 본문 code는 다르다. Q2는 HTTP 200이지만 본문 code=504이며 실패다.
+- 웹 내부 각 Upstage 요청의 HTTP 상태·응답 ID는 기존 에이전트가 반환하지 않는다. 직접 확인 요청의 HTTP 200을 모든 내부 호출의 개별 HTTP 기록으로 대체 해석하지 않는다.
 
-## 3. 실제 WIZ 실행
-주소: http://localhost:3000/course/aafa5691f92f40e89818200a14c98a90?public=1
-실제 요청 경로: /wiz/api/component.bike.link/handle, action=chat.
+## 3. 실제 웹 실행
+당시 통합 환경의 내부 주소는 공개 저장소에서 제거했습니다.
+실제 요청 경로: /api/agent/chat, action=chat.
 Playwright Chromium으로 실제 페이지의 질문 입력·전송 버튼을 사용했다. 응답 모킹·저장 응답 재생은 하지 않았다.
 모든 질문의 선택 범위는 서울 / 2026-10-01~2026-10-31이다.
 
@@ -43,12 +43,12 @@ Playwright Chromium으로 실제 페이지의 질문 입력·전송 버튼을 �
 성공 응답 3건 모두 model_finish_reason=stop이다.
 
 ### 실행 과정과 근거 전달
-1. WIZ가 region_ids/date_start/date_end와 질문을 기존 chat 함수에 전달한다.
+1. 웹가 region_ids/date_start/date_end와 질문을 기존 chat 함수에 전달한다.
 2. Solar 첫 completion은 14개 도구 스키마와 tool_choice=required를 받는다.
 3. Solar tool_calls의 이름·JSON 인자를 서버 run_tool이 검증하고 실제 로컬 분석 함수를 실행한다.
 4. 도구의 result를 role=tool 메시지로 Solar에 전달한다. 서버 근거 보강은 initiator=metric_guard로 구분한다.
 5. 두 번째 completion은 tool_choice=none으로 최종 답변을 만든다.
-6. finalize_answer가 수치 토큰·ST ID·길이 종료를 검사한다. WIZ는 최종 본문·보류 원문·출처·도구 근거를 표시한다.
+6. finalize_answer가 수치 토큰·ST ID·길이 종료를 검사한다. 웹는 최종 본문·보류 원문·출처·도구 근거를 표시한다.
 
 실제 성공 인자:
 - Q1: get_region_overview(region_id="seoul", date_range={date_start:"2026-10-01", date_end:"2026-10-31"})
@@ -87,8 +87,8 @@ Q4의 보류 이유는 unmatched_numeric_tokens=["31","31"]이다. 실제 observ
 13,150은 확인된 하한이며 Q2에 과금된 토큰이 있을 수 있다. 실패 시 기존 chat이 usage를 반환하지 않아 전체 청구량은 산정할 수 없다. 사용자 과금 내역 접근은 하지 않았다. 가격을 추정한 금액도 기록하지 않았다.
 성공 질문은 각각 외부 completion 2회이므로 성공 확인 요청은 6회 + 직접 HTTP 확인 1회 = 7회다. Q2는 코드상 추가 1~2회 외부 시도가 가능하며 개별 응답 로그가 없어 총 외부 시도는 8~9회 범위로만 추정한다. SDK max_retries=0이며 이번 검증은 실패 질문을 재시도하지 않았다. 별도 분석 결과 대조에는 외부 요청 0회다.
 
-## 6. WIZ 화면 증거
-실제 WIZ에서 성공 답변 3건·각 도구 이름·출처 4개 렌더링, 실패 1건의 시간 초과 안내를 확인했다. 브라우저 pageerror 0건이다.
+## 6. 웹 화면 증거
+실제 웹에서 성공 답변 3건·각 도구 이름·출처 4개 렌더링, 실패 1건의 시간 초과 안내를 확인했다. 브라우저 pageerror 0건이다.
 유사도·대여소 상세는 기존 _report에 전용 key_findings 생성 분기가 없어 두 응답의 수치 카드는 0개다. 도구 근거 패널에는 실제 결과가 있다. 화면이 로드된 사실을 모든 질문의 정상 답변으로 해석하지 않는다.
 
 ### Q1: 도구·총량 표시, 최댓값 오류
@@ -121,15 +121,13 @@ get_network_analysis, find_similar_stations, compare_region_patterns, get_data_a
 get_cluster_stability, get_station_imbalance, get_hidden_hubs, get_hidden_hub_validation,
 get_station_role_history, get_role_candidates.
 
-이번에 14개 전체를 유료 호출한 것은 아니다. solar.py, wiz_bridge.py, WIZ api.py/view.ts/view.pug의 시작·종료 SHA-256이 동일함을 확인했다. 애플리케이션 코드·모델 설정·키·14개 도구를 변경하지 않았다.
+이번에 14개 전체를 유료 호출한 것은 아니다. `solar.py`와 당시 서비스 어댑터의 시작·종료 SHA-256이 동일함을 확인했다. 애플리케이션 코드·모델 설정·키·14개 도구를 변경하지 않았다. 현재 공개 저장소는 FastAPI·React 실행 경로만 유지한다.
 
 ## 9. 재현 및 증거 파일
-- [실제 실행 원본 JSON](solar-verification-20261112/execution.json): UTC 시각, 모델, 제공자 HTTP, 토큰, WIZ 상태, 도구 인자·응답·최종 답변, 소스 해시.
+- [실제 실행 원본 JSON](solar-verification-20261112/execution.json): UTC 시각, 모델, 제공자 HTTP, 토큰, 웹 상태, 도구 인자·응답·최종 답변, 소스 해시.
 - [SQL·코사인 대조 결과](solar-verification-20261112/evidence-checks.json): 실제 실패 판정도 포함.
 - [기존 보호 테스트 결과](solar-verification-20261112/guard-tests.json): 실행 명령과 2 passed / 5 deselected / 경고 2건.
-- scripts/validate/review_solar.py: 결과 파일에 없는 질문만 실행, 기존 provider_probe 보존. 저장 파일을 삭제하고 실행하면 비용 발생.
-- scripts/validate/review_solar_evidence.py: 기존 실제 응답과 로컬 데이터만 비교. 외부 요청 없음.
-- 실행: python scripts/validate/review_solar.py
+- 당시 통합 환경 전용 재생 스크립트는 공개 저장소에서 제거했다. 보존된 JSON은 과거 검증 기록이며 새 유료 호출을 수행하지 않는다.
 - 무료 대조: python scripts/validate/review_solar_evidence.py
 - 기존 보호 검증: python -m pytest backend/tests/test_final_review.py -q -k 'solar or truncated'
 - 문서·검증 스크립트·실행 산출물만 추가했다. 서비스 소스 변경이 없어 빌드·배포·서버 재시작은 수행하지 않았다.

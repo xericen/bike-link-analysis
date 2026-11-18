@@ -9,7 +9,7 @@ REGIONS = ("seoul", "daejeon", "sejong")
 NAMES = {"seoul": "서울", "daejeon": "대전", "sejong": "세종"}
 
 def scope(date_start=None, date_end=None):
-    ranges = [data.observed_dates(rid) for rid in ("seoul","daejeon")]
+    ranges = [data.observed_dates(rid) for rid in REGIONS]
     ranges = [days for days in ranges if days]
     if not ranges:
         return None, None
@@ -74,7 +74,7 @@ def projection(action, source_revision, date_start=None, date_end=None):
                 "annual_separate": [{**x["annual_latest"], "region_name": x["region_name"]} for x in
                     (common if common else [data.overview("sejong")]) if x["annual_latest"]],
                 "city_count": len(REGIONS), "measured_city_count": len(measured),
-                "coverage_note": "서울·대전 공통 관측 기간의 이용 기록을 합산합니다. 서울은 집계 OD, 대전은 개별 Trip입니다. 세종 연간 통계는 합계에서 제외하고 별도로 표시합니다."}
+                "coverage_note": "서울·대전·세종의 동일 관측 기간 개별 대여이력을 합산합니다. 연간 통계는 월별 이용 합계와 분리합니다."}
     if action == "centrality":
         stations, records = graph_data(start, end)
         result = centrality(stations, records)
@@ -94,7 +94,7 @@ def projection(action, source_revision, date_start=None, date_end=None):
         visible = {sid for r in edges for sid in (r["origin_station_id"],r["destination_station_id"])}
         return {**base, "available": bool(records), "nodes": [s for s in stations if s["station_id"] in visible],
                 "edges": edges, "edge_count": len(records), "visible_edge_count": len(edges),
-                "message": "공통 기간의 서울·대전 OD를 하나로 표시합니다. 도시 간 이동을 생성하지 않았습니다."}
+                "message": "공통 기간의 서울·대전·세종 OD를 하나로 표시합니다. 도시 간 이동을 생성하지 않았습니다."}
     if action == "research":
         results = [data.role_candidates(rid, start, end) for rid in REGIONS] if start else []
         types, counts = {}, Counter()

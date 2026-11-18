@@ -1,0 +1,169 @@
+{
+  "checks": [
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2025-12-01",
+      "end": "2026-10-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-03-01",
+      "end": "2026-03-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-04-01",
+      "end": "2026-04-30",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-05-01",
+      "end": "2026-05-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-06-01",
+      "end": "2026-06-30",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-07-01",
+      "end": "2026-07-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-08-01",
+      "end": "2026-08-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-09-01",
+      "end": "2026-09-30",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "daejeon",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-01",
+      "end": "2025-10-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-02",
+      "end": "2025-10-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-18",
+      "end": "2025-10-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "sejong",
+      "start": "2025-10-25",
+      "end": "2025-10-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-01",
+      "end": "2026-10-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-02",
+      "end": "2026-10-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-18",
+      "end": "2026-10-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    },
+    {
+      "city": "seoul",
+      "start": "2026-10-25",
+      "end": "2026-10-31",
+      "combinations": 64,
+      "all_area_metrics_match": true
+    }
+  ],
+  "total_combinations": 1472,
+  "cache_bytes_unchanged": true,
+  "sha256": "2da997f84d500204215e6097593c35a6e052acb7074a58379e721743709a4817",
+  "method": "Rebuild exact projected 300m candidate buffers clipped by original boundary minus original anchor500m baseline; union/intersection and overlap compared at full precision with floating tolerance 0.0001m2. Offline validation only."
+}

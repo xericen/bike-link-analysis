@@ -1,0 +1,12 @@
+{
+  "city": "daejeon",
+  "period_start": "2026-10-01",
+  "period_end": "2026-10-31",
+  "action": "transit_vulnerability",
+  "seconds": [
+    0.13004579907283187,
+    0.1468043599743396,
+    0.12909673596732318
+  ],
+  "source": "local 웹 API, actual prepared data"
+}

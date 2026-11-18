@@ -1,0 +1,3979 @@
+{
+  "code": 200,
+  "data": {
+    "answer": "선택 기간은 2025-10-01부터 2025-10-31까지이며, 세종은 BRT 정류장을 앵커로 보고 후보 198개를 검토했습니다. 상위 후보는 SJ_00400 어진동_푸르지오시티2차(실제 대여 3645건), SJ_00515 세종동_세종중앙공원(남쪽)주차장(802건), SJ_00216 세종동_행복도시세종홍보관(1135건)입니다. 이 공간 버퍼 시나리오는 300m 신규 연결 가정으로 실제 환승·보행 이동시간·운영 개선 효과를 실측한 것은 아닙니다. 인구 격자·실제 보행망·운영 효과는 미추정이며, 경계변수와 2026-05 위치 마스터 기준이므로 추가 검증이 필요합니다.",
+    "solar_answer": null,
+    "answer_basis": "solar_interpretation",
+    "report": {
+      "question_summary": "선택한 후보의 추천 이유와 공간 변화 시나리오를 실제 도구로 확인하고 운영 검토 보고서로 정리해줘.",
+      "key_findings": [
+        {
+          "label": "신규 입지 검토 격자",
+          "value": 198,
+          "unit": "개",
+          "region_id": "sejong"
+        },
+        {
+          "label": "BRT 정류장(앵커) 500m 밖 실제 이용 후보",
+          "value": 236,
+          "unit": "개",
+          "region_id": "sejong"
+        },
+        {
+          "label": "SJ_00515 최근접 BRT 정류장(앵커) 거리",
+          "value": 1180.7698299804479,
+          "unit": "m",
+          "region_id": "sejong"
+        },
+        {
+          "label": "SJ_00515 실제 대여",
+          "value": 802,
+          "unit": "건",
+          "region_id": "sejong"
+        },
+        {
+          "label": "SJ_00216 최근접 BRT 정류장(앵커) 거리",
+          "value": 1121.4708803587916,
+          "unit": "m",
+          "region_id": "sejong"
+        },
+        {
+          "label": "SJ_00216 실제 대여",
+          "value": 1135,
+          "unit": "건",
+          "region_id": "sejong"
+        },
+        {
+          "label": "SJ_00428 최근접 BRT 정류장(앵커) 거리",
+          "value": 3794.9395379270604,
+          "unit": "m",
+          "region_id": "sejong"
+        },
+        {
+          "label": "SJ_00428 실제 대여",
+          "value": 528,
+          "unit": "건",
+          "region_id": "sejong"
+        },
+        {
+          "label": "세종 이용 건수",
+          "value": 259143,
+          "unit": "건",
+          "region_id": "sejong"
+        },
+        {
+          "label": "세종 실제 관측일수",
+          "value": 31,
+          "unit": "일"
+        },
+        {
+          "label": "세종 일별 최대 (2025-10-02)",
+          "value": 12521,
+          "unit": "건"
+        },
+        {
+          "label": "세종 일별 최소 (2025-10-06)",
+          "value": 868,
+          "unit": "건"
+        },
+        {
+          "label": "세종 연간 이용량",
+          "value": 2629483,
+          "unit": "건",
+          "region_id": "sejong",
+          "period": "2025"
+        }
+      ],
+      "evidence": [
+        {
+          "tool": "get_site_planning",
+          "arguments": {
+            "region_id": "sejong",
+            "date_range": {
+              "date_start": "2025-10-01",
+              "date_end": "2025-10-31"
+            }
+          },
+          "result": {
+            "available": true,
+            "city": "sejong",
+            "new_sites": [
+              {
+                "site_id": "grid-981000-1830000",
+                "station_id": "grid-981000-1830000",
+                "latitude": 36.4696780788357,
+                "longitude": 127.29071378261396,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 1,
+                "nearby_rentals_1000m": 11235,
+                "nearest_station_distance_m": 712.7495786143038,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.8737373737373737,
+                  "nearby_rentals_1000m": 0.9570707070707071,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.8063973063973063,
+                "rank": 1,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-980000-1832500",
+                "station_id": "grid-980000-1832500",
+                "latitude": 36.49219586062595,
+                "longitude": 127.27948807100312,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 1,
+                "nearby_rentals_1000m": 6732,
+                "nearest_station_distance_m": 516.2199391627163,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.8737373737373737,
+                  "nearby_rentals_1000m": 0.9116161616161617,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.7912457912457912,
+                "rank": 2,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-982000-1844000",
+                "station_id": "grid-982000-1844000",
+                "latitude": 36.59590832266544,
+                "longitude": 127.30155346285264,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 1,
+                "nearby_rentals_1000m": 1606,
+                "nearest_station_distance_m": 397.08633966200404,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 280059.0719484916,
+                "score_components": {
+                  "facilities_within_500m": 0.8737373737373737,
+                  "nearby_rentals_1000m": 0.7348484848484849,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.7323232323232323,
+                "rank": 3,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-980500-1843500",
+                "station_id": "grid-980500-1843500",
+                "latitude": 36.59137172914666,
+                "longitude": 127.28479595252422,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 2,
+                "nearby_rentals_1000m": 818,
+                "nearest_station_distance_m": 420.80014183287034,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.9747474747474747,
+                  "nearby_rentals_1000m": 0.6035353535353535,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.7222222222222222,
+                "rank": 4,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-982000-1843500",
+                "station_id": "grid-982000-1843500",
+                "latitude": 36.592152797329646,
+                "longitude": 127.30156307895113,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 3,
+                "nearby_rentals_1000m": 650,
+                "nearest_station_distance_m": 490.669255560911,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282280.1657634966,
+                "score_components": {
+                  "facilities_within_500m": 0.9974747474747475,
+                  "nearby_rentals_1000m": 0.5631313131313131,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.7163299663299663,
+                "rank": 5,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-982000-1845000",
+                "station_id": "grid-982000-1845000",
+                "latitude": 36.60490952355178,
+                "longitude": 127.3014697474775,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 0,
+                "nearby_rentals_1000m": 1573,
+                "nearest_station_distance_m": 403.66896807893556,
+                "gap_ratio": 1.0000000000000004,
+                "potential_added_area_m2": 240159.17166398035,
+                "score_components": {
+                  "facilities_within_500m": 0.39646464646464646,
+                  "nearby_rentals_1000m": 0.7297979797979798,
+                  "gap_ratio": 0.9974747474747475
+                },
+                "score": 0.7079124579124579,
+                "rank": 6,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-980500-1829000",
+                "station_id": "grid-980500-1829000",
+                "latitude": 36.46065298335859,
+                "longitude": 127.2851577270128,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 1,
+                "nearby_rentals_1000m": 1025,
+                "nearest_station_distance_m": 618.0960900823401,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.8737373737373737,
+                  "nearby_rentals_1000m": 0.6439393939393939,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.702020202020202,
+                "rank": 7,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-981000-1829500",
+                "station_id": "grid-981000-1829500",
+                "latitude": 36.465170489829205,
+                "longitude": 127.29072589850193,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 1,
+                "nearby_rentals_1000m": 1025,
+                "nearest_station_distance_m": 788.5254843459965,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.8737373737373737,
+                  "nearby_rentals_1000m": 0.6439393939393939,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.702020202020202,
+                "rank": 8,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-980000-1844000",
+                "station_id": "grid-980000-1844000",
+                "latitude": 36.595868995860734,
+                "longitude": 127.27919343238963,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 2,
+                "nearby_rentals_1000m": 565,
+                "nearest_station_distance_m": 675.2386418936999,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.9747474747474747,
+                  "nearby_rentals_1000m": 0.5328282828282829,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.6986531986531986,
+                "rank": 9,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-981000-1829000",
+                "station_id": "grid-981000-1829000",
+                "latitude": 36.46066289740707,
+                "longitude": 127.29073801169768,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 1,
+                "nearby_rentals_1000m": 402,
+                "nearest_station_distance_m": 958.4839664572277,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.8737373737373737,
+                  "nearby_rentals_1000m": 0.49747474747474746,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.6531986531986532,
+                "rank": 10,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-976500-1832000",
+                "station_id": "grid-976500-1832000",
+                "latitude": 36.487609685402894,
+                "longitude": 127.24042538335485,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 0,
+                "nearby_rentals_1000m": 12601,
+                "nearest_station_distance_m": 380.3380123422162,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.39646464646464646,
+                  "nearby_rentals_1000m": 0.9722222222222222,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.6523569023569024,
+                "rank": 11,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-980000-1831500",
+                "station_id": "grid-980000-1831500",
+                "latitude": 36.48318071993516,
+                "longitude": 127.27951362064566,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 0,
+                "nearby_rentals_1000m": 12310,
+                "nearest_station_distance_m": 467.2640596160377,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.39646464646464646,
+                  "nearby_rentals_1000m": 0.9671717171717171,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.6506734006734006,
+                "rank": 12,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-979000-1835500",
+                "station_id": "grid-979000-1835500",
+                "latitude": 36.51922002316023,
+                "longitude": 127.26824238919524,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 0,
+                "nearby_rentals_1000m": 12301,
+                "nearest_station_distance_m": 349.63585287921666,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282225.87157569895,
+                "score_components": {
+                  "facilities_within_500m": 0.39646464646464646,
+                  "nearby_rentals_1000m": 0.9621212121212122,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.648989898989899,
+                "rank": 13,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-979500-1831500",
+                "station_id": "grid-979500-1831500",
+                "latitude": 36.48317027556705,
+                "longitude": 127.27393172579488,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 0,
+                "nearby_rentals_1000m": 8439,
+                "nearest_station_distance_m": 483.61105099780127,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.39646464646464646,
+                  "nearby_rentals_1000m": 0.946969696969697,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.6439393939393939,
+                "rank": 14,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-978000-1836000",
+                "station_id": "grid-978000-1836000",
+                "latitude": 36.52370533747503,
+                "longitude": 127.25705934453534,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 2,
+                "nearby_rentals_1000m": 7596,
+                "nearest_station_distance_m": 496.42463262450383,
+                "gap_ratio": 0.16695984994642368,
+                "potential_added_area_m2": 59147.387785412655,
+                "score_components": {
+                  "facilities_within_500m": 0.9747474747474747,
+                  "nearby_rentals_1000m": 0.9318181818181818,
+                  "gap_ratio": 0.022727272727272728
+                },
+                "score": 0.6430976430976431,
+                "rank": 15,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-983000-1834000",
+                "station_id": "grid-983000-1834000",
+                "latitude": 36.5057757758258,
+                "longitude": 127.31295085686604,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 0,
+                "nearby_rentals_1000m": 7832,
+                "nearest_station_distance_m": 484.5646135595383,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.39646464646464646,
+                  "nearby_rentals_1000m": 0.9368686868686869,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.6405723905723906,
+                "rank": 16,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-982000-1830500",
+                "station_id": "grid-982000-1830500",
+                "latitude": 36.47420471919839,
+                "longitude": 127.30186417990554,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 0,
+                "nearby_rentals_1000m": 7217,
+                "nearest_station_distance_m": 304.2578608377456,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.39646464646464646,
+                  "nearby_rentals_1000m": 0.9217171717171717,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.6355218855218855,
+                "rank": 17,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-976500-1831500",
+                "station_id": "grid-976500-1831500",
+                "latitude": 36.48310212620406,
+                "longitude": 127.24044042032071,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 0,
+                "nearby_rentals_1000m": 6355,
+                "nearest_station_distance_m": 517.6329788464261,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.39646464646464646,
+                  "nearby_rentals_1000m": 0.9015151515151515,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.6287878787878788,
+                "rank": 18,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-977500-1836000",
+                "station_id": "grid-977500-1836000",
+                "latitude": 36.52369383177634,
+                "longitude": 127.25147454887745,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 2,
+                "nearby_rentals_1000m": 3586,
+                "nearest_station_distance_m": 381.1403156790235,
+                "gap_ratio": 0.6511910831421589,
+                "potential_added_area_m2": 181712.77386046993,
+                "score_components": {
+                  "facilities_within_500m": 0.9747474747474747,
+                  "nearby_rentals_1000m": 0.8308080808080808,
+                  "gap_ratio": 0.07828282828282829
+                },
+                "score": 0.6279461279461279,
+                "rank": 19,
+                "region_id": "sejong"
+              },
+              {
+                "site_id": "grid-982500-1834000",
+                "station_id": "grid-982500-1834000",
+                "latitude": 36.50576689082421,
+                "longitude": 127.30736732848366,
+                "district": "세종시",
+                "population_density_km2": null,
+                "population_basis": "administrative district density; not measured grid population",
+                "facilities_within_500m": 0,
+                "nearby_rentals_1000m": 6079,
+                "nearest_station_distance_m": 612.8072253553663,
+                "gap_ratio": 1.0,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_components": {
+                  "facilities_within_500m": 0.39646464646464646,
+                  "nearby_rentals_1000m": 0.8964646464646465,
+                  "gap_ratio": 0.5883838383838383
+                },
+                "score": 0.627104377104377,
+                "rank": 20,
+                "region_id": "sejong"
+              }
+            ],
+            "new_site_count": 198,
+            "population_basis": "세종은 동·읍면별 공간 대응이 없어 인구밀도 점수에서 제외",
+            "facility_count": 63,
+            "source_provenance": [
+              {
+                "kind": "population",
+                "url": "https://www.data.go.kr/data/15097972/fileData.do",
+                "period": "2026-10",
+                "sha256": "2df47b6ab9ee31a427a505e763f03f0df962b3d6f239cf69a2416024c3a93f07"
+              },
+              {
+                "kind": "boundary",
+                "city": "seoul",
+                "url": "https://raw.githubusercontent.com/statgarten/maps/main/json/서울특별시_시군구_경계.json",
+                "year": 2020,
+                "crs": "EPSG:5179",
+                "sha256": "edffca362978fc0a55d2a94d27281ef824349cff5ff7942ae3fa55478a5a3f5b",
+                "upstream": "SGIS 2020 via statgarten/maps MIT"
+              },
+              {
+                "kind": "facilities",
+                "city": "seoul",
+                "url": "https://www.data.go.kr/data/15013109/standard.do",
+                "count": 532,
+                "sha256": "12153a49988a51ec8e09c40ec768cf16f85b09b98935998a5b6d1b1d78f021f9",
+                "scope": "도서관·공공개방시설 공개 좌표, 전체 생활시설 전수 자료 아님"
+              },
+              {
+                "kind": "facilities",
+                "city": "seoul",
+                "url": "https://www.data.go.kr/data/15013117/standard.do",
+                "count": 809,
+                "sha256": "753269c1699fd950027c90ef2c9d4975640d087ddb830783213cbcd62c4c5532",
+                "scope": "도서관·공공개방시설 공개 좌표, 전체 생활시설 전수 자료 아님"
+              },
+              {
+                "kind": "boundary",
+                "city": "daejeon",
+                "url": "https://raw.githubusercontent.com/statgarten/maps/main/json/대전광역시_시군구_경계.json",
+                "year": 2020,
+                "crs": "EPSG:5179",
+                "sha256": "a76a45bde692c0a35a3fdd67e651656c8a4d69ad513f3eff4b9323efcd4d494a",
+                "upstream": "SGIS 2020 via statgarten/maps MIT"
+              },
+              {
+                "kind": "facilities",
+                "city": "daejeon",
+                "url": "https://www.data.go.kr/data/15013109/standard.do",
+                "count": 106,
+                "sha256": "12153a49988a51ec8e09c40ec768cf16f85b09b98935998a5b6d1b1d78f021f9",
+                "scope": "도서관·공공개방시설 공개 좌표, 전체 생활시설 전수 자료 아님"
+              },
+              {
+                "kind": "facilities",
+                "city": "daejeon",
+                "url": "https://www.data.go.kr/data/15013117/standard.do",
+                "count": 88,
+                "sha256": "753269c1699fd950027c90ef2c9d4975640d087ddb830783213cbcd62c4c5532",
+                "scope": "도서관·공공개방시설 공개 좌표, 전체 생활시설 전수 자료 아님"
+              },
+              {
+                "kind": "boundary",
+                "city": "sejong",
+                "url": "https://raw.githubusercontent.com/statgarten/maps/main/json/세종특별자치시_시군구_경계.json",
+                "year": 2020,
+                "crs": "EPSG:5179",
+                "sha256": "0caa7a021d4b1a06d87d3d320a19f7e565c6dd9d05b8b183a39105113f5794d5",
+                "upstream": "SGIS 2020 via statgarten/maps MIT"
+              },
+              {
+                "kind": "facilities",
+                "city": "sejong",
+                "url": "https://www.data.go.kr/data/15013109/standard.do",
+                "count": 24,
+                "sha256": "12153a49988a51ec8e09c40ec768cf16f85b09b98935998a5b6d1b1d78f021f9",
+                "scope": "도서관·공공개방시설 공개 좌표, 전체 생활시설 전수 자료 아님"
+              },
+              {
+                "kind": "facilities",
+                "city": "sejong",
+                "url": "https://www.data.go.kr/data/15013117/standard.do",
+                "count": 39,
+                "sha256": "753269c1699fd950027c90ef2c9d4975640d087ddb830783213cbcd62c4c5532",
+                "scope": "도서관·공공개방시설 공개 좌표, 전체 생활시설 전수 자료 아님"
+              },
+              {
+                "kind": "sejong_master",
+                "url": "https://www.data.go.kr/data/15091421/fileData.do",
+                "matched_ids": 726,
+                "master_rows": 729,
+                "sha256": "c158f2857e79f7f529a445c0854fa582bcf70424e7a3a9d3fa518c992775e366",
+                "coordinate_as_of": "2026-05-26",
+                "historical_location_verified": false
+              }
+            ],
+            "assumptions": [
+              "500m 격자, 기존 대여소300m 밖, 주변1000m 실제 대여 또는 시설500m 존재",
+              "신규 입지 점수: 시설·주변대여·접근공백 동등가중, 서울·대전은 구 인구밀도 추가. 세종은 동일 시 밀도를 지역 차이로 쓰지 않음",
+              "2020 경계·2026 인구/시설/위치자료의 시점 차이. 도로·토지·실제 설치 가능성 미검증",
+              "선택 시나리오는 후보300m 추가 연결 가정이며 실제 환승·재배치 효과가 아님"
+            ],
+            "period_start": "2025-10-01",
+            "period_end": "2025-10-31",
+            "selected_candidates": [
+              {
+                "site_id": "grid-981000-1830000",
+                "station_id": "grid-981000-1830000",
+                "kind": "신규 입지",
+                "rank": 1,
+                "district": "세종시",
+                "potential_added_area_m2": 282289.36414913886,
+                "score": 0.8063973063973063,
+                "region_id": "sejong"
+              }
+            ],
+            "selected_scenario": {
+              "selected_ids": [
+                "grid-981000-1830000"
+              ],
+              "added_area_m2": 282289.36414913886,
+              "overlap_area_m2": 0,
+              "increase_ratio": 0.011154263850935575
+            }
+          },
+          "initiator": "solar",
+          "execution_seconds": 0.043
+        },
+        {
+          "tool": "get_transit_vulnerability",
+          "arguments": {
+            "region_id": "sejong",
+            "date_range": {
+              "date_start": "2025-10-01",
+              "date_end": "2025-10-31"
+            }
+          },
+          "result": {
+            "city": "sejong",
+            "date_start": "2025-10-01",
+            "date_end": "2025-10-31",
+            "distance_unit": "m",
+            "radius_m": [
+              300,
+              500
+            ],
+            "available": true,
+            "source_document": "docs/transit_stops_sources.md",
+            "sources": [
+              {
+                "dataset_name": "국토교통부 전국 버스정류장 위치정보",
+                "source_url": "https://www.data.go.kr/data/15067528/fileData.do",
+                "downloaded_at": "2026-11-16",
+                "reference_date": "2026-11-09",
+                "sha256": "ed0d652469aa0983241a2fff73237b1aa4893955bbfe09511b8f1399d1d8f5ba",
+                "raw_rows": 227102
+              },
+              {
+                "dataset_name": "전국 도시철도 역사정보 전체기관",
+                "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+                "downloaded_at": "2026-11-16",
+                "reference_date": "file 20260630; per-row dates vary",
+                "sha256": "cdf1d84a7e5c898b2aacd622783ba8ba9af35c40bee0561dc97d55ce8e063f94",
+                "raw_rows": 1099
+              },
+              {
+                "dataset_name": "세종특별자치시 BRT노선별 정류장 현황",
+                "source_url": "https://www.data.go.kr/data/15118026/fileData.do",
+                "reference_date": "2025-07-17",
+                "downloaded_at": "2026-11-17T07:57:16.444633+00:00",
+                "raw_rows": 343,
+                "unique_id_coordinate_rows": 152,
+                "sha256": "8c234e496b494bd3b6a94c4d2d8d9cf7d22e584ad9d212df5c163f60413ecfaf",
+                "verification_status": "VERIFIED"
+              }
+            ],
+            "limitations": [
+              "BRT 정류장(앵커)와 대여소의 직선거리이며 실제 보행·환승 여부가 아닙니다.",
+              "정류장 수는 도시명/주소 분류 기준입니다. 경계 박스 밖 BIS 정류장은 별도 경고 후 보존했습니다.",
+              "원본별·행별 기준일이 관측 기간과 다를 수 있으며 누락 노선의 가능성이 있습니다.",
+              "역 연계 비율은 한쪽 이상이 역300m 내인 이동 비중이며 실제 환승률이 아닙니다. 미확보 값은 null입니다.",
+              "앵커: 서울·대전은 확보된 지하철 위치, 세종은 공식 BRT 노선 정류장. 별도 버스 환승센터 전수 자료 미확보.",
+              "세종 이력2025-10·BRT목록2025-07·대여소 좌표2026-05의 시점 차이. 실제 환승 여부는 입증하지 않습니다.",
+              "공간 버퍼 시나리오이며 실제 환승·이동시간·운영 개선 효과의 실증 검증이 아닙니다.",
+              "인구 격자·보행망 효과는 미추정. 경계 확보 시 면적은 행정 경계로 제한합니다.",
+              "후보 추가 면적은 신규 연결을 가정한 개별 잠재 면적이며 기존 연결 시나리오의 실제 증가 면적과 별도입니다.",
+              "커버 대여소 수는 좌표가 있는 전체 마스터 기준이고 후보 수요만 선택 기간 실제 대여량을 사용합니다.",
+              "접근성 결손·대여량·잠재면적을 각각 한 번 반영한 동등 가중 검토 점수입니다.",
+              "단일 후보의 ECDF 점수는 각 항목0.5입니다. 도시별 순위이며 도시 간 점수 직접 비교는 불가합니다.",
+              "정류장 누락·기준일 차이·도시 경계 밖 노선에 따라 후보가 달라질 수 있습니다."
+            ],
+            "stop_count": 152,
+            "stop_types": [
+              "버스"
+            ],
+            "hourly_period_start": "2025-10-01",
+            "hourly_period_end": "2025-10-31",
+            "hourly_snapshot_valid": true,
+            "map_display_note": "도시별 실제 앵커 전체 표시. 일반 버스 포함 정류장 거리는 보조 참고입니다.",
+            "anchor_label": "BRT 정류장·노선상 터미널",
+            "anchor_definition": "official BRT route stop",
+            "hourly_scope": "city-specific anchors; source-hash verified",
+            "period_start": "2025-10-01",
+            "period_end": "2025-10-31",
+            "demand_definition": "selected-period rental_count; returns are not added",
+            "precision": "full IEEE-754 precision for distances, areas, thresholds, percentiles and scores; round only in UI",
+            "station_count": 728,
+            "located_station_count": 726,
+            "coordinate_missing_count": 2,
+            "ranking": [
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00515",
+                "station_name": "세종동_세종중앙공원(남쪽)주차장",
+                "latitude": 36.4918561,
+                "longitude": 127.2698918,
+                "nearest_stop_distance_m": 1180.7698299804479,
+                "rental_count": 802,
+                "return_count": 791,
+                "accessibility_deficit": 1.3615396599608958,
+                "vulnerability": 1091.9548072886384,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8665254237288136,
+                  "rental_count": 0.972457627118644,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8820621468926553,
+                "demand_weighted_sensitivity_score": 0.9046610169491525,
+                "rank": 1,
+                "distance_band": "800–1500m 첫·끝마일",
+                "distance_label": "최근접 BRT 정류장(앵커) 거리"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00216",
+                "station_name": "세종동_행복도시세종홍보관",
+                "latitude": 36.489532,
+                "longitude": 127.2700741,
+                "nearest_stop_distance_m": 1121.4708803587916,
+                "rental_count": 1135,
+                "return_count": 1440,
+                "accessibility_deficit": 1.2429417607175832,
+                "vulnerability": 1410.738898414457,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8453389830508474,
+                  "rental_count": 0.989406779661017,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8806497175141241,
+                "demand_weighted_sensitivity_score": 0.9078389830508474,
+                "rank": 2,
+                "distance_band": "800–1500m 첫·끝마일",
+                "distance_label": "최근접 BRT 정류장(앵커) 거리"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00428",
+                "station_name": "조치원_욱일아파트",
+                "latitude": 36.602844,
+                "longitude": 127.289963,
+                "nearest_stop_distance_m": 3794.9395379270604,
+                "rental_count": 528,
+                "return_count": 534,
+                "accessibility_deficit": 6.589879075854121,
+                "vulnerability": 3479.456152050976,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.9470338983050848,
+                  "rental_count": 0.8792372881355932,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8778248587570621,
+                "demand_weighted_sensitivity_score": 0.8781779661016949,
+                "rank": 3,
+                "distance_band": "500m 밖",
+                "distance_label": "최근접 BRT 정류장(앵커) 거리"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00415",
+                "station_name": "세종동_세종호수공원 제1주차장",
+                "latitude": 36.492533,
+                "longitude": 127.269667,
+                "nearest_stop_distance_m": 1173.7656909499703,
+                "rental_count": 721,
+                "return_count": 723,
+                "accessibility_deficit": 1.3475313818999406,
+                "vulnerability": 971.5701263498572,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8622881355932204,
+                  "rental_count": 0.9470338983050848,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8721751412429377,
+                "demand_weighted_sensitivity_score": 0.8908898305084746,
+                "rank": 4,
+                "distance_band": "800–1500m 첫·끝마일",
+                "distance_label": "최근접 BRT 정류장(앵커) 거리"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00420",
+                "station_name": "가람동_세종이마트앞",
+                "latitude": 36.470509,
+                "longitude": 127.251684,
+                "nearest_stop_distance_m": 1455.4039051332607,
+                "rental_count": 616,
+                "return_count": 718,
+                "accessibility_deficit": 1.9108078102665214,
+                "vulnerability": 1177.0576111241771,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8834745762711864,
+                  "rental_count": 0.9046610169491526,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8651129943502824,
+                "demand_weighted_sensitivity_score": 0.875,
+                "rank": 5,
+                "distance_band": "800–1500m 첫·끝마일",
+                "distance_label": "최근접 BRT 정류장(앵커) 거리"
+              }
+            ],
+            "candidate_count": 236,
+            "first_last_mile_count": 66,
+            "first_last_mile_candidates": [
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00515",
+                "station_name": "세종동_세종중앙공원(남쪽)주차장",
+                "latitude": 36.4918561,
+                "longitude": 127.2698918,
+                "nearest_stop_distance_m": 1180.7698299804479,
+                "rental_count": 802,
+                "return_count": 791,
+                "accessibility_deficit": 1.3615396599608958,
+                "vulnerability": 1091.9548072886384,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8665254237288136,
+                  "rental_count": 0.972457627118644,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8820621468926553,
+                "demand_weighted_sensitivity_score": 0.9046610169491525,
+                "rank": 1,
+                "distance_band": "800–1500m 첫·끝마일"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00216",
+                "station_name": "세종동_행복도시세종홍보관",
+                "latitude": 36.489532,
+                "longitude": 127.2700741,
+                "nearest_stop_distance_m": 1121.4708803587916,
+                "rental_count": 1135,
+                "return_count": 1440,
+                "accessibility_deficit": 1.2429417607175832,
+                "vulnerability": 1410.738898414457,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8453389830508474,
+                  "rental_count": 0.989406779661017,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8806497175141241,
+                "demand_weighted_sensitivity_score": 0.9078389830508474,
+                "rank": 2,
+                "distance_band": "800–1500m 첫·끝마일"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00415",
+                "station_name": "세종동_세종호수공원 제1주차장",
+                "latitude": 36.492533,
+                "longitude": 127.269667,
+                "nearest_stop_distance_m": 1173.7656909499703,
+                "rental_count": 721,
+                "return_count": 723,
+                "accessibility_deficit": 1.3475313818999406,
+                "vulnerability": 971.5701263498572,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8622881355932204,
+                  "rental_count": 0.9470338983050848,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8721751412429377,
+                "demand_weighted_sensitivity_score": 0.8908898305084746,
+                "rank": 4,
+                "distance_band": "800–1500m 첫·끝마일"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00420",
+                "station_name": "가람동_세종이마트앞",
+                "latitude": 36.470509,
+                "longitude": 127.251684,
+                "nearest_stop_distance_m": 1455.4039051332607,
+                "rental_count": 616,
+                "return_count": 718,
+                "accessibility_deficit": 1.9108078102665214,
+                "vulnerability": 1177.0576111241771,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8834745762711864,
+                  "rental_count": 0.9046610169491526,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8651129943502824,
+                "demand_weighted_sensitivity_score": 0.875,
+                "rank": 5,
+                "distance_band": "800–1500m 첫·끝마일"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00400",
+                "station_name": "어진동_푸르지오시티2차",
+                "latitude": 36.494919,
+                "longitude": 127.266949,
+                "nearest_stop_distance_m": 932.5209649183578,
+                "rental_count": 3645,
+                "return_count": 3446,
+                "accessibility_deficit": 0.8650419298367156,
+                "vulnerability": 3153.0778342548283,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.7436440677966102,
+                  "rental_count": 0.9978813559322034,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8495762711864406,
+                "demand_weighted_sensitivity_score": 0.8866525423728814,
+                "rank": 8,
+                "distance_band": "800–1500m 첫·끝마일"
+              }
+            ],
+            "definition": "도시별 앵커 500m 밖·실제 대여량>0; 800~1500m 구간은 별도 표시",
+            "observed_station_count": 728,
+            "score_formula": "mean(midrank_ECDF(accessibility_deficit),midrank_ECDF(rental_count),midrank_ECDF(potential_added_area_m2))",
+            "weights": {
+              "accessibility_deficit": 0.3333333333333333,
+              "rental_count": 0.3333333333333333,
+              "potential_added_area_m2": 0.3333333333333333
+            },
+            "scenario": {
+              "crs": "EPSG:5179",
+              "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+              "boundary_clipped": true,
+              "walking_radius_m": 500,
+              "bike_station_buffer_m": 300,
+              "baseline_area_m2": 25307753.870773062,
+              "linked_area_m2": 29306273.420268614,
+              "added_area_m2": 3998519.5494955517,
+              "uncovered_area_m2": 439811801.5113221,
+              "uncovered_recovery_ratio": 0.00909143305330932,
+              "area_increase_ratio": 0.15799582886386793,
+              "baseline_station_count": 490,
+              "linked_station_count": 581,
+              "added_station_count": 91,
+              "station_count_increase_ratio": 0.18571428571428572,
+              "population_increase_ratio": null
+            },
+            "precomputed": {
+              "revision": "dbac02a4b66f01f0a0b83195366569de717b95afb981da63850f40893b19f6e0",
+              "built_at": "2026-11-17T11:27:30.166241+00:00",
+              "date_start": "2025-10-01",
+              "date_end": "2025-10-31",
+              "read_only": true
+            },
+            "anchor_type": "BRT 정류장",
+            "distance_label": "최근접 BRT 정류장(앵커) 거리"
+          },
+          "initiator": "solar",
+          "execution_seconds": 0.011
+        },
+        {
+          "tool": "get_improvement_ranking",
+          "arguments": {
+            "region_id": "sejong",
+            "date_range": {
+              "date_start": "2025-10-01",
+              "date_end": "2025-10-31"
+            }
+          },
+          "result": {
+            "city": "sejong",
+            "date_start": "2025-10-01",
+            "date_end": "2025-10-31",
+            "distance_unit": "m",
+            "radius_m": [
+              300,
+              500
+            ],
+            "available": true,
+            "source_document": "docs/transit_stops_sources.md",
+            "sources": [
+              {
+                "dataset_name": "국토교통부 전국 버스정류장 위치정보",
+                "source_url": "https://www.data.go.kr/data/15067528/fileData.do",
+                "downloaded_at": "2026-11-16",
+                "reference_date": "2026-11-09",
+                "sha256": "ed0d652469aa0983241a2fff73237b1aa4893955bbfe09511b8f1399d1d8f5ba",
+                "raw_rows": 227102
+              },
+              {
+                "dataset_name": "전국 도시철도 역사정보 전체기관",
+                "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+                "downloaded_at": "2026-11-16",
+                "reference_date": "file 20260630; per-row dates vary",
+                "sha256": "cdf1d84a7e5c898b2aacd622783ba8ba9af35c40bee0561dc97d55ce8e063f94",
+                "raw_rows": 1099
+              },
+              {
+                "dataset_name": "세종특별자치시 BRT노선별 정류장 현황",
+                "source_url": "https://www.data.go.kr/data/15118026/fileData.do",
+                "reference_date": "2025-07-17",
+                "downloaded_at": "2026-11-17T07:57:16.444633+00:00",
+                "raw_rows": 343,
+                "unique_id_coordinate_rows": 152,
+                "sha256": "8c234e496b494bd3b6a94c4d2d8d9cf7d22e584ad9d212df5c163f60413ecfaf",
+                "verification_status": "VERIFIED"
+              }
+            ],
+            "limitations": [
+              "BRT 정류장(앵커)와 대여소의 직선거리이며 실제 보행·환승 여부가 아닙니다.",
+              "정류장 수는 도시명/주소 분류 기준입니다. 경계 박스 밖 BIS 정류장은 별도 경고 후 보존했습니다.",
+              "원본별·행별 기준일이 관측 기간과 다를 수 있으며 누락 노선의 가능성이 있습니다.",
+              "역 연계 비율은 한쪽 이상이 역300m 내인 이동 비중이며 실제 환승률이 아닙니다. 미확보 값은 null입니다.",
+              "앵커: 서울·대전은 확보된 지하철 위치, 세종은 공식 BRT 노선 정류장. 별도 버스 환승센터 전수 자료 미확보.",
+              "세종 이력2025-10·BRT목록2025-07·대여소 좌표2026-05의 시점 차이. 실제 환승 여부는 입증하지 않습니다.",
+              "공간 버퍼 시나리오이며 실제 환승·이동시간·운영 개선 효과의 실증 검증이 아닙니다.",
+              "인구 격자·보행망 효과는 미추정. 경계 확보 시 면적은 행정 경계로 제한합니다.",
+              "후보 추가 면적은 신규 연결을 가정한 개별 잠재 면적이며 기존 연결 시나리오의 실제 증가 면적과 별도입니다.",
+              "커버 대여소 수는 좌표가 있는 전체 마스터 기준이고 후보 수요만 선택 기간 실제 대여량을 사용합니다.",
+              "접근성 결손·대여량·잠재면적을 각각 한 번 반영한 동등 가중 검토 점수입니다.",
+              "단일 후보의 ECDF 점수는 각 항목0.5입니다. 도시별 순위이며 도시 간 점수 직접 비교는 불가합니다.",
+              "정류장 누락·기준일 차이·도시 경계 밖 노선에 따라 후보가 달라질 수 있습니다."
+            ],
+            "stop_count": 152,
+            "stop_types": [
+              "버스"
+            ],
+            "hourly_period_start": "2025-10-01",
+            "hourly_period_end": "2025-10-31",
+            "hourly_snapshot_valid": true,
+            "map_display_note": "도시별 실제 앵커 전체 표시. 일반 버스 포함 정류장 거리는 보조 참고입니다.",
+            "anchor_label": "BRT 정류장·노선상 터미널",
+            "anchor_definition": "official BRT route stop",
+            "hourly_scope": "city-specific anchors; source-hash verified",
+            "period_start": "2025-10-01",
+            "period_end": "2025-10-31",
+            "demand_definition": "selected-period rental_count; returns are not added",
+            "precision": "full IEEE-754 precision for distances, areas, thresholds, percentiles and scores; round only in UI",
+            "station_count": 728,
+            "located_station_count": 726,
+            "coordinate_missing_count": 2,
+            "ranking": [
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00515",
+                "station_name": "세종동_세종중앙공원(남쪽)주차장",
+                "latitude": 36.4918561,
+                "longitude": 127.2698918,
+                "nearest_stop_distance_m": 1180.7698299804479,
+                "rental_count": 802,
+                "return_count": 791,
+                "accessibility_deficit": 1.3615396599608958,
+                "vulnerability": 1091.9548072886384,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8665254237288136,
+                  "rental_count": 0.972457627118644,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8820621468926553,
+                "demand_weighted_sensitivity_score": 0.9046610169491525,
+                "rank": 1,
+                "distance_band": "800–1500m 첫·끝마일",
+                "distance_label": "최근접 BRT 정류장(앵커) 거리"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00216",
+                "station_name": "세종동_행복도시세종홍보관",
+                "latitude": 36.489532,
+                "longitude": 127.2700741,
+                "nearest_stop_distance_m": 1121.4708803587916,
+                "rental_count": 1135,
+                "return_count": 1440,
+                "accessibility_deficit": 1.2429417607175832,
+                "vulnerability": 1410.738898414457,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8453389830508474,
+                  "rental_count": 0.989406779661017,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8806497175141241,
+                "demand_weighted_sensitivity_score": 0.9078389830508474,
+                "rank": 2,
+                "distance_band": "800–1500m 첫·끝마일",
+                "distance_label": "최근접 BRT 정류장(앵커) 거리"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00428",
+                "station_name": "조치원_욱일아파트",
+                "latitude": 36.602844,
+                "longitude": 127.289963,
+                "nearest_stop_distance_m": 3794.9395379270604,
+                "rental_count": 528,
+                "return_count": 534,
+                "accessibility_deficit": 6.589879075854121,
+                "vulnerability": 3479.456152050976,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.9470338983050848,
+                  "rental_count": 0.8792372881355932,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8778248587570621,
+                "demand_weighted_sensitivity_score": 0.8781779661016949,
+                "rank": 3,
+                "distance_band": "500m 밖",
+                "distance_label": "최근접 BRT 정류장(앵커) 거리"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00415",
+                "station_name": "세종동_세종호수공원 제1주차장",
+                "latitude": 36.492533,
+                "longitude": 127.269667,
+                "nearest_stop_distance_m": 1173.7656909499703,
+                "rental_count": 721,
+                "return_count": 723,
+                "accessibility_deficit": 1.3475313818999406,
+                "vulnerability": 971.5701263498572,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8622881355932204,
+                  "rental_count": 0.9470338983050848,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8721751412429377,
+                "demand_weighted_sensitivity_score": 0.8908898305084746,
+                "rank": 4,
+                "distance_band": "800–1500m 첫·끝마일",
+                "distance_label": "최근접 BRT 정류장(앵커) 거리"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00420",
+                "station_name": "가람동_세종이마트앞",
+                "latitude": 36.470509,
+                "longitude": 127.251684,
+                "nearest_stop_distance_m": 1455.4039051332607,
+                "rental_count": 616,
+                "return_count": 718,
+                "accessibility_deficit": 1.9108078102665214,
+                "vulnerability": 1177.0576111241771,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8834745762711864,
+                  "rental_count": 0.9046610169491526,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8651129943502824,
+                "demand_weighted_sensitivity_score": 0.875,
+                "rank": 5,
+                "distance_band": "800–1500m 첫·끝마일",
+                "distance_label": "최근접 BRT 정류장(앵커) 거리"
+              }
+            ],
+            "candidate_count": 236,
+            "first_last_mile_count": 66,
+            "first_last_mile_candidates": [
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00515",
+                "station_name": "세종동_세종중앙공원(남쪽)주차장",
+                "latitude": 36.4918561,
+                "longitude": 127.2698918,
+                "nearest_stop_distance_m": 1180.7698299804479,
+                "rental_count": 802,
+                "return_count": 791,
+                "accessibility_deficit": 1.3615396599608958,
+                "vulnerability": 1091.9548072886384,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8665254237288136,
+                  "rental_count": 0.972457627118644,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8820621468926553,
+                "demand_weighted_sensitivity_score": 0.9046610169491525,
+                "rank": 1,
+                "distance_band": "800–1500m 첫·끝마일"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00216",
+                "station_name": "세종동_행복도시세종홍보관",
+                "latitude": 36.489532,
+                "longitude": 127.2700741,
+                "nearest_stop_distance_m": 1121.4708803587916,
+                "rental_count": 1135,
+                "return_count": 1440,
+                "accessibility_deficit": 1.2429417607175832,
+                "vulnerability": 1410.738898414457,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8453389830508474,
+                  "rental_count": 0.989406779661017,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8806497175141241,
+                "demand_weighted_sensitivity_score": 0.9078389830508474,
+                "rank": 2,
+                "distance_band": "800–1500m 첫·끝마일"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00415",
+                "station_name": "세종동_세종호수공원 제1주차장",
+                "latitude": 36.492533,
+                "longitude": 127.269667,
+                "nearest_stop_distance_m": 1173.7656909499703,
+                "rental_count": 721,
+                "return_count": 723,
+                "accessibility_deficit": 1.3475313818999406,
+                "vulnerability": 971.5701263498572,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8622881355932204,
+                  "rental_count": 0.9470338983050848,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8721751412429377,
+                "demand_weighted_sensitivity_score": 0.8908898305084746,
+                "rank": 4,
+                "distance_band": "800–1500m 첫·끝마일"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00420",
+                "station_name": "가람동_세종이마트앞",
+                "latitude": 36.470509,
+                "longitude": 127.251684,
+                "nearest_stop_distance_m": 1455.4039051332607,
+                "rental_count": 616,
+                "return_count": 718,
+                "accessibility_deficit": 1.9108078102665214,
+                "vulnerability": 1177.0576111241771,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.8834745762711864,
+                  "rental_count": 0.9046610169491526,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8651129943502824,
+                "demand_weighted_sensitivity_score": 0.875,
+                "rank": 5,
+                "distance_band": "800–1500m 첫·끝마일"
+              },
+              {
+                "region_id": "sejong",
+                "station_id": "SJ_00400",
+                "station_name": "어진동_푸르지오시티2차",
+                "latitude": 36.494919,
+                "longitude": 127.266949,
+                "nearest_stop_distance_m": 932.5209649183578,
+                "rental_count": 3645,
+                "return_count": 3446,
+                "accessibility_deficit": 0.8650419298367156,
+                "vulnerability": 3153.0778342548283,
+                "potential_added_area_m2": 282289.36414913886,
+                "score_confidence": "relative_within_city",
+                "candidate_population": 236,
+                "score_components": {
+                  "accessibility_deficit": 0.7436440677966102,
+                  "rental_count": 0.9978813559322034,
+                  "potential_added_area_m2": 0.8072033898305084
+                },
+                "score": 0.8495762711864406,
+                "demand_weighted_sensitivity_score": 0.8866525423728814,
+                "rank": 8,
+                "distance_band": "800–1500m 첫·끝마일"
+              }
+            ],
+            "definition": "도시별 앵커 500m 밖·실제 대여량>0; 800~1500m 구간은 별도 표시",
+            "observed_station_count": 728,
+            "score_formula": "mean(midrank_ECDF(accessibility_deficit),midrank_ECDF(rental_count),midrank_ECDF(potential_added_area_m2))",
+            "weights": {
+              "accessibility_deficit": 0.3333333333333333,
+              "rental_count": 0.3333333333333333,
+              "potential_added_area_m2": 0.3333333333333333
+            },
+            "scenario": {
+              "crs": "EPSG:5179",
+              "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+              "boundary_clipped": true,
+              "walking_radius_m": 500,
+              "bike_station_buffer_m": 300,
+              "baseline_area_m2": 25307753.870773062,
+              "linked_area_m2": 29306273.420268614,
+              "added_area_m2": 3998519.5494955517,
+              "uncovered_area_m2": 439811801.5113221,
+              "uncovered_recovery_ratio": 0.00909143305330932,
+              "area_increase_ratio": 0.15799582886386793,
+              "baseline_station_count": 490,
+              "linked_station_count": 581,
+              "added_station_count": 91,
+              "station_count_increase_ratio": 0.18571428571428572,
+              "population_increase_ratio": null
+            },
+            "precomputed": {
+              "revision": "dbac02a4b66f01f0a0b83195366569de717b95afb981da63850f40893b19f6e0",
+              "built_at": "2026-11-17T11:27:30.166241+00:00",
+              "date_start": "2025-10-01",
+              "date_end": "2025-10-31",
+              "read_only": true
+            },
+            "anchor_type": "BRT 정류장",
+            "distance_label": "최근접 BRT 정류장(앵커) 거리"
+          },
+          "initiator": "solar",
+          "execution_seconds": 0.012
+        },
+        {
+          "tool": "get_region_overview",
+          "arguments": {
+            "region_id": "sejong",
+            "date_range": {
+              "date_start": "2025-10-01",
+              "date_end": "2025-10-31"
+            }
+          },
+          "result": {
+            "region_id": "sejong",
+            "region_name": "세종",
+            "service_name": "어울링",
+            "operator": "세종도시교통공사",
+            "sources": [
+              {
+                "source_id": "sejong-yearly-20260831",
+                "region_id": "sejong",
+                "dataset_name": "세종도시교통공사_공공자전거 어울링 연도별 이용건수",
+                "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+                "date_start": "2017-01-01",
+                "date_end": "2026-08-31",
+                "collected_at": "2026-11-04T04:54:00.764456Z",
+                "verification_status": "VERIFIED",
+                "available_columns": [
+                  "구분",
+                  "어울링 이용건수"
+                ]
+              },
+              {
+                "source_id": "sejong-stations-metadata",
+                "region_id": "sejong",
+                "dataset_name": "세담터 어울링 수집 대여소정보",
+                "source_url": "https://www2.sejong.go.kr/bigdata/metaDataView.do?order_type=rcd",
+                "date_start": null,
+                "date_end": null,
+                "collected_at": null,
+                "verification_status": "ACCESS_REQUIRED",
+                "available_columns": []
+              },
+              {
+                "source_id": "sejong-portal-api",
+                "region_id": "sejong",
+                "dataset_name": "어울링 연도별 이용건수 자동변환 OpenAPI",
+                "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+                "date_start": null,
+                "date_end": null,
+                "collected_at": null,
+                "verification_status": "ACCESS_REQUIRED",
+                "available_columns": []
+              },
+              {
+                "source_id": "sejong-trip-15106191",
+                "region_id": "sejong",
+                "dataset_name": "세종 어울링 개별 이용이력(선택 기간)",
+                "source_url": "https://www.data.go.kr/data/15106191/fileData.do",
+                "date_start": "2025-10-01",
+                "date_end": "2025-10-31",
+                "collected_at": "2026-11-16T10:19:57.586209+00:00",
+                "verification_status": "VERIFIED",
+                "available_columns": [
+                  "순번",
+                  "시작 대여소",
+                  "대여시간",
+                  "반납 대여소",
+                  "반납시간",
+                  "주행시간"
+                ],
+                "note": "원본 ZIP2020~2025 확보. 최초 서비스 연결은 명시한 기간만. 좌표/명칭 대응표 미확보."
+              },
+              {
+                "source_id": "sejong-master-15091421",
+                "region_id": "sejong",
+                "dataset_name": "세종 어울링 대여소 위치 마스터",
+                "source_url": "https://www.data.go.kr/data/15091421/fileData.do",
+                "date_start": "2026-05-26",
+                "date_end": "2026-05-26",
+                "collected_at": "2026-11-16T14:04:09.067324+00:00",
+                "verification_status": "VERIFIED",
+                "available_columns": [
+                  "대여소 아이디",
+                  "대여소 이름",
+                  "사용유무",
+                  "주소(동)",
+                  "상세주소",
+                  "경도",
+                  "위도",
+                  "권역",
+                  "지오펜스 거리",
+                  "등록일",
+                  "수정일"
+                ],
+                "note": "2025-10 등록 이내 ID만 연결. 좌표는2026-05 기준으로 과거 위치 변경 가능성이 있음."
+              }
+            ],
+            "source_names": [
+              "세종 어울링 개별 이용이력(선택 기간)",
+              "세종 어울링 대여소 위치 마스터",
+              "세종도시교통공사_공공자전거 어울링 연도별 이용건수"
+            ],
+            "last_updated": "2026-11-16T14:04:09.067324+00:00",
+            "verification_status": "VERIFIED",
+            "total_rentals": 259143,
+            "station_count": 728,
+            "inventory_station_count": 726,
+            "average_per_station": 355.97,
+            "hourly": [
+              2940,
+              1373,
+              688,
+              380,
+              572,
+              1562,
+              4171,
+              10671,
+              28028,
+              9412,
+              9034,
+              14642,
+              14044,
+              13029,
+              12823,
+              14056,
+              17624,
+              19391,
+              28047,
+              17446,
+              13788,
+              12202,
+              8185,
+              5035
+            ],
+            "period_start": "2025-10-01",
+            "period_end": "2025-10-31",
+            "observed_dates": [
+              "2025-10-01",
+              "2025-10-02",
+              "2025-10-03",
+              "2025-10-04",
+              "2025-10-05",
+              "2025-10-06",
+              "2025-10-07",
+              "2025-10-08",
+              "2025-10-09",
+              "2025-10-10",
+              "2025-10-11",
+              "2025-10-12",
+              "2025-10-13",
+              "2025-10-14",
+              "2025-10-15",
+              "2025-10-16",
+              "2025-10-17",
+              "2025-10-18",
+              "2025-10-19",
+              "2025-10-20",
+              "2025-10-21",
+              "2025-10-22",
+              "2025-10-23",
+              "2025-10-24",
+              "2025-10-25",
+              "2025-10-26",
+              "2025-10-27",
+              "2025-10-28",
+              "2025-10-29",
+              "2025-10-30",
+              "2025-10-31"
+            ],
+            "daily": [
+              {
+                "date": "2025-10-01",
+                "rental_count": 12472
+              },
+              {
+                "date": "2025-10-02",
+                "rental_count": 12521
+              },
+              {
+                "date": "2025-10-03",
+                "rental_count": 1197
+              },
+              {
+                "date": "2025-10-04",
+                "rental_count": 5970
+              },
+              {
+                "date": "2025-10-05",
+                "rental_count": 2939
+              },
+              {
+                "date": "2025-10-06",
+                "rental_count": 868
+              },
+              {
+                "date": "2025-10-07",
+                "rental_count": 2340
+              },
+              {
+                "date": "2025-10-08",
+                "rental_count": 7124
+              },
+              {
+                "date": "2025-10-09",
+                "rental_count": 11428
+              },
+              {
+                "date": "2025-10-10",
+                "rental_count": 11125
+              },
+              {
+                "date": "2025-10-11",
+                "rental_count": 12287
+              },
+              {
+                "date": "2025-10-12",
+                "rental_count": 7682
+              },
+              {
+                "date": "2025-10-13",
+                "rental_count": 1936
+              },
+              {
+                "date": "2025-10-14",
+                "rental_count": 8444
+              },
+              {
+                "date": "2025-10-15",
+                "rental_count": 8617
+              },
+              {
+                "date": "2025-10-16",
+                "rental_count": 9964
+              },
+              {
+                "date": "2025-10-17",
+                "rental_count": 7763
+              },
+              {
+                "date": "2025-10-18",
+                "rental_count": 6473
+              },
+              {
+                "date": "2025-10-19",
+                "rental_count": 8720
+              },
+              {
+                "date": "2025-10-20",
+                "rental_count": 10392
+              },
+              {
+                "date": "2025-10-21",
+                "rental_count": 10301
+              },
+              {
+                "date": "2025-10-22",
+                "rental_count": 10949
+              },
+              {
+                "date": "2025-10-23",
+                "rental_count": 11484
+              },
+              {
+                "date": "2025-10-24",
+                "rental_count": 11744
+              },
+              {
+                "date": "2025-10-25",
+                "rental_count": 9040
+              },
+              {
+                "date": "2025-10-26",
+                "rental_count": 7030
+              },
+              {
+                "date": "2025-10-27",
+                "rental_count": 9272
+              },
+              {
+                "date": "2025-10-28",
+                "rental_count": 9542
+              },
+              {
+                "date": "2025-10-29",
+                "rental_count": 9817
+              },
+              {
+                "date": "2025-10-30",
+                "rental_count": 9768
+              },
+              {
+                "date": "2025-10-31",
+                "rental_count": 9934
+              }
+            ],
+            "monthly": [
+              {
+                "month": "2025-10",
+                "rental_count": 259143
+              }
+            ],
+            "weekday": [
+              {
+                "weekday": 0,
+                "rental_count": 22468
+              },
+              {
+                "weekday": 1,
+                "rental_count": 30627
+              },
+              {
+                "weekday": 2,
+                "rental_count": 48979
+              },
+              {
+                "weekday": 3,
+                "rental_count": 55165
+              },
+              {
+                "weekday": 4,
+                "rental_count": 41763
+              },
+              {
+                "weekday": 5,
+                "rental_count": 33770
+              },
+              {
+                "weekday": 6,
+                "rental_count": 26371
+              }
+            ],
+            "weekend_share": 0.2321,
+            "weekday_share": 0.7679,
+            "annual_latest": {
+              "region_id": "sejong",
+              "year": 2025,
+              "period_end": "2025-12-31",
+              "complete_year": true,
+              "rental_count": 2629483
+            },
+            "has_od": true,
+            "coverage_note": "세종 2025년10월 이용이력에 공식2026-05 대여소 마스터를 ID로 연결했습니다. 위치 자료의 시점 차이가 있으며 미매칭 ID는 지도에서 제외합니다."
+          },
+          "initiator": "metric_guard",
+          "execution_seconds": 0.011
+        },
+        {
+          "tool": "get_data_availability",
+          "arguments": {
+            "region_id": "sejong"
+          },
+          "result": {
+            "region_id": "sejong",
+            "region_name": "세종",
+            "service_name": "어울링",
+            "sources": [
+              {
+                "source_id": "sejong-yearly-20260831",
+                "region_id": "sejong",
+                "dataset_name": "세종도시교통공사_공공자전거 어울링 연도별 이용건수",
+                "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+                "date_start": "2017-01-01",
+                "date_end": "2026-08-31",
+                "collected_at": "2026-11-04T04:54:00.764456Z",
+                "verification_status": "VERIFIED",
+                "available_columns": [
+                  "구분",
+                  "어울링 이용건수"
+                ]
+              },
+              {
+                "source_id": "sejong-stations-metadata",
+                "region_id": "sejong",
+                "dataset_name": "세담터 어울링 수집 대여소정보",
+                "source_url": "https://www2.sejong.go.kr/bigdata/metaDataView.do?order_type=rcd",
+                "date_start": null,
+                "date_end": null,
+                "collected_at": null,
+                "verification_status": "ACCESS_REQUIRED",
+                "available_columns": []
+              },
+              {
+                "source_id": "sejong-portal-api",
+                "region_id": "sejong",
+                "dataset_name": "어울링 연도별 이용건수 자동변환 OpenAPI",
+                "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+                "date_start": null,
+                "date_end": null,
+                "collected_at": null,
+                "verification_status": "ACCESS_REQUIRED",
+                "available_columns": []
+              },
+              {
+                "source_id": "sejong-trip-15106191",
+                "region_id": "sejong",
+                "dataset_name": "세종 어울링 개별 이용이력(선택 기간)",
+                "source_url": "https://www.data.go.kr/data/15106191/fileData.do",
+                "date_start": "2025-10-01",
+                "date_end": "2025-10-31",
+                "collected_at": "2026-11-16T10:19:57.586209+00:00",
+                "verification_status": "VERIFIED",
+                "available_columns": [
+                  "순번",
+                  "시작 대여소",
+                  "대여시간",
+                  "반납 대여소",
+                  "반납시간",
+                  "주행시간"
+                ],
+                "note": "원본 ZIP2020~2025 확보. 최초 서비스 연결은 명시한 기간만. 좌표/명칭 대응표 미확보."
+              },
+              {
+                "source_id": "sejong-master-15091421",
+                "region_id": "sejong",
+                "dataset_name": "세종 어울링 대여소 위치 마스터",
+                "source_url": "https://www.data.go.kr/data/15091421/fileData.do",
+                "date_start": "2026-05-26",
+                "date_end": "2026-05-26",
+                "collected_at": "2026-11-16T14:04:09.067324+00:00",
+                "verification_status": "VERIFIED",
+                "available_columns": [
+                  "대여소 아이디",
+                  "대여소 이름",
+                  "사용유무",
+                  "주소(동)",
+                  "상세주소",
+                  "경도",
+                  "위도",
+                  "권역",
+                  "지오펜스 거리",
+                  "등록일",
+                  "수정일"
+                ],
+                "note": "2025-10 등록 이내 ID만 연결. 좌표는2026-05 기준으로 과거 위치 변경 가능성이 있음."
+              }
+            ],
+            "total_rentals": 259143,
+            "annual_latest": {
+              "region_id": "sejong",
+              "year": 2025,
+              "period_end": "2025-12-31",
+              "complete_year": true,
+              "rental_count": 2629483
+            },
+            "has_od": true,
+            "coverage_note": "세종 2025년10월 이용이력에 공식2026-05 대여소 마스터를 ID로 연결했습니다. 위치 자료의 시점 차이가 있으며 미매칭 ID는 지도에서 제외합니다.",
+            "period_start": "2025-10-01",
+            "period_end": "2025-10-31"
+          },
+          "initiator": "metric_guard",
+          "execution_seconds": 0.005
+        }
+      ],
+      "algorithms": [
+        "500m grid + district population density + facility/nearby demand ranking",
+        "haversine + projected buffer union + empirical percentile ranking"
+      ],
+      "station_roles": [],
+      "recommendations": [
+        {
+          "feature": "연계 취약 검토 후보",
+          "evidence": "SJ_00515 / 1180.7698299804479m",
+          "action": "미수집 노선·실제 보행 경로·시설 접근성을 현장 확인하세요.",
+          "expected_value": "검토 대상의 우선순위 참고",
+          "additional_validation": "실제 환승·운영효과 자료 필요"
+        },
+        {
+          "feature": "연계 취약 검토 후보",
+          "evidence": "SJ_00216 / 1121.4708803587916m",
+          "action": "미수집 노선·실제 보행 경로·시설 접근성을 현장 확인하세요.",
+          "expected_value": "검토 대상의 우선순위 참고",
+          "additional_validation": "실제 환승·운영효과 자료 필요"
+        },
+        {
+          "feature": "연계 취약 검토 후보",
+          "evidence": "SJ_00428 / 3794.9395379270604m",
+          "action": "미수집 노선·실제 보행 경로·시설 접근성을 현장 확인하세요.",
+          "expected_value": "검토 대상의 우선순위 참고",
+          "additional_validation": "실제 환승·운영효과 자료 필요"
+        }
+      ],
+      "limitations": [
+        "500m 격자, 기존 대여소300m 밖, 주변1000m 실제 대여 또는 시설500m 존재",
+        "신규 입지 점수: 시설·주변대여·접근공백 동등가중, 서울·대전은 구 인구밀도 추가. 세종은 동일 시 밀도를 지역 차이로 쓰지 않음",
+        "2020 경계·2026 인구/시설/위치자료의 시점 차이. 도로·토지·실제 설치 가능성 미검증",
+        "선택 시나리오는 후보300m 추가 연결 가정이며 실제 환승·재배치 효과가 아님",
+        "BRT 정류장(앵커)와 대여소의 직선거리이며 실제 보행·환승 여부가 아닙니다.",
+        "정류장 수는 도시명/주소 분류 기준입니다. 경계 박스 밖 BIS 정류장은 별도 경고 후 보존했습니다.",
+        "원본별·행별 기준일이 관측 기간과 다를 수 있으며 누락 노선의 가능성이 있습니다.",
+        "역 연계 비율은 한쪽 이상이 역300m 내인 이동 비중이며 실제 환승률이 아닙니다. 미확보 값은 null입니다.",
+        "앵커: 서울·대전은 확보된 지하철 위치, 세종은 공식 BRT 노선 정류장. 별도 버스 환승센터 전수 자료 미확보.",
+        "세종 이력2025-10·BRT목록2025-07·대여소 좌표2026-05의 시점 차이. 실제 환승 여부는 입증하지 않습니다.",
+        "공간 버퍼 시나리오이며 실제 환승·이동시간·운영 개선 효과의 실증 검증이 아닙니다.",
+        "인구 격자·보행망 효과는 미추정. 경계 확보 시 면적은 행정 경계로 제한합니다.",
+        "후보 추가 면적은 신규 연결을 가정한 개별 잠재 면적이며 기존 연결 시나리오의 실제 증가 면적과 별도입니다.",
+        "커버 대여소 수는 좌표가 있는 전체 마스터 기준이고 후보 수요만 선택 기간 실제 대여량을 사용합니다.",
+        "접근성 결손·대여량·잠재면적을 각각 한 번 반영한 동등 가중 검토 점수입니다.",
+        "단일 후보의 ECDF 점수는 각 항목0.5입니다. 도시별 순위이며 도시 간 점수 직접 비교는 불가합니다.",
+        "정류장 누락·기준일 차이·도시 경계 밖 노선에 따라 후보가 달라질 수 있습니다.",
+        "세종 2025년10월 이용이력에 공식2026-05 대여소 마스터를 ID로 연결했습니다. 위치 자료의 시점 차이가 있으며 미매칭 ID는 지도에서 제외합니다.",
+        "앵커(지하철역/BRT)와의 직선거리·버퍼 시나리오일 뿐 실제 보행·환승·운영 개선 효과가 아닙니다."
+      ],
+      "sources": [
+        {
+          "dataset_name": "국토교통부 전국 버스정류장 위치정보",
+          "source_url": "https://www.data.go.kr/data/15067528/fileData.do",
+          "verification_status": null
+        },
+        {
+          "dataset_name": "전국 도시철도 역사정보 전체기관",
+          "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+          "verification_status": null
+        },
+        {
+          "dataset_name": "세종특별자치시 BRT노선별 정류장 현황",
+          "source_url": "https://www.data.go.kr/data/15118026/fileData.do",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "dataset_name": "세종도시교통공사_공공자전거 어울링 연도별 이용건수",
+          "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "dataset_name": "세담터 어울링 수집 대여소정보",
+          "source_url": "https://www2.sejong.go.kr/bigdata/metaDataView.do?order_type=rcd",
+          "verification_status": "ACCESS_REQUIRED"
+        },
+        {
+          "dataset_name": "어울링 연도별 이용건수 자동변환 OpenAPI",
+          "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+          "verification_status": "ACCESS_REQUIRED"
+        },
+        {
+          "dataset_name": "세종 어울링 개별 이용이력(선택 기간)",
+          "source_url": "https://www.data.go.kr/data/15106191/fileData.do",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "dataset_name": "세종 어울링 대여소 위치 마스터",
+          "source_url": "https://www.data.go.kr/data/15091421/fileData.do",
+          "verification_status": "VERIFIED"
+        }
+      ],
+      "periods": [
+        "2025-10-01",
+        "2025-10-31"
+      ],
+      "charts": [
+        {
+          "title": "세종 관측일 이용량",
+          "kind": "daily",
+          "points": [
+            {
+              "date": "2025-10-01",
+              "rental_count": 12472
+            },
+            {
+              "date": "2025-10-02",
+              "rental_count": 12521
+            },
+            {
+              "date": "2025-10-03",
+              "rental_count": 1197
+            },
+            {
+              "date": "2025-10-04",
+              "rental_count": 5970
+            },
+            {
+              "date": "2025-10-05",
+              "rental_count": 2939
+            },
+            {
+              "date": "2025-10-06",
+              "rental_count": 868
+            },
+            {
+              "date": "2025-10-07",
+              "rental_count": 2340
+            },
+            {
+              "date": "2025-10-08",
+              "rental_count": 7124
+            },
+            {
+              "date": "2025-10-09",
+              "rental_count": 11428
+            },
+            {
+              "date": "2025-10-10",
+              "rental_count": 11125
+            },
+            {
+              "date": "2025-10-11",
+              "rental_count": 12287
+            },
+            {
+              "date": "2025-10-12",
+              "rental_count": 7682
+            },
+            {
+              "date": "2025-10-13",
+              "rental_count": 1936
+            },
+            {
+              "date": "2025-10-14",
+              "rental_count": 8444
+            },
+            {
+              "date": "2025-10-15",
+              "rental_count": 8617
+            },
+            {
+              "date": "2025-10-16",
+              "rental_count": 9964
+            },
+            {
+              "date": "2025-10-17",
+              "rental_count": 7763
+            },
+            {
+              "date": "2025-10-18",
+              "rental_count": 6473
+            },
+            {
+              "date": "2025-10-19",
+              "rental_count": 8720
+            },
+            {
+              "date": "2025-10-20",
+              "rental_count": 10392
+            },
+            {
+              "date": "2025-10-21",
+              "rental_count": 10301
+            },
+            {
+              "date": "2025-10-22",
+              "rental_count": 10949
+            },
+            {
+              "date": "2025-10-23",
+              "rental_count": 11484
+            },
+            {
+              "date": "2025-10-24",
+              "rental_count": 11744
+            },
+            {
+              "date": "2025-10-25",
+              "rental_count": 9040
+            },
+            {
+              "date": "2025-10-26",
+              "rental_count": 7030
+            },
+            {
+              "date": "2025-10-27",
+              "rental_count": 9272
+            },
+            {
+              "date": "2025-10-28",
+              "rental_count": 9542
+            },
+            {
+              "date": "2025-10-29",
+              "rental_count": 9817
+            },
+            {
+              "date": "2025-10-30",
+              "rental_count": 9768
+            },
+            {
+              "date": "2025-10-31",
+              "rental_count": 9934
+            }
+          ]
+        }
+      ],
+      "station_comparison": [],
+      "interpretation": "선택 기간은 2025-10-01부터 2025-10-31까지이며, 세종은 BRT 정류장을 앵커로 보고 후보 198개를 검토했습니다. 상위 후보는 SJ_00400 어진동_푸르지오시티2차(실제 대여 3645건), SJ_00515 세종동_세종중앙공원(남쪽)주차장(802건), SJ_00216 세종동_행복도시세종홍보관(1135건)입니다. 이 공간 버퍼 시나리오는 300m 신규 연결 가정으로 실제 환승·보행 이동시간·운영 개선 효과를 실측한 것은 아닙니다. 인구 격자·실제 보행망·운영 효과는 미추정이며, 경계변수와 2026-05 위치 마스터 기준이므로 추가 검증이 필요합니다."
+    },
+    "grounding_validation": {
+      "checked_numeric_tokens": 16,
+      "matched_numeric_tokens": 16,
+      "unmatched_numeric_tokens": [],
+      "passed": true,
+      "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+    },
+    "station_validation": {
+      "passed": true,
+      "unmatched_station_ids": []
+    },
+    "semantic_validation": {
+      "passed": true,
+      "checked_claims": 0,
+      "unsupported_claims": [],
+      "method": "일별 최대·최소 비교의 날짜/건수를 실제 극값과 대조. 해석할 수 없는 비교는 보류."
+    },
+    "anchor_population_validation": {
+      "passed": true,
+      "reason": null
+    },
+    "decision_validation": {
+      "passed": true,
+      "unsupported_claims": [],
+      "method": "격자 ID·후보별 도로 거리·세종 인구 제외 조건만 검사. 전체 자유 서술 검증 아님."
+    },
+    "analysis_context": {
+      "region_ids": [
+        "sejong"
+      ],
+      "date_start": "2025-10-01",
+      "date_end": "2025-10-31",
+      "scope_note": "선택 도시·기간의 실제 기록 기준입니다.",
+      "selected_station": {
+        "region_id": "sejong",
+        "station_id": "SJ_00400",
+        "station_name": "어진동_푸르지오시티2차"
+      },
+      "selected_candidates": [
+        {
+          "site_id": "grid-981000-1830000",
+          "station_id": "grid-981000-1830000",
+          "kind": "신규 입지",
+          "rank": 1,
+          "district": "세종시",
+          "potential_added_area_m2": 282289.36414913886,
+          "score": 0.8063973063973063,
+          "region_id": "sejong"
+        }
+      ],
+      "selected_scenario": {
+        "selected_ids": [
+          "grid-981000-1830000"
+        ],
+        "added_area_m2": 282289.36414913886,
+        "overlap_area_m2": 0,
+        "increase_ratio": 0.011154263850935575
+      },
+      "selection_source": {
+        "city": "sejong",
+        "date_start": "2025-10-01",
+        "date_end": "2025-10-31",
+        "precomputed": {
+          "revision": "dbac02a4b66f01f0a0b83195366569de717b95afb981da63850f40893b19f6e0",
+          "built_at": "2026-11-17T11:27:33.863643+00:00",
+          "date_start": "2025-10-01",
+          "date_end": "2025-10-31",
+          "read_only": true
+        }
+      }
+    },
+    "model_finish_reason": "stop",
+    "fallback_reason": null,
+    "evidence": [
+      {
+        "tool": "get_site_planning",
+        "arguments": {
+          "region_id": "sejong",
+          "date_range": {
+            "date_start": "2025-10-01",
+            "date_end": "2025-10-31"
+          }
+        },
+        "result": {
+          "available": true,
+          "city": "sejong",
+          "new_sites": [
+            {
+              "site_id": "grid-981000-1830000",
+              "station_id": "grid-981000-1830000",
+              "latitude": 36.4696780788357,
+              "longitude": 127.29071378261396,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 1,
+              "nearby_rentals_1000m": 11235,
+              "nearest_station_distance_m": 712.7495786143038,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.8737373737373737,
+                "nearby_rentals_1000m": 0.9570707070707071,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.8063973063973063,
+              "rank": 1,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-980000-1832500",
+              "station_id": "grid-980000-1832500",
+              "latitude": 36.49219586062595,
+              "longitude": 127.27948807100312,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 1,
+              "nearby_rentals_1000m": 6732,
+              "nearest_station_distance_m": 516.2199391627163,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.8737373737373737,
+                "nearby_rentals_1000m": 0.9116161616161617,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.7912457912457912,
+              "rank": 2,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-982000-1844000",
+              "station_id": "grid-982000-1844000",
+              "latitude": 36.59590832266544,
+              "longitude": 127.30155346285264,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 1,
+              "nearby_rentals_1000m": 1606,
+              "nearest_station_distance_m": 397.08633966200404,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 280059.0719484916,
+              "score_components": {
+                "facilities_within_500m": 0.8737373737373737,
+                "nearby_rentals_1000m": 0.7348484848484849,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.7323232323232323,
+              "rank": 3,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-980500-1843500",
+              "station_id": "grid-980500-1843500",
+              "latitude": 36.59137172914666,
+              "longitude": 127.28479595252422,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 2,
+              "nearby_rentals_1000m": 818,
+              "nearest_station_distance_m": 420.80014183287034,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.9747474747474747,
+                "nearby_rentals_1000m": 0.6035353535353535,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.7222222222222222,
+              "rank": 4,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-982000-1843500",
+              "station_id": "grid-982000-1843500",
+              "latitude": 36.592152797329646,
+              "longitude": 127.30156307895113,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 3,
+              "nearby_rentals_1000m": 650,
+              "nearest_station_distance_m": 490.669255560911,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282280.1657634966,
+              "score_components": {
+                "facilities_within_500m": 0.9974747474747475,
+                "nearby_rentals_1000m": 0.5631313131313131,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.7163299663299663,
+              "rank": 5,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-982000-1845000",
+              "station_id": "grid-982000-1845000",
+              "latitude": 36.60490952355178,
+              "longitude": 127.3014697474775,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 0,
+              "nearby_rentals_1000m": 1573,
+              "nearest_station_distance_m": 403.66896807893556,
+              "gap_ratio": 1.0000000000000004,
+              "potential_added_area_m2": 240159.17166398035,
+              "score_components": {
+                "facilities_within_500m": 0.39646464646464646,
+                "nearby_rentals_1000m": 0.7297979797979798,
+                "gap_ratio": 0.9974747474747475
+              },
+              "score": 0.7079124579124579,
+              "rank": 6,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-980500-1829000",
+              "station_id": "grid-980500-1829000",
+              "latitude": 36.46065298335859,
+              "longitude": 127.2851577270128,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 1,
+              "nearby_rentals_1000m": 1025,
+              "nearest_station_distance_m": 618.0960900823401,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.8737373737373737,
+                "nearby_rentals_1000m": 0.6439393939393939,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.702020202020202,
+              "rank": 7,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-981000-1829500",
+              "station_id": "grid-981000-1829500",
+              "latitude": 36.465170489829205,
+              "longitude": 127.29072589850193,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 1,
+              "nearby_rentals_1000m": 1025,
+              "nearest_station_distance_m": 788.5254843459965,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.8737373737373737,
+                "nearby_rentals_1000m": 0.6439393939393939,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.702020202020202,
+              "rank": 8,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-980000-1844000",
+              "station_id": "grid-980000-1844000",
+              "latitude": 36.595868995860734,
+              "longitude": 127.27919343238963,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 2,
+              "nearby_rentals_1000m": 565,
+              "nearest_station_distance_m": 675.2386418936999,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.9747474747474747,
+                "nearby_rentals_1000m": 0.5328282828282829,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.6986531986531986,
+              "rank": 9,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-981000-1829000",
+              "station_id": "grid-981000-1829000",
+              "latitude": 36.46066289740707,
+              "longitude": 127.29073801169768,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 1,
+              "nearby_rentals_1000m": 402,
+              "nearest_station_distance_m": 958.4839664572277,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.8737373737373737,
+                "nearby_rentals_1000m": 0.49747474747474746,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.6531986531986532,
+              "rank": 10,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-976500-1832000",
+              "station_id": "grid-976500-1832000",
+              "latitude": 36.487609685402894,
+              "longitude": 127.24042538335485,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 0,
+              "nearby_rentals_1000m": 12601,
+              "nearest_station_distance_m": 380.3380123422162,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.39646464646464646,
+                "nearby_rentals_1000m": 0.9722222222222222,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.6523569023569024,
+              "rank": 11,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-980000-1831500",
+              "station_id": "grid-980000-1831500",
+              "latitude": 36.48318071993516,
+              "longitude": 127.27951362064566,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 0,
+              "nearby_rentals_1000m": 12310,
+              "nearest_station_distance_m": 467.2640596160377,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.39646464646464646,
+                "nearby_rentals_1000m": 0.9671717171717171,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.6506734006734006,
+              "rank": 12,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-979000-1835500",
+              "station_id": "grid-979000-1835500",
+              "latitude": 36.51922002316023,
+              "longitude": 127.26824238919524,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 0,
+              "nearby_rentals_1000m": 12301,
+              "nearest_station_distance_m": 349.63585287921666,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282225.87157569895,
+              "score_components": {
+                "facilities_within_500m": 0.39646464646464646,
+                "nearby_rentals_1000m": 0.9621212121212122,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.648989898989899,
+              "rank": 13,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-979500-1831500",
+              "station_id": "grid-979500-1831500",
+              "latitude": 36.48317027556705,
+              "longitude": 127.27393172579488,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 0,
+              "nearby_rentals_1000m": 8439,
+              "nearest_station_distance_m": 483.61105099780127,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.39646464646464646,
+                "nearby_rentals_1000m": 0.946969696969697,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.6439393939393939,
+              "rank": 14,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-978000-1836000",
+              "station_id": "grid-978000-1836000",
+              "latitude": 36.52370533747503,
+              "longitude": 127.25705934453534,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 2,
+              "nearby_rentals_1000m": 7596,
+              "nearest_station_distance_m": 496.42463262450383,
+              "gap_ratio": 0.16695984994642368,
+              "potential_added_area_m2": 59147.387785412655,
+              "score_components": {
+                "facilities_within_500m": 0.9747474747474747,
+                "nearby_rentals_1000m": 0.9318181818181818,
+                "gap_ratio": 0.022727272727272728
+              },
+              "score": 0.6430976430976431,
+              "rank": 15,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-983000-1834000",
+              "station_id": "grid-983000-1834000",
+              "latitude": 36.5057757758258,
+              "longitude": 127.31295085686604,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 0,
+              "nearby_rentals_1000m": 7832,
+              "nearest_station_distance_m": 484.5646135595383,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.39646464646464646,
+                "nearby_rentals_1000m": 0.9368686868686869,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.6405723905723906,
+              "rank": 16,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-982000-1830500",
+              "station_id": "grid-982000-1830500",
+              "latitude": 36.47420471919839,
+              "longitude": 127.30186417990554,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 0,
+              "nearby_rentals_1000m": 7217,
+              "nearest_station_distance_m": 304.2578608377456,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.39646464646464646,
+                "nearby_rentals_1000m": 0.9217171717171717,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.6355218855218855,
+              "rank": 17,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-976500-1831500",
+              "station_id": "grid-976500-1831500",
+              "latitude": 36.48310212620406,
+              "longitude": 127.24044042032071,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 0,
+              "nearby_rentals_1000m": 6355,
+              "nearest_station_distance_m": 517.6329788464261,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.39646464646464646,
+                "nearby_rentals_1000m": 0.9015151515151515,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.6287878787878788,
+              "rank": 18,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-977500-1836000",
+              "station_id": "grid-977500-1836000",
+              "latitude": 36.52369383177634,
+              "longitude": 127.25147454887745,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 2,
+              "nearby_rentals_1000m": 3586,
+              "nearest_station_distance_m": 381.1403156790235,
+              "gap_ratio": 0.6511910831421589,
+              "potential_added_area_m2": 181712.77386046993,
+              "score_components": {
+                "facilities_within_500m": 0.9747474747474747,
+                "nearby_rentals_1000m": 0.8308080808080808,
+                "gap_ratio": 0.07828282828282829
+              },
+              "score": 0.6279461279461279,
+              "rank": 19,
+              "region_id": "sejong"
+            },
+            {
+              "site_id": "grid-982500-1834000",
+              "station_id": "grid-982500-1834000",
+              "latitude": 36.50576689082421,
+              "longitude": 127.30736732848366,
+              "district": "세종시",
+              "population_density_km2": null,
+              "population_basis": "administrative district density; not measured grid population",
+              "facilities_within_500m": 0,
+              "nearby_rentals_1000m": 6079,
+              "nearest_station_distance_m": 612.8072253553663,
+              "gap_ratio": 1.0,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_components": {
+                "facilities_within_500m": 0.39646464646464646,
+                "nearby_rentals_1000m": 0.8964646464646465,
+                "gap_ratio": 0.5883838383838383
+              },
+              "score": 0.627104377104377,
+              "rank": 20,
+              "region_id": "sejong"
+            }
+          ],
+          "new_site_count": 198,
+          "population_basis": "세종은 동·읍면별 공간 대응이 없어 인구밀도 점수에서 제외",
+          "facility_count": 63,
+          "source_provenance": [
+            {
+              "kind": "population",
+              "url": "https://www.data.go.kr/data/15097972/fileData.do",
+              "period": "2026-10",
+              "sha256": "2df47b6ab9ee31a427a505e763f03f0df962b3d6f239cf69a2416024c3a93f07"
+            },
+            {
+              "kind": "boundary",
+              "city": "seoul",
+              "url": "https://raw.githubusercontent.com/statgarten/maps/main/json/서울특별시_시군구_경계.json",
+              "year": 2020,
+              "crs": "EPSG:5179",
+              "sha256": "edffca362978fc0a55d2a94d27281ef824349cff5ff7942ae3fa55478a5a3f5b",
+              "upstream": "SGIS 2020 via statgarten/maps MIT"
+            },
+            {
+              "kind": "facilities",
+              "city": "seoul",
+              "url": "https://www.data.go.kr/data/15013109/standard.do",
+              "count": 532,
+              "sha256": "12153a49988a51ec8e09c40ec768cf16f85b09b98935998a5b6d1b1d78f021f9",
+              "scope": "도서관·공공개방시설 공개 좌표, 전체 생활시설 전수 자료 아님"
+            },
+            {
+              "kind": "facilities",
+              "city": "seoul",
+              "url": "https://www.data.go.kr/data/15013117/standard.do",
+              "count": 809,
+              "sha256": "753269c1699fd950027c90ef2c9d4975640d087ddb830783213cbcd62c4c5532",
+              "scope": "도서관·공공개방시설 공개 좌표, 전체 생활시설 전수 자료 아님"
+            },
+            {
+              "kind": "boundary",
+              "city": "daejeon",
+              "url": "https://raw.githubusercontent.com/statgarten/maps/main/json/대전광역시_시군구_경계.json",
+              "year": 2020,
+              "crs": "EPSG:5179",
+              "sha256": "a76a45bde692c0a35a3fdd67e651656c8a4d69ad513f3eff4b9323efcd4d494a",
+              "upstream": "SGIS 2020 via statgarten/maps MIT"
+            },
+            {
+              "kind": "facilities",
+              "city": "daejeon",
+              "url": "https://www.data.go.kr/data/15013109/standard.do",
+              "count": 106,
+              "sha256": "12153a49988a51ec8e09c40ec768cf16f85b09b98935998a5b6d1b1d78f021f9",
+              "scope": "도서관·공공개방시설 공개 좌표, 전체 생활시설 전수 자료 아님"
+            },
+            {
+              "kind": "facilities",
+              "city": "daejeon",
+              "url": "https://www.data.go.kr/data/15013117/standard.do",
+              "count": 88,
+              "sha256": "753269c1699fd950027c90ef2c9d4975640d087ddb830783213cbcd62c4c5532",
+              "scope": "도서관·공공개방시설 공개 좌표, 전체 생활시설 전수 자료 아님"
+            },
+            {
+              "kind": "boundary",
+              "city": "sejong",
+              "url": "https://raw.githubusercontent.com/statgarten/maps/main/json/세종특별자치시_시군구_경계.json",
+              "year": 2020,
+              "crs": "EPSG:5179",
+              "sha256": "0caa7a021d4b1a06d87d3d320a19f7e565c6dd9d05b8b183a39105113f5794d5",
+              "upstream": "SGIS 2020 via statgarten/maps MIT"
+            },
+            {
+              "kind": "facilities",
+              "city": "sejong",
+              "url": "https://www.data.go.kr/data/15013109/standard.do",
+              "count": 24,
+              "sha256": "12153a49988a51ec8e09c40ec768cf16f85b09b98935998a5b6d1b1d78f021f9",
+              "scope": "도서관·공공개방시설 공개 좌표, 전체 생활시설 전수 자료 아님"
+            },
+            {
+              "kind": "facilities",
+              "city": "sejong",
+              "url": "https://www.data.go.kr/data/15013117/standard.do",
+              "count": 39,
+              "sha256": "753269c1699fd950027c90ef2c9d4975640d087ddb830783213cbcd62c4c5532",
+              "scope": "도서관·공공개방시설 공개 좌표, 전체 생활시설 전수 자료 아님"
+            },
+            {
+              "kind": "sejong_master",
+              "url": "https://www.data.go.kr/data/15091421/fileData.do",
+              "matched_ids": 726,
+              "master_rows": 729,
+              "sha256": "c158f2857e79f7f529a445c0854fa582bcf70424e7a3a9d3fa518c992775e366",
+              "coordinate_as_of": "2026-05-26",
+              "historical_location_verified": false
+            }
+          ],
+          "assumptions": [
+            "500m 격자, 기존 대여소300m 밖, 주변1000m 실제 대여 또는 시설500m 존재",
+            "신규 입지 점수: 시설·주변대여·접근공백 동등가중, 서울·대전은 구 인구밀도 추가. 세종은 동일 시 밀도를 지역 차이로 쓰지 않음",
+            "2020 경계·2026 인구/시설/위치자료의 시점 차이. 도로·토지·실제 설치 가능성 미검증",
+            "선택 시나리오는 후보300m 추가 연결 가정이며 실제 환승·재배치 효과가 아님"
+          ],
+          "period_start": "2025-10-01",
+          "period_end": "2025-10-31",
+          "selected_candidates": [
+            {
+              "site_id": "grid-981000-1830000",
+              "station_id": "grid-981000-1830000",
+              "kind": "신규 입지",
+              "rank": 1,
+              "district": "세종시",
+              "potential_added_area_m2": 282289.36414913886,
+              "score": 0.8063973063973063,
+              "region_id": "sejong"
+            }
+          ],
+          "selected_scenario": {
+            "selected_ids": [
+              "grid-981000-1830000"
+            ],
+            "added_area_m2": 282289.36414913886,
+            "overlap_area_m2": 0,
+            "increase_ratio": 0.011154263850935575
+          }
+        },
+        "initiator": "solar",
+        "execution_seconds": 0.043
+      },
+      {
+        "tool": "get_transit_vulnerability",
+        "arguments": {
+          "region_id": "sejong",
+          "date_range": {
+            "date_start": "2025-10-01",
+            "date_end": "2025-10-31"
+          }
+        },
+        "result": {
+          "city": "sejong",
+          "date_start": "2025-10-01",
+          "date_end": "2025-10-31",
+          "distance_unit": "m",
+          "radius_m": [
+            300,
+            500
+          ],
+          "available": true,
+          "source_document": "docs/transit_stops_sources.md",
+          "sources": [
+            {
+              "dataset_name": "국토교통부 전국 버스정류장 위치정보",
+              "source_url": "https://www.data.go.kr/data/15067528/fileData.do",
+              "downloaded_at": "2026-11-16",
+              "reference_date": "2026-11-09",
+              "sha256": "ed0d652469aa0983241a2fff73237b1aa4893955bbfe09511b8f1399d1d8f5ba",
+              "raw_rows": 227102
+            },
+            {
+              "dataset_name": "전국 도시철도 역사정보 전체기관",
+              "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+              "downloaded_at": "2026-11-16",
+              "reference_date": "file 20260630; per-row dates vary",
+              "sha256": "cdf1d84a7e5c898b2aacd622783ba8ba9af35c40bee0561dc97d55ce8e063f94",
+              "raw_rows": 1099
+            },
+            {
+              "dataset_name": "세종특별자치시 BRT노선별 정류장 현황",
+              "source_url": "https://www.data.go.kr/data/15118026/fileData.do",
+              "reference_date": "2025-07-17",
+              "downloaded_at": "2026-11-17T07:57:16.444633+00:00",
+              "raw_rows": 343,
+              "unique_id_coordinate_rows": 152,
+              "sha256": "8c234e496b494bd3b6a94c4d2d8d9cf7d22e584ad9d212df5c163f60413ecfaf",
+              "verification_status": "VERIFIED"
+            }
+          ],
+          "limitations": [
+            "BRT 정류장(앵커)와 대여소의 직선거리이며 실제 보행·환승 여부가 아닙니다.",
+            "정류장 수는 도시명/주소 분류 기준입니다. 경계 박스 밖 BIS 정류장은 별도 경고 후 보존했습니다.",
+            "원본별·행별 기준일이 관측 기간과 다를 수 있으며 누락 노선의 가능성이 있습니다.",
+            "역 연계 비율은 한쪽 이상이 역300m 내인 이동 비중이며 실제 환승률이 아닙니다. 미확보 값은 null입니다.",
+            "앵커: 서울·대전은 확보된 지하철 위치, 세종은 공식 BRT 노선 정류장. 별도 버스 환승센터 전수 자료 미확보.",
+            "세종 이력2025-10·BRT목록2025-07·대여소 좌표2026-05의 시점 차이. 실제 환승 여부는 입증하지 않습니다.",
+            "공간 버퍼 시나리오이며 실제 환승·이동시간·운영 개선 효과의 실증 검증이 아닙니다.",
+            "인구 격자·보행망 효과는 미추정. 경계 확보 시 면적은 행정 경계로 제한합니다.",
+            "후보 추가 면적은 신규 연결을 가정한 개별 잠재 면적이며 기존 연결 시나리오의 실제 증가 면적과 별도입니다.",
+            "커버 대여소 수는 좌표가 있는 전체 마스터 기준이고 후보 수요만 선택 기간 실제 대여량을 사용합니다.",
+            "접근성 결손·대여량·잠재면적을 각각 한 번 반영한 동등 가중 검토 점수입니다.",
+            "단일 후보의 ECDF 점수는 각 항목0.5입니다. 도시별 순위이며 도시 간 점수 직접 비교는 불가합니다.",
+            "정류장 누락·기준일 차이·도시 경계 밖 노선에 따라 후보가 달라질 수 있습니다."
+          ],
+          "stop_count": 152,
+          "stop_types": [
+            "버스"
+          ],
+          "hourly_period_start": "2025-10-01",
+          "hourly_period_end": "2025-10-31",
+          "hourly_snapshot_valid": true,
+          "map_display_note": "도시별 실제 앵커 전체 표시. 일반 버스 포함 정류장 거리는 보조 참고입니다.",
+          "anchor_label": "BRT 정류장·노선상 터미널",
+          "anchor_definition": "official BRT route stop",
+          "hourly_scope": "city-specific anchors; source-hash verified",
+          "period_start": "2025-10-01",
+          "period_end": "2025-10-31",
+          "demand_definition": "selected-period rental_count; returns are not added",
+          "precision": "full IEEE-754 precision for distances, areas, thresholds, percentiles and scores; round only in UI",
+          "station_count": 728,
+          "located_station_count": 726,
+          "coordinate_missing_count": 2,
+          "ranking": [
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00515",
+              "station_name": "세종동_세종중앙공원(남쪽)주차장",
+              "latitude": 36.4918561,
+              "longitude": 127.2698918,
+              "nearest_stop_distance_m": 1180.7698299804479,
+              "rental_count": 802,
+              "return_count": 791,
+              "accessibility_deficit": 1.3615396599608958,
+              "vulnerability": 1091.9548072886384,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8665254237288136,
+                "rental_count": 0.972457627118644,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8820621468926553,
+              "demand_weighted_sensitivity_score": 0.9046610169491525,
+              "rank": 1,
+              "distance_band": "800–1500m 첫·끝마일",
+              "distance_label": "최근접 BRT 정류장(앵커) 거리"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00216",
+              "station_name": "세종동_행복도시세종홍보관",
+              "latitude": 36.489532,
+              "longitude": 127.2700741,
+              "nearest_stop_distance_m": 1121.4708803587916,
+              "rental_count": 1135,
+              "return_count": 1440,
+              "accessibility_deficit": 1.2429417607175832,
+              "vulnerability": 1410.738898414457,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8453389830508474,
+                "rental_count": 0.989406779661017,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8806497175141241,
+              "demand_weighted_sensitivity_score": 0.9078389830508474,
+              "rank": 2,
+              "distance_band": "800–1500m 첫·끝마일",
+              "distance_label": "최근접 BRT 정류장(앵커) 거리"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00428",
+              "station_name": "조치원_욱일아파트",
+              "latitude": 36.602844,
+              "longitude": 127.289963,
+              "nearest_stop_distance_m": 3794.9395379270604,
+              "rental_count": 528,
+              "return_count": 534,
+              "accessibility_deficit": 6.589879075854121,
+              "vulnerability": 3479.456152050976,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.9470338983050848,
+                "rental_count": 0.8792372881355932,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8778248587570621,
+              "demand_weighted_sensitivity_score": 0.8781779661016949,
+              "rank": 3,
+              "distance_band": "500m 밖",
+              "distance_label": "최근접 BRT 정류장(앵커) 거리"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00415",
+              "station_name": "세종동_세종호수공원 제1주차장",
+              "latitude": 36.492533,
+              "longitude": 127.269667,
+              "nearest_stop_distance_m": 1173.7656909499703,
+              "rental_count": 721,
+              "return_count": 723,
+              "accessibility_deficit": 1.3475313818999406,
+              "vulnerability": 971.5701263498572,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8622881355932204,
+                "rental_count": 0.9470338983050848,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8721751412429377,
+              "demand_weighted_sensitivity_score": 0.8908898305084746,
+              "rank": 4,
+              "distance_band": "800–1500m 첫·끝마일",
+              "distance_label": "최근접 BRT 정류장(앵커) 거리"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00420",
+              "station_name": "가람동_세종이마트앞",
+              "latitude": 36.470509,
+              "longitude": 127.251684,
+              "nearest_stop_distance_m": 1455.4039051332607,
+              "rental_count": 616,
+              "return_count": 718,
+              "accessibility_deficit": 1.9108078102665214,
+              "vulnerability": 1177.0576111241771,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8834745762711864,
+                "rental_count": 0.9046610169491526,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8651129943502824,
+              "demand_weighted_sensitivity_score": 0.875,
+              "rank": 5,
+              "distance_band": "800–1500m 첫·끝마일",
+              "distance_label": "최근접 BRT 정류장(앵커) 거리"
+            }
+          ],
+          "candidate_count": 236,
+          "first_last_mile_count": 66,
+          "first_last_mile_candidates": [
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00515",
+              "station_name": "세종동_세종중앙공원(남쪽)주차장",
+              "latitude": 36.4918561,
+              "longitude": 127.2698918,
+              "nearest_stop_distance_m": 1180.7698299804479,
+              "rental_count": 802,
+              "return_count": 791,
+              "accessibility_deficit": 1.3615396599608958,
+              "vulnerability": 1091.9548072886384,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8665254237288136,
+                "rental_count": 0.972457627118644,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8820621468926553,
+              "demand_weighted_sensitivity_score": 0.9046610169491525,
+              "rank": 1,
+              "distance_band": "800–1500m 첫·끝마일"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00216",
+              "station_name": "세종동_행복도시세종홍보관",
+              "latitude": 36.489532,
+              "longitude": 127.2700741,
+              "nearest_stop_distance_m": 1121.4708803587916,
+              "rental_count": 1135,
+              "return_count": 1440,
+              "accessibility_deficit": 1.2429417607175832,
+              "vulnerability": 1410.738898414457,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8453389830508474,
+                "rental_count": 0.989406779661017,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8806497175141241,
+              "demand_weighted_sensitivity_score": 0.9078389830508474,
+              "rank": 2,
+              "distance_band": "800–1500m 첫·끝마일"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00415",
+              "station_name": "세종동_세종호수공원 제1주차장",
+              "latitude": 36.492533,
+              "longitude": 127.269667,
+              "nearest_stop_distance_m": 1173.7656909499703,
+              "rental_count": 721,
+              "return_count": 723,
+              "accessibility_deficit": 1.3475313818999406,
+              "vulnerability": 971.5701263498572,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8622881355932204,
+                "rental_count": 0.9470338983050848,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8721751412429377,
+              "demand_weighted_sensitivity_score": 0.8908898305084746,
+              "rank": 4,
+              "distance_band": "800–1500m 첫·끝마일"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00420",
+              "station_name": "가람동_세종이마트앞",
+              "latitude": 36.470509,
+              "longitude": 127.251684,
+              "nearest_stop_distance_m": 1455.4039051332607,
+              "rental_count": 616,
+              "return_count": 718,
+              "accessibility_deficit": 1.9108078102665214,
+              "vulnerability": 1177.0576111241771,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8834745762711864,
+                "rental_count": 0.9046610169491526,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8651129943502824,
+              "demand_weighted_sensitivity_score": 0.875,
+              "rank": 5,
+              "distance_band": "800–1500m 첫·끝마일"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00400",
+              "station_name": "어진동_푸르지오시티2차",
+              "latitude": 36.494919,
+              "longitude": 127.266949,
+              "nearest_stop_distance_m": 932.5209649183578,
+              "rental_count": 3645,
+              "return_count": 3446,
+              "accessibility_deficit": 0.8650419298367156,
+              "vulnerability": 3153.0778342548283,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.7436440677966102,
+                "rental_count": 0.9978813559322034,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8495762711864406,
+              "demand_weighted_sensitivity_score": 0.8866525423728814,
+              "rank": 8,
+              "distance_band": "800–1500m 첫·끝마일"
+            }
+          ],
+          "definition": "도시별 앵커 500m 밖·실제 대여량>0; 800~1500m 구간은 별도 표시",
+          "observed_station_count": 728,
+          "score_formula": "mean(midrank_ECDF(accessibility_deficit),midrank_ECDF(rental_count),midrank_ECDF(potential_added_area_m2))",
+          "weights": {
+            "accessibility_deficit": 0.3333333333333333,
+            "rental_count": 0.3333333333333333,
+            "potential_added_area_m2": 0.3333333333333333
+          },
+          "scenario": {
+            "crs": "EPSG:5179",
+            "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+            "boundary_clipped": true,
+            "walking_radius_m": 500,
+            "bike_station_buffer_m": 300,
+            "baseline_area_m2": 25307753.870773062,
+            "linked_area_m2": 29306273.420268614,
+            "added_area_m2": 3998519.5494955517,
+            "uncovered_area_m2": 439811801.5113221,
+            "uncovered_recovery_ratio": 0.00909143305330932,
+            "area_increase_ratio": 0.15799582886386793,
+            "baseline_station_count": 490,
+            "linked_station_count": 581,
+            "added_station_count": 91,
+            "station_count_increase_ratio": 0.18571428571428572,
+            "population_increase_ratio": null
+          },
+          "precomputed": {
+            "revision": "dbac02a4b66f01f0a0b83195366569de717b95afb981da63850f40893b19f6e0",
+            "built_at": "2026-11-17T11:27:30.166241+00:00",
+            "date_start": "2025-10-01",
+            "date_end": "2025-10-31",
+            "read_only": true
+          },
+          "anchor_type": "BRT 정류장",
+          "distance_label": "최근접 BRT 정류장(앵커) 거리"
+        },
+        "initiator": "solar",
+        "execution_seconds": 0.011
+      },
+      {
+        "tool": "get_improvement_ranking",
+        "arguments": {
+          "region_id": "sejong",
+          "date_range": {
+            "date_start": "2025-10-01",
+            "date_end": "2025-10-31"
+          }
+        },
+        "result": {
+          "city": "sejong",
+          "date_start": "2025-10-01",
+          "date_end": "2025-10-31",
+          "distance_unit": "m",
+          "radius_m": [
+            300,
+            500
+          ],
+          "available": true,
+          "source_document": "docs/transit_stops_sources.md",
+          "sources": [
+            {
+              "dataset_name": "국토교통부 전국 버스정류장 위치정보",
+              "source_url": "https://www.data.go.kr/data/15067528/fileData.do",
+              "downloaded_at": "2026-11-16",
+              "reference_date": "2026-11-09",
+              "sha256": "ed0d652469aa0983241a2fff73237b1aa4893955bbfe09511b8f1399d1d8f5ba",
+              "raw_rows": 227102
+            },
+            {
+              "dataset_name": "전국 도시철도 역사정보 전체기관",
+              "source_url": "https://data.kric.go.kr/rips/M_01_01/detail.do?id=32",
+              "downloaded_at": "2026-11-16",
+              "reference_date": "file 20260630; per-row dates vary",
+              "sha256": "cdf1d84a7e5c898b2aacd622783ba8ba9af35c40bee0561dc97d55ce8e063f94",
+              "raw_rows": 1099
+            },
+            {
+              "dataset_name": "세종특별자치시 BRT노선별 정류장 현황",
+              "source_url": "https://www.data.go.kr/data/15118026/fileData.do",
+              "reference_date": "2025-07-17",
+              "downloaded_at": "2026-11-17T07:57:16.444633+00:00",
+              "raw_rows": 343,
+              "unique_id_coordinate_rows": 152,
+              "sha256": "8c234e496b494bd3b6a94c4d2d8d9cf7d22e584ad9d212df5c163f60413ecfaf",
+              "verification_status": "VERIFIED"
+            }
+          ],
+          "limitations": [
+            "BRT 정류장(앵커)와 대여소의 직선거리이며 실제 보행·환승 여부가 아닙니다.",
+            "정류장 수는 도시명/주소 분류 기준입니다. 경계 박스 밖 BIS 정류장은 별도 경고 후 보존했습니다.",
+            "원본별·행별 기준일이 관측 기간과 다를 수 있으며 누락 노선의 가능성이 있습니다.",
+            "역 연계 비율은 한쪽 이상이 역300m 내인 이동 비중이며 실제 환승률이 아닙니다. 미확보 값은 null입니다.",
+            "앵커: 서울·대전은 확보된 지하철 위치, 세종은 공식 BRT 노선 정류장. 별도 버스 환승센터 전수 자료 미확보.",
+            "세종 이력2025-10·BRT목록2025-07·대여소 좌표2026-05의 시점 차이. 실제 환승 여부는 입증하지 않습니다.",
+            "공간 버퍼 시나리오이며 실제 환승·이동시간·운영 개선 효과의 실증 검증이 아닙니다.",
+            "인구 격자·보행망 효과는 미추정. 경계 확보 시 면적은 행정 경계로 제한합니다.",
+            "후보 추가 면적은 신규 연결을 가정한 개별 잠재 면적이며 기존 연결 시나리오의 실제 증가 면적과 별도입니다.",
+            "커버 대여소 수는 좌표가 있는 전체 마스터 기준이고 후보 수요만 선택 기간 실제 대여량을 사용합니다.",
+            "접근성 결손·대여량·잠재면적을 각각 한 번 반영한 동등 가중 검토 점수입니다.",
+            "단일 후보의 ECDF 점수는 각 항목0.5입니다. 도시별 순위이며 도시 간 점수 직접 비교는 불가합니다.",
+            "정류장 누락·기준일 차이·도시 경계 밖 노선에 따라 후보가 달라질 수 있습니다."
+          ],
+          "stop_count": 152,
+          "stop_types": [
+            "버스"
+          ],
+          "hourly_period_start": "2025-10-01",
+          "hourly_period_end": "2025-10-31",
+          "hourly_snapshot_valid": true,
+          "map_display_note": "도시별 실제 앵커 전체 표시. 일반 버스 포함 정류장 거리는 보조 참고입니다.",
+          "anchor_label": "BRT 정류장·노선상 터미널",
+          "anchor_definition": "official BRT route stop",
+          "hourly_scope": "city-specific anchors; source-hash verified",
+          "period_start": "2025-10-01",
+          "period_end": "2025-10-31",
+          "demand_definition": "selected-period rental_count; returns are not added",
+          "precision": "full IEEE-754 precision for distances, areas, thresholds, percentiles and scores; round only in UI",
+          "station_count": 728,
+          "located_station_count": 726,
+          "coordinate_missing_count": 2,
+          "ranking": [
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00515",
+              "station_name": "세종동_세종중앙공원(남쪽)주차장",
+              "latitude": 36.4918561,
+              "longitude": 127.2698918,
+              "nearest_stop_distance_m": 1180.7698299804479,
+              "rental_count": 802,
+              "return_count": 791,
+              "accessibility_deficit": 1.3615396599608958,
+              "vulnerability": 1091.9548072886384,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8665254237288136,
+                "rental_count": 0.972457627118644,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8820621468926553,
+              "demand_weighted_sensitivity_score": 0.9046610169491525,
+              "rank": 1,
+              "distance_band": "800–1500m 첫·끝마일",
+              "distance_label": "최근접 BRT 정류장(앵커) 거리"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00216",
+              "station_name": "세종동_행복도시세종홍보관",
+              "latitude": 36.489532,
+              "longitude": 127.2700741,
+              "nearest_stop_distance_m": 1121.4708803587916,
+              "rental_count": 1135,
+              "return_count": 1440,
+              "accessibility_deficit": 1.2429417607175832,
+              "vulnerability": 1410.738898414457,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8453389830508474,
+                "rental_count": 0.989406779661017,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8806497175141241,
+              "demand_weighted_sensitivity_score": 0.9078389830508474,
+              "rank": 2,
+              "distance_band": "800–1500m 첫·끝마일",
+              "distance_label": "최근접 BRT 정류장(앵커) 거리"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00428",
+              "station_name": "조치원_욱일아파트",
+              "latitude": 36.602844,
+              "longitude": 127.289963,
+              "nearest_stop_distance_m": 3794.9395379270604,
+              "rental_count": 528,
+              "return_count": 534,
+              "accessibility_deficit": 6.589879075854121,
+              "vulnerability": 3479.456152050976,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.9470338983050848,
+                "rental_count": 0.8792372881355932,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8778248587570621,
+              "demand_weighted_sensitivity_score": 0.8781779661016949,
+              "rank": 3,
+              "distance_band": "500m 밖",
+              "distance_label": "최근접 BRT 정류장(앵커) 거리"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00415",
+              "station_name": "세종동_세종호수공원 제1주차장",
+              "latitude": 36.492533,
+              "longitude": 127.269667,
+              "nearest_stop_distance_m": 1173.7656909499703,
+              "rental_count": 721,
+              "return_count": 723,
+              "accessibility_deficit": 1.3475313818999406,
+              "vulnerability": 971.5701263498572,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8622881355932204,
+                "rental_count": 0.9470338983050848,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8721751412429377,
+              "demand_weighted_sensitivity_score": 0.8908898305084746,
+              "rank": 4,
+              "distance_band": "800–1500m 첫·끝마일",
+              "distance_label": "최근접 BRT 정류장(앵커) 거리"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00420",
+              "station_name": "가람동_세종이마트앞",
+              "latitude": 36.470509,
+              "longitude": 127.251684,
+              "nearest_stop_distance_m": 1455.4039051332607,
+              "rental_count": 616,
+              "return_count": 718,
+              "accessibility_deficit": 1.9108078102665214,
+              "vulnerability": 1177.0576111241771,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8834745762711864,
+                "rental_count": 0.9046610169491526,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8651129943502824,
+              "demand_weighted_sensitivity_score": 0.875,
+              "rank": 5,
+              "distance_band": "800–1500m 첫·끝마일",
+              "distance_label": "최근접 BRT 정류장(앵커) 거리"
+            }
+          ],
+          "candidate_count": 236,
+          "first_last_mile_count": 66,
+          "first_last_mile_candidates": [
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00515",
+              "station_name": "세종동_세종중앙공원(남쪽)주차장",
+              "latitude": 36.4918561,
+              "longitude": 127.2698918,
+              "nearest_stop_distance_m": 1180.7698299804479,
+              "rental_count": 802,
+              "return_count": 791,
+              "accessibility_deficit": 1.3615396599608958,
+              "vulnerability": 1091.9548072886384,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8665254237288136,
+                "rental_count": 0.972457627118644,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8820621468926553,
+              "demand_weighted_sensitivity_score": 0.9046610169491525,
+              "rank": 1,
+              "distance_band": "800–1500m 첫·끝마일"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00216",
+              "station_name": "세종동_행복도시세종홍보관",
+              "latitude": 36.489532,
+              "longitude": 127.2700741,
+              "nearest_stop_distance_m": 1121.4708803587916,
+              "rental_count": 1135,
+              "return_count": 1440,
+              "accessibility_deficit": 1.2429417607175832,
+              "vulnerability": 1410.738898414457,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8453389830508474,
+                "rental_count": 0.989406779661017,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8806497175141241,
+              "demand_weighted_sensitivity_score": 0.9078389830508474,
+              "rank": 2,
+              "distance_band": "800–1500m 첫·끝마일"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00415",
+              "station_name": "세종동_세종호수공원 제1주차장",
+              "latitude": 36.492533,
+              "longitude": 127.269667,
+              "nearest_stop_distance_m": 1173.7656909499703,
+              "rental_count": 721,
+              "return_count": 723,
+              "accessibility_deficit": 1.3475313818999406,
+              "vulnerability": 971.5701263498572,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8622881355932204,
+                "rental_count": 0.9470338983050848,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8721751412429377,
+              "demand_weighted_sensitivity_score": 0.8908898305084746,
+              "rank": 4,
+              "distance_band": "800–1500m 첫·끝마일"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00420",
+              "station_name": "가람동_세종이마트앞",
+              "latitude": 36.470509,
+              "longitude": 127.251684,
+              "nearest_stop_distance_m": 1455.4039051332607,
+              "rental_count": 616,
+              "return_count": 718,
+              "accessibility_deficit": 1.9108078102665214,
+              "vulnerability": 1177.0576111241771,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.8834745762711864,
+                "rental_count": 0.9046610169491526,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8651129943502824,
+              "demand_weighted_sensitivity_score": 0.875,
+              "rank": 5,
+              "distance_band": "800–1500m 첫·끝마일"
+            },
+            {
+              "region_id": "sejong",
+              "station_id": "SJ_00400",
+              "station_name": "어진동_푸르지오시티2차",
+              "latitude": 36.494919,
+              "longitude": 127.266949,
+              "nearest_stop_distance_m": 932.5209649183578,
+              "rental_count": 3645,
+              "return_count": 3446,
+              "accessibility_deficit": 0.8650419298367156,
+              "vulnerability": 3153.0778342548283,
+              "potential_added_area_m2": 282289.36414913886,
+              "score_confidence": "relative_within_city",
+              "candidate_population": 236,
+              "score_components": {
+                "accessibility_deficit": 0.7436440677966102,
+                "rental_count": 0.9978813559322034,
+                "potential_added_area_m2": 0.8072033898305084
+              },
+              "score": 0.8495762711864406,
+              "demand_weighted_sensitivity_score": 0.8866525423728814,
+              "rank": 8,
+              "distance_band": "800–1500m 첫·끝마일"
+            }
+          ],
+          "definition": "도시별 앵커 500m 밖·실제 대여량>0; 800~1500m 구간은 별도 표시",
+          "observed_station_count": 728,
+          "score_formula": "mean(midrank_ECDF(accessibility_deficit),midrank_ECDF(rental_count),midrank_ECDF(potential_added_area_m2))",
+          "weights": {
+            "accessibility_deficit": 0.3333333333333333,
+            "rental_count": 0.3333333333333333,
+            "potential_added_area_m2": 0.3333333333333333
+          },
+          "scenario": {
+            "crs": "EPSG:5179",
+            "method": "64-segment circle union; boundary clipped when available; haversine station counts; one-hop extension",
+            "boundary_clipped": true,
+            "walking_radius_m": 500,
+            "bike_station_buffer_m": 300,
+            "baseline_area_m2": 25307753.870773062,
+            "linked_area_m2": 29306273.420268614,
+            "added_area_m2": 3998519.5494955517,
+            "uncovered_area_m2": 439811801.5113221,
+            "uncovered_recovery_ratio": 0.00909143305330932,
+            "area_increase_ratio": 0.15799582886386793,
+            "baseline_station_count": 490,
+            "linked_station_count": 581,
+            "added_station_count": 91,
+            "station_count_increase_ratio": 0.18571428571428572,
+            "population_increase_ratio": null
+          },
+          "precomputed": {
+            "revision": "dbac02a4b66f01f0a0b83195366569de717b95afb981da63850f40893b19f6e0",
+            "built_at": "2026-11-17T11:27:30.166241+00:00",
+            "date_start": "2025-10-01",
+            "date_end": "2025-10-31",
+            "read_only": true
+          },
+          "anchor_type": "BRT 정류장",
+          "distance_label": "최근접 BRT 정류장(앵커) 거리"
+        },
+        "initiator": "solar",
+        "execution_seconds": 0.012
+      },
+      {
+        "tool": "get_region_overview",
+        "arguments": {
+          "region_id": "sejong",
+          "date_range": {
+            "date_start": "2025-10-01",
+            "date_end": "2025-10-31"
+          }
+        },
+        "result": {
+          "region_id": "sejong",
+          "region_name": "세종",
+          "service_name": "어울링",
+          "operator": "세종도시교통공사",
+          "sources": [
+            {
+              "source_id": "sejong-yearly-20260831",
+              "region_id": "sejong",
+              "dataset_name": "세종도시교통공사_공공자전거 어울링 연도별 이용건수",
+              "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+              "date_start": "2017-01-01",
+              "date_end": "2026-08-31",
+              "collected_at": "2026-11-04T04:54:00.764456Z",
+              "verification_status": "VERIFIED",
+              "available_columns": [
+                "구분",
+                "어울링 이용건수"
+              ]
+            },
+            {
+              "source_id": "sejong-stations-metadata",
+              "region_id": "sejong",
+              "dataset_name": "세담터 어울링 수집 대여소정보",
+              "source_url": "https://www2.sejong.go.kr/bigdata/metaDataView.do?order_type=rcd",
+              "date_start": null,
+              "date_end": null,
+              "collected_at": null,
+              "verification_status": "ACCESS_REQUIRED",
+              "available_columns": []
+            },
+            {
+              "source_id": "sejong-portal-api",
+              "region_id": "sejong",
+              "dataset_name": "어울링 연도별 이용건수 자동변환 OpenAPI",
+              "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+              "date_start": null,
+              "date_end": null,
+              "collected_at": null,
+              "verification_status": "ACCESS_REQUIRED",
+              "available_columns": []
+            },
+            {
+              "source_id": "sejong-trip-15106191",
+              "region_id": "sejong",
+              "dataset_name": "세종 어울링 개별 이용이력(선택 기간)",
+              "source_url": "https://www.data.go.kr/data/15106191/fileData.do",
+              "date_start": "2025-10-01",
+              "date_end": "2025-10-31",
+              "collected_at": "2026-11-16T10:19:57.586209+00:00",
+              "verification_status": "VERIFIED",
+              "available_columns": [
+                "순번",
+                "시작 대여소",
+                "대여시간",
+                "반납 대여소",
+                "반납시간",
+                "주행시간"
+              ],
+              "note": "원본 ZIP2020~2025 확보. 최초 서비스 연결은 명시한 기간만. 좌표/명칭 대응표 미확보."
+            },
+            {
+              "source_id": "sejong-master-15091421",
+              "region_id": "sejong",
+              "dataset_name": "세종 어울링 대여소 위치 마스터",
+              "source_url": "https://www.data.go.kr/data/15091421/fileData.do",
+              "date_start": "2026-05-26",
+              "date_end": "2026-05-26",
+              "collected_at": "2026-11-16T14:04:09.067324+00:00",
+              "verification_status": "VERIFIED",
+              "available_columns": [
+                "대여소 아이디",
+                "대여소 이름",
+                "사용유무",
+                "주소(동)",
+                "상세주소",
+                "경도",
+                "위도",
+                "권역",
+                "지오펜스 거리",
+                "등록일",
+                "수정일"
+              ],
+              "note": "2025-10 등록 이내 ID만 연결. 좌표는2026-05 기준으로 과거 위치 변경 가능성이 있음."
+            }
+          ],
+          "source_names": [
+            "세종 어울링 개별 이용이력(선택 기간)",
+            "세종 어울링 대여소 위치 마스터",
+            "세종도시교통공사_공공자전거 어울링 연도별 이용건수"
+          ],
+          "last_updated": "2026-11-16T14:04:09.067324+00:00",
+          "verification_status": "VERIFIED",
+          "total_rentals": 259143,
+          "station_count": 728,
+          "inventory_station_count": 726,
+          "average_per_station": 355.97,
+          "hourly": [
+            2940,
+            1373,
+            688,
+            380,
+            572,
+            1562,
+            4171,
+            10671,
+            28028,
+            9412,
+            9034,
+            14642,
+            14044,
+            13029,
+            12823,
+            14056,
+            17624,
+            19391,
+            28047,
+            17446,
+            13788,
+            12202,
+            8185,
+            5035
+          ],
+          "period_start": "2025-10-01",
+          "period_end": "2025-10-31",
+          "observed_dates": [
+            "2025-10-01",
+            "2025-10-02",
+            "2025-10-03",
+            "2025-10-04",
+            "2025-10-05",
+            "2025-10-06",
+            "2025-10-07",
+            "2025-10-08",
+            "2025-10-09",
+            "2025-10-10",
+            "2025-10-11",
+            "2025-10-12",
+            "2025-10-13",
+            "2025-10-14",
+            "2025-10-15",
+            "2025-10-16",
+            "2025-10-17",
+            "2025-10-18",
+            "2025-10-19",
+            "2025-10-20",
+            "2025-10-21",
+            "2025-10-22",
+            "2025-10-23",
+            "2025-10-24",
+            "2025-10-25",
+            "2025-10-26",
+            "2025-10-27",
+            "2025-10-28",
+            "2025-10-29",
+            "2025-10-30",
+            "2025-10-31"
+          ],
+          "daily": [
+            {
+              "date": "2025-10-01",
+              "rental_count": 12472
+            },
+            {
+              "date": "2025-10-02",
+              "rental_count": 12521
+            },
+            {
+              "date": "2025-10-03",
+              "rental_count": 1197
+            },
+            {
+              "date": "2025-10-04",
+              "rental_count": 5970
+            },
+            {
+              "date": "2025-10-05",
+              "rental_count": 2939
+            },
+            {
+              "date": "2025-10-06",
+              "rental_count": 868
+            },
+            {
+              "date": "2025-10-07",
+              "rental_count": 2340
+            },
+            {
+              "date": "2025-10-08",
+              "rental_count": 7124
+            },
+            {
+              "date": "2025-10-09",
+              "rental_count": 11428
+            },
+            {
+              "date": "2025-10-10",
+              "rental_count": 11125
+            },
+            {
+              "date": "2025-10-11",
+              "rental_count": 12287
+            },
+            {
+              "date": "2025-10-12",
+              "rental_count": 7682
+            },
+            {
+              "date": "2025-10-13",
+              "rental_count": 1936
+            },
+            {
+              "date": "2025-10-14",
+              "rental_count": 8444
+            },
+            {
+              "date": "2025-10-15",
+              "rental_count": 8617
+            },
+            {
+              "date": "2025-10-16",
+              "rental_count": 9964
+            },
+            {
+              "date": "2025-10-17",
+              "rental_count": 7763
+            },
+            {
+              "date": "2025-10-18",
+              "rental_count": 6473
+            },
+            {
+              "date": "2025-10-19",
+              "rental_count": 8720
+            },
+            {
+              "date": "2025-10-20",
+              "rental_count": 10392
+            },
+            {
+              "date": "2025-10-21",
+              "rental_count": 10301
+            },
+            {
+              "date": "2025-10-22",
+              "rental_count": 10949
+            },
+            {
+              "date": "2025-10-23",
+              "rental_count": 11484
+            },
+            {
+              "date": "2025-10-24",
+              "rental_count": 11744
+            },
+            {
+              "date": "2025-10-25",
+              "rental_count": 9040
+            },
+            {
+              "date": "2025-10-26",
+              "rental_count": 7030
+            },
+            {
+              "date": "2025-10-27",
+              "rental_count": 9272
+            },
+            {
+              "date": "2025-10-28",
+              "rental_count": 9542
+            },
+            {
+              "date": "2025-10-29",
+              "rental_count": 9817
+            },
+            {
+              "date": "2025-10-30",
+              "rental_count": 9768
+            },
+            {
+              "date": "2025-10-31",
+              "rental_count": 9934
+            }
+          ],
+          "monthly": [
+            {
+              "month": "2025-10",
+              "rental_count": 259143
+            }
+          ],
+          "weekday": [
+            {
+              "weekday": 0,
+              "rental_count": 22468
+            },
+            {
+              "weekday": 1,
+              "rental_count": 30627
+            },
+            {
+              "weekday": 2,
+              "rental_count": 48979
+            },
+            {
+              "weekday": 3,
+              "rental_count": 55165
+            },
+            {
+              "weekday": 4,
+              "rental_count": 41763
+            },
+            {
+              "weekday": 5,
+              "rental_count": 33770
+            },
+            {
+              "weekday": 6,
+              "rental_count": 26371
+            }
+          ],
+          "weekend_share": 0.2321,
+          "weekday_share": 0.7679,
+          "annual_latest": {
+            "region_id": "sejong",
+            "year": 2025,
+            "period_end": "2025-12-31",
+            "complete_year": true,
+            "rental_count": 2629483
+          },
+          "has_od": true,
+          "coverage_note": "세종 2025년10월 이용이력에 공식2026-05 대여소 마스터를 ID로 연결했습니다. 위치 자료의 시점 차이가 있으며 미매칭 ID는 지도에서 제외합니다."
+        },
+        "initiator": "metric_guard",
+        "execution_seconds": 0.011
+      },
+      {
+        "tool": "get_data_availability",
+        "arguments": {
+          "region_id": "sejong"
+        },
+        "result": {
+          "region_id": "sejong",
+          "region_name": "세종",
+          "service_name": "어울링",
+          "sources": [
+            {
+              "source_id": "sejong-yearly-20260831",
+              "region_id": "sejong",
+              "dataset_name": "세종도시교통공사_공공자전거 어울링 연도별 이용건수",
+              "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+              "date_start": "2017-01-01",
+              "date_end": "2026-08-31",
+              "collected_at": "2026-11-04T04:54:00.764456Z",
+              "verification_status": "VERIFIED",
+              "available_columns": [
+                "구분",
+                "어울링 이용건수"
+              ]
+            },
+            {
+              "source_id": "sejong-stations-metadata",
+              "region_id": "sejong",
+              "dataset_name": "세담터 어울링 수집 대여소정보",
+              "source_url": "https://www2.sejong.go.kr/bigdata/metaDataView.do?order_type=rcd",
+              "date_start": null,
+              "date_end": null,
+              "collected_at": null,
+              "verification_status": "ACCESS_REQUIRED",
+              "available_columns": []
+            },
+            {
+              "source_id": "sejong-portal-api",
+              "region_id": "sejong",
+              "dataset_name": "어울링 연도별 이용건수 자동변환 OpenAPI",
+              "source_url": "https://www.data.go.kr/data/15134188/fileData.do",
+              "date_start": null,
+              "date_end": null,
+              "collected_at": null,
+              "verification_status": "ACCESS_REQUIRED",
+              "available_columns": []
+            },
+            {
+              "source_id": "sejong-trip-15106191",
+              "region_id": "sejong",
+              "dataset_name": "세종 어울링 개별 이용이력(선택 기간)",
+              "source_url": "https://www.data.go.kr/data/15106191/fileData.do",
+              "date_start": "2025-10-01",
+              "date_end": "2025-10-31",
+              "collected_at": "2026-11-16T10:19:57.586209+00:00",
+              "verification_status": "VERIFIED",
+              "available_columns": [
+                "순번",
+                "시작 대여소",
+                "대여시간",
+                "반납 대여소",
+                "반납시간",
+                "주행시간"
+              ],
+              "note": "원본 ZIP2020~2025 확보. 최초 서비스 연결은 명시한 기간만. 좌표/명칭 대응표 미확보."
+            },
+            {
+              "source_id": "sejong-master-15091421",
+              "region_id": "sejong",
+              "dataset_name": "세종 어울링 대여소 위치 마스터",
+              "source_url": "https://www.data.go.kr/data/15091421/fileData.do",
+              "date_start": "2026-05-26",
+              "date_end": "2026-05-26",
+              "collected_at": "2026-11-16T14:04:09.067324+00:00",
+              "verification_status": "VERIFIED",
+              "available_columns": [
+                "대여소 아이디",
+                "대여소 이름",
+                "사용유무",
+                "주소(동)",
+                "상세주소",
+                "경도",
+                "위도",
+                "권역",
+                "지오펜스 거리",
+                "등록일",
+                "수정일"
+              ],
+              "note": "2025-10 등록 이내 ID만 연결. 좌표는2026-05 기준으로 과거 위치 변경 가능성이 있음."
+            }
+          ],
+          "total_rentals": 259143,
+          "annual_latest": {
+            "region_id": "sejong",
+            "year": 2025,
+            "period_end": "2025-12-31",
+            "complete_year": true,
+            "rental_count": 2629483
+          },
+          "has_od": true,
+          "coverage_note": "세종 2025년10월 이용이력에 공식2026-05 대여소 마스터를 ID로 연결했습니다. 위치 자료의 시점 차이가 있으며 미매칭 ID는 지도에서 제외합니다.",
+          "period_start": "2025-10-01",
+          "period_end": "2025-10-31"
+        },
+        "initiator": "metric_guard",
+        "execution_seconds": 0.005
+      }
+    ],
+    "request_id": "43ee9c580fa64bf79d2c2dfbcab14e96",
+    "provider_calls": [
+      {
+        "stage": "tool_selection",
+        "state": "completed",
+        "usage": {
+          "prompt_tokens": 4215,
+          "completion_tokens": 51,
+          "total_tokens": 4266
+        },
+        "http_status": 200,
+        "response_id": "76da4672-4f47-44f7-bd3c-6eb1fee7ba7b",
+        "model": "solar-mini4-260922",
+        "finish_reason": "tool_calls"
+      },
+      {
+        "stage": "final_answer",
+        "state": "completed",
+        "usage": {
+          "prompt_tokens": 25105,
+          "completion_tokens": 179,
+          "total_tokens": 25284
+        },
+        "http_status": 200,
+        "response_id": "e671992a-9157-4272-8354-84625e8c37e5",
+        "model": "solar-mini4-260922",
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 29320,
+      "completion_tokens": 230,
+      "total_tokens": 29550
+    },
+    "usage_complete": true,
+    "billing_status": "provider_usage_reported",
+    "model": "solar-mini4-260922",
+    "llm_status": "completed"
+  }
+}

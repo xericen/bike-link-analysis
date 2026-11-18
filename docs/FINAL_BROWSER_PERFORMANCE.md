@@ -32,8 +32,8 @@
 
 증거: [browser.json](final-validation/browser.json), [performance.json](final-validation/performance.json), [5개 화면 캡처](final-validation/).
 
-## 이번 WIZ HTTP 캐시 응답 측정
+## 이번 웹 HTTP 캐시 응답 측정
 
-같은 실행에서 측정한 WIZ HTTP 준비된 캐시 응답은 서울 overview 0.0453초/network 0.0174초/research 0.0382초, 전체 overview 0.0280초/network 0.0234초/research 0.0505초였다. 모두 코드 200이다. 위 TestClient 재계산 시간과 측정 조건이 다르며 첫 계산 속도로 해석하지 않는다. [원시 측정](final-validation/wiz-warm-performance.json)
+같은 실행에서 측정한 준비된 캐시 응답은 서울 overview 0.0453초/network 0.0174초/research 0.0382초, 전체 overview 0.0280초/network 0.0234초/research 0.0505초였다. 모두 코드 200이다. 위 TestClient 재계산 시간과 측정 조건이 다르며 첫 계산 속도로 해석하지 않는다. 통합 환경 전용 원시 기록은 저장소에서 제거했다.
 
 최종 CSS에서 사이드바 세로 스크롤을 허용해 짧은 화면에서도 기간 입력에 접근할 수 있게 했다. 최종 전체 도시 문맥의 응답 보호 화면도 별도로 재생 확인했다. 총 캡처 13장을 보관한다.

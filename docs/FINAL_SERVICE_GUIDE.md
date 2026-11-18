@@ -30,4 +30,4 @@
 - [브라우저·성능](FINAL_BROWSER_PERFORMANCE.md)
 - [출처와 기준일](FINAL_DATA_SOURCES.md)
 
-기존 React 소스와 분석 구조를 보존했다. 실제 사용 화면은 WIZ Angular이며 Git push·외부 배포는 하지 않았다.
+기존 React 소스와 분석 구조를 보존했다. 실제 사용 화면은 웹 Angular이며 Git push·외부 배포는 하지 않았다.

@@ -272,11 +272,11 @@ def overview(region_id, date_start=None, date_end=None):
             "weekday_share": round(1 - weekend_share, 4) if weekend_share is not None else None,
             "map_stations": inventory, "annual_latest": annual_latest,
             "has_od": has_observations("od_daily", region_id, date_start, date_end),
-            "coverage_note": "서울은 2026년 10월 집계 OD입니다. 공식 대여소 마스터의 ST ID와 유효 좌표를 확인한 항목만 지도에 연결합니다." if region_id == "seoul" else
-            ("대전 월별 Trip 원본 전체 유효 기간을 분석하며 관리 목적 반납과 검증 실패 행은 제외했습니다." if region_id == "daejeon" and rows else
+            "coverage_note": "서울 2025년12월 개별 대여이력의 공식 ST ID를 사용합니다. 2026-06 위치 마스터 연결 좌표로 과거 위치 동일성은 미검증입니다." if region_id == "seoul" else
+            ("대전 2025년12월 Trip을 분석하며 관리 목적 반납과 검증 실패 행은 제외했습니다." if region_id == "daejeon" and rows else
              "대여소 위치 목록만 확보해 이용량·좌표가 없습니다." if region_id == "daejeon" else
-             "세종 2025년10월 이용이력에 공식2026-05 대여소 마스터를 ID로 연결했습니다. 위치 자료의 시점 차이가 있으며 미매칭 ID는 지도에서 제외합니다." if rows else
-             "선택 기간에는 상세 기록이 없습니다. 세종 2025-10 이력 및 연간 통계를 별도로 제공합니다.")}
+             "세종 2025년12월 이용이력에 공식2026-05 대여소 마스터를 ID로 연결했습니다. 위치 자료의 시점 차이가 있으며 미매칭 ID는 지도에서 제외합니다." if rows else
+             "선택 기간에는 상세 기록이 없습니다. 세종 2025-12 이력 및 연간 통계를 별도로 제공합니다.")}
 
 
 @data_cached
@@ -508,7 +508,7 @@ def hidden_hub_validation(region_id, station_id, date_end=None, date_start=None)
             "pagerank_rank_span": rank_span, "all_minimum_observation_pass": all(x["minimum_observation_pass"] for x in windows)},
         "role": role,
         "why_not_usage_top": f"전체 대여량 {detail['usage_rank']}위로 단순 이용량 TOP 10 밖이지만 PageRank는 {detail['pagerank_rank']}위입니다.",
-        "limitations": ["31일 서울 집계 OD 한 달만 검증해 계절 안정성을 판단할 수 없습니다.",
+        "limitations": ["공통 2025년12월 한 달의 개별 Trip으로 계절 안정성을 판단할 수 없습니다.",
             f"매개 중심성은 {full.get('betweenness_sample_nodes')}개 노드 표본 근사입니다.",
             "PageRank·순위 차이만으로 환승 거점이나 운영 효과를 확정할 수 없습니다."],
         "message": "7·14·30일 동일 종료일 창을 선택 기간 안에서 비교합니다. 최소 관측량은 각 창의 총량 분포 하위 25% 제외 기준이며 요청 일수 충족 여부도 표시합니다."}
@@ -676,7 +676,7 @@ def network(region_id, date_start=None, date_end=None, node_limit=40):
             "period_start": (observed_dates(region_id, date_start, date_end) or [None])[0],
             "period_end": (observed_dates(region_id, date_start, date_end) or [None])[-1],
             "message": ("대전 개별 Trip에서 집계한 연결입니다." if region_id == "daejeon"
-                        else "서울의 집계 OD 연결이며 개별 Trip 기록은 아닙니다.")}
+                        else "선택 도시의 개별 Trip에서 집계한 OD 연결입니다.")}
 
 
 @data_cached
@@ -700,7 +700,7 @@ def compare(region_ids, date_start=None, date_end=None, align_common=False):
     common_period = None
     if align_common and not date_start and not date_end:
         ranges = []
-        comparable = ["seoul","daejeon"] if {"seoul","daejeon"} <= set(selected) else selected
+        comparable = selected
         for rid in comparable:
             dates = observed_dates(rid)
             if dates:

@@ -1,7 +1,7 @@
 # Bike Link Analysis 최종 검증 결과 — 2026-11-12
 
 ## 완료 범위
-실사용 WIZ Angular 다섯 메뉴를 기준으로 기간 선택, 통합 도시 조회, 대여소·네트워크 탐색, 군집 안정성, Solar 근거 보고서를 연결했다. 기존 React·FastAPI·SQLite·14개 Solar 도구와 실제 원본은 보존했다.
+실사용 웹 Angular 다섯 메뉴를 기준으로 기간 선택, 통합 도시 조회, 대여소·네트워크 탐색, 군집 안정성, Solar 근거 보고서를 연결했다. 기존 React·FastAPI·SQLite·14개 Solar 도구와 실제 원본은 보존했다.
 
 ## 데이터 재검산
 | 범위 | 실제 이용량 | 관측 대여소 | 관측일 |
@@ -20,7 +20,7 @@
 
 ## 실행 검증
 - 기존 15개 포함 백엔드 22개 테스트 통과, 기존 deprecation 경고 2건.
-- React TypeScript/Vite 빌드 성공, 최종 WIZ 일반 빌드 성공(errors null).
+- React TypeScript/Vite 빌드 성공, 최종 웹 일반 빌드 성공(errors null).
 - Chromium 데스크톱/모바일 다섯 메뉴, 도시·전체, 7/14/30일, 검색·지도·노드·카드 이동, 군집 안정성, 빈 자료·범위 오류 확인. 페이지 오류 0, 가로 넘침 없음.
 - 기간 KPI SQL 독립 대조: 7일 890,565 / 14일 1,748,118 / 30일 4,080,713건. 이전 기간 응답이 덮어쓰지 않도록 요청 세대·캐시 키·화면 초기화 적용.
 - Solar 실제 질문 5건 HTTP 200, 총 89,772토큰. Q2 잘못된 top_n 인자 거절 후 근거 보강. Q4 원문 수치 불일치 발견: 기본 답변 보류, 도구 기반 요약 표시. 모든 자유 서술의 정확성 검증 완료로 보고하지 않는다.
@@ -28,8 +28,8 @@
 - 서울 7일 overview 캐시 우회 재계산 .4100초/준비 후 .0668초, network 1.6058초/.0229초. TestClient 처리 시간으로 OS 캐시 초기화와 전송 지연은 포함하지 않는다. 최초 새 리비전 분석이 모두 이 속도라고 보장하지 않는다.
 
 ## 변경 파일
-- src/app/component.bike.link/{view.ts,view.pug,view.scss,api.py}
-- bike-link-analysis/backend/services/{periods.py,all_regions.py,real_data.py,wiz_bridge.py}
+- bike-link-analysis/frontend/src의 React 페이지·컴포넌트
+- bike-link-analysis/backend/services/{periods.py,all_regions.py,real_data.py}
 - bike-link-analysis/backend/analysis/clustering.py
 - bike-link-analysis/backend/agents/solar.py
 - bike-link-analysis/backend/models/schemas.py

@@ -1,11 +1,11 @@
-"""Validated date bounds shared by the WIZ UI and its Solar context."""
+"""Validated date bounds shared by the 웹 UI and its Solar context."""
 from datetime import date
 from backend.services import real_data
 
 def bounds(region_id):
     if region_id == "all":
-        days = [real_data.observed_dates(rid) for rid in ("seoul","daejeon")]
-        # Sejong 2025 detail is shown separately; do not erase the 2026 common scope.
+        days = [real_data.observed_dates(rid) for rid in ("seoul","daejeon","sejong")]
+        # Every city participates in the common observed period.
         days = [x for x in days if x]
         low = max((x[0] for x in days), default=None)
         high = min((x[-1] for x in days), default=None)

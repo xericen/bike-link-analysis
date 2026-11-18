@@ -1,0 +1,45 @@
+{
+  "revision": "dbac02a4b66f01f0a0b83195366569de717b95afb981da63850f40893b19f6e0",
+  "profiles": [
+    {
+      "city": "seoul",
+      "seconds": 0.0039404649287462234,
+      "union_added_m2": 824530.4497509211,
+      "overlap_m2": 22337.642696495517
+    },
+    {
+      "city": "daejeon",
+      "seconds": 0.002623970154672861,
+      "union_added_m2": 846868.0924474159,
+      "overlap_m2": 6.984919309616089e-10
+    },
+    {
+      "city": "sejong",
+      "seconds": 0.0026128969620913267,
+      "union_added_m2": 844637.8002465707,
+      "overlap_m2": 2.3283064365386963e-10
+    }
+  ],
+  "primary_metrics_unchanged": true,
+  "transfer_rows": 259143,
+  "route_cases": 9,
+  "usable_route_cases": 7,
+  "live_solar_original_replay": {
+    "passed": false,
+    "unsupported_claims": [
+      {
+        "reason": "후보와 경로 거리의 연결 불일치 또는 미검증",
+        "candidate_id": "grid-982000-1844000"
+      },
+      {
+        "reason": "후보와 경로 거리의 연결 불일치 또는 미검증",
+        "candidate_id": "grid-982000-1844000"
+      },
+      {
+        "reason": "세종 인구밀도 제외 조건과 불일치"
+      }
+    ],
+    "method": "격자 ID·후보별 도로 거리·세종 인구 제외 조건만 검사. 전체 자유 서술 검증 아님."
+  },
+  "note": "Live Solar original withheld; route-to-candidate association and population assertions now also fail explicit guards."
+}

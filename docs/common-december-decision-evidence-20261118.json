@@ -1,0 +1,4478 @@
+{
+  "revision": "db8f8796b46163593e67df116d42984aef1f92dedb659b549467acef43951f35",
+  "profiles": {
+    "seoul": {
+      "city": "seoul",
+      "period_start": "2025-12-01",
+      "period_end": "2025-12-31",
+      "top3": [
+        {
+          "site_id": "grid-961000-1952500",
+          "station_id": "grid-961000-1952500",
+          "latitude": 37.57330941783292,
+          "longitude": 127.06117409381244,
+          "district": "동대문구",
+          "population_density_km2": 24672.329326258725,
+          "population_basis": "administrative district density; not measured grid population",
+          "facilities_within_500m": 17,
+          "nearby_rentals_1000m": 12998,
+          "nearest_station_distance_m": 322.4539680074532,
+          "gap_ratio": 1.0,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_components": {
+            "population_density_km2": 0.9940405244338498,
+            "facilities_within_500m": 0.9994040524433849,
+            "nearby_rentals_1000m": 0.9064362336114422,
+            "gap_ratio": 0.6930870083432658
+          },
+          "score": 0.8982419547079856,
+          "rank": 1,
+          "region_id": "seoul",
+          "nearest_anchor_distance_m": 1040.0401884242572,
+          "selection_reason": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 12,998건, 500m 시설 17개",
+          "observed_demand_label": "주변 기존 대여소 관측량(후보 간 중복 가능); 신규 수요 예측 아님",
+          "feasibility_unchecked": [
+            "부지 소유·사용 허가",
+            "보도 유효 폭·출입구",
+            "안전·하천·철도 횡단",
+            "설치 비용·운영 용량",
+            "과거와 현재 위치 동일성"
+          ]
+        },
+        {
+          "site_id": "grid-961500-1952500",
+          "station_id": "grid-961500-1952500",
+          "latitude": 37.57333032961785,
+          "longitude": 127.06683621432536,
+          "district": "동대문구",
+          "population_density_km2": 24672.329326258725,
+          "population_basis": "administrative district density; not measured grid population",
+          "facilities_within_500m": 15,
+          "nearby_rentals_1000m": 11959,
+          "nearest_station_distance_m": 364.48236868526925,
+          "gap_ratio": 1.0,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_components": {
+            "population_density_km2": 0.9940405244338498,
+            "facilities_within_500m": 0.9982121573301549,
+            "nearby_rentals_1000m": 0.8909415971394518,
+            "gap_ratio": 0.6930870083432658
+          },
+          "score": 0.8940703218116806,
+          "rank": 2,
+          "region_id": "seoul",
+          "nearest_anchor_distance_m": 1336.9629217223721,
+          "selection_reason": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 11,959건, 500m 시설 15개",
+          "observed_demand_label": "주변 기존 대여소 관측량(후보 간 중복 가능); 신규 수요 예측 아님",
+          "feasibility_unchecked": [
+            "부지 소유·사용 허가",
+            "보도 유효 폭·출입구",
+            "안전·하천·철도 횡단",
+            "설치 비용·운영 용량",
+            "과거와 현재 위치 동일성"
+          ]
+        },
+        {
+          "site_id": "grid-942000-1946000",
+          "station_id": "grid-942000-1946000",
+          "latitude": 37.51372897157666,
+          "longitude": 126.8465301312982,
+          "district": "양천구",
+          "population_density_km2": 24112.534574929257,
+          "population_basis": "administrative district density; not measured grid population",
+          "facilities_within_500m": 6,
+          "nearby_rentals_1000m": 9659,
+          "nearest_station_distance_m": 408.5962557940428,
+          "gap_ratio": 1.0,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_components": {
+            "population_density_km2": 0.9785458879618594,
+            "facilities_within_500m": 0.9564958283671037,
+            "nearby_rentals_1000m": 0.8432657926102503,
+            "gap_ratio": 0.6930870083432658
+          },
+          "score": 0.8678486293206198,
+          "rank": 3,
+          "region_id": "seoul",
+          "nearest_anchor_distance_m": 911.7128057604584,
+          "selection_reason": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 9,659건, 500m 시설 6개",
+          "observed_demand_label": "주변 기존 대여소 관측량(후보 간 중복 가능); 신규 수요 예측 아님",
+          "feasibility_unchecked": [
+            "부지 소유·사용 허가",
+            "보도 유효 폭·출입구",
+            "안전·하천·철도 횡단",
+            "설치 비용·운영 용량",
+            "과거와 현재 위치 동일성"
+          ]
+        }
+      ],
+      "top3_union": {
+        "selected_ids": [
+          "grid-942000-1946000",
+          "grid-961000-1952500",
+          "grid-961500-1952500"
+        ],
+        "baseline_area_m2": 196710871.79670292,
+        "added_area_m2": 824530.4497509211,
+        "overlap_area_m2": 22337.642696495517,
+        "linked_area_m2": 197535402.24645385,
+        "increase_ratio": 0.0041915855601669955
+      },
+      "route_audit": [
+        {
+          "city": "seoul",
+          "period_start": "2025-12-01",
+          "period_end": "2025-12-31",
+          "candidate_id": "grid-961000-1952500",
+          "kind": "신규 입지",
+          "anchor_id": "rail:%EC%84%9C%EC%9A%B8%EA%B5%90%ED%86%B5%EA%B3%B5%EC%82%AC|S1105|0542",
+          "anchor_name": "답십리",
+          "latitude": 37.57330941783292,
+          "longitude": 127.06117409381244,
+          "straight_distance_m": 1040.0401884242572,
+          "routes": {
+            "foot": {
+              "status": "ok",
+              "distance_m": 1556.6,
+              "duration_s": 1244.8,
+              "snap_distances_m": [
+                0.5549422497,
+                3.836938077
+              ],
+              "snapped_coordinates": [
+                [
+                  127.061174,
+                  37.573304
+                ],
+                [
+                  127.05263,
+                  37.566808
+                ]
+              ],
+              "detour_ratio": 1.4966729337241973,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.061174,
+                    37.573304
+                  ],
+                  [
+                    127.06112,
+                    37.573242
+                  ],
+                  [
+                    127.060944,
+                    37.573276
+                  ],
+                  [
+                    127.060972,
+                    37.572919
+                  ],
+                  [
+                    127.060417,
+                    37.572926
+                  ],
+                  [
+                    127.060404,
+                    37.572752
+                  ],
+                  [
+                    127.057675,
+                    37.572799
+                  ],
+                  [
+                    127.057555,
+                    37.572736
+                  ],
+                  [
+                    127.057126,
+                    37.568059
+                  ],
+                  [
+                    127.056832,
+                    37.567931
+                  ],
+                  [
+                    127.056471,
+                    37.566973
+                  ],
+                  [
+                    127.055616,
+                    37.56623
+                  ],
+                  [
+                    127.05551,
+                    37.566229
+                  ],
+                  [
+                    127.054855,
+                    37.565602
+                  ],
+                  [
+                    127.054731,
+                    37.565594
+                  ],
+                  [
+                    127.054392,
+                    37.565297
+                  ],
+                  [
+                    127.05377,
+                    37.565761
+                  ],
+                  [
+                    127.053733,
+                    37.565924
+                  ],
+                  [
+                    127.053317,
+                    37.566291
+                  ],
+                  [
+                    127.05263,
+                    37.566808
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-17T11:20:24.201605+00:00",
+              "response_sha256": "35b64edb4d5a58a2106828ba855bc787873e94fca361f9c26d90f0087a7ea262",
+              "comparable_straight_rank": 1,
+              "distance_rank": 1
+            },
+            "bike": {
+              "status": "ok",
+              "distance_m": 1501.4,
+              "duration_s": 411,
+              "snap_distances_m": [
+                0.5549422497,
+                3.836938077
+              ],
+              "snapped_coordinates": [
+                [
+                  127.061174,
+                  37.573304
+                ],
+                [
+                  127.05263,
+                  37.566808
+                ]
+              ],
+              "detour_ratio": 1.443598061604465,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.061174,
+                    37.573304
+                  ],
+                  [
+                    127.06112,
+                    37.573242
+                  ],
+                  [
+                    127.060944,
+                    37.573276
+                  ],
+                  [
+                    127.060955,
+                    37.572843
+                  ],
+                  [
+                    127.057486,
+                    37.5729
+                  ],
+                  [
+                    127.054204,
+                    37.572824
+                  ],
+                  [
+                    127.054175,
+                    37.572236
+                  ],
+                  [
+                    127.054056,
+                    37.571806
+                  ],
+                  [
+                    127.053599,
+                    37.570678
+                  ],
+                  [
+                    127.052902,
+                    37.569785
+                  ],
+                  [
+                    127.051125,
+                    37.568298
+                  ],
+                  [
+                    127.051937,
+                    37.567696
+                  ],
+                  [
+                    127.051703,
+                    37.567497
+                  ],
+                  [
+                    127.05263,
+                    37.566808
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-17T11:20:25.958679+00:00",
+              "response_sha256": "d047d6f3cd735a9e55b3e383d4b85753ee46beeb4850ae6204fc2897a87f381a",
+              "comparable_straight_rank": 1,
+              "distance_rank": 1
+            }
+          },
+          "straight_rank": 1
+        },
+        {
+          "city": "seoul",
+          "period_start": "2025-12-01",
+          "period_end": "2025-12-31",
+          "candidate_id": "grid-961500-1952500",
+          "kind": "신규 입지",
+          "anchor_id": "rail:%EC%84%9C%EC%9A%B8%EA%B5%90%ED%86%B5%EA%B3%B5%EC%82%AC|S1105|0543",
+          "anchor_name": "장한평",
+          "latitude": 37.57333032961785,
+          "longitude": 127.06683621432536,
+          "straight_distance_m": 1336.9629217223721,
+          "routes": {
+            "foot": {
+              "status": "ok",
+              "distance_m": 2097.8,
+              "duration_s": 1684.6,
+              "snap_distances_m": [
+                1.092189833,
+                5.494889976
+              ],
+              "snapped_coordinates": [
+                [
+                  127.066831,
+                  37.573321
+                ],
+                [
+                  127.064624,
+                  37.561392
+                ]
+              ],
+              "detour_ratio": 1.5690786677146311,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.066831,
+                    37.573321
+                  ],
+                  [
+                    127.067382,
+                    37.573146
+                  ],
+                  [
+                    127.067299,
+                    37.572787
+                  ],
+                  [
+                    127.069846,
+                    37.57259
+                  ],
+                  [
+                    127.069821,
+                    37.57239
+                  ],
+                  [
+                    127.07091,
+                    37.57231
+                  ],
+                  [
+                    127.071126,
+                    37.572097
+                  ],
+                  [
+                    127.071369,
+                    37.572215
+                  ],
+                  [
+                    127.071884,
+                    37.572185
+                  ],
+                  [
+                    127.071988,
+                    37.572043
+                  ],
+                  [
+                    127.07162,
+                    37.571863
+                  ],
+                  [
+                    127.067891,
+                    37.565887
+                  ],
+                  [
+                    127.067731,
+                    37.565841
+                  ],
+                  [
+                    127.065206,
+                    37.562175
+                  ],
+                  [
+                    127.065118,
+                    37.562066
+                  ],
+                  [
+                    127.064865,
+                    37.562168
+                  ],
+                  [
+                    127.064425,
+                    37.561925
+                  ],
+                  [
+                    127.064325,
+                    37.561355
+                  ],
+                  [
+                    127.064096,
+                    37.561217
+                  ],
+                  [
+                    127.064468,
+                    37.560983
+                  ],
+                  [
+                    127.064624,
+                    37.561392
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-17T11:20:27.849808+00:00",
+              "response_sha256": "097f04e362962d3099ffd28aa051313c913c2566475687f3af76dcfc1f2598a9",
+              "comparable_straight_rank": 2,
+              "distance_rank": 3
+            },
+            "bike": {
+              "status": "ok",
+              "distance_m": 1706.3,
+              "duration_s": 443.4,
+              "snap_distances_m": [
+                1.092189833,
+                2.583318771
+              ],
+              "snapped_coordinates": [
+                [
+                  127.066831,
+                  37.573321
+                ],
+                [
+                  127.06463,
+                  37.561435
+                ]
+              ],
+              "detour_ratio": 1.2762508011828937,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.066831,
+                    37.573321
+                  ],
+                  [
+                    127.066669,
+                    37.573373
+                  ],
+                  [
+                    127.065168,
+                    37.570892
+                  ],
+                  [
+                    127.069451,
+                    37.56874
+                  ],
+                  [
+                    127.064528,
+                    37.561406
+                  ],
+                  [
+                    127.06463,
+                    37.561435
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-17T11:20:29.591650+00:00",
+              "response_sha256": "d81c38f7bbf6d325bce626497144f86732d6942f866a9d81f20b18e2636cd03b",
+              "comparable_straight_rank": 2,
+              "distance_rank": 2
+            }
+          },
+          "straight_rank": 2
+        },
+        {
+          "city": "seoul",
+          "period_start": "2025-12-01",
+          "period_end": "2025-12-31",
+          "candidate_id": "ST-919",
+          "kind": "기존 취약",
+          "anchor_id": "rail:%EC%84%9C%EC%9A%B8%EA%B5%90%ED%86%B5%EA%B3%B5%EC%82%AC|S1122|2342",
+          "anchor_name": "양천구청",
+          "latitude": 37.49988937,
+          "longitude": 126.86769867,
+          "straight_distance_m": 1395.684727386796,
+          "routes": {
+            "foot": {
+              "status": "ok",
+              "distance_m": 2054.3,
+              "duration_s": 1643.2,
+              "snap_distances_m": [
+                11.82957335,
+                13.8578438
+              ],
+              "snapped_coordinates": [
+                [
+                  126.867713,
+                  37.499783
+                ],
+                [
+                  126.865535,
+                  37.512445
+                ]
+              ],
+              "detour_ratio": 1.4718940171010966,
+              "geometry": {
+                "coordinates": [
+                  [
+                    126.867713,
+                    37.499783
+                  ],
+                  [
+                    126.86747,
+                    37.499675
+                  ],
+                  [
+                    126.864799,
+                    37.501743
+                  ],
+                  [
+                    126.864189,
+                    37.502369
+                  ],
+                  [
+                    126.864066,
+                    37.502908
+                  ],
+                  [
+                    126.863365,
+                    37.504239
+                  ],
+                  [
+                    126.862204,
+                    37.505287
+                  ],
+                  [
+                    126.860945,
+                    37.507097
+                  ],
+                  [
+                    126.862483,
+                    37.507717
+                  ],
+                  [
+                    126.861545,
+                    37.50945
+                  ],
+                  [
+                    126.861895,
+                    37.509581
+                  ],
+                  [
+                    126.861496,
+                    37.510316
+                  ],
+                  [
+                    126.862455,
+                    37.510692
+                  ],
+                  [
+                    126.862142,
+                    37.511247
+                  ],
+                  [
+                    126.863901,
+                    37.51186
+                  ],
+                  [
+                    126.864383,
+                    37.512173
+                  ],
+                  [
+                    126.865244,
+                    37.512475
+                  ],
+                  [
+                    126.865535,
+                    37.512445
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-18T05:09:12.970917+00:00",
+              "response_sha256": "b5f80a4008c6a36c69d06c69964197f69c6362d79e3fcbceefea573d9edabb81",
+              "comparable_straight_rank": 3,
+              "distance_rank": 2
+            },
+            "bike": {
+              "status": "ok",
+              "distance_m": 2079.8,
+              "duration_s": 542.8,
+              "snap_distances_m": [
+                11.82957335,
+                13.8578438
+              ],
+              "snapped_coordinates": [
+                [
+                  126.867713,
+                  37.499783
+                ],
+                [
+                  126.865535,
+                  37.512445
+                ]
+              ],
+              "detour_ratio": 1.490164618978173,
+              "geometry": {
+                "coordinates": [
+                  [
+                    126.867713,
+                    37.499783
+                  ],
+                  [
+                    126.86747,
+                    37.499675
+                  ],
+                  [
+                    126.864799,
+                    37.501743
+                  ],
+                  [
+                    126.864189,
+                    37.502369
+                  ],
+                  [
+                    126.864066,
+                    37.502908
+                  ],
+                  [
+                    126.863365,
+                    37.504239
+                  ],
+                  [
+                    126.862204,
+                    37.505287
+                  ],
+                  [
+                    126.860945,
+                    37.507097
+                  ],
+                  [
+                    126.862483,
+                    37.507717
+                  ],
+                  [
+                    126.860628,
+                    37.510896
+                  ],
+                  [
+                    126.865244,
+                    37.512475
+                  ],
+                  [
+                    126.865535,
+                    37.512445
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-18T05:09:14.974486+00:00",
+              "response_sha256": "ac686279b3a34c9a69377bf9da70e7a61985d4f79044637f0dd0f24c28876de4",
+              "comparable_straight_rank": 3,
+              "distance_rank": 3
+            }
+          },
+          "straight_rank": 3
+        }
+      ],
+      "route_source": "https://routing.openstreetmap.de/about.html",
+      "route_limitations": [
+        "각 도시3후보의 같은 최근접 직선 앵커까지의 경로 비교. 다른 앵커의 네트워크 최단 경로는 탐색하지 않음.",
+        "현재 OSM 도로망 모델이며 과거 관측 시점·실제 현장 보행·자전거 통행 가능성의 보장은 아님.",
+        "스냅50m 초과는 순위 비교에서 제외. 스냅 접속 구간의 통행 가능성은 미검증. 서로 다른 도시의 거리 순위는 합산하지 않음."
+      ],
+      "sensitivity": [
+        {
+          "distance_m": 300,
+          "policy": "균등",
+          "weights": {
+            "accessibility_deficit": 0.3333333333333333,
+            "rental_count": 0.3333333333333333,
+            "potential_added_area_m2": 0.3333333333333333
+          },
+          "candidate_count": 1879,
+          "top_ids": [
+            "ST-919",
+            "ST-2270",
+            "ST-1069",
+            "ST-1226",
+            "ST-3225",
+            "ST-262",
+            "ST-2642",
+            "ST-2412",
+            "ST-678",
+            "ST-1529"
+          ],
+          "top10_jaccard": 0.8181818181818182,
+          "mean_rank_shift": 3.4444444444444446
+        },
+        {
+          "distance_m": 300,
+          "policy": "접근성 우선",
+          "weights": {
+            "accessibility_deficit": 0.5,
+            "rental_count": 0.25,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 1879,
+          "top_ids": [
+            "ST-678",
+            "ST-1529",
+            "ST-1226",
+            "ST-919",
+            "ST-2642",
+            "ST-3225",
+            "ST-2270",
+            "ST-1147",
+            "ST-262",
+            "ST-1219"
+          ],
+          "top10_jaccard": 0.8181818181818182,
+          "mean_rank_shift": 1.1111111111111112
+        },
+        {
+          "distance_m": 300,
+          "policy": "수요 우선",
+          "weights": {
+            "accessibility_deficit": 0.25,
+            "rental_count": 0.5,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 1879,
+          "top_ids": [
+            "ST-919",
+            "ST-1069",
+            "ST-1352",
+            "ST-2412",
+            "ST-262",
+            "ST-997",
+            "ST-2270",
+            "ST-873",
+            "ST-3225",
+            "ST-3388"
+          ],
+          "top10_jaccard": 0.3333333333333333,
+          "mean_rank_shift": 2.8
+        },
+        {
+          "distance_m": 500,
+          "policy": "균등",
+          "weights": {
+            "accessibility_deficit": 0.3333333333333333,
+            "rental_count": 0.3333333333333333,
+            "potential_added_area_m2": 0.3333333333333333
+          },
+          "candidate_count": 1272,
+          "top_ids": [
+            "ST-919",
+            "ST-678",
+            "ST-1226",
+            "ST-1529",
+            "ST-2642",
+            "ST-2270",
+            "ST-3225",
+            "ST-262",
+            "ST-1219",
+            "ST-1069"
+          ],
+          "top10_jaccard": 1.0,
+          "mean_rank_shift": 0.0
+        },
+        {
+          "distance_m": 500,
+          "policy": "접근성 우선",
+          "weights": {
+            "accessibility_deficit": 0.5,
+            "rental_count": 0.25,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 1272,
+          "top_ids": [
+            "ST-678",
+            "ST-1529",
+            "ST-1147",
+            "ST-1226",
+            "ST-2932",
+            "ST-2642",
+            "ST-920",
+            "ST-919",
+            "ST-3225",
+            "ST-1228"
+          ],
+          "top10_jaccard": 0.42857142857142855,
+          "mean_rank_shift": 2.3333333333333335
+        },
+        {
+          "distance_m": 500,
+          "policy": "수요 우선",
+          "weights": {
+            "accessibility_deficit": 0.25,
+            "rental_count": 0.5,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 1272,
+          "top_ids": [
+            "ST-919",
+            "ST-1069",
+            "ST-2270",
+            "ST-262",
+            "ST-3225",
+            "ST-2412",
+            "ST-1226",
+            "ST-2642",
+            "ST-1352",
+            "ST-873"
+          ],
+          "top10_jaccard": 0.5384615384615384,
+          "mean_rank_shift": 3.4285714285714284
+        },
+        {
+          "distance_m": 800,
+          "policy": "균등",
+          "weights": {
+            "accessibility_deficit": 0.3333333333333333,
+            "rental_count": 0.3333333333333333,
+            "potential_added_area_m2": 0.3333333333333333
+          },
+          "candidate_count": 639,
+          "top_ids": [
+            "ST-678",
+            "ST-1529",
+            "ST-1147",
+            "ST-2932",
+            "ST-920",
+            "ST-1226",
+            "ST-2642",
+            "ST-1228",
+            "ST-3225",
+            "ST-619"
+          ],
+          "top10_jaccard": 0.3333333333333333,
+          "mean_rank_shift": 2.0
+        },
+        {
+          "distance_m": 800,
+          "policy": "접근성 우선",
+          "weights": {
+            "accessibility_deficit": 0.5,
+            "rental_count": 0.25,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 639,
+          "top_ids": [
+            "ST-2932",
+            "ST-1147",
+            "ST-678",
+            "ST-2639",
+            "ST-1529",
+            "ST-920",
+            "ST-1228",
+            "ST-2895",
+            "ST-1940",
+            "ST-2210"
+          ],
+          "top10_jaccard": 0.1111111111111111,
+          "mean_rank_shift": 1.0
+        },
+        {
+          "distance_m": 800,
+          "policy": "수요 우선",
+          "weights": {
+            "accessibility_deficit": 0.25,
+            "rental_count": 0.5,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 639,
+          "top_ids": [
+            "ST-678",
+            "ST-1529",
+            "ST-1226",
+            "ST-2642",
+            "ST-919",
+            "ST-3225",
+            "ST-2270",
+            "ST-1219",
+            "ST-262",
+            "ST-1147"
+          ],
+          "top10_jaccard": 0.8181818181818182,
+          "mean_rank_shift": 1.3333333333333333
+        }
+      ],
+      "hidden_hub": {
+        "station_id": "ST-1481",
+        "station_name": "구파발역 환승센터",
+        "pagerank": 0.0007345,
+        "weighted_out_degree": 424,
+        "weighted_in_degree": 571,
+        "betweenness": 1.13e-05,
+        "rental_count": 424,
+        "usage_rank": 1629,
+        "pagerank_rank": 214,
+        "betweenness_rank": 1601,
+        "rank_gap": 1415,
+        "top_connections": [
+          {
+            "station_id": "ST-451",
+            "station_name": "은평뉴타운 아이파크",
+            "trip_count": 129,
+            "direction": "in"
+          },
+          {
+            "station_id": "ST-451",
+            "station_name": "은평뉴타운 아이파크",
+            "trip_count": 108,
+            "direction": "out"
+          },
+          {
+            "station_id": "ST-2244",
+            "station_name": "진관고등학교앞",
+            "trip_count": 82,
+            "direction": "in"
+          },
+          {
+            "station_id": "ST-452",
+            "station_name": "은평뉴타운 푸르지오",
+            "trip_count": 81,
+            "direction": "in"
+          },
+          {
+            "station_id": "ST-1329",
+            "station_name": "은평뉴타운구파발9단지",
+            "trip_count": 67,
+            "direction": "in"
+          },
+          {
+            "station_id": "ST-2244",
+            "station_name": "진관고등학교앞",
+            "trip_count": 56,
+            "direction": "out"
+          },
+          {
+            "station_id": "ST-1028",
+            "station_name": "상림마을 생태공원",
+            "trip_count": 55,
+            "direction": "in"
+          },
+          {
+            "station_id": "ST-452",
+            "station_name": "은평뉴타운 푸르지오",
+            "trip_count": 53,
+            "direction": "out"
+          },
+          {
+            "station_id": "ST-1329",
+            "station_name": "은평뉴타운구파발9단지",
+            "trip_count": 38,
+            "direction": "out"
+          },
+          {
+            "station_id": "ST-1028",
+            "station_name": "상림마을 생태공원",
+            "trip_count": 36,
+            "direction": "out"
+          }
+        ],
+        "usage_percentile": 0.4093,
+        "pagerank_percentile": 0.9227,
+        "candidate": true,
+        "decision": "대여량만 보면 낮은 우선순위이나 PageRank가 높아 연결 유지 검토 사례로 추가합니다. 설치 우선순위 가산점이나 실제 환승 근거로 사용하지 않습니다."
+      },
+      "pattern_case": {
+        "cosine": 0.13690702119299059,
+        "neighbor_search_limit": 25,
+        "selection_rule": "대여량 순 인접 25개 이내·5% 수요 차이 조건의 비교 중 최저 Cosine 사례",
+        "max_demand_difference_ratio": 0.05,
+        "stations": [
+          {
+            "station_id": "ST-2912",
+            "rental_count": 115,
+            "peak_hour": 8,
+            "hourly": [
+              3,
+              2,
+              1,
+              0,
+              6,
+              3,
+              6,
+              10,
+              36,
+              15,
+              5,
+              5,
+              2,
+              1,
+              3,
+              2,
+              3,
+              0,
+              1,
+              1,
+              7,
+              0,
+              2,
+              1
+            ]
+          },
+          {
+            "station_id": "ST-1310",
+            "rental_count": 117,
+            "peak_hour": 17,
+            "hourly": [
+              3,
+              1,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              2,
+              6,
+              12,
+              9,
+              8,
+              4,
+              11,
+              34,
+              9,
+              3,
+              7,
+              2,
+              0,
+              3
+            ]
+          }
+        ],
+        "decision": "총대여량이 유사해도 집중 시간이 다르면 현장 관찰·재배치 검토 시간대를 달리합니다. 실제 부족·이동 필요 수량은 추정하지 않습니다."
+      },
+      "cluster_quality": {
+        "selected_k": 3,
+        "silhouette": 0.0892,
+        "quality": "low"
+      },
+      "cluster_decision": "낮은 Silhouette로 군집 역할 해석 보류. 최종 입지 점수에 군집명을 강제로 반영하지 않습니다.",
+      "planning_scope": "공간 모델상 검토 후보이며 실제 설치 후 이용량·환승 증가 예측 아님",
+      "population_basis": "2026-10 구 주민등록 인구밀도. 실측 격자인구 아님.",
+      "transfer_audit": {
+        "actual_transfer_rate": null,
+        "message": "실제 환승 여부 미확인. 앵커 근접 이동은 환승 가능성 지표입니다."
+      }
+    },
+    "daejeon": {
+      "city": "daejeon",
+      "period_start": "2025-12-01",
+      "period_end": "2025-12-31",
+      "top3": [
+        {
+          "site_id": "grid-987000-1811500",
+          "station_id": "grid-987000-1811500",
+          "latitude": 36.30299306746581,
+          "longitude": 127.35798876311927,
+          "district": "서구",
+          "population_density_km2": 4866.711423162011,
+          "population_basis": "administrative district density; not measured grid population",
+          "facilities_within_500m": 3,
+          "nearby_rentals_1000m": 6519,
+          "nearest_station_distance_m": 346.51818608596744,
+          "gap_ratio": 1.0,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_components": {
+            "population_density_km2": 0.9322381930184805,
+            "facilities_within_500m": 0.9815195071868583,
+            "nearby_rentals_1000m": 0.9743326488706365,
+            "gap_ratio": 0.5174537987679672
+          },
+          "score": 0.8513860369609856,
+          "rank": 1,
+          "region_id": "daejeon",
+          "nearest_anchor_distance_m": 5038.768901983218,
+          "selection_reason": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 6,519건, 500m 시설 3개",
+          "observed_demand_label": "주변 기존 대여소 관측량(후보 간 중복 가능); 신규 수요 예측 아님",
+          "feasibility_unchecked": [
+            "부지 소유·사용 허가",
+            "보도 유효 폭·출입구",
+            "안전·하천·철도 횡단",
+            "설치 비용·운영 용량",
+            "과거와 현재 위치 동일성"
+          ]
+        },
+        {
+          "site_id": "grid-987500-1816500",
+          "station_id": "grid-987500-1816500",
+          "latitude": 36.3480766892513,
+          "longitude": 127.36347921114421,
+          "district": "서구",
+          "population_density_km2": 4866.711423162011,
+          "population_basis": "administrative district density; not measured grid population",
+          "facilities_within_500m": 2,
+          "nearby_rentals_1000m": 7763,
+          "nearest_station_distance_m": 418.5365124443527,
+          "gap_ratio": 1.0,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_components": {
+            "population_density_km2": 0.9322381930184805,
+            "facilities_within_500m": 0.9589322381930184,
+            "nearby_rentals_1000m": 0.9825462012320328,
+            "gap_ratio": 0.5174537987679672
+          },
+          "score": 0.8477926078028748,
+          "rank": 2,
+          "region_id": "daejeon",
+          "nearest_anchor_distance_m": 1083.5194944510154,
+          "selection_reason": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 7,763건, 500m 시설 2개",
+          "observed_demand_label": "주변 기존 대여소 관측량(후보 간 중복 가능); 신규 수요 예측 아님",
+          "feasibility_unchecked": [
+            "부지 소유·사용 허가",
+            "보도 유효 폭·출입구",
+            "안전·하천·철도 횡단",
+            "설치 비용·운영 용량",
+            "과거와 현재 위치 동일성"
+          ]
+        },
+        {
+          "site_id": "grid-986500-1811000",
+          "station_id": "grid-986500-1811000",
+          "latitude": 36.29847859265736,
+          "longitude": 127.35242820320029,
+          "district": "서구",
+          "population_density_km2": 4866.711423162011,
+          "population_basis": "administrative district density; not measured grid population",
+          "facilities_within_500m": 2,
+          "nearby_rentals_1000m": 5250,
+          "nearest_station_distance_m": 332.44205528982206,
+          "gap_ratio": 1.0,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_components": {
+            "population_density_km2": 0.9322381930184805,
+            "facilities_within_500m": 0.9589322381930184,
+            "nearby_rentals_1000m": 0.9496919917864476,
+            "gap_ratio": 0.5174537987679672
+          },
+          "score": 0.8395790554414784,
+          "rank": 3,
+          "region_id": "daejeon",
+          "nearest_anchor_distance_m": 5742.815687971905,
+          "selection_reason": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 5,250건, 500m 시설 2개",
+          "observed_demand_label": "주변 기존 대여소 관측량(후보 간 중복 가능); 신규 수요 예측 아님",
+          "feasibility_unchecked": [
+            "부지 소유·사용 허가",
+            "보도 유효 폭·출입구",
+            "안전·하천·철도 횡단",
+            "설치 비용·운영 용량",
+            "과거와 현재 위치 동일성"
+          ]
+        }
+      ],
+      "top3_union": {
+        "selected_ids": [
+          "grid-986500-1811000",
+          "grid-987000-1811500",
+          "grid-987500-1816500"
+        ],
+        "baseline_area_m2": 16206891.226654623,
+        "added_area_m2": 846868.0924474159,
+        "overlap_area_m2": 6.984919309616089e-10,
+        "linked_area_m2": 17053759.319102038,
+        "increase_ratio": 0.052253580319871366
+      },
+      "route_audit": [
+        {
+          "city": "daejeon",
+          "period_start": "2025-12-01",
+          "period_end": "2025-12-31",
+          "candidate_id": "grid-987000-1811500",
+          "kind": "신규 입지",
+          "anchor_id": "rail:%EB%8C%80%EC%A0%84%EA%B5%90%ED%86%B5%EA%B3%B5%EC%82%AC|S3001|109",
+          "anchor_name": "용문",
+          "latitude": 36.30299306746581,
+          "longitude": 127.35798876311927,
+          "straight_distance_m": 5038.768901983218,
+          "routes": {
+            "foot": {
+              "status": "snap_uncertain",
+              "distance_m": 6090.9,
+              "duration_s": 4871.8,
+              "snap_distances_m": [
+                56.13343729,
+                5.604515501
+              ],
+              "snapped_coordinates": [
+                [
+                  127.35747,
+                  36.303275
+                ],
+                [
+                  127.393362,
+                  36.338287
+                ]
+              ],
+              "detour_ratio": 1.2088071746260622,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.35747,
+                    36.303275
+                  ],
+                  [
+                    127.360184,
+                    36.306626
+                  ],
+                  [
+                    127.361577,
+                    36.306894
+                  ],
+                  [
+                    127.362213,
+                    36.306659
+                  ],
+                  [
+                    127.362471,
+                    36.30702
+                  ],
+                  [
+                    127.364563,
+                    36.307434
+                  ],
+                  [
+                    127.364438,
+                    36.307707
+                  ],
+                  [
+                    127.367774,
+                    36.308979
+                  ],
+                  [
+                    127.367395,
+                    36.309781
+                  ],
+                  [
+                    127.368127,
+                    36.310238
+                  ],
+                  [
+                    127.368468,
+                    36.312282
+                  ],
+                  [
+                    127.368934,
+                    36.31313
+                  ],
+                  [
+                    127.370581,
+                    36.315018
+                  ],
+                  [
+                    127.37132,
+                    36.315077
+                  ],
+                  [
+                    127.371935,
+                    36.315496
+                  ],
+                  [
+                    127.372069,
+                    36.318113
+                  ],
+                  [
+                    127.37421,
+                    36.318021
+                  ],
+                  [
+                    127.374436,
+                    36.321802
+                  ],
+                  [
+                    127.376476,
+                    36.321747
+                  ],
+                  [
+                    127.376617,
+                    36.324944
+                  ],
+                  [
+                    127.377288,
+                    36.324907
+                  ],
+                  [
+                    127.378288,
+                    36.327127
+                  ],
+                  [
+                    127.379059,
+                    36.326897
+                  ],
+                  [
+                    127.380561,
+                    36.328984
+                  ],
+                  [
+                    127.381314,
+                    36.328622
+                  ],
+                  [
+                    127.384416,
+                    36.331376
+                  ],
+                  [
+                    127.385124,
+                    36.330791
+                  ],
+                  [
+                    127.392784,
+                    36.336866
+                  ],
+                  [
+                    127.392124,
+                    36.337362
+                  ],
+                  [
+                    127.393362,
+                    36.338287
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-17T11:20:34.854745+00:00",
+              "response_sha256": "afb1e9fb887cdbdb92e94f9b0574ac4420a0dad4531c02af94a4a13367bc2128"
+            },
+            "bike": {
+              "status": "snap_uncertain",
+              "distance_m": 9050.1,
+              "duration_s": 1059.1,
+              "snap_distances_m": [
+                56.13343729,
+                5.604515501
+              ],
+              "snapped_coordinates": [
+                [
+                  127.35747,
+                  36.303275
+                ],
+                [
+                  127.393362,
+                  36.338287
+                ]
+              ],
+              "detour_ratio": 1.796093485541271,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.35747,
+                    36.303275
+                  ],
+                  [
+                    127.358188,
+                    36.303982
+                  ],
+                  [
+                    127.357926,
+                    36.304562
+                  ],
+                  [
+                    127.35547,
+                    36.304551
+                  ],
+                  [
+                    127.35604,
+                    36.305747
+                  ],
+                  [
+                    127.360963,
+                    36.306965
+                  ],
+                  [
+                    127.363589,
+                    36.307304
+                  ],
+                  [
+                    127.368416,
+                    36.308927
+                  ],
+                  [
+                    127.368988,
+                    36.308851
+                  ],
+                  [
+                    127.370635,
+                    36.305522
+                  ],
+                  [
+                    127.37136,
+                    36.304874
+                  ],
+                  [
+                    127.372972,
+                    36.30453
+                  ],
+                  [
+                    127.378904,
+                    36.304292
+                  ],
+                  [
+                    127.379294,
+                    36.305073
+                  ],
+                  [
+                    127.382093,
+                    36.306834
+                  ],
+                  [
+                    127.385681,
+                    36.310976
+                  ],
+                  [
+                    127.386305,
+                    36.312401
+                  ],
+                  [
+                    127.384788,
+                    36.318171
+                  ],
+                  [
+                    127.385079,
+                    36.320714
+                  ],
+                  [
+                    127.385925,
+                    36.3226
+                  ],
+                  [
+                    127.389269,
+                    36.327305
+                  ],
+                  [
+                    127.392979,
+                    36.331212
+                  ],
+                  [
+                    127.400081,
+                    36.336888
+                  ],
+                  [
+                    127.401622,
+                    36.339019
+                  ],
+                  [
+                    127.40249,
+                    36.338766
+                  ],
+                  [
+                    127.401544,
+                    36.337195
+                  ],
+                  [
+                    127.399994,
+                    36.335753
+                  ],
+                  [
+                    127.400154,
+                    36.335405
+                  ],
+                  [
+                    127.399685,
+                    36.335199
+                  ],
+                  [
+                    127.399543,
+                    36.334532
+                  ],
+                  [
+                    127.39867,
+                    36.333892
+                  ],
+                  [
+                    127.393362,
+                    36.338287
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-17T11:20:36.626814+00:00",
+              "response_sha256": "44e1ff33cce35f96f404b8514f50458563fa81fe37f897e9cef3270ac2052fdb"
+            }
+          },
+          "straight_rank": 2
+        },
+        {
+          "city": "daejeon",
+          "period_start": "2025-12-01",
+          "period_end": "2025-12-31",
+          "candidate_id": "grid-987500-1816500",
+          "kind": "신규 입지",
+          "anchor_id": "rail:%EB%8C%80%EC%A0%84%EA%B5%90%ED%86%B5%EA%B3%B5%EC%82%AC|S3001|115",
+          "anchor_name": "갑천",
+          "latitude": 36.3480766892513,
+          "longitude": 127.36347921114421,
+          "straight_distance_m": 1083.5194944510154,
+          "routes": {
+            "foot": {
+              "status": "ok",
+              "distance_m": 1693.2,
+              "duration_s": 1360.7,
+              "snap_distances_m": [
+                28.25959402,
+                4.052871622
+              ],
+              "snapped_coordinates": [
+                [
+                  127.363631,
+                  36.3483
+                ],
+                [
+                  127.354496,
+                  36.35455
+                ]
+              ],
+              "detour_ratio": 1.5626853126974798,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.363631,
+                    36.3483
+                  ],
+                  [
+                    127.363832,
+                    36.3483
+                  ],
+                  [
+                    127.363831,
+                    36.348604
+                  ],
+                  [
+                    127.364186,
+                    36.348598
+                  ],
+                  [
+                    127.363981,
+                    36.352213
+                  ],
+                  [
+                    127.363316,
+                    36.352196
+                  ],
+                  [
+                    127.363198,
+                    36.353694
+                  ],
+                  [
+                    127.362295,
+                    36.353751
+                  ],
+                  [
+                    127.361828,
+                    36.353674
+                  ],
+                  [
+                    127.360298,
+                    36.353226
+                  ],
+                  [
+                    127.358601,
+                    36.353073
+                  ],
+                  [
+                    127.35857,
+                    36.353179
+                  ],
+                  [
+                    127.358333,
+                    36.353143
+                  ],
+                  [
+                    127.358217,
+                    36.353555
+                  ],
+                  [
+                    127.357165,
+                    36.35334
+                  ],
+                  [
+                    127.356911,
+                    36.353832
+                  ],
+                  [
+                    127.356603,
+                    36.353722
+                  ],
+                  [
+                    127.355333,
+                    36.355117
+                  ],
+                  [
+                    127.354496,
+                    36.35455
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-17T11:20:38.717106+00:00",
+              "response_sha256": "b1f62604468678043bb8cae645778d8476af08e5fab2ab8c7357b350e9ccc87a",
+              "comparable_straight_rank": 1,
+              "distance_rank": 1
+            },
+            "bike": {
+              "status": "ok",
+              "distance_m": 1804.5,
+              "duration_s": 507.7,
+              "snap_distances_m": [
+                28.25959402,
+                4.052871622
+              ],
+              "snapped_coordinates": [
+                [
+                  127.363631,
+                  36.3483
+                ],
+                [
+                  127.354496,
+                  36.35455
+                ]
+              ],
+              "detour_ratio": 1.6654061225859922,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.363631,
+                    36.3483
+                  ],
+                  [
+                    127.363832,
+                    36.3483
+                  ],
+                  [
+                    127.363831,
+                    36.348604
+                  ],
+                  [
+                    127.364186,
+                    36.348598
+                  ],
+                  [
+                    127.363981,
+                    36.352213
+                  ],
+                  [
+                    127.363943,
+                    36.352541
+                  ],
+                  [
+                    127.363288,
+                    36.352515
+                  ],
+                  [
+                    127.363198,
+                    36.353694
+                  ],
+                  [
+                    127.362295,
+                    36.353751
+                  ],
+                  [
+                    127.361828,
+                    36.353674
+                  ],
+                  [
+                    127.360298,
+                    36.353226
+                  ],
+                  [
+                    127.358601,
+                    36.353073
+                  ],
+                  [
+                    127.358441,
+                    36.353479
+                  ],
+                  [
+                    127.357219,
+                    36.353225
+                  ],
+                  [
+                    127.356911,
+                    36.353832
+                  ],
+                  [
+                    127.356191,
+                    36.353532
+                  ],
+                  [
+                    127.355204,
+                    36.352852
+                  ],
+                  [
+                    127.353981,
+                    36.354199
+                  ],
+                  [
+                    127.354496,
+                    36.35455
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-17T11:20:40.452532+00:00",
+              "response_sha256": "4e806b8be076fe6567e603c57fe8d148e7c26a4de228e72cd01924f2f5900a1a",
+              "comparable_straight_rank": 1,
+              "distance_rank": 1
+            }
+          },
+          "straight_rank": 1
+        },
+        {
+          "city": "daejeon",
+          "period_start": "2025-12-01",
+          "period_end": "2025-12-31",
+          "candidate_id": "ST0952",
+          "kind": "기존 취약",
+          "anchor_id": "rail:%EB%8C%80%EC%A0%84%EA%B5%90%ED%86%B5%EA%B3%B5%EC%82%AC|S3001|112",
+          "anchor_name": "정부청사",
+          "latitude": 36.447099,
+          "longitude": 127.414697,
+          "straight_distance_m": 10391.053941287166,
+          "routes": {
+            "foot": {
+              "status": "ok",
+              "distance_m": 13486.3,
+              "duration_s": 9870.5,
+              "snap_distances_m": [
+                1.954529419,
+                2.108353377
+              ],
+              "snapped_coordinates": [
+                [
+                  127.414717,
+                  36.447106
+                ],
+                [
+                  127.381047,
+                  36.35768
+                ]
+              ],
+              "detour_ratio": 1.2978760457025804,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.414717,
+                    36.447106
+                  ],
+                  [
+                    127.411526,
+                    36.446282
+                  ],
+                  [
+                    127.410901,
+                    36.445063
+                  ],
+                  [
+                    127.414013,
+                    36.436514
+                  ],
+                  [
+                    127.407846,
+                    36.431831
+                  ],
+                  [
+                    127.406925,
+                    36.429236
+                  ],
+                  [
+                    127.42014,
+                    36.417531
+                  ],
+                  [
+                    127.420516,
+                    36.413429
+                  ],
+                  [
+                    127.413354,
+                    36.397845
+                  ],
+                  [
+                    127.411594,
+                    36.379131
+                  ],
+                  [
+                    127.408257,
+                    36.376491
+                  ],
+                  [
+                    127.398737,
+                    36.373158
+                  ],
+                  [
+                    127.396121,
+                    36.370394
+                  ],
+                  [
+                    127.393324,
+                    36.370496
+                  ],
+                  [
+                    127.392967,
+                    36.365357
+                  ],
+                  [
+                    127.390091,
+                    36.364586
+                  ],
+                  [
+                    127.389891,
+                    36.36075
+                  ],
+                  [
+                    127.385,
+                    36.359975
+                  ],
+                  [
+                    127.383192,
+                    36.357653
+                  ],
+                  [
+                    127.381047,
+                    36.35768
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-17T11:20:42.208087+00:00",
+              "response_sha256": "b881d0e1f4e5f11a9670836ec781e891fdf7c1e31b6f06f69a00b5a13c3e6e52",
+              "comparable_straight_rank": 2,
+              "distance_rank": 2
+            },
+            "bike": {
+              "status": "ok",
+              "distance_m": 17596.7,
+              "duration_s": 1463.6,
+              "snap_distances_m": [
+                1.954529419,
+                2.108353377
+              ],
+              "snapped_coordinates": [
+                [
+                  127.414717,
+                  36.447106
+                ],
+                [
+                  127.381047,
+                  36.35768
+                ]
+              ],
+              "detour_ratio": 1.6934470843311062,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.414717,
+                    36.447106
+                  ],
+                  [
+                    127.41175,
+                    36.44895
+                  ],
+                  [
+                    127.410483,
+                    36.448413
+                  ],
+                  [
+                    127.391608,
+                    36.436311
+                  ],
+                  [
+                    127.387878,
+                    36.438798
+                  ],
+                  [
+                    127.389012,
+                    36.439325
+                  ],
+                  [
+                    127.393443,
+                    36.436442
+                  ],
+                  [
+                    127.413854,
+                    36.421242
+                  ],
+                  [
+                    127.417639,
+                    36.414867
+                  ],
+                  [
+                    127.413498,
+                    36.407351
+                  ],
+                  [
+                    127.411452,
+                    36.400155
+                  ],
+                  [
+                    127.409117,
+                    36.378892
+                  ],
+                  [
+                    127.394625,
+                    36.373736
+                  ],
+                  [
+                    127.378736,
+                    36.374132
+                  ],
+                  [
+                    127.372651,
+                    36.370057
+                  ],
+                  [
+                    127.37338,
+                    36.369305
+                  ],
+                  [
+                    127.369713,
+                    36.366468
+                  ],
+                  [
+                    127.370113,
+                    36.365013
+                  ],
+                  [
+                    127.37436,
+                    36.364812
+                  ],
+                  [
+                    127.374189,
+                    36.357704
+                  ],
+                  [
+                    127.381047,
+                    36.35768
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-17T11:20:44.181562+00:00",
+              "response_sha256": "7a1a7ca3dcc7610994b8fb9ab213809448c787b4c722c17e19c17c3530219716",
+              "comparable_straight_rank": 2,
+              "distance_rank": 2
+            }
+          },
+          "straight_rank": 3
+        }
+      ],
+      "route_source": "https://routing.openstreetmap.de/about.html",
+      "route_limitations": [
+        "각 도시3후보의 같은 최근접 직선 앵커까지의 경로 비교. 다른 앵커의 네트워크 최단 경로는 탐색하지 않음.",
+        "현재 OSM 도로망 모델이며 과거 관측 시점·실제 현장 보행·자전거 통행 가능성의 보장은 아님.",
+        "스냅50m 초과는 순위 비교에서 제외. 스냅 접속 구간의 통행 가능성은 미검증. 서로 다른 도시의 거리 순위는 합산하지 않음."
+      ],
+      "sensitivity": [
+        {
+          "distance_m": 300,
+          "policy": "균등",
+          "weights": {
+            "accessibility_deficit": 0.3333333333333333,
+            "rental_count": 0.3333333333333333,
+            "potential_added_area_m2": 0.3333333333333333
+          },
+          "candidate_count": 1237,
+          "top_ids": [
+            "ST0151",
+            "ST0952",
+            "ST0150",
+            "ST0138",
+            "ST1280",
+            "ST0137",
+            "ST0743",
+            "ST0747",
+            "ST1194",
+            "ST0464"
+          ],
+          "top10_jaccard": 0.8181818181818182,
+          "mean_rank_shift": 0.2222222222222222
+        },
+        {
+          "distance_m": 300,
+          "policy": "접근성 우선",
+          "weights": {
+            "accessibility_deficit": 0.5,
+            "rental_count": 0.25,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 1237,
+          "top_ids": [
+            "ST0952",
+            "ST0151",
+            "ST0150",
+            "ST0138",
+            "ST0743",
+            "ST1280",
+            "ST0137",
+            "ST0747",
+            "ST1194",
+            "ST0143"
+          ],
+          "top10_jaccard": 0.8181818181818182,
+          "mean_rank_shift": 0.4444444444444444
+        },
+        {
+          "distance_m": 300,
+          "policy": "수요 우선",
+          "weights": {
+            "accessibility_deficit": 0.25,
+            "rental_count": 0.5,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 1237,
+          "top_ids": [
+            "ST0151",
+            "ST0150",
+            "ST1280",
+            "ST0138",
+            "ST0137",
+            "ST0952",
+            "ST0743",
+            "ST0464",
+            "ST0465",
+            "ST0747"
+          ],
+          "top10_jaccard": 0.6666666666666666,
+          "mean_rank_shift": 1.5
+        },
+        {
+          "distance_m": 500,
+          "policy": "균등",
+          "weights": {
+            "accessibility_deficit": 0.3333333333333333,
+            "rental_count": 0.3333333333333333,
+            "potential_added_area_m2": 0.3333333333333333
+          },
+          "candidate_count": 1116,
+          "top_ids": [
+            "ST0952",
+            "ST0151",
+            "ST0150",
+            "ST0138",
+            "ST1280",
+            "ST0137",
+            "ST0743",
+            "ST0747",
+            "ST1194",
+            "ST0925"
+          ],
+          "top10_jaccard": 1.0,
+          "mean_rank_shift": 0.0
+        },
+        {
+          "distance_m": 500,
+          "policy": "접근성 우선",
+          "weights": {
+            "accessibility_deficit": 0.5,
+            "rental_count": 0.25,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 1116,
+          "top_ids": [
+            "ST0952",
+            "ST0151",
+            "ST0150",
+            "ST0743",
+            "ST0138",
+            "ST1280",
+            "ST0137",
+            "ST0747",
+            "ST1194",
+            "ST0143"
+          ],
+          "top10_jaccard": 0.8181818181818182,
+          "mean_rank_shift": 0.6666666666666666
+        },
+        {
+          "distance_m": 500,
+          "policy": "수요 우선",
+          "weights": {
+            "accessibility_deficit": 0.25,
+            "rental_count": 0.5,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 1116,
+          "top_ids": [
+            "ST0151",
+            "ST0150",
+            "ST1280",
+            "ST0138",
+            "ST0137",
+            "ST0952",
+            "ST0743",
+            "ST0464",
+            "ST0747",
+            "ST0465"
+          ],
+          "top10_jaccard": 0.6666666666666666,
+          "mean_rank_shift": 1.375
+        },
+        {
+          "distance_m": 800,
+          "policy": "균등",
+          "weights": {
+            "accessibility_deficit": 0.3333333333333333,
+            "rental_count": 0.3333333333333333,
+            "potential_added_area_m2": 0.3333333333333333
+          },
+          "candidate_count": 957,
+          "top_ids": [
+            "ST0952",
+            "ST0151",
+            "ST0150",
+            "ST0138",
+            "ST1280",
+            "ST0743",
+            "ST0137",
+            "ST0747",
+            "ST1194",
+            "ST0925"
+          ],
+          "top10_jaccard": 1.0,
+          "mean_rank_shift": 0.2
+        },
+        {
+          "distance_m": 800,
+          "policy": "접근성 우선",
+          "weights": {
+            "accessibility_deficit": 0.5,
+            "rental_count": 0.25,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 957,
+          "top_ids": [
+            "ST0952",
+            "ST0150",
+            "ST0151",
+            "ST0743",
+            "ST0138",
+            "ST1194",
+            "ST0747",
+            "ST0143",
+            "ST1280",
+            "ST0137"
+          ],
+          "top10_jaccard": 0.8181818181818182,
+          "mean_rank_shift": 2.0
+        },
+        {
+          "distance_m": 800,
+          "policy": "수요 우선",
+          "weights": {
+            "accessibility_deficit": 0.25,
+            "rental_count": 0.5,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 957,
+          "top_ids": [
+            "ST0151",
+            "ST0150",
+            "ST1280",
+            "ST0952",
+            "ST0138",
+            "ST0137",
+            "ST0743",
+            "ST0747",
+            "ST0464",
+            "ST1194"
+          ],
+          "top10_jaccard": 0.8181818181818182,
+          "mean_rank_shift": 1.0
+        }
+      ],
+      "hidden_hub": {
+        "station_id": "ST1186",
+        "station_name": "둔곡동 서한이다음(204동)",
+        "pagerank": 0.0006248,
+        "weighted_out_degree": 8,
+        "weighted_in_degree": 9,
+        "betweenness": 0.0,
+        "rental_count": 8,
+        "usage_rank": 1337,
+        "pagerank_rank": 605,
+        "betweenness_rank": 761,
+        "rank_gap": 732,
+        "top_connections": [
+          {
+            "station_id": "ST1157",
+            "station_name": "둔곡동 서한이다음 후문(202동)",
+            "trip_count": 4,
+            "direction": "out"
+          },
+          {
+            "station_id": "ST1157",
+            "station_name": "둔곡동 서한이다음 후문(202동)",
+            "trip_count": 2,
+            "direction": "in"
+          },
+          {
+            "station_id": "ST1158",
+            "station_name": "둔곡동 서한이다음 정문(103동)",
+            "trip_count": 1,
+            "direction": "in"
+          },
+          {
+            "station_id": "ST1159",
+            "station_name": "둔곡동 우미린 정문(101동)",
+            "trip_count": 1,
+            "direction": "in"
+          },
+          {
+            "station_id": "ST0944",
+            "station_name": "구즉동 행정복지센터",
+            "trip_count": 1,
+            "direction": "out"
+          },
+          {
+            "station_id": "ST1158",
+            "station_name": "둔곡동 서한이다음 정문(103동)",
+            "trip_count": 1,
+            "direction": "out"
+          },
+          {
+            "station_id": "ST1283",
+            "station_name": "신동 중이온가속기연구소 입구",
+            "trip_count": 1,
+            "direction": "in"
+          },
+          {
+            "station_id": "ST1307",
+            "station_name": "둔곡동 BRT 정류장",
+            "trip_count": 1,
+            "direction": "in"
+          },
+          {
+            "station_id": "ST1448",
+            "station_name": "둔곡동 용머리 근린공원",
+            "trip_count": 1,
+            "direction": "in"
+          }
+        ],
+        "usage_percentile": 0.0269,
+        "pagerank_percentile": 0.5601,
+        "candidate": true,
+        "decision": "대여량만 보면 낮은 우선순위이나 PageRank가 높아 연결 유지 검토 사례로 추가합니다. 설치 우선순위 가산점이나 실제 환승 근거로 사용하지 않습니다."
+      },
+      "pattern_case": {
+        "cosine": 0.2396813876055567,
+        "neighbor_search_limit": 25,
+        "selection_rule": "대여량 순 인접 25개 이내·5% 수요 차이 조건의 비교 중 최저 Cosine 사례",
+        "max_demand_difference_ratio": 0.05,
+        "stations": [
+          {
+            "station_id": "ST1201",
+            "rental_count": 120,
+            "peak_hour": 17,
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              2,
+              2,
+              2,
+              6,
+              6,
+              13,
+              47,
+              30,
+              5,
+              2,
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "station_id": "ST1292",
+            "rental_count": 122,
+            "peak_hour": 7,
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              10,
+              5,
+              17,
+              14,
+              4,
+              4,
+              2,
+              11,
+              4,
+              0,
+              6,
+              3,
+              3,
+              4,
+              8,
+              3,
+              14,
+              6,
+              4
+            ]
+          }
+        ],
+        "decision": "총대여량이 유사해도 집중 시간이 다르면 현장 관찰·재배치 검토 시간대를 달리합니다. 실제 부족·이동 필요 수량은 추정하지 않습니다."
+      },
+      "cluster_quality": {
+        "selected_k": 3,
+        "silhouette": 0.1212,
+        "quality": "low"
+      },
+      "cluster_decision": "낮은 Silhouette로 군집 역할 해석 보류. 최종 입지 점수에 군집명을 강제로 반영하지 않습니다.",
+      "planning_scope": "공간 모델상 검토 후보이며 실제 설치 후 이용량·환승 증가 예측 아님",
+      "population_basis": "2026-10 구 주민등록 인구밀도. 실측 격자인구 아님.",
+      "transfer_audit": {
+        "actual_transfer_rate": null,
+        "message": "실제 환승 여부 미확인. 앵커 근접 이동은 환승 가능성 지표입니다."
+      }
+    },
+    "sejong": {
+      "city": "sejong",
+      "period_start": "2025-12-01",
+      "period_end": "2025-12-31",
+      "top3": [
+        {
+          "site_id": "grid-981000-1830000",
+          "station_id": "grid-981000-1830000",
+          "latitude": 36.4696780788357,
+          "longitude": 127.29071378261396,
+          "district": "세종시",
+          "population_density_km2": null,
+          "population_basis": "administrative district density; not measured grid population",
+          "facilities_within_500m": 1,
+          "nearby_rentals_1000m": 6523,
+          "nearest_station_distance_m": 712.7495786143038,
+          "gap_ratio": 1.0,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_components": {
+            "facilities_within_500m": 0.8737373737373737,
+            "nearby_rentals_1000m": 0.9621212121212122,
+            "gap_ratio": 0.5909090909090909
+          },
+          "score": 0.8089225589225589,
+          "rank": 1,
+          "region_id": "sejong",
+          "nearest_anchor_distance_m": 991.0187831477576,
+          "selection_reason": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 6,523건, 500m 시설 1개",
+          "observed_demand_label": "주변 기존 대여소 관측량(후보 간 중복 가능); 신규 수요 예측 아님",
+          "feasibility_unchecked": [
+            "부지 소유·사용 허가",
+            "보도 유효 폭·출입구",
+            "안전·하천·철도 횡단",
+            "설치 비용·운영 용량",
+            "과거와 현재 위치 동일성"
+          ]
+        },
+        {
+          "site_id": "grid-980000-1832500",
+          "station_id": "grid-980000-1832500",
+          "latitude": 36.49219586062595,
+          "longitude": 127.27948807100312,
+          "district": "세종시",
+          "population_density_km2": null,
+          "population_basis": "administrative district density; not measured grid population",
+          "facilities_within_500m": 1,
+          "nearby_rentals_1000m": 1375,
+          "nearest_station_distance_m": 516.2199391627163,
+          "gap_ratio": 1.0,
+          "potential_added_area_m2": 282289.36414913886,
+          "score_components": {
+            "facilities_within_500m": 0.8737373737373737,
+            "nearby_rentals_1000m": 0.7803030303030303,
+            "gap_ratio": 0.5909090909090909
+          },
+          "score": 0.7483164983164983,
+          "rank": 2,
+          "region_id": "sejong",
+          "nearest_anchor_distance_m": 1342.4298315709518,
+          "selection_reason": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 1,375건, 500m 시설 1개",
+          "observed_demand_label": "주변 기존 대여소 관측량(후보 간 중복 가능); 신규 수요 예측 아님",
+          "feasibility_unchecked": [
+            "부지 소유·사용 허가",
+            "보도 유효 폭·출입구",
+            "안전·하천·철도 횡단",
+            "설치 비용·운영 용량",
+            "과거와 현재 위치 동일성"
+          ]
+        },
+        {
+          "site_id": "grid-982000-1844000",
+          "station_id": "grid-982000-1844000",
+          "latitude": 36.59590832266544,
+          "longitude": 127.30155346285264,
+          "district": "세종시",
+          "population_density_km2": null,
+          "population_basis": "administrative district density; not measured grid population",
+          "facilities_within_500m": 1,
+          "nearby_rentals_1000m": 1043,
+          "nearest_station_distance_m": 397.08633966200404,
+          "gap_ratio": 1.0,
+          "potential_added_area_m2": 280059.0719484916,
+          "score_components": {
+            "facilities_within_500m": 0.8737373737373737,
+            "nearby_rentals_1000m": 0.75,
+            "gap_ratio": 0.5909090909090909
+          },
+          "score": 0.7382154882154882,
+          "rank": 3,
+          "region_id": "sejong",
+          "nearest_anchor_distance_m": 3463.328920072227,
+          "selection_reason": "앵커 접근 공백 비율 1.00, 주변 1km 관측 대여 1,043건, 500m 시설 1개",
+          "observed_demand_label": "주변 기존 대여소 관측량(후보 간 중복 가능); 신규 수요 예측 아님",
+          "feasibility_unchecked": [
+            "부지 소유·사용 허가",
+            "보도 유효 폭·출입구",
+            "안전·하천·철도 횡단",
+            "설치 비용·운영 용량",
+            "과거와 현재 위치 동일성"
+          ]
+        }
+      ],
+      "top3_union": {
+        "selected_ids": [
+          "grid-980000-1832500",
+          "grid-981000-1830000",
+          "grid-982000-1844000"
+        ],
+        "baseline_area_m2": 25307753.870773062,
+        "added_area_m2": 844637.8002465707,
+        "overlap_area_m2": 2.3283064365386963e-10,
+        "linked_area_m2": 26152391.671019632,
+        "increase_ratio": 0.03337466471973279
+      },
+      "route_audit": [
+        {
+          "city": "sejong",
+          "period_start": "2025-12-01",
+          "period_end": "2025-12-31",
+          "candidate_id": "grid-981000-1830000",
+          "kind": "신규 입지",
+          "anchor_id": "brt:51111:36.478356:127.288188",
+          "anchor_name": "시청,시의회,교육청,세무서",
+          "latitude": 36.4696780788357,
+          "longitude": 127.29071378261396,
+          "straight_distance_m": 991.0187831477576,
+          "routes": {
+            "foot": {
+              "status": "snap_uncertain",
+              "distance_m": 1800.3,
+              "duration_s": 1427.1,
+              "snap_distances_m": [
+                63.16972918,
+                3.640797775
+              ],
+              "snapped_coordinates": [
+                [
+                  127.290021,
+                  36.469574
+                ],
+                [
+                  127.288207,
+                  36.478327
+                ]
+              ],
+              "detour_ratio": 1.8166154169971782,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.290021,
+                    36.469574
+                  ],
+                  [
+                    127.289599,
+                    36.471106
+                  ],
+                  [
+                    127.289608,
+                    36.471346
+                  ],
+                  [
+                    127.289498,
+                    36.471639
+                  ],
+                  [
+                    127.289532,
+                    36.471924
+                  ],
+                  [
+                    127.288369,
+                    36.472941
+                  ],
+                  [
+                    127.287338,
+                    36.473176
+                  ],
+                  [
+                    127.287139,
+                    36.473029
+                  ],
+                  [
+                    127.286505,
+                    36.472179
+                  ],
+                  [
+                    127.286414,
+                    36.472223
+                  ],
+                  [
+                    127.286482,
+                    36.472319
+                  ],
+                  [
+                    127.286259,
+                    36.472421
+                  ],
+                  [
+                    127.285933,
+                    36.472002
+                  ],
+                  [
+                    127.285394,
+                    36.472326
+                  ],
+                  [
+                    127.285264,
+                    36.472231
+                  ],
+                  [
+                    127.285228,
+                    36.472282
+                  ],
+                  [
+                    127.28528,
+                    36.472573
+                  ],
+                  [
+                    127.285551,
+                    36.472668
+                  ],
+                  [
+                    127.286437,
+                    36.473411
+                  ],
+                  [
+                    127.287326,
+                    36.473945
+                  ],
+                  [
+                    127.286389,
+                    36.475396
+                  ],
+                  [
+                    127.288343,
+                    36.476221
+                  ],
+                  [
+                    127.287302,
+                    36.477851
+                  ],
+                  [
+                    127.287532,
+                    36.478041
+                  ],
+                  [
+                    127.288207,
+                    36.478327
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-17T11:20:45.911552+00:00",
+              "response_sha256": "a2dde5dcddcef2a8d500510c888d521c8e4a2e29d5dfaae2e0a0d27aab755659"
+            },
+            "bike": {
+              "status": "snap_uncertain",
+              "distance_m": 1801.1,
+              "duration_s": 479.1,
+              "snap_distances_m": [
+                63.16972918,
+                3.640797775
+              ],
+              "snapped_coordinates": [
+                [
+                  127.290021,
+                  36.469574
+                ],
+                [
+                  127.288207,
+                  36.478327
+                ]
+              ],
+              "detour_ratio": 1.8174226670852733,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.290021,
+                    36.469574
+                  ],
+                  [
+                    127.289599,
+                    36.471106
+                  ],
+                  [
+                    127.289608,
+                    36.471346
+                  ],
+                  [
+                    127.289498,
+                    36.471639
+                  ],
+                  [
+                    127.289532,
+                    36.471924
+                  ],
+                  [
+                    127.288369,
+                    36.472941
+                  ],
+                  [
+                    127.287338,
+                    36.473176
+                  ],
+                  [
+                    127.287139,
+                    36.473029
+                  ],
+                  [
+                    127.286505,
+                    36.472179
+                  ],
+                  [
+                    127.286414,
+                    36.472223
+                  ],
+                  [
+                    127.286482,
+                    36.472319
+                  ],
+                  [
+                    127.286259,
+                    36.472421
+                  ],
+                  [
+                    127.285933,
+                    36.472002
+                  ],
+                  [
+                    127.285394,
+                    36.472326
+                  ],
+                  [
+                    127.285264,
+                    36.472231
+                  ],
+                  [
+                    127.285228,
+                    36.472282
+                  ],
+                  [
+                    127.285222,
+                    36.472348
+                  ],
+                  [
+                    127.285475,
+                    36.472453
+                  ],
+                  [
+                    127.286663,
+                    36.473495
+                  ],
+                  [
+                    127.287363,
+                    36.473889
+                  ],
+                  [
+                    127.285343,
+                    36.477107
+                  ],
+                  [
+                    127.288207,
+                    36.478327
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-17T11:20:47.657460+00:00",
+              "response_sha256": "47f42786db2c0f2073d47a559f01d3ef572f6c6dc1068ba76a799cb8348307ac"
+            }
+          },
+          "straight_rank": 1
+        },
+        {
+          "city": "sejong",
+          "period_start": "2025-12-01",
+          "period_end": "2025-12-31",
+          "candidate_id": "grid-980000-1832500",
+          "kind": "신규 입지",
+          "anchor_id": "brt:64065:36.5038919:127.2832104",
+          "anchor_name": "전통문화체험관",
+          "latitude": 36.49219586062595,
+          "longitude": 127.27948807100312,
+          "straight_distance_m": 1342.4298315709518,
+          "routes": {
+            "foot": {
+              "status": "ok",
+              "distance_m": 2420.2,
+              "duration_s": 1935.2,
+              "snap_distances_m": [
+                21.49596413,
+                2.264102816
+              ],
+              "snapped_coordinates": [
+                [
+                  127.279563,
+                  36.49238
+                ],
+                [
+                  127.283205,
+                  36.503872
+                ]
+              ],
+              "detour_ratio": 1.802850281692421,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.279563,
+                    36.49238
+                  ],
+                  [
+                    127.279311,
+                    36.492436
+                  ],
+                  [
+                    127.279252,
+                    36.492679
+                  ],
+                  [
+                    127.278172,
+                    36.493207
+                  ],
+                  [
+                    127.278325,
+                    36.493476
+                  ],
+                  [
+                    127.277724,
+                    36.494168
+                  ],
+                  [
+                    127.276777,
+                    36.494122
+                  ],
+                  [
+                    127.277395,
+                    36.494745
+                  ],
+                  [
+                    127.278131,
+                    36.495038
+                  ],
+                  [
+                    127.27793,
+                    36.495364
+                  ],
+                  [
+                    127.277637,
+                    36.495417
+                  ],
+                  [
+                    127.277302,
+                    36.49615
+                  ],
+                  [
+                    127.277583,
+                    36.496915
+                  ],
+                  [
+                    127.277983,
+                    36.497315
+                  ],
+                  [
+                    127.276769,
+                    36.497774
+                  ],
+                  [
+                    127.277211,
+                    36.498177
+                  ],
+                  [
+                    127.27896,
+                    36.499024
+                  ],
+                  [
+                    127.279715,
+                    36.499778
+                  ],
+                  [
+                    127.279996,
+                    36.500738
+                  ],
+                  [
+                    127.278471,
+                    36.501593
+                  ],
+                  [
+                    127.27859,
+                    36.501557
+                  ],
+                  [
+                    127.278228,
+                    36.501859
+                  ],
+                  [
+                    127.2788,
+                    36.501789
+                  ],
+                  [
+                    127.278476,
+                    36.501875
+                  ],
+                  [
+                    127.278495,
+                    36.502155
+                  ],
+                  [
+                    127.279409,
+                    36.504495
+                  ],
+                  [
+                    127.283205,
+                    36.503872
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-17T11:20:49.416430+00:00",
+              "response_sha256": "83b0c1cb73e39f181cca1932846f7a1cb9b50fca9e75b4553e529d2c297f99f5",
+              "comparable_straight_rank": 1,
+              "distance_rank": 1
+            },
+            "bike": {
+              "status": "ok",
+              "distance_m": 2423.2,
+              "duration_s": 526.5,
+              "snap_distances_m": [
+                21.49596413,
+                2.264102816
+              ],
+              "snapped_coordinates": [
+                [
+                  127.279563,
+                  36.49238
+                ],
+                [
+                  127.283205,
+                  36.503872
+                ]
+              ],
+              "detour_ratio": 1.805085035367769,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.279563,
+                    36.49238
+                  ],
+                  [
+                    127.278293,
+                    36.492725
+                  ],
+                  [
+                    127.277917,
+                    36.493209
+                  ],
+                  [
+                    127.277919,
+                    36.493957
+                  ],
+                  [
+                    127.277724,
+                    36.494168
+                  ],
+                  [
+                    127.277104,
+                    36.494091
+                  ],
+                  [
+                    127.276342,
+                    36.494191
+                  ],
+                  [
+                    127.27546,
+                    36.494435
+                  ],
+                  [
+                    127.274635,
+                    36.494849
+                  ],
+                  [
+                    127.275157,
+                    36.495699
+                  ],
+                  [
+                    127.275095,
+                    36.496415
+                  ],
+                  [
+                    127.276074,
+                    36.497043
+                  ],
+                  [
+                    127.276913,
+                    36.497966
+                  ],
+                  [
+                    127.27896,
+                    36.499024
+                  ],
+                  [
+                    127.279715,
+                    36.499778
+                  ],
+                  [
+                    127.280085,
+                    36.500977
+                  ],
+                  [
+                    127.27859,
+                    36.501557
+                  ],
+                  [
+                    127.278228,
+                    36.501859
+                  ],
+                  [
+                    127.2788,
+                    36.501789
+                  ],
+                  [
+                    127.278476,
+                    36.501875
+                  ],
+                  [
+                    127.278495,
+                    36.502155
+                  ],
+                  [
+                    127.279409,
+                    36.504495
+                  ],
+                  [
+                    127.283205,
+                    36.503872
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-17T11:20:51.170767+00:00",
+              "response_sha256": "ec58632aa57d86465989778f530a98b179bc7c9dd7cb9978767ebe12c0a1c7d0",
+              "comparable_straight_rank": 1,
+              "distance_rank": 1
+            }
+          },
+          "straight_rank": 2
+        },
+        {
+          "city": "sejong",
+          "period_start": "2025-12-01",
+          "period_end": "2025-12-31",
+          "candidate_id": "SJ_00470",
+          "kind": "기존 취약",
+          "anchor_id": "brt:1434:36.619296:127.327214",
+          "anchor_name": "오송역2.3.4",
+          "latitude": 36.608603,
+          "longitude": 127.289234,
+          "straight_distance_m": 3592.316304367508,
+          "routes": {
+            "foot": {
+              "status": "ok",
+              "distance_m": 5043.3,
+              "duration_s": 4035.2,
+              "snap_distances_m": [
+                1.938789161,
+                15.02811914
+              ],
+              "snapped_coordinates": [
+                [
+                  127.289239,
+                  36.60862
+                ],
+                [
+                  127.327116,
+                  36.619186
+                ]
+              ],
+              "detour_ratio": 1.4039131225355623,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.289239,
+                    36.60862
+                  ],
+                  [
+                    127.290567,
+                    36.608156
+                  ],
+                  [
+                    127.292541,
+                    36.608279
+                  ],
+                  [
+                    127.293149,
+                    36.609271
+                  ],
+                  [
+                    127.293381,
+                    36.609192
+                  ],
+                  [
+                    127.293619,
+                    36.609062
+                  ],
+                  [
+                    127.293953,
+                    36.606757
+                  ],
+                  [
+                    127.29936,
+                    36.608002
+                  ],
+                  [
+                    127.300828,
+                    36.607918
+                  ],
+                  [
+                    127.300685,
+                    36.609882
+                  ],
+                  [
+                    127.302022,
+                    36.609887
+                  ],
+                  [
+                    127.302414,
+                    36.608132
+                  ],
+                  [
+                    127.30287,
+                    36.607192
+                  ],
+                  [
+                    127.303732,
+                    36.606158
+                  ],
+                  [
+                    127.304787,
+                    36.605333
+                  ],
+                  [
+                    127.305663,
+                    36.605888
+                  ],
+                  [
+                    127.321831,
+                    36.61138
+                  ],
+                  [
+                    127.321746,
+                    36.61153
+                  ],
+                  [
+                    127.324544,
+                    36.613438
+                  ],
+                  [
+                    127.325228,
+                    36.614091
+                  ],
+                  [
+                    127.326491,
+                    36.616463
+                  ],
+                  [
+                    127.326489,
+                    36.617612
+                  ],
+                  [
+                    127.327137,
+                    36.618481
+                  ],
+                  [
+                    127.32692,
+                    36.61871
+                  ],
+                  [
+                    127.327116,
+                    36.619186
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-18T05:09:16.871409+00:00",
+              "response_sha256": "c63a1e221a9df2f7ff1a10756168ae40c7123275fd9292e974c4120754f44288",
+              "comparable_straight_rank": 2,
+              "distance_rank": 2
+            },
+            "bike": {
+              "status": "ok",
+              "distance_m": 5163,
+              "duration_s": 1305.5,
+              "snap_distances_m": [
+                1.938789161,
+                15.02811914
+              ],
+              "snapped_coordinates": [
+                [
+                  127.289239,
+                  36.60862
+                ],
+                [
+                  127.327116,
+                  36.619186
+                ]
+              ],
+              "detour_ratio": 1.437234241796266,
+              "geometry": {
+                "coordinates": [
+                  [
+                    127.289239,
+                    36.60862
+                  ],
+                  [
+                    127.289023,
+                    36.60859
+                  ],
+                  [
+                    127.289704,
+                    36.603165
+                  ],
+                  [
+                    127.300739,
+                    36.604307
+                  ],
+                  [
+                    127.302498,
+                    36.60485
+                  ],
+                  [
+                    127.304496,
+                    36.603432
+                  ],
+                  [
+                    127.304793,
+                    36.603049
+                  ],
+                  [
+                    127.323025,
+                    36.609307
+                  ],
+                  [
+                    127.322039,
+                    36.611241
+                  ],
+                  [
+                    127.322011,
+                    36.611631
+                  ],
+                  [
+                    127.324544,
+                    36.613438
+                  ],
+                  [
+                    127.325228,
+                    36.614091
+                  ],
+                  [
+                    127.326491,
+                    36.616463
+                  ],
+                  [
+                    127.326553,
+                    36.61776
+                  ],
+                  [
+                    127.326822,
+                    36.618152
+                  ],
+                  [
+                    127.327232,
+                    36.61839
+                  ],
+                  [
+                    127.32692,
+                    36.61871
+                  ],
+                  [
+                    127.327116,
+                    36.619186
+                  ]
+                ],
+                "type": "LineString"
+              },
+              "retrieved_at": "2026-11-18T05:09:18.626593+00:00",
+              "response_sha256": "f6a12fa546d2327e106b28070a31c294427239f2bd273c9b54222fd618254480",
+              "comparable_straight_rank": 2,
+              "distance_rank": 2
+            }
+          },
+          "straight_rank": 3
+        }
+      ],
+      "route_source": "https://routing.openstreetmap.de/about.html",
+      "route_limitations": [
+        "각 도시3후보의 같은 최근접 직선 앵커까지의 경로 비교. 다른 앵커의 네트워크 최단 경로는 탐색하지 않음.",
+        "현재 OSM 도로망 모델이며 과거 관측 시점·실제 현장 보행·자전거 통행 가능성의 보장은 아님.",
+        "스냅50m 초과는 순위 비교에서 제외. 스냅 접속 구간의 통행 가능성은 미검증. 서로 다른 도시의 거리 순위는 합산하지 않음."
+      ],
+      "sensitivity": [
+        {
+          "distance_m": 300,
+          "policy": "균등",
+          "weights": {
+            "accessibility_deficit": 0.3333333333333333,
+            "rental_count": 0.3333333333333333,
+            "potential_added_area_m2": 0.3333333333333333
+          },
+          "candidate_count": 389,
+          "top_ids": [
+            "SJ_00400",
+            "SJ_00470",
+            "SJ_00061",
+            "SJ_00583",
+            "SJ_00052",
+            "SJ_00420",
+            "SJ_00429",
+            "SJ_00428",
+            "SJ_00520",
+            "SJ_00218"
+          ],
+          "top10_jaccard": 0.8181818181818182,
+          "mean_rank_shift": 3.0
+        },
+        {
+          "distance_m": 300,
+          "policy": "접근성 우선",
+          "weights": {
+            "accessibility_deficit": 0.5,
+            "rental_count": 0.25,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 389,
+          "top_ids": [
+            "SJ_00470",
+            "SJ_00400",
+            "SJ_00429",
+            "SJ_00428",
+            "SJ_00420",
+            "SJ_00520",
+            "SJ_00052",
+            "SJ_00061",
+            "SJ_00430",
+            "SJ_00583"
+          ],
+          "top10_jaccard": 1.0,
+          "mean_rank_shift": 1.0
+        },
+        {
+          "distance_m": 300,
+          "policy": "수요 우선",
+          "weights": {
+            "accessibility_deficit": 0.25,
+            "rental_count": 0.5,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 389,
+          "top_ids": [
+            "SJ_00400",
+            "SJ_00583",
+            "SJ_00470",
+            "SJ_00061",
+            "SJ_00052",
+            "SJ_00218",
+            "SJ_00420",
+            "SJ_00298",
+            "SJ_00429",
+            "SJ_00669"
+          ],
+          "top10_jaccard": 0.5384615384615384,
+          "mean_rank_shift": 4.0
+        },
+        {
+          "distance_m": 500,
+          "policy": "균등",
+          "weights": {
+            "accessibility_deficit": 0.3333333333333333,
+            "rental_count": 0.3333333333333333,
+            "potential_added_area_m2": 0.3333333333333333
+          },
+          "candidate_count": 237,
+          "top_ids": [
+            "SJ_00470",
+            "SJ_00429",
+            "SJ_00052",
+            "SJ_00400",
+            "SJ_00420",
+            "SJ_00428",
+            "SJ_00520",
+            "SJ_00061",
+            "SJ_00430",
+            "SJ_00583"
+          ],
+          "top10_jaccard": 1.0,
+          "mean_rank_shift": 0.0
+        },
+        {
+          "distance_m": 500,
+          "policy": "접근성 우선",
+          "weights": {
+            "accessibility_deficit": 0.5,
+            "rental_count": 0.25,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 237,
+          "top_ids": [
+            "SJ_00470",
+            "SJ_00429",
+            "SJ_00428",
+            "SJ_00520",
+            "SJ_00420",
+            "SJ_00430",
+            "SJ_00052",
+            "SJ_00442",
+            "SJ_00432",
+            "SJ_00524"
+          ],
+          "top10_jaccard": 0.5384615384615384,
+          "mean_rank_shift": 1.8571428571428572
+        },
+        {
+          "distance_m": 500,
+          "policy": "수요 우선",
+          "weights": {
+            "accessibility_deficit": 0.25,
+            "rental_count": 0.5,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 237,
+          "top_ids": [
+            "SJ_00470",
+            "SJ_00400",
+            "SJ_00052",
+            "SJ_00061",
+            "SJ_00583",
+            "SJ_00420",
+            "SJ_00429",
+            "SJ_00520",
+            "SJ_00428",
+            "SJ_00218"
+          ],
+          "top10_jaccard": 0.8181818181818182,
+          "mean_rank_shift": 2.3333333333333335
+        },
+        {
+          "distance_m": 800,
+          "policy": "균등",
+          "weights": {
+            "accessibility_deficit": 0.3333333333333333,
+            "rental_count": 0.3333333333333333,
+            "potential_added_area_m2": 0.3333333333333333
+          },
+          "candidate_count": 95,
+          "top_ids": [
+            "SJ_00470",
+            "SJ_00429",
+            "SJ_00428",
+            "SJ_00520",
+            "SJ_00420",
+            "SJ_00524",
+            "SJ_00430",
+            "SJ_00523",
+            "SJ_00432",
+            "SJ_00052"
+          ],
+          "top10_jaccard": 0.5384615384615384,
+          "mean_rank_shift": 2.142857142857143
+        },
+        {
+          "distance_m": 800,
+          "policy": "접근성 우선",
+          "weights": {
+            "accessibility_deficit": 0.5,
+            "rental_count": 0.25,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 95,
+          "top_ids": [
+            "SJ_00470",
+            "SJ_00428",
+            "SJ_00429",
+            "SJ_00524",
+            "SJ_00520",
+            "SJ_00523",
+            "SJ_00665",
+            "SJ-00754",
+            "SJ_00432",
+            "SJ_00430"
+          ],
+          "top10_jaccard": 0.3333333333333333,
+          "mean_rank_shift": 1.6
+        },
+        {
+          "distance_m": 800,
+          "policy": "수요 우선",
+          "weights": {
+            "accessibility_deficit": 0.25,
+            "rental_count": 0.5,
+            "potential_added_area_m2": 0.25
+          },
+          "candidate_count": 95,
+          "top_ids": [
+            "SJ_00470",
+            "SJ_00429",
+            "SJ_00420",
+            "SJ_00520",
+            "SJ_00052",
+            "SJ_00428",
+            "SJ_00400",
+            "SJ_00061",
+            "SJ_00430",
+            "SJ_00442"
+          ],
+          "top10_jaccard": 0.8181818181818182,
+          "mean_rank_shift": 1.1111111111111112
+        }
+      ],
+      "hidden_hub": {
+        "station_id": "SJ_00676",
+        "station_name": "금남면_대평시장 입구",
+        "pagerank": 0.0017598,
+        "weighted_out_degree": 136,
+        "weighted_in_degree": 234,
+        "betweenness": 0.0014655,
+        "rental_count": 136,
+        "usage_rank": 426,
+        "pagerank_rank": 185,
+        "betweenness_rank": 238,
+        "rank_gap": 241,
+        "top_connections": [
+          {
+            "station_id": "SJ_00526",
+            "station_name": "소담동_새샘908동",
+            "trip_count": 19,
+            "direction": "out"
+          },
+          {
+            "station_id": "SJ_00539",
+            "station_name": "소담동_아이콤타워(뒷편)",
+            "trip_count": 18,
+            "direction": "in"
+          },
+          {
+            "station_id": "SJ_00526",
+            "station_name": "소담동_새샘908동",
+            "trip_count": 15,
+            "direction": "in"
+          },
+          {
+            "station_id": "SJ_00410",
+            "station_name": "대평동_해들601동 앞",
+            "trip_count": 10,
+            "direction": "in"
+          },
+          {
+            "station_id": "SJ_00035",
+            "station_name": "대평동_씨티오브드림BRT1",
+            "trip_count": 8,
+            "direction": "in"
+          },
+          {
+            "station_id": "SJ_00406",
+            "station_name": "대평동_해들4단지 입구",
+            "trip_count": 8,
+            "direction": "in"
+          },
+          {
+            "station_id": "SJ_00050",
+            "station_name": "한솔동_첫마을6단지617동옆",
+            "trip_count": 8,
+            "direction": "out"
+          },
+          {
+            "station_id": "SJ_00249",
+            "station_name": "한솔동_첫마을6단지 정류장",
+            "trip_count": 7,
+            "direction": "in"
+          },
+          {
+            "station_id": "SJ_00039",
+            "station_name": "대평동_세종메디컬센터BRT2",
+            "trip_count": 6,
+            "direction": "in"
+          },
+          {
+            "station_id": "SJ_00628",
+            "station_name": "금남면_세종성바오로성당",
+            "trip_count": 6,
+            "direction": "in"
+          }
+        ],
+        "usage_percentile": 0.4146,
+        "pagerank_percentile": 0.7466,
+        "candidate": true,
+        "decision": "대여량만 보면 낮은 우선순위이나 PageRank가 높아 연결 유지 검토 사례로 추가합니다. 설치 우선순위 가산점이나 실제 환승 근거로 사용하지 않습니다."
+      },
+      "pattern_case": {
+        "cosine": 0.18421777422254879,
+        "neighbor_search_limit": 25,
+        "selection_rule": "대여량 순 인접 25개 이내·5% 수요 차이 조건의 비교 중 최저 Cosine 사례",
+        "max_demand_difference_ratio": 0.05,
+        "stations": [
+          {
+            "station_id": "SJ_00385",
+            "rental_count": 174,
+            "peak_hour": 18,
+            "hourly": [
+              2,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              2,
+              4,
+              9,
+              5,
+              4,
+              2,
+              7,
+              5,
+              16,
+              53,
+              17,
+              11,
+              20,
+              9,
+              3
+            ]
+          },
+          {
+            "station_id": "SJ_00154",
+            "rental_count": 177,
+            "peak_hour": 8,
+            "hourly": [
+              1,
+              0,
+              1,
+              0,
+              0,
+              1,
+              8,
+              14,
+              70,
+              4,
+              6,
+              11,
+              8,
+              5,
+              6,
+              8,
+              5,
+              8,
+              4,
+              4,
+              5,
+              1,
+              2,
+              5
+            ]
+          }
+        ],
+        "decision": "총대여량이 유사해도 집중 시간이 다르면 현장 관찰·재배치 검토 시간대를 달리합니다. 실제 부족·이동 필요 수량은 추정하지 않습니다."
+      },
+      "cluster_quality": {
+        "selected_k": 5,
+        "silhouette": 0.0847,
+        "quality": "low"
+      },
+      "cluster_decision": "낮은 Silhouette로 군집 역할 해석 보류. 최종 입지 점수에 군집명을 강제로 반영하지 않습니다.",
+      "planning_scope": "공간 모델상 검토 후보이며 실제 설치 후 이용량·환승 증가 예측 아님",
+      "population_basis": "세종은 동·읍면별 공간 대응이 없어 인구밀도 점수에서 제외",
+      "transfer_audit": {
+        "period_start": "2025-12-01",
+        "period_end": "2025-12-31",
+        "row_count": 164366,
+        "raw_codes": {
+          "N": 164366
+        },
+        "cross_tab": [
+          {
+            "raw_code": "N",
+            "origin": "outside300",
+            "destination": "outside300",
+            "count": 40508
+          },
+          {
+            "raw_code": "N",
+            "origin": "outside300",
+            "destination": "within300",
+            "count": 37166
+          },
+          {
+            "raw_code": "N",
+            "origin": "unknown",
+            "destination": "within300",
+            "count": 1
+          },
+          {
+            "raw_code": "N",
+            "origin": "within300",
+            "destination": "outside300",
+            "count": 32384
+          },
+          {
+            "raw_code": "N",
+            "origin": "within300",
+            "destination": "unknown",
+            "count": 1
+          },
+          {
+            "raw_code": "N",
+            "origin": "within300",
+            "destination": "within300",
+            "count": 54306
+          }
+        ],
+        "definition_status": "unverified",
+        "actual_transfer_rate": null,
+        "csv_sha256": "34dd6dcabc5a942587fb1237ba786312335e1800cf0d9238e536cc5a764eb022",
+        "source_url": "https://www.data.go.kr/data/15106191/fileData.do",
+        "checked_at": "2026-11-18",
+        "message": "공식 공개 설명에서 환승 유무 컬럼의 판정 정의를 확인하지 못했습니다. N을 실제 비환승으로 확정하거나 실제 환승률 0%로 해석하지 않습니다.",
+        "cross_tab_basis": "2025-12 이용 이력 × 2026-05 위치 마스터 × 현재 BRT 앵커. 근접성 대조이며 실제 환승 검증 아님."
+      }
+    }
+  },
+  "transfer_audit": {
+    "period_start": "2025-12-01",
+    "period_end": "2025-12-31",
+    "row_count": 164366,
+    "raw_codes": {
+      "N": 164366
+    },
+    "cross_tab": [
+      {
+        "raw_code": "N",
+        "origin": "outside300",
+        "destination": "outside300",
+        "count": 40508
+      },
+      {
+        "raw_code": "N",
+        "origin": "outside300",
+        "destination": "within300",
+        "count": 37166
+      },
+      {
+        "raw_code": "N",
+        "origin": "unknown",
+        "destination": "within300",
+        "count": 1
+      },
+      {
+        "raw_code": "N",
+        "origin": "within300",
+        "destination": "outside300",
+        "count": 32384
+      },
+      {
+        "raw_code": "N",
+        "origin": "within300",
+        "destination": "unknown",
+        "count": 1
+      },
+      {
+        "raw_code": "N",
+        "origin": "within300",
+        "destination": "within300",
+        "count": 54306
+      }
+    ],
+    "definition_status": "unverified",
+    "actual_transfer_rate": null,
+    "csv_sha256": "34dd6dcabc5a942587fb1237ba786312335e1800cf0d9238e536cc5a764eb022",
+    "source_url": "https://www.data.go.kr/data/15106191/fileData.do",
+    "checked_at": "2026-11-18",
+    "message": "공식 공개 설명에서 환승 유무 컬럼의 판정 정의를 확인하지 못했습니다. N을 실제 비환승으로 확정하거나 실제 환승률 0%로 해석하지 않습니다.",
+    "cross_tab_basis": "2025-12 이용 이력 × 2026-05 위치 마스터 × 현재 BRT 앵커. 근접성 대조이며 실제 환승 검증 아님."
+  },
+  "agent_evaluation": {
+    "status": "completed",
+    "model": "solar-mini4",
+    "temperature": 0,
+    "final_max_tokens": 700,
+    "system_prompt": "공공자전거 분석가입니다. 확인할 수 없는 값은 null로 답하고 일반 상식으로 지역 수치를 만들지 마세요.\n가능한 도구로 먼저 근거를 확인한 다음 JSON만 반환하세요.\n형식: {\"facts\":{\"candidate_count\":null,\"top_station_id\":null,\"top_rentals\":null,\"top_anchor_distance_m\":null,\"linked_trip_share\":null},\"narrative_claims\":[]}\ncandidate_count는 앵커 500m 밖+실제 대여량 존재인 기존 대여소 수입니다.\ntop은 기존 개선 순위 1위입니다. linked_trip_share는 0~1 값입니다.\nnarrative_claims에는 위 다섯 필드 밖의 주장을 쓰되 근거 없는 주장을 만들지 마세요.",
+    "final_instruction": {
+      "role": "system",
+      "content": "이제 도구를 더 호출하지 마세요. 내부 도구 문법을 출력하지 마세요. 현재 확보한 근거만으로 요청한 JSON 객체를 반환하세요. 확인하지 못한 값은 null입니다."
+    },
+    "recorded_at": "2026-11-18T05:09:22.295696+00:00",
+    "cases": [
+      {
+        "city": "seoul",
+        "question": "seoul, 2025-12-01~2025-12-31 기존 취약 후보 수, 개선 1위 대여소 ID·대여량·최근접 앵커 직선거리, 앵커300m 연계 OD 비중을 알려 주세요.",
+        "period_start": "2025-12-01",
+        "period_end": "2025-12-31",
+        "baseline": {
+          "answer": "{\"facts\":{\"candidate_count\":null,\"top_station_id\":null,\"top_rentals\":null,\"top_anchor_distance_m\":null,\"linked_trip_share\":null},\"narrative_claims\":[]}",
+          "evaluation": {
+            "parsed": true,
+            "provided_facts": 0,
+            "possible_facts": 5,
+            "coverage": 0.0,
+            "evidence_agreement": null,
+            "station_id_correct": false,
+            "station_id_provided": false,
+            "unsupported_structured_claims": 0,
+            "narrative_claims_outside_automatic_check": 0,
+            "checks": [
+              {
+                "field": "candidate_count",
+                "value": null,
+                "expected": 1272,
+                "provided": false,
+                "correct": false
+              },
+              {
+                "field": "top_station_id",
+                "value": null,
+                "expected": "ST-919",
+                "provided": false,
+                "correct": false
+              },
+              {
+                "field": "top_rentals",
+                "value": null,
+                "expected": 2164,
+                "provided": false,
+                "correct": false
+              },
+              {
+                "field": "top_anchor_distance_m",
+                "value": null,
+                "expected": 1395.684727386796,
+                "provided": false,
+                "correct": false
+              },
+              {
+                "field": "linked_trip_share",
+                "value": null,
+                "expected": 0.6234158367206593,
+                "provided": false,
+                "correct": false
+              }
+            ]
+          }
+        },
+        "tool_assisted": {
+          "answer": "{\"facts\":{\"candidate_count\":1272,\"top_station_id\":\"ST-919\",\"top_rentals\":2164,\"top_anchor_distance_m\":1395.684727386796,\"linked_trip_share\":0.6234158367206593},\"narrative_claims\":[]}",
+          "evaluation": {
+            "parsed": true,
+            "provided_facts": 5,
+            "possible_facts": 5,
+            "coverage": 1.0,
+            "evidence_agreement": 1.0,
+            "station_id_correct": true,
+            "station_id_provided": true,
+            "unsupported_structured_claims": 0,
+            "narrative_claims_outside_automatic_check": 0,
+            "checks": [
+              {
+                "field": "candidate_count",
+                "value": 1272,
+                "expected": 1272,
+                "provided": true,
+                "correct": true
+              },
+              {
+                "field": "top_station_id",
+                "value": "ST-919",
+                "expected": "ST-919",
+                "provided": true,
+                "correct": true
+              },
+              {
+                "field": "top_rentals",
+                "value": 2164,
+                "expected": 2164,
+                "provided": true,
+                "correct": true
+              },
+              {
+                "field": "top_anchor_distance_m",
+                "value": 1395.684727386796,
+                "expected": 1395.684727386796,
+                "provided": true,
+                "correct": true
+              },
+              {
+                "field": "linked_trip_share",
+                "value": 0.6234158367206593,
+                "expected": 0.6234158367206593,
+                "provided": true,
+                "correct": true
+              }
+            ]
+          },
+          "evidence": [
+            {
+              "tool": "get_improvement_ranking",
+              "arguments": {
+                "region_id": "seoul",
+                "top_n": 1
+              },
+              "result": {
+                "available": true,
+                "candidate_count": 1272,
+                "ranking": [
+                  {
+                    "region_id": "seoul",
+                    "station_id": "ST-919",
+                    "station_name": "동양미래대학교 정문 옆",
+                    "latitude": 37.49988937,
+                    "longitude": 126.86769867,
+                    "nearest_stop_distance_m": 1395.684727386796,
+                    "rental_count": 2164,
+                    "return_count": 2169,
+                    "accessibility_deficit": 1.7913694547735923,
+                    "vulnerability": 3876.523500130054,
+                    "potential_added_area_m2": 282289.36414913886,
+                    "score_confidence": "relative_within_city",
+                    "candidate_population": 1272,
+                    "score_components": {
+                      "accessibility_deficit": 0.8376572327044025,
+                      "rental_count": 0.9650157232704403,
+                      "potential_added_area_m2": 0.779874213836478
+                    },
+                    "score": 0.8608490566037735,
+                    "demand_weighted_sensitivity_score": 0.8868907232704403,
+                    "rank": 1,
+                    "distance_band": "800–1500m 첫·끝마일",
+                    "distance_label": "최근접 지하철역(앵커) 거리"
+                  }
+                ],
+                "city": "seoul",
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31"
+              }
+            },
+            {
+              "tool": "get_transit_linkage",
+              "arguments": {
+                "region_id": "seoul"
+              },
+              "result": {
+                "available": true,
+                "goal_metrics": {
+                  "anchor_label": "지하철역",
+                  "anchor_300m_ratio": 0.31701124410591225,
+                  "anchor_300m_denominator_count": 2757,
+                  "anchor_distance_missing_or_invalid_count": 0,
+                  "first_last_mile_count": 469,
+                  "reference_all_stops_outside500": 6,
+                  "located_station_count": 2757,
+                  "subway_station_count": 2757,
+                  "subway_300m_ratio": 0.31701124410591225,
+                  "outside_500m_active_count": 1272,
+                  "linked_trip_share": 0.6234158367206593,
+                  "linked_trip_total": 1954344
+                },
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31",
+                "city": "seoul"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "city": "daejeon",
+        "question": "daejeon, 2025-12-01~2025-12-31 기존 취약 후보 수, 개선 1위 대여소 ID·대여량·최근접 앵커 직선거리, 앵커300m 연계 OD 비중을 알려 주세요.",
+        "period_start": "2025-12-01",
+        "period_end": "2025-12-31",
+        "baseline": {
+          "answer": "{\"facts\":{\"candidate_count\":null,\"top_station_id\":null,\"top_rentals\":null,\"top_anchor_distance_m\":null,\"linked_trip_share\":null},\"narrative_claims\":[]}",
+          "evaluation": {
+            "parsed": true,
+            "provided_facts": 0,
+            "possible_facts": 5,
+            "coverage": 0.0,
+            "evidence_agreement": null,
+            "station_id_correct": false,
+            "station_id_provided": false,
+            "unsupported_structured_claims": 0,
+            "narrative_claims_outside_automatic_check": 0,
+            "checks": [
+              {
+                "field": "candidate_count",
+                "value": null,
+                "expected": 1116,
+                "provided": false,
+                "correct": false
+              },
+              {
+                "field": "top_station_id",
+                "value": null,
+                "expected": "ST0952",
+                "provided": false,
+                "correct": false
+              },
+              {
+                "field": "top_rentals",
+                "value": null,
+                "expected": 530,
+                "provided": false,
+                "correct": false
+              },
+              {
+                "field": "top_anchor_distance_m",
+                "value": null,
+                "expected": 10391.053941287166,
+                "provided": false,
+                "correct": false
+              },
+              {
+                "field": "linked_trip_share",
+                "value": null,
+                "expected": 0.29336401703162357,
+                "provided": false,
+                "correct": false
+              }
+            ]
+          }
+        },
+        "tool_assisted": {
+          "answer": "{\"facts\":{\"candidate_count\":1116,\"top_station_id\":\"ST0952\",\"top_rentals\":530,\"top_anchor_distance_m\":10391.053941287166,\"linked_trip_share\":0.29336401703162357},\"narrative_claims\":[]}",
+          "evaluation": {
+            "parsed": true,
+            "provided_facts": 5,
+            "possible_facts": 5,
+            "coverage": 1.0,
+            "evidence_agreement": 1.0,
+            "station_id_correct": true,
+            "station_id_provided": true,
+            "unsupported_structured_claims": 0,
+            "narrative_claims_outside_automatic_check": 0,
+            "checks": [
+              {
+                "field": "candidate_count",
+                "value": 1116,
+                "expected": 1116,
+                "provided": true,
+                "correct": true
+              },
+              {
+                "field": "top_station_id",
+                "value": "ST0952",
+                "expected": "ST0952",
+                "provided": true,
+                "correct": true
+              },
+              {
+                "field": "top_rentals",
+                "value": 530,
+                "expected": 530,
+                "provided": true,
+                "correct": true
+              },
+              {
+                "field": "top_anchor_distance_m",
+                "value": 10391.053941287166,
+                "expected": 10391.053941287166,
+                "provided": true,
+                "correct": true
+              },
+              {
+                "field": "linked_trip_share",
+                "value": 0.29336401703162357,
+                "expected": 0.29336401703162357,
+                "provided": true,
+                "correct": true
+              }
+            ]
+          },
+          "evidence": [
+            {
+              "tool": "get_improvement_ranking",
+              "arguments": {
+                "region_id": "daejeon",
+                "top_n": 1
+              },
+              "result": {
+                "available": true,
+                "candidate_count": 1116,
+                "ranking": [
+                  {
+                    "region_id": "daejeon",
+                    "station_id": "ST0952",
+                    "station_name": "목상동 다사랑아파트 104동",
+                    "latitude": 36.447099,
+                    "longitude": 127.414697,
+                    "nearest_stop_distance_m": 10391.053941287166,
+                    "rental_count": 530,
+                    "return_count": 534,
+                    "accessibility_deficit": 19.78210788257433,
+                    "vulnerability": 10484.517177764395,
+                    "potential_added_area_m2": 282289.36414913886,
+                    "score_confidence": "relative_within_city",
+                    "candidate_population": 1116,
+                    "score_components": {
+                      "accessibility_deficit": 0.9726702508960573,
+                      "rental_count": 0.8956093189964157,
+                      "potential_added_area_m2": 0.5743727598566308
+                    },
+                    "score": 0.8142174432497012,
+                    "demand_weighted_sensitivity_score": 0.8345654121863799,
+                    "rank": 1,
+                    "distance_band": "500m 밖",
+                    "distance_label": "최근접 지하철역(앵커) 거리"
+                  }
+                ],
+                "city": "daejeon",
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31"
+              }
+            },
+            {
+              "tool": "get_transit_linkage",
+              "arguments": {
+                "region_id": "daejeon"
+              },
+              "result": {
+                "available": true,
+                "goal_metrics": {
+                  "anchor_label": "지하철역",
+                  "anchor_300m_ratio": 0.0982532751091703,
+                  "anchor_300m_denominator_count": 1374,
+                  "anchor_distance_missing_or_invalid_count": 0,
+                  "first_last_mile_count": 252,
+                  "reference_all_stops_outside500": 1,
+                  "located_station_count": 1374,
+                  "subway_station_count": 1374,
+                  "subway_300m_ratio": 0.0982532751091703,
+                  "outside_500m_active_count": 1116,
+                  "linked_trip_share": 0.29336401703162357,
+                  "linked_trip_total": 368491
+                },
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31",
+                "city": "daejeon"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "city": "sejong",
+        "question": "sejong, 2025-12-01~2025-12-31 기존 취약 후보 수, 개선 1위 대여소 ID·대여량·최근접 앵커 직선거리, 앵커300m 연계 OD 비중을 알려 주세요.",
+        "period_start": "2025-12-01",
+        "period_end": "2025-12-31",
+        "baseline": {
+          "answer": "{\"facts\":{\"candidate_count\":null,\"top_station_id\":null,\"top_rentals\":null,\"top_anchor_distance_m\":null,\"linked_trip_share\":null},\"narrative_claims\":[]}",
+          "evaluation": {
+            "parsed": true,
+            "provided_facts": 0,
+            "possible_facts": 5,
+            "coverage": 0.0,
+            "evidence_agreement": null,
+            "station_id_correct": false,
+            "station_id_provided": false,
+            "unsupported_structured_claims": 0,
+            "narrative_claims_outside_automatic_check": 0,
+            "checks": [
+              {
+                "field": "candidate_count",
+                "value": null,
+                "expected": 237,
+                "provided": false,
+                "correct": false
+              },
+              {
+                "field": "top_station_id",
+                "value": null,
+                "expected": "SJ_00470",
+                "provided": false,
+                "correct": false
+              },
+              {
+                "field": "top_rentals",
+                "value": null,
+                "expected": 355,
+                "provided": false,
+                "correct": false
+              },
+              {
+                "field": "top_anchor_distance_m",
+                "value": null,
+                "expected": 3592.316304367508,
+                "provided": false,
+                "correct": false
+              },
+              {
+                "field": "linked_trip_share",
+                "value": null,
+                "expected": 0.7535500042587883,
+                "provided": false,
+                "correct": false
+              }
+            ]
+          }
+        },
+        "tool_assisted": {
+          "answer": "{\n  \"facts\": {\n    \"candidate_count\": 237,\n    \"top_station_id\": \"SJ_00470\",\n    \"top_rentals\": 355,\n    \"top_anchor_distance_m\": 3592.316304367508,\n    \"linked_trip_share\": 0.7535500042587883\n  },\n  \"narrative_claims\": []\n}",
+          "evaluation": {
+            "parsed": true,
+            "provided_facts": 5,
+            "possible_facts": 5,
+            "coverage": 1.0,
+            "evidence_agreement": 1.0,
+            "station_id_correct": true,
+            "station_id_provided": true,
+            "unsupported_structured_claims": 0,
+            "narrative_claims_outside_automatic_check": 0,
+            "checks": [
+              {
+                "field": "candidate_count",
+                "value": 237,
+                "expected": 237,
+                "provided": true,
+                "correct": true
+              },
+              {
+                "field": "top_station_id",
+                "value": "SJ_00470",
+                "expected": "SJ_00470",
+                "provided": true,
+                "correct": true
+              },
+              {
+                "field": "top_rentals",
+                "value": 355,
+                "expected": 355,
+                "provided": true,
+                "correct": true
+              },
+              {
+                "field": "top_anchor_distance_m",
+                "value": 3592.316304367508,
+                "expected": 3592.316304367508,
+                "provided": true,
+                "correct": true
+              },
+              {
+                "field": "linked_trip_share",
+                "value": 0.7535500042587883,
+                "expected": 0.7535500042587883,
+                "provided": true,
+                "correct": true
+              }
+            ]
+          },
+          "evidence": [
+            {
+              "tool": "get_improvement_ranking",
+              "arguments": {
+                "region_id": "sejong",
+                "top_n": 1
+              },
+              "result": {
+                "available": true,
+                "candidate_count": 237,
+                "ranking": [
+                  {
+                    "region_id": "sejong",
+                    "station_id": "SJ_00470",
+                    "station_name": "조치원_고려대학교 정문",
+                    "latitude": 36.608603,
+                    "longitude": 127.289234,
+                    "nearest_stop_distance_m": 3592.316304367508,
+                    "rental_count": 355,
+                    "return_count": 352,
+                    "accessibility_deficit": 6.184632608735016,
+                    "vulnerability": 2195.5445761009305,
+                    "potential_added_area_m2": 282289.36414913886,
+                    "score_confidence": "relative_within_city",
+                    "candidate_population": 237,
+                    "score_components": {
+                      "accessibility_deficit": 0.9430379746835443,
+                      "rental_count": 0.9219409282700421,
+                      "potential_added_area_m2": 0.8037974683544303
+                    },
+                    "score": 0.8895921237693389,
+                    "demand_weighted_sensitivity_score": 0.8976793248945147,
+                    "rank": 1,
+                    "distance_band": "500m 밖",
+                    "distance_label": "최근접 BRT 정류장(앵커) 거리"
+                  }
+                ],
+                "city": "sejong",
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31"
+              }
+            },
+            {
+              "tool": "get_transit_linkage",
+              "arguments": {
+                "region_id": "sejong"
+              },
+              "result": {
+                "available": true,
+                "goal_metrics": {
+                  "anchor_label": "BRT 정류장·노선상 터미널",
+                  "anchor_300m_ratio": 0.463448275862069,
+                  "anchor_300m_denominator_count": 725,
+                  "anchor_distance_missing_or_invalid_count": 0,
+                  "first_last_mile_count": 67,
+                  "reference_all_stops_outside500": 4,
+                  "located_station_count": 725,
+                  "subway_station_count": 725,
+                  "subway_300m_ratio": 0.463448275862069,
+                  "outside_500m_active_count": 237,
+                  "linked_trip_share": 0.7535500042587883,
+                  "linked_trip_total": 164366
+                },
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31",
+                "city": "sejong"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "calls": [
+      {
+        "model": "solar-mini4-260922",
+        "usage": {
+          "completion_tokens": 44,
+          "prompt_tokens": 295,
+          "total_tokens": 339,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "stop"
+      },
+      {
+        "model": "solar-mini4-260922",
+        "usage": {
+          "completion_tokens": 42,
+          "prompt_tokens": 705,
+          "total_tokens": 747,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "tool_calls"
+      },
+      {
+        "model": "solar-mini4-260922",
+        "usage": {
+          "completion_tokens": 87,
+          "prompt_tokens": 1033,
+          "total_tokens": 1120,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "stop"
+      },
+      {
+        "model": "solar-mini4-260922",
+        "usage": {
+          "completion_tokens": 44,
+          "prompt_tokens": 296,
+          "total_tokens": 340,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "stop"
+      },
+      {
+        "model": "solar-mini4-260922",
+        "usage": {
+          "completion_tokens": 44,
+          "prompt_tokens": 706,
+          "total_tokens": 750,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "tool_calls"
+      },
+      {
+        "model": "solar-mini4-260922",
+        "usage": {
+          "completion_tokens": 88,
+          "prompt_tokens": 1030,
+          "total_tokens": 1118,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "stop"
+      },
+      {
+        "model": "solar-mini4-260922",
+        "usage": {
+          "completion_tokens": 44,
+          "prompt_tokens": 295,
+          "total_tokens": 339,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "stop"
+      },
+      {
+        "model": "solar-mini4-260922",
+        "usage": {
+          "completion_tokens": 42,
+          "prompt_tokens": 705,
+          "total_tokens": 747,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "tool_calls"
+      },
+      {
+        "model": "solar-mini4-260922",
+        "usage": {
+          "completion_tokens": 108,
+          "prompt_tokens": 1018,
+          "total_tokens": 1126,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "limitations": [
+      "동일 Solar 모델의 도구 유무 제거 실험이며 모든 일반 LLM과의 비교가 아닙니다.",
+      "세 도시 질문 각 1회로 통계적 일반화 불가. 도구 조건은 근거 선택 추가 호출·토큰을 사용합니다.",
+      "미응답은 오류 대신 coverage로 평가합니다. 자유 서술은 자동 검증 범위 밖 주장 수이며 거짓 주장 수와 다릅니다.",
+      "운영 에이전트의 모든 자유 서술 정확성을 입증하지 않습니다."
+    ],
+    "technical_pilots": []
+  }
+}

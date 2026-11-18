@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 def main():
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument("--verify-only",action="store_true",help="Verify copied manifests and cache without rebuilding")
-    parser.add_argument("--check-url",help="WIZ origin to smoke-test after deployment")
+    parser.add_argument("--check-url", help="FastAPI origin to smoke-test after deployment")
     parser.add_argument("command", nargs=argparse.REMAINDER,
                         help="Optional deployment command after --, run only after verification")
     args = parser.parse_args()
@@ -32,6 +32,8 @@ def main():
     if not required.issubset({row[0] for row in combos}):
         raise RuntimeError("Missing required city data; release stopped")
     count = verify(combos)
+    from backend.services.decision_evidence import read as decision_read
+    decision_read("all")  # Release must include the matching offline decision study, too.
     print(json.dumps({"ready": True, "combinations": len(combos), "entries": count}), flush=True)
     command = args.command
     if command[:1] == ["--"]:
@@ -40,10 +42,10 @@ def main():
         subprocess.run(command, cwd=ROOT.parent, env=env, check=True)
     if args.check_url:
         import requests
-        response=requests.post(args.check_url.rstrip("/")+"/wiz/api/component.bike.link/handle",data={"action":"readiness"},timeout=20)
+        response = requests.get(args.check_url.rstrip("/") + "/api/readiness", timeout=20)
         response.raise_for_status()
-        body=response.json()
-        if body.get("code")!=200 or not body.get("data",{}).get("ready"):
+        body = response.json()
+        if not body.get("ready"):
             raise RuntimeError("Deployed aggregate readiness failed")
 
 if __name__ == "__main__":

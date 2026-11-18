@@ -188,7 +188,7 @@ def data_quality(region_id: str | None = None):
 
 @app.get("/api/data-validation")
 def data_validation():
-    return real_data.read_json("validation_stage3.json", {"message": "검증 결과 미생성"})
+    return real_data.read_json("research/common_period_checks.json", {"message": "공통 2025-12 검증 결과 준비 중"})
 
 
 @app.post("/api/regions/{region_id}/upload")
@@ -273,3 +273,18 @@ def planning_scenario(city:str="seoul",selected:str="",date_start:date|None=None
     check_region(city)
     try:return scenario(city,*period(date_start,date_end),[s for s in selected.split(",") if s])
     except ValueError as error:raise HTTPException(422,str(error))
+
+
+@app.get("/api/presentation-context")
+def presentation_context(city: str="seoul",date_start:date|None=None,date_end:date|None=None):
+    from backend.services import periods
+    from backend.presentation.anchors import context
+    try: start,end=periods.resolve(city,*period(date_start,date_end))
+    except ValueError as error: raise HTTPException(422,str(error))
+    return context(city,start,end)
+
+
+@app.get("/api/decision-evidence")
+def decision_evidence(city: str = "seoul", date_start: date | None = None, date_end: date | None = None):
+    from backend.services.decision_evidence import read
+    return read(city, *period(date_start,date_end))

@@ -7,17 +7,17 @@ import { clusterColor } from '../components/colors'
 import { number } from '../components/State'
 import 'leaflet/dist/leaflet.css'
 
-type Props = { stations: Station[]; transitStops?:TransitStop[]; transitStations?:TransitStation[]; selectedId?: string; onSelect?: (id: string) => void; clusterById?: Record<string,number>; colorById?: Record<string,string>; height?: number }
+type Props = { stations: Station[]; unclustered?:boolean; anchorCity?:string; transitStops?:TransitStop[]; transitStations?:TransitStation[]; selectedId?: string; onSelect?: (id: string) => void; clusterById?: Record<string,number>; colorById?: Record<string,string>; height?: number }
 function MapWatcher({ setZoom }: {setZoom:(n:number)=>void}) { useMapEvents({zoomend: e => setZoom(e.target.getZoom())}); return null }
 function Focus({ station }: {station?: Station}) { const map=useMap(); useEffect(() => { if (station?.latitude != null && station?.longitude != null) map.flyTo([station.latitude,station.longitude],14) }, [station?.station_id,map]); return null }
-export function StationMap({ stations, selectedId, onSelect, clusterById={}, colorById={}, height=350,transitStops=[],transitStations=[] }: Props) {
+export function StationMap({ stations, selectedId, onSelect, clusterById={}, colorById={}, height=350,unclustered=false,anchorCity="",transitStops=[],transitStations=[] }: Props) {
   const located = useMemo(() => stations.filter((s): s is Station & {latitude:number;longitude:number} => s.latitude != null && s.longitude != null),[stations])
   const [zoom,setZoom] = useState(11)
   const [showTransit,setShowTransit]=useState(true)
   const selected = located.find(s => s.station_id === selectedId)
   const center: [number,number] = located.length ? [located.reduce((n,s)=>n+s.latitude,0)/located.length,located.reduce((n,s)=>n+s.longitude,0)/located.length] : [37.5665,126.978]
   const groups = useMemo(() => {
-    if (zoom >= 13) return located.map(s => [s])
+    if (unclustered || zoom >= 13) return located.map(s => [s])
     const cell = zoom < 10 ? .08 : zoom < 12 ? .03 : .012
     const buckets = new Map<string,typeof located>()
     for (const station of located) {
@@ -25,9 +25,9 @@ export function StationMap({ stations, selectedId, onSelect, clusterById={}, col
       const list=buckets.get(key)||[];list.push(station);buckets.set(key,list)
     }
     return [...buckets.values()]
-  },[located,zoom])
+  },[located,zoom,unclustered])
   if (!located.length) return <div className="empty">좌표가 확인된 대여소가 없습니다.</div>
-  return <div className="map" style={{height}}>{transitStops.length>0&&<label><input type="checkbox" checked={showTransit} onChange={e=>setShowTransit(e.target.checked)}/> 정류장·500m 이내 최근접 연계 표시</label>}<MapContainer key={stations[0]?.region_id || 'map'} center={center} zoom={11} scrollWheelZoom style={{height:'100%',width:'100%'}}><MapWatcher setZoom={setZoom}/><Focus station={selected}/><TileLayer attribution='&copy; OpenStreetMap contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>{groups.map((group,i) => {
+  return <div className="map" style={{height}}>{transitStops.length>0&&<label><input type="checkbox" checked={showTransit} onChange={e=>setShowTransit(e.target.checked)}/> {anchorCity?'앵커·500m 이내 최근접 연계 표시':'정류장·500m 이내 최근접 연계 표시'}</label>}<MapContainer key={stations[0]?.region_id || 'map'} center={center} zoom={11} scrollWheelZoom style={{height:'100%',width:'100%'}}><MapWatcher setZoom={setZoom}/><Focus station={selected}/><TileLayer attribution='&copy; OpenStreetMap contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"/>{groups.map((group,i) => {
     if (group.length > 1) {
       const lat=group.reduce((n,s)=>n+s.latitude,0)/group.length, lon=group.reduce((n,s)=>n+s.longitude,0)/group.length
       const icon=divIcon({className:'map-cluster',html:'<span>'+group.length+'</span>',iconSize:[34,34]})
@@ -35,6 +35,6 @@ export function StationMap({ stations, selectedId, onSelect, clusterById={}, col
     }
     const s=group[0];const color=colorById[s.station_id]||clusterColor(clusterById[s.station_id])
     return <CircleMarker key={s.station_id} center={[s.latitude,s.longitude]} radius={s.station_id===selectedId?9:6} pathOptions={{color,fillColor:color,fillOpacity:.82,weight:2}} eventHandlers={{click:()=>onSelect?.(s.station_id)}}><Popup><b>{s.station_name||s.station_id}</b><br/>{s.station_id}<br/>대여 {number(s.rental_count)}건{s.net_outflow!=null&&<><br/>순유출 {number(s.net_outflow)}건</>}</Popup><Tooltip direction="top" offset={[0,-8]}>{s.station_name||s.station_id}</Tooltip></CircleMarker>
-  })}{showTransit&&transitStops.map(s=><CircleMarker key={s.city+s.stop_id+s.type} center={[s.lat,s.lon]} radius={s.type==='지하철'?4:2.5} pathOptions={{color:s.type==='지하철'?'#233b6e':'#7189a6',weight:1,fillOpacity:.6}}><Tooltip>{s.type} · {s.name}</Tooltip></CircleMarker>)}
+  })}{showTransit&&transitStops.map(s=><CircleMarker key={s.city+s.stop_id+s.type} center={[s.lat,s.lon]} pane={anchorCity==='sejong'?'markerPane':'overlayPane'} radius={anchorCity==='sejong'?7:s.type==='지하철'?4:2.5} pathOptions={{color:anchorCity==='sejong'?'#123d73':s.type==='지하철'?'#233b6e':'#7189a6',fillColor:anchorCity==='sejong'?'#64d0df':undefined,weight:anchorCity==='sejong'?2:1,fillOpacity:anchorCity==='sejong'?.95:.6}}><Tooltip>{anchorCity==='sejong'?'BRT 정류장(앵커)':s.type} · {s.name}</Tooltip></CircleMarker>)}
  {showTransit&&transitStations.filter(s=>s.latitude!=null&&s.longitude!=null&&s.nearest_stop_distance_m!=null&&s.nearest_stop_distance_m<=500&&s.nearest_stop_lat!=null&&s.nearest_stop_lon!=null).slice(0,120).map(s=><Polyline key={'link'+s.station_id} positions={[[s.latitude!,s.longitude!],[s.nearest_stop_lat!,s.nearest_stop_lon!]]} pathOptions={{color:'#60a8ad',weight:1,dashArray:'3 3'}}/>)}</MapContainer></div>
 }
