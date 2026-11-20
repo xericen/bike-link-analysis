@@ -1,4 +1,4 @@
-"""Offline-only 웹-compatible projections. Never imported by cache lookup."""
+"""Offline-only web-compatible projections. Never imported by cache lookup."""
 from backend.services import real_data, all_regions
 
 def dashboard_extra(region_id,date_start,date_end):

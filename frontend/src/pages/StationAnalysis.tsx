@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { api } from '../services/api'
-import type { Cluster, ClusterResult, ClusterStability, DateFilter, SimilarityResult, SourceInfo, Station } from '../types'
+import type { Cluster, ClusterResult, ClusterStability, DateFilter, SimilarityResult, SourceInfo, Station, TransitDemand } from '../types'
 import { Empty, ErrorBox, Skeleton, SourceBadge, SourceNote, number } from '../components/State'
 import { StationPatternChart } from '../charts/AnalysisCharts'
 import { PageHeader, StatCard, SectionCard, InsightBanner, RoleTag, SimpleDataTable, ComparisonDonutCard } from '../components/AnalysisUI'
@@ -13,7 +13,9 @@ import { TransitStationMetrics } from '../components/TransitLinkage'
 export function StationAnalysis({regionId,filter}:{regionId:string;filter:DateFilter}) {
   const [showMap,setShowMap]=useState(false)
   const [hubs,setHubs]=useState<HiddenHubsResult>()
+  const [transitDemand,setTransitDemand]=useState<TransitDemand>()
   useEffect(()=>{let active=true;setHubs(undefined);api.hiddenHubs(regionId,filter.start,filter.end).then(x=>{if(active)setHubs(x)}).catch(()=>{});return()=>{active=false}},[regionId,filter.start,filter.end])
+  useEffect(()=>{let active=true;setTransitDemand(undefined);api.transitDemand(regionId,filter.start,filter.end).then(x=>{if(active)setTransitDemand(x)}).catch(()=>{});return()=>{active=false}},[regionId,filter.start,filter.end])
   const [params]=useSearchParams()
   const requested=params.get('station')||''
   const [stations,setStations]=useState<Station[]>([])
@@ -64,6 +66,13 @@ export function StationAnalysis({regionId,filter}:{regionId:string;filter:DateFi
       <select aria-label="선택 대여소" value={selected} onChange={e=>setSelected(e.target.value)}><option value="" disabled>대여소 선택</option>{shown.slice(0,150).map(s=><option value={s.station_id} key={s.station_id}>{s.station_id} · {s.station_name||'이름 미확보'}</option>)}{selected&&!shown.slice(0,150).some(s=>s.station_id===selected)&&<option value={selected}>{selected}</option>}</select>
       <select aria-label="군집 선택" value={clusterFilter} onChange={e=>setClusterFilter(e.target.value)}><option value="all">전체 군집</option>{roles.map(([id])=><option key={id} value={id}>군집 {id+1}</option>)}</select><select aria-label="이용량 정렬" value={sort} onChange={e=>setSort(e.target.value)}><option value="desc">이용량 많은 순</option><option value="asc">이용량 적은 순</option></select></div>
       <details className="map-details" onToggle={e=>setShowMap(e.currentTarget.open)}><summary>대여소 지도에서 선택 · 순유출 비율 확인</summary>{showMap&&<StationMap stations={mapStations} selectedId={selected} onSelect={setSelected} clusterById={clusterById} colorById={imbalanceColors} height={340}/>}<p className="muted">빨강: 순유출 비율 5% 초과 · 파랑: 순유입 비율 5% 초과 · 회색: 그 외</p></details>
+    </SectionCard>
+    <SectionCard title="지하철 수요와 자전거 이용이 함께 많은 역" note="2025년 12월 · 실제 월별 승하차">
+      {transitDemand?.available?<>
+        <p className="muted">지하철역 {number(transitDemand.matched_station_names)}곳을 연결했습니다({((transitDemand.match_rate||0)*100).toFixed(1)}%). 두 수요의 순위 상관계수는 {transitDemand.correlations?.spearman_500m.toFixed(2)??'N/A'}입니다.</p>
+        <SimpleDataTable headers={['역','지하철 승하차','500m 내 자전거 이용','인근 대여소','공동 집중 점수']} rows={(transitDemand.stations||[]).slice(0,5).map(x=>[x.station_name,number(x.transit_total)+'명',number(x.bike_activity_500m)+'건',number(x.bike_station_count_500m)+'곳',(x.joint_score*100).toFixed(1)+'%'])}/>
+        <details><summary>계산 기준과 한계</summary><p className="muted">같은 대여소가 여러 역의 500m 안에 있으면 각 역에 포함되므로 역별 값을 도시 전체 이용량으로 합산하지 않습니다. 대여와 반납은 각각 한 번씩 셉니다. 순위 상관은 동률에 평균 순위를 부여한 Spearman 값이며 개선 후보 점수에는 반영하지 않습니다.</p><p className="muted">역 이름이 정확히 연결된 곳만 비교했습니다. 자전거 이용은 역 500m 안 대여소의 대여와 반납 합계이며, 공동 집중 점수는 도시 안에서 두 수요의 백분위 평균입니다. 실제 환승률이나 인과관계를 뜻하지 않으며 월별 자료를 시간대 비교에 사용하지 않습니다.</p></details>
+      </>:transitDemand?<Empty>{transitDemand.message||'같은 기간의 대중교통 수요 자료가 없습니다.'}</Empty>:<Skeleton rows={2}/>}
     </SectionCard>
     {loading?<Skeleton rows={4}/>:!selected?<Empty>선택 기간의 대여소 자료가 없습니다.</Empty>:<>
     <div className="grid-two station-overview">

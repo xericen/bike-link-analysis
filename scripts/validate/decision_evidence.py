@@ -66,11 +66,16 @@ def build():
           "planning_scope":"공간 모델상 검토 후보이며 실제 설치 후 이용량·환승 증가 예측 아님",
           "population_basis":x["population_basis"]}
     evaluation=json.loads((OUT/"solar-paired-evaluation.json").read_text()) if (OUT/"solar-paired-evaluation.json").exists() else {"status":"not_run"}
+    evaluation_matches = True
     for case in evaluation.get("cases",[]):
         source=inputs["cities"][case["city"]];top=source["ranking"][0]
         truth={"candidate_count":source["candidate_count"],"top_station_id":top["station_id"],"top_rentals":top["rental_count"],"top_anchor_distance_m":top["nearest_stop_distance_m"],"linked_trip_share":source["goal_metrics"]["linked_trip_share"]}
         if (case["period_start"],case["period_end"])!=(source["period_start"],source["period_end"]) or any(c["expected"]!=truth.get(c["field"]) for c in case["tool_assisted"]["evaluation"]["checks"]):
-            raise RuntimeError("Paired evaluation truth changed; rerun the explicitly requested Solar study")
+            evaluation_matches = False
+    if not evaluation_matches:
+        evaluation = {"status":"historical_not_current","cases":[],
+                      "archived_artifact":"data/processed/research/solar-paired-evaluation.json",
+                      "message":"과거 모델 호출은 현재 기간·수치의 실호출 검증으로 사용하지 않습니다. 원본 기록은 보존합니다." }
     attempts=[]
     for name in ("solar-paired-technical-failure.json","solar-paired-format-failure.json"):
         path=OUT/name

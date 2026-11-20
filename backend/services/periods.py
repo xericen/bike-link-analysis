@@ -1,4 +1,4 @@
-"""Validated date bounds shared by the 웹 UI and its Solar context."""
+"""Validated date bounds shared by the web UI and its Solar context."""
 from datetime import date
 from backend.services import real_data
 

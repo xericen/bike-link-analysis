@@ -9,7 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from backend.agents.solar import chat
 from backend.models.schemas import ChatRequest
 from backend.services import data as demo_data
-from backend.services import imports, real_data, transit
+from backend.services import imports, real_data, transit, transit_demand
 
 load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
@@ -189,6 +189,12 @@ def data_quality(region_id: str | None = None):
 @app.get("/api/data-validation")
 def data_validation():
     return real_data.read_json("research/common_period_checks.json", {"message": "공통 2025-12 검증 결과 준비 중"})
+
+
+@app.get("/api/regions/{region_id}/transit-demand")
+def transit_demand_comparison(region_id: str, date_start: date | None = None, date_end: date | None = None):
+    check_region(region_id)
+    return transit_demand.read(region_id, *period(date_start, date_end))
 
 
 @app.post("/api/regions/{region_id}/upload")

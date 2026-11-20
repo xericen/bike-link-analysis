@@ -24,6 +24,10 @@ def main():
     else:
         subprocess.run([sys.executable, "scripts/preprocess/precompute_city_kpis.py",
                         "--report", str(report)], cwd=ROOT, env=env, check=True)
+    if not args.verify_only:
+        for module in ("scripts.validate.anchor_presentation_audit", "scripts.validate.decision_inputs",
+                       "scripts.collect.audit_candidate_routes", "scripts.validate.decision_evidence"):
+            subprocess.run([sys.executable, "-m", module], cwd=ROOT, env=env, check=True)
     sys.path.insert(0, str(ROOT))
     from scripts.preprocess.precompute_city_kpis import combinations
     from backend.services.deployment import verify

@@ -19,6 +19,13 @@
 
 프로젝트를 통해 대용량 공공데이터 수집·정규화, OD 네트워크 분석, 공간 연산, 군집화, 사전 집계 기반 API, 데이터 근거형 AI 보고서, React 시각화까지 하나의 재현 가능한 흐름으로 연결했습니다.
 
+## 최신 보완 사항
+
+- 후보를 고를 때 공간·수요 점수와 별도로 이용량·PageRank 순위, 군집·유사 패턴을 교차 근거로 확인합니다. 서로 다른 알고리즘 결과를 하나의 효과 예측치로 합치지 않습니다.
+- 자료 상태에서 관측 기간, 입력 revision, 집계와 의사결정 근거의 일치 여부를 확인할 수 있습니다. 집계가 있어도 근거가 오래되었으면 준비 완료로 표시하지 않습니다.
+- 개선 화면은 기존 취약 대여소·신규 설치·운영 재배치의 세 관점으로 나누고, 선택 후보를 AI 보고서 맥락에 전달합니다.
+- 추가 대중교통 수요 비교 API는 `GET /api/regions/{region_id}/transit-demand`입니다. 검증한 소형 집계는 `data/reference/transit_demand_202512.json`에 포함했으며 원본으로 재생성하려면 `python scripts/preprocess/build_transit_demand.py`를 실행합니다. 자전거 관측월과 보조 자료 기준일을 함께 읽어야 합니다.
+
 ## 주요 기능
 
 1. **한눈에 보기**
@@ -116,7 +123,7 @@ flowchart LR
 ### 1. 요구 사항
 
 - Python 3.11 이상
-- Node.js 20 이상과 npm
+- Node.js 22.12 이상과 npm
 - Git
 - 원본을 다시 처리하려면 각 공공데이터 파일과 충분한 디스크 공간
 - AI 보고서를 사용하려면 Upstage API 키
@@ -176,6 +183,7 @@ python scripts/validate/common_december_validation.py
 python scripts/validate/anchor_presentation_audit.py
 python scripts/validate/decision_inputs.py
 python scripts/collect/audit_candidate_routes.py
+python scripts/validate/decision_evidence.py
 python scripts/deploy/release.py --verify-only
 ```
 
@@ -241,6 +249,16 @@ python scripts/deploy/release.py --verify-only
 ```bash
 python scripts/deploy/release.py --verify-only --check-url https://example.com
 ```
+
+## 준비 상태와 문제 해결
+
+| 증상 | 확인 방법 |
+|---|---|
+| API는 실행되지만 지도·분석이 비어 있음 | 원본 확보, 정규화 활성화, 사전 집계 생성 여부를 순서대로 확인합니다. 설치만으로 실제 분석 데이터가 생기지 않습니다. |
+| `/api/readiness`의 `ready`가 `false` | 도시별 `missing_actions`, `aggregates_ready`, `decision_evidence_ready`와 근거 실패 사유를 확인합니다. |
+| 기간 변경 후 근거 미준비 안내 | 해당 기간의 집계와 근거 패키지를 생성합니다. 다른 기간 결과를 현재 결과로 사용하지 않습니다. |
+| AI 보고서 호출 실패 | 서버의 API 키와 모델 접근 권한을 확인합니다. 일반 분석은 별도로 사용할 수 있습니다. |
+| 새 복제본에서 일부 테스트 제외 | Git에서 제외한 실제 처리 DB가 필요한 테스트인지 확인합니다. 전체 데이터 검증을 통과했다는 의미는 아닙니다. |
 
 ## 보안 원칙
 

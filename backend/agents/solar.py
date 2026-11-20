@@ -20,6 +20,7 @@ REGION_ALIASES = {"서울": "seoul", "따릉이": "seoul", "대전": "daejeon", 
 REGIONS = {r["region_id"] for r in real_data.REGIONS}
 METRICS = {"pagerank", "weighted_in_degree", "weighted_out_degree", "betweenness"}
 TOOL_DEFINITIONS = {
+    "get_transit_demand_comparison": ("2025년12월 역별 지하철 승하차량과 역 300m·500m 내 공유자전거 대여·반납 활동 비교. 실제 환승률이 아닌 동시 집중 분석", {"region_id":"string","top_n":"integer","date_range":"object"}, ["region_id"]),
     "get_decision_evidence": ("고정 관측 기간의 후보3곳·중복 제거 면적·도로망 검증·PageRank/Cosine 판단 사례·환승 확인 한계. 선택 기간 일치 시만 제공", {"region_id":"string","date_range":"object"}, ["region_id"]),
     "get_site_planning": ("기존 대여소가 없는 격자의 신규 입지 후보. 인구밀도·시설·주변 수요 근거와 자료 시점 포함", {"region_id":"string","date_range":"object"}, ["region_id"]),
     "get_relocation_candidates": ("시간대 대여·반납 순유출입 기반 재배치 검토. 재고 미확보 시 이동 수량은 제안 불가", {"region_id":"string","date_range":"object"}, ["region_id"]),
@@ -120,6 +121,13 @@ def run_tool(name, arguments, context=None):
         region_id = _region(arguments.get("region_id"))
         start, end = _dates(arguments)
         if context: start, end = context.get("date_start"), context.get("date_end")
+        if name == "get_transit_demand_comparison":
+            from backend.services.transit_demand import read
+            result = read(region_id, start, end)
+            if result.get("stations"):
+                top = _top(arguments.get("top_n"), 10)
+                result = {**result, "stations": result["stations"][:top], "returned_count": min(top, len(result["stations"]))}
+            return result
         if name == "get_decision_evidence":
             from backend.services.decision_evidence import read
             try: result=read(region_id,start,end)

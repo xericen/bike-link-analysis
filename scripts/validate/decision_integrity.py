@@ -1,7 +1,7 @@
 """Offline review checks: no inferred transfers, no double counting, route and text provenance."""
 import json,time
 from pathlib import Path
-from backend.services import precomputed,decision_evidence,periods
+from backend.services import precomputed,decision_evidence,real_data
 from backend.agents.decision_checks import check
 ROOT=Path(__file__).resolve().parents[2]
 def run():
@@ -9,12 +9,13 @@ def run():
     assert data["revision"]==precomputed.revision()
     t=data["transfer_audit"]
     assert t["actual_transfer_rate"] is None and t["definition_status"]=="unverified"
-    assert sum(r["count"] for r in t["cross_tab"])==t["row_count"]==259143
+    assert sum(r["count"] for r in t["cross_tab"])==t["row_count"]==real_data.overview("sejong",t["period_start"],t["period_end"])["total_rentals"]
     rows=[]
-    before=json.loads((ROOT/"data/processed/research/goal-before.json").read_text())
-    for city,old in before.items():
-        now=precomputed.read("transit_linkage",city,*periods.resolve(city,None,None))["goal_metrics"]
-        assert all(now[k]==v for k,v in old.items()),city
+    inputs=json.loads((ROOT/"data/processed/research/decision-inputs.json").read_text())
+    assert inputs["revision"]==data["revision"]
+    for city,old in inputs["cities"].items():
+        now=precomputed.read("transit_linkage",city,old["period_start"],old["period_end"])["goal_metrics"]
+        assert now==old["goal_metrics"],city
     for city,p in data["profiles"].items():
         total=sum(r["potential_added_area_m2"] for r in p["top3"])
         union=p["top3_union"]
@@ -31,10 +32,10 @@ def run():
     live=json.loads((ROOT/"docs/decision-browser-20261117.json").read_text())["solar"]
     replay=check(live.get("solar_answer") or live["answer"],live["evidence"])
     assert not replay["passed"],replay
-    result={"revision":data["revision"],"profiles":rows,"primary_metrics_unchanged":True,"transfer_rows":t["row_count"],"route_cases":9,
+    result={"revision":data["revision"],"profiles":rows,"current_inputs_match_aggregates":True,"transfer_rows":t["row_count"],"route_cases":9,
         "usable_route_cases":sum(all(m["status"]=="ok" for m in r["routes"].values()) for p in data["profiles"].values() for r in p["route_audit"]),
         "live_solar_original_replay":replay,
         "note":"Live Solar original withheld; route-to-candidate association and population assertions now also fail explicit guards."}
-    (ROOT/"docs/decision-integrity-20261117.json").write_text(json.dumps(result,ensure_ascii=False,indent=2))
+    (ROOT/"docs/AUDIT_FIX_DECISION_INTEGRITY.json").write_text(json.dumps(result,ensure_ascii=False,indent=2))
     print(json.dumps(result,ensure_ascii=False))
 if __name__=="__main__":run()

@@ -19,7 +19,7 @@ export function AIAgent({regionId,filter}:{regionId:string;filter:DateFilter}) {
   const [history,setHistory]=useState<Message[]>([]),[selected,setSelected]=useState<number|null>(null)
   const [configured,setConfigured]=useState<boolean>(),[error,setError]=useState(''),[loading,setLoading]=useState(false)
   const [candidates,setCandidates]=useState<RoleCandidatesResult>(),[candidateError,setCandidateError]=useState('')
-  const context=[regionId,filter.start,filter.end].join('|')
+  const context=[regionId,filter.start,filter.end,params.get('station'),params.get('candidates')].join('|')
   useEffect(()=>{api.agentStatus().then(x=>setConfigured(x.configured)).catch(e=>setError(e.message))},[])
   useEffect(()=>{let active=true;setCandidates(undefined);setCandidateError('');api.roleCandidates(regionId,filter.start,filter.end).then(x=>{if(active)setCandidates(x)}).catch(e=>{if(active)setCandidateError(e.message)});return()=>{active=false}},[regionId,filter.start,filter.end])
   useEffect(()=>{const prompt=params.get('prompt');if(prompt)setQuestion(prompt)},[params])
@@ -31,7 +31,11 @@ export function AIAgent({regionId,filter}:{regionId:string;filter:DateFilter}) {
     const started=performance.now(), requestContext=context
     setError('');setLoading(true)
     try {
-      const result=await api.chat(submitted)
+      const station=params.get('station')
+      const candidates=(params.get('candidates')||'').split(',').filter(Boolean)
+      const result=await api.chat(submitted,{region_ids:[regionId],date_start:filter.start,date_end:filter.end,
+        selected_station:station?{region_id:regionId,station_id:station}:null,
+        selected_candidates:candidates.map(site_id=>({region_id:regionId,site_id}))})
       const message={question:submitted,result,executedAt:new Date().toLocaleString('ko-KR'),elapsed:(performance.now()-started)/1000,context:requestContext}
       setHistory(old=>{const next=[...old,message];setSelected(next.length-1);return next})
     } catch(e){setError(e instanceof Error?e.message:'분석 요청 실패')} finally{setLoading(false)}
@@ -45,7 +49,7 @@ export function AIAgent({regionId,filter}:{regionId:string;filter:DateFilter}) {
   ]
   const tools=[...new Set(active?.result.evidence.map(x=>x.tool)||[])]
   const limitations=['불균형만으로 재고 부족을 확정할 수 없습니다.','중심성만으로 인과적 중요성을 확정할 수 없습니다.',...(report?.limitations||[])]
-  return <>
+  return <><p className="notice">도구 근거는 실제 계산 결과이며, Solar의 자유 서술은 해석·제안입니다. 실제 환승이나 운영 개선 효과를 입증하지 않습니다.</p>
     <PageHeader title="AI 분석 리포트" subtitle="Upstage Solar 기반 근거 중심 분석 요약 · 운영 검토 제안"><RoleTag>{configured===undefined?'연결 확인 중':configured?'Solar API 설정됨':'Solar API 키 미설정'}</RoleTag></PageHeader>
     <div className="stats">
       <StatCard label="분석 대상 도시" value={cityName(regionId)} note="현재 선택한 도시와 기간으로 요청" icon="◎"/>

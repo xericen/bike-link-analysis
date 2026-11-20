@@ -1,4 +1,4 @@
-import type { CentralityResult, ChatResult, ClusterResult, ClusterStability, CompareResult, DataSource, HiddenHubValidation, HiddenHubsResult, ImbalanceResult, Network, Overview, Region, RoleCandidatesResult, RoleHistory, SimilarityResult, SourceInfo, Station, Validation } from '../types'
+import type { CentralityResult, ChatResult, ClusterResult, ClusterStability, CompareResult, DataSource, HiddenHubValidation, HiddenHubsResult, ImbalanceResult, Network, Overview, Region, RoleCandidatesResult, RoleHistory, SimilarityResult, SourceInfo, Station, TransitDemand, Validation } from '../types'
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   const mount = import.meta.env.BASE_URL.replace(/\/$/, '')
@@ -30,6 +30,7 @@ export const api = {
   network: (id: string, start?: string, end?: string, nodeLimit=40) => request<Network>(base(id) + '/network' + query(start, end, {node_limit:String(nodeLimit)})),
   centrality: (id: string, start?: string, end?: string) => request<CentralityResult>(base(id) + '/centrality' + query(start, end)),
   hiddenHubs: (id:string,start?:string,end?:string) => request<HiddenHubsResult>(base(id)+'/hidden-hubs'+query(start,end)),
+  transitDemand: (id:string,start?:string,end?:string) => request<TransitDemand>(base(id)+'/transit-demand'+query(start,end)),
   roleCandidates: (id:string,start?:string,end?:string) => request<RoleCandidatesResult>(base(id)+'/role-candidates'+query(start,end)),
   similarity: (id: string, stationId: string, start?: string, end?: string) => request<SimilarityResult>(base(id) + '/similarity' + query(start,end,{station_id:stationId})),
   compare: (ids: string[], start?: string, end?: string, alignCommon=true) => request<CompareResult>('/api/compare' + query(start,end,{region_ids:ids.join(','),align_common:String(alignCommon)})),
@@ -38,6 +39,6 @@ export const api = {
   validation: () => request<Validation>('/api/data-validation'),
   upload: (id: string, kind: string, datasetName: string, file: File) => { const body = new FormData(); body.set('kind', kind); body.set('dataset_name', datasetName); body.set('file', file); return request<{ rows: number; message: string }>(base(id) + '/upload', { method: 'POST', body }) },
   agentStatus: () => request<{configured:boolean;provider:string}>('/api/agent/status'),
-  chat: (message: string) => request<ChatResult>('/api/agent/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message }) }),
+  chat: (message: string, context?:Record<string,unknown>) => request<ChatResult>('/api/agent/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message, context }) }),
   demoOverview: (id = 'seoul') => request<{ metadata: { source: string; period_start: string; period_end: string }; total_rentals: number; station_count: number }>('/api/demo/overview?region_id=' + id)
 }
