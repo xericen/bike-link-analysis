@@ -18,3 +18,10 @@ data/solar-audit/
 *.key
 id_rsa*
 id_ed25519*
+
+# Local course attachments; inventory and checksums are in docs/LOCAL_ATTACHMENTS.json
+/빅데/*
+/빅데/*
+!/빅데/README.md
+/국토교통부_시군구별 정류장평균이용량.csv
+.ipynb_checkpoints/
