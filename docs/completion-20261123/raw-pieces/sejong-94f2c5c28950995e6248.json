@@ -1,0 +1,11 @@
+{
+  "city": "sejong",
+  "archive": "sejong-details-15106191.zip",
+  "member": "세종도시교통공사_공공자전거(어울링) 이용 현황 2020년 2분기.csv",
+  "member_crc": 4140043511,
+  "encoding": "cp949",
+  "raw_rows": 347628,
+  "excluded_rows": 0,
+  "duplicate_rows": 0,
+  "valid_rows": 347628
+}

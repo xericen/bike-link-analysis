@@ -1,0 +1,11 @@
+{
+  "city": "seoul",
+  "archive": "seoul-trips-2025.zip",
+  "member": "서울특별시 공공자전거 대여이력 정보_2505.csv",
+  "member_crc": 875603414,
+  "encoding": "cp949",
+  "raw_rows": 3859379,
+  "excluded_rows": 18916,
+  "duplicate_rows": 0,
+  "valid_rows": 3840463
+}

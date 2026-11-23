@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "matching_checks": 828,
+  "input_metadata_unchanged": true,
+  "operational_update": false,
+  "artifacts": {
+    "summary.json": "18436e28af1b359a712f442463c1bb14f4afdc4dc703e85f3e6754c6585b42a0",
+    "inputs.json": "38352299cc42b0c28b1bc44c7b57f70298848c3f749db2c7b3e55682035102e4",
+    "protocol.json": "c1d3b10a9986f6074c549254f289eb55edf705d3b14ceae9f06ec6bb8590c974"
+  }
+}

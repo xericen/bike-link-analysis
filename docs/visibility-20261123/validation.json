@@ -1,0 +1,33 @@
+{
+  "backend_full_suite": {
+    "passed": 241,
+    "warnings": 40
+  },
+  "final_targeted_tests": {
+    "passed": 21,
+    "warnings": 2
+  },
+  "wiz_build": true,
+  "react_typescript_build": true,
+  "public_browser_combinations": 16,
+  "new_paid_solar_calls": 0,
+  "seoul_timetable_rows": 532832,
+  "seoul_transfer_examples": 6,
+  "seoul_transfer_assumption_cases": 18,
+  "opening_raw_count": 67,
+  "opening_matched_count": 61,
+  "opening_eligible_count": 55,
+  "historical_december_transfer_validated": false,
+  "causal_installation_effect_verified": false,
+  "field_verified": false,
+  "operational_ranking_changed": false,
+  "code_sha256": {
+    "backend/research/evidence_dashboard.py": "c9d943284d860f0da7ddfe8121009a03e7c152bff2fe88a84b54eda92bcb98ac",
+    "backend/research/conclusion.py": "601c2cc2f12a3b4a5a32629af642120169a3f7124069254784a3564c46eab380",
+    "scripts/validate/opening_event_audit.py": "581c75d05df38b4289144cc38ba1dc7ed590b5672e7ed267a5d347494b9be169",
+    "scripts/validate/seoul_transfer_journeys.py": "5e94daed935949559ed22563efba18a6f72e1aab8c3eea12bc5f93097db3aed8",
+    "backend/tests/test_evidence_dashboard.py": "d2665ef241c42a2c742e2b2d22bb5bd30764ded8963f23dcad7a763944486be2",
+    "frontend/src/pages/EvidencePanels.tsx": "6906c5c83b32f7a092ebb3f71526371e570075905644e6084e9ec0ffeb87bfce",
+    "frontend/src/pages/Conclusion.tsx": "ced8b89caf8bb947a7eb84de2cdb87b21567638238fcbdd4e8b9d3cd11f65160"
+  }
+}

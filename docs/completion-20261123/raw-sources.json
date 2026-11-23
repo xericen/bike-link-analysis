@@ -1,0 +1,26 @@
+[
+  {
+    "city": "seoul",
+    "archive": "seoul-trips-2025.zip",
+    "bytes": 1778640879,
+    "sha256": "05f01e9f27f33303b60171b06c858c8a166a664f89915aef6ab283bb1e63752e"
+  },
+  {
+    "city": "daejeon",
+    "archive": "15137219.zip",
+    "bytes": 441377745,
+    "sha256": "3eb6be64074830e5a37bbcab3fd4f68fe2b67958979d5c5cd68f386cd9f17e8e"
+  },
+  {
+    "city": "daejeon",
+    "archive": "daejeon-history-20260331.zip",
+    "bytes": 493887524,
+    "sha256": "b43e78c373050d0aae2208db037538187066c565b7d5833f462b2ea94d42560b"
+  },
+  {
+    "city": "sejong",
+    "archive": "sejong-details-15106191.zip",
+    "bytes": 240718694,
+    "sha256": "3c62db85280a20eda1e879d07afd61473b46fe37ba2959b8293048e9994983e8"
+  }
+]

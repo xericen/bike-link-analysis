@@ -1,0 +1,525 @@
+{
+  "available": true,
+  "historical_2025_validated": false,
+  "route_scope": "대전1호선 단일노선 대표3후보→반석역 출구",
+  "transfer_scope": "철도 간 환승이 없는 여정으로 환승 횟수/대기0. 자전거 대여·반납 및 역 진입은 명시한 가정. 다중노선 환승은 미검증.",
+  "examples": [
+    {
+      "site_id": "grid-987500-1816500",
+      "original_rank": 2,
+      "city": "daejeon",
+      "anchor_name": "갑천",
+      "destination": "반석역 지상 출구(역 내부 이동2분 가정)",
+      "direction": "반석행",
+      "day_type": "평일",
+      "schedule_scope": "2026-11-23 수집한 현행 공식 공개 시간표. 2025년 운행 재현 아님.",
+      "access_scope": "현재 OSM 접근 모델, 대여·반납2분 가정. 실측 아님.",
+      "scheduled_departures": 121,
+      "rail_minutes": 12.833333333333334,
+      "examples": [
+        {
+          "origin_departure": "08:00",
+          "transit_only": {
+            "available": true,
+            "origin_departure_s": 28800,
+            "access_minutes": 22.678333333333335,
+            "station_entry_minutes": 2,
+            "board_s": 30420,
+            "wait_minutes": 2.3216666666666543,
+            "rail_minutes": 12.833333333333334,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 31310,
+            "total_minutes": 41.833333333333336
+          },
+          "bike_plus_transit": {
+            "available": true,
+            "origin_departure_s": 28800,
+            "access_minutes": 26.573333333333334,
+            "station_entry_minutes": 2,
+            "board_s": 30780,
+            "wait_minutes": 4.426666666666643,
+            "rail_minutes": 12.833333333333334,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 31670,
+            "total_minutes": 47.833333333333336
+          },
+          "total_gain_minutes": -6.0
+        },
+        {
+          "origin_departure": "08:15",
+          "transit_only": {
+            "available": true,
+            "origin_departure_s": 29700,
+            "access_minutes": 22.678333333333335,
+            "station_entry_minutes": 2,
+            "board_s": 31500,
+            "wait_minutes": 5.321666666666655,
+            "rail_minutes": 12.833333333333334,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 32390,
+            "total_minutes": 44.833333333333336
+          },
+          "bike_plus_transit": {
+            "available": true,
+            "origin_departure_s": 29700,
+            "access_minutes": 26.573333333333334,
+            "station_entry_minutes": 2,
+            "board_s": 31500,
+            "wait_minutes": 1.4266666666666423,
+            "rail_minutes": 12.833333333333334,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 32390,
+            "total_minutes": 44.833333333333336
+          },
+          "total_gain_minutes": 0.0
+        },
+        {
+          "origin_departure": "18:00",
+          "transit_only": {
+            "available": true,
+            "origin_departure_s": 64800,
+            "access_minutes": 22.678333333333335,
+            "station_entry_minutes": 2,
+            "board_s": 66420,
+            "wait_minutes": 2.321666666666715,
+            "rail_minutes": 12.833333333333334,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 67310,
+            "total_minutes": 41.833333333333336
+          },
+          "bike_plus_transit": {
+            "available": true,
+            "origin_departure_s": 64800,
+            "access_minutes": 26.573333333333334,
+            "station_entry_minutes": 2,
+            "board_s": 66780,
+            "wait_minutes": 4.426666666666764,
+            "rail_minutes": 12.833333333333334,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 67670,
+            "total_minutes": 47.833333333333336
+          },
+          "total_gain_minutes": -6.0
+        }
+      ],
+      "sensitivity": [
+        {
+          "pickup_return_minutes": 0,
+          "entry_minutes": 1,
+          "gain_minutes": 0.0
+        },
+        {
+          "pickup_return_minutes": 0,
+          "entry_minutes": 3,
+          "gain_minutes": -6.0
+        },
+        {
+          "pickup_return_minutes": 0,
+          "entry_minutes": 5,
+          "gain_minutes": 0.0
+        },
+        {
+          "pickup_return_minutes": 2,
+          "entry_minutes": 1,
+          "gain_minutes": -6.0
+        },
+        {
+          "pickup_return_minutes": 2,
+          "entry_minutes": 3,
+          "gain_minutes": -6.0
+        },
+        {
+          "pickup_return_minutes": 2,
+          "entry_minutes": 5,
+          "gain_minutes": 0.0
+        },
+        {
+          "pickup_return_minutes": 5,
+          "entry_minutes": 1,
+          "gain_minutes": -6.0
+        },
+        {
+          "pickup_return_minutes": 5,
+          "entry_minutes": 3,
+          "gain_minutes": -6.0
+        },
+        {
+          "pickup_return_minutes": 5,
+          "entry_minutes": 5,
+          "gain_minutes": -6.0
+        }
+      ],
+      "sources": [
+        {
+          "source_url": "https://www.djtc.kr/kor/ajaxFindStationInfo.do?oper=ajaxFindStationInfo&station_code=1115",
+          "retrieved_at": "2026-11-23T12:59:17.121811+00:00",
+          "sha256": "99dfb865253fb89cb2561744e0987b26c53b91c635e57e16ff4fd2c3e03f4d6e"
+        },
+        {
+          "source_url": "https://www.djtc.kr/kor/ajaxfindStationTimeDistInfo.do?oper=ajaxfindStationTimeDistInfo&str_stn_no=1115&end_stn_no=1122",
+          "retrieved_at": "2026-11-23T12:59:47.704251+00:00",
+          "sha256": "68980d9c60aeff1689889529b8ee962fae8052531e0bd84ea4fd4a7380dda17d"
+        }
+      ]
+    },
+    {
+      "site_id": "grid-986500-1811000",
+      "original_rank": 3,
+      "city": "daejeon",
+      "anchor_name": "용문",
+      "destination": "반석역 지상 출구(역 내부 이동2분 가정)",
+      "direction": "반석행",
+      "day_type": "평일",
+      "schedule_scope": "2026-11-23 수집한 현행 공식 공개 시간표. 2025년 운행 재현 아님.",
+      "access_scope": "현재 OSM 접근 모델, 대여·반납2분 가정. 실측 아님.",
+      "scheduled_departures": 120,
+      "rail_minutes": 24.0,
+      "examples": [
+        {
+          "origin_departure": "08:00",
+          "transit_only": {
+            "available": true,
+            "origin_departure_s": 28800,
+            "access_minutes": 93.775,
+            "station_entry_minutes": 2,
+            "board_s": 35100,
+            "wait_minutes": 9.225,
+            "rail_minutes": 24.0,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 36660,
+            "total_minutes": 131.0
+          },
+          "bike_plus_transit": {
+            "available": true,
+            "origin_departure_s": 28800,
+            "access_minutes": 23.498333333333335,
+            "station_entry_minutes": 2,
+            "board_s": 30420,
+            "wait_minutes": 1.5016666666666425,
+            "rail_minutes": 24.0,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 31980,
+            "total_minutes": 53.0
+          },
+          "total_gain_minutes": 78.0
+        },
+        {
+          "origin_departure": "08:15",
+          "transit_only": {
+            "available": true,
+            "origin_departure_s": 29700,
+            "access_minutes": 93.775,
+            "station_entry_minutes": 2,
+            "board_s": 35700,
+            "wait_minutes": 4.225,
+            "rail_minutes": 24.0,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 37260,
+            "total_minutes": 126.0
+          },
+          "bike_plus_transit": {
+            "available": true,
+            "origin_departure_s": 29700,
+            "access_minutes": 23.498333333333335,
+            "station_entry_minutes": 2,
+            "board_s": 31560,
+            "wait_minutes": 5.501666666666642,
+            "rail_minutes": 24.0,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 33120,
+            "total_minutes": 57.0
+          },
+          "total_gain_minutes": 69.0
+        },
+        {
+          "origin_departure": "18:00",
+          "transit_only": {
+            "available": true,
+            "origin_departure_s": 64800,
+            "access_minutes": 93.775,
+            "station_entry_minutes": 2,
+            "board_s": 71100,
+            "wait_minutes": 9.225,
+            "rail_minutes": 24.0,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 72660,
+            "total_minutes": 131.0
+          },
+          "bike_plus_transit": {
+            "available": true,
+            "origin_departure_s": 64800,
+            "access_minutes": 23.498333333333335,
+            "station_entry_minutes": 2,
+            "board_s": 66420,
+            "wait_minutes": 1.5016666666667637,
+            "rail_minutes": 24.0,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 67980,
+            "total_minutes": 53.0
+          },
+          "total_gain_minutes": 78.0
+        }
+      ],
+      "sensitivity": [
+        {
+          "pickup_return_minutes": 0,
+          "entry_minutes": 1,
+          "gain_minutes": 68.0
+        },
+        {
+          "pickup_return_minutes": 0,
+          "entry_minutes": 3,
+          "gain_minutes": 78.0
+        },
+        {
+          "pickup_return_minutes": 0,
+          "entry_minutes": 5,
+          "gain_minutes": 78.0
+        },
+        {
+          "pickup_return_minutes": 2,
+          "entry_minutes": 1,
+          "gain_minutes": 68.0
+        },
+        {
+          "pickup_return_minutes": 2,
+          "entry_minutes": 3,
+          "gain_minutes": 78.0
+        },
+        {
+          "pickup_return_minutes": 2,
+          "entry_minutes": 5,
+          "gain_minutes": 72.0
+        },
+        {
+          "pickup_return_minutes": 5,
+          "entry_minutes": 1,
+          "gain_minutes": 62.0
+        },
+        {
+          "pickup_return_minutes": 5,
+          "entry_minutes": 3,
+          "gain_minutes": 72.0
+        },
+        {
+          "pickup_return_minutes": 5,
+          "entry_minutes": 5,
+          "gain_minutes": 72.0
+        }
+      ],
+      "sources": [
+        {
+          "source_url": "https://www.djtc.kr/kor/ajaxFindStationInfo.do?oper=ajaxFindStationInfo&station_code=1109",
+          "retrieved_at": "2026-11-23T12:59:47.990464+00:00",
+          "sha256": "6c71c0bbf2372e6e135f754014623d2b6fd0cfb8632d049e3242345c3d711761"
+        },
+        {
+          "source_url": "https://www.djtc.kr/kor/ajaxfindStationTimeDistInfo.do?oper=ajaxfindStationTimeDistInfo&str_stn_no=1109&end_stn_no=1122",
+          "retrieved_at": "2026-11-23T12:59:48.221183+00:00",
+          "sha256": "b7ea0f8f73879d200d1dfe605e3b70702a14ee1fee72c37682290fc93f9b61c0"
+        }
+      ]
+    },
+    {
+      "site_id": "grid-989000-1812000",
+      "original_rank": 4,
+      "city": "daejeon",
+      "anchor_name": "오룡",
+      "destination": "반석역 지상 출구(역 내부 이동2분 가정)",
+      "direction": "반석행",
+      "day_type": "평일",
+      "schedule_scope": "2026-11-23 수집한 현행 공식 공개 시간표. 2025년 운행 재현 아님.",
+      "access_scope": "현재 OSM 접근 모델, 대여·반납2분 가정. 실측 아님.",
+      "scheduled_departures": 120,
+      "rail_minutes": 26.166666666666668,
+      "examples": [
+        {
+          "origin_departure": "08:00",
+          "transit_only": {
+            "available": true,
+            "origin_departure_s": 28800,
+            "access_minutes": 51.03333333333333,
+            "station_entry_minutes": 2,
+            "board_s": 32580,
+            "wait_minutes": 9.966666666666667,
+            "rail_minutes": 26.166666666666668,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 34270,
+            "total_minutes": 91.16666666666667
+          },
+          "bike_plus_transit": {
+            "available": true,
+            "origin_departure_s": 28800,
+            "access_minutes": 11.783333333333333,
+            "station_entry_minutes": 2,
+            "board_s": 29940,
+            "wait_minutes": 5.216666666666667,
+            "rail_minutes": 26.166666666666668,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 31630,
+            "total_minutes": 47.166666666666664
+          },
+          "total_gain_minutes": 44.00000000000001
+        },
+        {
+          "origin_departure": "08:15",
+          "transit_only": {
+            "available": true,
+            "origin_departure_s": 29700,
+            "access_minutes": 51.03333333333333,
+            "station_entry_minutes": 2,
+            "board_s": 33180,
+            "wait_minutes": 4.966666666666667,
+            "rail_minutes": 26.166666666666668,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 34870,
+            "total_minutes": 86.16666666666667
+          },
+          "bike_plus_transit": {
+            "available": true,
+            "origin_departure_s": 29700,
+            "access_minutes": 11.783333333333333,
+            "station_entry_minutes": 2,
+            "board_s": 30660,
+            "wait_minutes": 2.216666666666667,
+            "rail_minutes": 26.166666666666668,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 32350,
+            "total_minutes": 44.166666666666664
+          },
+          "total_gain_minutes": 42.00000000000001
+        },
+        {
+          "origin_departure": "18:00",
+          "transit_only": {
+            "available": true,
+            "origin_departure_s": 64800,
+            "access_minutes": 51.03333333333333,
+            "station_entry_minutes": 2,
+            "board_s": 68040,
+            "wait_minutes": 0.9666666666666667,
+            "rail_minutes": 26.166666666666668,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 69730,
+            "total_minutes": 82.16666666666667
+          },
+          "bike_plus_transit": {
+            "available": true,
+            "origin_departure_s": 64800,
+            "access_minutes": 11.783333333333333,
+            "station_entry_minutes": 2,
+            "board_s": 65940,
+            "wait_minutes": 5.216666666666667,
+            "rail_minutes": 26.166666666666668,
+            "station_exit_minutes": 2,
+            "transfers": 0,
+            "transfer_wait_minutes": 0,
+            "arrival_s": 67630,
+            "total_minutes": 47.166666666666664
+          },
+          "total_gain_minutes": 35.00000000000001
+        }
+      ],
+      "sensitivity": [
+        {
+          "pickup_return_minutes": 0,
+          "entry_minutes": 1,
+          "gain_minutes": 40.00000000000001
+        },
+        {
+          "pickup_return_minutes": 0,
+          "entry_minutes": 3,
+          "gain_minutes": 50.00000000000001
+        },
+        {
+          "pickup_return_minutes": 0,
+          "entry_minutes": 5,
+          "gain_minutes": 44.00000000000001
+        },
+        {
+          "pickup_return_minutes": 2,
+          "entry_minutes": 1,
+          "gain_minutes": 40.00000000000001
+        },
+        {
+          "pickup_return_minutes": 2,
+          "entry_minutes": 3,
+          "gain_minutes": 44.00000000000001
+        },
+        {
+          "pickup_return_minutes": 2,
+          "entry_minutes": 5,
+          "gain_minutes": 44.00000000000001
+        },
+        {
+          "pickup_return_minutes": 5,
+          "entry_minutes": 1,
+          "gain_minutes": 34.00000000000001
+        },
+        {
+          "pickup_return_minutes": 5,
+          "entry_minutes": 3,
+          "gain_minutes": 44.00000000000001
+        },
+        {
+          "pickup_return_minutes": 5,
+          "entry_minutes": 5,
+          "gain_minutes": 38.00000000000001
+        }
+      ],
+      "sources": [
+        {
+          "source_url": "https://www.djtc.kr/kor/ajaxFindStationInfo.do?oper=ajaxFindStationInfo&station_code=1108",
+          "retrieved_at": "2026-11-23T12:59:48.519442+00:00",
+          "sha256": "e4125fcb2633527048efadc767b5212908d9e10478f4ada9a84fe282089bc014"
+        },
+        {
+          "source_url": "https://www.djtc.kr/kor/ajaxfindStationTimeDistInfo.do?oper=ajaxfindStationTimeDistInfo&str_stn_no=1108&end_stn_no=1122",
+          "retrieved_at": "2026-11-23T12:59:48.732032+00:00",
+          "sha256": "a7de8d73b4d8cda29cf8770d541cc12dc98e58c06bd75e5471b30028d0034c38"
+        }
+      ]
+    }
+  ],
+  "operational_update": false,
+  "limitations": [
+    "현행 시간표와 현재 도로망을 적용한 전향적 예시이며 과거 실제 이용 여정이나 실시간 지연 관측이 아닙니다.",
+    "공식 구간별 예상 소요시간을 적용했습니다. 실제 열차별 지연·정차 편차는 미관측.",
+    "직접 도보 접근과 자전거 연계 접근 모두 같은 원점·출발시각·도착역 출구를 사용합니다. 대중교통 전체 망의 최단경로는 아닙니다.",
+    "큰 도보 우회가 나타나는 후보는 현장 검증 전 시간 절감 효과를 확정하지 않습니다."
+  ]
+}

@@ -1,3 +1,4 @@
+import { MonthlyTrends } from '../components/MonthlyTrends'
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { api } from '../services/api'
@@ -10,7 +11,7 @@ import type { HiddenHubsResult } from '../types'
 import { StationMap } from '../maps/StationMap'
 import { TransitStationMetrics } from '../components/TransitLinkage'
 
-export function StationAnalysis({regionId,filter}:{regionId:string;filter:DateFilter}) {
+function StationDetails({regionId,filter}:{regionId:string;filter:DateFilter}) {
   const [showMap,setShowMap]=useState(false)
   const [hubs,setHubs]=useState<HiddenHubsResult>()
   const [transitDemand,setTransitDemand]=useState<TransitDemand>()
@@ -67,7 +68,7 @@ export function StationAnalysis({regionId,filter}:{regionId:string;filter:DateFi
       <select aria-label="군집 선택" value={clusterFilter} onChange={e=>setClusterFilter(e.target.value)}><option value="all">전체 군집</option>{roles.map(([id])=><option key={id} value={id}>군집 {id+1}</option>)}</select><select aria-label="이용량 정렬" value={sort} onChange={e=>setSort(e.target.value)}><option value="desc">이용량 많은 순</option><option value="asc">이용량 적은 순</option></select></div>
       <details className="map-details" onToggle={e=>setShowMap(e.currentTarget.open)}><summary>대여소 지도에서 선택 · 순유출 비율 확인</summary>{showMap&&<StationMap stations={mapStations} selectedId={selected} onSelect={setSelected} clusterById={clusterById} colorById={imbalanceColors} height={340}/>}<p className="muted">빨강: 순유출 비율 5% 초과 · 파랑: 순유입 비율 5% 초과 · 회색: 그 외</p></details>
     </SectionCard>
-    <SectionCard title="지하철 수요와 자전거 이용이 함께 많은 역" note="2025년 12월 · 실제 월별 승하차">
+    <SectionCard title="지하철 수요와 자전거 이용이 함께 많은 역" note={filter.start+' ~ '+filter.end+' · 동일 기간 승하차 확보 여부 확인'}>
       {transitDemand?.available?<>
         <p className="muted">지하철역 {number(transitDemand.matched_station_names)}곳을 연결했습니다({((transitDemand.match_rate||0)*100).toFixed(1)}%). 두 수요의 순위 상관계수는 {transitDemand.correlations?.spearman_500m.toFixed(2)??'N/A'}입니다.</p>
         <SimpleDataTable headers={['역','지하철 승하차','500m 내 자전거 이용','인근 대여소','공동 집중 점수']} rows={(transitDemand.stations||[]).slice(0,5).map(x=>[x.station_name,number(x.transit_total)+'명',number(x.bike_activity_500m)+'건',number(x.bike_station_count_500m)+'곳',(x.joint_score*100).toFixed(1)+'%'])}/>
@@ -107,5 +108,20 @@ export function StationAnalysis({regionId,filter}:{regionId:string;filter:DateFi
       <details><summary>특징 조합별 품질 비교</summary><SimpleDataTable headers={['입력 특징','k','Silhouette']} rows={(stability?.windows.at(-1)?.feature_comparisons||[]).map(x=>[x.label,x.selected_k,x.best_silhouette.toFixed(3)])}/></details>
     </SectionCard></div>
     </>}<SourceNote data={source}/>
+  </>
+}
+
+export function StationAnalysis({regionId,filter}:{regionId:string;filter:DateFilter}) {
+  const [query]=useSearchParams()
+  const requested=query.get('station')||''
+  const [details,setDetails]=useState(Boolean(requested))
+  useEffect(()=>{setDetails(Boolean(requested))},[regionId,requested])
+  return <>
+    <PageHeader title="도시 전체 이용" subtitle="전체 이용량 · 월별 추이 · 시간대 분포"/>
+    <MonthlyTrends regionId={regionId}/>
+    <details open={details} onToggle={e=>{if(e.target===e.currentTarget)setDetails(e.currentTarget.open)}}>
+      <summary>개별 대여소 살펴보기 · {filter.start} ~ {filter.end}</summary>
+      {details&&<StationDetails regionId={regionId} filter={filter}/>}
+    </details>
   </>
 }

@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "matching_checks": 1710,
+  "input_metadata_unchanged": true,
+  "small_input_sha256_matches": true,
+  "strict_spacing_verified": true,
+  "diagnostic_spacing_verified": true,
+  "no_evaluation_hidden_id_overlap": true,
+  "artifacts": {
+    "results.json": "773e1f98b78fa834591234d3f84d948bf43a99b835797008470e4b332ee28a29",
+    "inputs.json": "499affc250d6eec06c246bd3e341961dafb18475e75e398566b956a5d4473a28",
+    "protocol.json": "f081cd776c6eb382b0c84e93b1199733ad7553419bf04339ee2a82fff21c1d58"
+  },
+  "operational_update": false
+}

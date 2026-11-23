@@ -1,0 +1,127 @@
+{
+  "backend/research/recovery_evaluation.py": {
+    "sha256": "cc747ac57b447bda976c05e81036cdd3cb08483fe6f66db02c1f2129ef1a0f01",
+    "size": 10182,
+    "mtime_ns": 1795421258032552732
+  },
+  "scripts/validate/build_recovery_evaluation.py": {
+    "sha256": "19934150980434c1f9e79285a1e023343e9c54ce4c00fecf103a86ebeaae459a",
+    "size": 8929,
+    "mtime_ns": 1795421310162909646
+  },
+  "data/reference/method_validation_202512.json": {
+    "sha256": "e643a575b1e029a0d4ec47ffb03c66fab1e3f8c9aa23a2103d2f584daae2570f",
+    "size": 827230,
+    "mtime_ns": 1795411996214431922
+  },
+  "backend/research/validation_followup.py": {
+    "sha256": "2cb0440fd2444dae722b7e11267219e6b43246358404610411cf04779a9521af",
+    "size": 7878,
+    "mtime_ns": 1795417168237512090
+  },
+  "backend/research/method_validation.py": {
+    "sha256": "535dbc3a9bebbc788650f2e5d62f0f5f5180c6a936ca0c057ba2e213ae2e64b2",
+    "size": 17133,
+    "mtime_ns": 1795411935955195987
+  },
+  "data/individual/seoul/analysis.sqlite": {
+    "sha256": "43115932e06f5a865026548396a337516bfa6712689d90dedca2684f0ccb93db",
+    "size": 4545523712,
+    "mtime_ns": 1795409465683542030
+  },
+  "data/individual/seoul/stations.csv": {
+    "sha256": "357538c348d859dbc6dd87b6f0825de5c464f6655be3d55a5a23f703ca1b238c",
+    "size": 189487,
+    "mtime_ns": 1795409372453716005
+  },
+  "data/individual/seoul/transit_anchors.csv": {
+    "sha256": "36d319f28d2895f53d2063363d1f02b4733e42e037f15b7e3051a89f18e87308",
+    "size": 61769,
+    "mtime_ns": 1794901305207170006
+  },
+  "data/processed/planning_facilities_seoul.json": {
+    "sha256": "6f6e1efc322bb026f60ea70e9e2e3cffe9e81312da064a13a13f9fbdca0e0523",
+    "size": 184019,
+    "mtime_ns": 1794837847891841523
+  },
+  "data/processed/planning_boundary_seoul.json": {
+    "sha256": "edffca362978fc0a55d2a94d27281ef824349cff5ff7942ae3fa55478a5a3f5b",
+    "size": 925027,
+    "mtime_ns": 1794837847881197851
+  },
+  "data/individual/daejeon/analysis.sqlite": {
+    "sha256": "e731852c6010a0fd0d6851d795d8aed03587eca000ff22e905de3a74e3e3612b",
+    "size": 2548576256,
+    "mtime_ns": 1795409623229558167
+  },
+  "data/individual/daejeon/stations.csv": {
+    "sha256": "17930e007752c1044206fc88492c96c673209e80dbea471acee3e245864c52a1",
+    "size": 108695,
+    "mtime_ns": 1795409552071454210
+  },
+  "data/individual/daejeon/transit_anchors.csv": {
+    "sha256": "36d319f28d2895f53d2063363d1f02b4733e42e037f15b7e3051a89f18e87308",
+    "size": 61769,
+    "mtime_ns": 1794901305207170006
+  },
+  "data/processed/planning_facilities_daejeon.json": {
+    "sha256": "af98b924a1106b45270d1c95e56fb19c5ded177b8f47794e3c805dc4ca126281",
+    "size": 25155,
+    "mtime_ns": 1794837848516243901
+  },
+  "data/processed/planning_boundary_daejeon.json": {
+    "sha256": "a76a45bde692c0a35a3fdd67e651656c8a4d69ad513f3eff4b9323efcd4d494a",
+    "size": 449261,
+    "mtime_ns": 1794837848506787991
+  },
+  "data/individual/sejong/analysis.sqlite": {
+    "sha256": "fabbdd94ea89682effc14d16e62dfd433453780ae42784ad6f07d710747e7292",
+    "size": 2579873792,
+    "mtime_ns": 1795409778093587342
+  },
+  "data/individual/sejong/stations.csv": {
+    "sha256": "79c14373601ebacb0a1a298e8547d3d1eafe60534f042e700522907769eb3689",
+    "size": 54756,
+    "mtime_ns": 1795409705006520230
+  },
+  "data/individual/sejong/transit_anchors.csv": {
+    "sha256": "36d319f28d2895f53d2063363d1f02b4733e42e037f15b7e3051a89f18e87308",
+    "size": 61769,
+    "mtime_ns": 1794901305207170006
+  },
+  "data/processed/planning_facilities_sejong.json": {
+    "sha256": "f016d08ddf8436a8e6022597a5f321af70c21e118bf625328a98301f4d0b769f",
+    "size": 8343,
+    "mtime_ns": 1794837848990978955
+  },
+  "data/processed/planning_boundary_sejong.json": {
+    "sha256": "0caa7a021d4b1a06d87d3d320a19f7e565c6dd9d05b8b183a39105113f5794d5",
+    "size": 195315,
+    "mtime_ns": 1794837848983821101
+  },
+  "data/processed/planning_population.json": {
+    "sha256": "82c8455d7b6e043a2633b9e3ef686b8c51bb8afbbf8a248d574c535b5662f99d",
+    "size": 2636758,
+    "mtime_ns": 1794837845630016506
+  },
+  "backend/research/recovery_breadth.py": {
+    "size": 9790,
+    "mtime_ns": 1795423992037130049,
+    "sha256": "b41f243e9c025eb8c10a481f252bb6a0660f3114a17644c2b3062fad0624965c"
+  },
+  "scripts/validate/build_recovery_breadth.py": {
+    "size": 9202,
+    "mtime_ns": 1795423992092129377,
+    "sha256": "40d9d7374a1c17a20e1abc410694fece866c92734c0a1056e32c35c1f26efa31"
+  },
+  "scripts/validate/build_individual_recovery.py": {
+    "size": 4826,
+    "mtime_ns": 1795425444509706669,
+    "sha256": "ba631fcf91b08f89cb6a530b85919f4ad1f3473e95ce74c3eba5226073817a5e"
+  },
+  "data/reference/individual_scopes.json": {
+    "size": 14912,
+    "mtime_ns": 1795410549591739883,
+    "sha256": "77d0f1c2110cb73327c579b0fd78b4e185012988e11cbd3f7b77d7f6b5a4bb75"
+  }
+}

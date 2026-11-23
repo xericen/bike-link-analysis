@@ -1,0 +1,9 @@
+{
+  "url": "https://mbis.sejong.go.kr/mobile/main/fileDownload.do?file_name=1001+BRT_TIMELIST.pdf",
+  "http_status": 200,
+  "pdf_verified": true,
+  "bytes": 48919,
+  "download_date": "2026-11-23",
+  "historical_2025_validity_verified": false,
+  "sha256": "4751fd72ce9916dc550ff903ed2816633d4a9280f82b14886aa7b1db238da9d2"
+}

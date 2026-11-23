@@ -64,6 +64,11 @@
    - 수치와 대여소 ID를 검증하고, 검증되지 않은 자유 서술은 근거 요약과 구분합니다.
    - API 키가 없을 때는 일반 분석 화면만 사용할 수 있습니다.
 
+5. **분석 결론과 추가 검증**
+   - 공통 10개월·개별 전체기간의 최종 후보, 현재 도로망 연결과 시간 가정을 구분합니다.
+   - 원본 Spark 처리 대조, Solar 오류 보류, 서울 환승 시간표 모델·개설 관측과 미완료 사유를 표로 보여 줍니다.
+   - 자료가 없는 항목을 실제 설치 효과나 현장 검증 완료로 표시하지 않습니다.
+
 ### 실제 실행 화면
 
 ### 전체 도시 한눈에 보기
@@ -159,6 +164,15 @@
 복구 반경은 300m, 매칭은 일대일입니다. 거리는 **복구된 쌍에 한정**하며 전체 목표의 평균 오차가 아닙니다. 서울은 기존 점수보다 낮았고 대전은 수요만 기준과 같았습니다. 무작위·공간 블록 평가까지 일관되게 우수하지 않아 운영 추천을 교체하지 않았습니다. [전체 fold·베이스라인·실패 단계](docs/README_EVIDENCE_20261123.json) · [해석](docs/README_RELIABILITY.md#방법-검증)
 
 아직 미완료인 검증은 실제 설치 후 이용 변화, 실측 환승·통행시간, 과거 위치 동일성, 재고·거치 용량입니다. 검증되지 않은 항목을 완료 수치로 채우지 않습니다.
+
+### 추가 검증의 현재 도달 범위
+
+| 항목 | 확인된 결과 | 남은 한계·기록 |
+|---|---|---|
+| 원본 Spark 대조 | CSV 63개·유효 이용 65,072,555건, 3도시의 3종 집계가 기존 DB와 일치 | 도시별 기간이 다른 처리량이며 공통 기간 이용량과 다름. [기록](docs/COMPLETION_AUDIT_20261123.md) |
+| 서울 환승 여정 | 공식 2025-09-30 시간표 기반 대표 6여정·18개 가정 조합 | 12월 실제 시행·실측 환승 시간은 미확인. [기록](docs/SCREEN_EVIDENCE_20261123.md) |
+| 기존 개설 전후 관측 | 기준을 통과한 서울 55개 개설 사례 | 비교지역 변화와의 차이이며 제안 후보의 인과 효과가 아님. [기록](docs/visibility-20261123/opening-events.json) |
+| Solar 사실성 보호 | 111개 통제 문장 회귀·실제 오류 응답 보류 검사 | 외부 독립 정확도나 전체 자유 서술의 사실성을 보장하지 않음. [기록](docs/COMPLETION_AUDIT_20261123.md) |
 
 ## 6. 데이터 범위와 한계
 
@@ -301,6 +315,25 @@ npm run dev
 5. **자전거 이용 분석**에서 대여소 수요, 군집, OD, PageRank와 불균형을 확인합니다.
 6. API 키가 설정된 경우 **AI 분석 보고서**에서 현재 선택 맥락을 질문합니다.
 
+### 추가 집계와 연구 결과 준비
+
+도시별 전체기간 화면용 JSON은 `frontend/public/assets/bike-link/individual/`, 월간 참조는 `data/reference/monthly_trends/`에 포함합니다. 이들은 집계 결과이며 원본 이력·개별 SQL 저장소는 포함하지 않습니다. 연구 결과 파일은 `docs/`에 보존합니다.
+
+입력 파일의 크기·수정시각·버전이 다른 환경에서 고급 연구·결론 API가 409를 반환하는 것은 오래된 근거 사용을 막는 동작입니다. 원본과 로컬 DB를 준비하고 해당 배치를 다시 실행해야 합니다. 원본 없이 실행 상태만 바꾸지 않습니다.
+
+```bash
+python -m scripts.preprocess.build_monthly_trends
+python -m scripts.preprocess.build_individual_analysis
+python -m scripts.preprocess.export_individual_analysis
+python -m scripts.preprocess.export_usage_views
+python -m scripts.validate.build_method_validation
+python -m scripts.validate.build_recovery_evaluation
+python -m scripts.validate.build_advanced_research
+python -m scripts.validate.build_conclusion
+```
+
+배치마다 원본·보조 자료와 선행 결과가 필요합니다. 전체 수집이나 외부 모델 호출을 자동으로 실행하지 않습니다. [추가 연구](docs/advanced-research-20261123/REPORT.md) · [완료 범위와 필요 자료](docs/COMPLETION_AUDIT_20261123.md) · [화면별 근거](docs/SCREEN_EVIDENCE_20261123.md)
+
 ### 준비 상태와 문제 해결
 
 | 증상 | 확인 방법 |
@@ -315,7 +348,7 @@ npm run dev
 
 [![checks](https://github.com/xericen/bike-link-analysis/actions/workflows/ci.yml/badge.svg)](https://github.com/xericen/bike-link-analysis/actions/workflows/ci.yml)
 
-공개 저장소의 직전 검증은 **106 passed, 5 skipped**이며, [CI의 백엔드·노트북·프론트엔드 검사](https://github.com/xericen/bike-link-analysis/actions/runs/45112168568)가 통과했습니다. 아래 신규 분석 기록은 현재 프로젝트에서 수행한 별도 연구이며 공개 저장소 실행 코드 전체의 최신화와 구별합니다. 테스트 수를 과거 제안의 102건으로 고정하지 않습니다.
+실제 로컬 데이터가 있는 현재 프로젝트는 **241 passed**, 원본·처리 DB를 제외한 공개 복제본은 **206 passed, 35 skipped**입니다. 제외된 검사는 원본 시간표·정규화 DB·재생성한 입력 메타데이터가 필요한 통합 검사이며, 단위 검사와 공개 결과 검사는 계속 수행합니다. 실제 데이터를 준비한 뒤 제외 없이 검증해야 배포 준비를 판단할 수 있습니다. [CI 실행 목록](https://github.com/xericen/bike-link-analysis/actions)은 push·PR마다 갱신됩니다.
 
 ```bash
 export PYTHONPATH=.
@@ -365,6 +398,7 @@ GitHub Actions는 push·pull request마다 백엔드 테스트, 노트북 실행
 | [의사결정 근거](docs/DECISION_EVIDENCE_20261117.md) · [decision-browser 기록](docs/decision-browser-20261117.json) | 당시 후보 선택·근거·화면 확인 |
 | [빅데 폴더 안내](빅데/README.md) · [첨부 목록](docs/LOCAL_ATTACHMENTS.json) | 로컬 보관 수업 보고서·원본의 파일명·해시 |
 | [기간 구분·발표 문구](docs/REPORT_PERIODS.md) | 이전 보고서와 서비스 수치의 혼용 방지 |
+| [최신 결론·추가 검증](docs/conclusion-20261123/REPORT.md) · [추가 연구](docs/advanced-research-20261123/REPORT.md) · [화면 근거](docs/SCREEN_EVIDENCE_20261123.md) | 전체기간 분석·최적화·원본 Spark·서울 환승·개설 관측 |
 | [기능 보완 기록](docs/RELEASE_NOTES_20261120.md) | 이전 README의 변경 이력 |
 | [단계별 기록 3](docs/DEVELOPMENT_LOG_STAGE3.md) · [단계별 기록 4](docs/DEVELOPMENT_LOG_STAGE4.md) | 개발 진행 보고. 주차별 보고서로 분류된 별도 공개 파일은 없음 |
 | [분석 수식](docs/FINAL_ANALYSIS_FORMULAS.md) · [최종 검증](docs/FINAL_ANALYSIS_VALIDATION.md) | 지표 정의와 당시 검산 |

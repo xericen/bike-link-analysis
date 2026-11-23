@@ -1,0 +1,26 @@
+[
+  {
+    "mode": "prepared",
+    "width": 1440,
+    "rows": 5,
+    "errors": []
+  },
+  {
+    "mode": "prepared",
+    "width": 390,
+    "rows": 5,
+    "errors": []
+  },
+  {
+    "mode": "react",
+    "width": 1440,
+    "rows": 5,
+    "errors": []
+  },
+  {
+    "mode": "react",
+    "width": 390,
+    "rows": 5,
+    "errors": []
+  }
+]

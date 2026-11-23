@@ -1,0 +1,43 @@
+{
+  "pipeline": "Current full-history daily OD -> monthly SUM(trip_count)",
+  "master": "local[2]",
+  "spark_version": "4.1.4",
+  "results": [
+    {
+      "city": "seoul",
+      "daily_od_rows": 20994451,
+      "months": 12,
+      "trips": 37176546,
+      "seconds": 17.77712489385158,
+      "input_sha256": "3cdac8a469b4eff70f05d88d262863a4c14d3e1e4199d1f64e1d6904b7764e03",
+      "monthly_sha256": "777fa2db92dd190ae622cf7f613b16393519417a1d05dedbc0db165887225420",
+      "matches_sqlite": true
+    },
+    {
+      "city": "daejeon",
+      "daily_od_rows": 10773929,
+      "months": 27,
+      "trips": 14992420,
+      "seconds": 6.119134827051312,
+      "input_sha256": "71622b63fd0f963597d167c192bf4faf18a000a756f69806d047a3a04245722f",
+      "monthly_sha256": "76d1ab0e4e2d1349b23bcabecdc007cb8e2cc6b6fafb8191c2b0e627528758d8",
+      "matches_sqlite": true
+    },
+    {
+      "city": "sejong",
+      "daily_od_rows": 10082096,
+      "months": 72,
+      "trips": 12903589,
+      "seconds": 5.597479533171281,
+      "input_sha256": "b7c0720cd4d42253c8b36f687051c0caba1e4d8c23bbe55e64d2317c90602e06",
+      "monthly_sha256": "423cbd60459c9ae78bc4c6df45b5c1abab77c7151032e3f9975a0bbe716ada33",
+      "matches_sqlite": true
+    }
+  ],
+  "all_match": true,
+  "raw_normalization_in_spark": false,
+  "limitations": [
+    "이번 실행은 현재 전체기간 정규화 후 집계 단계 재현입니다. 원본 정제 전체의 Spark 이관이나 분산 클러스터 성능 증거가 아닙니다.",
+    "단일 실행으로 엔진 간 속도 우열을 주장하지 않습니다. 기존36회 벤치마크를 별도로 보존합니다."
+  ]
+}

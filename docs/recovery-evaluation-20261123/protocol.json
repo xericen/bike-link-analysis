@@ -1,0 +1,41 @@
+{
+  "created_at": "2026-11-23T08:08:34.114934+00:00",
+  "periods": {
+    "development": [
+      "2025-06-01",
+      "2025-06-30"
+    ],
+    "evaluation": [
+      "2025-07-01",
+      "2025-07-31"
+    ]
+  },
+  "steps_m": [
+    500,
+    250
+  ],
+  "policies": [
+    "equal",
+    "demand",
+    "gap",
+    "facilities_only"
+  ],
+  "seeds": {
+    "development": 137,
+    "evaluation": 233
+  },
+  "matching_m": 300,
+  "top_k": [
+    10,
+    20
+  ],
+  "selection": "June macro fold Recall@10; tie order 500/equal first; locked before July OD load",
+  "spatial_test": "Remove all located stations in held1km block and all incident OD; test block at least2km from development block; no shared target IDs",
+  "limitations": [
+    "Historical coordinates/anchors/facilities are fixed reference snapshots, not reconstructed monthly.",
+    "All scores, including simple baselines, use the same generated candidate pool.",
+    "Two summer months are not a winter/general seasonal validation.",
+    "Prior December diagnostics already observed; June/July are new to this experiment, not untouched by the project's prior descriptive analyses.",
+    "Recovery of existing sites does not establish unmet demand or installation effects."
+  ]
+}

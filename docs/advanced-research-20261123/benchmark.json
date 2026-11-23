@@ -1,0 +1,548 @@
+{
+  "available": true,
+  "pipeline": "real daily OD CSV -> monthly OD SUM(trips), materialize result; checksum outside timer",
+  "source": "daejeon individual full-history read-only DB, deterministic rowid prefixes; daily OD rows, not raw trip rows",
+  "hardware": {
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+    "logical_cpus": 80,
+    "ram_bytes": 132324929536
+  },
+  "spark_version": "4.1.4",
+  "pandas_version": "3.0.2",
+  "master": "local[2]",
+  "startup_seconds": 5.2665274469181895,
+  "warmup_seconds": 3.7509184449445456,
+  "repeats": 3,
+  "inputs": {
+    "50000": {
+      "sha256": "380e1ffdc4966b141f9a2032fc4bf9f9517947a7599aa4be647d979b01194589",
+      "bytes": 1400180,
+      "rows": 50000
+    },
+    "250000": {
+      "sha256": "8c2565f6112b6fbb694eff3818e55a929af6044517b5db51afe54b78e4fbd33a",
+      "bytes": 7000888,
+      "rows": 250000
+    },
+    "1000000": {
+      "sha256": "0fe329439c8ac165fc2ccc178a56707fd60001510b37caafbc6d526df9ae94be",
+      "bytes": 28003692,
+      "rows": 1000000
+    }
+  },
+  "runs": [
+    {
+      "engine": "pandas",
+      "rows": 50000,
+      "partitions": null,
+      "repeat": 0,
+      "seconds": 0.07757472502999008,
+      "peak_rss_bytes": 113180672,
+      "groups": 32059,
+      "trips": 68774,
+      "sha256": "93342baf0465d40533025e3481eab31af26746c2deb927768f1a7c31415a6793"
+    },
+    {
+      "engine": "spark",
+      "rows": 50000,
+      "partitions": 1,
+      "repeat": 0,
+      "seconds": 1.3420454708393663,
+      "peak_rss_bytes": 906203136,
+      "groups": 32059,
+      "trips": 68774,
+      "sha256": "93342baf0465d40533025e3481eab31af26746c2deb927768f1a7c31415a6793"
+    },
+    {
+      "engine": "spark",
+      "rows": 50000,
+      "partitions": 2,
+      "repeat": 0,
+      "seconds": 0.9856705940328538,
+      "peak_rss_bytes": 1078865920,
+      "groups": 32059,
+      "trips": 68774,
+      "sha256": "93342baf0465d40533025e3481eab31af26746c2deb927768f1a7c31415a6793"
+    },
+    {
+      "engine": "spark",
+      "rows": 50000,
+      "partitions": 4,
+      "repeat": 0,
+      "seconds": 0.649505035020411,
+      "peak_rss_bytes": 1076936704,
+      "groups": 32059,
+      "trips": 68774,
+      "sha256": "93342baf0465d40533025e3481eab31af26746c2deb927768f1a7c31415a6793"
+    },
+    {
+      "engine": "pandas",
+      "rows": 50000,
+      "partitions": null,
+      "repeat": 1,
+      "seconds": 0.0521726559381932,
+      "peak_rss_bytes": 140566528,
+      "groups": 32059,
+      "trips": 68774,
+      "sha256": "93342baf0465d40533025e3481eab31af26746c2deb927768f1a7c31415a6793"
+    },
+    {
+      "engine": "spark",
+      "rows": 50000,
+      "partitions": 1,
+      "repeat": 1,
+      "seconds": 0.36490613617934287,
+      "peak_rss_bytes": 1066295296,
+      "groups": 32059,
+      "trips": 68774,
+      "sha256": "93342baf0465d40533025e3481eab31af26746c2deb927768f1a7c31415a6793"
+    },
+    {
+      "engine": "spark",
+      "rows": 50000,
+      "partitions": 2,
+      "repeat": 1,
+      "seconds": 0.5201428909786046,
+      "peak_rss_bytes": 1087401984,
+      "groups": 32059,
+      "trips": 68774,
+      "sha256": "93342baf0465d40533025e3481eab31af26746c2deb927768f1a7c31415a6793"
+    },
+    {
+      "engine": "spark",
+      "rows": 50000,
+      "partitions": 4,
+      "repeat": 1,
+      "seconds": 0.5316652271430939,
+      "peak_rss_bytes": 1174843392,
+      "groups": 32059,
+      "trips": 68774,
+      "sha256": "93342baf0465d40533025e3481eab31af26746c2deb927768f1a7c31415a6793"
+    },
+    {
+      "engine": "pandas",
+      "rows": 50000,
+      "partitions": null,
+      "repeat": 2,
+      "seconds": 0.04718232899904251,
+      "peak_rss_bytes": 137641984,
+      "groups": 32059,
+      "trips": 68774,
+      "sha256": "93342baf0465d40533025e3481eab31af26746c2deb927768f1a7c31415a6793"
+    },
+    {
+      "engine": "spark",
+      "rows": 50000,
+      "partitions": 1,
+      "repeat": 2,
+      "seconds": 0.44939846312627196,
+      "peak_rss_bytes": 1294950400,
+      "groups": 32059,
+      "trips": 68774,
+      "sha256": "93342baf0465d40533025e3481eab31af26746c2deb927768f1a7c31415a6793"
+    },
+    {
+      "engine": "spark",
+      "rows": 50000,
+      "partitions": 2,
+      "repeat": 2,
+      "seconds": 0.46279956004582345,
+      "peak_rss_bytes": 1408102400,
+      "groups": 32059,
+      "trips": 68774,
+      "sha256": "93342baf0465d40533025e3481eab31af26746c2deb927768f1a7c31415a6793"
+    },
+    {
+      "engine": "spark",
+      "rows": 50000,
+      "partitions": 4,
+      "repeat": 2,
+      "seconds": 0.47957398393191397,
+      "peak_rss_bytes": 1419587584,
+      "groups": 32059,
+      "trips": 68774,
+      "sha256": "93342baf0465d40533025e3481eab31af26746c2deb927768f1a7c31415a6793"
+    },
+    {
+      "engine": "pandas",
+      "rows": 250000,
+      "partitions": null,
+      "repeat": 0,
+      "seconds": 0.25353333400562406,
+      "peak_rss_bytes": 163135488,
+      "groups": 82967,
+      "trips": 349332,
+      "sha256": "b5d8bf55f0dafc464788f5771a669b63e2f7837cc906e08701634d41ab888f73"
+    },
+    {
+      "engine": "spark",
+      "rows": 250000,
+      "partitions": 1,
+      "repeat": 0,
+      "seconds": 1.0306965128984302,
+      "peak_rss_bytes": 1456263168,
+      "groups": 82967,
+      "trips": 349332,
+      "sha256": "b5d8bf55f0dafc464788f5771a669b63e2f7837cc906e08701634d41ab888f73"
+    },
+    {
+      "engine": "spark",
+      "rows": 250000,
+      "partitions": 2,
+      "repeat": 0,
+      "seconds": 1.063789471052587,
+      "peak_rss_bytes": 1471574016,
+      "groups": 82967,
+      "trips": 349332,
+      "sha256": "b5d8bf55f0dafc464788f5771a669b63e2f7837cc906e08701634d41ab888f73"
+    },
+    {
+      "engine": "spark",
+      "rows": 250000,
+      "partitions": 4,
+      "repeat": 0,
+      "seconds": 1.0157408840022981,
+      "peak_rss_bytes": 1467600896,
+      "groups": 82967,
+      "trips": 349332,
+      "sha256": "b5d8bf55f0dafc464788f5771a669b63e2f7837cc906e08701634d41ab888f73"
+    },
+    {
+      "engine": "pandas",
+      "rows": 250000,
+      "partitions": null,
+      "repeat": 1,
+      "seconds": 0.2201061809901148,
+      "peak_rss_bytes": 198012928,
+      "groups": 82967,
+      "trips": 349332,
+      "sha256": "b5d8bf55f0dafc464788f5771a669b63e2f7837cc906e08701634d41ab888f73"
+    },
+    {
+      "engine": "spark",
+      "rows": 250000,
+      "partitions": 1,
+      "repeat": 1,
+      "seconds": 1.023917025886476,
+      "peak_rss_bytes": 1484460032,
+      "groups": 82967,
+      "trips": 349332,
+      "sha256": "b5d8bf55f0dafc464788f5771a669b63e2f7837cc906e08701634d41ab888f73"
+    },
+    {
+      "engine": "spark",
+      "rows": 250000,
+      "partitions": 2,
+      "repeat": 1,
+      "seconds": 0.9801509280223399,
+      "peak_rss_bytes": 1602662400,
+      "groups": 82967,
+      "trips": 349332,
+      "sha256": "b5d8bf55f0dafc464788f5771a669b63e2f7837cc906e08701634d41ab888f73"
+    },
+    {
+      "engine": "spark",
+      "rows": 250000,
+      "partitions": 4,
+      "repeat": 1,
+      "seconds": 1.0974871879443526,
+      "peak_rss_bytes": 1753964544,
+      "groups": 82967,
+      "trips": 349332,
+      "sha256": "b5d8bf55f0dafc464788f5771a669b63e2f7837cc906e08701634d41ab888f73"
+    },
+    {
+      "engine": "pandas",
+      "rows": 250000,
+      "partitions": null,
+      "repeat": 2,
+      "seconds": 0.21237344900146127,
+      "peak_rss_bytes": 200048640,
+      "groups": 82967,
+      "trips": 349332,
+      "sha256": "b5d8bf55f0dafc464788f5771a669b63e2f7837cc906e08701634d41ab888f73"
+    },
+    {
+      "engine": "spark",
+      "rows": 250000,
+      "partitions": 1,
+      "repeat": 2,
+      "seconds": 0.7706775590777397,
+      "peak_rss_bytes": 1729871872,
+      "groups": 82967,
+      "trips": 349332,
+      "sha256": "b5d8bf55f0dafc464788f5771a669b63e2f7837cc906e08701634d41ab888f73"
+    },
+    {
+      "engine": "spark",
+      "rows": 250000,
+      "partitions": 2,
+      "repeat": 2,
+      "seconds": 1.0908495450858027,
+      "peak_rss_bytes": 1740869632,
+      "groups": 82967,
+      "trips": 349332,
+      "sha256": "b5d8bf55f0dafc464788f5771a669b63e2f7837cc906e08701634d41ab888f73"
+    },
+    {
+      "engine": "spark",
+      "rows": 250000,
+      "partitions": 4,
+      "repeat": 2,
+      "seconds": 1.1635741859208792,
+      "peak_rss_bytes": 1763348480,
+      "groups": 82967,
+      "trips": 349332,
+      "sha256": "b5d8bf55f0dafc464788f5771a669b63e2f7837cc906e08701634d41ab888f73"
+    },
+    {
+      "engine": "pandas",
+      "rows": 1000000,
+      "partitions": null,
+      "repeat": 0,
+      "seconds": 0.890426937956363,
+      "peak_rss_bytes": 329560064,
+      "groups": 310486,
+      "trips": 1397496,
+      "sha256": "9f37ead6e2035c7852a5d457fa865aefcf9129ca31387fbbdb859e896952f276"
+    },
+    {
+      "engine": "spark",
+      "rows": 1000000,
+      "partitions": 1,
+      "repeat": 0,
+      "seconds": 3.5556735259015113,
+      "peak_rss_bytes": 1756618752,
+      "groups": 310486,
+      "trips": 1397496,
+      "sha256": "9f37ead6e2035c7852a5d457fa865aefcf9129ca31387fbbdb859e896952f276"
+    },
+    {
+      "engine": "spark",
+      "rows": 1000000,
+      "partitions": 2,
+      "repeat": 0,
+      "seconds": 3.4398288941010833,
+      "peak_rss_bytes": 2166038528,
+      "groups": 310486,
+      "trips": 1397496,
+      "sha256": "9f37ead6e2035c7852a5d457fa865aefcf9129ca31387fbbdb859e896952f276"
+    },
+    {
+      "engine": "spark",
+      "rows": 1000000,
+      "partitions": 4,
+      "repeat": 0,
+      "seconds": 3.1392332669347525,
+      "peak_rss_bytes": 2553290752,
+      "groups": 310486,
+      "trips": 1397496,
+      "sha256": "9f37ead6e2035c7852a5d457fa865aefcf9129ca31387fbbdb859e896952f276"
+    },
+    {
+      "engine": "pandas",
+      "rows": 1000000,
+      "partitions": null,
+      "repeat": 1,
+      "seconds": 0.8338990199845284,
+      "peak_rss_bytes": 478343168,
+      "groups": 310486,
+      "trips": 1397496,
+      "sha256": "9f37ead6e2035c7852a5d457fa865aefcf9129ca31387fbbdb859e896952f276"
+    },
+    {
+      "engine": "spark",
+      "rows": 1000000,
+      "partitions": 1,
+      "repeat": 1,
+      "seconds": 3.1539926340337843,
+      "peak_rss_bytes": 2424360960,
+      "groups": 310486,
+      "trips": 1397496,
+      "sha256": "9f37ead6e2035c7852a5d457fa865aefcf9129ca31387fbbdb859e896952f276"
+    },
+    {
+      "engine": "spark",
+      "rows": 1000000,
+      "partitions": 2,
+      "repeat": 1,
+      "seconds": 3.029779579024762,
+      "peak_rss_bytes": 2553675776,
+      "groups": 310486,
+      "trips": 1397496,
+      "sha256": "9f37ead6e2035c7852a5d457fa865aefcf9129ca31387fbbdb859e896952f276"
+    },
+    {
+      "engine": "spark",
+      "rows": 1000000,
+      "partitions": 4,
+      "repeat": 1,
+      "seconds": 3.475899798097089,
+      "peak_rss_bytes": 2773344256,
+      "groups": 310486,
+      "trips": 1397496,
+      "sha256": "9f37ead6e2035c7852a5d457fa865aefcf9129ca31387fbbdb859e896952f276"
+    },
+    {
+      "engine": "pandas",
+      "rows": 1000000,
+      "partitions": null,
+      "repeat": 2,
+      "seconds": 0.8304730369709432,
+      "peak_rss_bytes": 488988672,
+      "groups": 310486,
+      "trips": 1397496,
+      "sha256": "9f37ead6e2035c7852a5d457fa865aefcf9129ca31387fbbdb859e896952f276"
+    },
+    {
+      "engine": "spark",
+      "rows": 1000000,
+      "partitions": 1,
+      "repeat": 2,
+      "seconds": 2.9882231310475618,
+      "peak_rss_bytes": 2699444224,
+      "groups": 310486,
+      "trips": 1397496,
+      "sha256": "9f37ead6e2035c7852a5d457fa865aefcf9129ca31387fbbdb859e896952f276"
+    },
+    {
+      "engine": "spark",
+      "rows": 1000000,
+      "partitions": 2,
+      "repeat": 2,
+      "seconds": 3.077662833034992,
+      "peak_rss_bytes": 2840436736,
+      "groups": 310486,
+      "trips": 1397496,
+      "sha256": "9f37ead6e2035c7852a5d457fa865aefcf9129ca31387fbbdb859e896952f276"
+    },
+    {
+      "engine": "spark",
+      "rows": 1000000,
+      "partitions": 4,
+      "repeat": 2,
+      "seconds": 4.069717726903036,
+      "peak_rss_bytes": 2717331456,
+      "groups": 310486,
+      "trips": 1397496,
+      "sha256": "9f37ead6e2035c7852a5d457fa865aefcf9129ca31387fbbdb859e896952f276"
+    }
+  ],
+  "summary": [
+    {
+      "rows": 50000,
+      "engine": "pandas",
+      "partitions": null,
+      "median_seconds": 0.0521726559381932,
+      "min_seconds": 0.04718232899904251,
+      "max_seconds": 0.07757472502999008,
+      "max_peak_rss_bytes": 140566528
+    },
+    {
+      "rows": 50000,
+      "engine": "spark",
+      "partitions": 1,
+      "median_seconds": 0.44939846312627196,
+      "min_seconds": 0.36490613617934287,
+      "max_seconds": 1.3420454708393663,
+      "max_peak_rss_bytes": 1294950400
+    },
+    {
+      "rows": 50000,
+      "engine": "spark",
+      "partitions": 2,
+      "median_seconds": 0.5201428909786046,
+      "min_seconds": 0.46279956004582345,
+      "max_seconds": 0.9856705940328538,
+      "max_peak_rss_bytes": 1408102400
+    },
+    {
+      "rows": 50000,
+      "engine": "spark",
+      "partitions": 4,
+      "median_seconds": 0.5316652271430939,
+      "min_seconds": 0.47957398393191397,
+      "max_seconds": 0.649505035020411,
+      "max_peak_rss_bytes": 1419587584
+    },
+    {
+      "rows": 250000,
+      "engine": "pandas",
+      "partitions": null,
+      "median_seconds": 0.2201061809901148,
+      "min_seconds": 0.21237344900146127,
+      "max_seconds": 0.25353333400562406,
+      "max_peak_rss_bytes": 200048640
+    },
+    {
+      "rows": 250000,
+      "engine": "spark",
+      "partitions": 1,
+      "median_seconds": 1.023917025886476,
+      "min_seconds": 0.7706775590777397,
+      "max_seconds": 1.0306965128984302,
+      "max_peak_rss_bytes": 1729871872
+    },
+    {
+      "rows": 250000,
+      "engine": "spark",
+      "partitions": 2,
+      "median_seconds": 1.063789471052587,
+      "min_seconds": 0.9801509280223399,
+      "max_seconds": 1.0908495450858027,
+      "max_peak_rss_bytes": 1740869632
+    },
+    {
+      "rows": 250000,
+      "engine": "spark",
+      "partitions": 4,
+      "median_seconds": 1.0974871879443526,
+      "min_seconds": 1.0157408840022981,
+      "max_seconds": 1.1635741859208792,
+      "max_peak_rss_bytes": 1763348480
+    },
+    {
+      "rows": 1000000,
+      "engine": "pandas",
+      "partitions": null,
+      "median_seconds": 0.8338990199845284,
+      "min_seconds": 0.8304730369709432,
+      "max_seconds": 0.890426937956363,
+      "max_peak_rss_bytes": 488988672
+    },
+    {
+      "rows": 1000000,
+      "engine": "spark",
+      "partitions": 1,
+      "median_seconds": 3.1539926340337843,
+      "min_seconds": 2.9882231310475618,
+      "max_seconds": 3.5556735259015113,
+      "max_peak_rss_bytes": 2699444224
+    },
+    {
+      "rows": 1000000,
+      "engine": "spark",
+      "partitions": 2,
+      "median_seconds": 3.077662833034992,
+      "min_seconds": 3.029779579024762,
+      "max_seconds": 3.4398288941010833,
+      "max_peak_rss_bytes": 2840436736
+    },
+    {
+      "rows": 1000000,
+      "engine": "spark",
+      "partitions": 4,
+      "median_seconds": 3.475899798097089,
+      "min_seconds": 3.1392332669347525,
+      "max_seconds": 4.069717726903036,
+      "max_peak_rss_bytes": 2773344256
+    }
+  ],
+  "all_checksums_match": true,
+  "limitations": [
+    "단일 서버의 부분 집계 단계: 전체 원본 정규화·분산 클러스터 성능을 주장하지 않음",
+    "OS 파일 캐시는 비우지 않음; JVM 시작/워밍업 별도, CSV 읽기·집계·결과 구체화 포함",
+    "pandas RSS는 Python, Spark RSS는 Python+Java 하위 프로세스. 모니터 간격50ms",
+    "파티션1/2/4 비교이며 CPU 노드 확장성은 미검증"
+  ]
+}

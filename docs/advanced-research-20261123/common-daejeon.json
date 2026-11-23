@@ -1,0 +1,775 @@
+{
+  "available": true,
+  "city": "daejeon",
+  "scope": "common",
+  "period_start": "2025-12-01",
+  "period_end": "2025-12-31",
+  "location": {
+    "available": true,
+    "original_candidates": 487,
+    "eligible_candidates": 53,
+    "reduced_candidates": 53,
+    "reduction": "anchor<=1500m; score top20 + score-leading representatives of 2km tiles up to40; fill to60",
+    "whole_city_before_reduction": true,
+    "optimality_scope": "축소 후보 집합·고정 참조 위치·공간 모델 안에서만 최적",
+    "demand_definition": "후보 1km 이내 기존 대여소의 관측 대여를 대여소별 한 번 계산. 신규 수요·300m 접근 수요 예측 아님.",
+    "area_definition": "앵커500m 밖·행정경계 안의 후보300m 버퍼 합집합. 정확한 교차 다각형 원자별 중복 제거.",
+    "candidate_sites": [
+      {
+        "site_id": "grid-987500-1816500",
+        "latitude": 36.3480766892513,
+        "longitude": 127.36347921114421,
+        "score": 0.8477926078028748,
+        "district": "서구"
+      },
+      {
+        "site_id": "grid-991000-1813000",
+        "latitude": 36.316560880968375,
+        "longitude": 127.402524405588,
+        "score": 0.8303388090349075,
+        "district": "중구"
+      },
+      {
+        "site_id": "grid-987500-1816000",
+        "latitude": 36.34356899092899,
+        "longitude": 127.36348707956103,
+        "score": 0.8164784394250514,
+        "district": "서구"
+      },
+      {
+        "site_id": "grid-992000-1812500",
+        "latitude": 36.31206171577705,
+        "longitude": 127.41366943162839,
+        "score": 0.8072381930184804,
+        "district": "중구"
+      },
+      {
+        "site_id": "grid-993000-1812500",
+        "latitude": 36.31206924105484,
+        "longitude": 127.42480885050865,
+        "score": 0.7754106776180698,
+        "district": "중구"
+      },
+      {
+        "site_id": "grid-987500-1818000",
+        "latitude": 36.3615997637609,
+        "longitude": 127.36345559540092,
+        "score": 0.7243326488706365,
+        "district": "서구"
+      },
+      {
+        "site_id": "grid-987000-1816500",
+        "latitude": 36.34807019345279,
+        "longitude": 127.35790694921393,
+        "score": 0.7186858316221766,
+        "district": "서구"
+      },
+      {
+        "site_id": "grid-986500-1816000",
+        "latitude": 36.343555741672816,
+        "longitude": 127.35234319983282,
+        "score": 0.7053388090349076,
+        "district": "서구"
+      },
+      {
+        "site_id": "grid-984500-1818500",
+        "latitude": 36.36606454811873,
+        "longitude": 127.33000646512103,
+        "score": 0.6978952772073922,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-987000-1816000",
+        "latitude": 36.34356249619444,
+        "longitude": 127.35791513878718,
+        "score": 0.6817248459958932,
+        "district": "서구"
+      },
+      {
+        "site_id": "grid-982000-1821500",
+        "latitude": 36.39306760003604,
+        "longitude": 127.30207029122086,
+        "score": 0.6486139630390144,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-985000-1817000",
+        "latitude": 36.352549301132335,
+        "longitude": 127.33560844410556,
+        "score": 0.5847022587268994,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-986500-1818500",
+        "latitude": 36.366094188333555,
+        "longitude": 127.35230062726961,
+        "score": 0.5841889117043121,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-984500-1819000",
+        "latitude": 36.37057222236614,
+        "longitude": 127.32999665888363,
+        "score": 0.5780287474332649,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-984500-1816000",
+        "latitude": 36.34352612572144,
+        "longitude": 127.3300554636372,
+        "score": 0.5759753593429158,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-984000-1820500",
+        "latitude": 36.3840871593098,
+        "longitude": 127.32439240535373,
+        "score": 0.5687885010266941,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-984500-1819500",
+        "latitude": 36.3750798932025,
+        "longitude": 127.32998685046701,
+        "score": 0.5672484599589322,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-983500-1821500",
+        "latitude": 36.3930941462344,
+        "longitude": 127.31879666644156,
+        "score": 0.553388090349076,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-984500-1820500",
+        "latitude": 36.38409522464138,
+        "longitude": 127.32996722709412,
+        "score": 0.5503080082135524,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-984000-1821500",
+        "latitude": 36.39310247446103,
+        "longitude": 127.32437212959336,
+        "score": 0.547741273100616,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-982500-1821500",
+        "latitude": 36.39307670902155,
+        "longitude": 127.30764574718377,
+        "score": 0.5446611909650924,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-982500-1819000",
+        "latitude": 36.37053841664127,
+        "longitude": 127.30770124555502,
+        "score": 0.5349075975359343,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-982500-1822000",
+        "latitude": 36.39758435726072,
+        "longitude": 127.3076346401083,
+        "score": 0.5333675564681725,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-982500-1818500",
+        "latitude": 36.36603074792951,
+        "longitude": 127.30771233783199,
+        "score": 0.521047227926078,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-984000-1816500",
+        "latitude": 36.34802576224984,
+        "longitude": 127.32447341834808,
+        "score": 0.4984599589322382,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-995500-1815500",
+        "latitude": 36.33912986249426,
+        "longitude": 127.45264105043428,
+        "score": 0.4830595482546201,
+        "district": "동구"
+      },
+      {
+        "site_id": "grid-982500-1817000",
+        "latitude": 36.35250772132565,
+        "longitude": 127.30774559987847,
+        "score": 0.48100616016427106,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-985000-1820500",
+        "latitude": 36.38410302980417,
+        "longitude": 127.33554205101521,
+        "score": 0.4804928131416838,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-996500-1812000",
+        "latitude": 36.30757966807576,
+        "longitude": 127.4637989269856,
+        "score": 0.4768993839835729,
+        "district": "동구"
+      },
+      {
+        "site_id": "grid-982000-1822000",
+        "latitude": 36.397575246783845,
+        "longitude": 127.30205886220793,
+        "score": 0.4745893223819302,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-982500-1818000",
+        "latitude": 36.36152307580619,
+        "longitude": 127.3077234276445,
+        "score": 0.47279260780287474,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-983500-1816500",
+        "latitude": 36.34801744765017,
+        "longitude": 127.31890117065579,
+        "score": 0.4620123203285421,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-983000-1822500",
+        "latitude": 36.40210085371783,
+        "longitude": 127.3131996329428,
+        "score": 0.45585215605749485,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-982000-1818500",
+        "latitude": 36.3660216478887,
+        "longitude": 127.30213881199225,
+        "score": 0.4553388090349076,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-984000-1822000",
+        "latitude": 36.397610126918686,
+        "longitude": 127.32436198833356,
+        "score": 0.4509753593429158,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-983000-1820000",
+        "latitude": 36.37956258821719,
+        "longitude": 127.31325354665128,
+        "score": 0.4463552361396304,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-983000-1820500",
+        "latitude": 36.38407024814169,
+        "longitude": 127.31324276870107,
+        "score": 0.44584188911704314,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-997000-1813000",
+        "latitude": 36.316596696789745,
+        "longitude": 127.46936479515718,
+        "score": 0.4271047227926078,
+        "district": "동구"
+      },
+      {
+        "site_id": "grid-984000-1817500",
+        "latitude": 36.357041131980466,
+        "longitude": 127.32445317859835,
+        "score": 0.42428131416837783,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-982000-1819500",
+        "latitude": 36.375036978919674,
+        "longitude": 127.3021159818848,
+        "score": 0.4196611909650924,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-983000-1817000",
+        "latitude": 36.35251655702706,
+        "longitude": 127.31331816408391,
+        "score": 0.4124743326488706,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-983500-1822000",
+        "latitude": 36.39760179732849,
+        "longitude": 127.3187862032427,
+        "score": 0.4052874743326489,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-983500-1822500",
+        "latitude": 36.402109445010254,
+        "longitude": 127.3187757377185,
+        "score": 0.40477412731006157,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-982000-1819000",
+        "latitude": 36.37052931511011,
+        "longitude": 127.30212739820675,
+        "score": 0.40374743326488705,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-983000-1818000",
+        "latitude": 36.36153191440233,
+        "longitude": 127.31329663451102,
+        "score": 0.4027207392197125,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-997000-1812500",
+        "latitude": 36.3120889624865,
+        "longitude": 127.46936655879976,
+        "score": 0.37525667351129366,
+        "district": "동구"
+      },
+      {
+        "site_id": "grid-995500-1813500",
+        "latitude": 36.32109897655495,
+        "longitude": 127.45265196143029,
+        "score": 0.37089322381930184,
+        "district": "동구"
+      },
+      {
+        "site_id": "grid-983500-1817500",
+        "latitude": 36.357032814656634,
+        "longitude": 127.31888028838561,
+        "score": 0.36883983572895274,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-983000-1817500",
+        "latitude": 36.357024237420205,
+        "longitude": 127.31330740049343,
+        "score": 0.3565195071868583,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-983500-1817000",
+        "latitude": 36.352525132858766,
+        "longitude": 127.31889073068072,
+        "score": 0.3498459958932238,
+        "district": "유성구"
+      },
+      {
+        "site_id": "grid-996500-1812500",
+        "latitude": 36.31208740553063,
+        "longitude": 127.46379684314401,
+        "score": 0.3493326488706366,
+        "district": "동구"
+      },
+      {
+        "site_id": "grid-997000-1812000",
+        "latitude": 36.307581224776506,
+        "longitude": 127.4693683220505,
+        "score": 0.3467659137577002,
+        "district": "동구"
+      },
+      {
+        "site_id": "grid-997500-1813000",
+        "latitude": 36.31659799446568,
+        "longitude": 127.47493483186693,
+        "score": 0.29209445585215604,
+        "district": "동구"
+      }
+    ],
+    "comparisons": [
+      {
+        "k": 1,
+        "solver": {
+          "selected": [
+            10
+          ],
+          "objective": 282289.36414913787,
+          "status": "Optimal",
+          "solution_status": "Optimal Solution Found",
+          "proven_optimal": true,
+          "upper_bound": 282289.36414913787,
+          "seconds": 0.020394718972966075,
+          "time_limit": 45,
+          "solver": "PuLP/CBC",
+          "gap_rel_requested": 0
+        },
+        "methods": {
+          "score": {
+            "covered": 282289.36414913874,
+            "optimal_fraction": 1.000000000000003,
+            "sites": [
+              "grid-987500-1816500"
+            ],
+            "gap_area_m2": 282289.36414913886,
+            "nearby_rentals_unique": 7763,
+            "candidate_buffer_gross_m2": 282289.36414913886
+          },
+          "greedy": {
+            "covered": 282289.3641491411,
+            "optimal_fraction": 1.0000000000000115,
+            "sites": [
+              "grid-997000-1812500"
+            ],
+            "gap_area_m2": 282289.36414913886,
+            "nearby_rentals_unique": 274,
+            "candidate_buffer_gross_m2": 282289.36414913886
+          },
+          "mclp": {
+            "covered": 282289.36414913787,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-982000-1821500"
+            ],
+            "gap_area_m2": 282289.36414913886,
+            "nearby_rentals_unique": 1312,
+            "candidate_buffer_gross_m2": 282289.36414913886
+          }
+        },
+        "objective": "gap_area"
+      },
+      {
+        "k": 2,
+        "solver": {
+          "selected": [
+            10,
+            13
+          ],
+          "objective": 564578.7282982782,
+          "status": "Optimal",
+          "solution_status": "Optimal Solution Found",
+          "proven_optimal": true,
+          "upper_bound": 564578.7282982782,
+          "seconds": 0.018867920152843,
+          "time_limit": 45,
+          "solver": "PuLP/CBC",
+          "gap_rel_requested": 0
+        },
+        "methods": {
+          "score": {
+            "covered": 564578.7282982776,
+            "optimal_fraction": 0.999999999999999,
+            "sites": [
+              "grid-987500-1816500",
+              "grid-991000-1813000"
+            ],
+            "gap_area_m2": 564578.7282982776,
+            "nearby_rentals_unique": 21543,
+            "candidate_buffer_gross_m2": 564578.7282982777
+          },
+          "greedy": {
+            "covered": 564578.7282982817,
+            "optimal_fraction": 1.0000000000000062,
+            "sites": [
+              "grid-997000-1812500",
+              "grid-982000-1822000"
+            ],
+            "gap_area_m2": 564578.7282982776,
+            "nearby_rentals_unique": 717,
+            "candidate_buffer_gross_m2": 564578.7282982777
+          },
+          "mclp": {
+            "covered": 564578.7282982782,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-982000-1821500",
+              "grid-984500-1819000"
+            ],
+            "gap_area_m2": 564578.7282982776,
+            "nearby_rentals_unique": 7767,
+            "candidate_buffer_gross_m2": 564578.7282982777
+          }
+        },
+        "objective": "gap_area"
+      },
+      {
+        "k": 3,
+        "solver": {
+          "selected": [
+            13,
+            24,
+            43
+          ],
+          "objective": 846868.0924474145,
+          "status": "Optimal",
+          "solution_status": "Optimal Solution Found",
+          "proven_optimal": true,
+          "upper_bound": 846868.0924474145,
+          "seconds": 0.01549928798340261,
+          "time_limit": 45,
+          "solver": "PuLP/CBC",
+          "gap_rel_requested": 0
+        },
+        "methods": {
+          "score": {
+            "covered": 824530.4497511495,
+            "optimal_fraction": 0.9736232325961058,
+            "sites": [
+              "grid-987500-1816500",
+              "grid-991000-1813000",
+              "grid-987500-1816000"
+            ],
+            "gap_area_m2": 824530.4497511492,
+            "nearby_rentals_unique": 21716,
+            "candidate_buffer_gross_m2": 846868.0924474166
+          },
+          "greedy": {
+            "covered": 846868.092447422,
+            "optimal_fraction": 1.0000000000000089,
+            "sites": [
+              "grid-997000-1812500",
+              "grid-982000-1822000",
+              "grid-984500-1819000"
+            ],
+            "gap_area_m2": 846868.0924474159,
+            "nearby_rentals_unique": 7172,
+            "candidate_buffer_gross_m2": 846868.0924474166
+          },
+          "mclp": {
+            "covered": 846868.0924474145,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-984500-1819000",
+              "grid-984000-1816500",
+              "grid-982000-1819000"
+            ],
+            "gap_area_m2": 846868.0924474159,
+            "nearby_rentals_unique": 7276,
+            "candidate_buffer_gross_m2": 846868.0924474166
+          }
+        },
+        "objective": "gap_area"
+      },
+      {
+        "k": 1,
+        "solver": {
+          "selected": [
+            5
+          ],
+          "objective": 34129.0,
+          "status": "Optimal",
+          "solution_status": "Optimal Solution Found",
+          "proven_optimal": true,
+          "upper_bound": 34129.0,
+          "seconds": 0.022879285039380193,
+          "time_limit": 45,
+          "solver": "PuLP/CBC",
+          "gap_rel_requested": 0
+        },
+        "methods": {
+          "score": {
+            "covered": 7763.0,
+            "optimal_fraction": 0.2274605174485042,
+            "sites": [
+              "grid-987500-1816500"
+            ],
+            "gap_area_m2": 282289.36414913886,
+            "nearby_rentals_unique": 7763,
+            "candidate_buffer_gross_m2": 282289.36414913886
+          },
+          "greedy": {
+            "covered": 34129.0,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-987500-1818000"
+            ],
+            "gap_area_m2": 87566.9129289134,
+            "nearby_rentals_unique": 34129,
+            "candidate_buffer_gross_m2": 87566.9129289134
+          },
+          "mclp": {
+            "covered": 34129.0,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-987500-1818000"
+            ],
+            "gap_area_m2": 87566.9129289134,
+            "nearby_rentals_unique": 34129,
+            "candidate_buffer_gross_m2": 87566.9129289134
+          }
+        },
+        "objective": "nearby_observed_demand"
+      },
+      {
+        "k": 2,
+        "solver": {
+          "selected": [
+            5,
+            11
+          ],
+          "objective": 56965.0,
+          "status": "Optimal",
+          "solution_status": "Optimal Solution Found",
+          "proven_optimal": true,
+          "upper_bound": 56965.0,
+          "seconds": 0.02372041204944253,
+          "time_limit": 45,
+          "solver": "PuLP/CBC",
+          "gap_rel_requested": 0
+        },
+        "methods": {
+          "score": {
+            "covered": 21543.0,
+            "optimal_fraction": 0.37817958395506013,
+            "sites": [
+              "grid-987500-1816500",
+              "grid-991000-1813000"
+            ],
+            "gap_area_m2": 564578.7282982776,
+            "nearby_rentals_unique": 21543,
+            "candidate_buffer_gross_m2": 564578.7282982777
+          },
+          "greedy": {
+            "covered": 56965.0,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-987500-1818000",
+              "grid-985000-1817000"
+            ],
+            "gap_area_m2": 214077.0833083624,
+            "nearby_rentals_unique": 56965,
+            "candidate_buffer_gross_m2": 214077.08330836234
+          },
+          "mclp": {
+            "covered": 56965.0,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-987500-1818000",
+              "grid-985000-1817000"
+            ],
+            "gap_area_m2": 214077.0833083624,
+            "nearby_rentals_unique": 56965,
+            "candidate_buffer_gross_m2": 214077.08330836234
+          }
+        },
+        "objective": "nearby_observed_demand"
+      },
+      {
+        "k": 3,
+        "solver": {
+          "selected": [
+            1,
+            5,
+            11
+          ],
+          "objective": 70745.0,
+          "status": "Optimal",
+          "solution_status": "Optimal Solution Found",
+          "proven_optimal": true,
+          "upper_bound": 70745.0,
+          "seconds": 0.031572388019412756,
+          "time_limit": 45,
+          "solver": "PuLP/CBC",
+          "gap_rel_requested": 0
+        },
+        "methods": {
+          "score": {
+            "covered": 21716.0,
+            "optimal_fraction": 0.30696162272952154,
+            "sites": [
+              "grid-987500-1816500",
+              "grid-991000-1813000",
+              "grid-987500-1816000"
+            ],
+            "gap_area_m2": 824530.4497511492,
+            "nearby_rentals_unique": 21716,
+            "candidate_buffer_gross_m2": 846868.0924474166
+          },
+          "greedy": {
+            "covered": 70745.0,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-987500-1818000",
+              "grid-985000-1817000",
+              "grid-991000-1813000"
+            ],
+            "gap_area_m2": 496366.4474575012,
+            "nearby_rentals_unique": 70745,
+            "candidate_buffer_gross_m2": 496366.4474575012
+          },
+          "mclp": {
+            "covered": 70745.0,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-991000-1813000",
+              "grid-987500-1818000",
+              "grid-985000-1817000"
+            ],
+            "gap_area_m2": 496366.4474575012,
+            "nearby_rentals_unique": 70745,
+            "candidate_buffer_gross_m2": 496366.4474575012
+          }
+        },
+        "objective": "nearby_observed_demand"
+      }
+    ],
+    "operational_update": false
+  },
+  "headline_ci": {
+    "estimate": 0.29336401703162357,
+    "lower": 0.2890462055055918,
+    "upper": 0.29871654657399715,
+    "level": 0.95,
+    "block_days": 7,
+    "actual_block_min": 7,
+    "replicates": 2000,
+    "seed": 42,
+    "observed_days": 31,
+    "month_strata": 1,
+    "method": "month-stratified paired moving-block bootstrap; contiguous calendar windows; fixed observed-day counts per month",
+    "block_sensitivity": [
+      {
+        "estimate": 0.29336401703162357,
+        "lower": 0.2889001153769255,
+        "upper": 0.29852509861258464,
+        "level": 0.95,
+        "block_days": 3,
+        "actual_block_min": 3,
+        "replicates": 1000,
+        "seed": 42,
+        "observed_days": 31,
+        "month_strata": 1,
+        "method": "month-stratified paired moving-block bootstrap; contiguous calendar windows; fixed observed-day counts per month"
+      },
+      {
+        "estimate": 0.29336401703162357,
+        "lower": 0.28905351144842506,
+        "upper": 0.29699460079549084,
+        "level": 0.95,
+        "block_days": 14,
+        "actual_block_min": 14,
+        "replicates": 1000,
+        "seed": 42,
+        "observed_days": 31,
+        "month_strata": 1,
+        "method": "month-stratified paired moving-block bootstrap; contiguous calendar windows; fixed observed-day counts per month"
+      }
+    ],
+    "calendar_days": 31,
+    "missing_days": 0,
+    "unknown_endpoint_trips": 0,
+    "total_trips": 368491,
+    "linked_trips": 108102,
+    "period_start": "2025-12-01",
+    "period_end": "2025-12-31",
+    "interpretation": "관측 날짜 구성을 재표본한 비중 변동 범위. 전체 기록의 집계 오차·실제 환승률·미래 예측 구간 아님.",
+    "limitation": "연월별 관측일 수를 고정하고 연속 달력일 블록만 재표본. 누락일을 0으로 채우거나 공백을 잇지 않음. 월내 블록 끝점의 표본확률 차이와 장기 참조자료 편향은 남음."
+  },
+  "explanation": {
+    "available": false,
+    "reason": "수요 설명 모델은 도시별 전체 기간에서 시간 홀드아웃 검증"
+  },
+  "code_hash": "808636753b255b41815da03c2ae901db65af9857eddc5ae9d44553f128ff86bc",
+  "methods_hash": "b0d0ed96db9d939ca5146468986573f500a6cbe5e30d5bd33b0db33e2ee4256c",
+  "source_revision": "e830d4d1d65fbd2f25d771678f3fc182779b7dabaffb1e7dca65777012cb9a59"
+}

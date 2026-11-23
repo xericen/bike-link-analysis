@@ -1,0 +1,16 @@
+city,site_id,visit_at,observer,path_passable,site_permission,rack_capacity_at_visit,available_bikes_at_visit,evidence_file_sha256,before_after_effect_evidence,status
+seoul,grid-961000-1952500,,,,,,,,,현장 미검증
+seoul,grid-961500-1952500,,,,,,,,,현장 미검증
+seoul,grid-942000-1946000,,,,,,,,,현장 미검증
+seoul,grid-960000-1954500,,,,,,,,,현장 미검증
+seoul,grid-961000-1955500,,,,,,,,,현장 미검증
+daejeon,grid-987000-1811500,,,,,,,,,현장 미검증
+daejeon,grid-987500-1816500,,,,,,,,,현장 미검증
+daejeon,grid-986500-1811000,,,,,,,,,현장 미검증
+daejeon,grid-989000-1812000,,,,,,,,,현장 미검증
+daejeon,grid-988500-1814000,,,,,,,,,현장 미검증
+sejong,grid-981000-1830000,,,,,,,,,현장 미검증
+sejong,grid-980000-1832500,,,,,,,,,현장 미검증
+sejong,grid-980500-1843500,,,,,,,,,현장 미검증
+sejong,grid-982000-1844000,,,,,,,,,현장 미검증
+sejong,grid-982000-1843500,,,,,,,,,현장 미검증

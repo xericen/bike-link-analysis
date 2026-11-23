@@ -1,0 +1,86 @@
+{
+  "created_at": "2026-11-23T08:53:13.269269+00:00",
+  "development": [
+    "2025-12-01",
+    "2025-12-21"
+  ],
+  "exploration": [
+    "2025-12-01",
+    "2025-12-31"
+  ],
+  "evaluation": [
+    "2025-08-01",
+    "2025-08-31"
+  ],
+  "configs": [
+    "legacy500:original",
+    "legacy500:rental1000",
+    "legacy500:activity500",
+    "legacy500:kde300",
+    "legacy500:facilities500",
+    "legacy500:balanced",
+    "legacy500:anchor_demand",
+    "legacy500:diverse300",
+    "legacy500:diverse600",
+    "legacy500:cover500",
+    "grid250:rental1000",
+    "grid250:activity500",
+    "grid250:kde300",
+    "grid250:facilities500",
+    "grid250:balanced",
+    "grid250:anchor_demand",
+    "grid250:diverse300",
+    "grid250:diverse600",
+    "grid250:cover500",
+    "grid125:rental1000",
+    "grid125:activity500",
+    "grid125:kde300",
+    "grid125:facilities500",
+    "grid125:balanced",
+    "grid125:anchor_demand",
+    "grid125:diverse300",
+    "grid125:diverse600",
+    "grid125:cover500",
+    "diagnostic125_50:rental1000",
+    "diagnostic125_50:activity500",
+    "diagnostic125_50:kde300",
+    "diagnostic125_50:facilities500",
+    "diagnostic125_50:balanced",
+    "diagnostic125_50:anchor_demand",
+    "diagnostic125_50:diverse300",
+    "diagnostic125_50:diverse600",
+    "diagnostic125_50:cover500",
+    "facility_mix_50:rental1000",
+    "facility_mix_50:activity500",
+    "facility_mix_50:kde300",
+    "facility_mix_50:facilities500",
+    "facility_mix_50:balanced",
+    "facility_mix_50:anchor_demand",
+    "facility_mix_50:diverse300",
+    "facility_mix_50:diverse600",
+    "facility_mix_50:cover500"
+  ],
+  "selection": "December1-21 macro Recall@10 over popular/gap/spatial folds; strict and spacing50 tracks selected separately; tie order declared config list",
+  "candidate_rules": {
+    "strict_min_remaining_station_m": 300,
+    "diagnostic_min_remaining_station_m": 50,
+    "lattice_m": [
+      125,
+      250
+    ],
+    "legacy_grid_m": 500,
+    "matching_radius_m": 300,
+    "top_k": [
+      10,
+      20
+    ],
+    "candidate_inputs": "Remaining station demand, static anchors/facilities/boundary only; no hidden coordinate as candidate"
+  },
+  "purpose": "December already examined: all December outcomes exploratory. August is locked cross-month retrospective check, not future prediction; prior project descriptive use of August is acknowledged.",
+  "limitations": [
+    "50m spacing is a recovery/coverage diagnostic, not compliant new-station installation.",
+    "Coverage500 counts remaining observed rental+return activity once, not unmet demand or causal installation effect.",
+    "Reference infrastructure snapshots are newer than observation month; historical location validity unverified.",
+    "Do not select a winning August method or replace existing production scores."
+  ]
+}

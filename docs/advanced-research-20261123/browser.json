@@ -1,0 +1,47 @@
+{
+  "mode": "public URLs, no interception",
+  "prepared": [
+    {
+      "city": "all",
+      "start": "2025-12-01",
+      "k": 2,
+      "objective": "nearby_observed_demand"
+    },
+    {
+      "city": "seoul",
+      "start": "2025-01-01",
+      "k": 2,
+      "objective": "nearby_observed_demand"
+    },
+    {
+      "city": "daejeon",
+      "start": "2024-08-01",
+      "k": 2,
+      "objective": "nearby_observed_demand"
+    },
+    {
+      "city": "sejong",
+      "start": "2020-01-01",
+      "k": 2,
+      "objective": "nearby_observed_demand"
+    }
+  ],
+  "react": [
+    {
+      "city": "seoul",
+      "start": "2025-01-01",
+      "k": 1
+    },
+    {
+      "city": "daejeon",
+      "start": "2024-08-01",
+      "k": 1
+    },
+    {
+      "city": "sejong",
+      "start": "2020-01-01",
+      "k": 1
+    }
+  ],
+  "errors": []
+}

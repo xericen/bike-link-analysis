@@ -1,0 +1,56 @@
+[
+  {
+    "path": "method-validation",
+    "city": "seoul",
+    "status": 200,
+    "seconds": 0.19523103185929358
+  },
+  {
+    "path": "method-validation",
+    "city": "daejeon",
+    "status": 200,
+    "seconds": 0.06616927497088909
+  },
+  {
+    "path": "method-validation",
+    "city": "sejong",
+    "status": 200,
+    "seconds": 0.05538360890932381
+  },
+  {
+    "path": "method-validation",
+    "city": "all",
+    "status": 200,
+    "seconds": 0.11189479404129088
+  },
+  {
+    "path": "validation-anchor",
+    "anchor": "강남",
+    "status": 200
+  },
+  {
+    "path": "validation-anchor",
+    "anchor": "실재하지 않는 역",
+    "status": 404
+  },
+  {
+    "path": "dashboard",
+    "status": 200
+  },
+  {
+    "path": "improvements",
+    "status": 200
+  },
+  {
+    "path": "stations",
+    "status": 200
+  },
+  {
+    "path": "network",
+    "status": 200
+  },
+  {
+    "path": "agent",
+    "status": 200
+  }
+]

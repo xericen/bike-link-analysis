@@ -1,0 +1,4104 @@
+{
+  "seconds": 3.9157877918332815,
+  "http_status": 200,
+  "checks": {
+    "http_200": true,
+    "new_tool_called": true,
+    "period_match": true,
+    "matrix_count_matches": true,
+    "zero_recovery_preserved": true,
+    "source_present": true
+  },
+  "response": {
+    "answer": "서울 2025년 12월 검증에서 원래 이용량 상위 10곳의 가림 복구는 0곳이었고, 대중교통 높음·자전거 낮음 역 점검 결과는 42역이었습니다. 두 결과 모두 방법이 검증에 성공했다는 의미로 해석하지 않으며, 상위 이용 가림 복구는 같은 월의 공간 가림 실험에서 이전 위치 위치를 찾지 못한 결과입니다.",
+    "solar_answer": null,
+    "answer_basis": "solar_interpretation",
+    "report": {
+      "question_summary": "get_method_validation 도구로 서울2025년12월 검증만 확인해줘. 원래 이용량 상위10곳 가림의 복구 수와 대중교통높음·자전거낮음 역수를 각각 한 문장으로 알려줘. 방법이 검증에 성공했다고 과장하지 마.",
+      "key_findings": [
+        {
+          "label": "상위 이용 가림 복구 / 10곳",
+          "value": 0,
+          "unit": "곳",
+          "region_id": "seoul"
+        },
+        {
+          "label": "대중교통 높음·자전거 낮음 점검 역",
+          "value": 42,
+          "unit": "역",
+          "region_id": "seoul"
+        },
+        {
+          "label": "서울 이용 건수",
+          "value": 1954344,
+          "unit": "건",
+          "region_id": "seoul"
+        },
+        {
+          "label": "서울 실제 관측일수",
+          "value": 31,
+          "unit": "일"
+        },
+        {
+          "label": "서울 일별 최대 (2025-12-01)",
+          "value": 101035,
+          "unit": "건"
+        },
+        {
+          "label": "서울 일별 최소 (2025-12-13)",
+          "value": 19050,
+          "unit": "건"
+        }
+      ],
+      "evidence": [
+        {
+          "tool": "get_method_validation",
+          "arguments": {
+            "region_id": "seoul",
+            "top_n": 10,
+            "date_range": {
+              "date_start": "2025-12-01",
+              "date_end": "2025-12-31"
+            }
+          },
+          "result": {
+            "available": true,
+            "period_start": "2025-12-01",
+            "period_end": "2025-12-31",
+            "scope_note": "공통 2025년 12월 별도 검증 실험. 개별 도시 전체 기간 결과와 합산하지 않습니다.",
+            "revision": "e830d4d1d65fbd2f25d771678f3fc182779b7dabaffb1e7dca65777012cb9a59",
+            "limitations": [
+              "재발견은 관측 대여소 위치의 회복 실험이며 신규 설치 후 이용량·환승 증가의 검증이 아닙니다.",
+              "동일 월의 공간 가림 검증이며 다른 계절로의 일반화는 검증하지 않았습니다.",
+              "가중치와 거리는 사전 지정한 실험 조건이며 가장 좋아 보이는 조합을 운영 점수로 자동 채택하지 않습니다.",
+              "세종은 동일 기간 BRT 승하차량 미확보로 수요 매트릭스 N/A입니다."
+            ],
+            "followup_available": true,
+            "sources": [
+              {
+                "source_id": "seoul-stations-202606",
+                "region_id": "seoul",
+                "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                "date_start": "2026-06-30",
+                "date_end": "2026-06-30",
+                "collected_at": "2026-11-04T04:53:59.993091Z",
+                "verification_status": "VERIFIED",
+                "available_columns": [
+                  "대여소 번호",
+                  "보관소(대여소)명",
+                  "소재지(위치)",
+                  "위도",
+                  "경도",
+                  "설치 시기",
+                  "LCD 거치대수",
+                  "QR 거치대수",
+                  "운영 방식"
+                ]
+              },
+              {
+                "source_id": "seoul-station-master-oa-21235",
+                "region_id": "seoul",
+                "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                "date_start": null,
+                "date_end": null,
+                "collected_at": "2026-11-09T01:56:36.503651+00:00",
+                "verification_status": "VERIFIED",
+                "available_columns": [
+                  "RNTLS_ID",
+                  "ADDR1",
+                  "ADDR2",
+                  "LAT",
+                  "LOT"
+                ],
+                "origin": "official_sheet",
+                "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"
+              },
+              {
+                "source_id": "seoul-trips-202512",
+                "region_id": "seoul",
+                "dataset_name": "서울 따릉이 개별 대여이력 2025년12월",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-15182/F/1/datasetView.do",
+                "date_start": "2025-12-01",
+                "date_end": "2025-12-31",
+                "collected_at": "2026-11-18T04:57:34.577816+00:00",
+                "verification_status": "VERIFIED",
+                "available_columns": [
+                  "자전거번호",
+                  "대여일시",
+                  "대여 대여소번호",
+                  "대여 대여소명",
+                  "대여거치대",
+                  "반납일시",
+                  "반납대여소번호",
+                  "반납대여소명",
+                  "반납거치대",
+                  "이용시간(분)",
+                  "이용거리(M)",
+                  "생년",
+                  "성별",
+                  "이용자종류",
+                  "대여대여소ID",
+                  "반납대여소ID",
+                  "자전거구분"
+                ],
+                "note": "출발일 기준 공통 기간. 월 이후 반납 이벤트는 기간 내 이용 합계에서 제외. 과거 좌표 동일성 미검증."
+              }
+            ],
+            "source_names": [
+              "서울 따릉이 개별 대여이력 2025년12월",
+              "서울시 공공자전거 따릉이 대여소 정보",
+              "서울시 따릉이대여소 마스터 정보"
+            ],
+            "method_document": "docs/METHOD_VALIDATION.md",
+            "city": "seoul",
+            "findings": [
+              "원래 상위 이용 가림: 0/10 복구. 검증 성공으로 해석하지 않습니다.",
+              "격자 크기 변경 시 위치 대응: 250m 40.0%, 750m 0.0%.",
+              "반복 횟수는 같은 후보·근접 후보의 별도 교차 근거이며 기존 점수에 가산하지 않습니다."
+            ],
+            "original_recovery": [
+              {
+                "fold": "high_usage",
+                "seed": 0,
+                "hits": 0,
+                "target_count": 10,
+                "feasible_count": 0
+              },
+              {
+                "fold": "stratified",
+                "seed": 42,
+                "hits": 0,
+                "target_count": 10,
+                "feasible_count": 0
+              },
+              {
+                "fold": "stratified",
+                "seed": 43,
+                "hits": 0,
+                "target_count": 10,
+                "feasible_count": 6
+              },
+              {
+                "fold": "stratified",
+                "seed": 44,
+                "hits": 0,
+                "target_count": 10,
+                "feasible_count": 3
+              },
+              {
+                "fold": "spatial_1km_block",
+                "seed": 0,
+                "hits": 0,
+                "target_count": 22,
+                "feasible_count": 5
+              },
+              {
+                "fold": "spatial_1km_block",
+                "seed": 1,
+                "hits": 0,
+                "target_count": 19,
+                "feasible_count": 19
+              }
+            ],
+            "matrix": {
+              "available": true,
+              "message": null,
+              "counts": {
+                "high_high": 74,
+                "high_low": 42,
+                "low_high": 42,
+                "low_low": 74
+              },
+              "matched_count": 232,
+              "transit_median": 916800.5,
+              "bike_median": 6839.5,
+              "excluded_rows": [
+                {
+                  "station_name": "신내",
+                  "transit_total": 0,
+                  "reason": "승하차 합계 0·결측은 실제 무수요로 단정하지 않고 분류 보류"
+                }
+              ]
+            },
+            "recurrence": {
+              "items": [
+                {
+                  "site_id": "grid-961000-1952500",
+                  "latitude": 37.57330941783292,
+                  "longitude": 127.06117409381244,
+                  "district": "동대문구",
+                  "baseline_rank": 1,
+                  "same_grid_hits": 5,
+                  "changed_grid_hits": 1,
+                  "conditions": [
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-961000-1952500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 300,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-961000-1952500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 800,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-961000-1952500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 250,
+                      "policy": "equal",
+                      "matched_site_id": "grid-961250-1952750",
+                      "distance_m": 176.77669529622528
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "demand",
+                      "matched_site_id": "grid-961000-1952500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "gap",
+                      "matched_site_id": "grid-961000-1952500",
+                      "distance_m": 0
+                    }
+                  ],
+                  "same_grid_tests": 5,
+                  "changed_grid_tests": 2,
+                  "total_hits": 6,
+                  "total_tests": 7
+                },
+                {
+                  "site_id": "grid-961500-1952500",
+                  "latitude": 37.57333032961785,
+                  "longitude": 127.06683621432536,
+                  "district": "동대문구",
+                  "baseline_rank": 2,
+                  "same_grid_hits": 5,
+                  "changed_grid_hits": 1,
+                  "conditions": [
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-961500-1952500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 300,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-961500-1952500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 800,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-961500-1952500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 250,
+                      "policy": "equal",
+                      "matched_site_id": "grid-961500-1952500",
+                      "distance_m": 176.77669529630762
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "demand",
+                      "matched_site_id": "grid-961500-1952500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "gap",
+                      "matched_site_id": "grid-961500-1952500",
+                      "distance_m": 0
+                    }
+                  ],
+                  "same_grid_tests": 5,
+                  "changed_grid_tests": 2,
+                  "total_hits": 6,
+                  "total_tests": 7
+                },
+                {
+                  "site_id": "grid-942000-1946000",
+                  "latitude": 37.51372897157666,
+                  "longitude": 126.8465301312982,
+                  "district": "양천구",
+                  "baseline_rank": 3,
+                  "same_grid_hits": 5,
+                  "changed_grid_hits": 1,
+                  "conditions": [
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-942000-1946000",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 300,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-942000-1946000",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 800,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-942000-1946000",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 250,
+                      "policy": "equal",
+                      "matched_site_id": "grid-942000-1946250",
+                      "distance_m": 176.77669529647224
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "demand",
+                      "matched_site_id": "grid-942000-1946000",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "gap",
+                      "matched_site_id": "grid-942000-1946000",
+                      "distance_m": 0
+                    }
+                  ],
+                  "same_grid_tests": 5,
+                  "changed_grid_tests": 2,
+                  "total_hits": 6,
+                  "total_tests": 7
+                },
+                {
+                  "site_id": "grid-962000-1951500",
+                  "latitude": 37.56433765999535,
+                  "longitude": 127.0725498524949,
+                  "district": "동대문구",
+                  "baseline_rank": 10,
+                  "same_grid_hits": 4,
+                  "changed_grid_hits": 1,
+                  "conditions": [
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-962000-1951500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 300,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-962000-1951500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 800,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-962000-1951500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 250,
+                      "policy": "equal",
+                      "matched_site_id": "grid-962000-1951750",
+                      "distance_m": 176.77669529754237
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "demand",
+                      "matched_site_id": "grid-962000-1951500",
+                      "distance_m": 0
+                    }
+                  ],
+                  "same_grid_tests": 5,
+                  "changed_grid_tests": 2,
+                  "total_hits": 5,
+                  "total_tests": 7
+                },
+                {
+                  "site_id": "grid-960000-1954500",
+                  "latitude": 37.59129330323362,
+                  "longitude": 127.04974131670836,
+                  "district": "동대문구",
+                  "baseline_rank": 4,
+                  "same_grid_hits": 4,
+                  "changed_grid_hits": 0,
+                  "conditions": [
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-960000-1954500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 300,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-960000-1954500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 800,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-960000-1954500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "gap",
+                      "matched_site_id": "grid-960000-1954500",
+                      "distance_m": 0
+                    }
+                  ],
+                  "same_grid_tests": 5,
+                  "changed_grid_tests": 2,
+                  "total_hits": 4,
+                  "total_tests": 7
+                },
+                {
+                  "site_id": "grid-961000-1955500",
+                  "latitude": 37.60034922389469,
+                  "longitude": 127.06101532363755,
+                  "district": "동대문구",
+                  "baseline_rank": 5,
+                  "same_grid_hits": 4,
+                  "changed_grid_hits": 0,
+                  "conditions": [
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-961000-1955500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 300,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-961000-1955500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 800,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-961000-1955500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "gap",
+                      "matched_site_id": "grid-961000-1955500",
+                      "distance_m": 0
+                    }
+                  ],
+                  "same_grid_tests": 5,
+                  "changed_grid_tests": 2,
+                  "total_hits": 4,
+                  "total_tests": 7
+                },
+                {
+                  "site_id": "grid-945500-1944500",
+                  "latitude": 37.50042172885852,
+                  "longitude": 126.88624291842663,
+                  "district": "구로구",
+                  "baseline_rank": 6,
+                  "same_grid_hits": 3,
+                  "changed_grid_hits": 0,
+                  "conditions": [
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-945500-1944500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "demand",
+                      "matched_site_id": "grid-945500-1944500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "gap",
+                      "matched_site_id": "grid-945500-1944500",
+                      "distance_m": 0
+                    }
+                  ],
+                  "same_grid_tests": 5,
+                  "changed_grid_tests": 2,
+                  "total_hits": 3,
+                  "total_tests": 7
+                },
+                {
+                  "site_id": "grid-963500-1956000",
+                  "latitude": 37.604957804772255,
+                  "longitude": 127.08931145189098,
+                  "district": "중랑구",
+                  "baseline_rank": 8,
+                  "same_grid_hits": 3,
+                  "changed_grid_hits": 0,
+                  "conditions": [
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-963500-1956000",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "demand",
+                      "matched_site_id": "grid-963500-1956000",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "gap",
+                      "matched_site_id": "grid-963500-1956000",
+                      "distance_m": 0
+                    }
+                  ],
+                  "same_grid_tests": 5,
+                  "changed_grid_tests": 2,
+                  "total_hits": 3,
+                  "total_tests": 7
+                },
+                {
+                  "site_id": "grid-960500-1955000",
+                  "latitude": 37.5958213977361,
+                  "longitude": 127.0553779786169,
+                  "district": "동대문구",
+                  "baseline_rank": 9,
+                  "same_grid_hits": 3,
+                  "changed_grid_hits": 0,
+                  "conditions": [
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-960500-1955000",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 800,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-960500-1955000",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "gap",
+                      "matched_site_id": "grid-960500-1955000",
+                      "distance_m": 0
+                    }
+                  ],
+                  "same_grid_tests": 5,
+                  "changed_grid_tests": 2,
+                  "total_hits": 3,
+                  "total_tests": 7
+                },
+                {
+                  "site_id": "grid-963500-1947500",
+                  "latitude": 37.52834447591663,
+                  "longitude": 127.08973185957822,
+                  "district": "광진구",
+                  "baseline_rank": 7,
+                  "same_grid_hits": 2,
+                  "changed_grid_hits": 0,
+                  "conditions": [
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "equal",
+                      "matched_site_id": "grid-963500-1947500",
+                      "distance_m": 0
+                    },
+                    {
+                      "anchor_m": 500,
+                      "grid_m": 500,
+                      "policy": "gap",
+                      "matched_site_id": "grid-963500-1947500",
+                      "distance_m": 0
+                    }
+                  ],
+                  "same_grid_tests": 5,
+                  "changed_grid_tests": 2,
+                  "total_hits": 2,
+                  "total_tests": 7
+                }
+              ],
+              "definition": "기준 TOP10만 평가. 동일 격자5조건은 ID 일치, 변경 격자2조건은300m 일대일 대응. 버퍼만 바꾼 조건 제외.",
+              "decision": "반복 횟수는 현장 확인 순서를 검토할 별도 근거이며 운영 점수를 변경하지 않습니다."
+            },
+            "gap_evaluation": {
+              "definition": "이용 있는 경계 내 대여소 중 앵커500m 밖·자기 자신 제외 다른 대여소300m 밖. 숨기기 전 외생 위치 조건으로 코호트를 정함.",
+              "preregistered_policy": "기존 높은 이용량 재발견 실패 확인 후 설계한 탐색적 후속평가. 같은 월 검증이며 별도 기간 일반화 입증 아님.",
+              "eligibility": {
+                "active_located": 2746,
+                "eligible": 291,
+                "excluded_by_first_rule": {
+                  "near_anchor": 1479,
+                  "near_other_bike_station": 976,
+                  "anchor_distance_missing": 0
+                }
+              },
+              "folds": [
+                {
+                  "fold": "gap_high_usage",
+                  "seed": 0,
+                  "target_count": 10,
+                  "target_ids": [
+                    "ST-2574",
+                    "ST-502",
+                    "ST-503",
+                    "ST-446",
+                    "ST-1069",
+                    "ST-2844",
+                    "ST-2740",
+                    "ST-2718",
+                    "ST-1867",
+                    "ST-824"
+                  ],
+                  "top_k": 10,
+                  "match_radius_m": 300,
+                  "candidate_count": 845,
+                  "candidate_generation_possible": 7,
+                  "full": {
+                    "hits": 0,
+                    "pairs": [],
+                    "recall": 0.0
+                  },
+                  "demand_only": {
+                    "hits": 3,
+                    "pairs": [
+                      {
+                        "station_id": "ST-502",
+                        "site_id": "grid-967000-1947500",
+                        "distance_m": 196.91265964646684
+                      },
+                      {
+                        "station_id": "ST-2844",
+                        "site_id": "grid-945500-1948000",
+                        "distance_m": 213.40420674022474
+                      },
+                      {
+                        "station_id": "ST-2740",
+                        "site_id": "grid-967000-1948000",
+                        "distance_m": 266.6916972317746
+                      }
+                    ],
+                    "recall": 0.3
+                  },
+                  "random_recall_mean": 0.013333333333333334,
+                  "no_candidate_nearby": 3,
+                  "feasible_not_top10": 7,
+                  "training_audit": {
+                    "source_od_trips": 1954344,
+                    "retained_od_trips": 1907948,
+                    "removed_od_trips": 46396,
+                    "hidden_ids": [
+                      "ST-1069",
+                      "ST-1867",
+                      "ST-2574",
+                      "ST-2718",
+                      "ST-2740",
+                      "ST-2844",
+                      "ST-446",
+                      "ST-502",
+                      "ST-503",
+                      "ST-824"
+                    ],
+                    "hidden_station_count_in_training": 0
+                  }
+                },
+                {
+                  "fold": "gap_random_sample",
+                  "seed": 71,
+                  "target_count": 10,
+                  "target_ids": [
+                    "ST-220",
+                    "ST-1560",
+                    "ST-1297",
+                    "ST-2474",
+                    "ST-3265",
+                    "ST-343",
+                    "ST-633",
+                    "ST-2688",
+                    "ST-3279",
+                    "ST-756"
+                  ],
+                  "top_k": 10,
+                  "match_radius_m": 300,
+                  "candidate_count": 843,
+                  "candidate_generation_possible": 4,
+                  "full": {
+                    "hits": 0,
+                    "pairs": [],
+                    "recall": 0.0
+                  },
+                  "demand_only": {
+                    "hits": 0,
+                    "pairs": [],
+                    "recall": 0.0
+                  },
+                  "random_recall_mean": 0.006666666666666667,
+                  "no_candidate_nearby": 6,
+                  "feasible_not_top10": 4,
+                  "training_audit": {
+                    "source_od_trips": 1954344,
+                    "retained_od_trips": 1946175,
+                    "removed_od_trips": 8169,
+                    "hidden_ids": [
+                      "ST-1297",
+                      "ST-1560",
+                      "ST-220",
+                      "ST-2474",
+                      "ST-2688",
+                      "ST-3265",
+                      "ST-3279",
+                      "ST-343",
+                      "ST-633",
+                      "ST-756"
+                    ],
+                    "hidden_station_count_in_training": 0
+                  }
+                },
+                {
+                  "fold": "gap_random_sample",
+                  "seed": 72,
+                  "target_count": 10,
+                  "target_ids": [
+                    "ST-1594",
+                    "ST-1195",
+                    "ST-349",
+                    "ST-2768",
+                    "ST-756",
+                    "ST-1844",
+                    "ST-1560",
+                    "ST-502",
+                    "ST-770",
+                    "ST-2791"
+                  ],
+                  "top_k": 10,
+                  "match_radius_m": 300,
+                  "candidate_count": 845,
+                  "candidate_generation_possible": 5,
+                  "full": {
+                    "hits": 0,
+                    "pairs": [],
+                    "recall": 0.0
+                  },
+                  "demand_only": {
+                    "hits": 0,
+                    "pairs": [],
+                    "recall": 0.0
+                  },
+                  "random_recall_mean": 0.006666666666666667,
+                  "no_candidate_nearby": 5,
+                  "feasible_not_top10": 5,
+                  "training_audit": {
+                    "source_od_trips": 1954344,
+                    "retained_od_trips": 1938987,
+                    "removed_od_trips": 15357,
+                    "hidden_ids": [
+                      "ST-1195",
+                      "ST-1560",
+                      "ST-1594",
+                      "ST-1844",
+                      "ST-2768",
+                      "ST-2791",
+                      "ST-349",
+                      "ST-502",
+                      "ST-756",
+                      "ST-770"
+                    ],
+                    "hidden_station_count_in_training": 0
+                  }
+                }
+              ],
+              "available": true
+            },
+            "anchor_reviews": [
+              {
+                "city": "seoul",
+                "anchor_name": "강남",
+                "latitude": 37.497718,
+                "longitude": 127.027914,
+                "transit_total": 5046293,
+                "bike_activity": 6700,
+                "nearby_stations": [
+                  {
+                    "station_id": "ST-1577",
+                    "station_name": "역삼서초삼성 세무서 앞 (역삼빌딩 앞)",
+                    "latitude": 37.49847031,
+                    "longitude": 127.03011322,
+                    "rental_count": 817,
+                    "return_count": 814,
+                    "nearest_anchor_distance_m": 196.47678832723847,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 211.27966699212695
+                  },
+                  {
+                    "station_id": "ST-761",
+                    "station_name": "삼성타운(삼성생명) A동 맞은편",
+                    "latitude": 37.49691391,
+                    "longitude": 127.02496338,
+                    "rental_count": 953,
+                    "return_count": 1055,
+                    "nearest_anchor_distance_m": 262.50116206520227,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 275.23182856355226
+                  },
+                  {
+                    "station_id": "ST-1900",
+                    "station_name": "서초초등학교 후문",
+                    "latitude": 37.49892807,
+                    "longitude": 127.02472687,
+                    "rental_count": 645,
+                    "return_count": 644,
+                    "nearest_anchor_distance_m": 300.6369221093965,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 311.7028600228789
+                  },
+                  {
+                    "station_id": "ST-3361",
+                    "station_name": "삼성화재서초타워",
+                    "latitude": 37.49446869,
+                    "longitude": 127.02896118,
+                    "rental_count": 847,
+                    "return_count": 925,
+                    "nearest_anchor_distance_m": 338.0898230005982,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 372.9312802462935
+                  }
+                ],
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31",
+                "nearby_station_count": 4
+              },
+              {
+                "city": "seoul",
+                "anchor_name": "사당",
+                "latitude": 37.4764,
+                "longitude": 126.981633,
+                "transit_total": 4566662,
+                "bike_activity": 6766,
+                "nearby_stations": [
+                  {
+                    "station_id": "ST-712",
+                    "station_name": "사당역 5번출구",
+                    "latitude": 37.47608948,
+                    "longitude": 126.98133087,
+                    "rental_count": 523,
+                    "return_count": 564,
+                    "nearest_anchor_distance_m": 33.12555820785583,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 43.623818452227994
+                  },
+                  {
+                    "station_id": "ST-924",
+                    "station_name": "사당역 7번출구쪽",
+                    "latitude": 37.47689056,
+                    "longitude": 126.98057556,
+                    "rental_count": 393,
+                    "return_count": 419,
+                    "nearest_anchor_distance_m": 101.13759892799645,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 108.08722658924783
+                  },
+                  {
+                    "station_id": "ST-753",
+                    "station_name": "사당역 12번출구 뒤",
+                    "latitude": 37.47806931,
+                    "longitude": 126.98203278,
+                    "rental_count": 960,
+                    "return_count": 1148,
+                    "nearest_anchor_distance_m": 174.14388982884452,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 188.94174279814024
+                  },
+                  {
+                    "station_id": "ST-3350",
+                    "station_name": "사당역 1번출구",
+                    "latitude": 37.47597885,
+                    "longitude": 126.98390961,
+                    "rental_count": 58,
+                    "return_count": 184,
+                    "nearest_anchor_distance_m": 203.10779512851548,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 206.28553411007368
+                  },
+                  {
+                    "station_id": "ST-2362",
+                    "station_name": "사당역10번출구(금강빌딩)",
+                    "latitude": 37.4791069,
+                    "longitude": 126.98150635,
+                    "rental_count": 428,
+                    "return_count": 560,
+                    "nearest_anchor_distance_m": 286.0829683635495,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 301.2013757597396
+                  },
+                  {
+                    "station_id": "ST-1307",
+                    "station_name": "서울교통공사 사당별관 건너편",
+                    "latitude": 37.47597885,
+                    "longitude": 126.98628235,
+                    "rental_count": 172,
+                    "return_count": 159,
+                    "nearest_anchor_distance_m": 411.23364757717104,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 412.9463471824252
+                  },
+                  {
+                    "station_id": "ST-2948",
+                    "station_name": "광일빌딩",
+                    "latitude": 37.47639847,
+                    "longitude": 126.97683716,
+                    "rental_count": 468,
+                    "return_count": 476,
+                    "nearest_anchor_distance_m": 423.3076980176576,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 423.2082809287551
+                  },
+                  {
+                    "station_id": "ST-754",
+                    "station_name": "방배래미안 정문 앞",
+                    "latitude": 37.47261047,
+                    "longitude": 126.98300934,
+                    "rental_count": 124,
+                    "return_count": 130,
+                    "nearest_anchor_distance_m": 423.8399111047341,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 438.5324424244189
+                  }
+                ],
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31",
+                "nearby_station_count": 8
+              },
+              {
+                "city": "seoul",
+                "anchor_name": "삼성",
+                "latitude": 37.508827,
+                "longitude": 127.063203,
+                "transit_total": 3722699,
+                "bike_activity": 4261,
+                "nearby_stations": [
+                  {
+                    "station_id": "ST-3077",
+                    "station_name": "섬유센터 앞",
+                    "latitude": 37.50767136,
+                    "longitude": 127.06017303,
+                    "rental_count": 845,
+                    "return_count": 848,
+                    "nearest_anchor_distance_m": 296.5524730163824,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 296.55247301541544
+                  },
+                  {
+                    "station_id": "ST-3079",
+                    "station_name": "강남경찰서",
+                    "latitude": 37.50971985,
+                    "longitude": 127.06679535,
+                    "rental_count": 782,
+                    "return_count": 797,
+                    "nearest_anchor_distance_m": 332.0561373985564,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 332.0561373992279
+                  },
+                  {
+                    "station_id": "ST-3112",
+                    "station_name": "도심공항타워 앞",
+                    "latitude": 37.50999069,
+                    "longitude": 127.05847168,
+                    "rental_count": 495,
+                    "return_count": 494,
+                    "nearest_anchor_distance_m": 436.9301760088736,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 436.9301760081693
+                  }
+                ],
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31",
+                "nearby_station_count": 3
+              },
+              {
+                "city": "seoul",
+                "anchor_name": "선릉",
+                "latitude": 37.504257,
+                "longitude": 127.048174,
+                "transit_total": 3212342,
+                "bike_activity": 4137,
+                "nearby_stations": [
+                  {
+                    "station_id": "ST-815",
+                    "station_name": "선릉역3번출구",
+                    "latitude": 37.50400925,
+                    "longitude": 127.0490799,
+                    "rental_count": 729,
+                    "return_count": 739,
+                    "nearest_anchor_distance_m": 84.52660846989407,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 84.52660847163516
+                  },
+                  {
+                    "station_id": "ST-1247",
+                    "station_name": "역삼동 sk뷰 501동앞",
+                    "latitude": 37.50122833,
+                    "longitude": 127.05036163,
+                    "rental_count": 174,
+                    "return_count": 170,
+                    "nearest_anchor_distance_m": 388.1457214711749,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 388.14572147124596
+                  },
+                  {
+                    "station_id": "ST-1178",
+                    "station_name": "KT선릉타워",
+                    "latitude": 37.50542831,
+                    "longitude": 127.0528717,
+                    "rental_count": 590,
+                    "return_count": 600,
+                    "nearest_anchor_distance_m": 434.37610903531424,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 434.3761090362964
+                  },
+                  {
+                    "station_id": "ST-812",
+                    "station_name": "르네상스호텔사거리 역삼지하보도 2번출구",
+                    "latitude": 37.50235748,
+                    "longitude": 127.04319,
+                    "rental_count": 152,
+                    "return_count": 148,
+                    "nearest_anchor_distance_m": 487.75852040226647,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 487.7585204018424
+                  },
+                  {
+                    "station_id": "ST-1883",
+                    "station_name": "선정릉 디캠프(D,CAMP)앞",
+                    "latitude": 37.50799942,
+                    "longitude": 127.04524994,
+                    "rental_count": 103,
+                    "return_count": 102,
+                    "nearest_anchor_distance_m": 285.6492209690502,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 489.59126102068086
+                  },
+                  {
+                    "station_id": "ST-811",
+                    "station_name": "르네상스 호텔 사거리 역삼지하보도 7번출구 앞",
+                    "latitude": 37.50321198,
+                    "longitude": 127.04273224,
+                    "rental_count": 341,
+                    "return_count": 289,
+                    "nearest_anchor_distance_m": 493.89583298886913,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 493.8958329870957
+                  }
+                ],
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31",
+                "nearby_station_count": 6
+              },
+              {
+                "city": "seoul",
+                "anchor_name": "역삼",
+                "latitude": 37.500658,
+                "longitude": 127.03643,
+                "transit_total": 3127260,
+                "bike_activity": 2137,
+                "nearby_stations": [
+                  {
+                    "station_id": "ST-1896",
+                    "station_name": "강남파이낸스센터앞(역삼역2번출구)",
+                    "latitude": 37.50024414,
+                    "longitude": 127.03605652,
+                    "rental_count": 389,
+                    "return_count": 255,
+                    "nearest_anchor_distance_m": 56.59749631212195,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 56.59749631183111
+                  },
+                  {
+                    "station_id": "ST-959",
+                    "station_name": "역삼빌딩 앞(하나은행 옆)",
+                    "latitude": 37.50154495,
+                    "longitude": 127.03856659,
+                    "rental_count": 164,
+                    "return_count": 115,
+                    "nearest_anchor_distance_m": 212.72466294158428,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 212.72466294082378
+                  },
+                  {
+                    "station_id": "ST-1680",
+                    "station_name": "포스코피앤에스타워 (역삼역 3번출구 부근)",
+                    "latitude": 37.49959946,
+                    "longitude": 127.03375244,
+                    "rental_count": 556,
+                    "return_count": 446,
+                    "nearest_anchor_distance_m": 263.90822122411834,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 263.90822122508365
+                  },
+                  {
+                    "station_id": "ST-3115",
+                    "station_name": "영동중앙교회 버스정류장",
+                    "latitude": 37.49775314,
+                    "longitude": 127.03857422,
+                    "rental_count": 107,
+                    "return_count": 105,
+                    "nearest_anchor_distance_m": 374.31799214612624,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 374.31799214569486
+                  }
+                ],
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31",
+                "nearby_station_count": 4
+              },
+              {
+                "city": "seoul",
+                "anchor_name": "합정",
+                "latitude": 37.549529,
+                "longitude": 126.914052,
+                "transit_total": 3057639,
+                "bike_activity": 6292,
+                "nearby_stations": [
+                  {
+                    "station_id": "ST-7",
+                    "station_name": "합정역 5번출구 앞",
+                    "latitude": 37.55000687,
+                    "longitude": 126.91482544,
+                    "rental_count": 474,
+                    "return_count": 326,
+                    "nearest_anchor_distance_m": 23.750809254771088,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 86.4448909473335
+                  },
+                  {
+                    "station_id": "ST-8",
+                    "station_name": "합정역 7번출구 앞",
+                    "latitude": 37.54864502,
+                    "longitude": 126.91282654,
+                    "rental_count": 734,
+                    "return_count": 712,
+                    "nearest_anchor_distance_m": 76.70839546378586,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 146.0594993352809
+                  },
+                  {
+                    "station_id": "ST-6",
+                    "station_name": "합정역 1번출구 앞",
+                    "latitude": 37.55062866,
+                    "longitude": 126.91498566,
+                    "rental_count": 757,
+                    "return_count": 614,
+                    "nearest_anchor_distance_m": 77.03043321610822,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 147.39894520784435
+                  },
+                  {
+                    "station_id": "ST-2534",
+                    "station_name": "시석빌딩 앞",
+                    "latitude": 37.5483017,
+                    "longitude": 126.91671753,
+                    "rental_count": 362,
+                    "return_count": 374,
+                    "nearest_anchor_distance_m": 270.18133553248634,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 271.7438292185788
+                  },
+                  {
+                    "station_id": "ST-2156",
+                    "station_name": "합정동주민센터 앞",
+                    "latitude": 37.551754,
+                    "longitude": 126.91230011,
+                    "rental_count": 1175,
+                    "return_count": 764,
+                    "nearest_anchor_distance_m": 276.6724986577528,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 291.65637781841997
+                  }
+                ],
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31",
+                "nearby_station_count": 5
+              },
+              {
+                "city": "seoul",
+                "anchor_name": "교대",
+                "latitude": 37.493509,
+                "longitude": 127.014114,
+                "transit_total": 2882545,
+                "bike_activity": 2627,
+                "nearby_stations": [
+                  {
+                    "station_id": "ST-1305",
+                    "station_name": "교대역 5번출구뒤",
+                    "latitude": 37.49361801,
+                    "longitude": 127.01418304,
+                    "rental_count": 783,
+                    "return_count": 866,
+                    "nearest_anchor_distance_m": 43.58214197537221,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 13.565704718011103
+                  },
+                  {
+                    "station_id": "ST-765",
+                    "station_name": "교대역 6번출구",
+                    "latitude": 37.49421692,
+                    "longitude": 127.01378632,
+                    "rental_count": 481,
+                    "return_count": 497,
+                    "nearest_anchor_distance_m": 63.79828524129737,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 83.85791319089003
+                  }
+                ],
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31",
+                "nearby_station_count": 2
+              },
+              {
+                "city": "seoul",
+                "anchor_name": "명동",
+                "latitude": 37.560955,
+                "longitude": 126.986271,
+                "transit_total": 2674996,
+                "bike_activity": 4397,
+                "nearby_stations": [
+                  {
+                    "station_id": "ST-2527",
+                    "station_name": "명동역9번 출구",
+                    "latitude": 37.56122589,
+                    "longitude": 126.98749542,
+                    "rental_count": 424,
+                    "return_count": 384,
+                    "nearest_anchor_distance_m": 112.05079238361836,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 112.05079238262368
+                  },
+                  {
+                    "station_id": "ST-1777",
+                    "station_name": "회현사거리 남측",
+                    "latitude": 37.56035995,
+                    "longitude": 126.98265076,
+                    "rental_count": 304,
+                    "return_count": 346,
+                    "nearest_anchor_distance_m": 325.8946687942721,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 325.8946687934051
+                  },
+                  {
+                    "station_id": "ST-3161",
+                    "station_name": "중부세무서 앞",
+                    "latitude": 37.56092453,
+                    "longitude": 126.99066162,
+                    "rental_count": 195,
+                    "return_count": 170,
+                    "nearest_anchor_distance_m": 313.6618016663115,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 387.02577580906865
+                  },
+                  {
+                    "station_id": "ST-138",
+                    "station_name": "명동성당 앞",
+                    "latitude": 37.56447601,
+                    "longitude": 126.98696899,
+                    "rental_count": 327,
+                    "return_count": 317,
+                    "nearest_anchor_distance_m": 396.3233234229778,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 396.32332342298025
+                  },
+                  {
+                    "station_id": "ST-2522",
+                    "station_name": "신세계면세점",
+                    "latitude": 37.56027603,
+                    "longitude": 126.98139191,
+                    "rental_count": 217,
+                    "return_count": 226,
+                    "nearest_anchor_distance_m": 320.74068923753856,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 436.6454986691721
+                  },
+                  {
+                    "station_id": "ST-140",
+                    "station_name": "신세계백화점 본점 앞",
+                    "latitude": 37.56143188,
+                    "longitude": 126.98069763,
+                    "rental_count": 363,
+                    "return_count": 479,
+                    "nearest_anchor_distance_m": 367.94040486637374,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 494.1162567270913
+                  },
+                  {
+                    "station_id": "ST-1773",
+                    "station_name": "한국은행",
+                    "latitude": 37.5622139,
+                    "longitude": 126.98086548,
+                    "rental_count": 272,
+                    "return_count": 373,
+                    "nearest_anchor_distance_m": 446.7608781829405,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 496.60285034875074
+                  }
+                ],
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31",
+                "nearby_station_count": 7
+              },
+              {
+                "city": "seoul",
+                "anchor_name": "양재",
+                "latitude": 37.48458,
+                "longitude": 127.03423,
+                "transit_total": 2378700,
+                "bike_activity": 6118,
+                "nearby_stations": [
+                  {
+                    "station_id": "ST-816",
+                    "station_name": "양재역 3번출구 주변",
+                    "latitude": 37.48515701,
+                    "longitude": 127.03407288,
+                    "rental_count": 581,
+                    "return_count": 333,
+                    "nearest_anchor_distance_m": 65.64135554010569,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 65.64135554010345
+                  },
+                  {
+                    "station_id": "ST-767",
+                    "station_name": "양재역 10번 출구 앞",
+                    "latitude": 37.48398972,
+                    "longitude": 127.03417969,
+                    "rental_count": 476,
+                    "return_count": 478,
+                    "nearest_anchor_distance_m": 65.78617503990448,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 65.78617503996038
+                  },
+                  {
+                    "station_id": "ST-2962",
+                    "station_name": "SC제일은행 양재동지점 앞",
+                    "latitude": 37.48573685,
+                    "longitude": 127.03315735,
+                    "rental_count": 354,
+                    "return_count": 298,
+                    "nearest_anchor_distance_m": 159.70240444149715,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 159.7024044413204
+                  },
+                  {
+                    "station_id": "ST-1360",
+                    "station_name": "SPC 앞",
+                    "latitude": 37.48479843,
+                    "longitude": 127.03699493,
+                    "rental_count": 394,
+                    "return_count": 339,
+                    "nearest_anchor_distance_m": 245.1698607418753,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 245.1698607426398
+                  },
+                  {
+                    "station_id": "ST-1922",
+                    "station_name": "양재역 8번출구 앞",
+                    "latitude": 37.48257065,
+                    "longitude": 127.03643799,
+                    "rental_count": 729,
+                    "return_count": 588,
+                    "nearest_anchor_distance_m": 296.44172620808735,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 296.44172620773753
+                  },
+                  {
+                    "station_id": "ST-2674",
+                    "station_name": "언주초등학교 입구",
+                    "latitude": 37.48536682,
+                    "longitude": 127.03849792,
+                    "rental_count": 333,
+                    "return_count": 335,
+                    "nearest_anchor_distance_m": 386.6085688270249,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 386.60856882755684
+                  },
+                  {
+                    "station_id": "ST-768",
+                    "station_name": "서울가정법원",
+                    "latitude": 37.48149109,
+                    "longitude": 127.03672791,
+                    "rental_count": 293,
+                    "return_count": 174,
+                    "nearest_anchor_distance_m": 408.10842935305686,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 408.10842935310126
+                  },
+                  {
+                    "station_id": "ST-2666",
+                    "station_name": "이투스교육 앞",
+                    "latitude": 37.48389053,
+                    "longitude": 127.02905273,
+                    "rental_count": 212,
+                    "return_count": 201,
+                    "nearest_anchor_distance_m": 463.20810742609666,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 463.20810742553647
+                  }
+                ],
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31",
+                "nearby_station_count": 8
+              },
+              {
+                "city": "seoul",
+                "anchor_name": "연신내",
+                "latitude": 37.618889,
+                "longitude": 126.920681,
+                "transit_total": 2296117,
+                "bike_activity": 6818,
+                "nearby_stations": [
+                  {
+                    "station_id": "ST-1035",
+                    "station_name": "연신내역 1번 출구",
+                    "latitude": 37.61978149,
+                    "longitude": 126.92080688,
+                    "rental_count": 698,
+                    "return_count": 865,
+                    "nearest_anchor_distance_m": 55.72978370253119,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 99.85788635721482
+                  },
+                  {
+                    "station_id": "ST-470",
+                    "station_name": "연신내역 4번출구",
+                    "latitude": 37.61780167,
+                    "longitude": 126.92196655,
+                    "rental_count": 219,
+                    "return_count": 224,
+                    "nearest_anchor_distance_m": 157.1768737875352,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 165.64611619365166
+                  },
+                  {
+                    "station_id": "ST-475",
+                    "station_name": "연신내역 3번출구 인근",
+                    "latitude": 37.61785507,
+                    "longitude": 126.9225235,
+                    "rental_count": 199,
+                    "return_count": 220,
+                    "nearest_anchor_distance_m": 199.39253075888942,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 198.87936478250916
+                  },
+                  {
+                    "station_id": "ST-454",
+                    "station_name": "연신내역 5번출구",
+                    "latitude": 37.61721039,
+                    "longitude": 126.91957855,
+                    "rental_count": 1191,
+                    "return_count": 1365,
+                    "nearest_anchor_distance_m": 159.0519562064262,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 210.39958039251388
+                  },
+                  {
+                    "station_id": "ST-2782",
+                    "station_name": "청구성심병원 앞",
+                    "latitude": 37.62087631,
+                    "longitude": 126.9197998,
+                    "rental_count": 303,
+                    "return_count": 305,
+                    "nearest_anchor_distance_m": 203.32545958507467,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 234.21220489306828
+                  },
+                  {
+                    "station_id": "ST-2783",
+                    "station_name": "준빌딩 앞",
+                    "latitude": 37.62205124,
+                    "longitude": 126.91958618,
+                    "rental_count": 90,
+                    "return_count": 94,
+                    "nearest_anchor_distance_m": 329.46841049048277,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 364.60722255238704
+                  },
+                  {
+                    "station_id": "ST-1033",
+                    "station_name": "연신내 선일하이츠빌 정류소",
+                    "latitude": 37.62266922,
+                    "longitude": 126.91999054,
+                    "rental_count": 100,
+                    "return_count": 90,
+                    "nearest_anchor_distance_m": 384.76999058719804,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 424.71795392366363
+                  },
+                  {
+                    "station_id": "ST-1485",
+                    "station_name": "북한산힐스테이트 7차아파트",
+                    "latitude": 37.61654282,
+                    "longitude": 126.92512512,
+                    "rental_count": 196,
+                    "return_count": 125,
+                    "nearest_anchor_distance_m": 468.5383202573968,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 470.4000062864796
+                  },
+                  {
+                    "station_id": "ST-471",
+                    "station_name": "국민은행 연서지점",
+                    "latitude": 37.62094879,
+                    "longitude": 126.92563629,
+                    "rental_count": 272,
+                    "return_count": 262,
+                    "nearest_anchor_distance_m": 451.1330094362008,
+                    "region_id": "seoul",
+                    "distance_to_selected_anchor_m": 492.8859453381639
+                  }
+                ],
+                "period_start": "2025-12-01",
+                "period_end": "2025-12-31",
+                "nearby_station_count": 9
+              }
+            ]
+          },
+          "initiator": "solar",
+          "execution_seconds": 0.026
+        },
+        {
+          "tool": "get_region_overview",
+          "arguments": {
+            "region_id": "seoul",
+            "date_range": {
+              "date_start": "2025-12-01",
+              "date_end": "2025-12-31"
+            }
+          },
+          "result": {
+            "region_id": "seoul",
+            "region_name": "서울",
+            "service_name": "따릉이",
+            "operator": "서울특별시",
+            "sources": [
+              {
+                "source_id": "seoul-stations-202606",
+                "region_id": "seoul",
+                "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+                "date_start": "2026-06-30",
+                "date_end": "2026-06-30",
+                "collected_at": "2026-11-04T04:53:59.993091Z",
+                "verification_status": "VERIFIED",
+                "available_columns": [
+                  "대여소 번호",
+                  "보관소(대여소)명",
+                  "소재지(위치)",
+                  "위도",
+                  "경도",
+                  "설치 시기",
+                  "LCD 거치대수",
+                  "QR 거치대수",
+                  "운영 방식"
+                ]
+              },
+              {
+                "source_id": "seoul-station-master-oa-21235",
+                "region_id": "seoul",
+                "dataset_name": "서울시 따릉이대여소 마스터 정보",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+                "date_start": null,
+                "date_end": null,
+                "collected_at": "2026-11-09T01:56:36.503651+00:00",
+                "verification_status": "VERIFIED",
+                "available_columns": [
+                  "RNTLS_ID",
+                  "ADDR1",
+                  "ADDR2",
+                  "LAT",
+                  "LOT"
+                ],
+                "origin": "official_sheet",
+                "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"
+              },
+              {
+                "source_id": "seoul-trips-202512",
+                "region_id": "seoul",
+                "dataset_name": "서울 따릉이 개별 대여이력 2025년12월",
+                "source_url": "https://data.seoul.go.kr/dataList/OA-15182/F/1/datasetView.do",
+                "date_start": "2025-12-01",
+                "date_end": "2025-12-31",
+                "collected_at": "2026-11-18T04:57:34.577816+00:00",
+                "verification_status": "VERIFIED",
+                "available_columns": [
+                  "자전거번호",
+                  "대여일시",
+                  "대여 대여소번호",
+                  "대여 대여소명",
+                  "대여거치대",
+                  "반납일시",
+                  "반납대여소번호",
+                  "반납대여소명",
+                  "반납거치대",
+                  "이용시간(분)",
+                  "이용거리(M)",
+                  "생년",
+                  "성별",
+                  "이용자종류",
+                  "대여대여소ID",
+                  "반납대여소ID",
+                  "자전거구분"
+                ],
+                "note": "출발일 기준 공통 기간. 월 이후 반납 이벤트는 기간 내 이용 합계에서 제외. 과거 좌표 동일성 미검증."
+              }
+            ],
+            "source_names": [
+              "서울 따릉이 개별 대여이력 2025년12월",
+              "서울시 공공자전거 따릉이 대여소 정보",
+              "서울시 따릉이대여소 마스터 정보"
+            ],
+            "last_updated": "2026-11-18T04:57:34.577816+00:00",
+            "verification_status": "VERIFIED",
+            "total_rentals": 1954344,
+            "station_count": 2770,
+            "inventory_station_count": 2757,
+            "average_per_station": 705.54,
+            "hourly": [
+              39339,
+              30859,
+              21925,
+              16264,
+              13097,
+              24961,
+              49703,
+              116169,
+              189703,
+              100202,
+              73417,
+              82304,
+              86458,
+              90341,
+              92573,
+              100193,
+              118259,
+              154003,
+              173550,
+              107783,
+              84984,
+              77951,
+              65503,
+              44803
+            ],
+            "period_start": "2025-12-01",
+            "period_end": "2025-12-31",
+            "observed_dates": [
+              "2025-12-01",
+              "2025-12-02",
+              "2025-12-03",
+              "2025-12-04",
+              "2025-12-05",
+              "2025-12-06",
+              "2025-12-07",
+              "2025-12-08",
+              "2025-12-09",
+              "2025-12-10",
+              "2025-12-11",
+              "2025-12-12",
+              "2025-12-13",
+              "2025-12-14",
+              "2025-12-15",
+              "2025-12-16",
+              "2025-12-17",
+              "2025-12-18",
+              "2025-12-19",
+              "2025-12-20",
+              "2025-12-21",
+              "2025-12-22",
+              "2025-12-23",
+              "2025-12-24",
+              "2025-12-25",
+              "2025-12-26",
+              "2025-12-27",
+              "2025-12-28",
+              "2025-12-29",
+              "2025-12-30",
+              "2025-12-31"
+            ],
+            "daily": [
+              {
+                "date": "2025-12-01",
+                "rental_count": 101035
+              },
+              {
+                "date": "2025-12-02",
+                "rental_count": 85272
+              },
+              {
+                "date": "2025-12-03",
+                "rental_count": 67749
+              },
+              {
+                "date": "2025-12-04",
+                "rental_count": 56426
+              },
+              {
+                "date": "2025-12-05",
+                "rental_count": 35648
+              },
+              {
+                "date": "2025-12-06",
+                "rental_count": 40280
+              },
+              {
+                "date": "2025-12-07",
+                "rental_count": 56596
+              },
+              {
+                "date": "2025-12-08",
+                "rental_count": 84686
+              },
+              {
+                "date": "2025-12-09",
+                "rental_count": 89887
+              },
+              {
+                "date": "2025-12-10",
+                "rental_count": 94533
+              },
+              {
+                "date": "2025-12-11",
+                "rental_count": 71529
+              },
+              {
+                "date": "2025-12-12",
+                "rental_count": 86467
+              },
+              {
+                "date": "2025-12-13",
+                "rental_count": 19050
+              },
+              {
+                "date": "2025-12-14",
+                "rental_count": 42965
+              },
+              {
+                "date": "2025-12-15",
+                "rental_count": 79996
+              },
+              {
+                "date": "2025-12-16",
+                "rental_count": 48299
+              },
+              {
+                "date": "2025-12-17",
+                "rental_count": 84444
+              },
+              {
+                "date": "2025-12-18",
+                "rental_count": 87051
+              },
+              {
+                "date": "2025-12-19",
+                "rental_count": 91007
+              },
+              {
+                "date": "2025-12-20",
+                "rental_count": 46222
+              },
+              {
+                "date": "2025-12-21",
+                "rental_count": 44912
+              },
+              {
+                "date": "2025-12-22",
+                "rental_count": 76425
+              },
+              {
+                "date": "2025-12-23",
+                "rental_count": 38471
+              },
+              {
+                "date": "2025-12-24",
+                "rental_count": 72905
+              },
+              {
+                "date": "2025-12-25",
+                "rental_count": 32141
+              },
+              {
+                "date": "2025-12-26",
+                "rental_count": 45397
+              },
+              {
+                "date": "2025-12-27",
+                "rental_count": 42183
+              },
+              {
+                "date": "2025-12-28",
+                "rental_count": 40611
+              },
+              {
+                "date": "2025-12-29",
+                "rental_count": 66269
+              },
+              {
+                "date": "2025-12-30",
+                "rental_count": 70666
+              },
+              {
+                "date": "2025-12-31",
+                "rental_count": 55222
+              }
+            ],
+            "monthly": [
+              {
+                "month": "2025-12",
+                "rental_count": 1954344
+              }
+            ],
+            "weekday": [
+              {
+                "weekday": 0,
+                "rental_count": 408411
+              },
+              {
+                "weekday": 1,
+                "rental_count": 332595
+              },
+              {
+                "weekday": 2,
+                "rental_count": 374853
+              },
+              {
+                "weekday": 3,
+                "rental_count": 247147
+              },
+              {
+                "weekday": 4,
+                "rental_count": 258519
+              },
+              {
+                "weekday": 5,
+                "rental_count": 147735
+              },
+              {
+                "weekday": 6,
+                "rental_count": 185084
+              }
+            ],
+            "weekend_share": 0.1703,
+            "weekday_share": 0.8297,
+            "annual_latest": null,
+            "has_od": true,
+            "coverage_note": "서울 2025년12월 개별 대여이력의 공식 ST ID를 사용합니다. 2026-06 위치 마스터 연결 좌표로 과거 위치 동일성은 미검증입니다."
+          },
+          "initiator": "metric_guard",
+          "execution_seconds": 1.555
+        }
+      ],
+      "algorithms": [
+        "city median demand quadrants",
+        "one-to-one spatial recovery",
+        "parameter sensitivity"
+      ],
+      "station_roles": [],
+      "recommendations": [
+        {
+          "feature": "강남 연계 여건 점검",
+          "evidence": "같은 월 승하차 5046293명, 주변 자전거 활동 6700건",
+          "action": "주변 대여소·접근 경로·운영 조건을 현장 확인하세요.",
+          "value": "설치 필요나 미충족 수요를 확정하지 않는 검토 근거입니다.",
+          "validation": "실제 환승·재고·설치 가능성은 미검증입니다."
+        },
+        {
+          "feature": "사당 연계 여건 점검",
+          "evidence": "같은 월 승하차 4566662명, 주변 자전거 활동 6766건",
+          "action": "주변 대여소·접근 경로·운영 조건을 현장 확인하세요.",
+          "value": "설치 필요나 미충족 수요를 확정하지 않는 검토 근거입니다.",
+          "validation": "실제 환승·재고·설치 가능성은 미검증입니다."
+        },
+        {
+          "feature": "삼성 연계 여건 점검",
+          "evidence": "같은 월 승하차 3722699명, 주변 자전거 활동 4261건",
+          "action": "주변 대여소·접근 경로·운영 조건을 현장 확인하세요.",
+          "value": "설치 필요나 미충족 수요를 확정하지 않는 검토 근거입니다.",
+          "validation": "실제 환승·재고·설치 가능성은 미검증입니다."
+        }
+      ],
+      "limitations": [
+        "재발견은 관측 대여소 위치의 회복 실험이며 신규 설치 후 이용량·환승 증가의 검증이 아닙니다.",
+        "동일 월의 공간 가림 검증이며 다른 계절로의 일반화는 검증하지 않았습니다.",
+        "가중치와 거리는 사전 지정한 실험 조건이며 가장 좋아 보이는 조합을 운영 점수로 자동 채택하지 않습니다.",
+        "세종은 동일 기간 BRT 승하차량 미확보로 수요 매트릭스 N/A입니다.",
+        "서울 2025년12월 개별 대여이력의 공식 ST ID를 사용합니다. 2026-06 위치 마스터 연결 좌표로 과거 위치 동일성은 미검증입니다."
+      ],
+      "sources": [
+        {
+          "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+          "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "dataset_name": "서울시 따릉이대여소 마스터 정보",
+          "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+          "verification_status": "VERIFIED"
+        },
+        {
+          "dataset_name": "서울 따릉이 개별 대여이력 2025년12월",
+          "source_url": "https://data.seoul.go.kr/dataList/OA-15182/F/1/datasetView.do",
+          "verification_status": "VERIFIED"
+        }
+      ],
+      "periods": [
+        "2025-12-01",
+        "2025-12-31"
+      ],
+      "charts": [
+        {
+          "title": "서울 관측일 이용량",
+          "kind": "daily",
+          "points": [
+            {
+              "date": "2025-12-01",
+              "rental_count": 101035
+            },
+            {
+              "date": "2025-12-02",
+              "rental_count": 85272
+            },
+            {
+              "date": "2025-12-03",
+              "rental_count": 67749
+            },
+            {
+              "date": "2025-12-04",
+              "rental_count": 56426
+            },
+            {
+              "date": "2025-12-05",
+              "rental_count": 35648
+            },
+            {
+              "date": "2025-12-06",
+              "rental_count": 40280
+            },
+            {
+              "date": "2025-12-07",
+              "rental_count": 56596
+            },
+            {
+              "date": "2025-12-08",
+              "rental_count": 84686
+            },
+            {
+              "date": "2025-12-09",
+              "rental_count": 89887
+            },
+            {
+              "date": "2025-12-10",
+              "rental_count": 94533
+            },
+            {
+              "date": "2025-12-11",
+              "rental_count": 71529
+            },
+            {
+              "date": "2025-12-12",
+              "rental_count": 86467
+            },
+            {
+              "date": "2025-12-13",
+              "rental_count": 19050
+            },
+            {
+              "date": "2025-12-14",
+              "rental_count": 42965
+            },
+            {
+              "date": "2025-12-15",
+              "rental_count": 79996
+            },
+            {
+              "date": "2025-12-16",
+              "rental_count": 48299
+            },
+            {
+              "date": "2025-12-17",
+              "rental_count": 84444
+            },
+            {
+              "date": "2025-12-18",
+              "rental_count": 87051
+            },
+            {
+              "date": "2025-12-19",
+              "rental_count": 91007
+            },
+            {
+              "date": "2025-12-20",
+              "rental_count": 46222
+            },
+            {
+              "date": "2025-12-21",
+              "rental_count": 44912
+            },
+            {
+              "date": "2025-12-22",
+              "rental_count": 76425
+            },
+            {
+              "date": "2025-12-23",
+              "rental_count": 38471
+            },
+            {
+              "date": "2025-12-24",
+              "rental_count": 72905
+            },
+            {
+              "date": "2025-12-25",
+              "rental_count": 32141
+            },
+            {
+              "date": "2025-12-26",
+              "rental_count": 45397
+            },
+            {
+              "date": "2025-12-27",
+              "rental_count": 42183
+            },
+            {
+              "date": "2025-12-28",
+              "rental_count": 40611
+            },
+            {
+              "date": "2025-12-29",
+              "rental_count": 66269
+            },
+            {
+              "date": "2025-12-30",
+              "rental_count": 70666
+            },
+            {
+              "date": "2025-12-31",
+              "rental_count": 55222
+            }
+          ]
+        }
+      ],
+      "station_comparison": [],
+      "interpretation": "서울 2025년 12월 검증에서 원래 이용량 상위 10곳의 가림 복구는 0곳이었고, 대중교통 높음·자전거 낮음 역 점검 결과는 42역이었습니다. 두 결과 모두 방법이 검증에 성공했다는 의미로 해석하지 않으며, 상위 이용 가림 복구는 같은 월의 공간 가림 실험에서 이전 위치 위치를 찾지 못한 결과입니다."
+    },
+    "grounding_validation": {
+      "checked_numeric_tokens": 5,
+      "matched_numeric_tokens": 5,
+      "unmatched_numeric_tokens": [],
+      "passed": true,
+      "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+    },
+    "station_validation": {
+      "passed": true,
+      "unmatched_station_ids": []
+    },
+    "semantic_validation": {
+      "passed": true,
+      "checked_claims": 0,
+      "unsupported_claims": [],
+      "method": "일별 최대·최소 비교의 날짜/건수를 실제 극값과 대조. 해석할 수 없는 비교는 보류."
+    },
+    "anchor_population_validation": {
+      "passed": true,
+      "reason": null
+    },
+    "decision_validation": {
+      "passed": true,
+      "unsupported_claims": [],
+      "method": "격자 ID·후보별 도로 거리·세종 인구 제외 조건만 검사. 전체 자유 서술 검증 아님."
+    },
+    "analysis_context": {
+      "region_ids": [
+        "seoul"
+      ],
+      "date_start": "2025-12-01",
+      "date_end": "2025-12-31"
+    },
+    "model_finish_reason": "stop",
+    "fallback_reason": null,
+    "evidence": [
+      {
+        "tool": "get_method_validation",
+        "arguments": {
+          "region_id": "seoul",
+          "top_n": 10,
+          "date_range": {
+            "date_start": "2025-12-01",
+            "date_end": "2025-12-31"
+          }
+        },
+        "result": {
+          "available": true,
+          "period_start": "2025-12-01",
+          "period_end": "2025-12-31",
+          "scope_note": "공통 2025년 12월 별도 검증 실험. 개별 도시 전체 기간 결과와 합산하지 않습니다.",
+          "revision": "e830d4d1d65fbd2f25d771678f3fc182779b7dabaffb1e7dca65777012cb9a59",
+          "limitations": [
+            "재발견은 관측 대여소 위치의 회복 실험이며 신규 설치 후 이용량·환승 증가의 검증이 아닙니다.",
+            "동일 월의 공간 가림 검증이며 다른 계절로의 일반화는 검증하지 않았습니다.",
+            "가중치와 거리는 사전 지정한 실험 조건이며 가장 좋아 보이는 조합을 운영 점수로 자동 채택하지 않습니다.",
+            "세종은 동일 기간 BRT 승하차량 미확보로 수요 매트릭스 N/A입니다."
+          ],
+          "followup_available": true,
+          "sources": [
+            {
+              "source_id": "seoul-stations-202606",
+              "region_id": "seoul",
+              "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+              "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+              "date_start": "2026-06-30",
+              "date_end": "2026-06-30",
+              "collected_at": "2026-11-04T04:53:59.993091Z",
+              "verification_status": "VERIFIED",
+              "available_columns": [
+                "대여소 번호",
+                "보관소(대여소)명",
+                "소재지(위치)",
+                "위도",
+                "경도",
+                "설치 시기",
+                "LCD 거치대수",
+                "QR 거치대수",
+                "운영 방식"
+              ]
+            },
+            {
+              "source_id": "seoul-station-master-oa-21235",
+              "region_id": "seoul",
+              "dataset_name": "서울시 따릉이대여소 마스터 정보",
+              "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+              "date_start": null,
+              "date_end": null,
+              "collected_at": "2026-11-09T01:56:36.503651+00:00",
+              "verification_status": "VERIFIED",
+              "available_columns": [
+                "RNTLS_ID",
+                "ADDR1",
+                "ADDR2",
+                "LAT",
+                "LOT"
+              ],
+              "origin": "official_sheet",
+              "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"
+            },
+            {
+              "source_id": "seoul-trips-202512",
+              "region_id": "seoul",
+              "dataset_name": "서울 따릉이 개별 대여이력 2025년12월",
+              "source_url": "https://data.seoul.go.kr/dataList/OA-15182/F/1/datasetView.do",
+              "date_start": "2025-12-01",
+              "date_end": "2025-12-31",
+              "collected_at": "2026-11-18T04:57:34.577816+00:00",
+              "verification_status": "VERIFIED",
+              "available_columns": [
+                "자전거번호",
+                "대여일시",
+                "대여 대여소번호",
+                "대여 대여소명",
+                "대여거치대",
+                "반납일시",
+                "반납대여소번호",
+                "반납대여소명",
+                "반납거치대",
+                "이용시간(분)",
+                "이용거리(M)",
+                "생년",
+                "성별",
+                "이용자종류",
+                "대여대여소ID",
+                "반납대여소ID",
+                "자전거구분"
+              ],
+              "note": "출발일 기준 공통 기간. 월 이후 반납 이벤트는 기간 내 이용 합계에서 제외. 과거 좌표 동일성 미검증."
+            }
+          ],
+          "source_names": [
+            "서울 따릉이 개별 대여이력 2025년12월",
+            "서울시 공공자전거 따릉이 대여소 정보",
+            "서울시 따릉이대여소 마스터 정보"
+          ],
+          "method_document": "docs/METHOD_VALIDATION.md",
+          "city": "seoul",
+          "findings": [
+            "원래 상위 이용 가림: 0/10 복구. 검증 성공으로 해석하지 않습니다.",
+            "격자 크기 변경 시 위치 대응: 250m 40.0%, 750m 0.0%.",
+            "반복 횟수는 같은 후보·근접 후보의 별도 교차 근거이며 기존 점수에 가산하지 않습니다."
+          ],
+          "original_recovery": [
+            {
+              "fold": "high_usage",
+              "seed": 0,
+              "hits": 0,
+              "target_count": 10,
+              "feasible_count": 0
+            },
+            {
+              "fold": "stratified",
+              "seed": 42,
+              "hits": 0,
+              "target_count": 10,
+              "feasible_count": 0
+            },
+            {
+              "fold": "stratified",
+              "seed": 43,
+              "hits": 0,
+              "target_count": 10,
+              "feasible_count": 6
+            },
+            {
+              "fold": "stratified",
+              "seed": 44,
+              "hits": 0,
+              "target_count": 10,
+              "feasible_count": 3
+            },
+            {
+              "fold": "spatial_1km_block",
+              "seed": 0,
+              "hits": 0,
+              "target_count": 22,
+              "feasible_count": 5
+            },
+            {
+              "fold": "spatial_1km_block",
+              "seed": 1,
+              "hits": 0,
+              "target_count": 19,
+              "feasible_count": 19
+            }
+          ],
+          "matrix": {
+            "available": true,
+            "message": null,
+            "counts": {
+              "high_high": 74,
+              "high_low": 42,
+              "low_high": 42,
+              "low_low": 74
+            },
+            "matched_count": 232,
+            "transit_median": 916800.5,
+            "bike_median": 6839.5,
+            "excluded_rows": [
+              {
+                "station_name": "신내",
+                "transit_total": 0,
+                "reason": "승하차 합계 0·결측은 실제 무수요로 단정하지 않고 분류 보류"
+              }
+            ]
+          },
+          "recurrence": {
+            "items": [
+              {
+                "site_id": "grid-961000-1952500",
+                "latitude": 37.57330941783292,
+                "longitude": 127.06117409381244,
+                "district": "동대문구",
+                "baseline_rank": 1,
+                "same_grid_hits": 5,
+                "changed_grid_hits": 1,
+                "conditions": [
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-961000-1952500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 300,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-961000-1952500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 800,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-961000-1952500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 250,
+                    "policy": "equal",
+                    "matched_site_id": "grid-961250-1952750",
+                    "distance_m": 176.77669529622528
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "demand",
+                    "matched_site_id": "grid-961000-1952500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "gap",
+                    "matched_site_id": "grid-961000-1952500",
+                    "distance_m": 0
+                  }
+                ],
+                "same_grid_tests": 5,
+                "changed_grid_tests": 2,
+                "total_hits": 6,
+                "total_tests": 7
+              },
+              {
+                "site_id": "grid-961500-1952500",
+                "latitude": 37.57333032961785,
+                "longitude": 127.06683621432536,
+                "district": "동대문구",
+                "baseline_rank": 2,
+                "same_grid_hits": 5,
+                "changed_grid_hits": 1,
+                "conditions": [
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-961500-1952500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 300,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-961500-1952500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 800,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-961500-1952500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 250,
+                    "policy": "equal",
+                    "matched_site_id": "grid-961500-1952500",
+                    "distance_m": 176.77669529630762
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "demand",
+                    "matched_site_id": "grid-961500-1952500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "gap",
+                    "matched_site_id": "grid-961500-1952500",
+                    "distance_m": 0
+                  }
+                ],
+                "same_grid_tests": 5,
+                "changed_grid_tests": 2,
+                "total_hits": 6,
+                "total_tests": 7
+              },
+              {
+                "site_id": "grid-942000-1946000",
+                "latitude": 37.51372897157666,
+                "longitude": 126.8465301312982,
+                "district": "양천구",
+                "baseline_rank": 3,
+                "same_grid_hits": 5,
+                "changed_grid_hits": 1,
+                "conditions": [
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-942000-1946000",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 300,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-942000-1946000",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 800,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-942000-1946000",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 250,
+                    "policy": "equal",
+                    "matched_site_id": "grid-942000-1946250",
+                    "distance_m": 176.77669529647224
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "demand",
+                    "matched_site_id": "grid-942000-1946000",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "gap",
+                    "matched_site_id": "grid-942000-1946000",
+                    "distance_m": 0
+                  }
+                ],
+                "same_grid_tests": 5,
+                "changed_grid_tests": 2,
+                "total_hits": 6,
+                "total_tests": 7
+              },
+              {
+                "site_id": "grid-962000-1951500",
+                "latitude": 37.56433765999535,
+                "longitude": 127.0725498524949,
+                "district": "동대문구",
+                "baseline_rank": 10,
+                "same_grid_hits": 4,
+                "changed_grid_hits": 1,
+                "conditions": [
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-962000-1951500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 300,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-962000-1951500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 800,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-962000-1951500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 250,
+                    "policy": "equal",
+                    "matched_site_id": "grid-962000-1951750",
+                    "distance_m": 176.77669529754237
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "demand",
+                    "matched_site_id": "grid-962000-1951500",
+                    "distance_m": 0
+                  }
+                ],
+                "same_grid_tests": 5,
+                "changed_grid_tests": 2,
+                "total_hits": 5,
+                "total_tests": 7
+              },
+              {
+                "site_id": "grid-960000-1954500",
+                "latitude": 37.59129330323362,
+                "longitude": 127.04974131670836,
+                "district": "동대문구",
+                "baseline_rank": 4,
+                "same_grid_hits": 4,
+                "changed_grid_hits": 0,
+                "conditions": [
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-960000-1954500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 300,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-960000-1954500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 800,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-960000-1954500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "gap",
+                    "matched_site_id": "grid-960000-1954500",
+                    "distance_m": 0
+                  }
+                ],
+                "same_grid_tests": 5,
+                "changed_grid_tests": 2,
+                "total_hits": 4,
+                "total_tests": 7
+              },
+              {
+                "site_id": "grid-961000-1955500",
+                "latitude": 37.60034922389469,
+                "longitude": 127.06101532363755,
+                "district": "동대문구",
+                "baseline_rank": 5,
+                "same_grid_hits": 4,
+                "changed_grid_hits": 0,
+                "conditions": [
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-961000-1955500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 300,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-961000-1955500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 800,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-961000-1955500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "gap",
+                    "matched_site_id": "grid-961000-1955500",
+                    "distance_m": 0
+                  }
+                ],
+                "same_grid_tests": 5,
+                "changed_grid_tests": 2,
+                "total_hits": 4,
+                "total_tests": 7
+              },
+              {
+                "site_id": "grid-945500-1944500",
+                "latitude": 37.50042172885852,
+                "longitude": 126.88624291842663,
+                "district": "구로구",
+                "baseline_rank": 6,
+                "same_grid_hits": 3,
+                "changed_grid_hits": 0,
+                "conditions": [
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-945500-1944500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "demand",
+                    "matched_site_id": "grid-945500-1944500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "gap",
+                    "matched_site_id": "grid-945500-1944500",
+                    "distance_m": 0
+                  }
+                ],
+                "same_grid_tests": 5,
+                "changed_grid_tests": 2,
+                "total_hits": 3,
+                "total_tests": 7
+              },
+              {
+                "site_id": "grid-963500-1956000",
+                "latitude": 37.604957804772255,
+                "longitude": 127.08931145189098,
+                "district": "중랑구",
+                "baseline_rank": 8,
+                "same_grid_hits": 3,
+                "changed_grid_hits": 0,
+                "conditions": [
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-963500-1956000",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "demand",
+                    "matched_site_id": "grid-963500-1956000",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "gap",
+                    "matched_site_id": "grid-963500-1956000",
+                    "distance_m": 0
+                  }
+                ],
+                "same_grid_tests": 5,
+                "changed_grid_tests": 2,
+                "total_hits": 3,
+                "total_tests": 7
+              },
+              {
+                "site_id": "grid-960500-1955000",
+                "latitude": 37.5958213977361,
+                "longitude": 127.0553779786169,
+                "district": "동대문구",
+                "baseline_rank": 9,
+                "same_grid_hits": 3,
+                "changed_grid_hits": 0,
+                "conditions": [
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-960500-1955000",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 800,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-960500-1955000",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "gap",
+                    "matched_site_id": "grid-960500-1955000",
+                    "distance_m": 0
+                  }
+                ],
+                "same_grid_tests": 5,
+                "changed_grid_tests": 2,
+                "total_hits": 3,
+                "total_tests": 7
+              },
+              {
+                "site_id": "grid-963500-1947500",
+                "latitude": 37.52834447591663,
+                "longitude": 127.08973185957822,
+                "district": "광진구",
+                "baseline_rank": 7,
+                "same_grid_hits": 2,
+                "changed_grid_hits": 0,
+                "conditions": [
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "equal",
+                    "matched_site_id": "grid-963500-1947500",
+                    "distance_m": 0
+                  },
+                  {
+                    "anchor_m": 500,
+                    "grid_m": 500,
+                    "policy": "gap",
+                    "matched_site_id": "grid-963500-1947500",
+                    "distance_m": 0
+                  }
+                ],
+                "same_grid_tests": 5,
+                "changed_grid_tests": 2,
+                "total_hits": 2,
+                "total_tests": 7
+              }
+            ],
+            "definition": "기준 TOP10만 평가. 동일 격자5조건은 ID 일치, 변경 격자2조건은300m 일대일 대응. 버퍼만 바꾼 조건 제외.",
+            "decision": "반복 횟수는 현장 확인 순서를 검토할 별도 근거이며 운영 점수를 변경하지 않습니다."
+          },
+          "gap_evaluation": {
+            "definition": "이용 있는 경계 내 대여소 중 앵커500m 밖·자기 자신 제외 다른 대여소300m 밖. 숨기기 전 외생 위치 조건으로 코호트를 정함.",
+            "preregistered_policy": "기존 높은 이용량 재발견 실패 확인 후 설계한 탐색적 후속평가. 같은 월 검증이며 별도 기간 일반화 입증 아님.",
+            "eligibility": {
+              "active_located": 2746,
+              "eligible": 291,
+              "excluded_by_first_rule": {
+                "near_anchor": 1479,
+                "near_other_bike_station": 976,
+                "anchor_distance_missing": 0
+              }
+            },
+            "folds": [
+              {
+                "fold": "gap_high_usage",
+                "seed": 0,
+                "target_count": 10,
+                "target_ids": [
+                  "ST-2574",
+                  "ST-502",
+                  "ST-503",
+                  "ST-446",
+                  "ST-1069",
+                  "ST-2844",
+                  "ST-2740",
+                  "ST-2718",
+                  "ST-1867",
+                  "ST-824"
+                ],
+                "top_k": 10,
+                "match_radius_m": 300,
+                "candidate_count": 845,
+                "candidate_generation_possible": 7,
+                "full": {
+                  "hits": 0,
+                  "pairs": [],
+                  "recall": 0.0
+                },
+                "demand_only": {
+                  "hits": 3,
+                  "pairs": [
+                    {
+                      "station_id": "ST-502",
+                      "site_id": "grid-967000-1947500",
+                      "distance_m": 196.91265964646684
+                    },
+                    {
+                      "station_id": "ST-2844",
+                      "site_id": "grid-945500-1948000",
+                      "distance_m": 213.40420674022474
+                    },
+                    {
+                      "station_id": "ST-2740",
+                      "site_id": "grid-967000-1948000",
+                      "distance_m": 266.6916972317746
+                    }
+                  ],
+                  "recall": 0.3
+                },
+                "random_recall_mean": 0.013333333333333334,
+                "no_candidate_nearby": 3,
+                "feasible_not_top10": 7,
+                "training_audit": {
+                  "source_od_trips": 1954344,
+                  "retained_od_trips": 1907948,
+                  "removed_od_trips": 46396,
+                  "hidden_ids": [
+                    "ST-1069",
+                    "ST-1867",
+                    "ST-2574",
+                    "ST-2718",
+                    "ST-2740",
+                    "ST-2844",
+                    "ST-446",
+                    "ST-502",
+                    "ST-503",
+                    "ST-824"
+                  ],
+                  "hidden_station_count_in_training": 0
+                }
+              },
+              {
+                "fold": "gap_random_sample",
+                "seed": 71,
+                "target_count": 10,
+                "target_ids": [
+                  "ST-220",
+                  "ST-1560",
+                  "ST-1297",
+                  "ST-2474",
+                  "ST-3265",
+                  "ST-343",
+                  "ST-633",
+                  "ST-2688",
+                  "ST-3279",
+                  "ST-756"
+                ],
+                "top_k": 10,
+                "match_radius_m": 300,
+                "candidate_count": 843,
+                "candidate_generation_possible": 4,
+                "full": {
+                  "hits": 0,
+                  "pairs": [],
+                  "recall": 0.0
+                },
+                "demand_only": {
+                  "hits": 0,
+                  "pairs": [],
+                  "recall": 0.0
+                },
+                "random_recall_mean": 0.006666666666666667,
+                "no_candidate_nearby": 6,
+                "feasible_not_top10": 4,
+                "training_audit": {
+                  "source_od_trips": 1954344,
+                  "retained_od_trips": 1946175,
+                  "removed_od_trips": 8169,
+                  "hidden_ids": [
+                    "ST-1297",
+                    "ST-1560",
+                    "ST-220",
+                    "ST-2474",
+                    "ST-2688",
+                    "ST-3265",
+                    "ST-3279",
+                    "ST-343",
+                    "ST-633",
+                    "ST-756"
+                  ],
+                  "hidden_station_count_in_training": 0
+                }
+              },
+              {
+                "fold": "gap_random_sample",
+                "seed": 72,
+                "target_count": 10,
+                "target_ids": [
+                  "ST-1594",
+                  "ST-1195",
+                  "ST-349",
+                  "ST-2768",
+                  "ST-756",
+                  "ST-1844",
+                  "ST-1560",
+                  "ST-502",
+                  "ST-770",
+                  "ST-2791"
+                ],
+                "top_k": 10,
+                "match_radius_m": 300,
+                "candidate_count": 845,
+                "candidate_generation_possible": 5,
+                "full": {
+                  "hits": 0,
+                  "pairs": [],
+                  "recall": 0.0
+                },
+                "demand_only": {
+                  "hits": 0,
+                  "pairs": [],
+                  "recall": 0.0
+                },
+                "random_recall_mean": 0.006666666666666667,
+                "no_candidate_nearby": 5,
+                "feasible_not_top10": 5,
+                "training_audit": {
+                  "source_od_trips": 1954344,
+                  "retained_od_trips": 1938987,
+                  "removed_od_trips": 15357,
+                  "hidden_ids": [
+                    "ST-1195",
+                    "ST-1560",
+                    "ST-1594",
+                    "ST-1844",
+                    "ST-2768",
+                    "ST-2791",
+                    "ST-349",
+                    "ST-502",
+                    "ST-756",
+                    "ST-770"
+                  ],
+                  "hidden_station_count_in_training": 0
+                }
+              }
+            ],
+            "available": true
+          },
+          "anchor_reviews": [
+            {
+              "city": "seoul",
+              "anchor_name": "강남",
+              "latitude": 37.497718,
+              "longitude": 127.027914,
+              "transit_total": 5046293,
+              "bike_activity": 6700,
+              "nearby_stations": [
+                {
+                  "station_id": "ST-1577",
+                  "station_name": "역삼서초삼성 세무서 앞 (역삼빌딩 앞)",
+                  "latitude": 37.49847031,
+                  "longitude": 127.03011322,
+                  "rental_count": 817,
+                  "return_count": 814,
+                  "nearest_anchor_distance_m": 196.47678832723847,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 211.27966699212695
+                },
+                {
+                  "station_id": "ST-761",
+                  "station_name": "삼성타운(삼성생명) A동 맞은편",
+                  "latitude": 37.49691391,
+                  "longitude": 127.02496338,
+                  "rental_count": 953,
+                  "return_count": 1055,
+                  "nearest_anchor_distance_m": 262.50116206520227,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 275.23182856355226
+                },
+                {
+                  "station_id": "ST-1900",
+                  "station_name": "서초초등학교 후문",
+                  "latitude": 37.49892807,
+                  "longitude": 127.02472687,
+                  "rental_count": 645,
+                  "return_count": 644,
+                  "nearest_anchor_distance_m": 300.6369221093965,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 311.7028600228789
+                },
+                {
+                  "station_id": "ST-3361",
+                  "station_name": "삼성화재서초타워",
+                  "latitude": 37.49446869,
+                  "longitude": 127.02896118,
+                  "rental_count": 847,
+                  "return_count": 925,
+                  "nearest_anchor_distance_m": 338.0898230005982,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 372.9312802462935
+                }
+              ],
+              "period_start": "2025-12-01",
+              "period_end": "2025-12-31",
+              "nearby_station_count": 4
+            },
+            {
+              "city": "seoul",
+              "anchor_name": "사당",
+              "latitude": 37.4764,
+              "longitude": 126.981633,
+              "transit_total": 4566662,
+              "bike_activity": 6766,
+              "nearby_stations": [
+                {
+                  "station_id": "ST-712",
+                  "station_name": "사당역 5번출구",
+                  "latitude": 37.47608948,
+                  "longitude": 126.98133087,
+                  "rental_count": 523,
+                  "return_count": 564,
+                  "nearest_anchor_distance_m": 33.12555820785583,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 43.623818452227994
+                },
+                {
+                  "station_id": "ST-924",
+                  "station_name": "사당역 7번출구쪽",
+                  "latitude": 37.47689056,
+                  "longitude": 126.98057556,
+                  "rental_count": 393,
+                  "return_count": 419,
+                  "nearest_anchor_distance_m": 101.13759892799645,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 108.08722658924783
+                },
+                {
+                  "station_id": "ST-753",
+                  "station_name": "사당역 12번출구 뒤",
+                  "latitude": 37.47806931,
+                  "longitude": 126.98203278,
+                  "rental_count": 960,
+                  "return_count": 1148,
+                  "nearest_anchor_distance_m": 174.14388982884452,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 188.94174279814024
+                },
+                {
+                  "station_id": "ST-3350",
+                  "station_name": "사당역 1번출구",
+                  "latitude": 37.47597885,
+                  "longitude": 126.98390961,
+                  "rental_count": 58,
+                  "return_count": 184,
+                  "nearest_anchor_distance_m": 203.10779512851548,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 206.28553411007368
+                },
+                {
+                  "station_id": "ST-2362",
+                  "station_name": "사당역10번출구(금강빌딩)",
+                  "latitude": 37.4791069,
+                  "longitude": 126.98150635,
+                  "rental_count": 428,
+                  "return_count": 560,
+                  "nearest_anchor_distance_m": 286.0829683635495,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 301.2013757597396
+                },
+                {
+                  "station_id": "ST-1307",
+                  "station_name": "서울교통공사 사당별관 건너편",
+                  "latitude": 37.47597885,
+                  "longitude": 126.98628235,
+                  "rental_count": 172,
+                  "return_count": 159,
+                  "nearest_anchor_distance_m": 411.23364757717104,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 412.9463471824252
+                },
+                {
+                  "station_id": "ST-2948",
+                  "station_name": "광일빌딩",
+                  "latitude": 37.47639847,
+                  "longitude": 126.97683716,
+                  "rental_count": 468,
+                  "return_count": 476,
+                  "nearest_anchor_distance_m": 423.3076980176576,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 423.2082809287551
+                },
+                {
+                  "station_id": "ST-754",
+                  "station_name": "방배래미안 정문 앞",
+                  "latitude": 37.47261047,
+                  "longitude": 126.98300934,
+                  "rental_count": 124,
+                  "return_count": 130,
+                  "nearest_anchor_distance_m": 423.8399111047341,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 438.5324424244189
+                }
+              ],
+              "period_start": "2025-12-01",
+              "period_end": "2025-12-31",
+              "nearby_station_count": 8
+            },
+            {
+              "city": "seoul",
+              "anchor_name": "삼성",
+              "latitude": 37.508827,
+              "longitude": 127.063203,
+              "transit_total": 3722699,
+              "bike_activity": 4261,
+              "nearby_stations": [
+                {
+                  "station_id": "ST-3077",
+                  "station_name": "섬유센터 앞",
+                  "latitude": 37.50767136,
+                  "longitude": 127.06017303,
+                  "rental_count": 845,
+                  "return_count": 848,
+                  "nearest_anchor_distance_m": 296.5524730163824,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 296.55247301541544
+                },
+                {
+                  "station_id": "ST-3079",
+                  "station_name": "강남경찰서",
+                  "latitude": 37.50971985,
+                  "longitude": 127.06679535,
+                  "rental_count": 782,
+                  "return_count": 797,
+                  "nearest_anchor_distance_m": 332.0561373985564,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 332.0561373992279
+                },
+                {
+                  "station_id": "ST-3112",
+                  "station_name": "도심공항타워 앞",
+                  "latitude": 37.50999069,
+                  "longitude": 127.05847168,
+                  "rental_count": 495,
+                  "return_count": 494,
+                  "nearest_anchor_distance_m": 436.9301760088736,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 436.9301760081693
+                }
+              ],
+              "period_start": "2025-12-01",
+              "period_end": "2025-12-31",
+              "nearby_station_count": 3
+            },
+            {
+              "city": "seoul",
+              "anchor_name": "선릉",
+              "latitude": 37.504257,
+              "longitude": 127.048174,
+              "transit_total": 3212342,
+              "bike_activity": 4137,
+              "nearby_stations": [
+                {
+                  "station_id": "ST-815",
+                  "station_name": "선릉역3번출구",
+                  "latitude": 37.50400925,
+                  "longitude": 127.0490799,
+                  "rental_count": 729,
+                  "return_count": 739,
+                  "nearest_anchor_distance_m": 84.52660846989407,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 84.52660847163516
+                },
+                {
+                  "station_id": "ST-1247",
+                  "station_name": "역삼동 sk뷰 501동앞",
+                  "latitude": 37.50122833,
+                  "longitude": 127.05036163,
+                  "rental_count": 174,
+                  "return_count": 170,
+                  "nearest_anchor_distance_m": 388.1457214711749,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 388.14572147124596
+                },
+                {
+                  "station_id": "ST-1178",
+                  "station_name": "KT선릉타워",
+                  "latitude": 37.50542831,
+                  "longitude": 127.0528717,
+                  "rental_count": 590,
+                  "return_count": 600,
+                  "nearest_anchor_distance_m": 434.37610903531424,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 434.3761090362964
+                },
+                {
+                  "station_id": "ST-812",
+                  "station_name": "르네상스호텔사거리 역삼지하보도 2번출구",
+                  "latitude": 37.50235748,
+                  "longitude": 127.04319,
+                  "rental_count": 152,
+                  "return_count": 148,
+                  "nearest_anchor_distance_m": 487.75852040226647,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 487.7585204018424
+                },
+                {
+                  "station_id": "ST-1883",
+                  "station_name": "선정릉 디캠프(D,CAMP)앞",
+                  "latitude": 37.50799942,
+                  "longitude": 127.04524994,
+                  "rental_count": 103,
+                  "return_count": 102,
+                  "nearest_anchor_distance_m": 285.6492209690502,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 489.59126102068086
+                },
+                {
+                  "station_id": "ST-811",
+                  "station_name": "르네상스 호텔 사거리 역삼지하보도 7번출구 앞",
+                  "latitude": 37.50321198,
+                  "longitude": 127.04273224,
+                  "rental_count": 341,
+                  "return_count": 289,
+                  "nearest_anchor_distance_m": 493.89583298886913,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 493.8958329870957
+                }
+              ],
+              "period_start": "2025-12-01",
+              "period_end": "2025-12-31",
+              "nearby_station_count": 6
+            },
+            {
+              "city": "seoul",
+              "anchor_name": "역삼",
+              "latitude": 37.500658,
+              "longitude": 127.03643,
+              "transit_total": 3127260,
+              "bike_activity": 2137,
+              "nearby_stations": [
+                {
+                  "station_id": "ST-1896",
+                  "station_name": "강남파이낸스센터앞(역삼역2번출구)",
+                  "latitude": 37.50024414,
+                  "longitude": 127.03605652,
+                  "rental_count": 389,
+                  "return_count": 255,
+                  "nearest_anchor_distance_m": 56.59749631212195,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 56.59749631183111
+                },
+                {
+                  "station_id": "ST-959",
+                  "station_name": "역삼빌딩 앞(하나은행 옆)",
+                  "latitude": 37.50154495,
+                  "longitude": 127.03856659,
+                  "rental_count": 164,
+                  "return_count": 115,
+                  "nearest_anchor_distance_m": 212.72466294158428,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 212.72466294082378
+                },
+                {
+                  "station_id": "ST-1680",
+                  "station_name": "포스코피앤에스타워 (역삼역 3번출구 부근)",
+                  "latitude": 37.49959946,
+                  "longitude": 127.03375244,
+                  "rental_count": 556,
+                  "return_count": 446,
+                  "nearest_anchor_distance_m": 263.90822122411834,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 263.90822122508365
+                },
+                {
+                  "station_id": "ST-3115",
+                  "station_name": "영동중앙교회 버스정류장",
+                  "latitude": 37.49775314,
+                  "longitude": 127.03857422,
+                  "rental_count": 107,
+                  "return_count": 105,
+                  "nearest_anchor_distance_m": 374.31799214612624,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 374.31799214569486
+                }
+              ],
+              "period_start": "2025-12-01",
+              "period_end": "2025-12-31",
+              "nearby_station_count": 4
+            },
+            {
+              "city": "seoul",
+              "anchor_name": "합정",
+              "latitude": 37.549529,
+              "longitude": 126.914052,
+              "transit_total": 3057639,
+              "bike_activity": 6292,
+              "nearby_stations": [
+                {
+                  "station_id": "ST-7",
+                  "station_name": "합정역 5번출구 앞",
+                  "latitude": 37.55000687,
+                  "longitude": 126.91482544,
+                  "rental_count": 474,
+                  "return_count": 326,
+                  "nearest_anchor_distance_m": 23.750809254771088,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 86.4448909473335
+                },
+                {
+                  "station_id": "ST-8",
+                  "station_name": "합정역 7번출구 앞",
+                  "latitude": 37.54864502,
+                  "longitude": 126.91282654,
+                  "rental_count": 734,
+                  "return_count": 712,
+                  "nearest_anchor_distance_m": 76.70839546378586,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 146.0594993352809
+                },
+                {
+                  "station_id": "ST-6",
+                  "station_name": "합정역 1번출구 앞",
+                  "latitude": 37.55062866,
+                  "longitude": 126.91498566,
+                  "rental_count": 757,
+                  "return_count": 614,
+                  "nearest_anchor_distance_m": 77.03043321610822,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 147.39894520784435
+                },
+                {
+                  "station_id": "ST-2534",
+                  "station_name": "시석빌딩 앞",
+                  "latitude": 37.5483017,
+                  "longitude": 126.91671753,
+                  "rental_count": 362,
+                  "return_count": 374,
+                  "nearest_anchor_distance_m": 270.18133553248634,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 271.7438292185788
+                },
+                {
+                  "station_id": "ST-2156",
+                  "station_name": "합정동주민센터 앞",
+                  "latitude": 37.551754,
+                  "longitude": 126.91230011,
+                  "rental_count": 1175,
+                  "return_count": 764,
+                  "nearest_anchor_distance_m": 276.6724986577528,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 291.65637781841997
+                }
+              ],
+              "period_start": "2025-12-01",
+              "period_end": "2025-12-31",
+              "nearby_station_count": 5
+            },
+            {
+              "city": "seoul",
+              "anchor_name": "교대",
+              "latitude": 37.493509,
+              "longitude": 127.014114,
+              "transit_total": 2882545,
+              "bike_activity": 2627,
+              "nearby_stations": [
+                {
+                  "station_id": "ST-1305",
+                  "station_name": "교대역 5번출구뒤",
+                  "latitude": 37.49361801,
+                  "longitude": 127.01418304,
+                  "rental_count": 783,
+                  "return_count": 866,
+                  "nearest_anchor_distance_m": 43.58214197537221,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 13.565704718011103
+                },
+                {
+                  "station_id": "ST-765",
+                  "station_name": "교대역 6번출구",
+                  "latitude": 37.49421692,
+                  "longitude": 127.01378632,
+                  "rental_count": 481,
+                  "return_count": 497,
+                  "nearest_anchor_distance_m": 63.79828524129737,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 83.85791319089003
+                }
+              ],
+              "period_start": "2025-12-01",
+              "period_end": "2025-12-31",
+              "nearby_station_count": 2
+            },
+            {
+              "city": "seoul",
+              "anchor_name": "명동",
+              "latitude": 37.560955,
+              "longitude": 126.986271,
+              "transit_total": 2674996,
+              "bike_activity": 4397,
+              "nearby_stations": [
+                {
+                  "station_id": "ST-2527",
+                  "station_name": "명동역9번 출구",
+                  "latitude": 37.56122589,
+                  "longitude": 126.98749542,
+                  "rental_count": 424,
+                  "return_count": 384,
+                  "nearest_anchor_distance_m": 112.05079238361836,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 112.05079238262368
+                },
+                {
+                  "station_id": "ST-1777",
+                  "station_name": "회현사거리 남측",
+                  "latitude": 37.56035995,
+                  "longitude": 126.98265076,
+                  "rental_count": 304,
+                  "return_count": 346,
+                  "nearest_anchor_distance_m": 325.8946687942721,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 325.8946687934051
+                },
+                {
+                  "station_id": "ST-3161",
+                  "station_name": "중부세무서 앞",
+                  "latitude": 37.56092453,
+                  "longitude": 126.99066162,
+                  "rental_count": 195,
+                  "return_count": 170,
+                  "nearest_anchor_distance_m": 313.6618016663115,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 387.02577580906865
+                },
+                {
+                  "station_id": "ST-138",
+                  "station_name": "명동성당 앞",
+                  "latitude": 37.56447601,
+                  "longitude": 126.98696899,
+                  "rental_count": 327,
+                  "return_count": 317,
+                  "nearest_anchor_distance_m": 396.3233234229778,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 396.32332342298025
+                },
+                {
+                  "station_id": "ST-2522",
+                  "station_name": "신세계면세점",
+                  "latitude": 37.56027603,
+                  "longitude": 126.98139191,
+                  "rental_count": 217,
+                  "return_count": 226,
+                  "nearest_anchor_distance_m": 320.74068923753856,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 436.6454986691721
+                },
+                {
+                  "station_id": "ST-140",
+                  "station_name": "신세계백화점 본점 앞",
+                  "latitude": 37.56143188,
+                  "longitude": 126.98069763,
+                  "rental_count": 363,
+                  "return_count": 479,
+                  "nearest_anchor_distance_m": 367.94040486637374,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 494.1162567270913
+                },
+                {
+                  "station_id": "ST-1773",
+                  "station_name": "한국은행",
+                  "latitude": 37.5622139,
+                  "longitude": 126.98086548,
+                  "rental_count": 272,
+                  "return_count": 373,
+                  "nearest_anchor_distance_m": 446.7608781829405,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 496.60285034875074
+                }
+              ],
+              "period_start": "2025-12-01",
+              "period_end": "2025-12-31",
+              "nearby_station_count": 7
+            },
+            {
+              "city": "seoul",
+              "anchor_name": "양재",
+              "latitude": 37.48458,
+              "longitude": 127.03423,
+              "transit_total": 2378700,
+              "bike_activity": 6118,
+              "nearby_stations": [
+                {
+                  "station_id": "ST-816",
+                  "station_name": "양재역 3번출구 주변",
+                  "latitude": 37.48515701,
+                  "longitude": 127.03407288,
+                  "rental_count": 581,
+                  "return_count": 333,
+                  "nearest_anchor_distance_m": 65.64135554010569,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 65.64135554010345
+                },
+                {
+                  "station_id": "ST-767",
+                  "station_name": "양재역 10번 출구 앞",
+                  "latitude": 37.48398972,
+                  "longitude": 127.03417969,
+                  "rental_count": 476,
+                  "return_count": 478,
+                  "nearest_anchor_distance_m": 65.78617503990448,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 65.78617503996038
+                },
+                {
+                  "station_id": "ST-2962",
+                  "station_name": "SC제일은행 양재동지점 앞",
+                  "latitude": 37.48573685,
+                  "longitude": 127.03315735,
+                  "rental_count": 354,
+                  "return_count": 298,
+                  "nearest_anchor_distance_m": 159.70240444149715,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 159.7024044413204
+                },
+                {
+                  "station_id": "ST-1360",
+                  "station_name": "SPC 앞",
+                  "latitude": 37.48479843,
+                  "longitude": 127.03699493,
+                  "rental_count": 394,
+                  "return_count": 339,
+                  "nearest_anchor_distance_m": 245.1698607418753,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 245.1698607426398
+                },
+                {
+                  "station_id": "ST-1922",
+                  "station_name": "양재역 8번출구 앞",
+                  "latitude": 37.48257065,
+                  "longitude": 127.03643799,
+                  "rental_count": 729,
+                  "return_count": 588,
+                  "nearest_anchor_distance_m": 296.44172620808735,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 296.44172620773753
+                },
+                {
+                  "station_id": "ST-2674",
+                  "station_name": "언주초등학교 입구",
+                  "latitude": 37.48536682,
+                  "longitude": 127.03849792,
+                  "rental_count": 333,
+                  "return_count": 335,
+                  "nearest_anchor_distance_m": 386.6085688270249,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 386.60856882755684
+                },
+                {
+                  "station_id": "ST-768",
+                  "station_name": "서울가정법원",
+                  "latitude": 37.48149109,
+                  "longitude": 127.03672791,
+                  "rental_count": 293,
+                  "return_count": 174,
+                  "nearest_anchor_distance_m": 408.10842935305686,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 408.10842935310126
+                },
+                {
+                  "station_id": "ST-2666",
+                  "station_name": "이투스교육 앞",
+                  "latitude": 37.48389053,
+                  "longitude": 127.02905273,
+                  "rental_count": 212,
+                  "return_count": 201,
+                  "nearest_anchor_distance_m": 463.20810742609666,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 463.20810742553647
+                }
+              ],
+              "period_start": "2025-12-01",
+              "period_end": "2025-12-31",
+              "nearby_station_count": 8
+            },
+            {
+              "city": "seoul",
+              "anchor_name": "연신내",
+              "latitude": 37.618889,
+              "longitude": 126.920681,
+              "transit_total": 2296117,
+              "bike_activity": 6818,
+              "nearby_stations": [
+                {
+                  "station_id": "ST-1035",
+                  "station_name": "연신내역 1번 출구",
+                  "latitude": 37.61978149,
+                  "longitude": 126.92080688,
+                  "rental_count": 698,
+                  "return_count": 865,
+                  "nearest_anchor_distance_m": 55.72978370253119,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 99.85788635721482
+                },
+                {
+                  "station_id": "ST-470",
+                  "station_name": "연신내역 4번출구",
+                  "latitude": 37.61780167,
+                  "longitude": 126.92196655,
+                  "rental_count": 219,
+                  "return_count": 224,
+                  "nearest_anchor_distance_m": 157.1768737875352,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 165.64611619365166
+                },
+                {
+                  "station_id": "ST-475",
+                  "station_name": "연신내역 3번출구 인근",
+                  "latitude": 37.61785507,
+                  "longitude": 126.9225235,
+                  "rental_count": 199,
+                  "return_count": 220,
+                  "nearest_anchor_distance_m": 199.39253075888942,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 198.87936478250916
+                },
+                {
+                  "station_id": "ST-454",
+                  "station_name": "연신내역 5번출구",
+                  "latitude": 37.61721039,
+                  "longitude": 126.91957855,
+                  "rental_count": 1191,
+                  "return_count": 1365,
+                  "nearest_anchor_distance_m": 159.0519562064262,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 210.39958039251388
+                },
+                {
+                  "station_id": "ST-2782",
+                  "station_name": "청구성심병원 앞",
+                  "latitude": 37.62087631,
+                  "longitude": 126.9197998,
+                  "rental_count": 303,
+                  "return_count": 305,
+                  "nearest_anchor_distance_m": 203.32545958507467,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 234.21220489306828
+                },
+                {
+                  "station_id": "ST-2783",
+                  "station_name": "준빌딩 앞",
+                  "latitude": 37.62205124,
+                  "longitude": 126.91958618,
+                  "rental_count": 90,
+                  "return_count": 94,
+                  "nearest_anchor_distance_m": 329.46841049048277,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 364.60722255238704
+                },
+                {
+                  "station_id": "ST-1033",
+                  "station_name": "연신내 선일하이츠빌 정류소",
+                  "latitude": 37.62266922,
+                  "longitude": 126.91999054,
+                  "rental_count": 100,
+                  "return_count": 90,
+                  "nearest_anchor_distance_m": 384.76999058719804,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 424.71795392366363
+                },
+                {
+                  "station_id": "ST-1485",
+                  "station_name": "북한산힐스테이트 7차아파트",
+                  "latitude": 37.61654282,
+                  "longitude": 126.92512512,
+                  "rental_count": 196,
+                  "return_count": 125,
+                  "nearest_anchor_distance_m": 468.5383202573968,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 470.4000062864796
+                },
+                {
+                  "station_id": "ST-471",
+                  "station_name": "국민은행 연서지점",
+                  "latitude": 37.62094879,
+                  "longitude": 126.92563629,
+                  "rental_count": 272,
+                  "return_count": 262,
+                  "nearest_anchor_distance_m": 451.1330094362008,
+                  "region_id": "seoul",
+                  "distance_to_selected_anchor_m": 492.8859453381639
+                }
+              ],
+              "period_start": "2025-12-01",
+              "period_end": "2025-12-31",
+              "nearby_station_count": 9
+            }
+          ]
+        },
+        "initiator": "solar",
+        "execution_seconds": 0.026
+      },
+      {
+        "tool": "get_region_overview",
+        "arguments": {
+          "region_id": "seoul",
+          "date_range": {
+            "date_start": "2025-12-01",
+            "date_end": "2025-12-31"
+          }
+        },
+        "result": {
+          "region_id": "seoul",
+          "region_name": "서울",
+          "service_name": "따릉이",
+          "operator": "서울특별시",
+          "sources": [
+            {
+              "source_id": "seoul-stations-202606",
+              "region_id": "seoul",
+              "dataset_name": "서울시 공공자전거 따릉이 대여소 정보",
+              "source_url": "https://data.seoul.go.kr/dataList/OA-13252/F/1/datasetView.do",
+              "date_start": "2026-06-30",
+              "date_end": "2026-06-30",
+              "collected_at": "2026-11-04T04:53:59.993091Z",
+              "verification_status": "VERIFIED",
+              "available_columns": [
+                "대여소 번호",
+                "보관소(대여소)명",
+                "소재지(위치)",
+                "위도",
+                "경도",
+                "설치 시기",
+                "LCD 거치대수",
+                "QR 거치대수",
+                "운영 방식"
+              ]
+            },
+            {
+              "source_id": "seoul-station-master-oa-21235",
+              "region_id": "seoul",
+              "dataset_name": "서울시 따릉이대여소 마스터 정보",
+              "source_url": "https://data.seoul.go.kr/dataList/OA-21235/S/1/datasetView.do",
+              "date_start": null,
+              "date_end": null,
+              "collected_at": "2026-11-09T01:56:36.503651+00:00",
+              "verification_status": "VERIFIED",
+              "available_columns": [
+                "RNTLS_ID",
+                "ADDR1",
+                "ADDR2",
+                "LAT",
+                "LOT"
+              ],
+              "origin": "official_sheet",
+              "note": "OD ST ID와 직접 매칭한 유효 좌표만 반영. OA-21235는 2026-11-16 종료 예정"
+            },
+            {
+              "source_id": "seoul-trips-202512",
+              "region_id": "seoul",
+              "dataset_name": "서울 따릉이 개별 대여이력 2025년12월",
+              "source_url": "https://data.seoul.go.kr/dataList/OA-15182/F/1/datasetView.do",
+              "date_start": "2025-12-01",
+              "date_end": "2025-12-31",
+              "collected_at": "2026-11-18T04:57:34.577816+00:00",
+              "verification_status": "VERIFIED",
+              "available_columns": [
+                "자전거번호",
+                "대여일시",
+                "대여 대여소번호",
+                "대여 대여소명",
+                "대여거치대",
+                "반납일시",
+                "반납대여소번호",
+                "반납대여소명",
+                "반납거치대",
+                "이용시간(분)",
+                "이용거리(M)",
+                "생년",
+                "성별",
+                "이용자종류",
+                "대여대여소ID",
+                "반납대여소ID",
+                "자전거구분"
+              ],
+              "note": "출발일 기준 공통 기간. 월 이후 반납 이벤트는 기간 내 이용 합계에서 제외. 과거 좌표 동일성 미검증."
+            }
+          ],
+          "source_names": [
+            "서울 따릉이 개별 대여이력 2025년12월",
+            "서울시 공공자전거 따릉이 대여소 정보",
+            "서울시 따릉이대여소 마스터 정보"
+          ],
+          "last_updated": "2026-11-18T04:57:34.577816+00:00",
+          "verification_status": "VERIFIED",
+          "total_rentals": 1954344,
+          "station_count": 2770,
+          "inventory_station_count": 2757,
+          "average_per_station": 705.54,
+          "hourly": [
+            39339,
+            30859,
+            21925,
+            16264,
+            13097,
+            24961,
+            49703,
+            116169,
+            189703,
+            100202,
+            73417,
+            82304,
+            86458,
+            90341,
+            92573,
+            100193,
+            118259,
+            154003,
+            173550,
+            107783,
+            84984,
+            77951,
+            65503,
+            44803
+          ],
+          "period_start": "2025-12-01",
+          "period_end": "2025-12-31",
+          "observed_dates": [
+            "2025-12-01",
+            "2025-12-02",
+            "2025-12-03",
+            "2025-12-04",
+            "2025-12-05",
+            "2025-12-06",
+            "2025-12-07",
+            "2025-12-08",
+            "2025-12-09",
+            "2025-12-10",
+            "2025-12-11",
+            "2025-12-12",
+            "2025-12-13",
+            "2025-12-14",
+            "2025-12-15",
+            "2025-12-16",
+            "2025-12-17",
+            "2025-12-18",
+            "2025-12-19",
+            "2025-12-20",
+            "2025-12-21",
+            "2025-12-22",
+            "2025-12-23",
+            "2025-12-24",
+            "2025-12-25",
+            "2025-12-26",
+            "2025-12-27",
+            "2025-12-28",
+            "2025-12-29",
+            "2025-12-30",
+            "2025-12-31"
+          ],
+          "daily": [
+            {
+              "date": "2025-12-01",
+              "rental_count": 101035
+            },
+            {
+              "date": "2025-12-02",
+              "rental_count": 85272
+            },
+            {
+              "date": "2025-12-03",
+              "rental_count": 67749
+            },
+            {
+              "date": "2025-12-04",
+              "rental_count": 56426
+            },
+            {
+              "date": "2025-12-05",
+              "rental_count": 35648
+            },
+            {
+              "date": "2025-12-06",
+              "rental_count": 40280
+            },
+            {
+              "date": "2025-12-07",
+              "rental_count": 56596
+            },
+            {
+              "date": "2025-12-08",
+              "rental_count": 84686
+            },
+            {
+              "date": "2025-12-09",
+              "rental_count": 89887
+            },
+            {
+              "date": "2025-12-10",
+              "rental_count": 94533
+            },
+            {
+              "date": "2025-12-11",
+              "rental_count": 71529
+            },
+            {
+              "date": "2025-12-12",
+              "rental_count": 86467
+            },
+            {
+              "date": "2025-12-13",
+              "rental_count": 19050
+            },
+            {
+              "date": "2025-12-14",
+              "rental_count": 42965
+            },
+            {
+              "date": "2025-12-15",
+              "rental_count": 79996
+            },
+            {
+              "date": "2025-12-16",
+              "rental_count": 48299
+            },
+            {
+              "date": "2025-12-17",
+              "rental_count": 84444
+            },
+            {
+              "date": "2025-12-18",
+              "rental_count": 87051
+            },
+            {
+              "date": "2025-12-19",
+              "rental_count": 91007
+            },
+            {
+              "date": "2025-12-20",
+              "rental_count": 46222
+            },
+            {
+              "date": "2025-12-21",
+              "rental_count": 44912
+            },
+            {
+              "date": "2025-12-22",
+              "rental_count": 76425
+            },
+            {
+              "date": "2025-12-23",
+              "rental_count": 38471
+            },
+            {
+              "date": "2025-12-24",
+              "rental_count": 72905
+            },
+            {
+              "date": "2025-12-25",
+              "rental_count": 32141
+            },
+            {
+              "date": "2025-12-26",
+              "rental_count": 45397
+            },
+            {
+              "date": "2025-12-27",
+              "rental_count": 42183
+            },
+            {
+              "date": "2025-12-28",
+              "rental_count": 40611
+            },
+            {
+              "date": "2025-12-29",
+              "rental_count": 66269
+            },
+            {
+              "date": "2025-12-30",
+              "rental_count": 70666
+            },
+            {
+              "date": "2025-12-31",
+              "rental_count": 55222
+            }
+          ],
+          "monthly": [
+            {
+              "month": "2025-12",
+              "rental_count": 1954344
+            }
+          ],
+          "weekday": [
+            {
+              "weekday": 0,
+              "rental_count": 408411
+            },
+            {
+              "weekday": 1,
+              "rental_count": 332595
+            },
+            {
+              "weekday": 2,
+              "rental_count": 374853
+            },
+            {
+              "weekday": 3,
+              "rental_count": 247147
+            },
+            {
+              "weekday": 4,
+              "rental_count": 258519
+            },
+            {
+              "weekday": 5,
+              "rental_count": 147735
+            },
+            {
+              "weekday": 6,
+              "rental_count": 185084
+            }
+          ],
+          "weekend_share": 0.1703,
+          "weekday_share": 0.8297,
+          "annual_latest": null,
+          "has_od": true,
+          "coverage_note": "서울 2025년12월 개별 대여이력의 공식 ST ID를 사용합니다. 2026-06 위치 마스터 연결 좌표로 과거 위치 동일성은 미검증입니다."
+        },
+        "initiator": "metric_guard",
+        "execution_seconds": 1.555
+      }
+    ],
+    "request_id": "40a34ab4a71c487daff0e3ff6995c1a1",
+    "provider_calls": [
+      {
+        "stage": "tool_selection",
+        "state": "completed",
+        "usage": {
+          "prompt_tokens": 4444,
+          "completion_tokens": 24,
+          "total_tokens": 4468
+        },
+        "http_status": 200,
+        "response_id": "cde45236-11d6-4648-93fa-02488343c233",
+        "model": "solar-mini4-260922",
+        "finish_reason": "tool_calls"
+      },
+      {
+        "stage": "final_answer",
+        "state": "completed",
+        "usage": {
+          "prompt_tokens": 18963,
+          "completion_tokens": 79,
+          "total_tokens": 19042
+        },
+        "http_status": 200,
+        "response_id": "47198c62-cb43-47ec-994a-3fbc0486e19e",
+        "model": "solar-mini4-260922",
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 23407,
+      "completion_tokens": 103,
+      "total_tokens": 23510
+    },
+    "usage_complete": true,
+    "billing_status": "provider_usage_reported",
+    "model": "solar-mini4-260922",
+    "llm_status": "completed"
+  },
+  "note": "Single real model request; checks validate tool facts, not all free-prose semantics."
+}

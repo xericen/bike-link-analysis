@@ -1,0 +1,31 @@
+{
+  "mode": "public URLs; no interception",
+  "prepared": [
+    {
+      "city": "전체",
+      "candidates": 9,
+      "period": "공통 10개월"
+    },
+    {
+      "city": "서울",
+      "candidates": 3,
+      "period": "2025-01-01"
+    },
+    {
+      "city": "대전",
+      "candidates": 3,
+      "period": "2024-08-01"
+    },
+    {
+      "city": "세종",
+      "candidates": 3,
+      "period": "2020-01-01"
+    }
+  ],
+  "react": [
+    "seoul",
+    "daejeon",
+    "sejong"
+  ],
+  "errors": []
+}

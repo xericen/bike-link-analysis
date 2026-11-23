@@ -1,0 +1,39 @@
+{
+  "source_url": "https://data.seoul.go.kr/dataList/OA-22522/L/1/datasetView.do",
+  "provider": "서울교통공사",
+  "reference_date": "2025-09-30",
+  "download_date": "2026-11-23",
+  "raw_rows": 532832,
+  "encoding": "utf-8-sig",
+  "sha256": "46b6d9e2c2e1e23632fa72208a3ca5dc6aeba9013c403ee6f52747fec2b9a9e2",
+  "columns": [
+    "ROWNUM",
+    "LINE",
+    "SI_ID",
+    "STATION_NM",
+    "WEEKTAG",
+    "INOUTTAG",
+    "GUBHANG",
+    "TRAIN_NO",
+    "STT",
+    "EDT",
+    "ST_STT_NM",
+    "ED_STT_NM"
+  ],
+  "historical_december_complete_validation": false,
+  "column_definitions": {
+    "STT": "열차도착시간",
+    "EDT": "열차출발시간",
+    "WEEKTAG": {
+      "DAY": "주중",
+      "SAT": "토요일",
+      "END": "일요일/공휴일"
+    },
+    "GUBHANG": {
+      "0": "일반",
+      "1": "급행"
+    }
+  },
+  "definition_source_url": "https://data.seoul.go.kr/dataList/openApiView.do?infId=OA-22522&srvType=A&infSeq=4",
+  "definition_sha256": "385f09b536cd67c920faa7f18f0facf2e699560fb03818ae6eca67322e8dc117"
+}

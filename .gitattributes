@@ -1,0 +1,4 @@
+# Preserve generated solver output and vector path formatting as evidence.
+*.log -whitespace
+*.svg -whitespace
+*.csv -whitespace

@@ -1,0 +1,11 @@
+{
+  "all_original_hashes_unchanged": true,
+  "sha256": {
+    "analysis.sqlite": "47098b3d69f957d14270a25a77a5de490ca687ce803cca507d93fa9bc58bd8db",
+    "kpi_cache.sqlite": "5ed8bc6c95e134d424a42a501556f9688858847f16b24558b1c7a76416a4ff06",
+    "stations.csv": "6272e14621e6e4f1287b619c9109e8091431317458a0c8bde576ff64b8899c2b",
+    "station_usage.csv": "a8f6bbdaed72f112dc46477df7247f2186277f85f3dfdcf643cb8b103d945007",
+    "kpi_inputs.json": "519b0cdf8678f8bb9b727b3589b87b366ab45e17217e20d95fe8e346be852adb"
+  },
+  "verified_after_work": true
+}

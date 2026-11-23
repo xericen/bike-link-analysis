@@ -1,0 +1,1508 @@
+{
+  "available": true,
+  "replay": {
+    "source": "data/processed/research/solar-paired-evaluation.json",
+    "recorded_at": "2026-11-18T05:09:22.295696+00:00",
+    "conditions": "existing archived live paired experiment; no new inference repetitions",
+    "cases": [
+      {
+        "city": "seoul",
+        "method": "baseline",
+        "period": "2025-12-01~2025-12-31",
+        "evaluation": {
+          "claims": [],
+          "claim_count": 0,
+          "supported_count": 0,
+          "grounded_claim_rate": null,
+          "unsupported_count": 0,
+          "parsed": true,
+          "answer_coverage": 0.0,
+          "citation_rate": null,
+          "cited_value_match_rate": null,
+          "schema_field_match_rate": null,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 0,
+          "numeric_match_rate": null,
+          "numeric_check": {
+            "checked_numeric_tokens": 0,
+            "matched_numeric_tokens": 0,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 0,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요.",
+          "citation_evaluable": false
+        },
+        "original_answer": "{\"facts\":{\"candidate_count\":null,\"top_station_id\":null,\"top_rentals\":null,\"top_anchor_distance_m\":null,\"linked_trip_share\":null},\"narrative_claims\":[]}"
+      },
+      {
+        "city": "seoul",
+        "method": "tool_assisted",
+        "period": "2025-12-01~2025-12-31",
+        "evaluation": {
+          "claims": [
+            {
+              "field": "candidate_count",
+              "value": 1272,
+              "unit": "개",
+              "period": "2025-12-01~2025-12-31",
+              "evidence": "candidate_count",
+              "supported": true
+            },
+            {
+              "field": "top_station_id",
+              "value": "ST-919",
+              "unit": "ID",
+              "period": "2025-12-01~2025-12-31",
+              "evidence": "top_station_id",
+              "supported": true
+            },
+            {
+              "field": "top_rentals",
+              "value": 2164,
+              "unit": "건",
+              "period": "2025-12-01~2025-12-31",
+              "evidence": "top_rentals",
+              "supported": true
+            },
+            {
+              "field": "top_anchor_distance_m",
+              "value": 1395.684727386796,
+              "unit": "m",
+              "period": "2025-12-01~2025-12-31",
+              "evidence": "top_anchor_distance_m",
+              "supported": true
+            },
+            {
+              "field": "linked_trip_share",
+              "value": 0.6234158367206593,
+              "unit": "ratio",
+              "period": "2025-12-01~2025-12-31",
+              "evidence": "linked_trip_share",
+              "supported": true
+            }
+          ],
+          "claim_count": 5,
+          "supported_count": 5,
+          "grounded_claim_rate": 1.0,
+          "unsupported_count": 0,
+          "parsed": true,
+          "answer_coverage": 1.0,
+          "citation_rate": null,
+          "cited_value_match_rate": 1.0,
+          "schema_field_match_rate": 1.0,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 0,
+          "numeric_match_rate": 1.0,
+          "numeric_check": {
+            "checked_numeric_tokens": 34,
+            "matched_numeric_tokens": 34,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 0,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요.",
+          "citation_evaluable": false
+        },
+        "original_answer": "{\"facts\":{\"candidate_count\":1272,\"top_station_id\":\"ST-919\",\"top_rentals\":2164,\"top_anchor_distance_m\":1395.684727386796,\"linked_trip_share\":0.6234158367206593},\"narrative_claims\":[]}"
+      },
+      {
+        "city": "daejeon",
+        "method": "baseline",
+        "period": "2025-12-01~2025-12-31",
+        "evaluation": {
+          "claims": [],
+          "claim_count": 0,
+          "supported_count": 0,
+          "grounded_claim_rate": null,
+          "unsupported_count": 0,
+          "parsed": true,
+          "answer_coverage": 0.0,
+          "citation_rate": null,
+          "cited_value_match_rate": null,
+          "schema_field_match_rate": null,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 0,
+          "numeric_match_rate": null,
+          "numeric_check": {
+            "checked_numeric_tokens": 0,
+            "matched_numeric_tokens": 0,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 0,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요.",
+          "citation_evaluable": false
+        },
+        "original_answer": "{\"facts\":{\"candidate_count\":null,\"top_station_id\":null,\"top_rentals\":null,\"top_anchor_distance_m\":null,\"linked_trip_share\":null},\"narrative_claims\":[]}"
+      },
+      {
+        "city": "daejeon",
+        "method": "tool_assisted",
+        "period": "2025-12-01~2025-12-31",
+        "evaluation": {
+          "claims": [
+            {
+              "field": "candidate_count",
+              "value": 1116,
+              "unit": "개",
+              "period": "2025-12-01~2025-12-31",
+              "evidence": "candidate_count",
+              "supported": true
+            },
+            {
+              "field": "top_station_id",
+              "value": "ST0952",
+              "unit": "ID",
+              "period": "2025-12-01~2025-12-31",
+              "evidence": "top_station_id",
+              "supported": true
+            },
+            {
+              "field": "top_rentals",
+              "value": 530,
+              "unit": "건",
+              "period": "2025-12-01~2025-12-31",
+              "evidence": "top_rentals",
+              "supported": true
+            },
+            {
+              "field": "top_anchor_distance_m",
+              "value": 10391.053941287166,
+              "unit": "m",
+              "period": "2025-12-01~2025-12-31",
+              "evidence": "top_anchor_distance_m",
+              "supported": true
+            },
+            {
+              "field": "linked_trip_share",
+              "value": 0.29336401703162357,
+              "unit": "ratio",
+              "period": "2025-12-01~2025-12-31",
+              "evidence": "linked_trip_share",
+              "supported": true
+            }
+          ],
+          "claim_count": 5,
+          "supported_count": 5,
+          "grounded_claim_rate": 1.0,
+          "unsupported_count": 0,
+          "parsed": true,
+          "answer_coverage": 1.0,
+          "citation_rate": null,
+          "cited_value_match_rate": 1.0,
+          "schema_field_match_rate": 1.0,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 0,
+          "numeric_match_rate": 1.0,
+          "numeric_check": {
+            "checked_numeric_tokens": 34,
+            "matched_numeric_tokens": 34,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 0,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요.",
+          "citation_evaluable": false
+        },
+        "original_answer": "{\"facts\":{\"candidate_count\":1116,\"top_station_id\":\"ST0952\",\"top_rentals\":530,\"top_anchor_distance_m\":10391.053941287166,\"linked_trip_share\":0.29336401703162357},\"narrative_claims\":[]}"
+      },
+      {
+        "city": "sejong",
+        "method": "baseline",
+        "period": "2025-12-01~2025-12-31",
+        "evaluation": {
+          "claims": [],
+          "claim_count": 0,
+          "supported_count": 0,
+          "grounded_claim_rate": null,
+          "unsupported_count": 0,
+          "parsed": true,
+          "answer_coverage": 0.0,
+          "citation_rate": null,
+          "cited_value_match_rate": null,
+          "schema_field_match_rate": null,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 0,
+          "numeric_match_rate": null,
+          "numeric_check": {
+            "checked_numeric_tokens": 0,
+            "matched_numeric_tokens": 0,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 0,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요.",
+          "citation_evaluable": false
+        },
+        "original_answer": "{\"facts\":{\"candidate_count\":null,\"top_station_id\":null,\"top_rentals\":null,\"top_anchor_distance_m\":null,\"linked_trip_share\":null},\"narrative_claims\":[]}"
+      },
+      {
+        "city": "sejong",
+        "method": "tool_assisted",
+        "period": "2025-12-01~2025-12-31",
+        "evaluation": {
+          "claims": [
+            {
+              "field": "candidate_count",
+              "value": 237,
+              "unit": "개",
+              "period": "2025-12-01~2025-12-31",
+              "evidence": "candidate_count",
+              "supported": true
+            },
+            {
+              "field": "top_station_id",
+              "value": "SJ_00470",
+              "unit": "ID",
+              "period": "2025-12-01~2025-12-31",
+              "evidence": "top_station_id",
+              "supported": true
+            },
+            {
+              "field": "top_rentals",
+              "value": 355,
+              "unit": "건",
+              "period": "2025-12-01~2025-12-31",
+              "evidence": "top_rentals",
+              "supported": true
+            },
+            {
+              "field": "top_anchor_distance_m",
+              "value": 3592.316304367508,
+              "unit": "m",
+              "period": "2025-12-01~2025-12-31",
+              "evidence": "top_anchor_distance_m",
+              "supported": true
+            },
+            {
+              "field": "linked_trip_share",
+              "value": 0.7535500042587883,
+              "unit": "ratio",
+              "period": "2025-12-01~2025-12-31",
+              "evidence": "linked_trip_share",
+              "supported": true
+            }
+          ],
+          "claim_count": 5,
+          "supported_count": 5,
+          "grounded_claim_rate": 1.0,
+          "unsupported_count": 0,
+          "parsed": true,
+          "answer_coverage": 1.0,
+          "citation_rate": null,
+          "cited_value_match_rate": 1.0,
+          "schema_field_match_rate": 1.0,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 0,
+          "numeric_match_rate": 1.0,
+          "numeric_check": {
+            "checked_numeric_tokens": 35,
+            "matched_numeric_tokens": 35,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 0,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요.",
+          "citation_evaluable": false
+        },
+        "original_answer": "{\n  \"facts\": {\n    \"candidate_count\": 237,\n    \"top_station_id\": \"SJ_00470\",\n    \"top_rentals\": 355,\n    \"top_anchor_distance_m\": 3592.316304367508,\n    \"linked_trip_share\": 0.7535500042587883\n  },\n  \"narrative_claims\": []\n}"
+      }
+    ]
+  },
+  "live": {
+    "executed": true,
+    "calls": [
+      {
+        "city": "seoul",
+        "condition": "baseline",
+        "usage": {
+          "completion_tokens": 63,
+          "prompt_tokens": 205,
+          "total_tokens": 268,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "city": "seoul",
+        "condition": "grounded",
+        "usage": {
+          "completion_tokens": 250,
+          "prompt_tokens": 389,
+          "total_tokens": 639,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "city": "seoul",
+        "condition": "baseline",
+        "usage": {
+          "completion_tokens": 47,
+          "prompt_tokens": 205,
+          "total_tokens": 252,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "city": "seoul",
+        "condition": "grounded",
+        "usage": {
+          "completion_tokens": 250,
+          "prompt_tokens": 389,
+          "total_tokens": 639,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "city": "daejeon",
+        "condition": "baseline",
+        "usage": {
+          "completion_tokens": 46,
+          "prompt_tokens": 206,
+          "total_tokens": 252,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "city": "daejeon",
+        "condition": "grounded",
+        "usage": {
+          "completion_tokens": 250,
+          "prompt_tokens": 390,
+          "total_tokens": 640,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "city": "daejeon",
+        "condition": "baseline",
+        "usage": {
+          "completion_tokens": 46,
+          "prompt_tokens": 206,
+          "total_tokens": 252,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "city": "daejeon",
+        "condition": "grounded",
+        "usage": {
+          "completion_tokens": 250,
+          "prompt_tokens": 390,
+          "total_tokens": 640,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "city": "sejong",
+        "condition": "baseline",
+        "usage": {
+          "completion_tokens": 61,
+          "prompt_tokens": 205,
+          "total_tokens": 266,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "city": "sejong",
+        "condition": "grounded",
+        "usage": {
+          "completion_tokens": 216,
+          "prompt_tokens": 389,
+          "total_tokens": 605,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "city": "sejong",
+        "condition": "baseline",
+        "usage": {
+          "completion_tokens": 63,
+          "prompt_tokens": 205,
+          "total_tokens": 268,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        }
+      },
+      {
+        "city": "sejong",
+        "condition": "grounded",
+        "usage": {
+          "completion_tokens": 250,
+          "prompt_tokens": 389,
+          "total_tokens": 639,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          }
+        }
+      }
+    ],
+    "cases": [
+      {
+        "city": "seoul",
+        "condition": "baseline",
+        "repeat": 0,
+        "period": "2025-01-01~2025-12-31",
+        "answer": "{\"claims\":[],\"unverified_statements\":[\"seoul 2025-01-01~2025-12-31에서 K=3 점수순 추가 면적, MCLP 추가 면적, 점수순의 최적해 대비 비율에 대한 수치가 제공된 근거에 없습니다.\"]}",
+        "truth": {
+          "score_area": {
+            "value": 824530.4497509211,
+            "unit": "m2",
+            "period": "2025-01-01~2025-12-31"
+          },
+          "optimized_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2025-01-01~2025-12-31"
+          },
+          "score_fraction": {
+            "value": 0.9736232325958362,
+            "unit": "ratio",
+            "period": "2025-01-01~2025-12-31"
+          }
+        },
+        "evaluation": {
+          "claims": [],
+          "claim_count": 0,
+          "supported_count": 0,
+          "grounded_claim_rate": null,
+          "unsupported_count": 0,
+          "parsed": true,
+          "answer_coverage": 0.0,
+          "citation_rate": null,
+          "cited_value_match_rate": null,
+          "schema_field_match_rate": null,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 0,
+          "numeric_match_rate": 1.0,
+          "numeric_check": {
+            "checked_numeric_tokens": 7,
+            "matched_numeric_tokens": 7,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 1,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+        },
+        "finish_reason": "stop",
+        "seconds": 1.44730405183509
+      },
+      {
+        "city": "seoul",
+        "condition": "grounded",
+        "repeat": 0,
+        "period": "2025-01-01~2025-12-31",
+        "answer": "{\"claims\": [{\"field\": \"K=3 점수순 추가 면적\", \"value\": 824530.4497509211, \"unit\": \"m2\", \"period\": \"2025-01-01~2025-12-31\", \"evidence\": \"score_area\", \"verification\": \"verified\"}, {\"field\": \"MCLP 추가 면적\", \"value\": 846868.0924474159, \"unit\": \"m2\", \"period\": \"2025-01-01~2025-12-31\", \"evidence\": \"optimized_area\", \"verification\": \"verified\"}, {\"field\": \"점수순의 최적해 대비 비율\", \"value\": 0.9736232325958362, \"unit\": \"ratio\", \"period\": \"2025-01-01~2025-12-31\", \"evidence\": \"score_fraction\", \"verification\": \"verified\"}], \"unverified_statements\": []}",
+        "truth": {
+          "score_area": {
+            "value": 824530.4497509211,
+            "unit": "m2",
+            "period": "2025-01-01~2025-12-31"
+          },
+          "optimized_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2025-01-01~2025-12-31"
+          },
+          "score_fraction": {
+            "value": 0.9736232325958362,
+            "unit": "ratio",
+            "period": "2025-01-01~2025-12-31"
+          }
+        },
+        "evaluation": {
+          "claims": [
+            {
+              "field": "K=3 점수순 추가 면적",
+              "value": 824530.4497509211,
+              "unit": "m2",
+              "period": "2025-01-01~2025-12-31",
+              "evidence": "score_area",
+              "verification": "verified",
+              "supported": false
+            },
+            {
+              "field": "MCLP 추가 면적",
+              "value": 846868.0924474159,
+              "unit": "m2",
+              "period": "2025-01-01~2025-12-31",
+              "evidence": "optimized_area",
+              "verification": "verified",
+              "supported": false
+            },
+            {
+              "field": "점수순의 최적해 대비 비율",
+              "value": 0.9736232325958362,
+              "unit": "ratio",
+              "period": "2025-01-01~2025-12-31",
+              "evidence": "score_fraction",
+              "verification": "verified",
+              "supported": false
+            }
+          ],
+          "claim_count": 3,
+          "supported_count": 0,
+          "grounded_claim_rate": 0.0,
+          "unsupported_count": 3,
+          "parsed": true,
+          "answer_coverage": 1.0,
+          "citation_rate": 1.0,
+          "cited_value_match_rate": 1.0,
+          "schema_field_match_rate": 0.0,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 3,
+          "numeric_match_rate": 1.0,
+          "numeric_check": {
+            "checked_numeric_tokens": 22,
+            "matched_numeric_tokens": 22,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 0,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+        },
+        "finish_reason": "stop",
+        "seconds": 1.5105879481416196
+      },
+      {
+        "city": "seoul",
+        "condition": "baseline",
+        "repeat": 1,
+        "period": "2025-01-01~2025-12-31",
+        "answer": "{\"claims\":[],\"unverified_statements\":[\"제공된 근거에서 K=3 점수순 추가 면적, MCLP 추가 면적, 점수순의 최적해 대비 비율에 대한 수치·단위·기간 정보를 확인할 수 없습니다.\"]}",
+        "truth": {
+          "score_area": {
+            "value": 824530.4497509211,
+            "unit": "m2",
+            "period": "2025-01-01~2025-12-31"
+          },
+          "optimized_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2025-01-01~2025-12-31"
+          },
+          "score_fraction": {
+            "value": 0.9736232325958362,
+            "unit": "ratio",
+            "period": "2025-01-01~2025-12-31"
+          }
+        },
+        "evaluation": {
+          "claims": [],
+          "claim_count": 0,
+          "supported_count": 0,
+          "grounded_claim_rate": null,
+          "unsupported_count": 0,
+          "parsed": true,
+          "answer_coverage": 0.0,
+          "citation_rate": null,
+          "cited_value_match_rate": null,
+          "schema_field_match_rate": null,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 0,
+          "numeric_match_rate": 1.0,
+          "numeric_check": {
+            "checked_numeric_tokens": 1,
+            "matched_numeric_tokens": 1,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 1,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+        },
+        "finish_reason": "stop",
+        "seconds": 0.7705530389212072
+      },
+      {
+        "city": "seoul",
+        "condition": "grounded",
+        "repeat": 1,
+        "period": "2025-01-01~2025-12-31",
+        "answer": "{\"claims\": [{\"field\": \"K=3 점수순 추가 면적\", \"value\": 824530.4497509211, \"unit\": \"m2\", \"period\": \"2025-01-01~2025-12-31\", \"evidence\": \"score_area\", \"verification\": \"verified\"}, {\"field\": \"MCLP 추가 면적\", \"value\": 846868.0924474159, \"unit\": \"m2\", \"period\": \"2025-01-01~2025-12-31\", \"evidence\": \"optimized_area\", \"verification\": \"verified\"}, {\"field\": \"점수순의 최적해 대비 비율\", \"value\": 0.9736232325958362, \"unit\": \"ratio\", \"period\": \"2025-01-01~2025-12-31\", \"evidence\": \"score_fraction\", \"verification\": \"verified\"}], \"unverified_statements\": []}",
+        "truth": {
+          "score_area": {
+            "value": 824530.4497509211,
+            "unit": "m2",
+            "period": "2025-01-01~2025-12-31"
+          },
+          "optimized_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2025-01-01~2025-12-31"
+          },
+          "score_fraction": {
+            "value": 0.9736232325958362,
+            "unit": "ratio",
+            "period": "2025-01-01~2025-12-31"
+          }
+        },
+        "evaluation": {
+          "claims": [
+            {
+              "field": "K=3 점수순 추가 면적",
+              "value": 824530.4497509211,
+              "unit": "m2",
+              "period": "2025-01-01~2025-12-31",
+              "evidence": "score_area",
+              "verification": "verified",
+              "supported": false
+            },
+            {
+              "field": "MCLP 추가 면적",
+              "value": 846868.0924474159,
+              "unit": "m2",
+              "period": "2025-01-01~2025-12-31",
+              "evidence": "optimized_area",
+              "verification": "verified",
+              "supported": false
+            },
+            {
+              "field": "점수순의 최적해 대비 비율",
+              "value": 0.9736232325958362,
+              "unit": "ratio",
+              "period": "2025-01-01~2025-12-31",
+              "evidence": "score_fraction",
+              "verification": "verified",
+              "supported": false
+            }
+          ],
+          "claim_count": 3,
+          "supported_count": 0,
+          "grounded_claim_rate": 0.0,
+          "unsupported_count": 3,
+          "parsed": true,
+          "answer_coverage": 1.0,
+          "citation_rate": 1.0,
+          "cited_value_match_rate": 1.0,
+          "schema_field_match_rate": 0.0,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 3,
+          "numeric_match_rate": 1.0,
+          "numeric_check": {
+            "checked_numeric_tokens": 22,
+            "matched_numeric_tokens": 22,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 0,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+        },
+        "finish_reason": "stop",
+        "seconds": 1.5216561791021377
+      },
+      {
+        "city": "daejeon",
+        "condition": "baseline",
+        "repeat": 0,
+        "period": "2024-08-01~2026-10-31",
+        "answer": "{\"claims\":[],\"unverified_statements\":[\"제공된 근거에서 K=3 점수순 추가 면적, MCLP 추가 면적, 점수순 최적해 대비 비율에 대한 수치·단위·기간 정보를 확인할 수 없습니다.\"]}",
+        "truth": {
+          "score_area": {
+            "value": 824530.4497511492,
+            "unit": "m2",
+            "period": "2024-08-01~2026-10-31"
+          },
+          "optimized_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2024-08-01~2026-10-31"
+          },
+          "score_fraction": {
+            "value": 0.9736232325961099,
+            "unit": "ratio",
+            "period": "2024-08-01~2026-10-31"
+          }
+        },
+        "evaluation": {
+          "claims": [],
+          "claim_count": 0,
+          "supported_count": 0,
+          "grounded_claim_rate": null,
+          "unsupported_count": 0,
+          "parsed": true,
+          "answer_coverage": 0.0,
+          "citation_rate": null,
+          "cited_value_match_rate": null,
+          "schema_field_match_rate": null,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 0,
+          "numeric_match_rate": 1.0,
+          "numeric_check": {
+            "checked_numeric_tokens": 1,
+            "matched_numeric_tokens": 1,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 1,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+        },
+        "finish_reason": "stop",
+        "seconds": 0.49825270706787705
+      },
+      {
+        "city": "daejeon",
+        "condition": "grounded",
+        "repeat": 0,
+        "period": "2024-08-01~2026-10-31",
+        "answer": "{\"claims\": [{\"field\": \"K=3 점수순 추가 면적\", \"value\": 824530.4497511492, \"unit\": \"m2\", \"period\": \"2024-08-01~2026-10-31\", \"evidence\": \"score_area\", \"verification\": \"verified\"}, {\"field\": \"MCLP 추가 면적\", \"value\": 846868.0924474159, \"unit\": \"m2\", \"period\": \"2024-08-01~2026-10-31\", \"evidence\": \"optimized_area\", \"verification\": \"verified\"}, {\"field\": \"점수순의 최적해 대비 비율\", \"value\": 0.9736232325961099, \"unit\": \"ratio\", \"period\": \"2024-08-01~2026-10-31\", \"evidence\": \"score_fraction\", \"verification\": \"verified\"}], \"unverified_statements\": []}",
+        "truth": {
+          "score_area": {
+            "value": 824530.4497511492,
+            "unit": "m2",
+            "period": "2024-08-01~2026-10-31"
+          },
+          "optimized_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2024-08-01~2026-10-31"
+          },
+          "score_fraction": {
+            "value": 0.9736232325961099,
+            "unit": "ratio",
+            "period": "2024-08-01~2026-10-31"
+          }
+        },
+        "evaluation": {
+          "claims": [
+            {
+              "field": "K=3 점수순 추가 면적",
+              "value": 824530.4497511492,
+              "unit": "m2",
+              "period": "2024-08-01~2026-10-31",
+              "evidence": "score_area",
+              "verification": "verified",
+              "supported": false
+            },
+            {
+              "field": "MCLP 추가 면적",
+              "value": 846868.0924474159,
+              "unit": "m2",
+              "period": "2024-08-01~2026-10-31",
+              "evidence": "optimized_area",
+              "verification": "verified",
+              "supported": false
+            },
+            {
+              "field": "점수순의 최적해 대비 비율",
+              "value": 0.9736232325961099,
+              "unit": "ratio",
+              "period": "2024-08-01~2026-10-31",
+              "evidence": "score_fraction",
+              "verification": "verified",
+              "supported": false
+            }
+          ],
+          "claim_count": 3,
+          "supported_count": 0,
+          "grounded_claim_rate": 0.0,
+          "unsupported_count": 3,
+          "parsed": true,
+          "answer_coverage": 1.0,
+          "citation_rate": 1.0,
+          "cited_value_match_rate": 1.0,
+          "schema_field_match_rate": 0.0,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 3,
+          "numeric_match_rate": 1.0,
+          "numeric_check": {
+            "checked_numeric_tokens": 22,
+            "matched_numeric_tokens": 22,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 0,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+        },
+        "finish_reason": "stop",
+        "seconds": 1.5217810480389744
+      },
+      {
+        "city": "daejeon",
+        "condition": "baseline",
+        "repeat": 1,
+        "period": "2024-08-01~2026-10-31",
+        "answer": "{\"claims\":[],\"unverified_statements\":[\"제공된 근거에서 K=3 점수순 추가 면적, MCLP 추가 면적, 점수순 최적해 대비 비율에 대한 수치·단위·기간 정보를 확인할 수 없습니다.\"]}",
+        "truth": {
+          "score_area": {
+            "value": 824530.4497511492,
+            "unit": "m2",
+            "period": "2024-08-01~2026-10-31"
+          },
+          "optimized_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2024-08-01~2026-10-31"
+          },
+          "score_fraction": {
+            "value": 0.9736232325961099,
+            "unit": "ratio",
+            "period": "2024-08-01~2026-10-31"
+          }
+        },
+        "evaluation": {
+          "claims": [],
+          "claim_count": 0,
+          "supported_count": 0,
+          "grounded_claim_rate": null,
+          "unsupported_count": 0,
+          "parsed": true,
+          "answer_coverage": 0.0,
+          "citation_rate": null,
+          "cited_value_match_rate": null,
+          "schema_field_match_rate": null,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 0,
+          "numeric_match_rate": 1.0,
+          "numeric_check": {
+            "checked_numeric_tokens": 1,
+            "matched_numeric_tokens": 1,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 1,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+        },
+        "finish_reason": "stop",
+        "seconds": 0.6981920660473406
+      },
+      {
+        "city": "daejeon",
+        "condition": "grounded",
+        "repeat": 1,
+        "period": "2024-08-01~2026-10-31",
+        "answer": "{\"claims\": [{\"field\": \"K=3 점수순 추가 면적\", \"value\": 824530.4497511492, \"unit\": \"m2\", \"period\": \"2024-08-01~2026-10-31\", \"evidence\": \"score_area\", \"verification\": \"verified\"}, {\"field\": \"MCLP 추가 면적\", \"value\": 846868.0924474159, \"unit\": \"m2\", \"period\": \"2024-08-01~2026-10-31\", \"evidence\": \"optimized_area\", \"verification\": \"verified\"}, {\"field\": \"점수순의 최적해 대비 비율\", \"value\": 0.9736232325961099, \"unit\": \"ratio\", \"period\": \"2024-08-01~2026-10-31\", \"evidence\": \"score_fraction\", \"verification\": \"verified\"}], \"unverified_statements\": []}",
+        "truth": {
+          "score_area": {
+            "value": 824530.4497511492,
+            "unit": "m2",
+            "period": "2024-08-01~2026-10-31"
+          },
+          "optimized_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2024-08-01~2026-10-31"
+          },
+          "score_fraction": {
+            "value": 0.9736232325961099,
+            "unit": "ratio",
+            "period": "2024-08-01~2026-10-31"
+          }
+        },
+        "evaluation": {
+          "claims": [
+            {
+              "field": "K=3 점수순 추가 면적",
+              "value": 824530.4497511492,
+              "unit": "m2",
+              "period": "2024-08-01~2026-10-31",
+              "evidence": "score_area",
+              "verification": "verified",
+              "supported": false
+            },
+            {
+              "field": "MCLP 추가 면적",
+              "value": 846868.0924474159,
+              "unit": "m2",
+              "period": "2024-08-01~2026-10-31",
+              "evidence": "optimized_area",
+              "verification": "verified",
+              "supported": false
+            },
+            {
+              "field": "점수순의 최적해 대비 비율",
+              "value": 0.9736232325961099,
+              "unit": "ratio",
+              "period": "2024-08-01~2026-10-31",
+              "evidence": "score_fraction",
+              "verification": "verified",
+              "supported": false
+            }
+          ],
+          "claim_count": 3,
+          "supported_count": 0,
+          "grounded_claim_rate": 0.0,
+          "unsupported_count": 3,
+          "parsed": true,
+          "answer_coverage": 1.0,
+          "citation_rate": 1.0,
+          "cited_value_match_rate": 1.0,
+          "schema_field_match_rate": 0.0,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 3,
+          "numeric_match_rate": 1.0,
+          "numeric_check": {
+            "checked_numeric_tokens": 22,
+            "matched_numeric_tokens": 22,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 0,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+        },
+        "finish_reason": "stop",
+        "seconds": 1.501027702121064
+      },
+      {
+        "city": "sejong",
+        "condition": "baseline",
+        "repeat": 0,
+        "period": "2020-01-01~2025-12-31",
+        "answer": "{\"claims\":[],\"unverified_statements\":[\"sejong 2020-01-01~2025-12-31에서 K=3 점수순 추가 면적, MCLP 추가 면적, 점수순의 최적해 대비 비율은 제공된 근거에 없습니다.\"]}",
+        "truth": {
+          "score_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2020-01-01~2025-12-31"
+          },
+          "optimized_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2020-01-01~2025-12-31"
+          },
+          "score_fraction": {
+            "value": 0.9999999999999993,
+            "unit": "ratio",
+            "period": "2020-01-01~2025-12-31"
+          }
+        },
+        "evaluation": {
+          "claims": [],
+          "claim_count": 0,
+          "supported_count": 0,
+          "grounded_claim_rate": null,
+          "unsupported_count": 0,
+          "parsed": true,
+          "answer_coverage": 0.0,
+          "citation_rate": null,
+          "cited_value_match_rate": null,
+          "schema_field_match_rate": null,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 0,
+          "numeric_match_rate": 1.0,
+          "numeric_check": {
+            "checked_numeric_tokens": 7,
+            "matched_numeric_tokens": 7,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 1,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+        },
+        "finish_reason": "stop",
+        "seconds": 0.6603157941717654
+      },
+      {
+        "city": "sejong",
+        "condition": "grounded",
+        "repeat": 0,
+        "period": "2020-01-01~2025-12-31",
+        "answer": "{\"claims\":[{\"field\":\"K=3 점수순 추가 면적\",\"value\":846868.0924474159,\"unit\":\"m2\",\"period\":\"2020-01-01~2025-12-31\",\"evidence\":\"score_area\",\"verification\":\"verified\"},{\"field\":\"MCLP 추가 면적\",\"value\":846868.0924474159,\"unit\":\"m2\",\"period\":\"2020-01-01~2025-12-31\",\"evidence\":\"optimized_area\",\"verification\":\"verified\"},{\"field\":\"점수순의 최적해 대비 비율\",\"value\":0.9999999999999993,\"unit\":\"ratio\",\"period\":\"2020-01-01~2025-12-31\",\"evidence\":\"score_fraction\",\"verification\":\"verified\"}],\"unverified_statements\":[]}",
+        "truth": {
+          "score_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2020-01-01~2025-12-31"
+          },
+          "optimized_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2020-01-01~2025-12-31"
+          },
+          "score_fraction": {
+            "value": 0.9999999999999993,
+            "unit": "ratio",
+            "period": "2020-01-01~2025-12-31"
+          }
+        },
+        "evaluation": {
+          "claims": [
+            {
+              "field": "K=3 점수순 추가 면적",
+              "value": 846868.0924474159,
+              "unit": "m2",
+              "period": "2020-01-01~2025-12-31",
+              "evidence": "score_area",
+              "verification": "verified",
+              "supported": false
+            },
+            {
+              "field": "MCLP 추가 면적",
+              "value": 846868.0924474159,
+              "unit": "m2",
+              "period": "2020-01-01~2025-12-31",
+              "evidence": "optimized_area",
+              "verification": "verified",
+              "supported": false
+            },
+            {
+              "field": "점수순의 최적해 대비 비율",
+              "value": 0.9999999999999993,
+              "unit": "ratio",
+              "period": "2020-01-01~2025-12-31",
+              "evidence": "score_fraction",
+              "verification": "verified",
+              "supported": false
+            }
+          ],
+          "claim_count": 3,
+          "supported_count": 0,
+          "grounded_claim_rate": 0.0,
+          "unsupported_count": 3,
+          "parsed": true,
+          "answer_coverage": 1.0,
+          "citation_rate": 1.0,
+          "cited_value_match_rate": 1.0,
+          "schema_field_match_rate": 0.0,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 3,
+          "numeric_match_rate": 1.0,
+          "numeric_check": {
+            "checked_numeric_tokens": 22,
+            "matched_numeric_tokens": 22,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 0,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+        },
+        "finish_reason": "stop",
+        "seconds": 1.6531218751333654
+      },
+      {
+        "city": "sejong",
+        "condition": "baseline",
+        "repeat": 1,
+        "period": "2020-01-01~2025-12-31",
+        "answer": "{\"claims\":[],\"unverified_statements\":[\"sejong 2020-01-01~2025-12-31에서 K=3 점수순 추가 면적, MCLP 추가 면적, 점수순의 최적해 대비 비율에 대한 수치가 제공된 근거에 없습니다.\"]}",
+        "truth": {
+          "score_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2020-01-01~2025-12-31"
+          },
+          "optimized_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2020-01-01~2025-12-31"
+          },
+          "score_fraction": {
+            "value": 0.9999999999999993,
+            "unit": "ratio",
+            "period": "2020-01-01~2025-12-31"
+          }
+        },
+        "evaluation": {
+          "claims": [],
+          "claim_count": 0,
+          "supported_count": 0,
+          "grounded_claim_rate": null,
+          "unsupported_count": 0,
+          "parsed": true,
+          "answer_coverage": 0.0,
+          "citation_rate": null,
+          "cited_value_match_rate": null,
+          "schema_field_match_rate": null,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 0,
+          "numeric_match_rate": 1.0,
+          "numeric_check": {
+            "checked_numeric_tokens": 7,
+            "matched_numeric_tokens": 7,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 1,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+        },
+        "finish_reason": "stop",
+        "seconds": 0.7705832570791245
+      },
+      {
+        "city": "sejong",
+        "condition": "grounded",
+        "repeat": 1,
+        "period": "2020-01-01~2025-12-31",
+        "answer": "{\"claims\": [{\"field\": \"K=3 점수순 추가 면적\", \"value\": 846868.0924474159, \"unit\": \"m2\", \"period\": \"2020-01-01~2025-12-31\", \"evidence\": \"score_area\", \"verification\": \"verified\"}, {\"field\": \"MCLP 추가 면적\", \"value\": 846868.0924474159, \"unit\": \"m2\", \"period\": \"2020-01-01~2025-12-31\", \"evidence\": \"optimized_area\", \"verification\": \"verified\"}, {\"field\": \"점수순의 최적해 대비 비율\", \"value\": 0.9999999999999993, \"unit\": \"ratio\", \"period\": \"2020-01-01~2025-12-31\", \"evidence\": \"score_fraction\", \"verification\": \"verified\"}], \"unverified_statements\": []}",
+        "truth": {
+          "score_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2020-01-01~2025-12-31"
+          },
+          "optimized_area": {
+            "value": 846868.0924474159,
+            "unit": "m2",
+            "period": "2020-01-01~2025-12-31"
+          },
+          "score_fraction": {
+            "value": 0.9999999999999993,
+            "unit": "ratio",
+            "period": "2020-01-01~2025-12-31"
+          }
+        },
+        "evaluation": {
+          "claims": [
+            {
+              "field": "K=3 점수순 추가 면적",
+              "value": 846868.0924474159,
+              "unit": "m2",
+              "period": "2020-01-01~2025-12-31",
+              "evidence": "score_area",
+              "verification": "verified",
+              "supported": false
+            },
+            {
+              "field": "MCLP 추가 면적",
+              "value": 846868.0924474159,
+              "unit": "m2",
+              "period": "2020-01-01~2025-12-31",
+              "evidence": "optimized_area",
+              "verification": "verified",
+              "supported": false
+            },
+            {
+              "field": "점수순의 최적해 대비 비율",
+              "value": 0.9999999999999993,
+              "unit": "ratio",
+              "period": "2020-01-01~2025-12-31",
+              "evidence": "score_fraction",
+              "verification": "verified",
+              "supported": false
+            }
+          ],
+          "claim_count": 3,
+          "supported_count": 0,
+          "grounded_claim_rate": 0.0,
+          "unsupported_count": 3,
+          "parsed": true,
+          "answer_coverage": 1.0,
+          "citation_rate": 1.0,
+          "cited_value_match_rate": 1.0,
+          "schema_field_match_rate": 0.0,
+          "unverified_separation_rate": null,
+          "factual_unsupported_count": 0,
+          "strict_schema_unsupported_count": 3,
+          "numeric_match_rate": 1.0,
+          "numeric_check": {
+            "checked_numeric_tokens": 22,
+            "matched_numeric_tokens": 22,
+            "unmatched_numeric_tokens": [],
+            "passed": true,
+            "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+          },
+          "free_statements_outside_typed_audit": 0,
+          "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+        },
+        "finish_reason": "stop",
+        "seconds": 2.3305340339429677
+      }
+    ],
+    "model": "solar-mini4",
+    "repeats": 2,
+    "max_calls": 12,
+    "design": "3 cities x 2 conditions x repetitions; real stored-tool facts supplied, renderer evaluation, not autonomous tool-selection evaluation"
+  },
+  "built_at": "2026-11-23T10:57:14.355101+00:00",
+  "controlled_counterexamples": [
+    {
+      "case": "wrong_value",
+      "evaluation": {
+        "claims": [
+          {
+            "field": "area",
+            "value": 200.25,
+            "unit": "m2",
+            "period": "2025-01~12",
+            "verification": "unverified",
+            "supported": false
+          }
+        ],
+        "claim_count": 1,
+        "supported_count": 0,
+        "grounded_claim_rate": 0.0,
+        "unsupported_count": 1,
+        "parsed": true,
+        "answer_coverage": 0.0,
+        "citation_rate": 0.0,
+        "cited_value_match_rate": 0.0,
+        "schema_field_match_rate": 1.0,
+        "unverified_separation_rate": 1.0,
+        "factual_unsupported_count": 1,
+        "strict_schema_unsupported_count": 1,
+        "numeric_match_rate": 0.6666666666666666,
+        "numeric_check": {
+          "checked_numeric_tokens": 3,
+          "matched_numeric_tokens": 2,
+          "unmatched_numeric_tokens": [
+            "200.25"
+          ],
+          "passed": false,
+          "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+        },
+        "free_statements_outside_typed_audit": 0,
+        "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+      }
+    },
+    {
+      "case": "wrong_unit",
+      "evaluation": {
+        "claims": [
+          {
+            "field": "area",
+            "value": 100.25,
+            "unit": "km2",
+            "period": "2025-01~12",
+            "verification": "unverified",
+            "supported": false
+          }
+        ],
+        "claim_count": 1,
+        "supported_count": 0,
+        "grounded_claim_rate": 0.0,
+        "unsupported_count": 1,
+        "parsed": true,
+        "answer_coverage": 0.0,
+        "citation_rate": 0.0,
+        "cited_value_match_rate": 0.0,
+        "schema_field_match_rate": 1.0,
+        "unverified_separation_rate": 1.0,
+        "factual_unsupported_count": 1,
+        "strict_schema_unsupported_count": 1,
+        "numeric_match_rate": 1.0,
+        "numeric_check": {
+          "checked_numeric_tokens": 3,
+          "matched_numeric_tokens": 3,
+          "unmatched_numeric_tokens": [],
+          "passed": true,
+          "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+        },
+        "free_statements_outside_typed_audit": 0,
+        "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+      }
+    },
+    {
+      "case": "wrong_period",
+      "evaluation": {
+        "claims": [
+          {
+            "field": "area",
+            "value": 100.25,
+            "unit": "m2",
+            "period": "2024-01~12",
+            "verification": "unverified",
+            "supported": false
+          }
+        ],
+        "claim_count": 1,
+        "supported_count": 0,
+        "grounded_claim_rate": 0.0,
+        "unsupported_count": 1,
+        "parsed": true,
+        "answer_coverage": 0.0,
+        "citation_rate": 0.0,
+        "cited_value_match_rate": 0.0,
+        "schema_field_match_rate": 1.0,
+        "unverified_separation_rate": 1.0,
+        "factual_unsupported_count": 1,
+        "strict_schema_unsupported_count": 1,
+        "numeric_match_rate": 0.6666666666666666,
+        "numeric_check": {
+          "checked_numeric_tokens": 3,
+          "matched_numeric_tokens": 2,
+          "unmatched_numeric_tokens": [
+            "2024"
+          ],
+          "passed": false,
+          "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+        },
+        "free_statements_outside_typed_audit": 0,
+        "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+      }
+    },
+    {
+      "case": "invented_field",
+      "evaluation": {
+        "claims": [
+          {
+            "field": "future_bike_gain",
+            "value": 100.25,
+            "unit": "m2",
+            "period": "2025-01~12",
+            "verification": "unverified",
+            "supported": false
+          }
+        ],
+        "claim_count": 1,
+        "supported_count": 0,
+        "grounded_claim_rate": 0.0,
+        "unsupported_count": 1,
+        "parsed": true,
+        "answer_coverage": 0.0,
+        "citation_rate": 0.0,
+        "cited_value_match_rate": 0.0,
+        "schema_field_match_rate": 0.0,
+        "unverified_separation_rate": 1.0,
+        "factual_unsupported_count": 1,
+        "strict_schema_unsupported_count": 1,
+        "numeric_match_rate": 1.0,
+        "numeric_check": {
+          "checked_numeric_tokens": 3,
+          "matched_numeric_tokens": 3,
+          "unmatched_numeric_tokens": [],
+          "passed": true,
+          "method": "ISO 날짜·대여소 ID를 수치와 분리하고 실제 관측일 배열의 고유 일수를 포함. 문장 의미 전체 보증 아님."
+        },
+        "free_statements_outside_typed_audit": 0,
+        "limitation": "보류율은 정답표 범위의 구조화된 미검증 주장만 평가. 자유 서술 전체의 사실성·분류 정확도는 별도 검토 필요."
+      }
+    }
+  ],
+  "rescored_at": "2026-11-23T10:57:14.356905+00:00",
+  "limitations": [
+    "숫자 토큰 일치는 문장 의미의 보증이 아님",
+    "기존 응답의 인용률은 당시 출력 형식상 측정 불가",
+    "새 평가의 근거 조건은 실제 도구 사실을 제공한 렌더러 평가이며 자율 도구 선택 성능은 별도",
+    "2회 반복은 소규모 확인이며 통계적 우월성 검정이 아님",
+    "정확한 field ID 준수와 명시적 evidence 경로의 값/단위/기간 일치는 별도 지표. 한국어 field 라벨을 임의 정답 처리하지 않음",
+    "수치 토큰 대조에는 질문의 사전 지정 K=3도 포함"
+  ]
+}

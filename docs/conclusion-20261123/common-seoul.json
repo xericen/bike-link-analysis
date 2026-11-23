@@ -1,0 +1,1010 @@
+{
+  "signature": "39150721332f172723141d46a984f5952f0ccf06439375a705885da7395b8af4",
+  "city": "seoul",
+  "scope": "common",
+  "period_start": "2025-01-01",
+  "period_end": "2025-12-31",
+  "period_label": "2025년 1월·4~12월 · 공통 10개월",
+  "scope_months": [
+    "2025-01",
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12"
+  ],
+  "selection_rule": "기존 균등 점수 유지. 해당 기간 관측 수요로 재계산한 신규 입지 상위3곳. 실제 설치 권고 확정 아님.",
+  "candidates": [
+    {
+      "site_id": "grid-961000-1952500",
+      "station_id": "grid-961000-1952500",
+      "latitude": 37.57330941783292,
+      "longitude": 127.06117409381244,
+      "district": "동대문구",
+      "population_density_km2": 24672.329326258725,
+      "facilities_within_500m": 17,
+      "nearby_rentals_1000m": 205505,
+      "nearest_station_distance_m": 322.4539680074532,
+      "gap_ratio": 1.0,
+      "potential_added_area_m2": 282289.36414913886,
+      "score_components": {
+        "population_density_km2": 0.9940405244338498,
+        "facilities_within_500m": 0.9994040524433849,
+        "nearby_rentals_1000m": 0.8909415971394518,
+        "gap_ratio": 0.6930870083432658
+      },
+      "score": 0.8943682955899881,
+      "rank": 1,
+      "observed_demand_label": "주변1km 기존 대여소의 관측 대여. 신규 수요 예측 아님.",
+      "eligible_months": 10,
+      "top10_months": 10,
+      "monthly_ranks": [
+        {
+          "month": "2025-01",
+          "rank": 1,
+          "nearby_rentals_1000m": 11400
+        },
+        {
+          "month": "2025-04",
+          "rank": 1,
+          "nearby_rentals_1000m": 22215
+        },
+        {
+          "month": "2025-05",
+          "rank": 1,
+          "nearby_rentals_1000m": 23688
+        },
+        {
+          "month": "2025-06",
+          "rank": 1,
+          "nearby_rentals_1000m": 26104
+        },
+        {
+          "month": "2025-07",
+          "rank": 1,
+          "nearby_rentals_1000m": 22328
+        },
+        {
+          "month": "2025-08",
+          "rank": 1,
+          "nearby_rentals_1000m": 21895
+        },
+        {
+          "month": "2025-09",
+          "rank": 1,
+          "nearby_rentals_1000m": 24532
+        },
+        {
+          "month": "2025-10",
+          "rank": 1,
+          "nearby_rentals_1000m": 20741
+        },
+        {
+          "month": "2025-11",
+          "rank": 1,
+          "nearby_rentals_1000m": 19604
+        },
+        {
+          "month": "2025-12",
+          "rank": 1,
+          "nearby_rentals_1000m": 12998
+        }
+      ],
+      "rank_range": [
+        1,
+        1
+      ],
+      "route": {
+        "anchor_id": "rail:%EC%84%9C%EC%9A%B8%EA%B5%90%ED%86%B5%EA%B3%B5%EC%82%AC|S1105|0542",
+        "anchor_name": "답십리",
+        "anchor_latitude": 37.566833,
+        "anchor_longitude": 127.05266,
+        "straight_to_anchor_m": 1040.0401884242572,
+        "before_walk": {
+          "status": "ok",
+          "distance_m": 1556.6,
+          "duration_s": 1244.8,
+          "snap_distances_m": [
+            0.5549422497,
+            3.836938077
+          ],
+          "retrieved_at": "2026-11-17T11:20:24.201605+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                127.061174,
+                37.573304
+              ],
+              [
+                127.06112,
+                37.573242
+              ],
+              [
+                127.060944,
+                37.573276
+              ],
+              [
+                127.060972,
+                37.572919
+              ],
+              [
+                127.060417,
+                37.572926
+              ],
+              [
+                127.060404,
+                37.572752
+              ],
+              [
+                127.057675,
+                37.572799
+              ],
+              [
+                127.057555,
+                37.572736
+              ],
+              [
+                127.057126,
+                37.568059
+              ],
+              [
+                127.056832,
+                37.567931
+              ],
+              [
+                127.056471,
+                37.566973
+              ],
+              [
+                127.055616,
+                37.56623
+              ],
+              [
+                127.05551,
+                37.566229
+              ],
+              [
+                127.054855,
+                37.565602
+              ],
+              [
+                127.054731,
+                37.565594
+              ],
+              [
+                127.054392,
+                37.565297
+              ],
+              [
+                127.05377,
+                37.565761
+              ],
+              [
+                127.053733,
+                37.565924
+              ],
+              [
+                127.053317,
+                37.566291
+              ],
+              [
+                127.05263,
+                37.566808
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "35b64edb4d5a58a2106828ba855bc787873e94fca361f9c26d90f0087a7ea262"
+        },
+        "field_installation_verified": false,
+        "current_osm_only": true,
+        "status": "model_connected",
+        "dock_station_id": "ST-3316",
+        "dock_station_name": "답십리역 4번출구",
+        "dock_latitude": 37.56600189,
+        "dock_longitude": 127.05431366,
+        "bike_to_dock": {
+          "status": "ok",
+          "distance_m": 1345.8,
+          "duration_s": 351.6,
+          "snap_distances_m": [
+            0.5549422497,
+            7.330413626
+          ],
+          "retrieved_at": "2026-11-23T11:35:43.550031+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                127.061174,
+                37.573304
+              ],
+              [
+                127.06112,
+                37.573242
+              ],
+              [
+                127.060944,
+                37.573276
+              ],
+              [
+                127.060955,
+                37.572843
+              ],
+              [
+                127.057401,
+                37.572899
+              ],
+              [
+                127.056983,
+                37.568105
+              ],
+              [
+                127.056656,
+                37.56712
+              ],
+              [
+                127.056594,
+                37.566999
+              ],
+              [
+                127.054892,
+                37.565536
+              ],
+              [
+                127.054257,
+                37.565954
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "4c979b7c1e43f77334f1ab5f562a622d1d588714404d87a75a753301b3dc2e24"
+        },
+        "walk_to_anchor": {
+          "status": "ok",
+          "distance_m": 334.5,
+          "duration_s": 267.7,
+          "snap_distances_m": [
+            7.330413626,
+            3.836938077
+          ],
+          "retrieved_at": "2026-11-23T11:35:45.372318+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                127.054257,
+                37.565954
+              ],
+              [
+                127.054731,
+                37.565594
+              ],
+              [
+                127.054392,
+                37.565297
+              ],
+              [
+                127.05377,
+                37.565761
+              ],
+              [
+                127.053733,
+                37.565924
+              ],
+              [
+                127.053317,
+                37.566291
+              ],
+              [
+                127.05263,
+                37.566808
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "55a5b8bb0970268d4943fe8cffc4ae8f773dc78d894bfe48e937ca323bfe0a7b"
+        },
+        "assumed_pickup_return_seconds": 120,
+        "after_minutes": 12.321666666666665,
+        "before_minutes": 20.746666666666666,
+        "improvement_minutes": 8.425,
+        "message": "현 도로망 모델의 연결 확인. 실제 통행·거치 가능 용량·현장 설치·과거 경로는 미검증."
+      },
+      "action": "경로가 확인된 공간 후보로 현장 검토",
+      "unchecked": [
+        "실제 설치 가능 부지·허가",
+        "현장 보행/자전거 통행",
+        "과거 위치 동일성",
+        "반납 거치 용량·자전거 재고",
+        "설치 후 실제 이용·환승 변화"
+      ]
+    },
+    {
+      "site_id": "grid-961500-1952500",
+      "station_id": "grid-961500-1952500",
+      "latitude": 37.57333032961785,
+      "longitude": 127.06683621432536,
+      "district": "동대문구",
+      "population_density_km2": 24672.329326258725,
+      "facilities_within_500m": 15,
+      "nearby_rentals_1000m": 197098,
+      "nearest_station_distance_m": 364.48236868526925,
+      "gap_ratio": 1.0,
+      "potential_added_area_m2": 282289.36414913886,
+      "score_components": {
+        "population_density_km2": 0.9940405244338498,
+        "facilities_within_500m": 0.9982121573301549,
+        "nearby_rentals_1000m": 0.8814064362336115,
+        "gap_ratio": 0.6930870083432658
+      },
+      "score": 0.8916865315852205,
+      "rank": 2,
+      "observed_demand_label": "주변1km 기존 대여소의 관측 대여. 신규 수요 예측 아님.",
+      "eligible_months": 10,
+      "top10_months": 10,
+      "monthly_ranks": [
+        {
+          "month": "2025-01",
+          "rank": 2,
+          "nearby_rentals_1000m": 11127
+        },
+        {
+          "month": "2025-04",
+          "rank": 2,
+          "nearby_rentals_1000m": 21868
+        },
+        {
+          "month": "2025-05",
+          "rank": 2,
+          "nearby_rentals_1000m": 23776
+        },
+        {
+          "month": "2025-06",
+          "rank": 2,
+          "nearby_rentals_1000m": 25250
+        },
+        {
+          "month": "2025-07",
+          "rank": 2,
+          "nearby_rentals_1000m": 20745
+        },
+        {
+          "month": "2025-08",
+          "rank": 2,
+          "nearby_rentals_1000m": 20733
+        },
+        {
+          "month": "2025-09",
+          "rank": 2,
+          "nearby_rentals_1000m": 23306
+        },
+        {
+          "month": "2025-10",
+          "rank": 2,
+          "nearby_rentals_1000m": 19744
+        },
+        {
+          "month": "2025-11",
+          "rank": 2,
+          "nearby_rentals_1000m": 18590
+        },
+        {
+          "month": "2025-12",
+          "rank": 2,
+          "nearby_rentals_1000m": 11959
+        }
+      ],
+      "rank_range": [
+        2,
+        2
+      ],
+      "route": {
+        "anchor_id": "rail:%EC%84%9C%EC%9A%B8%EA%B5%90%ED%86%B5%EA%B3%B5%EC%82%AC|S1105|0543",
+        "anchor_name": "장한평",
+        "anchor_latitude": 37.561438,
+        "anchor_longitude": 127.064601,
+        "straight_to_anchor_m": 1336.9629217223721,
+        "before_walk": {
+          "status": "ok",
+          "distance_m": 2097.8,
+          "duration_s": 1684.6,
+          "snap_distances_m": [
+            1.092189833,
+            5.494889976
+          ],
+          "retrieved_at": "2026-11-17T11:20:27.849808+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                127.066831,
+                37.573321
+              ],
+              [
+                127.067382,
+                37.573146
+              ],
+              [
+                127.067299,
+                37.572787
+              ],
+              [
+                127.069846,
+                37.57259
+              ],
+              [
+                127.069821,
+                37.57239
+              ],
+              [
+                127.07091,
+                37.57231
+              ],
+              [
+                127.071126,
+                37.572097
+              ],
+              [
+                127.071369,
+                37.572215
+              ],
+              [
+                127.071884,
+                37.572185
+              ],
+              [
+                127.071988,
+                37.572043
+              ],
+              [
+                127.07162,
+                37.571863
+              ],
+              [
+                127.067891,
+                37.565887
+              ],
+              [
+                127.067731,
+                37.565841
+              ],
+              [
+                127.065206,
+                37.562175
+              ],
+              [
+                127.065118,
+                37.562066
+              ],
+              [
+                127.064865,
+                37.562168
+              ],
+              [
+                127.064425,
+                37.561925
+              ],
+              [
+                127.064325,
+                37.561355
+              ],
+              [
+                127.064096,
+                37.561217
+              ],
+              [
+                127.064468,
+                37.560983
+              ],
+              [
+                127.064624,
+                37.561392
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "097f04e362962d3099ffd28aa051313c913c2566475687f3af76dcfc1f2598a9"
+        },
+        "field_installation_verified": false,
+        "current_osm_only": true,
+        "status": "model_connected",
+        "dock_station_id": "ST-243",
+        "dock_station_name": "장한평역 8번 출구 앞",
+        "dock_latitude": 37.56137085,
+        "dock_longitude": 127.06365967,
+        "bike_to_dock": {
+          "status": "ok",
+          "distance_m": 1799.2,
+          "duration_s": 493.0,
+          "snap_distances_m": [
+            1.092189833,
+            9.676541655
+          ],
+          "retrieved_at": "2026-11-23T11:35:47.353479+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                127.066831,
+                37.573321
+              ],
+              [
+                127.066669,
+                37.573373
+              ],
+              [
+                127.065168,
+                37.570892
+              ],
+              [
+                127.069451,
+                37.56874
+              ],
+              [
+                127.064651,
+                37.561572
+              ],
+              [
+                127.064426,
+                37.561598
+              ],
+              [
+                127.064271,
+                37.561286
+              ],
+              [
+                127.064038,
+                37.561182
+              ],
+              [
+                127.063678,
+                37.561457
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "dee0858ad09d721486dfb47b4b10ad2342cf01ab1341a3b2a9a6b868e3157683"
+        },
+        "walk_to_anchor": {
+          "status": "ok",
+          "distance_m": 143.7,
+          "duration_s": 121.1,
+          "snap_distances_m": [
+            9.676541655,
+            5.494889976
+          ],
+          "retrieved_at": "2026-11-23T11:35:49.153770+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                127.063678,
+                37.561457
+              ],
+              [
+                127.063818,
+                37.561421
+              ],
+              [
+                127.064038,
+                37.561182
+              ],
+              [
+                127.064096,
+                37.561217
+              ],
+              [
+                127.064292,
+                37.561025
+              ],
+              [
+                127.064468,
+                37.560983
+              ],
+              [
+                127.064624,
+                37.561392
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "eeff3b924d6a4de59a5a1074cb6f839c04796db23a0ff0f24834a81a749bf4a8"
+        },
+        "assumed_pickup_return_seconds": 120,
+        "after_minutes": 12.235000000000001,
+        "before_minutes": 28.076666666666664,
+        "improvement_minutes": 15.841666666666663,
+        "message": "현 도로망 모델의 연결 확인. 실제 통행·거치 가능 용량·현장 설치·과거 경로는 미검증."
+      },
+      "action": "경로가 확인된 공간 후보로 현장 검토",
+      "unchecked": [
+        "실제 설치 가능 부지·허가",
+        "현장 보행/자전거 통행",
+        "과거 위치 동일성",
+        "반납 거치 용량·자전거 재고",
+        "설치 후 실제 이용·환승 변화"
+      ]
+    },
+    {
+      "site_id": "grid-942000-1946000",
+      "station_id": "grid-942000-1946000",
+      "latitude": 37.51372897157666,
+      "longitude": 126.8465301312982,
+      "district": "양천구",
+      "population_density_km2": 24112.534574929257,
+      "facilities_within_500m": 6,
+      "nearby_rentals_1000m": 152076,
+      "nearest_station_distance_m": 408.5962557940428,
+      "gap_ratio": 1.0,
+      "potential_added_area_m2": 282289.36414913886,
+      "score_components": {
+        "population_density_km2": 0.9785458879618594,
+        "facilities_within_500m": 0.9564958283671037,
+        "nearby_rentals_1000m": 0.7943980929678188,
+        "gap_ratio": 0.6930870083432658
+      },
+      "score": 0.8556317044100119,
+      "rank": 3,
+      "observed_demand_label": "주변1km 기존 대여소의 관측 대여. 신규 수요 예측 아님.",
+      "eligible_months": 10,
+      "top10_months": 10,
+      "monthly_ranks": [
+        {
+          "month": "2025-01",
+          "rank": 3,
+          "nearby_rentals_1000m": 8098
+        },
+        {
+          "month": "2025-04",
+          "rank": 3,
+          "nearby_rentals_1000m": 16464
+        },
+        {
+          "month": "2025-05",
+          "rank": 3,
+          "nearby_rentals_1000m": 18321
+        },
+        {
+          "month": "2025-06",
+          "rank": 3,
+          "nearby_rentals_1000m": 18824
+        },
+        {
+          "month": "2025-07",
+          "rank": 3,
+          "nearby_rentals_1000m": 16339
+        },
+        {
+          "month": "2025-08",
+          "rank": 3,
+          "nearby_rentals_1000m": 15966
+        },
+        {
+          "month": "2025-09",
+          "rank": 3,
+          "nearby_rentals_1000m": 17609
+        },
+        {
+          "month": "2025-10",
+          "rank": 3,
+          "nearby_rentals_1000m": 15436
+        },
+        {
+          "month": "2025-11",
+          "rank": 3,
+          "nearby_rentals_1000m": 15360
+        },
+        {
+          "month": "2025-12",
+          "rank": 3,
+          "nearby_rentals_1000m": 9659
+        }
+      ],
+      "rank_range": [
+        3,
+        3
+      ],
+      "route": {
+        "anchor_id": "rail:%EC%84%9C%EC%9A%B8%EA%B5%90%ED%86%B5%EA%B3%B5%EC%82%AC|S1122|2343",
+        "anchor_name": "신정네거리",
+        "anchor_latitude": 37.520218,
+        "anchor_longitude": 126.852849,
+        "straight_to_anchor_m": 911.7128057604584,
+        "before_walk": {
+          "status": "ok",
+          "distance_m": 1376.0,
+          "duration_s": 1100.9,
+          "snap_distances_m": [
+            4.315294622,
+            4.027607706
+          ],
+          "retrieved_at": "2026-11-23T11:35:50.940997+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                126.846545,
+                37.513692
+              ],
+              [
+                126.846862,
+                37.51374
+              ],
+              [
+                126.847278,
+                37.513657
+              ],
+              [
+                126.847686,
+                37.513878
+              ],
+              [
+                126.847824,
+                37.514111
+              ],
+              [
+                126.848128,
+                37.513898
+              ],
+              [
+                126.849542,
+                37.514187
+              ],
+              [
+                126.850028,
+                37.514091
+              ],
+              [
+                126.850496,
+                37.514249
+              ],
+              [
+                126.851084,
+                37.514265
+              ],
+              [
+                126.851138,
+                37.514524
+              ],
+              [
+                126.85106,
+                37.5146
+              ],
+              [
+                126.851005,
+                37.515531
+              ],
+              [
+                126.850564,
+                37.516552
+              ],
+              [
+                126.850656,
+                37.516578
+              ],
+              [
+                126.850458,
+                37.517131
+              ],
+              [
+                126.853088,
+                37.517893
+              ],
+              [
+                126.853002,
+                37.51809
+              ],
+              [
+                126.853538,
+                37.518221
+              ],
+              [
+                126.853576,
+                37.518284
+              ],
+              [
+                126.85271,
+                37.520305
+              ],
+              [
+                126.852841,
+                37.520343
+              ],
+              [
+                126.852892,
+                37.52023
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "4275be3228d04c74c94af7746d9911e821e1dff5172e8037ba23a11fa836752f"
+        },
+        "field_installation_verified": false,
+        "current_osm_only": true,
+        "status": "model_connected",
+        "dock_station_id": "ST-2762",
+        "dock_station_name": "신정네거리역 교차로",
+        "dock_latitude": 37.52175903,
+        "dock_longitude": 126.85228729,
+        "bike_to_dock": {
+          "status": "ok",
+          "distance_m": 1620.3,
+          "duration_s": 641.4,
+          "snap_distances_m": [
+            4.315294622,
+            2.999935061
+          ],
+          "retrieved_at": "2026-11-23T11:35:52.755345+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                126.846545,
+                37.513692
+              ],
+              [
+                126.846862,
+                37.51374
+              ],
+              [
+                126.847278,
+                37.513657
+              ],
+              [
+                126.847686,
+                37.513878
+              ],
+              [
+                126.847824,
+                37.514111
+              ],
+              [
+                126.848128,
+                37.513898
+              ],
+              [
+                126.849542,
+                37.514187
+              ],
+              [
+                126.850028,
+                37.514091
+              ],
+              [
+                126.850496,
+                37.514249
+              ],
+              [
+                126.851084,
+                37.514265
+              ],
+              [
+                126.851138,
+                37.514524
+              ],
+              [
+                126.85106,
+                37.5146
+              ],
+              [
+                126.851005,
+                37.515531
+              ],
+              [
+                126.850286,
+                37.51718
+              ],
+              [
+                126.853815,
+                37.518181
+              ],
+              [
+                126.852503,
+                37.52113
+              ],
+              [
+                126.85201,
+                37.522023
+              ],
+              [
+                126.852165,
+                37.522043
+              ],
+              [
+                126.852318,
+                37.52177
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "05ef51abee63923bf9718c5eb226a6592c621bb2543430573b47d1648c0f9e91"
+        },
+        "walk_to_anchor": {
+          "status": "ok",
+          "distance_m": 284.3,
+          "duration_s": 227.2,
+          "snap_distances_m": [
+            2.999935061,
+            4.027607706
+          ],
+          "retrieved_at": "2026-11-23T11:35:54.554158+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                126.852318,
+                37.52177
+              ],
+              [
+                126.852489,
+                37.52146
+              ],
+              [
+                126.852748,
+                37.521273
+              ],
+              [
+                126.853186,
+                37.521259
+              ],
+              [
+                126.853249,
+                37.521142
+              ],
+              [
+                126.85296,
+                37.521124
+              ],
+              [
+                126.853069,
+                37.521036
+              ],
+              [
+                126.852757,
+                37.520979
+              ],
+              [
+                126.852777,
+                37.520802
+              ],
+              [
+                126.852965,
+                37.520371
+              ],
+              [
+                126.852841,
+                37.520343
+              ],
+              [
+                126.852892,
+                37.52023
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "e281e32d431977de59a42ce6063a9c6f26cef1648c6eab0d50e5d8eaf44e63f2"
+        },
+        "assumed_pickup_return_seconds": 120,
+        "after_minutes": 16.476666666666667,
+        "before_minutes": 18.348333333333336,
+        "improvement_minutes": 1.8716666666666697,
+        "message": "현 도로망 모델의 연결 확인. 실제 통행·거치 가능 용량·현장 설치·과거 경로는 미검증."
+      },
+      "action": "경로가 확인된 공간 후보로 현장 검토",
+      "unchecked": [
+        "실제 설치 가능 부지·허가",
+        "현장 보행/자전거 통행",
+        "과거 위치 동일성",
+        "반납 거치 용량·자전거 재고",
+        "설치 후 실제 이용·환승 변화"
+      ]
+    }
+  ],
+  "source_revision": "d242f70d56bf206bc15b06e7e22b4cc8ca4c4a57de2983e1f4e001c823d91cb6"
+}

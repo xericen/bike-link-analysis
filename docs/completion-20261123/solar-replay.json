@@ -1,0 +1,2102 @@
+{
+  "case_count": 111,
+  "correct": 111,
+  "cases": [
+    {
+      "city": "seoul",
+      "kind": "correct_candidate_value",
+      "candidate_id": "grid-961000-1952500",
+      "answer": "grid-961000-1952500 주변1km 관측 대여 234014건.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "wrong_candidate_same_global_number",
+      "candidate_id": "grid-961000-1952500",
+      "answer": "grid-961000-1952500 주변1km 관측 대여 224901건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 관측 대여량의 연결 불일치",
+            "candidate_id": "grid-961000-1952500",
+            "claim": "224901"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "unknown_id",
+      "candidate_id": "grid-961000-1952500",
+      "answer": "grid-999999-999999 주변1km 관측 대여 234014건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "근거에 없는 후보 ID",
+            "candidate_id": "grid-999999-999999"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "wrong_area_unit",
+      "candidate_id": "grid-961000-1952500",
+      "answer": "grid-961000-1952500 추가 면적 234014건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "면적의 단위 불일치",
+            "candidate_id": "grid-961000-1952500"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "unsupported_actual_transfer",
+      "candidate_id": "grid-961000-1952500",
+      "answer": "grid-961000-1952500 실제 환승률은12.3%입니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "실제 환승률의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "unsupported_installed_effect",
+      "candidate_id": "grid-961000-1952500",
+      "answer": "grid-961000-1952500 설치하면 이용량이20% 증가합니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "설치 후 효과의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "translated_candidate_id",
+      "candidate_id": "grid-961000-1952500",
+      "answer": "격자-961000-1952500 주변1km 관측 대여234014건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "원본 후보 ID를 번역·변형함",
+            "candidate_id": "격자-961000-1952500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "correct_overhead_assumption",
+      "candidate_id": "grid-961000-1952500",
+      "answer": "grid-961000-1952500 5분 가정에서7.183분 단축.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "wrong_overhead_assumption",
+      "candidate_id": "grid-961000-1952500",
+      "answer": "grid-961000-1952500 5분 가정에서10.183분 단축.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "대여·반납 시간 가정과 단축값의 연결 불일치",
+            "candidate_id": "grid-961000-1952500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "correct_candidate_area",
+      "candidate_id": "grid-961000-1952500",
+      "answer": "grid-961000-1952500 추가 면적0.282289km².",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "wrong_candidate_area",
+      "candidate_id": "grid-961000-1952500",
+      "answer": "grid-961000-1952500 추가 면적1.282289km².",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 면적 수치의 연결 불일치",
+            "candidate_id": "grid-961000-1952500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "correct_basic_time",
+      "candidate_id": "grid-961000-1952500",
+      "answer": "grid-961000-1952500 기본 단축8.425분.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "wrong_basic_time",
+      "candidate_id": "grid-961000-1952500",
+      "answer": "grid-961000-1952500 기본 단축11.425분.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보 기본 경로와 시간 수치의 연결 불일치",
+            "candidate_id": "grid-961000-1952500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "correct_candidate_value",
+      "candidate_id": "grid-961500-1952500",
+      "answer": "grid-961500-1952500 주변1km 관측 대여 224901건.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "wrong_candidate_same_global_number",
+      "candidate_id": "grid-961500-1952500",
+      "answer": "grid-961500-1952500 주변1km 관측 대여 173008건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 관측 대여량의 연결 불일치",
+            "candidate_id": "grid-961500-1952500",
+            "claim": "173008"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "unknown_id",
+      "candidate_id": "grid-961500-1952500",
+      "answer": "grid-999999-999999 주변1km 관측 대여 224901건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "근거에 없는 후보 ID",
+            "candidate_id": "grid-999999-999999"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "wrong_area_unit",
+      "candidate_id": "grid-961500-1952500",
+      "answer": "grid-961500-1952500 추가 면적 224901건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "면적의 단위 불일치",
+            "candidate_id": "grid-961500-1952500"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "unsupported_actual_transfer",
+      "candidate_id": "grid-961500-1952500",
+      "answer": "grid-961500-1952500 실제 환승률은12.3%입니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "실제 환승률의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "unsupported_installed_effect",
+      "candidate_id": "grid-961500-1952500",
+      "answer": "grid-961500-1952500 설치하면 이용량이20% 증가합니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "설치 후 효과의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "translated_candidate_id",
+      "candidate_id": "grid-961500-1952500",
+      "answer": "격자-961500-1952500 주변1km 관측 대여224901건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "원본 후보 ID를 번역·변형함",
+            "candidate_id": "격자-961500-1952500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "correct_overhead_assumption",
+      "candidate_id": "grid-961500-1952500",
+      "answer": "grid-961500-1952500 5분 가정에서12.842분 단축.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "wrong_overhead_assumption",
+      "candidate_id": "grid-961500-1952500",
+      "answer": "grid-961500-1952500 5분 가정에서15.842분 단축.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "대여·반납 시간 가정과 단축값의 연결 불일치",
+            "candidate_id": "grid-961500-1952500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "correct_candidate_area",
+      "candidate_id": "grid-961500-1952500",
+      "answer": "grid-961500-1952500 추가 면적0.282289km².",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "wrong_candidate_area",
+      "candidate_id": "grid-961500-1952500",
+      "answer": "grid-961500-1952500 추가 면적1.282289km².",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 면적 수치의 연결 불일치",
+            "candidate_id": "grid-961500-1952500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "correct_basic_time",
+      "candidate_id": "grid-961500-1952500",
+      "answer": "grid-961500-1952500 기본 단축15.842분.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "wrong_basic_time",
+      "candidate_id": "grid-961500-1952500",
+      "answer": "grid-961500-1952500 기본 단축18.842분.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보 기본 경로와 시간 수치의 연결 불일치",
+            "candidate_id": "grid-961500-1952500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "correct_candidate_value",
+      "candidate_id": "grid-942000-1946000",
+      "answer": "grid-942000-1946000 주변1km 관측 대여 173008건.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "wrong_candidate_same_global_number",
+      "candidate_id": "grid-942000-1946000",
+      "answer": "grid-942000-1946000 주변1km 관측 대여 234014건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 관측 대여량의 연결 불일치",
+            "candidate_id": "grid-942000-1946000",
+            "claim": "234014"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "unknown_id",
+      "candidate_id": "grid-942000-1946000",
+      "answer": "grid-999999-999999 주변1km 관측 대여 173008건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "근거에 없는 후보 ID",
+            "candidate_id": "grid-999999-999999"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "wrong_area_unit",
+      "candidate_id": "grid-942000-1946000",
+      "answer": "grid-942000-1946000 추가 면적 173008건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "면적의 단위 불일치",
+            "candidate_id": "grid-942000-1946000"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "unsupported_actual_transfer",
+      "candidate_id": "grid-942000-1946000",
+      "answer": "grid-942000-1946000 실제 환승률은12.3%입니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "실제 환승률의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "unsupported_installed_effect",
+      "candidate_id": "grid-942000-1946000",
+      "answer": "grid-942000-1946000 설치하면 이용량이20% 증가합니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "설치 후 효과의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "translated_candidate_id",
+      "candidate_id": "grid-942000-1946000",
+      "answer": "격자-942000-1946000 주변1km 관측 대여173008건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "원본 후보 ID를 번역·변형함",
+            "candidate_id": "격자-942000-1946000"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "correct_overhead_assumption",
+      "candidate_id": "grid-942000-1946000",
+      "answer": "grid-942000-1946000 5분 가정에서1.645분 단축.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "wrong_overhead_assumption",
+      "candidate_id": "grid-942000-1946000",
+      "answer": "grid-942000-1946000 5분 가정에서4.645분 단축.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "대여·반납 시간 가정과 단축값의 연결 불일치",
+            "candidate_id": "grid-942000-1946000"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "correct_candidate_area",
+      "candidate_id": "grid-942000-1946000",
+      "answer": "grid-942000-1946000 추가 면적0.282289km².",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "wrong_candidate_area",
+      "candidate_id": "grid-942000-1946000",
+      "answer": "grid-942000-1946000 추가 면적1.282289km².",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 면적 수치의 연결 불일치",
+            "candidate_id": "grid-942000-1946000"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "correct_basic_time",
+      "candidate_id": "grid-942000-1946000",
+      "answer": "grid-942000-1946000 기본 단축1.872분.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "wrong_basic_time",
+      "candidate_id": "grid-942000-1946000",
+      "answer": "grid-942000-1946000 기본 단축4.872분.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보 기본 경로와 시간 수치의 연결 불일치",
+            "candidate_id": "grid-942000-1946000"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "seoul",
+      "kind": "correct_multiple_candidates_one_sentence",
+      "answer": "grid-961000-1952500 주변1km 관측 대여234014건, grid-961500-1952500 주변1km 관측 대여224901건, grid-942000-1946000 주변1km 관측 대여173008건",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 6,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "correct_candidate_value",
+      "candidate_id": "grid-987000-1811500",
+      "answer": "grid-987000-1811500 주변1km 관측 대여 274686건.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "wrong_candidate_same_global_number",
+      "candidate_id": "grid-987000-1811500",
+      "answer": "grid-987000-1811500 주변1km 관측 대여 334023건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 관측 대여량의 연결 불일치",
+            "candidate_id": "grid-987000-1811500",
+            "claim": "334023"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "unknown_id",
+      "candidate_id": "grid-987000-1811500",
+      "answer": "grid-999999-999999 주변1km 관측 대여 274686건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "근거에 없는 후보 ID",
+            "candidate_id": "grid-999999-999999"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "wrong_area_unit",
+      "candidate_id": "grid-987000-1811500",
+      "answer": "grid-987000-1811500 추가 면적 274686건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "면적의 단위 불일치",
+            "candidate_id": "grid-987000-1811500"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "unsupported_actual_transfer",
+      "candidate_id": "grid-987000-1811500",
+      "answer": "grid-987000-1811500 실제 환승률은12.3%입니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "실제 환승률의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "unsupported_installed_effect",
+      "candidate_id": "grid-987000-1811500",
+      "answer": "grid-987000-1811500 설치하면 이용량이20% 증가합니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "설치 후 효과의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "translated_candidate_id",
+      "candidate_id": "grid-987000-1811500",
+      "answer": "격자-987000-1811500 주변1km 관측 대여274686건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "원본 후보 ID를 번역·변형함",
+            "candidate_id": "격자-987000-1811500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "correct_candidate_area",
+      "candidate_id": "grid-987000-1811500",
+      "answer": "grid-987000-1811500 추가 면적0.282289km².",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "wrong_candidate_area",
+      "candidate_id": "grid-987000-1811500",
+      "answer": "grid-987000-1811500 추가 면적1.282289km².",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 면적 수치의 연결 불일치",
+            "candidate_id": "grid-987000-1811500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "unconfirmed_route_assertion",
+      "candidate_id": "grid-987000-1811500",
+      "answer": "grid-987000-1811500 경로가 확인되었습니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "미확인 경로를 확인된 것으로 서술",
+            "candidate_id": "grid-987000-1811500"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "correct_candidate_value",
+      "candidate_id": "grid-987500-1816500",
+      "answer": "grid-987500-1816500 주변1km 관측 대여 334023건.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "wrong_candidate_same_global_number",
+      "candidate_id": "grid-987500-1816500",
+      "answer": "grid-987500-1816500 주변1km 관측 대여 218764건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 관측 대여량의 연결 불일치",
+            "candidate_id": "grid-987500-1816500",
+            "claim": "218764"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "unknown_id",
+      "candidate_id": "grid-987500-1816500",
+      "answer": "grid-999999-999999 주변1km 관측 대여 334023건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "근거에 없는 후보 ID",
+            "candidate_id": "grid-999999-999999"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "wrong_area_unit",
+      "candidate_id": "grid-987500-1816500",
+      "answer": "grid-987500-1816500 추가 면적 334023건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "면적의 단위 불일치",
+            "candidate_id": "grid-987500-1816500"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "unsupported_actual_transfer",
+      "candidate_id": "grid-987500-1816500",
+      "answer": "grid-987500-1816500 실제 환승률은12.3%입니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "실제 환승률의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "unsupported_installed_effect",
+      "candidate_id": "grid-987500-1816500",
+      "answer": "grid-987500-1816500 설치하면 이용량이20% 증가합니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "설치 후 효과의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "translated_candidate_id",
+      "candidate_id": "grid-987500-1816500",
+      "answer": "격자-987500-1816500 주변1km 관측 대여334023건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "원본 후보 ID를 번역·변형함",
+            "candidate_id": "격자-987500-1816500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "correct_overhead_assumption",
+      "candidate_id": "grid-987500-1816500",
+      "answer": "grid-987500-1816500 5분 가정에서-6.895분 단축.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "wrong_overhead_assumption",
+      "candidate_id": "grid-987500-1816500",
+      "answer": "grid-987500-1816500 5분 가정에서-3.895분 단축.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "대여·반납 시간 가정과 단축값의 연결 불일치",
+            "candidate_id": "grid-987500-1816500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "correct_candidate_area",
+      "candidate_id": "grid-987500-1816500",
+      "answer": "grid-987500-1816500 추가 면적0.282289km².",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "wrong_candidate_area",
+      "candidate_id": "grid-987500-1816500",
+      "answer": "grid-987500-1816500 추가 면적1.282289km².",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 면적 수치의 연결 불일치",
+            "candidate_id": "grid-987500-1816500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "correct_basic_time",
+      "candidate_id": "grid-987500-1816500",
+      "answer": "grid-987500-1816500 기본 단축-3.895분.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "wrong_basic_time",
+      "candidate_id": "grid-987500-1816500",
+      "answer": "grid-987500-1816500 기본 단축-0.895분.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보 기본 경로와 시간 수치의 연결 불일치",
+            "candidate_id": "grid-987500-1816500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "correct_candidate_value",
+      "candidate_id": "grid-986500-1811000",
+      "answer": "grid-986500-1811000 주변1km 관측 대여 218764건.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "wrong_candidate_same_global_number",
+      "candidate_id": "grid-986500-1811000",
+      "answer": "grid-986500-1811000 주변1km 관측 대여 274686건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 관측 대여량의 연결 불일치",
+            "candidate_id": "grid-986500-1811000",
+            "claim": "274686"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "unknown_id",
+      "candidate_id": "grid-986500-1811000",
+      "answer": "grid-999999-999999 주변1km 관측 대여 218764건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "근거에 없는 후보 ID",
+            "candidate_id": "grid-999999-999999"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "wrong_area_unit",
+      "candidate_id": "grid-986500-1811000",
+      "answer": "grid-986500-1811000 추가 면적 218764건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "면적의 단위 불일치",
+            "candidate_id": "grid-986500-1811000"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "unsupported_actual_transfer",
+      "candidate_id": "grid-986500-1811000",
+      "answer": "grid-986500-1811000 실제 환승률은12.3%입니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "실제 환승률의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "unsupported_installed_effect",
+      "candidate_id": "grid-986500-1811000",
+      "answer": "grid-986500-1811000 설치하면 이용량이20% 증가합니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "설치 후 효과의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "translated_candidate_id",
+      "candidate_id": "grid-986500-1811000",
+      "answer": "격자-986500-1811000 주변1km 관측 대여218764건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "원본 후보 ID를 번역·변형함",
+            "candidate_id": "격자-986500-1811000"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "correct_overhead_assumption",
+      "candidate_id": "grid-986500-1811000",
+      "answer": "grid-986500-1811000 5분 가정에서67.277분 단축.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "wrong_overhead_assumption",
+      "candidate_id": "grid-986500-1811000",
+      "answer": "grid-986500-1811000 5분 가정에서70.277분 단축.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "대여·반납 시간 가정과 단축값의 연결 불일치",
+            "candidate_id": "grid-986500-1811000"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "correct_candidate_area",
+      "candidate_id": "grid-986500-1811000",
+      "answer": "grid-986500-1811000 추가 면적0.282289km².",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "wrong_candidate_area",
+      "candidate_id": "grid-986500-1811000",
+      "answer": "grid-986500-1811000 추가 면적1.282289km².",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 면적 수치의 연결 불일치",
+            "candidate_id": "grid-986500-1811000"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "correct_basic_time",
+      "candidate_id": "grid-986500-1811000",
+      "answer": "grid-986500-1811000 기본 단축70.277분.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "wrong_basic_time",
+      "candidate_id": "grid-986500-1811000",
+      "answer": "grid-986500-1811000 기본 단축73.277분.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보 기본 경로와 시간 수치의 연결 불일치",
+            "candidate_id": "grid-986500-1811000"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "daejeon",
+      "kind": "correct_multiple_candidates_one_sentence",
+      "answer": "grid-987000-1811500 주변1km 관측 대여274686건, grid-987500-1816500 주변1km 관측 대여334023건, grid-986500-1811000 주변1km 관측 대여218764건",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 6,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "correct_candidate_value",
+      "candidate_id": "grid-981000-1830000",
+      "answer": "grid-981000-1830000 주변1km 관측 대여 419902건.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "wrong_candidate_same_global_number",
+      "candidate_id": "grid-981000-1830000",
+      "answer": "grid-981000-1830000 주변1km 관측 대여 275487건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 관측 대여량의 연결 불일치",
+            "candidate_id": "grid-981000-1830000",
+            "claim": "275487"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "unknown_id",
+      "candidate_id": "grid-981000-1830000",
+      "answer": "grid-999999-999999 주변1km 관측 대여 419902건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "근거에 없는 후보 ID",
+            "candidate_id": "grid-999999-999999"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "wrong_area_unit",
+      "candidate_id": "grid-981000-1830000",
+      "answer": "grid-981000-1830000 추가 면적 419902건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "면적의 단위 불일치",
+            "candidate_id": "grid-981000-1830000"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "unsupported_actual_transfer",
+      "candidate_id": "grid-981000-1830000",
+      "answer": "grid-981000-1830000 실제 환승률은12.3%입니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "실제 환승률의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "unsupported_installed_effect",
+      "candidate_id": "grid-981000-1830000",
+      "answer": "grid-981000-1830000 설치하면 이용량이20% 증가합니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "설치 후 효과의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "translated_candidate_id",
+      "candidate_id": "grid-981000-1830000",
+      "answer": "격자-981000-1830000 주변1km 관측 대여419902건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "원본 후보 ID를 번역·변형함",
+            "candidate_id": "격자-981000-1830000"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "correct_candidate_area",
+      "candidate_id": "grid-981000-1830000",
+      "answer": "grid-981000-1830000 추가 면적0.282289km².",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "wrong_candidate_area",
+      "candidate_id": "grid-981000-1830000",
+      "answer": "grid-981000-1830000 추가 면적1.282289km².",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 면적 수치의 연결 불일치",
+            "candidate_id": "grid-981000-1830000"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "unconfirmed_route_assertion",
+      "candidate_id": "grid-981000-1830000",
+      "answer": "grid-981000-1830000 경로가 확인되었습니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "미확인 경로를 확인된 것으로 서술",
+            "candidate_id": "grid-981000-1830000"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "correct_candidate_value",
+      "candidate_id": "grid-980000-1832500",
+      "answer": "grid-980000-1832500 주변1km 관측 대여 275487건.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "wrong_candidate_same_global_number",
+      "candidate_id": "grid-980000-1832500",
+      "answer": "grid-980000-1832500 주변1km 관측 대여 37665건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 관측 대여량의 연결 불일치",
+            "candidate_id": "grid-980000-1832500",
+            "claim": "37665"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "unknown_id",
+      "candidate_id": "grid-980000-1832500",
+      "answer": "grid-999999-999999 주변1km 관측 대여 275487건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "근거에 없는 후보 ID",
+            "candidate_id": "grid-999999-999999"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "wrong_area_unit",
+      "candidate_id": "grid-980000-1832500",
+      "answer": "grid-980000-1832500 추가 면적 275487건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "면적의 단위 불일치",
+            "candidate_id": "grid-980000-1832500"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "unsupported_actual_transfer",
+      "candidate_id": "grid-980000-1832500",
+      "answer": "grid-980000-1832500 실제 환승률은12.3%입니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "실제 환승률의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "unsupported_installed_effect",
+      "candidate_id": "grid-980000-1832500",
+      "answer": "grid-980000-1832500 설치하면 이용량이20% 증가합니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "설치 후 효과의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "translated_candidate_id",
+      "candidate_id": "grid-980000-1832500",
+      "answer": "격자-980000-1832500 주변1km 관측 대여275487건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "원본 후보 ID를 번역·변형함",
+            "candidate_id": "격자-980000-1832500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "correct_overhead_assumption",
+      "candidate_id": "grid-980000-1832500",
+      "answer": "grid-980000-1832500 5분 가정에서17.998분 단축.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "wrong_overhead_assumption",
+      "candidate_id": "grid-980000-1832500",
+      "answer": "grid-980000-1832500 5분 가정에서20.998분 단축.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "대여·반납 시간 가정과 단축값의 연결 불일치",
+            "candidate_id": "grid-980000-1832500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "correct_candidate_area",
+      "candidate_id": "grid-980000-1832500",
+      "answer": "grid-980000-1832500 추가 면적0.282289km².",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "wrong_candidate_area",
+      "candidate_id": "grid-980000-1832500",
+      "answer": "grid-980000-1832500 추가 면적1.282289km².",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 면적 수치의 연결 불일치",
+            "candidate_id": "grid-980000-1832500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "correct_basic_time",
+      "candidate_id": "grid-980000-1832500",
+      "answer": "grid-980000-1832500 기본 단축20.998분.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "wrong_basic_time",
+      "candidate_id": "grid-980000-1832500",
+      "answer": "grid-980000-1832500 기본 단축23.998분.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보 기본 경로와 시간 수치의 연결 불일치",
+            "candidate_id": "grid-980000-1832500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "correct_candidate_value",
+      "candidate_id": "grid-980500-1843500",
+      "answer": "grid-980500-1843500 주변1km 관측 대여 37665건.",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "wrong_candidate_same_global_number",
+      "candidate_id": "grid-980500-1843500",
+      "answer": "grid-980500-1843500 주변1km 관측 대여 419902건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 관측 대여량의 연결 불일치",
+            "candidate_id": "grid-980500-1843500",
+            "claim": "419902"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "unknown_id",
+      "candidate_id": "grid-980500-1843500",
+      "answer": "grid-999999-999999 주변1km 관측 대여 37665건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "근거에 없는 후보 ID",
+            "candidate_id": "grid-999999-999999"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "wrong_area_unit",
+      "candidate_id": "grid-980500-1843500",
+      "answer": "grid-980500-1843500 추가 면적 37665건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "면적의 단위 불일치",
+            "candidate_id": "grid-980500-1843500"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "unsupported_actual_transfer",
+      "candidate_id": "grid-980500-1843500",
+      "answer": "grid-980500-1843500 실제 환승률은12.3%입니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "실제 환승률의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "unsupported_installed_effect",
+      "candidate_id": "grid-980500-1843500",
+      "answer": "grid-980500-1843500 설치하면 이용량이20% 증가합니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "설치 후 효과의 검증 근거 없음"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "translated_candidate_id",
+      "candidate_id": "grid-980500-1843500",
+      "answer": "격자-980500-1843500 주변1km 관측 대여37665건.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "원본 후보 ID를 번역·변형함",
+            "candidate_id": "격자-980500-1843500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "correct_candidate_area",
+      "candidate_id": "grid-980500-1843500",
+      "answer": "grid-980500-1843500 추가 면적0.282289km².",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "wrong_candidate_area",
+      "candidate_id": "grid-980500-1843500",
+      "answer": "grid-980500-1843500 추가 면적1.282289km².",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "후보와 면적 수치의 연결 불일치",
+            "candidate_id": "grid-980500-1843500"
+          }
+        ],
+        "checked_candidate_claims": 2,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "unconfirmed_route_assertion",
+      "candidate_id": "grid-980500-1843500",
+      "answer": "grid-980500-1843500 경로가 확인되었습니다.",
+      "expected_pass": false,
+      "passed": false,
+      "correct": true,
+      "validation": {
+        "passed": false,
+        "unsupported_claims": [
+          {
+            "reason": "미확인 경로를 확인된 것으로 서술",
+            "candidate_id": "grid-980500-1843500"
+          }
+        ],
+        "checked_candidate_claims": 1,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    },
+    {
+      "city": "sejong",
+      "kind": "correct_multiple_candidates_one_sentence",
+      "answer": "grid-981000-1830000 주변1km 관측 대여419902건, grid-980000-1832500 주변1km 관측 대여275487건, grid-980500-1843500 주변1km 관측 대여37665건",
+      "expected_pass": true,
+      "passed": true,
+      "correct": true,
+      "validation": {
+        "passed": true,
+        "unsupported_claims": [],
+        "checked_candidate_claims": 6,
+        "coverage": "후보ID·관측대여 연결·면적단위·미확인경로·실제환승/설치효과 단정 검사. 그 밖의 자유 서술 전체는 미검증."
+      }
+    }
+  ],
+  "payload_comparisons": [
+    {
+      "city": "seoul",
+      "tool": "get_project_conclusion",
+      "before_utf8_bytes": 86691,
+      "after_utf8_bytes": 11436,
+      "details_withheld": false
+    },
+    {
+      "city": "seoul",
+      "tool": "get_method_validation",
+      "before_utf8_bytes": 1949,
+      "after_utf8_bytes": 1949,
+      "details_withheld": false
+    },
+    {
+      "city": "daejeon",
+      "tool": "get_project_conclusion",
+      "before_utf8_bytes": 23577,
+      "after_utf8_bytes": 11494,
+      "details_withheld": false
+    },
+    {
+      "city": "daejeon",
+      "tool": "get_decision_evidence",
+      "before_utf8_bytes": 7726,
+      "after_utf8_bytes": 7726,
+      "details_withheld": false
+    },
+    {
+      "city": "sejong",
+      "tool": "get_project_conclusion",
+      "before_utf8_bytes": 53026,
+      "after_utf8_bytes": 11041,
+      "details_withheld": false
+    },
+    {
+      "city": "sejong",
+      "tool": "get_decision_evidence",
+      "before_utf8_bytes": 6246,
+      "after_utf8_bytes": 6246,
+      "details_withheld": false
+    },
+    {
+      "city": "sejong",
+      "tool": "get_data_availability",
+      "before_utf8_bytes": 157606,
+      "after_utf8_bytes": 453,
+      "details_withheld": true
+    }
+  ],
+  "evidence_kind": "Actual tool packets with deliberately constructed positive/negative test sentences; not new observations or live model answers.",
+  "coverage": "Candidate ID/value association, area units, pending routes, actual-transfer and installed-effect assertions only; unrestricted prose truth remains unverified."
+}

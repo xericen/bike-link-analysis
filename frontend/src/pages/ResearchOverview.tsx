@@ -1,3 +1,5 @@
+import {HeadlineCI} from '../components/AdvancedResearch'
+import { analysisFetch } from '../services/individual'
 import {useEffect,useState} from 'react'
 import {Link,useSearchParams} from 'react-router-dom'
 import {TransitDashboardMap} from '../components/TransitLinkage'
@@ -12,7 +14,7 @@ export function ResearchOverview({regionId,filter}:{regionId:string;filter:DateF
  const [data,setData]=useState<Linkage>(),[top,setTop]=useState<Candidate[]>([]),[error,setError]=useState('')
  useEffect(()=>{const controller=new AbortController();setData(undefined);setTop([]);setRecovery(null);setError('')
  const q=new URLSearchParams({city:regionId,date_start:filter.start,date_end:filter.end})
- const get=async(path:string)=>{const r=await fetch(import.meta.env.BASE_URL.replace(/\/$/,'')+'/api/'+path+'?'+q,{signal:controller.signal});const v=await r.json();if(!r.ok)throw new Error(v.detail||'조회 실패');return v}
+ const get=async(path:string)=>{const r=await analysisFetch(import.meta.env.BASE_URL.replace(/\/$/,'')+'/api/'+path+'?'+q,{signal:controller.signal});const v=await r.json();if(!r.ok)throw new Error(v.detail||'조회 실패');return v}
  Promise.all([get('transit-linkage'),get('improvement-ranking')]).then(([l,v])=>{setData(l);setTop(v.ranking.slice(0,3));setRecovery(v.scenario?.uncovered_recovery_ratio??null)}).catch(e=>{if(e.name!=='AbortError')setError(e.message)});return()=>controller.abort()
  },[regionId,filter.start,filter.end])
  if(error)return <ErrorBox message={error}/>
@@ -24,7 +26,7 @@ export function ResearchOverview({regionId,filter}:{regionId:string;filter:DateF
  <div className="stat"><span>계산 · 거점 500m 밖 이용 대여소</span><strong>{number(m.outside_500m_active_count)}</strong></div>
  <div className="stat"><span>관측·계산 · 거점 인접 이동 비중</span><strong>{m.linked_trip_share==null?'N/A':(m.linked_trip_share*100).toFixed(2)+'%'}</strong><em>실제 환승률이 아닙니다</em></div>
  <div className="stat"><span>시나리오 · 접근 공백 면적 보완율</span><strong>{recovery==null?'N/A':(recovery*100).toFixed(2)+'%'}</strong><em>실제 교통 개선 효과가 아닙니다</em></div></div>
- <section className="panel"><h3>자전거와 대중교통 연결 공백 지도</h3><TransitDashboardMap city={regionId} start={filter.start} end={filter.end} stations={data.stations}/></section>
+ <HeadlineCI city={regionId} filter={filter}/><section className="panel"><h3>자전거와 대중교통 연결 공백 지도</h3><TransitDashboardMap city={regionId} start={filter.start} end={filter.end} stations={data.stations}/></section>
  <section className="panel"><h3>개선 우선 검토 TOP 3</h3><p>거점까지 거리·실제 수요·공간 보완 면적을 함께 본 도시 내 순위입니다.</p>
  {top.map((c,i)=><article key={c.station_id} className="coverage-card"><b>{i+1}위 · {c.station_name||c.station_id}</b><p>최근접 {m.anchor_label} {(c.nearest_stop_distance_m).toFixed(1)}m · 관측 대여 {number(c.rental_count)}건</p>
  <Link to={'/improvements?station='+encodeURIComponent(c.station_id)}>선정 근거와 후보 상세</Link></article>)}</section>

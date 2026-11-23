@@ -20,7 +20,11 @@ REGION_ALIASES = {"서울": "seoul", "따릉이": "seoul", "대전": "daejeon", 
 REGIONS = {r["region_id"] for r in real_data.REGIONS}
 METRICS = {"pagerank", "weighted_in_degree", "weighted_out_degree", "betweenness"}
 TOOL_DEFINITIONS = {
-    "get_transit_demand_comparison": ("2025년12월 역별 지하철 승하차량과 역 300m·500m 내 공유자전거 대여·반납 활동 비교. 실제 환승률이 아닌 동시 집중 분석", {"region_id":"string","top_n":"integer","date_range":"object"}, ["region_id"]),
+    "get_project_conclusion": ("개별 도시의 전체기간 분석 결론 질문에 우선 사용하는 도구. 이 경우 scope=individual 필수. 최종3후보·월별 반복성·현 도로망 연결 사슬 결론. 공통10개월은 scope=common 명시 시 별도 참고 결과로만 설명하고 선택12월과 합산 금지. 실제 환승/설치효과/재고 검증 아님", {"region_id":"string","date_range":"object","scope":"string"}, ["region_id"]),
+    "get_advanced_research": ("동일 K 입지 최적화·점수/탐욕 비교·주블록95%구간·시간홀드아웃 수요설명. 축소 후보 내 최적성과 관측 수요 대리변수를 구분. 운영 순위 변경·실제 설치효과·재배치 대수 추정 금지", {"region_id":"string","date_range":"object"}, ["region_id"]),
+    "get_method_validation": ("선택 범위의 저장된 방법 점검. 전체 도시 비교는공통12월,개별도시는보유전체기간·전역. 정확한선택기간전달필수. 추가공통월연구는반환된경우만별도기간명시. 전체기간탐색을독립예측성공으로해석금지", {"region_id":"string","anchor_name":"string","station_id":"string","date_range":"object","top_n":"integer"}, ["region_id"]),
+    "get_city_monthly_trends": ("선택 도시의 장기 월별 이용·역 주변 이용·후보 반복성. 연도 미지정 또는0은 보유 전체 기간. 특정 연도를 요청한 경우만 year 지정. 실제 display_start/display_end·selected_year를 명시하고 공통12월과 합산 금지", {"region_id":"string","year":"integer"}, ["region_id"]),
+    "get_transit_demand_comparison": ("선택 기간과 일치하는 역별 지하철 승하차량과 역 300m·500m 내 공유자전거 대여·반납 활동 비교. 실제 환승률이 아닌 동시 집중 분석", {"region_id":"string","top_n":"integer","date_range":"object"}, ["region_id"]),
     "get_decision_evidence": ("고정 관측 기간의 후보3곳·중복 제거 면적·도로망 검증·PageRank/Cosine 판단 사례·환승 확인 한계. 선택 기간 일치 시만 제공", {"region_id":"string","date_range":"object"}, ["region_id"]),
     "get_site_planning": ("기존 대여소가 없는 격자의 신규 입지 후보. 인구밀도·시설·주변 수요 근거와 자료 시점 포함", {"region_id":"string","date_range":"object"}, ["region_id"]),
     "get_relocation_candidates": ("시간대 대여·반납 순유출입 기반 재배치 검토. 재고 미확보 시 이동 수량은 제안 불가", {"region_id":"string","date_range":"object"}, ["region_id"]),
@@ -99,6 +103,9 @@ def run_tool(name, arguments, context=None):
                 arguments["region_id"]=station["region_id"]
             selected = context.get("region_ids", [])
             if name == "compare_region_patterns":
+                from backend.presentation.individual import matches as full_matches
+                if len(selected)==1 and full_matches(selected[0],context.get("date_start"),context.get("date_end")):
+                    return {"available":False,"message":"도시별 전체 기간은 서로 달라 직접 비교하지 않습니다. 세 도시 비교는 전체 선택의 공통 2025-12 자료를 사용하세요."}
                 ids = arguments.get("region_ids", selected)
                 if any(_region(rid) not in selected for rid in ids):
                     raise ValueError("선택된 분석 도시 밖의 도구 호출입니다.")
@@ -119,6 +126,23 @@ def run_tool(name, arguments, context=None):
             start, end = _dates(arguments)
             return real_data.compare(ids, start, end)
         region_id = _region(arguments.get("region_id"))
+        if name == "get_project_conclusion":
+            from backend.research.conclusion_runtime import presentation
+            return presentation().tool(region_id,*_dates(arguments),scope=arguments.get("scope"))
+        if name == "get_advanced_research":
+            from backend.research.advanced_runtime import presentation
+            return presentation().tool(region_id,*_dates(arguments))
+        if name == "get_method_validation":
+            from backend.research.runtime import presentation
+            start,end=_dates(arguments)
+            return presentation().tool_report(region_id,start,end,arguments.get("anchor_name"),arguments.get("station_id"),_top(arguments.get("top_n")))
+        from backend.presentation.individual import tool as individual_tool
+        try: individual_result=individual_tool(name,{**arguments,"region_id":region_id},context)
+        except HTTPException as error:return {"available":False,"error":str(error.detail),"region_id":region_id,"period_start":(context or arguments.get("date_range") or {}).get("date_start"),"period_end":(context or arguments.get("date_range") or {}).get("date_end")}
+        if individual_result is not None:return individual_result
+        if name == "get_city_monthly_trends":
+            from backend.presentation.monthly_trends import read
+            return read(region_id, arguments.get("year"))
         start, end = _dates(arguments)
         if context: start, end = context.get("date_start"), context.get("date_end")
         if name == "get_transit_demand_comparison":
@@ -267,6 +291,9 @@ def _report(question, answer, evidence):
         result = call["result"]
         if result.get("error"):
             continue
+        if call["tool"]=="get_project_conclusion" and "전체기간" in question and "공통" not in question and result.get("scope")!="individual_full":
+            limitations.append("공통10개월 참고 결과는 요청한 개별 전체기간 결론 본문에서 제외했습니다.")
+            continue
         for source in result.get("sources", []):
             if source.get("dataset_name"):
                 entry = {"dataset_name": source["dataset_name"], "source_url": source.get("source_url"),
@@ -280,7 +307,38 @@ def _report(question, answer, evidence):
             limitations.append(result["coverage_note"])
         if result.get("message") and result.get("available") is False:
             limitations.append(result["message"])
-        if call["tool"] == "get_decision_evidence" and result.get("available"):
+        if call["tool"] == "get_project_conclusion" and result.get("available"):
+            algorithms.add("stored candidate and route validation")
+            for city_packet in result.get("cities",[]):
+                for row in city_packet.get("candidates",[]):
+                    findings.append({"label":row["site_id"]+" 주변1km 관측 대여", "value":row["nearby_rentals_1000m"], "unit":"건", "region_id":city_packet["city"], "conclusion_fact":True})
+                    route=row["route"]
+                    findings.append({"label":row["site_id"]+" 기본 경로 모델 연결 여부(1=확인,0=미확인)","value":int(route["status"]=="model_connected"),"unit":"", "conclusion_fact":True})
+                    if route.get("improvement_minutes") is not None:
+                        findings.append({"label":row["site_id"]+" 기본 경로 도보 대비 모델 단축(음수=느림)","value":route["improvement_minutes"],"unit":"분", "conclusion_fact":True})
+                    limitations.append(row["action"])
+            limitations.extend(result.get("limitations",[]))
+        elif call["tool"] == "get_method_validation" and result.get("available"):
+            if result.get("scope")=="individual_full":
+                algorithms.update(("candidate method comparison","one-to-one spatial recovery"))
+                summary=result.get("summary",{})
+                for key,label in (("strict","전체 기간 간격 유지 탐색 최고"),("diagnostic","전체 기간50m간격 진단 최고")):
+                    if summary.get(key):findings.append({"label":label,"value":summary[key]["hits"],"unit":"곳","region_id":result["city"]})
+            else:algorithms.update(("parameter sensitivity","one-to-one spatial recovery","city median demand quadrants"))
+            limitations.extend(result.get("limitations",[]))
+            high=next((r for r in result.get("original_recovery",[]) if r["fold"]=="high_usage"),None)
+            if high:
+                findings.append({"label":"상위 이용 가림 복구 / "+str(high["target_count"])+"곳","value":high["hits"],"unit":"곳","region_id":result["city"]})
+            matrix=result.get("matrix",{})
+            if matrix.get("available"):
+                findings.append({"label":"대중교통 높음·자전거 낮음 점검 역","value":matrix["counts"]["high_low"],"unit":"역","region_id":result["city"]})
+            for row in result.get("anchor_reviews",[])[:3]:
+                recommendations.append({"feature":row["anchor_name"]+" 연계 여건 점검",
+                    "evidence":"같은 월 승하차 "+str(row["transit_total"])+"명, 주변 자전거 활동 "+str(row["bike_activity"])+"건",
+                    "action":"주변 대여소·접근 경로·운영 조건을 현장 확인하세요.",
+                    "value":"설치 필요나 미충족 수요를 확정하지 않는 검토 근거입니다.",
+                    "validation":"실제 환승·재고·설치 가능성은 미검증입니다."})
+        elif call["tool"] == "get_decision_evidence" and result.get("available"):
             algorithms.update(("PageRank","Cosine similarity","projected buffer union","OSM route audit"))
             city=result["city"]
             union=result["top3_union"]
@@ -461,7 +519,7 @@ def _report(question, answer, evidence):
                     findings.append({"label": row["region_name"] + " 이용 건수", "value": row["total_rentals"],
                                      "unit": "건", "region_id": row["region_id"]})
     if any(c["tool"] == "get_centrality_ranking" for c in evidence):
-        limitations.append("중심성은 이용량과 다른 지표입니다. 세 도시는 같은 2025년12월 개별 Trip을 사용합니다.")
+        limitations.append("중심성은 이용량과 다른 지표입니다. 전체 비교는 공통 2025년12월이며 개별 분석은 해당 도시의 선택 전체 기간입니다.")
     if not evidence:
         limitations.append("분석 도구 결과가 없어 사실 기반 보고서를 만들 수 없습니다.")
     comparisons = []
@@ -491,6 +549,7 @@ def _report(question, answer, evidence):
     if any(e.get("tool") in {"get_transit_vulnerability","get_improvement_ranking","get_transit_linkage"} for e in evidence):
         limitations.append("앵커(지하철역/BRT)와의 직선거리·버퍼 시나리오일 뿐 실제 보행·환승·운영 개선 효과가 아닙니다.")
     findings = list({(x["label"], x["value"], x["unit"]): x for x in findings}.values())
+    if "결론" in question:findings.sort(key=lambda x:not x.get("conclusion_fact",False))
     charts = list({(x["kind"], x["title"]): x for x in charts}.values())
     roles = list({x["station_id"]: x for x in roles}.values())
     recommendations = list({x["evidence"]: x for x in recommendations}.values())
@@ -539,6 +598,11 @@ def finalize_answer(question, answer, evidence, context=None, finish_reason=None
     if not population_validation["passed"]:
         semantic["passed"]=False
         semantic.setdefault("unsupported_claims",[]).append({"reason":population_validation["reason"]})
+    from backend.agents.completion_runtime import checks as completion_checks
+    completion_validation=completion_checks().check(answer,evidence,context)
+    if not completion_validation["passed"]:
+        semantic["passed"]=False
+        semantic.setdefault("unsupported_claims",[]).extend(completion_validation["unsupported_claims"])
     report = _report(question,answer,evidence)
     held = not grounding["passed"] or not station_check["passed"] or not semantic["passed"] or finish_reason == "length" or bool(fallback_reason)
     original = answer
@@ -554,7 +618,7 @@ def finalize_answer(question, answer, evidence, context=None, finish_reason=None
     return {"answer":answer,"solar_answer":original if held and original else None,
             "answer_basis":"tool_summary" if held else "solar_interpretation",
             "report":report,"grounding_validation":grounding,"station_validation":station_check,"semantic_validation":semantic,
-            "anchor_population_validation":population_validation,"decision_validation":decision_validation,"analysis_context":context, "model_finish_reason":finish_reason,"fallback_reason":fallback_reason}
+            "anchor_population_validation":population_validation,"decision_validation":decision_validation,"completion_validation":completion_validation,"analysis_context":context, "model_finish_reason":finish_reason,"fallback_reason":fallback_reason}
 
 def chat(question, context=None):
     if not os.getenv("UPSTAGE_API_KEY"):
@@ -565,23 +629,30 @@ def chat(question, context=None):
         from backend.services.periods import resolve
         ids = list(dict.fromkeys(_region(rid) for rid in context.get("region_ids", [])))
         if not ids: raise HTTPException(400, "분석 대상 도시를 지정하세요.")
-        start, end = resolve("all" if len(ids) > 1 else ids[0], context.get("date_start"), context.get("date_end"))
+        from backend.presentation.individual import matches as individual_matches
+        individual=len(ids)==1 and individual_matches(ids[0],context.get("date_start"),context.get("date_end"))
+        start,end=(context["date_start"],context["date_end"]) if individual else resolve("all" if len(ids)>1 else ids[0],context.get("date_start"),context.get("date_end"))
         if context.get("selected_station") or context.get("selected_candidates"):
             from backend.presentation.selection import selection_context
             candidates=context.get("selected_candidates") or []
             raw={"station":context.get("selected_station"),
                  "candidate_city":candidates[0].get("region_id") if candidates else None,
                  "candidate_ids":[r.get("site_id") for r in candidates]}
-            try:context=selection_context("all" if len(ids)>1 else ids[0],start,end,raw)
+            try:
+                if individual:
+                    from backend.presentation.individual import context as individual_context
+                    context=individual_context(ids[0],start,end,raw)
+                else:context=selection_context("all" if len(ids)>1 else ids[0],start,end,raw)
             except ValueError as error:raise HTTPException(422,str(error))
         else:context={**context,"region_ids":ids,"date_start":start,"date_end":end}
+    individual = bool(context) and individual
     client = OpenAI(api_key=os.environ["UPSTAGE_API_KEY"], base_url="https://api.upstage.ai/v1",
                     timeout=45.0, max_retries=0)
-    prompt = ("서울·대전·세종 공공자전거 분석가입니다. 질문에 맞는 실제 도구를 먼저 호출하세요. 후보3곳 근거·도로망 검증·알고리즘 판단 사례 질문은 get_decision_evidence를 사용하세요. 실제 환승 여부 컬럼의 공식 정의는 미확인이고 세종 N코드를 실제 비환승으로 확정하지 마세요.  도시별 앵커는 서울·대전 지하철역, 세종 BRT 정류장입니다. 세종 신규 입지의 인구밀도는 열과 점수에서 완전히 제외했으며 행정구·시 전체 밀도로 대체하지 않았습니다.  일반 버스 포함 500m 기준은 보조 지표이며 새 후보 수·800~1500m 구간·접근 공백 보완율을 이전 기준과 혼동하지 마세요. "
-              "서울·대전·세종은 2025년12월 개별 대여이력 기준이며 위치 ID는 공식 마스터 검증분만 사용합니다. 대전은 개별 Trip, "
-               "세종 2025-12 상세이력에2026-05 공식 위치 마스터를 ID 연결했습니다. 과거 좌표 동일성은 미검증이며 미매칭 ID는 제외합니다. 선택 기간의 도구 반환값을 우선하고 기간 밖은 분석할 수 없다고 설명하세요. 관측 날짜는 불연속일 수 있습니다. "
+    prompt = ("서울·대전·세종 공공자전거 분석가입니다. 질문에 맞는 실제 도구를 먼저 호출하세요. 방법 검증·재발견·민감도·반복 후보·수요 사분면·연계 여건 점검 역 질문에는 get_method_validation을 사용하세요. 상위 이용 가림 실패를 검증 성공으로 말하지 말고, 공간 조건 후속 코호트는 같은 월의 탐색적 평가임을 구분하세요. 사분면의 높은 승하차/낮은 자전거 활동을 신규 설치 필요나 실제 미충족 수요로 단정하지 마세요. 후보3곳 근거·도로망 검증·알고리즘 판단 사례 질문은 get_decision_evidence를 사용하세요. 실제 환승 여부 컬럼의 공식 정의는 미확인이고 세종 N코드를 실제 비환승으로 확정하지 마세요.  도시별 앵커는 서울·대전 지하철역, 세종 BRT 정류장입니다. 세종 신규 입지의 인구밀도는 열과 점수에서 완전히 제외했으며 행정구·시 전체 밀도로 대체하지 않았습니다.  일반 버스 포함 500m 기준은 보조 지표이며 새 후보 수·800~1500m 구간·접근 공백 보완율을 이전 기준과 혼동하지 마세요. "
+              "전체 도시 비교는 2025년12월이고 개별 도시 분석은 화면에 고정된 전체 관측기간입니다. 각 도구 반환의 실제 기간과 공간 연결 누락을 명시하세요. 대전은 개별 Trip, "
+               "세종 상세이력에2026-05 공식 위치 마스터를 ID 연결했습니다. 과거 좌표 동일성은 미검증이며 미매칭 ID는 제외합니다. 선택 기간의 도구 반환값을 우선하세요. get_method_validation은전체도시선택이면공통12월,개별도시선택이면그도시의보유전체기간결과를사용하세요. 반환되지않은기간의실험수치를대체하지마세요. separate_method_experiment가반환된경우6월개발·7월평가의 별도 실험입니다. 기본12월 결과와 수치를 섞거나 운영 추천 정확도가 입증됐다고 설명하지 마세요. get_city_monthly_trends는 별도의 도시별 장기 자료이므로 해당 도구의 display_start/display_end와 selected_year를 명시하고 선택된 12월 공통 결과와 합산하거나 도시 간 비교하지 마세요. 개별 전체 기간이 지정되면 전체 기간 사전 집계 도구를 사용하고 공통12월로 대체하지 마세요. 질문이 분석 결론·연결 경로·후보의 시간상 이점을 묻는다면 get_project_conclusion을 먼저 선택하고 scope=individual로 지정하세요. 사용자가 공통10개월을 명시한 때에만 scope=common을 선택하세요. 원래 점수순과 별도 경로 검토 순서를 구분하세요. 관측 날짜는 불연속일 수 있습니다. "
               "기존 후보가5개 미만이면 점수를 우수성으로 해석하지 말고 거리·실제 수요 근거를 우선하세요. 신규 입지·대여소 없는 지역 질문은 get_site_planning, 재배치는 get_relocation_candidates를 사용하세요. 구 단위 인구밀도를 실측 격자인구로 말하지 말고 재고 없이 재배치 수량을 생성하지 마세요. 역 연계 시간대 질문에는 get_transit_linkage를 사용하고 linked_count 최대 시간과 linkage_share 최대 시간을 구분하세요. 대중교통 연계 취약 질문에는 get_transit_vulnerability 또는 get_improvement_ranking을 사용하세요. 정류장 데이터 미확보는 분석 불가이며 공간 버퍼 시나리오를 실제 환승률·운영 개선 효과로 말하지 마세요. "
-              "거리를 언급할 때는 앵커 유형(서울·대전=지하철역, 세종=BRT 정류장)을 명시하고, 정류장 단독 표기로 앵커를 지칭하지 마세요. 서울·대전은 최근접 지하철역(앵커) 거리, 세종은 최근접 BRT 정류장(앵커) 거리로 표현하세요. 한계 문구는 앵커(지하철역/BRT)와의 직선거리·버퍼 시나리오일 뿐 실제 환승 효과가 아니라는 점을 명시하세요. 일반 버스 정류장 보조 지표는 명시적으로 구분하세요. 도구 수치와 대여소 ID를 그대로 인용하고 없는 값을 만들지 마세요. 일별 최대·최소는 daily 배열 전체를 비교해 날짜와 건수를 함께 인용하세요. 실제 관측일수는 observed_dates의 고유 날짜 수입니다. "
+              "거리를 언급할 때는 앵커 유형(서울·대전=지하철역, 세종=BRT 정류장)을 명시하고, 정류장 단독 표기로 앵커를 지칭하지 마세요. 서울·대전은 최근접 지하철역(앵커) 거리, 세종은 최근접 BRT 정류장(앵커) 거리로 표현하세요. 직선거리·버퍼 도구는 공간 시나리오임을 명시하고, get_project_conclusion의 경로는 현재 OSRM 도로망 모델임을 명시하세요. 두 방법을 같은 것으로 서술하지 말고 실제 환승 효과와 구분하세요. 일반 버스 정류장 보조 지표는 명시적으로 구분하세요. 도구 수치와 대여소 ID를 그대로 인용하고 없는 값을 만들지 마세요. 일별 최대·최소는 daily 배열 전체를 비교해 날짜와 건수를 함께 인용하세요. 실제 관측일수는 observed_dates의 고유 날짜 수입니다. "
               "관측 사실·해석·운영 제안을 분리한 한국어 답변을 작성하세요. "
               "재고·재배치 자료가 없으므로 부족이나 재배치 필요를 단정하지 말고 PageRank를 환승의 증거로 단정하지 마세요. "
               "불균형은 대여-반납 관측값으로, 군집 안정성은 공통 대여소 ARI로만 설명하세요. "
@@ -590,6 +661,8 @@ def chat(question, context=None):
     if context:
         prompt += " 화면에서 고정한 분석 조건(도구 인자보다 우선): " + json.dumps(context, ensure_ascii=False) + ". 다른 도시나 기간을 조회하지 마세요. selected_station은 질문 표현과 관계없이 분석 대상입니다. selected_candidates는 서버가 현재 기간의 실제 후보 풀과 대조한 선택이며 선택 후보 질문은 get_site_planning으로 근거를 조회하세요. selected_scenario는 사전 계산 공간 버퍼 결과이며 실제 운영 효과로 단정하지 마세요."
     messages = [{"role": "system", "content": prompt}, {"role": "user", "content": question}]
+    from backend.agents.completion_runtime import checks as completion_checks
+    model_json=completion_checks().model_json
     evidence, usage = [], {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
     started = time.monotonic()
     audit = CallAudit(os.getenv("UPSTAGE_MODEL", "solar-mini4"))
@@ -602,6 +675,8 @@ def chat(question, context=None):
                     "llm_status":"incomplete", "provider_error_code":code}
         raise HTTPException(code, {"message":message,**accounting,"evidence":evidence,"llm_status":"failed"})
     try:
+        if len(json.dumps({"messages":messages,"tools":TOOLS},ensure_ascii=False).encode())>100000:
+            return failure(413,"질문과 분석 조건이 AI 입력 예산을 초과했습니다. 분석 조건을 줄여 주세요.")
         completion = audit.complete(client, "tool_selection", messages=messages, tools=TOOLS, tool_choice="required", max_tokens=550)
         if completion.usage:
             for key in usage: usage[key] += getattr(completion.usage, key, 0) or 0
@@ -618,7 +693,7 @@ def chat(question, context=None):
             result = run_tool(call.function.name, args, context) if len(evidence) < 5 else {"error": "도구 호출 횟수 제한"}
             if len(evidence) < 5:
                 evidence.append({"tool": call.function.name, "arguments": args, "result": result, "initiator": "solar", "execution_seconds":round(time.monotonic()-tool_started,3)})
-            messages.append({"role": "tool", "tool_call_id": call.id, "content": json.dumps(result, ensure_ascii=False, default=str)})
+            messages.append({"role": "tool", "tool_call_id": call.id, "content": model_json(call.function.name,result)})
         ids = list(dict.fromkeys(REGION_ALIASES[word] for word in REGION_ALIASES if word in question))
         if context: ids = context["region_ids"]
         if not ids:
@@ -633,16 +708,19 @@ def chat(question, context=None):
                 and (not date_range or e["arguments"].get("date_range", {}) == date_range)
                 and (name != "get_station_details" or e["arguments"].get("station_id") == args.get("station_id"))
                 and (name != "get_centrality_ranking" or e["result"].get("metric") == args.get("metric"))
+                and (name != "get_project_conclusion" or e["result"].get("scope") == ("individual_full" if args.get("scope")=="individual" else "common_multi_month"))
                 and (name != "compare_region_patterns" or e["arguments"].get("region_ids") == args.get("region_ids"))
                 for e in evidence):
                 return
             tool_started = time.monotonic()
             result = run_tool(name, args, context)
             evidence.append({"tool": name, "arguments": args, "result": result, "initiator": "metric_guard", "execution_seconds":round(time.monotonic()-tool_started,3)})
-            messages.append({"role": "system", "content": "필수 지표 검증 결과 " + name + ": " + json.dumps(result, ensure_ascii=False, default=str)})
+            messages.append({"role": "system", "content": "필수 지표 검증 결과 " + name + ": " + model_json(name,result)})
         if len(ids) >= 2 and ("비교" in question or "차이" in question):
             ensure("compare_region_patterns", {"region_ids": ids[:4], "date_range": date_range})
         for rid in ids[:2]:
+            if individual and "결론" in question and "공통" not in question:
+                ensure("get_project_conclusion", {"region_id":rid,"scope":"individual","date_range":date_range})
             if any(word in question for word in ("PageRank", "페이지랭크", "중심성", "연결 거점", "거점")):
                 metric = "betweenness" if "매개" in question else "pagerank"
                 ensure("get_centrality_ranking", {"region_id": rid, "metric": metric, "top_n": 5, "date_range": date_range})
@@ -664,7 +742,7 @@ def chat(question, context=None):
                 ensure("get_region_overview", {"region_id": rid, "date_range": date_range})
             if any(word in question for word in ("우선 검토", "숨은 역할", "후보 유형")):
                 ensure("get_role_candidates", {"region_id": rid, "date_range": date_range})
-            if rid == "sejong":
+            if rid == "sejong" and not any(e["tool"]=="get_project_conclusion" and e["result"].get("available") and e["result"].get("scope")=="individual_full" for e in evidence):
                 ensure("get_data_availability", {"region_id": rid})
             if "이용량" in question and "중심성" in question and rid in ("seoul", "daejeon"):
                 ranking = next((e["result"] for e in evidence if e["tool"] == "get_centrality_ranking"
@@ -678,14 +756,18 @@ def chat(question, context=None):
         messages.append({"role": "system", "content": "이제 도구를 더 호출하지 마세요. 한국어 일반 문장만 작성하고 내부 도구 문법을 출력하지 마세요. 제공된 수치와 ID만 인용하세요. 오류가 난 도구 결과는 분석에 사용하지 마세요."})
         if any(e["tool"] in {"get_transit_vulnerability","get_improvement_ranking"} for e in evidence):
             messages.append({"role":"system","content":"공간 분석 최종 답변은 짧은 한국어 네 문장으로 제한하세요. 첫 문장에 대상 기간·앵커 유형(지하철역/BRT 정류장)과 후보 수, 둘째 문장에 최대 TOP3 대여소 ID와 실제 대여 건수만 인용하세요. 셋째 문장은 공간 버퍼 시나리오와 실제 개선 효과의 차이, 마지막 문장은 인구·보행망 등 추가 검증 한계입니다. 주소·소수 점수·산식은 근거 패널에서 제공하므로 본문에 긴 원시 소수나 전체 도구 값을 나열하지 마세요."})
+        if "결론" in question and any(e["tool"]=="get_project_conclusion" for e in evidence):
+            messages.append({"role":"system","content":"최종 결론은 제목·표·번호 목록 없이 총500자 이내의 짧은4문장으로 끝내세요. 도시·관측기간, 후보ID와 확인한 핵심 결과, 의미, 한계를 각각 짧게 쓰세요. 현행 시간표 예시는 관측기간과 별도 기준임을 명시하고 설명을 늘리지 마세요."})
         phase = "final_answer"
         if context and context.get("selected_candidates"):
             messages.append({"role":"system","content":"이번 보고서의 핵심 대상은 사용자가 선택한 후보입니다. 첫 문장에 선택 후보 site_id와 신규 입지/기존 대여소 유형, 도시·기간을 명시하세요. get_site_planning의 selected_candidates 및 selected_scenario에 있는 추가 면적·중복 면적을 근거로 이유를 설명하세요. 전체 신규 후보 수와 앵커 밖 기존 대여소 수를 섞거나 선택 후보를 전체 순위로 대체하지 마세요. 선택 대여소는 별도 대상이며 get_station_details로 확인하지 않은 이용 수치를 덧붙이지 마세요. 끝에는 실제 운영 효과가 아닌 공간 시나리오라는 한계를 명시하세요."})
         remaining = 100 - (time.monotonic() - started)
         if remaining <= 0:
             return failure(504, "분석 시간 제한을 초과했습니다.")
+        if len(json.dumps({"messages":messages,"tools":TOOLS},ensure_ascii=False).encode())>100000:
+            return failure(413,"분석 근거가 AI 입력 예산을 초과해 서버의 검증된 결과로 요약합니다.")
         completion = audit.complete(client, "final_answer", messages=messages, tools=TOOLS,
-                                    tool_choice="none", max_tokens=450, timeout=min(45.0, remaining))
+                                    tool_choice="none", max_tokens=600, timeout=min(45.0, remaining))
         if completion.usage:
             for key in usage: usage[key] += getattr(completion.usage, key, 0) or 0
         answer = completion.choices[0].message.content or ""

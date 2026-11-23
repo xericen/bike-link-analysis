@@ -1,0 +1,19 @@
+{
+  "prior_three_questions_tokens": 203077,
+  "final_three_questions_tokens": 45353,
+  "observed_token_reduction_ratio": 0.7766709179276826,
+  "current_task_live_questions": 6,
+  "current_task_provider_calls": 12,
+  "current_task_total_tokens": 81695,
+  "input_policy": "100000 UTF8 bytes per provider request including tool definitions; oversized details explicitly omitted, second call withheld if still over budget",
+  "completion_caps": [
+    550,
+    600
+  ],
+  "max_provider_requests_per_chat": 2,
+  "retries": 0,
+  "limitations": [
+    "같은 질문이라도 선택한 도구와 답변 길이가 달라진 관측 비교이며 입력 축약만의 인과적 절감 실험은 아닙니다.",
+    "토큰 실측이며 통화로 된 청구액을 계산한 것은 아닙니다."
+  ]
+}

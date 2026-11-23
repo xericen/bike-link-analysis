@@ -1,0 +1,32 @@
+[
+  {
+    "city": "seoul",
+    "status": 200,
+    "seconds": 0.054269806016236544,
+    "body_bytes": 346040
+  },
+  {
+    "city": "daejeon",
+    "status": 200,
+    "seconds": 0.015499554108828306,
+    "body_bytes": 97730
+  },
+  {
+    "city": "sejong",
+    "status": 200,
+    "seconds": 0.020375498803332448,
+    "body_bytes": 71592
+  },
+  {
+    "city": "all",
+    "status": 200,
+    "seconds": 0.05894653499126434,
+    "body_bytes": 513720
+  },
+  {
+    "city": "unknown",
+    "status": 404,
+    "seconds": 0.002038703067228198,
+    "body_bytes": 49
+  }
+]

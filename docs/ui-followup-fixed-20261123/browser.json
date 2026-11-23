@@ -1,0 +1,10 @@
+{
+  "errors": [],
+  "checks": [
+    "React comparison header and results use December; Sejong actual hourly summary",
+    "React monthly preset requests full available history without fixed2025",
+    "web usage has no duplicated method report and links to improvement evidence",
+    "web AI preset remains available"
+  ],
+  "mobile_overflow": false
+}

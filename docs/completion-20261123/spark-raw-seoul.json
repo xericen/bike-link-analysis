@@ -1,0 +1,91 @@
+{
+  "city": "seoul",
+  "source_revision": "d242f70d56bf206bc15b06e7e22b4cc8ca4c4a57de2983e1f4e001c823d91cb6",
+  "period_start": "2025-01-01",
+  "period_end": "2025-12-31",
+  "spark_version": "4.1.4",
+  "raw_rows": 37372654,
+  "valid_rows": 37176546,
+  "members": 12,
+  "excluded_rows": 196108,
+  "duplicate_rows": 0,
+  "od": {
+    "actual": {
+      "rows": 20994451,
+      "trips": 37176546,
+      "sha256_limb_sums": [
+        "193634078171010434361189926",
+        "193623025424265134075075553",
+        "193627818710814230464653181",
+        "193613522827278810012701490"
+      ]
+    },
+    "expected": {
+      "rows": 20994451,
+      "trips": 37176546,
+      "sha256_limb_sums": [
+        "193634078171010434361189926",
+        "193623025424265134075075553",
+        "193627818710814230464653181",
+        "193613522827278810012701490"
+      ]
+    },
+    "matches": true
+  },
+  "station_usage": {
+    "actual": {
+      "rows": 15509697,
+      "trips": 74352714,
+      "sha256_limb_sums": [
+        "143060758849479781209323401",
+        "142998869196803315093972369",
+        "143039775294704341485579563",
+        "143054740815368602517758449"
+      ]
+    },
+    "expected": {
+      "rows": 15509697,
+      "trips": 74352714,
+      "sha256_limb_sums": [
+        "143060758849479781209323401",
+        "142998869196803315093972369",
+        "143039775294704341485579563",
+        "143054740815368602517758449"
+      ]
+    },
+    "matches": true
+  },
+  "seconds_including_extraction": 1472.337643637089,
+  "built_at": "2026-11-23T13:18:19.127837+00:00",
+  "method": "Raw ZIP -> charset conversion only in Python -> Spark trim/filter/deduplicate -> full daily OD and hourly rental/return aggregates; compare key-count SHA256 four unsigned64-bit limb sums plus row/count totals.",
+  "limitations": [
+    "현재 고정 정규화 규칙의 재현이며 과거 좌표·실제 환승·설치 효과 검증이 아닙니다.",
+    "단일 서버 local[2], 분산 클러스터 확장성 증명 아님.",
+    "해시 다중집합 검사는 충돌 확률이 극히 낮은 무순서 정합성 검사이며 바이트 단위 파일 동일성 주장은 아닙니다."
+  ],
+  "anchor_hours": {
+    "actual": {
+      "rows": 8760,
+      "trips": 37176546,
+      "sha256_limb_sums": [
+        "80384122573824463516931",
+        "80251934245746177411954",
+        "80413901775623576928274",
+        "80332195868702003919184"
+      ]
+    },
+    "expected": {
+      "rows": 8760,
+      "trips": 37176546,
+      "sha256_limb_sums": [
+        "80384122573824463516931",
+        "80251934245746177411954",
+        "80413901775623576928274",
+        "80332195868702003919184"
+      ]
+    },
+    "matches": true,
+    "seconds": 21.506199080031365,
+    "rule": "same fixed common-master located IDs, anchor<=300m; linked = origin OR destination near anchor; unknown = either endpoint not located"
+  }
+}

@@ -7,6 +7,8 @@ import { PageHeader, StatCard, SectionCard, ReportBlock, SimpleDataTable, Summar
 import { cityName } from '../services/presentation'
 
 const questions=[
+  '같은 3개를 설치할 때 점수순·탐욕법·MCLP의 추가 면적과 주변 관측 수요는 어떻게 다른가? get_advanced_research로 최적성의 범위와 날짜별 95% 구간도 확인해줘.',
+  '선택 도시의 보유 전체 기간 월별 이용 변화와 반복되는 취약 후보를 get_city_monthly_trends로 확인해줘. 연도를 제한하지 말고 실제 조회 시작일과 종료일을 명시해줘. 12월 공통 비교와 구분하고 자료 누락도 설명해줘.',
   '이용량은 적지만 연결상 중요한 대여소는 어디인가?',
   '어떤 대여소에 반복적인 순유출이 나타나는가?',
   '어떤 대여소의 중요도가 기간별로 유지되는가?',

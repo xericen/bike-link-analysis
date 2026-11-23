@@ -1,0 +1,9 @@
+{
+  "errors": [],
+  "checks": [
+    "React3cities: header and whole-city recovery match full-period source; no December fallback",
+    "WIZ3cities full histories; all common December; switching back cannot show stale common report"
+  ],
+  "react_mobile_overflow": false,
+  "wiz_mobile_overflow": false
+}

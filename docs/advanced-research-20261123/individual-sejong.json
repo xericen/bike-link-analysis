@@ -1,0 +1,1015 @@
+{
+  "available": true,
+  "city": "sejong",
+  "scope": "individual",
+  "period_start": "2020-01-01",
+  "period_end": "2025-12-31",
+  "location": {
+    "available": true,
+    "original_candidates": 198,
+    "eligible_candidates": 96,
+    "reduced_candidates": 60,
+    "reduction": "anchor<=1500m; score top20 + score-leading representatives of 2km tiles up to40; fill to60",
+    "whole_city_before_reduction": true,
+    "optimality_scope": "축소 후보 집합·고정 참조 위치·공간 모델 안에서만 최적",
+    "demand_definition": "후보 1km 이내 기존 대여소의 관측 대여를 대여소별 한 번 계산. 신규 수요·300m 접근 수요 예측 아님.",
+    "area_definition": "앵커500m 밖·행정경계 안의 후보300m 버퍼 합집합. 정확한 교차 다각형 원자별 중복 제거.",
+    "candidate_sites": [
+      {
+        "site_id": "grid-981000-1830000",
+        "latitude": 36.4696780788357,
+        "longitude": 127.29071378261396,
+        "score": 0.8072390572390571,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-980000-1832500",
+        "latitude": 36.49219586062595,
+        "longitude": 127.27948807100312,
+        "score": 0.7887205387205387,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-980500-1829000",
+        "latitude": 36.46065298335859,
+        "longitude": 127.2851577270128,
+        "score": 0.6927609427609427,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-981000-1829500",
+        "latitude": 36.465170489829205,
+        "longitude": 127.29072589850193,
+        "score": 0.6927609427609427,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-976500-1832000",
+        "latitude": 36.487609685402894,
+        "longitude": 127.24042538335485,
+        "score": 0.6548821548821548,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-979000-1835500",
+        "latitude": 36.51922002316023,
+        "longitude": 127.26824238919524,
+        "score": 0.6515151515151514,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-980000-1831500",
+        "latitude": 36.48318071993516,
+        "longitude": 127.27951362064566,
+        "score": 0.6464646464646464,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-981500-1833000",
+        "latitude": 36.496733206933854,
+        "longitude": 127.29622390419169,
+        "score": 0.6397306397306397,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-983000-1834000",
+        "latitude": 36.5057757758258,
+        "longitude": 127.31295085686604,
+        "score": 0.6363636363636362,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-978000-1836000",
+        "latitude": 36.52370533747503,
+        "longitude": 127.25705934453534,
+        "score": 0.6346801346801346,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-982500-1834000",
+        "latitude": 36.50576689082421,
+        "longitude": 127.30736732848366,
+        "score": 0.6279461279461279,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-979500-1831500",
+        "latitude": 36.48317027556705,
+        "longitude": 127.27393172579488,
+        "score": 0.6262626262626263,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-977500-1836000",
+        "latitude": 36.52369383177634,
+        "longitude": 127.25147454887745,
+        "score": 0.6245791245791246,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-982000-1830500",
+        "latitude": 36.47420471919839,
+        "longitude": 127.30186417990554,
+        "score": 0.6245791245791246,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-976000-1832500",
+        "latitude": 36.492104965086774,
+        "longitude": 127.23482782327824,
+        "score": 0.6212121212121211,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-981000-1832500",
+        "latitude": 36.49221597262788,
+        "longitude": 127.29065316276912,
+        "score": 0.6178451178451179,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-979500-1835000",
+        "latitude": 36.51472319622243,
+        "longitude": 127.27383998725136,
+        "score": 0.6161616161616161,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-983500-1834000",
+        "latitude": 36.50578439950774,
+        "longitude": 127.31853438765845,
+        "score": 0.6144781144781144,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-978000-1830000",
+        "latitude": 36.46961466044731,
+        "longitude": 127.25722824085312,
+        "score": 0.6127946127946127,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-978500-1830000",
+        "latitude": 36.469625882616064,
+        "longitude": 127.26280915708962,
+        "score": 0.6094276094276094,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-981500-1830000",
+        "latitude": 36.46968773515184,
+        "longitude": 127.29629471608459,
+        "score": 0.5959595959595959,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-980000-1832000",
+        "latitude": 36.487688291988974,
+        "longitude": 127.27950084724392,
+        "score": 0.5942760942760943,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-982500-1830500",
+        "latitude": 36.47421385505466,
+        "longitude": 127.30744544170237,
+        "score": 0.5892255892255891,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-980500-1832500",
+        "latitude": 36.49220604722171,
+        "longitude": 127.2850706155022,
+        "score": 0.5875420875420876,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-979500-1835500",
+        "latitude": 36.51923074264539,
+        "longitude": 127.27382687009077,
+        "score": 0.5824915824915824,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-981500-1833500",
+        "latitude": 36.501240773607044,
+        "longitude": 127.29621209302682,
+        "score": 0.5740740740740741,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-982000-1834000",
+        "latitude": 36.50575774450332,
+        "longitude": 127.30178380258324,
+        "score": 0.569023569023569,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-975500-1833000",
+        "latitude": 36.4965999761086,
+        "longitude": 127.22922961626003,
+        "score": 0.563973063973064,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-979500-1829000",
+        "latitude": 36.460632372589906,
+        "longitude": 127.27399716600493,
+        "score": 0.5538720538720538,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-980000-1829000",
+        "latitude": 36.460642808419394,
+        "longitude": 127.27957744509128,
+        "score": 0.5336700336700336,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-975500-1836000",
+        "latitude": 36.523645194125855,
+        "longitude": 127.22913539900861,
+        "score": 0.5269360269360269,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-977500-1836500",
+        "latitude": 36.52820136409506,
+        "longitude": 127.25146012982862,
+        "score": 0.5252525252525252,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-983000-1830500",
+        "latitude": 36.4742227298906,
+        "longitude": 127.3130267059772,
+        "score": 0.5218855218855218,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-976000-1836500",
+        "latitude": 36.52816527218488,
+        "longitude": 127.2347047903339,
+        "score": 0.5168350168350169,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-981000-1832000",
+        "latitude": 36.48770840070203,
+        "longitude": 127.29066529212746,
+        "score": 0.5143097643097643,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-976000-1832000",
+        "latitude": 36.48759741131373,
+        "longitude": 127.23484318702148,
+        "score": 0.5117845117845118,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-975500-1832500",
+        "latitude": 36.49209242780465,
+        "longitude": 127.22924530692441,
+        "score": 0.5084175084175084,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-985000-1832500",
+        "latitude": 36.492285973005956,
+        "longitude": 127.33531363191892,
+        "score": 0.5067340067340067,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-976500-1836500",
+        "latitude": 36.52817756434962,
+        "longitude": 127.24028990017376,
+        "score": 0.5016835016835016,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-978500-1830500",
+        "latitude": 36.474133459668124,
+        "longitude": 127.26279542274455,
+        "score": 0.5008417508417509,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-978000-1837500",
+        "latitude": 36.53722792981694,
+        "longitude": 127.25701705002825,
+        "score": 0.5,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-977500-1837000",
+        "latitude": 36.53270889299447,
+        "longitude": 127.25144570757476,
+        "score": 0.49831649831649827,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-980500-1831500",
+        "latitude": 36.48319090319952,
+        "longitude": 127.28509551833481,
+        "score": 0.4974747474747474,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-983000-1832500",
+        "latitude": 36.492253062348794,
+        "longitude": 127.31298337807708,
+        "score": 0.4957912457912458,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-979500-1831000",
+        "latitude": 36.47866270180471,
+        "longitude": 127.27394481965476,
+        "score": 0.49242424242424243,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-978500-1829000",
+        "latitude": 36.46061071826176,
+        "longitude": 127.26283661662481,
+        "score": 0.49158249158249157,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-978500-1829500",
+        "latitude": 36.46511830214722,
+        "longitude": 127.2628228883828,
+        "score": 0.49158249158249157,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-979000-1829000",
+        "latitude": 36.46062167587055,
+        "longitude": 127.26841688982553,
+        "score": 0.49158249158249157,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-982000-1833500",
+        "latitude": 36.501250179708684,
+        "longitude": 127.30179529271489,
+        "score": 0.48737373737373735,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-979000-1830500",
+        "latitude": 36.474144422655634,
+        "longitude": 127.26837666518442,
+        "score": 0.48232323232323226,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-983000-1832000",
+        "latitude": 36.487745484357724,
+        "longitude": 127.31299421366327,
+        "score": 0.47727272727272724,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-979500-1834500",
+        "latitude": 36.510215646381496,
+        "longitude": 127.27385310149701,
+        "score": 0.47558922558922556,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-981500-1834500",
+        "latitude": 36.51025589670301,
+        "longitude": 127.29618846282077,
+        "score": 0.4747474747474747,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-982500-1832000",
+        "latitude": 36.48773660516606,
+        "longitude": 127.30741197948794,
+        "score": 0.47222222222222215,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-984000-1834500",
+        "latitude": 36.51030032897366,
+        "longitude": 127.3241077230307,
+        "score": 0.46464646464646464,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-981500-1834000",
+        "latitude": 36.50574833686348,
+        "longitude": 127.29620027923673,
+        "score": 0.4629629629629629,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-982000-1830000",
+        "latitude": 36.46969713049109,
+        "longitude": 127.30187565217622,
+        "score": 0.4579124579124579,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-980000-1836000",
+        "latitude": 36.523748745400084,
+        "longitude": 127.27939855776955,
+        "score": 0.4545454545454545,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-984500-1831500",
+        "latitude": 36.483262969531815,
+        "longitude": 127.32975079340784,
+        "score": 0.42003367003367,
+        "district": "세종시"
+      },
+      {
+        "site_id": "grid-978500-1838000",
+        "latitude": 36.54174670532566,
+        "longitude": 127.26258904086873,
+        "score": 0.3939393939393939,
+        "district": "세종시"
+      }
+    ],
+    "comparisons": [
+      {
+        "k": 1,
+        "solver": {
+          "selected": [
+            7
+          ],
+          "objective": 282289.3641491389,
+          "status": "Optimal",
+          "solution_status": "Optimal Solution Found",
+          "proven_optimal": true,
+          "upper_bound": 282289.3641491389,
+          "seconds": 0.01986683695577085,
+          "time_limit": 45,
+          "solver": "PuLP/CBC",
+          "gap_rel_requested": 0
+        },
+        "methods": {
+          "score": {
+            "covered": 282289.3641491384,
+            "optimal_fraction": 0.9999999999999981,
+            "sites": [
+              "grid-981000-1830000"
+            ],
+            "gap_area_m2": 282289.36414913886,
+            "nearby_rentals_unique": 408347,
+            "candidate_buffer_gross_m2": 282289.36414913886
+          },
+          "greedy": {
+            "covered": 282289.36414914206,
+            "optimal_fraction": 1.000000000000011,
+            "sites": [
+              "grid-978500-1829000"
+            ],
+            "gap_area_m2": 282289.36414913886,
+            "nearby_rentals_unique": 17655,
+            "candidate_buffer_gross_m2": 282289.36414913886
+          },
+          "mclp": {
+            "covered": 282289.3641491389,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-981500-1833000"
+            ],
+            "gap_area_m2": 282289.36414913886,
+            "nearby_rentals_unique": 326860,
+            "candidate_buffer_gross_m2": 282289.36414913886
+          }
+        },
+        "objective": "gap_area"
+      },
+      {
+        "k": 2,
+        "solver": {
+          "selected": [
+            11,
+            13
+          ],
+          "objective": 564578.7282982776,
+          "status": "Optimal",
+          "solution_status": "Optimal Solution Found",
+          "proven_optimal": true,
+          "upper_bound": 564578.7282982776,
+          "seconds": 0.02035009511746466,
+          "time_limit": 45,
+          "solver": "PuLP/CBC",
+          "gap_rel_requested": 0
+        },
+        "methods": {
+          "score": {
+            "covered": 564578.7282982784,
+            "optimal_fraction": 1.0000000000000016,
+            "sites": [
+              "grid-981000-1830000",
+              "grid-980000-1832500"
+            ],
+            "gap_area_m2": 564578.7282982776,
+            "nearby_rentals_unique": 683834,
+            "candidate_buffer_gross_m2": 564578.7282982777
+          },
+          "greedy": {
+            "covered": 564578.728298283,
+            "optimal_fraction": 1.0000000000000095,
+            "sites": [
+              "grid-978500-1829000",
+              "grid-981000-1832500"
+            ],
+            "gap_area_m2": 564578.7282982776,
+            "nearby_rentals_unique": 221844,
+            "candidate_buffer_gross_m2": 564578.7282982777
+          },
+          "mclp": {
+            "covered": 564578.7282982776,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-979500-1831500",
+              "grid-982000-1830500"
+            ],
+            "gap_area_m2": 564578.7282982776,
+            "nearby_rentals_unique": 520904,
+            "candidate_buffer_gross_m2": 564578.7282982777
+          }
+        },
+        "objective": "gap_area"
+      },
+      {
+        "k": 3,
+        "solver": {
+          "selected": [
+            6,
+            7,
+            15
+          ],
+          "objective": 846868.0924474194,
+          "status": "Optimal",
+          "solution_status": "Optimal Solution Found",
+          "proven_optimal": true,
+          "upper_bound": 846868.0924474194,
+          "seconds": 0.010761677054688334,
+          "time_limit": 45,
+          "solver": "PuLP/CBC",
+          "gap_rel_requested": 0
+        },
+        "methods": {
+          "score": {
+            "covered": 846868.0924474188,
+            "optimal_fraction": 0.9999999999999993,
+            "sites": [
+              "grid-981000-1830000",
+              "grid-980000-1832500",
+              "grid-980500-1829000"
+            ],
+            "gap_area_m2": 846868.0924474159,
+            "nearby_rentals_unique": 684154,
+            "candidate_buffer_gross_m2": 846868.0924474166
+          },
+          "greedy": {
+            "covered": 846868.0924474235,
+            "optimal_fraction": 1.0000000000000049,
+            "sites": [
+              "grid-978500-1829000",
+              "grid-981000-1832500",
+              "grid-982000-1830500"
+            ],
+            "gap_area_m2": 846868.0924474159,
+            "nearby_rentals_unique": 480800,
+            "candidate_buffer_gross_m2": 846868.0924474166
+          },
+          "mclp": {
+            "covered": 846868.0924474194,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-980000-1831500",
+              "grid-981500-1833000",
+              "grid-981000-1832500"
+            ],
+            "gap_area_m2": 846868.0924474159,
+            "nearby_rentals_unique": 864079,
+            "candidate_buffer_gross_m2": 846868.0924474166
+          }
+        },
+        "objective": "gap_area"
+      },
+      {
+        "k": 1,
+        "solver": {
+          "selected": [
+            43
+          ],
+          "objective": 749562.0,
+          "status": "Optimal",
+          "solution_status": "Optimal Solution Found",
+          "proven_optimal": true,
+          "upper_bound": 749562.0,
+          "seconds": 0.034116020891815424,
+          "time_limit": 45,
+          "solver": "PuLP/CBC",
+          "gap_rel_requested": 0
+        },
+        "methods": {
+          "score": {
+            "covered": 408347.0,
+            "optimal_fraction": 0.5447808186647669,
+            "sites": [
+              "grid-981000-1830000"
+            ],
+            "gap_area_m2": 282289.36414913886,
+            "nearby_rentals_unique": 408347,
+            "candidate_buffer_gross_m2": 282289.36414913886
+          },
+          "greedy": {
+            "covered": 749562.0,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-983000-1832500"
+            ],
+            "gap_area_m2": 189938.77546322957,
+            "nearby_rentals_unique": 749562,
+            "candidate_buffer_gross_m2": 189938.77546322957
+          },
+          "mclp": {
+            "covered": 749562.0,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-983000-1832500"
+            ],
+            "gap_area_m2": 189938.77546322957,
+            "nearby_rentals_unique": 749562,
+            "candidate_buffer_gross_m2": 189938.77546322957
+          }
+        },
+        "objective": "nearby_observed_demand"
+      },
+      {
+        "k": 2,
+        "solver": {
+          "selected": [
+            42,
+            43
+          ],
+          "objective": 1486785.0,
+          "status": "Optimal",
+          "solution_status": "Optimal Solution Found",
+          "proven_optimal": true,
+          "upper_bound": 1486785.0,
+          "seconds": 0.032113872934132814,
+          "time_limit": 45,
+          "solver": "PuLP/CBC",
+          "gap_rel_requested": 0
+        },
+        "methods": {
+          "score": {
+            "covered": 683834.0,
+            "optimal_fraction": 0.45994141721903303,
+            "sites": [
+              "grid-981000-1830000",
+              "grid-980000-1832500"
+            ],
+            "gap_area_m2": 564578.7282982776,
+            "nearby_rentals_unique": 683834,
+            "candidate_buffer_gross_m2": 564578.7282982777
+          },
+          "greedy": {
+            "covered": 1486785.0,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-983000-1832500",
+              "grid-980500-1831500"
+            ],
+            "gap_area_m2": 399851.2265907964,
+            "nearby_rentals_unique": 1486785,
+            "candidate_buffer_gross_m2": 399851.2265907964
+          },
+          "mclp": {
+            "covered": 1486785.0,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-980500-1831500",
+              "grid-983000-1832500"
+            ],
+            "gap_area_m2": 399851.2265907964,
+            "nearby_rentals_unique": 1486785,
+            "candidate_buffer_gross_m2": 399851.2265907964
+          }
+        },
+        "objective": "nearby_observed_demand"
+      },
+      {
+        "k": 3,
+        "solver": {
+          "selected": [
+            42,
+            43,
+            51
+          ],
+          "objective": 2153911.0,
+          "status": "Optimal",
+          "solution_status": "Optimal Solution Found",
+          "proven_optimal": true,
+          "upper_bound": 2153911.0,
+          "seconds": 0.029225818812847137,
+          "time_limit": 45,
+          "solver": "PuLP/CBC",
+          "gap_rel_requested": 0
+        },
+        "methods": {
+          "score": {
+            "covered": 684154.0,
+            "optimal_fraction": 0.3176333655383161,
+            "sites": [
+              "grid-981000-1830000",
+              "grid-980000-1832500",
+              "grid-980500-1829000"
+            ],
+            "gap_area_m2": 846868.0924474159,
+            "nearby_rentals_unique": 684154,
+            "candidate_buffer_gross_m2": 846868.0924474166
+          },
+          "greedy": {
+            "covered": 2153911.0,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-983000-1832500",
+              "grid-980500-1831500",
+              "grid-979500-1834500"
+            ],
+            "gap_area_m2": 517074.53081046103,
+            "nearby_rentals_unique": 2153911,
+            "candidate_buffer_gross_m2": 517074.5308104609
+          },
+          "mclp": {
+            "covered": 2153911.0,
+            "optimal_fraction": 1.0,
+            "sites": [
+              "grid-980500-1831500",
+              "grid-983000-1832500",
+              "grid-979500-1834500"
+            ],
+            "gap_area_m2": 517074.53081046103,
+            "nearby_rentals_unique": 2153911,
+            "candidate_buffer_gross_m2": 517074.5308104609
+          }
+        },
+        "objective": "nearby_observed_demand"
+      }
+    ],
+    "operational_update": false
+  },
+  "headline_ci": {
+    "estimate": 0.7320455572476774,
+    "lower": 0.7310261898220379,
+    "upper": 0.7334408827172618,
+    "level": 0.95,
+    "block_days": 7,
+    "actual_block_min": 7,
+    "replicates": 2000,
+    "seed": 42,
+    "observed_days": 2189,
+    "month_strata": 72,
+    "method": "month-stratified paired moving-block bootstrap; contiguous calendar windows; fixed observed-day counts per month",
+    "block_sensitivity": [
+      {
+        "estimate": 0.7320455572476774,
+        "lower": 0.7304781183053561,
+        "upper": 0.7338594171734047,
+        "level": 0.95,
+        "block_days": 3,
+        "actual_block_min": 3,
+        "replicates": 1000,
+        "seed": 42,
+        "observed_days": 2189,
+        "month_strata": 72,
+        "method": "month-stratified paired moving-block bootstrap; contiguous calendar windows; fixed observed-day counts per month"
+      },
+      {
+        "estimate": 0.7320455572476774,
+        "lower": 0.7312162006250034,
+        "upper": 0.7332811211347775,
+        "level": 0.95,
+        "block_days": 14,
+        "actual_block_min": 14,
+        "replicates": 1000,
+        "seed": 42,
+        "observed_days": 2189,
+        "month_strata": 72,
+        "method": "month-stratified paired moving-block bootstrap; contiguous calendar windows; fixed observed-day counts per month"
+      }
+    ],
+    "calendar_days": 2192,
+    "missing_days": 3,
+    "unknown_endpoint_trips": 201666,
+    "total_trips": 12903589,
+    "linked_trips": 9446015,
+    "period_start": "2020-01-01",
+    "period_end": "2025-12-31",
+    "interpretation": "관측 날짜 구성을 재표본한 비중 변동 범위. 전체 기록의 집계 오차·실제 환승률·미래 예측 구간 아님.",
+    "limitation": "연월별 관측일 수를 고정하고 연속 달력일 블록만 재표본. 누락일을 0으로 채우거나 공백을 잇지 않음. 월내 블록 끝점의 표본확률 차이와 장기 참조자료 편향은 남음."
+  },
+  "explanation": {
+    "available": true,
+    "scope": "training-period high-use 50 located stations; same stations in chronological holdout",
+    "period_start": "2020-01-01",
+    "period_end": "2025-12-31",
+    "train_end": "2024-10-19",
+    "test_start": "2024-10-20",
+    "train_rows": 87550,
+    "test_rows": 21900,
+    "station_ids": [
+      "SJ_00400",
+      "SJ_00278",
+      "SJ_00320",
+      "SJ_00273",
+      "SJ_00390",
+      "SJ_00440",
+      "SJ_00460",
+      "SJ_00415",
+      "SJ_00318",
+      "SJ_00341",
+      "SJ_00316",
+      "SJ_00057",
+      "SJ_00347",
+      "SJ_00338",
+      "SJ_00393",
+      "SJ_00321",
+      "SJ_00205",
+      "SJ_00340",
+      "SJ_00206",
+      "SJ_00275",
+      "SJ_00510",
+      "SJ_00509",
+      "SJ_00480",
+      "SJ_00211",
+      "SJ_00274",
+      "SJ_00135",
+      "SJ_00214",
+      "SJ_00583",
+      "SJ_00272",
+      "SJ_00143",
+      "SJ_00369",
+      "SJ_00144",
+      "SJ_00212",
+      "SJ_00602",
+      "SJ_00554",
+      "SJ_00277",
+      "SJ_00437",
+      "SJ_00452",
+      "SJ_00244",
+      "SJ_00535",
+      "SJ_00659",
+      "SJ_00582",
+      "SJ_00288",
+      "SJ_00085",
+      "SJ_00457",
+      "SJ_00469",
+      "SJ_00326",
+      "SJ_00681",
+      "SJ_00590",
+      "SJ_00337"
+    ],
+    "model": "HistGradientBoostingRegressor poisson, 80 iterations, no early stopping",
+    "mae": 12.796603415174975,
+    "baseline_station_mean_mae": 16.656947732411226,
+    "r2": 0.4790379369885972,
+    "permutation_importance": [
+      {
+        "feature": "weekday",
+        "mae_increase": 3.144611009621232,
+        "std": 0.12032302755883714
+      },
+      {
+        "feature": "month_cos",
+        "mae_increase": 2.9948974519476597,
+        "std": 0.06241635302794161
+      },
+      {
+        "feature": "anchor_distance_m",
+        "mae_increase": 2.782383247897118,
+        "std": 0.06325961429856304
+      },
+      {
+        "feature": "longitude",
+        "mae_increase": 2.382520149849451,
+        "std": 0.10736363250392317
+      },
+      {
+        "feature": "latitude",
+        "mae_increase": 1.361662881634199,
+        "std": 0.06052892421307889
+      },
+      {
+        "feature": "month_sin",
+        "mae_increase": 0.8031036002567251,
+        "std": 0.02735944412228822
+      },
+      {
+        "feature": "stops_500m",
+        "mae_increase": 0.4416767998119305,
+        "std": 0.043120166509301054
+      },
+      {
+        "feature": "facilities_500m",
+        "mae_increase": 0.2619457779241163,
+        "std": 0.01738914817722895
+      },
+      {
+        "feature": "elapsed_days",
+        "mae_increase": 0.1315823458464731,
+        "std": 0.0
+      }
+    ],
+    "partial_dependence": [
+      {
+        "feature": "anchor_distance_m",
+        "points": [
+          {
+            "x": 20.850252341976734,
+            "mean_model_output": 33.60871568280963
+          },
+          {
+            "x": 33.3647170587075,
+            "mean_model_output": 30.56126349972996
+          },
+          {
+            "x": 49.54895325826208,
+            "mean_model_output": 28.292508737432012
+          },
+          {
+            "x": 113.63574212081267,
+            "mean_model_output": 26.81079678085043
+          },
+          {
+            "x": 178.26443602175533,
+            "mean_model_output": 27.163503643782523
+          },
+          {
+            "x": 317.9447566748058,
+            "mean_model_output": 27.115204143789597
+          },
+          {
+            "x": 363.60949415173485,
+            "mean_model_output": 26.726421500411348
+          },
+          {
+            "x": 446.39826364240616,
+            "mean_model_output": 22.22723224686092
+          },
+          {
+            "x": 932.5209649183578,
+            "mean_model_output": 46.15897724589515
+          }
+        ]
+      },
+      {
+        "feature": "facilities_500m",
+        "points": [
+          {
+            "x": 0.0,
+            "mean_model_output": 30.20507130497031
+          },
+          {
+            "x": 1.0,
+            "mean_model_output": 29.77773101655156
+          },
+          {
+            "x": 2.0,
+            "mean_model_output": 30.02266931241461
+          },
+          {
+            "x": 3.0,
+            "mean_model_output": 30.340225565157194
+          }
+        ]
+      }
+    ],
+    "unavailable_variables": [
+      "동일 기간 시간대별 대중교통 승하차",
+      "과거 시설/정류장 위치 변화",
+      "일별 날씨·과거 재고"
+    ],
+    "interpretation": "관측 수요 설명 모델. 중요도와 부분 의존은 모델 내부 연관이며 인과관계·신규 설치 후 수요·운영 예측 성능을 입증하지 않음.",
+    "leakage_controls": [
+      "선정 대여소는 훈련 기간 이용량만 사용",
+      "날짜 경계로 모든 대여소를 함께 분할",
+      "미래 대여량·현재 기간 합계·PageRank를 입력에서 제외",
+      "실제 도시 미관측일을 0으로 채우지 않음"
+    ],
+    "limitations": [
+      "훈련 기간 고이용 50곳만 검토: 도시 전체 대표성 없음",
+      "고정 참조 공간 자료: 과거 동일성 미검증",
+      "상관된 공간변수의 중요도 분산·부분 의존 외삽 가능",
+      "동일 지역의 시간 홀드아웃이며 신규 지역 일반화는 미검증"
+    ]
+  },
+  "code_hash": "808636753b255b41815da03c2ae901db65af9857eddc5ae9d44553f128ff86bc",
+  "methods_hash": "b0d0ed96db9d939ca5146468986573f500a6cbe5e30d5bd33b0db33e2ee4256c",
+  "source_revision": "d9f93413404cd60220bdeb76ba34097c4c5d3b99b2a52cd59066e97aef2b4732"
+}

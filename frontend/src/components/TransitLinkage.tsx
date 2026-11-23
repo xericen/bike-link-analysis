@@ -1,3 +1,4 @@
+import { analysisFetch } from '../services/individual'
 import { useEffect,useState } from 'react'
 import { StationMap } from '../maps/StationMap'
 import type { Station } from '../types'
@@ -9,7 +10,7 @@ export function useLinkage(city:string,start?:string,end?:string,enabled=true) {
  const [value,setValue]=useState<Linkage>(),[error,setError]=useState('')
  useEffect(()=>{let active=true;setValue(undefined);setError('');if(!enabled)return()=>{active=false}
  const q=new URLSearchParams({city});if(start)q.set('date_start',start);if(end)q.set('date_end',end)
- fetch(import.meta.env.BASE_URL.replace(/\/$/,'')+'/api/transit-linkage?'+q).then(async r=>{if(!r.ok)throw new Error('정류장 연계 자료 조회 실패');return r.json()}).then(x=>{if(active)setValue(x)}).catch(e=>{if(active)setError(e.message)})
+ analysisFetch(import.meta.env.BASE_URL.replace(/\/$/,'')+'/api/transit-linkage?'+q).then(async r=>{if(!r.ok)throw new Error('정류장 연계 자료 조회 실패');return r.json()}).then(x=>{if(active)setValue(x)}).catch(e=>{if(active)setError(e.message)})
  return()=>{active=false}
  },[city,start,end,enabled]);return {value,error}
 }
@@ -29,7 +30,7 @@ export function TransitStationMetrics({city,start,end,stationId}:{city:string;st
 export function AnchorNotes({city,start,end}:{city:string;start?:string;end?:string}) {
  const [context,setContext]=useState<{denominator_note:string;source_note:string;station_map_note:string}>()
  useEffect(()=>{let active=true;setContext(undefined);const p=new URLSearchParams({city});if(start)p.set("date_start",start);if(end)p.set("date_end",end)
- fetch(import.meta.env.BASE_URL.replace(/\/$/,"")+"/api/presentation-context?"+p).then(r=>r.ok?r.json():undefined).then(v=>{if(active)setContext(v)}).catch(()=>{})
+ analysisFetch(import.meta.env.BASE_URL.replace(/\/$/,"")+"/api/presentation-context?"+p).then(r=>r.ok?r.json():undefined).then(v=>{if(active)setContext(v)}).catch(()=>{})
  return()=>{active=false}},[city,start,end])
  return <>{context&&<><p className="muted denominator-note">{context.denominator_note}</p><p className="muted anchor-source-note">{city==='sejong'?'세종은 지하철 없이 BRT가 대중교통 축입니다. ':''}{context.source_note}</p>{city==="sejong"&&<p className="muted">{context.station_map_note} · 청록색 큰 원: BRT 정류장(앵커). 노선 선형 자료 미확보로 노선축을 표시하지 않습니다.</p>}</>}</>
 }

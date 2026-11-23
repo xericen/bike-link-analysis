@@ -1,0 +1,55 @@
+{
+  "url": "https://project.wizide.com/course/aafa5691f92f40e89818200a14c98a90?public=1",
+  "api_period_bounds": {
+    "code": 200,
+    "data": {
+      "regions": {
+        "seoul": {
+          "min": "2025-12-01",
+          "max": "2025-12-31",
+          "available": true,
+          "message": ""
+        },
+        "daejeon": {
+          "min": "2025-12-01",
+          "max": "2025-12-31",
+          "available": true,
+          "message": ""
+        },
+        "sejong": {
+          "min": "2025-12-01",
+          "max": "2025-12-31",
+          "available": true,
+          "message": ""
+        },
+        "all": {
+          "min": "2025-12-01",
+          "max": "2025-12-31",
+          "available": true,
+          "message": ""
+        }
+      }
+    }
+  },
+  "cities": [
+    {
+      "city": "서울",
+      "dashboard": "2025-12-01 ~ 2025-12-31",
+      "monthly_overview": "2025-01-01 ~ 2025-12-31 (도시별 전체 이용)",
+      "available_months": "12개월"
+    },
+    {
+      "city": "대전",
+      "dashboard": "2025-12-01 ~ 2025-12-31",
+      "monthly_overview": "2024-08-01 ~ 2026-10-31 (도시별 전체 이용)",
+      "available_months": "27개월"
+    },
+    {
+      "city": "세종",
+      "dashboard": "2025-12-01 ~ 2025-12-31",
+      "monthly_overview": "2020-01-01 ~ 2025-12-31 (도시별 전체 이용)",
+      "available_months": "72개월"
+    }
+  ],
+  "code_changed": false
+}

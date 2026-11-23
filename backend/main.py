@@ -191,6 +191,13 @@ def data_validation():
     return real_data.read_json("research/common_period_checks.json", {"message": "공통 2025-12 검증 결과 준비 중"})
 
 
+@app.get("/api/regions/{region_id}/monthly-trends")
+def monthly_trends(region_id: str, year: int | None = None):
+    if region_id != "all": check_region(region_id)
+    from backend.presentation.monthly_trends import read
+    return read(region_id, year)
+
+
 @app.get("/api/regions/{region_id}/transit-demand")
 def transit_demand_comparison(region_id: str, date_start: date | None = None, date_end: date | None = None):
     check_region(region_id)
@@ -294,3 +301,55 @@ def presentation_context(city: str="seoul",date_start:date|None=None,date_end:da
 def decision_evidence(city: str = "seoul", date_start: date | None = None, date_end: date | None = None):
     from backend.services.decision_evidence import read
     return read(city, *period(date_start,date_end))
+
+@app.get("/api/individual/scopes")
+def individual_scopes():
+    from backend.presentation.individual import scopes
+    return scopes()
+
+@app.get("/api/individual/{city}/{action}")
+def individual_read(city: str, action: str, date_start: str | None=None, date_end: str | None=None,
+                    station_id: str="", q: str="", limit: int=10000):
+    from backend.presentation.individual import read
+    return read(city,action,{"date_start":date_start,"date_end":date_end,"station_id":station_id,"q":q,"limit":limit})
+
+@app.post("/api/individual/{city}/chat")
+def individual_chat(city: str, body: ChatRequest):
+    from backend.presentation.individual import scope,context
+    s=scope(city)
+    supplied=body.context or {}
+    start=supplied.get("date_start",s["start"]);end=supplied.get("date_end",s["end"])
+    ids=supplied.get("region_ids",[city])
+    if ids!=[city]:raise HTTPException(422,"개별 분석은 선택한 한 도시만 허용합니다.")
+    selection={"station":supplied.get("selected_station"),"candidate_city":city,
+               "candidate_ids":[r.get("site_id") for r in supplied.get("selected_candidates",[])]}
+    return chat(body.message,context=context(city,start,end,selection))
+
+
+@app.get("/api/method-validation")
+def method_validation(city: str = "all", scope: str = "common"):
+    """Read a separately labelled December experiment; never compute on requests."""
+    from backend.research.runtime import presentation
+    if scope=="individual":return presentation().individual_report(city)
+    if scope!="common":raise HTTPException(422,"지원하지 않는 분석 범위입니다.")
+    return presentation().read_support(city)
+
+
+@app.get("/api/validation-anchor")
+def validation_anchor(city: str, anchor_name: str):
+    from backend.research.runtime import presentation
+    if city not in {"seoul","daejeon","sejong"}:
+        raise HTTPException(404,"도시별 점검 역을 선택하세요.")
+    return presentation().anchor(city,anchor_name)
+
+
+@app.get("/api/advanced-research")
+def advanced_research(city: str="all", scope: str|None=None, date_start: str|None=None, date_end: str|None=None):
+    from backend.research.advanced_runtime import presentation
+    return presentation().read(city,scope,date_start,date_end)
+
+
+@app.get("/api/conclusion")
+def project_conclusion(city: str="all", scope: str|None=None):
+    from backend.research.conclusion_runtime import presentation
+    return presentation().read(city,scope)

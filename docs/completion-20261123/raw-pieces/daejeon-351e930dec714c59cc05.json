@@ -1,0 +1,11 @@
+{
+  "city": "daejeon",
+  "archive": "15137219.zip",
+  "member": "대전시 공영자전거 타슈 대여이력 정보(26년04월).csv",
+  "member_crc": 3100857999,
+  "encoding": "cp949",
+  "raw_rows": 890205,
+  "excluded_rows": 42004,
+  "duplicate_rows": 0,
+  "valid_rows": 848201
+}

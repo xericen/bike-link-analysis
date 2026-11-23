@@ -1,0 +1,182 @@
+{
+  "checks": [
+    {
+      "mode": "prepared",
+      "city": "all",
+      "width": 1440,
+      "spark_rows": 3,
+      "opening_rows": 55,
+      "transfer_rows": 6,
+      "transfer_sensitivity_rows": 18,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    },
+    {
+      "mode": "prepared",
+      "city": "all",
+      "width": 390,
+      "spark_rows": 3,
+      "opening_rows": 55,
+      "transfer_rows": 6,
+      "transfer_sensitivity_rows": 18,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    },
+    {
+      "mode": "prepared",
+      "city": "seoul",
+      "width": 1440,
+      "spark_rows": 1,
+      "opening_rows": 55,
+      "transfer_rows": 6,
+      "transfer_sensitivity_rows": 18,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    },
+    {
+      "mode": "prepared",
+      "city": "seoul",
+      "width": 390,
+      "spark_rows": 1,
+      "opening_rows": 55,
+      "transfer_rows": 6,
+      "transfer_sensitivity_rows": 18,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    },
+    {
+      "mode": "prepared",
+      "city": "daejeon",
+      "width": 1440,
+      "spark_rows": 1,
+      "opening_rows": 0,
+      "transfer_rows": 0,
+      "transfer_sensitivity_rows": 0,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    },
+    {
+      "mode": "prepared",
+      "city": "daejeon",
+      "width": 390,
+      "spark_rows": 1,
+      "opening_rows": 0,
+      "transfer_rows": 0,
+      "transfer_sensitivity_rows": 0,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    },
+    {
+      "mode": "prepared",
+      "city": "sejong",
+      "width": 1440,
+      "spark_rows": 1,
+      "opening_rows": 0,
+      "transfer_rows": 0,
+      "transfer_sensitivity_rows": 0,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    },
+    {
+      "mode": "prepared",
+      "city": "sejong",
+      "width": 390,
+      "spark_rows": 1,
+      "opening_rows": 0,
+      "transfer_rows": 0,
+      "transfer_sensitivity_rows": 0,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    },
+    {
+      "mode": "react",
+      "city": "all",
+      "width": 1440,
+      "spark_rows": 3,
+      "opening_rows": 55,
+      "transfer_rows": 6,
+      "transfer_sensitivity_rows": 18,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    },
+    {
+      "mode": "react",
+      "city": "all",
+      "width": 390,
+      "spark_rows": 3,
+      "opening_rows": 55,
+      "transfer_rows": 6,
+      "transfer_sensitivity_rows": 18,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    },
+    {
+      "mode": "react",
+      "city": "seoul",
+      "width": 1440,
+      "spark_rows": 1,
+      "opening_rows": 55,
+      "transfer_rows": 6,
+      "transfer_sensitivity_rows": 18,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    },
+    {
+      "mode": "react",
+      "city": "seoul",
+      "width": 390,
+      "spark_rows": 1,
+      "opening_rows": 55,
+      "transfer_rows": 6,
+      "transfer_sensitivity_rows": 18,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    },
+    {
+      "mode": "react",
+      "city": "daejeon",
+      "width": 1440,
+      "spark_rows": 1,
+      "opening_rows": 0,
+      "transfer_rows": 0,
+      "transfer_sensitivity_rows": 0,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    },
+    {
+      "mode": "react",
+      "city": "daejeon",
+      "width": 390,
+      "spark_rows": 1,
+      "opening_rows": 0,
+      "transfer_rows": 0,
+      "transfer_sensitivity_rows": 0,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    },
+    {
+      "mode": "react",
+      "city": "sejong",
+      "width": 1440,
+      "spark_rows": 1,
+      "opening_rows": 0,
+      "transfer_rows": 0,
+      "transfer_sensitivity_rows": 0,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    },
+    {
+      "mode": "react",
+      "city": "sejong",
+      "width": 390,
+      "spark_rows": 1,
+      "opening_rows": 0,
+      "transfer_rows": 0,
+      "transfer_sensitivity_rows": 0,
+      "blocker_cards": 4,
+      "whole_page_vertical_scroll": true
+    }
+  ],
+  "page_errors": [],
+  "live_urls": true
+}

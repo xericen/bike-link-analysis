@@ -1,8 +1,9 @@
+import { analysisFetch } from './individual'
 import type { CentralityResult, ChatResult, ClusterResult, ClusterStability, CompareResult, DataSource, HiddenHubValidation, HiddenHubsResult, ImbalanceResult, Network, Overview, Region, RoleCandidatesResult, RoleHistory, SimilarityResult, SourceInfo, Station, TransitDemand, Validation } from '../types'
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   const mount = import.meta.env.BASE_URL.replace(/\/$/, '')
-  const response = await fetch(mount + path, options)
+  const response = await analysisFetch(mount + path, options)
   if (!response.ok) {
     let message = `요청 실패 (${response.status})`
     try { const body = await response.json(); message = body.detail || message } catch { /* keep status */ }

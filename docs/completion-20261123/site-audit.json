@@ -1,0 +1,83 @@
+{
+  "seoul_dock_master": [
+    {
+      "site_id": "grid-961000-1952500",
+      "dock_station_id": "ST-398",
+      "unique_name_and_5m_match": true,
+      "official_master": {
+        "official_station_number": "631",
+        "name": " 답십리역 1번출구",
+        "distance_m": 0.0,
+        "lcd_rack_count": null,
+        "qr_rack_count": 15
+      },
+      "source_date": "2026-06",
+      "is_historical_2025_inventory": false,
+      "field_verified": false
+    },
+    {
+      "site_id": "grid-961500-1952500",
+      "dock_station_id": "ST-243",
+      "unique_name_and_5m_match": true,
+      "official_master": {
+        "official_station_number": "529",
+        "name": " 장한평역 8번 출구 앞",
+        "distance_m": 0.0,
+        "lcd_rack_count": null,
+        "qr_rack_count": 8
+      },
+      "source_date": "2026-06",
+      "is_historical_2025_inventory": false,
+      "field_verified": false
+    },
+    {
+      "site_id": "grid-942000-1946000",
+      "dock_station_id": "ST-2005",
+      "unique_name_and_5m_match": true,
+      "official_master": {
+        "official_station_number": "779",
+        "name": " 신정1동 주민센터 앞",
+        "distance_m": 0.0,
+        "lcd_rack_count": null,
+        "qr_rack_count": 20
+      },
+      "source_date": "2026-06",
+      "is_historical_2025_inventory": false,
+      "field_verified": false
+    },
+    {
+      "site_id": "grid-960000-1954500",
+      "dock_station_id": "ST-1317",
+      "unique_name_and_5m_match": true,
+      "official_master": {
+        "official_station_number": "1354",
+        "name": " 고려대학교 2번출구",
+        "distance_m": 0.0,
+        "lcd_rack_count": 22,
+        "qr_rack_count": null
+      },
+      "source_date": "2026-06",
+      "is_historical_2025_inventory": false,
+      "field_verified": false
+    },
+    {
+      "site_id": "grid-961000-1955500",
+      "dock_station_id": "ST-579",
+      "unique_name_and_5m_match": true,
+      "official_master": {
+        "official_station_number": "1333",
+        "name": " 석관초등학교 앞",
+        "distance_m": 0.0,
+        "lcd_rack_count": 20,
+        "qr_rack_count": null
+      },
+      "source_date": "2026-06",
+      "is_historical_2025_inventory": false,
+      "field_verified": false
+    }
+  ],
+  "master_sha256": "a2dcee10a341ac9d6beaf14f83c1e46b38bc96ffc8289340508b01cac0d464f1",
+  "matching_rule": "공식 이름 공백 제거 후 동일 + 좌표5m 이내 + 유일 매칭. 근접 좌표만으로 ID를 강제 연결하지 않음.",
+  "field_verification_complete": false,
+  "reason": "현장 방문·부지 사용 권한·시점별 재고·설치 전후 실측 기록 미제공. 공식 마스터의 거치대 열을 재고로 해석하지 않음."
+}

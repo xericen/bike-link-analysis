@@ -1,0 +1,1574 @@
+{
+  "passed": true,
+  "matching_metric_checks": 288,
+  "all_input_metadata_unchanged": true,
+  "small_input_sha256_matches": true,
+  "no_development_evaluation_hidden_id_overlap": true,
+  "same_fold_targets_can_share_candidate_neighborhood": true,
+  "failure_stages": [
+    {
+      "city": "seoul",
+      "fold": "gap_high_usage",
+      "selected": "500:demand",
+      "n": 10,
+      "counts": {
+        "rank_below_top10": 6,
+        "matched": 2,
+        "no_candidate": 2
+      },
+      "stations": [
+        {
+          "station_id": "ST-824",
+          "station_name": "신방화사거리",
+          "observed_rentals": 3391,
+          "nearest_candidate_m": 122.49244941314961,
+          "best_individual_rank_within_300m": 28,
+          "nearest_remaining_station_projected_m": 367.86712627861993,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST-604",
+          "station_name": "과기대 입구(우)",
+          "observed_rentals": 3255,
+          "nearest_candidate_m": 250.56749607813634,
+          "best_individual_rank_within_300m": 78,
+          "nearest_remaining_station_projected_m": 398.7241167776746,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST-262",
+          "station_name": "장안동 사거리",
+          "observed_rentals": 3185,
+          "nearest_candidate_m": 163.2748386306533,
+          "best_individual_rank_within_300m": 214,
+          "nearest_remaining_station_projected_m": 384.0695370580011,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST-514",
+          "station_name": "서남환경공원 버스정류장",
+          "observed_rentals": 3126,
+          "nearest_candidate_m": 135.5557563566298,
+          "best_individual_rank_within_300m": 2,
+          "nearest_remaining_station_projected_m": 509.07068497610527,
+          "stage": "top10_nearby",
+          "joint_match_stage": "matched"
+        },
+        {
+          "station_id": "ST-479",
+          "station_name": "역촌파출소",
+          "observed_rentals": 3123,
+          "nearest_candidate_m": 154.43134087390044,
+          "best_individual_rank_within_300m": 90,
+          "nearest_remaining_station_projected_m": 530.1558727414049,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST-1300",
+          "station_name": "장안동위더스빌옆",
+          "observed_rentals": 3029,
+          "nearest_candidate_m": 257.09066826310107,
+          "best_individual_rank_within_300m": 55,
+          "nearest_remaining_station_projected_m": 415.0713470511408,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST-2270",
+          "station_name": "삼육서울병원 버스정류장",
+          "observed_rentals": 2923,
+          "nearest_candidate_m": 185.36543867268506,
+          "best_individual_rank_within_300m": 208,
+          "nearest_remaining_station_projected_m": 372.9064754402223,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST-1663",
+          "station_name": "중앙농협(자양동)",
+          "observed_rentals": 2877,
+          "nearest_candidate_m": 646.1202029742134,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 381.4293250282921,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-987",
+          "station_name": "원일교회",
+          "observed_rentals": 2796,
+          "nearest_candidate_m": 175.86024074409877,
+          "best_individual_rank_within_300m": 5,
+          "nearest_remaining_station_projected_m": 333.34011426667894,
+          "stage": "top10_nearby",
+          "joint_match_stage": "matched"
+        },
+        {
+          "station_id": "ST-2494",
+          "station_name": "염창나들목",
+          "observed_rentals": 2791,
+          "nearest_candidate_m": 339.39919859399913,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 452.6170877389065,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        }
+      ]
+    },
+    {
+      "city": "seoul",
+      "fold": "gap_random",
+      "selected": "500:demand",
+      "n": 10,
+      "counts": {
+        "no_candidate": 5,
+        "rank_below_top10": 5
+      },
+      "stations": [
+        {
+          "station_id": "ST-153",
+          "station_name": "창경궁 입구",
+          "observed_rentals": 650,
+          "nearest_candidate_m": 330.26989615196345,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 338.57438835487164,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-3334",
+          "station_name": "우리은행장안지점 앞",
+          "observed_rentals": 1934,
+          "nearest_candidate_m": 231.80463850958827,
+          "best_individual_rank_within_300m": 45,
+          "nearest_remaining_station_projected_m": 344.2892896827032,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST-555",
+          "station_name": "명지대학교 도서관",
+          "observed_rentals": 1656,
+          "nearest_candidate_m": 400.82137053585507,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 300.3008892116473,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-662",
+          "station_name": "신도림동주민센터 앞",
+          "observed_rentals": 2193,
+          "nearest_candidate_m": 416.94032267109486,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 344.3235153028088,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-1620",
+          "station_name": "천일초교 사거리",
+          "observed_rentals": 890,
+          "nearest_candidate_m": 364.2238409049661,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 303.3661434500615,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-2880",
+          "station_name": "용산 푸르지오 파크타운 1단지 앞",
+          "observed_rentals": 406,
+          "nearest_candidate_m": 359.7827773495209,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 331.39909122602484,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-2602",
+          "station_name": "아시아선수촌아파트 교차로",
+          "observed_rentals": 2016,
+          "nearest_candidate_m": 130.0955171062975,
+          "best_individual_rank_within_300m": 81,
+          "nearest_remaining_station_projected_m": 438.7201653980614,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST-3182",
+          "station_name": "구로월드아파트 앞",
+          "observed_rentals": 1765,
+          "nearest_candidate_m": 25.0497597892419,
+          "best_individual_rank_within_300m": 57,
+          "nearest_remaining_station_projected_m": 436.7663326691695,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST-2839",
+          "station_name": "신청담나들목",
+          "observed_rentals": 412,
+          "nearest_candidate_m": 135.78416241814153,
+          "best_individual_rank_within_300m": 522,
+          "nearest_remaining_station_projected_m": 324.31540835812154,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST-2081",
+          "station_name": "서울과학기술대학교(어학교육원)",
+          "observed_rentals": 2042,
+          "nearest_candidate_m": 174.00860804957355,
+          "best_individual_rank_within_300m": 69,
+          "nearest_remaining_station_projected_m": 466.1669775322677,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        }
+      ]
+    },
+    {
+      "city": "seoul",
+      "fold": "spatial_block",
+      "selected": "500:demand",
+      "n": 18,
+      "counts": {
+        "rank_below_top10": 5,
+        "no_candidate": 13
+      },
+      "stations": [
+        {
+          "station_id": "ST-132",
+          "station_name": "종각역 1번출구 앞",
+          "observed_rentals": 2201,
+          "nearest_candidate_m": 287.7268631835853,
+          "best_individual_rank_within_300m": 26,
+          "nearest_remaining_station_projected_m": 376.748673231049,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST-134",
+          "station_name": "광교사거리 남측",
+          "observed_rentals": 1212,
+          "nearest_candidate_m": 484.4296262034854,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 290.18371000359184,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-143",
+          "station_name": "낙원상가 옆",
+          "observed_rentals": 1371,
+          "nearest_candidate_m": 39.19395442755518,
+          "best_individual_rank_within_300m": 33,
+          "nearest_remaining_station_projected_m": 340.0686281374804,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST-144",
+          "station_name": "탑골공원 앞",
+          "observed_rentals": 816,
+          "nearest_candidate_m": 295.44580624149046,
+          "best_individual_rank_within_300m": 33,
+          "nearest_remaining_station_projected_m": 306.70201593593504,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST-145",
+          "station_name": "청계2가 사거리 옆",
+          "observed_rentals": 1545,
+          "nearest_candidate_m": 503.10338081447657,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 276.9090057125269,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-147",
+          "station_name": "을지로2가 사거리 북측",
+          "observed_rentals": 1211,
+          "nearest_candidate_m": 736.2135435916324,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 67.76366254346678,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-1607",
+          "station_name": "종로2가 버스정류장 (종각방향)",
+          "observed_rentals": 1317,
+          "nearest_candidate_m": 312.5712327952904,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 465.9147240945626,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-1668",
+          "station_name": "을지로입구역 2번출구",
+          "observed_rentals": 2029,
+          "nearest_candidate_m": 737.8043245300589,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 66.69455184890217,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-1778",
+          "station_name": "삼일교(시그니쳐 타워)",
+          "observed_rentals": 1227,
+          "nearest_candidate_m": 575.2218724247665,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 215.5007774034761,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-1805",
+          "station_name": "종로타워빌딩",
+          "observed_rentals": 1390,
+          "nearest_candidate_m": 279.28728295748624,
+          "best_individual_rank_within_300m": 26,
+          "nearest_remaining_station_projected_m": 479.56319112008293,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST-181",
+          "station_name": "SK 서린빌딩 앞",
+          "observed_rentals": 1723,
+          "nearest_candidate_m": 432.15421145063584,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 271.67445530675997,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-1829",
+          "station_name": "종로2가 사거리",
+          "observed_rentals": 1437,
+          "nearest_candidate_m": 349.78304665752574,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 252.06077413042223,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-2422",
+          "station_name": "서울지방고용노동청 앞",
+          "observed_rentals": 1695,
+          "nearest_candidate_m": 600.7049256853576,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 185.1333432790657,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-2472",
+          "station_name": "조계사앞사거리",
+          "observed_rentals": 1430,
+          "nearest_candidate_m": 121.37707628139624,
+          "best_individual_rank_within_300m": 26,
+          "nearest_remaining_station_projected_m": 399.7020018516799,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST-2517",
+          "station_name": "국제빌딩",
+          "observed_rentals": 571,
+          "nearest_candidate_m": 674.4890917377626,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 118.77363834193895,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-2526",
+          "station_name": "롯데시티호텔",
+          "observed_rentals": 616,
+          "nearest_candidate_m": 676.6703688201602,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 102.89942592785302,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-2693",
+          "station_name": "서울시청",
+          "observed_rentals": 1890,
+          "nearest_candidate_m": 759.9568869061577,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 85.41616502161447,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST-336",
+          "station_name": "종각역 5번출구",
+          "observed_rentals": 1761,
+          "nearest_candidate_m": 356.0281149155886,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 409.13967897188536,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        }
+      ]
+    },
+    {
+      "city": "daejeon",
+      "fold": "gap_high_usage",
+      "selected": "500:demand",
+      "n": 10,
+      "counts": {
+        "no_candidate": 7,
+        "rank_below_top10": 2,
+        "matched": 1
+      },
+      "stations": [
+        {
+          "station_id": "ST0317",
+          "station_name": "용문동 롯데렌터카",
+          "observed_rentals": 925,
+          "nearest_candidate_m": 1729.6395983197601,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 390.30707042357983,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST0505",
+          "station_name": "문화동 주공3단지아파트(302동)",
+          "observed_rentals": 913,
+          "nearest_candidate_m": 755.7873145228305,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 317.6312030252617,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST0188",
+          "station_name": "어은동 한국생명공학연구원 입구",
+          "observed_rentals": 864,
+          "nearest_candidate_m": 233.54519753383275,
+          "best_individual_rank_within_300m": 36,
+          "nearest_remaining_station_projected_m": 496.62462504879727,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST1065",
+          "station_name": "상대동 상대초등학교",
+          "observed_rentals": 819,
+          "nearest_candidate_m": 25.34710854267403,
+          "best_individual_rank_within_300m": 5,
+          "nearest_remaining_station_projected_m": 360.2517562431557,
+          "stage": "top10_nearby",
+          "joint_match_stage": "matched"
+        },
+        {
+          "station_id": "ST0319",
+          "station_name": "가장동 들말어린이공원",
+          "observed_rentals": 774,
+          "nearest_candidate_m": 813.0676846855364,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 333.0060879374341,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST0749",
+          "station_name": "중촌동 제일프라자",
+          "observed_rentals": 712,
+          "nearest_candidate_m": 1657.5417305589262,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 300.49687669169066,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST1194",
+          "station_name": "관평동 대덕비즈센터 남문 맞은편",
+          "observed_rentals": 702,
+          "nearest_candidate_m": 348.69913766048563,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 392.9285256803624,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST1365",
+          "station_name": "태평동 삼부새롬아파트 101동앞",
+          "observed_rentals": 675,
+          "nearest_candidate_m": 1250.5500068581734,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 304.5341254627021,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST0347",
+          "station_name": "상대동 목련아파트 2단지 입구",
+          "observed_rentals": 633,
+          "nearest_candidate_m": 137.9160635008711,
+          "best_individual_rank_within_300m": 43,
+          "nearest_remaining_station_projected_m": 503.9438941474356,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST1183",
+          "station_name": "홍도동 홍도아파트 버스정류장",
+          "observed_rentals": 586,
+          "nearest_candidate_m": 1901.4797819673804,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 358.1035689358056,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        }
+      ]
+    },
+    {
+      "city": "daejeon",
+      "fold": "gap_random",
+      "selected": "500:demand",
+      "n": 10,
+      "counts": {
+        "rank_below_top10": 5,
+        "no_candidate": 5
+      },
+      "stations": [
+        {
+          "station_id": "ST1175",
+          "station_name": "미호동 금강로하스대청공원",
+          "observed_rentals": 115,
+          "nearest_candidate_m": 167.84467342752907,
+          "best_individual_rank_within_300m": 441,
+          "nearest_remaining_station_projected_m": 823.2762956196204,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST1183",
+          "station_name": "홍도동 홍도아파트 버스정류장",
+          "observed_rentals": 586,
+          "nearest_candidate_m": 1901.4797819673804,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 358.1035689358056,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST0145",
+          "station_name": "신일동 대덕산업단지 BRT정류장",
+          "observed_rentals": 437,
+          "nearest_candidate_m": 152.88524025806726,
+          "best_individual_rank_within_300m": 96,
+          "nearest_remaining_station_projected_m": 546.7284259400947,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST1194",
+          "station_name": "관평동 대덕비즈센터 남문 맞은편",
+          "observed_rentals": 702,
+          "nearest_candidate_m": 348.69913766048563,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 392.9285256803624,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST0399",
+          "station_name": "가정동 전자통신연구원",
+          "observed_rentals": 159,
+          "nearest_candidate_m": 209.97244589434192,
+          "best_individual_rank_within_300m": 124,
+          "nearest_remaining_station_projected_m": 413.09118172277334,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST0423",
+          "station_name": "삼정동 삼정삼거리",
+          "observed_rentals": 49,
+          "nearest_candidate_m": 452.3469109324714,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 1076.3452660405483,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST0347",
+          "station_name": "상대동 목련아파트 2단지 입구",
+          "observed_rentals": 633,
+          "nearest_candidate_m": 137.9160635008711,
+          "best_individual_rank_within_300m": 34,
+          "nearest_remaining_station_projected_m": 381.1492006977325,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST0984",
+          "station_name": "문지동 싸이언스빌3가 대덕벤처협동화단지",
+          "observed_rentals": 474,
+          "nearest_candidate_m": 310.7355553062784,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 323.3562988740492,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST0166",
+          "station_name": "지족동 노은3지구 트리풀시티포레(105동)",
+          "observed_rentals": 48,
+          "nearest_candidate_m": 234.91048482782205,
+          "best_individual_rank_within_300m": 137,
+          "nearest_remaining_station_projected_m": 303.0105532272914,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "ST1365",
+          "station_name": "태평동 삼부새롬아파트 101동앞",
+          "observed_rentals": 675,
+          "nearest_candidate_m": 1250.5500068581734,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 304.5341254627021,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        }
+      ]
+    },
+    {
+      "city": "daejeon",
+      "fold": "spatial_block",
+      "selected": "500:demand",
+      "n": 24,
+      "counts": {
+        "near_top10_but_one_to_one_conflict": 12,
+        "no_candidate": 10,
+        "matched": 2
+      },
+      "stations": [
+        {
+          "station_id": "ST0012",
+          "station_name": "둔산동 시청역 8번출구",
+          "observed_rentals": 1197,
+          "nearest_candidate_m": 248.30747769081037,
+          "best_individual_rank_within_300m": 5,
+          "nearest_remaining_station_projected_m": 202.91214903208862,
+          "stage": "top10_nearby",
+          "joint_match_stage": "near_top10_but_one_to_one_conflict"
+        },
+        {
+          "station_id": "ST0362",
+          "station_name": "둔산동 현대해상",
+          "observed_rentals": 912,
+          "nearest_candidate_m": 235.4765886150351,
+          "best_individual_rank_within_300m": 4,
+          "nearest_remaining_station_projected_m": 344.0701676434887,
+          "stage": "top10_nearby",
+          "joint_match_stage": "near_top10_but_one_to_one_conflict"
+        },
+        {
+          "station_id": "ST0363",
+          "station_name": "둔산동 을지대학병원",
+          "observed_rentals": 527,
+          "nearest_candidate_m": 403.95074251125715,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 475.32351595089807,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST0364",
+          "station_name": "둔산동 대전경찰청",
+          "observed_rentals": 216,
+          "nearest_candidate_m": 144.88504697432455,
+          "best_individual_rank_within_300m": 5,
+          "nearest_remaining_station_projected_m": 456.719036443665,
+          "stage": "top10_nearby",
+          "joint_match_stage": "near_top10_but_one_to_one_conflict"
+        },
+        {
+          "station_id": "ST0365",
+          "station_name": "둔산동 시교육청옆 환승지",
+          "observed_rentals": 296,
+          "nearest_candidate_m": 125.34811866158473,
+          "best_individual_rank_within_300m": 5,
+          "nearest_remaining_station_projected_m": 282.73096822327335,
+          "stage": "top10_nearby",
+          "joint_match_stage": "near_top10_but_one_to_one_conflict"
+        },
+        {
+          "station_id": "ST0379",
+          "station_name": "둔산동 캐피탈 타워",
+          "observed_rentals": 630,
+          "nearest_candidate_m": 614.0794218253261,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 225.73198721646241,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST0384",
+          "station_name": "둔산동 대전시청(북문)",
+          "observed_rentals": 595,
+          "nearest_candidate_m": 186.76242088661644,
+          "best_individual_rank_within_300m": 5,
+          "nearest_remaining_station_projected_m": 197.22402930535137,
+          "stage": "top10_nearby",
+          "joint_match_stage": "near_top10_but_one_to_one_conflict"
+        },
+        {
+          "station_id": "ST0385",
+          "station_name": "둔산동 현대아이텔(시청역 6번출구)",
+          "observed_rentals": 1804,
+          "nearest_candidate_m": 249.61101986597785,
+          "best_individual_rank_within_300m": 5,
+          "nearest_remaining_station_projected_m": 216.56140132731593,
+          "stage": "top10_nearby",
+          "joint_match_stage": "near_top10_but_one_to_one_conflict"
+        },
+        {
+          "station_id": "ST0407",
+          "station_name": "둔산동 하이마트",
+          "observed_rentals": 2296,
+          "nearest_candidate_m": 330.1870988503414,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 289.9725697808274,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST0434",
+          "station_name": "둔산동 호텔 그레이톤 둔산",
+          "observed_rentals": 785,
+          "nearest_candidate_m": 108.35797367905963,
+          "best_individual_rank_within_300m": 5,
+          "nearest_remaining_station_projected_m": 285.3921901182601,
+          "stage": "top10_nearby",
+          "joint_match_stage": "near_top10_but_one_to_one_conflict"
+        },
+        {
+          "station_id": "ST0435",
+          "station_name": "둔산동 더캐피탈웨딩",
+          "observed_rentals": 349,
+          "nearest_candidate_m": 635.5670341965575,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 222.6882806169737,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST0436",
+          "station_name": "둔산동 한국생산성본부",
+          "observed_rentals": 309,
+          "nearest_candidate_m": 697.3277050063749,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 150.96419028104467,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST0437",
+          "station_name": "둔산동 대전가정법원 입구",
+          "observed_rentals": 250,
+          "nearest_candidate_m": 73.8068511591392,
+          "best_individual_rank_within_300m": 5,
+          "nearest_remaining_station_projected_m": 315.7086216926412,
+          "stage": "top10_nearby",
+          "joint_match_stage": "matched"
+        },
+        {
+          "station_id": "ST0438",
+          "station_name": "둔산동 시청역 1번출구",
+          "observed_rentals": 396,
+          "nearest_candidate_m": 220.83762899884138,
+          "best_individual_rank_within_300m": 5,
+          "nearest_remaining_station_projected_m": 212.2866876353112,
+          "stage": "top10_nearby",
+          "joint_match_stage": "near_top10_but_one_to_one_conflict"
+        },
+        {
+          "station_id": "ST0439",
+          "station_name": "둔산동 시청역 6번출구",
+          "observed_rentals": 547,
+          "nearest_candidate_m": 174.3706578961544,
+          "best_individual_rank_within_300m": 5,
+          "nearest_remaining_station_projected_m": 295.7381519666919,
+          "stage": "top10_nearby",
+          "joint_match_stage": "near_top10_but_one_to_one_conflict"
+        },
+        {
+          "station_id": "ST0440",
+          "station_name": "둔산동 시청역 4번출구",
+          "observed_rentals": 447,
+          "nearest_candidate_m": 138.56322903296407,
+          "best_individual_rank_within_300m": 5,
+          "nearest_remaining_station_projected_m": 300.93718138727894,
+          "stage": "top10_nearby",
+          "joint_match_stage": "near_top10_but_one_to_one_conflict"
+        },
+        {
+          "station_id": "ST0456",
+          "station_name": "둔산동 둔산경찰서(대덕대로)",
+          "observed_rentals": 1509,
+          "nearest_candidate_m": 668.2060617279723,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 160.0450455659334,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST0466",
+          "station_name": "둔산동 SK브로드밴드",
+          "observed_rentals": 1181,
+          "nearest_candidate_m": 162.06985059329892,
+          "best_individual_rank_within_300m": 4,
+          "nearest_remaining_station_projected_m": 265.5261285834631,
+          "stage": "top10_nearby",
+          "joint_match_stage": "near_top10_but_one_to_one_conflict"
+        },
+        {
+          "station_id": "ST1032",
+          "station_name": "둔산동 정부청사역 4번출구",
+          "observed_rentals": 2117,
+          "nearest_candidate_m": 618.7425651727247,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 206.24136704319082,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST1039",
+          "station_name": "둔산동 타임월드",
+          "observed_rentals": 3025,
+          "nearest_candidate_m": 99.70424938781305,
+          "best_individual_rank_within_300m": 4,
+          "nearest_remaining_station_projected_m": 282.0432972849186,
+          "stage": "top10_nearby",
+          "joint_match_stage": "matched"
+        },
+        {
+          "station_id": "ST1080",
+          "station_name": "둔산동 대전근로자종합복지회관",
+          "observed_rentals": 474,
+          "nearest_candidate_m": 301.97878786752744,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 501.489043574008,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST1151",
+          "station_name": "둔산동 서구청",
+          "observed_rentals": 490,
+          "nearest_candidate_m": 275.9229719208381,
+          "best_individual_rank_within_300m": 5,
+          "nearest_remaining_station_projected_m": 503.2001523732375,
+          "stage": "top10_nearby",
+          "joint_match_stage": "near_top10_but_one_to_one_conflict"
+        },
+        {
+          "station_id": "ST1357",
+          "station_name": "둔산동 샘머리공원(동측)",
+          "observed_rentals": 109,
+          "nearest_candidate_m": 462.7048682476651,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 344.50338870950617,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "ST1363",
+          "station_name": "둔산동 정부청사역 2번출구",
+          "observed_rentals": 437,
+          "nearest_candidate_m": 538.1952609216612,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 245.62107297168026,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        }
+      ]
+    },
+    {
+      "city": "sejong",
+      "fold": "gap_high_usage",
+      "selected": "500:equal",
+      "n": 10,
+      "counts": {
+        "matched": 1,
+        "no_candidate": 7,
+        "rank_below_top10": 2
+      },
+      "stations": [
+        {
+          "station_id": "SJ_00426",
+          "station_name": "조치원_삼일아파트",
+          "observed_rentals": 220,
+          "nearest_candidate_m": 160.33087793640473,
+          "best_individual_rank_within_300m": 2,
+          "nearest_remaining_station_projected_m": 399.1935190461166,
+          "stage": "top10_nearby",
+          "joint_match_stage": "matched"
+        },
+        {
+          "station_id": "SJ_00442",
+          "station_name": "조치원_고려대학교",
+          "observed_rentals": 178,
+          "nearest_candidate_m": 500.1249965449243,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 321.36791004297265,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00431",
+          "station_name": "조치원_홍익대학교 정문",
+          "observed_rentals": 130,
+          "nearest_candidate_m": 175.27463515258322,
+          "best_individual_rank_within_300m": 28,
+          "nearest_remaining_station_projected_m": 783.3789427595482,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ-00695",
+          "station_name": "조치원_세종특별자치시교육청교육원입구",
+          "observed_rentals": 128,
+          "nearest_candidate_m": 547.0924696189928,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 352.802937934463,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00047",
+          "station_name": "한솔동_세종보 입구",
+          "observed_rentals": 89,
+          "nearest_candidate_m": 423.5272612237805,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 341.71105477838694,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ-00757",
+          "station_name": "다정동_오돈오리불고기 인근 ",
+          "observed_rentals": 75,
+          "nearest_candidate_m": 536.3819459460808,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 334.8164265578766,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ-00689",
+          "station_name": "금남면_호탄리",
+          "observed_rentals": 59,
+          "nearest_candidate_m": 304.2342763976163,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 537.4331063232145,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00505",
+          "station_name": "고운동_세종누리학교",
+          "observed_rentals": 55,
+          "nearest_candidate_m": 334.8079840643785,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 674.2644346092212,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00525",
+          "station_name": "세종동_양화1교차로종촌교다리",
+          "observed_rentals": 47,
+          "nearest_candidate_m": 313.078489293933,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 828.2227192854417,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00623",
+          "station_name": "세종동_전월산 무궁화 테마공원",
+          "observed_rentals": 35,
+          "nearest_candidate_m": 252.12185251827012,
+          "best_individual_rank_within_300m": 179,
+          "nearest_remaining_station_projected_m": 877.1730915265981,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        }
+      ]
+    },
+    {
+      "city": "sejong",
+      "fold": "gap_random",
+      "selected": "500:equal",
+      "n": 10,
+      "counts": {
+        "no_candidate": 6,
+        "rank_below_top10": 3,
+        "matched": 1
+      },
+      "stations": [
+        {
+          "station_id": "SJ-00689",
+          "station_name": "금남면_호탄리",
+          "observed_rentals": 59,
+          "nearest_candidate_m": 304.2342763976163,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 537.4331063232145,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00442",
+          "station_name": "조치원_고려대학교",
+          "observed_rentals": 178,
+          "nearest_candidate_m": 500.1249965449243,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 321.36791004297265,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00431",
+          "station_name": "조치원_홍익대학교 정문",
+          "observed_rentals": 130,
+          "nearest_candidate_m": 175.27463515258322,
+          "best_individual_rank_within_300m": 30,
+          "nearest_remaining_station_projected_m": 783.3789427595482,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ-00757",
+          "station_name": "다정동_오돈오리불고기 인근 ",
+          "observed_rentals": 75,
+          "nearest_candidate_m": 536.3819459460808,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 334.8164265578766,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00678",
+          "station_name": "세종동_전통문화체험관(불교문화지원관)",
+          "observed_rentals": 28,
+          "nearest_candidate_m": 106.15377688936883,
+          "best_individual_rank_within_300m": 182,
+          "nearest_remaining_station_projected_m": 596.1244242330748,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00505",
+          "station_name": "고운동_세종누리학교",
+          "observed_rentals": 55,
+          "nearest_candidate_m": 334.8079840643785,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 674.2644346092212,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00426",
+          "station_name": "조치원_삼일아파트",
+          "observed_rentals": 220,
+          "nearest_candidate_m": 160.33087793640473,
+          "best_individual_rank_within_300m": 2,
+          "nearest_remaining_station_projected_m": 399.1935190461166,
+          "stage": "top10_nearby",
+          "joint_match_stage": "matched"
+        },
+        {
+          "station_id": "SJ-00772",
+          "station_name": "고운동_은하수공원 버스정류장 인근",
+          "observed_rentals": 16,
+          "nearest_candidate_m": 175.83668338386192,
+          "best_individual_rank_within_300m": 118,
+          "nearest_remaining_station_projected_m": 944.4854953946276,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00623",
+          "station_name": "세종동_전월산 무궁화 테마공원",
+          "observed_rentals": 35,
+          "nearest_candidate_m": 484.35809792637696,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 1158.8525458972667,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00047",
+          "station_name": "한솔동_세종보 입구",
+          "observed_rentals": 89,
+          "nearest_candidate_m": 423.5272612237805,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 341.71105477838694,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        }
+      ]
+    },
+    {
+      "city": "sejong",
+      "fold": "spatial_block",
+      "selected": "500:equal",
+      "n": 43,
+      "counts": {
+        "rank_below_top10": 26,
+        "no_candidate": 16,
+        "matched": 1
+      },
+      "stations": [
+        {
+          "station_id": "701",
+          "station_name": "보람동_호려울마을 8단지",
+          "observed_rentals": 240,
+          "nearest_candidate_m": 91.09657124701972,
+          "best_individual_rank_within_300m": 19,
+          "nearest_remaining_station_projected_m": 426.77981198486737,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ-00692",
+          "station_name": "보람동_보람중학교",
+          "observed_rentals": 320,
+          "nearest_candidate_m": 229.4203711980805,
+          "best_individual_rank_within_300m": 19,
+          "nearest_remaining_station_projected_m": 577.5295075350175,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ-00718",
+          "station_name": "보람동_보람중학교 옆",
+          "observed_rentals": 177,
+          "nearest_candidate_m": 167.7067030589624,
+          "best_individual_rank_within_300m": 24,
+          "nearest_remaining_station_projected_m": 473.40843721842776,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ-00762",
+          "station_name": "보람동_강남제일타워 인근 ",
+          "observed_rentals": 404,
+          "nearest_candidate_m": 205.30539733282626,
+          "best_individual_rank_within_300m": 24,
+          "nearest_remaining_station_projected_m": 328.1821603218785,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00001",
+          "station_name": "보람동_세종시청 정문1",
+          "observed_rentals": 30,
+          "nearest_candidate_m": 150.6615993602844,
+          "best_individual_rank_within_300m": 24,
+          "nearest_remaining_station_projected_m": 163.24026936694662,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00002",
+          "station_name": "보람동_시드니하트",
+          "observed_rentals": 406,
+          "nearest_candidate_m": 321.4143659550488,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 217.6811967412757,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00003",
+          "station_name": "보람동_세종시청 후문",
+          "observed_rentals": 87,
+          "nearest_candidate_m": 268.3408040062446,
+          "best_individual_rank_within_300m": 24,
+          "nearest_remaining_station_projected_m": 106.61531899833254,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00004",
+          "station_name": "보람동_세종시청후문 잔디광장",
+          "observed_rentals": 252,
+          "nearest_candidate_m": 278.10183906900204,
+          "best_individual_rank_within_300m": 24,
+          "nearest_remaining_station_projected_m": 195.17409042842013,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00007",
+          "station_name": "보람동_세종남부경찰서 건너편",
+          "observed_rentals": 96,
+          "nearest_candidate_m": 168.30875527658094,
+          "best_individual_rank_within_300m": 134,
+          "nearest_remaining_station_projected_m": 475.1255563568096,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00008",
+          "station_name": "보람동_새샘315동앞",
+          "observed_rentals": 238,
+          "nearest_candidate_m": 340.2301830142141,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 219.22981166108116,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00009",
+          "station_name": "보람동_호려울8단지 정문",
+          "observed_rentals": 503,
+          "nearest_candidate_m": 89.09295103961945,
+          "best_individual_rank_within_300m": 19,
+          "nearest_remaining_station_projected_m": 477.56520424622255,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00010",
+          "station_name": "보람동_호려울810동",
+          "observed_rentals": 739,
+          "nearest_candidate_m": 166.714860013812,
+          "best_individual_rank_within_300m": 19,
+          "nearest_remaining_station_projected_m": 238.62006919220957,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00012",
+          "station_name": "소담동_새샘216동앞BRT",
+          "observed_rentals": 251,
+          "nearest_candidate_m": 443.1634144876761,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 255.63501663882508,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00013",
+          "station_name": "소담동_새샘217동앞BRT",
+          "observed_rentals": 134,
+          "nearest_candidate_m": 540.1228259304745,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 206.16194232733827,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00014",
+          "station_name": "소담동_새샘308동앞BRT",
+          "observed_rentals": 294,
+          "nearest_candidate_m": 515.2888041403806,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 248.78315220580092,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00015",
+          "station_name": "소담동_새샘307동앞BRT",
+          "observed_rentals": 213,
+          "nearest_candidate_m": 607.0654247955445,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 146.56868609636308,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00016",
+          "station_name": "소담동_새샘316동앞",
+          "observed_rentals": 381,
+          "nearest_candidate_m": 453.84618245635914,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 88.19311988957092,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00017",
+          "station_name": "소담동_새샘316동건너편",
+          "observed_rentals": 45,
+          "nearest_candidate_m": 432.31210134254127,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 87.20293506966244,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00046",
+          "station_name": "보람동_세종시청 서문 ",
+          "observed_rentals": 472,
+          "nearest_candidate_m": 239.9642861167503,
+          "best_individual_rank_within_300m": 24,
+          "nearest_remaining_station_projected_m": 87.74146037203705,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00221",
+          "station_name": "보람동_호려울1006동앞",
+          "observed_rentals": 67,
+          "nearest_candidate_m": 315.23990602176076,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 257.59982752124296,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00222",
+          "station_name": "보람동_호려울1004동앞",
+          "observed_rentals": 240,
+          "nearest_candidate_m": 243.88359835563452,
+          "best_individual_rank_within_300m": 134,
+          "nearest_remaining_station_projected_m": 390.3519335189419,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00227",
+          "station_name": "보람동_호려울401동앞",
+          "observed_rentals": 495,
+          "nearest_candidate_m": 257.44104549780934,
+          "best_individual_rank_within_300m": 9,
+          "nearest_remaining_station_projected_m": 310.3454208754846,
+          "stage": "top10_nearby",
+          "joint_match_stage": "matched"
+        },
+        {
+          "station_id": "SJ_00228",
+          "station_name": "보람동_호려울501동앞",
+          "observed_rentals": 110,
+          "nearest_candidate_m": 172.21791648691152,
+          "best_individual_rank_within_300m": 24,
+          "nearest_remaining_station_projected_m": 398.83792195440026,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00229",
+          "station_name": "보람동_호려울604동앞",
+          "observed_rentals": 238,
+          "nearest_candidate_m": 123.57846272271807,
+          "best_individual_rank_within_300m": 19,
+          "nearest_remaining_station_projected_m": 502.09738585043897,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00230",
+          "station_name": "보람동_호려울902동앞",
+          "observed_rentals": 296,
+          "nearest_candidate_m": 109.04166365174277,
+          "best_individual_rank_within_300m": 19,
+          "nearest_remaining_station_projected_m": 403.99738381662445,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00232",
+          "station_name": "소담동_새샘203동앞",
+          "observed_rentals": 337,
+          "nearest_candidate_m": 340.92300023433666,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 67.0273710243464,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00247",
+          "station_name": "보람동_호려울805동앞",
+          "observed_rentals": 178,
+          "nearest_candidate_m": 89.15321529831955,
+          "best_individual_rank_within_300m": 19,
+          "nearest_remaining_station_projected_m": 468.2876008284397,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00250",
+          "station_name": "소담동_새샘215동앞BRT",
+          "observed_rentals": 561,
+          "nearest_candidate_m": 403.5960711813048,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 260.9505343928062,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00251",
+          "station_name": "소담동_새샘216동앞BRT",
+          "observed_rentals": 319,
+          "nearest_candidate_m": 500.9030691766082,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 250.05644607829223,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00252",
+          "station_name": "소담동_새샘309동앞BRT",
+          "observed_rentals": 538,
+          "nearest_candidate_m": 444.53554505438393,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 314.2842962042181,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00280",
+          "station_name": "보람동_세종시청 동편",
+          "observed_rentals": 249,
+          "nearest_candidate_m": 176.1534306945509,
+          "best_individual_rank_within_300m": 24,
+          "nearest_remaining_station_projected_m": 230.57029830291958,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00418",
+          "station_name": "보람동_세종우체국 옆",
+          "observed_rentals": 179,
+          "nearest_candidate_m": 132.45890345719988,
+          "best_individual_rank_within_300m": 24,
+          "nearest_remaining_station_projected_m": 320.0481584568563,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00419",
+          "station_name": "보람동_광역복지센터 옆",
+          "observed_rentals": 567,
+          "nearest_candidate_m": 87.37856383392767,
+          "best_individual_rank_within_300m": 24,
+          "nearest_remaining_station_projected_m": 337.9472181210259,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00467",
+          "station_name": "보람동_세종남부경찰서 버스정류장",
+          "observed_rentals": 266,
+          "nearest_candidate_m": 267.57152137591123,
+          "best_individual_rank_within_300m": 24,
+          "nearest_remaining_station_projected_m": 475.4159070337066,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00480",
+          "station_name": "보람동_세종시청 정문2",
+          "observed_rentals": 841,
+          "nearest_candidate_m": 177.81200194852977,
+          "best_individual_rank_within_300m": 24,
+          "nearest_remaining_station_projected_m": 148.74586526284756,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00539",
+          "station_name": "소담동_아이콤타워(뒷편)",
+          "observed_rentals": 529,
+          "nearest_candidate_m": 690.9895284228285,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 79.24751941444121,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00543",
+          "station_name": "보람동_스마트허브4(입구)",
+          "observed_rentals": 1237,
+          "nearest_candidate_m": 151.31533844166373,
+          "best_individual_rank_within_300m": 24,
+          "nearest_remaining_station_projected_m": 378.061800523098,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00548",
+          "station_name": "보람동_아평빌딩(입구)",
+          "observed_rentals": 652,
+          "nearest_candidate_m": 301.8838683046119,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 256.9156301805898,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00606",
+          "station_name": "보람동_호려울 1010동 앞",
+          "observed_rentals": 441,
+          "nearest_candidate_m": 328.3949932228057,
+          "best_individual_rank_within_300m": null,
+          "nearest_remaining_station_projected_m": 417.5702564061992,
+          "stage": "no_candidate",
+          "joint_match_stage": "no_candidate"
+        },
+        {
+          "station_id": "SJ_00607",
+          "station_name": "보람동_호려울 911동 앞",
+          "observed_rentals": 428,
+          "nearest_candidate_m": 278.0266349790046,
+          "best_individual_rank_within_300m": 19,
+          "nearest_remaining_station_projected_m": 424.77097953308015,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00629",
+          "station_name": "보람동_보람초등학교 앞 정류장",
+          "observed_rentals": 115,
+          "nearest_candidate_m": 257.32540254262693,
+          "best_individual_rank_within_300m": 24,
+          "nearest_remaining_station_projected_m": 493.9363538785332,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00666",
+          "station_name": "보람동_금남면 경계 금남구즉 로 로터리",
+          "observed_rentals": 234,
+          "nearest_candidate_m": 230.4731919014218,
+          "best_individual_rank_within_300m": 19,
+          "nearest_remaining_station_projected_m": 537.4331063232145,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        },
+        {
+          "station_id": "SJ_00674",
+          "station_name": "보람동_금강시티타워 앞",
+          "observed_rentals": 1948,
+          "nearest_candidate_m": 224.543777409429,
+          "best_individual_rank_within_300m": 24,
+          "nearest_remaining_station_projected_m": 184.7308181323045,
+          "stage": "rank_below_top10",
+          "joint_match_stage": "rank_below_top10"
+        }
+      ]
+    }
+  ]
+}

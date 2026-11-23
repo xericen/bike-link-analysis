@@ -1,0 +1,53 @@
+{
+  "checks": [
+    {
+      "mode": "prepared",
+      "city": "daejeon",
+      "width": 1440,
+      "rows": 9
+    },
+    {
+      "mode": "prepared",
+      "city": "daejeon",
+      "width": 390,
+      "rows": 9
+    },
+    {
+      "mode": "prepared",
+      "city": "seoul",
+      "width": 1440,
+      "rows": 5
+    },
+    {
+      "mode": "prepared",
+      "city": "seoul",
+      "width": 390,
+      "rows": 5
+    },
+    {
+      "mode": "react",
+      "city": "daejeon",
+      "width": 1440,
+      "rows": 9
+    },
+    {
+      "mode": "react",
+      "city": "daejeon",
+      "width": 390,
+      "rows": 9
+    },
+    {
+      "mode": "react",
+      "city": "seoul",
+      "width": 1440,
+      "rows": 5
+    },
+    {
+      "mode": "react",
+      "city": "seoul",
+      "width": 390,
+      "rows": 5
+    }
+  ],
+  "page_errors": []
+}

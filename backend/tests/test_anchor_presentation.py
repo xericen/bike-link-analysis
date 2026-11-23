@@ -1,12 +1,7 @@
+from backend.tests.local_requirements import requires_local_files, requires_local_inputs
 import copy,hashlib,json
-import pytest
 from backend.presentation.anchors import anchor_text,contextualize,distance_label,scope_answer,context,ROOT
 from backend.services import precomputed
-
-requires_precomputed = pytest.mark.skipif(
-    not precomputed.path().exists(),
-    reason="requires the generated data/processed/kpi_cache.sqlite artifact",
-)
 
 def test_anchor_distance_labels_and_values_unchanged():
     original={"ranking":[{"station_id":"ST-660","nearest_stop_distance_m":2784.23456789}],"candidate_count":1276,"limitations":["정류장과의 직선거리 기반","일반 버스 정류장과의 직선거리 보조 지표"]}
@@ -26,7 +21,7 @@ def test_answer_anchor_scope_is_explicit():
     assert "2784.2m" in answer
     assert "BRT 정류장" in scope_answer("후보는 236개",[{**evidence[0],"result":{"city":"sejong"}}])
 
-@requires_precomputed
+@requires_local_files("data/processed/kpi_cache.sqlite")
 def test_audited_denominator_reasons_and_source_only():
     d=json.loads((ROOT/"docs/anchor_presentation_context.json").read_text())
     for city in ("seoul","daejeon","sejong"):
@@ -40,7 +35,7 @@ def test_audited_denominator_reasons_and_source_only():
             assert value["source_name"]=="세종특별자치시 BRT노선별 정류장 현황"
             assert not value["brt_line_geometry_available"]
 
-@requires_precomputed
+@requires_local_files("data/processed/kpi_cache.sqlite")
 def test_kpi_cache_binary_unchanged():
     audit=json.loads((ROOT/"docs/anchor_presentation_context.json").read_text())
     assert audit["revision"]==precomputed.revision()

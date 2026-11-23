@@ -1,0 +1,9 @@
+{
+  "errors": [],
+  "checks": [
+    "react: exact December baseline0, strict1/4/0, diagnostic3/2/3, exploration/spacing warning, archived June/July and locked August details, mobile",
+    "prepared: exact December baseline0, strict1/4/0, diagnostic3/2/3, exploration/spacing warning, archived June/July and locked August details, mobile"
+  ],
+  "react_mobile_overflow": false,
+  "wiz_mobile_overflow": false
+}

@@ -1,0 +1,138 @@
+{
+  "scope": "individual_full",
+  "cities": {
+    "seoul": {
+      "city": "seoul",
+      "period_start": "2025-01-01",
+      "period_end": "2025-12-31",
+      "trips": 37176546,
+      "observed_days": 365,
+      "whole_city": true,
+      "baseline": {
+        "method": "legacy500:original",
+        "label": "기존500m격자 / 기존 균등점수",
+        "hits": 0,
+        "target_count": 10,
+        "possible": 0
+      },
+      "strict": {
+        "method": "grid125:anchor_demand",
+        "label": "125m다중위치 / 역 인접 수요",
+        "hits": 1,
+        "target_count": 10,
+        "possible": 2
+      },
+      "diagnostic": {
+        "method": "diagnostic125_50:anchor_demand",
+        "label": "50m간격진단 / 역 인접 수요",
+        "hits": 2,
+        "target_count": 10,
+        "possible": 10
+      },
+      "cohorts": [
+        {
+          "name": "high_usage",
+          "n": 10
+        },
+        {
+          "name": "gap_high_usage",
+          "n": 10
+        },
+        {
+          "name": "spatial_block",
+          "n": 22
+        }
+      ],
+      "scope_note": "보유 전체 기간·도시 전역의 탐색 결과. 독립 검증 성공/설치 효과를 뜻하지 않습니다."
+    },
+    "daejeon": {
+      "city": "daejeon",
+      "period_start": "2024-08-01",
+      "period_end": "2026-10-31",
+      "trips": 14992420,
+      "observed_days": 817,
+      "whole_city": true,
+      "baseline": {
+        "method": "legacy500:original",
+        "label": "기존500m격자 / 기존 균등점수",
+        "hits": 0,
+        "target_count": 10,
+        "possible": 3
+      },
+      "strict": {
+        "method": "legacy500:kde300",
+        "label": "기존500m격자 / 수요 평활화",
+        "hits": 3,
+        "target_count": 10,
+        "possible": 3
+      },
+      "diagnostic": {
+        "method": "diagnostic125_50:rental1000",
+        "label": "50m간격진단 / 주변1km 대여",
+        "hits": 1,
+        "target_count": 10,
+        "possible": 10
+      },
+      "cohorts": [
+        {
+          "name": "high_usage",
+          "n": 10
+        },
+        {
+          "name": "gap_high_usage",
+          "n": 10
+        },
+        {
+          "name": "spatial_block",
+          "n": 28
+        }
+      ],
+      "scope_note": "보유 전체 기간·도시 전역의 탐색 결과. 독립 검증 성공/설치 효과를 뜻하지 않습니다."
+    },
+    "sejong": {
+      "city": "sejong",
+      "period_start": "2020-01-01",
+      "period_end": "2025-12-31",
+      "trips": 12903589,
+      "observed_days": 2189,
+      "whole_city": true,
+      "baseline": {
+        "method": "legacy500:original",
+        "label": "기존500m격자 / 기존 균등점수",
+        "hits": 0,
+        "target_count": 10,
+        "possible": 0
+      },
+      "strict": {
+        "method": "legacy500:original",
+        "label": "기존500m격자 / 기존 균등점수",
+        "hits": 0,
+        "target_count": 10,
+        "possible": 0
+      },
+      "diagnostic": {
+        "method": "diagnostic125_50:rental1000",
+        "label": "50m간격진단 / 주변1km 대여",
+        "hits": 7,
+        "target_count": 10,
+        "possible": 10
+      },
+      "cohorts": [
+        {
+          "name": "high_usage",
+          "n": 10
+        },
+        {
+          "name": "gap_high_usage",
+          "n": 10
+        },
+        {
+          "name": "spatial_block",
+          "n": 46
+        }
+      ],
+      "scope_note": "보유 전체 기간·도시 전역의 탐색 결과. 독립 검증 성공/설치 효과를 뜻하지 않습니다."
+    }
+  },
+  "built_at": "2026-11-23T09:17:25.690834+00:00"
+}

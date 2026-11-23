@@ -1,0 +1,9 @@
+{
+  "page_errors": [],
+  "checks": [
+    "React individual mode uses full histories, not common-month research",
+    "web: automatic all3cities fixed December report, 254 actual station points, 8 sensitivities/city"
+  ],
+  "react_mobile_overflow": false,
+  "wiz_mobile_overflow": false
+}

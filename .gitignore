@@ -25,3 +25,11 @@ id_ed25519*
 !/빅데/README.md
 /국토교통부_시군구별 정류장평균이용량.csv
 .ipynb_checkpoints/
+
+data/reference/monthly_trends/.checkpoints/
+
+data/individual/
+
+data/individual_build/
+
+data/advanced_benchmark/

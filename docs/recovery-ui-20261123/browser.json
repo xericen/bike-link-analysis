@@ -1,0 +1,9 @@
+{
+  "errors": [],
+  "checks": [
+    "react: service December unchanged; separate June/July values for3cities; concise failure causes; no Sejong empty map; metadata hidden in core view; mobile",
+    "prepared: service December unchanged; separate June/July values for3cities; concise failure causes; no Sejong empty map; metadata hidden in core view; mobile"
+  ],
+  "react_mobile_overflow": false,
+  "wiz_mobile_overflow": false
+}

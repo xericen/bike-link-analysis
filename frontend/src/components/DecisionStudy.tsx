@@ -1,10 +1,11 @@
+import { analysisFetch } from '../services/individual'
 import {useEffect,useState} from 'react'
 type Study={available:boolean;matches_selected_period:boolean;period_start:string;period_end:string;top3:{site_id:string;selection_reason:string;feasibility_unchecked:string[]}[];top3_union:{added_area_m2:number;overlap_area_m2:number};route_audit:{candidate_id:string;routes:Record<string,{status:string;distance_m?:number}>}[];cluster_decision:string;planning_scope:string;pattern_case?:{cosine:number;decision:string};hidden_hub?:{station_id:string;decision:string}}
 export function DecisionStudy({city,start,end}:{city:string;start:string;end:string}){
  const [value,setValue]=useState<Study>(),[error,setError]=useState('')
  useEffect(()=>{const controller=new AbortController();setValue(undefined);setError('')
  const q=new URLSearchParams({city,date_start:start,date_end:end})
- fetch(import.meta.env.BASE_URL.replace(/\/$/,'')+'/api/decision-evidence?'+q,{signal:controller.signal}).then(async r=>{const v=await r.json();if(!r.ok)throw new Error(v.detail||'후보 근거 조회 실패');if(!v.matches_selected_period)throw new Error('선택 기간의 후보 3곳 근거 패키지가 없습니다. 다른 기간으로 대체하지 않습니다.');return v}).then(setValue).catch(e=>{if(e.name!=='AbortError')setError(e.message)});return()=>controller.abort()
+ analysisFetch(import.meta.env.BASE_URL.replace(/\/$/,'')+'/api/decision-evidence?'+q,{signal:controller.signal}).then(async r=>{const v=await r.json();if(!r.ok)throw new Error(v.detail||'후보 근거 조회 실패');if(!v.matches_selected_period)throw new Error('선택 기간의 후보 3곳 근거 패키지가 없습니다. 다른 기간으로 대체하지 않습니다.');return v}).then(setValue).catch(e=>{if(e.name!=='AbortError')setError(e.message)});return()=>controller.abort()
  },[city,start,end])
  return <details className="panel"><summary>후보 3곳 검증 보고서 · 공간·이용 패턴·도로망</summary>
  {error?<p role="alert">{error}</p>:!value?<p role="status">검증된 후보 근거 조회 중…</p>:<>

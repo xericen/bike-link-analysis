@@ -1,0 +1,576 @@
+{
+  "available": true,
+  "city": "seoul",
+  "source_revision": "d242f70d56bf206bc15b06e7e22b4cc8ca4c4a57de2983e1f4e001c823d91cb6",
+  "reference_date": "2025-09-30",
+  "source_url": "https://data.seoul.go.kr/dataList/OA-22522/L/1/datasetView.do",
+  "download_date": "2026-11-23",
+  "raw_rows": 532832,
+  "weekday_rows": 159221,
+  "missing_week_tag_rows": 109481,
+  "sha256": "46b6d9e2c2e1e23632fa72208a3ca5dc6aeba9013c403ee6f52747fec2b9a9e2",
+  "examples": [
+    {
+      "site_id": "grid-961000-1952500",
+      "original_rank": 1,
+      "anchor": "답십리",
+      "first_leg_services": 197,
+      "second_leg_services": 208,
+      "route_label": "답십리(5호선) → 종로3가 환승 → 서울역(1호선)",
+      "pairs": [
+        {
+          "departure": "08:00",
+          "before": {
+            "available": true,
+            "origin_departure_s": 28800,
+            "arrival_s": 32220,
+            "total_minutes": 57.0,
+            "access_minutes": 20.746666666666666,
+            "entry_minutes": 2,
+            "exit_minutes": 2,
+            "first_wait_minutes": 1.5866666666666789,
+            "rail_minutes": 22.0,
+            "transfer_walk_minutes": 5,
+            "transfer_wait_minutes": 3.6666666666666665,
+            "transfers": 1,
+            "legs": [
+              {
+                "line": "5",
+                "train_id": "5054",
+                "direction": "UP",
+                "origin_station_code": "2543",
+                "destination_station_code": "2535",
+                "departure_s": 30260,
+                "arrival_s": 31190
+              },
+              {
+                "line": "1",
+                "train_id": "S57",
+                "direction": "DOWN",
+                "origin_station_code": "0153",
+                "destination_station_code": "0150",
+                "departure_s": 31710,
+                "arrival_s": 32100
+              }
+            ]
+          },
+          "after": {
+            "available": true,
+            "origin_departure_s": 28800,
+            "arrival_s": 31770,
+            "total_minutes": 49.5,
+            "access_minutes": 12.321666666666665,
+            "entry_minutes": 2,
+            "exit_minutes": 2,
+            "first_wait_minutes": 0.011666666666678793,
+            "rail_minutes": 22.0,
+            "transfer_walk_minutes": 5,
+            "transfer_wait_minutes": 6.166666666666667,
+            "transfers": 1,
+            "legs": [
+              {
+                "line": "5",
+                "train_id": "5050",
+                "direction": "UP",
+                "origin_station_code": "2543",
+                "destination_station_code": "2535",
+                "departure_s": 29660,
+                "arrival_s": 30590
+              },
+              {
+                "line": "1",
+                "train_id": "K55",
+                "direction": "DOWN",
+                "origin_station_code": "0153",
+                "destination_station_code": "0150",
+                "departure_s": 31260,
+                "arrival_s": 31650
+              }
+            ]
+          },
+          "gain": 7.5
+        },
+        {
+          "departure": "08:15",
+          "before": {
+            "available": true,
+            "origin_departure_s": 29700,
+            "arrival_s": 32940,
+            "total_minutes": 54.0,
+            "access_minutes": 20.746666666666666,
+            "entry_minutes": 2,
+            "exit_minutes": 2,
+            "first_wait_minutes": 2.086666666666679,
+            "rail_minutes": 22.0,
+            "transfer_walk_minutes": 5,
+            "transfer_wait_minutes": 0.16666666666666666,
+            "transfers": 1,
+            "legs": [
+              {
+                "line": "5",
+                "train_id": "5062",
+                "direction": "UP",
+                "origin_station_code": "2543",
+                "destination_station_code": "2535",
+                "departure_s": 31190,
+                "arrival_s": 32120
+              },
+              {
+                "line": "1",
+                "train_id": "K61",
+                "direction": "DOWN",
+                "origin_station_code": "0153",
+                "destination_station_code": "0150",
+                "departure_s": 32430,
+                "arrival_s": 32820
+              }
+            ]
+          },
+          "after": {
+            "available": true,
+            "origin_departure_s": 29700,
+            "arrival_s": 32490,
+            "total_minutes": 46.5,
+            "access_minutes": 12.321666666666665,
+            "entry_minutes": 2,
+            "exit_minutes": 2,
+            "first_wait_minutes": 0.011666666666678793,
+            "rail_minutes": 22.0,
+            "transfer_walk_minutes": 5,
+            "transfer_wait_minutes": 3.1666666666666665,
+            "transfers": 1,
+            "legs": [
+              {
+                "line": "5",
+                "train_id": "5536",
+                "direction": "UP",
+                "origin_station_code": "2543",
+                "destination_station_code": "2535",
+                "departure_s": 30560,
+                "arrival_s": 31490
+              },
+              {
+                "line": "1",
+                "train_id": "K59",
+                "direction": "DOWN",
+                "origin_station_code": "0153",
+                "destination_station_code": "0150",
+                "departure_s": 31980,
+                "arrival_s": 32370
+              }
+            ]
+          },
+          "gain": 7.5
+        },
+        {
+          "departure": "18:00",
+          "before": {
+            "available": true,
+            "origin_departure_s": 64800,
+            "arrival_s": 67980,
+            "total_minutes": 53.0,
+            "access_minutes": 20.746666666666666,
+            "entry_minutes": 2,
+            "exit_minutes": 2,
+            "first_wait_minutes": 1.9199999999999515,
+            "rail_minutes": 20.833333333333332,
+            "transfer_walk_minutes": 5,
+            "transfer_wait_minutes": 0.5,
+            "transfers": 1,
+            "legs": [
+              {
+                "line": "5",
+                "train_id": "5642",
+                "direction": "UP",
+                "origin_station_code": "2543",
+                "destination_station_code": "2535",
+                "departure_s": 66280,
+                "arrival_s": 67140
+              },
+              {
+                "line": "1",
+                "train_id": "K685",
+                "direction": "DOWN",
+                "origin_station_code": "0153",
+                "destination_station_code": "0150",
+                "departure_s": 67470,
+                "arrival_s": 67860
+              }
+            ]
+          },
+          "after": {
+            "available": true,
+            "origin_departure_s": 64800,
+            "arrival_s": 67440,
+            "total_minutes": 44.0,
+            "access_minutes": 12.321666666666665,
+            "entry_minutes": 2,
+            "exit_minutes": 2,
+            "first_wait_minutes": 0.8449999999999515,
+            "rail_minutes": 20.833333333333332,
+            "transfer_walk_minutes": 5,
+            "transfer_wait_minutes": 1.0,
+            "transfers": 1,
+            "legs": [
+              {
+                "line": "5",
+                "train_id": "5162",
+                "direction": "UP",
+                "origin_station_code": "2543",
+                "destination_station_code": "2535",
+                "departure_s": 65710,
+                "arrival_s": 66570
+              },
+              {
+                "line": "1",
+                "train_id": "K683",
+                "direction": "DOWN",
+                "origin_station_code": "0153",
+                "destination_station_code": "0150",
+                "departure_s": 66930,
+                "arrival_s": 67320
+              }
+            ]
+          },
+          "gain": 9.0
+        }
+      ],
+      "sensitivity": [
+        {
+          "pickup_return_minutes": 0,
+          "transfer_walk_minutes": 3,
+          "gain": 10.0
+        },
+        {
+          "pickup_return_minutes": 0,
+          "transfer_walk_minutes": 5,
+          "gain": 7.5
+        },
+        {
+          "pickup_return_minutes": 0,
+          "transfer_walk_minutes": 8,
+          "gain": 7.5
+        },
+        {
+          "pickup_return_minutes": 2,
+          "transfer_walk_minutes": 3,
+          "gain": 10.0
+        },
+        {
+          "pickup_return_minutes": 2,
+          "transfer_walk_minutes": 5,
+          "gain": 7.5
+        },
+        {
+          "pickup_return_minutes": 2,
+          "transfer_walk_minutes": 8,
+          "gain": 7.5
+        },
+        {
+          "pickup_return_minutes": 5,
+          "transfer_walk_minutes": 3,
+          "gain": 3.5
+        },
+        {
+          "pickup_return_minutes": 5,
+          "transfer_walk_minutes": 5,
+          "gain": 7.5
+        },
+        {
+          "pickup_return_minutes": 5,
+          "transfer_walk_minutes": 8,
+          "gain": 4.0
+        }
+      ]
+    },
+    {
+      "site_id": "grid-961500-1952500",
+      "original_rank": 2,
+      "anchor": "장한평",
+      "first_leg_services": 197,
+      "second_leg_services": 208,
+      "route_label": "장한평(5호선) → 종로3가 환승 → 서울역(1호선)",
+      "pairs": [
+        {
+          "departure": "08:00",
+          "before": {
+            "available": true,
+            "origin_departure_s": 28800,
+            "arrival_s": 32670,
+            "total_minutes": 64.5,
+            "access_minutes": 28.076666666666664,
+            "entry_minutes": 2,
+            "exit_minutes": 2,
+            "first_wait_minutes": 1.9233333333333575,
+            "rail_minutes": 24.333333333333332,
+            "transfer_walk_minutes": 5,
+            "transfer_wait_minutes": 1.1666666666666667,
+            "transfers": 1,
+            "legs": [
+              {
+                "line": "5",
+                "train_id": "5538",
+                "direction": "UP",
+                "origin_station_code": "2544",
+                "destination_station_code": "2535",
+                "departure_s": 30720,
+                "arrival_s": 31790
+              },
+              {
+                "line": "1",
+                "train_id": "K631",
+                "direction": "DOWN",
+                "origin_station_code": "0153",
+                "destination_station_code": "0150",
+                "departure_s": 32160,
+                "arrival_s": 32550
+              }
+            ]
+          },
+          "after": {
+            "available": true,
+            "origin_departure_s": 28800,
+            "arrival_s": 31770,
+            "total_minutes": 49.5,
+            "access_minutes": 12.235000000000001,
+            "entry_minutes": 2,
+            "exit_minutes": 2,
+            "first_wait_minutes": 0.26500000000002427,
+            "rail_minutes": 24.333333333333332,
+            "transfer_walk_minutes": 5,
+            "transfer_wait_minutes": 3.6666666666666665,
+            "transfers": 1,
+            "legs": [
+              {
+                "line": "5",
+                "train_id": "5532",
+                "direction": "UP",
+                "origin_station_code": "2544",
+                "destination_station_code": "2535",
+                "departure_s": 29670,
+                "arrival_s": 30740
+              },
+              {
+                "line": "1",
+                "train_id": "K55",
+                "direction": "DOWN",
+                "origin_station_code": "0153",
+                "destination_station_code": "0150",
+                "departure_s": 31260,
+                "arrival_s": 31650
+              }
+            ]
+          },
+          "gain": 15.0
+        },
+        {
+          "departure": "08:15",
+          "before": {
+            "available": true,
+            "origin_departure_s": 29700,
+            "arrival_s": 33900,
+            "total_minutes": 70.0,
+            "access_minutes": 28.076666666666664,
+            "entry_minutes": 2,
+            "exit_minutes": 2,
+            "first_wait_minutes": 2.9233333333333578,
+            "rail_minutes": 24.333333333333332,
+            "transfer_walk_minutes": 5,
+            "transfer_wait_minutes": 5.666666666666667,
+            "transfers": 1,
+            "legs": [
+              {
+                "line": "5",
+                "train_id": "5542",
+                "direction": "UP",
+                "origin_station_code": "2544",
+                "destination_station_code": "2535",
+                "departure_s": 31680,
+                "arrival_s": 32750
+              },
+              {
+                "line": "1",
+                "train_id": "K633",
+                "direction": "DOWN",
+                "origin_station_code": "0153",
+                "destination_station_code": "0150",
+                "departure_s": 33390,
+                "arrival_s": 33780
+              }
+            ]
+          },
+          "after": {
+            "available": true,
+            "origin_departure_s": 29700,
+            "arrival_s": 32490,
+            "total_minutes": 46.5,
+            "access_minutes": 12.235000000000001,
+            "entry_minutes": 2,
+            "exit_minutes": 2,
+            "first_wait_minutes": 0.26500000000002427,
+            "rail_minutes": 24.333333333333332,
+            "transfer_walk_minutes": 5,
+            "transfer_wait_minutes": 0.6666666666666666,
+            "transfers": 1,
+            "legs": [
+              {
+                "line": "5",
+                "train_id": "5058",
+                "direction": "UP",
+                "origin_station_code": "2544",
+                "destination_station_code": "2535",
+                "departure_s": 30570,
+                "arrival_s": 31640
+              },
+              {
+                "line": "1",
+                "train_id": "K59",
+                "direction": "DOWN",
+                "origin_station_code": "0153",
+                "destination_station_code": "0150",
+                "departure_s": 31980,
+                "arrival_s": 32370
+              }
+            ]
+          },
+          "gain": 23.5
+        },
+        {
+          "departure": "18:00",
+          "before": {
+            "available": true,
+            "origin_departure_s": 64800,
+            "arrival_s": 68700,
+            "total_minutes": 65.0,
+            "access_minutes": 28.076666666666664,
+            "entry_minutes": 2,
+            "exit_minutes": 2,
+            "first_wait_minutes": 3.9233333333332365,
+            "rail_minutes": 23.0,
+            "transfer_walk_minutes": 5,
+            "transfer_wait_minutes": 1.0,
+            "transfers": 1,
+            "legs": [
+              {
+                "line": "5",
+                "train_id": "5168",
+                "direction": "UP",
+                "origin_station_code": "2544",
+                "destination_station_code": "2535",
+                "departure_s": 66840,
+                "arrival_s": 67830
+              },
+              {
+                "line": "1",
+                "train_id": "K175",
+                "direction": "DOWN",
+                "origin_station_code": "0153",
+                "destination_station_code": "0150",
+                "departure_s": 68190,
+                "arrival_s": 68580
+              }
+            ]
+          },
+          "after": {
+            "available": true,
+            "origin_departure_s": 64800,
+            "arrival_s": 67740,
+            "total_minutes": 49.0,
+            "access_minutes": 12.235000000000001,
+            "entry_minutes": 2,
+            "exit_minutes": 2,
+            "first_wait_minutes": 1.764999999999903,
+            "rail_minutes": 23.0,
+            "transfer_walk_minutes": 5,
+            "transfer_wait_minutes": 3.0,
+            "transfers": 1,
+            "legs": [
+              {
+                "line": "5",
+                "train_id": "5640",
+                "direction": "UP",
+                "origin_station_code": "2544",
+                "destination_station_code": "2535",
+                "departure_s": 65760,
+                "arrival_s": 66750
+              },
+              {
+                "line": "1",
+                "train_id": "K171",
+                "direction": "DOWN",
+                "origin_station_code": "0153",
+                "destination_station_code": "0150",
+                "departure_s": 67230,
+                "arrival_s": 67620
+              }
+            ]
+          },
+          "gain": 16.0
+        }
+      ],
+      "sensitivity": [
+        {
+          "pickup_return_minutes": 0,
+          "transfer_walk_minutes": 3,
+          "gain": 12.0
+        },
+        {
+          "pickup_return_minutes": 0,
+          "transfer_walk_minutes": 5,
+          "gain": 15.0
+        },
+        {
+          "pickup_return_minutes": 0,
+          "transfer_walk_minutes": 8,
+          "gain": 19.5
+        },
+        {
+          "pickup_return_minutes": 2,
+          "transfer_walk_minutes": 3,
+          "gain": 12.0
+        },
+        {
+          "pickup_return_minutes": 2,
+          "transfer_walk_minutes": 5,
+          "gain": 15.0
+        },
+        {
+          "pickup_return_minutes": 2,
+          "transfer_walk_minutes": 8,
+          "gain": 19.5
+        },
+        {
+          "pickup_return_minutes": 5,
+          "transfer_walk_minutes": 3,
+          "gain": 12.0
+        },
+        {
+          "pickup_return_minutes": 5,
+          "transfer_walk_minutes": 5,
+          "gain": 11.5
+        },
+        {
+          "pickup_return_minutes": 5,
+          "transfer_walk_minutes": 8,
+          "gain": 12.0
+        }
+      ]
+    }
+  ],
+  "scope_label": "2025-09-30 공개 시간표·현재 OSM의 대표 환승 모델.2025년12월 실제 운행 재현은 미검증.",
+  "assumptions": {
+    "pickup_return_minutes": 2,
+    "entry_minutes": 2,
+    "exit_minutes": 2,
+    "transfer_walk_minutes": 5
+  },
+  "historical_december_validated": false,
+  "actual_transfer_verified": false,
+  "operational_update": false,
+  "limitations": [
+    "공개 기준일과 실제 시행일·12월 중 변경을 확인하지 못했으므로12월 관측 결과로 합산하지 않음.",
+    "환승은 종로3가5→1호선 한 경로이며 환승보행3/5/8분은 가정. 전체 망 최단경로나 실측 환승률이 아님.",
+    "열차 ID·방향·호선·요일을 함께 연결하고 유효한 출발/도착 시간 쌍만 사용. 요일이 누락된109481행은 평일이라고 추정하지 않음.",
+    "도보/자전거 접근은 현재 OSM, 과거 경로·역 진입·출구·현장 자전거 재고는 미검증."
+  ]
+}

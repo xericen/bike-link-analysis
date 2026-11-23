@@ -1,0 +1,59 @@
+{
+  "checks": [
+    {
+      "width": 1440,
+      "tab": "기존 대여소 보완",
+      "display": "block",
+      "overflow": "auto",
+      "firstOverflow": "visible",
+      "secondOverflow": "visible",
+      "sequential": true
+    },
+    {
+      "width": 1440,
+      "tab": "새 대여소 후보",
+      "display": "block",
+      "overflow": "auto",
+      "firstOverflow": "visible",
+      "secondOverflow": "visible",
+      "sequential": true
+    },
+    {
+      "width": 1440,
+      "tab": "자전거 재배치 점검",
+      "display": "block",
+      "overflow": "auto",
+      "firstOverflow": "visible",
+      "secondOverflow": "visible",
+      "sequential": true
+    },
+    {
+      "width": 390,
+      "tab": "기존 대여소 보완",
+      "display": "block",
+      "overflow": "auto",
+      "firstOverflow": "visible",
+      "secondOverflow": "visible",
+      "sequential": true
+    },
+    {
+      "width": 390,
+      "tab": "새 대여소 후보",
+      "display": "block",
+      "overflow": "auto",
+      "firstOverflow": "visible",
+      "secondOverflow": "visible",
+      "sequential": true
+    },
+    {
+      "width": 390,
+      "tab": "자전거 재배치 점검",
+      "display": "block",
+      "overflow": "auto",
+      "firstOverflow": "visible",
+      "secondOverflow": "visible",
+      "sequential": true
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,80 @@
+{
+  "public_browser": {
+    "cases": [
+      {
+        "city": "전체",
+        "rows": 3,
+        "start": "2025-12-01",
+        "end": "2025-12-31"
+      },
+      {
+        "city": "서울",
+        "rows": 12,
+        "start": "2025-01-01",
+        "end": "2025-12-31"
+      },
+      {
+        "city": "대전",
+        "rows": 27,
+        "start": "2024-08-01",
+        "end": "2026-10-31"
+      },
+      {
+        "city": "세종",
+        "rows": 72,
+        "start": "2020-01-01",
+        "end": "2025-12-31"
+      }
+    ],
+    "errors": [],
+    "url": "https://project.wizide.com/course/aafa5691f92f40e89818200a14c98a90?public=1",
+    "mode": "public browser, no API interception"
+  },
+  "react_browser": {
+    "cases": [
+      {
+        "city": "seoul",
+        "months": 12
+      },
+      {
+        "city": "daejeon",
+        "months": 27
+      },
+      {
+        "city": "sejong",
+        "months": 72
+      }
+    ],
+    "errors": []
+  },
+  "public_assets": {
+    "all": {
+      "sha256": "75467cb76bc8e3a92147cec6abb3859c6b12d2ea2544ca65805157765d6cc8b0",
+      "public_asset_matches": true
+    },
+    "seoul": {
+      "sha256": "d39b46273931924b83a0eca48116398ab91d9d00608018f97fea1367517b38ee",
+      "public_asset_matches": true
+    },
+    "daejeon": {
+      "sha256": "5b69c7f9e2b650ef316209de92e1bb61731a1962a84dd9d4181495f9919d2b45",
+      "public_asset_matches": true
+    },
+    "sejong": {
+      "sha256": "aed02edaa2f38723734ec8a8a5e9f0ce2a92bf41df223d90844ed5e22e8be792",
+      "public_asset_matches": true
+    }
+  },
+  "protected_files": {
+    "analysis.sqlite": "47098b3d69f957d14270a25a77a5de490ca687ce803cca507d93fa9bc58bd8db",
+    "kpi_cache.sqlite": "5ed8bc6c95e134d424a42a501556f9688858847f16b24558b1c7a76416a4ff06",
+    "stations.csv": "6272e14621e6e4f1287b619c9109e8091431317458a0c8bde576ff64b8899c2b",
+    "station_usage.csv": "a8f6bbdaed72f112dc46477df7247f2186277f85f3dfdcf643cb8b103d945007",
+    "kpi_inputs.json": "519b0cdf8678f8bb9b727b3589b87b366ab45e17217e20d95fe8e346be852adb"
+  },
+  "tests": "120 passed, 31 warnings",
+  "wiz_build": "passed",
+  "react_build": "passed",
+  "standalone_deploy_command": false,
+  "service_restart": false
+}

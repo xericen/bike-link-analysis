@@ -9,6 +9,8 @@ import { sejongAnnual } from '../services/sejongAnnual'
 
 const colors:Record<string,string>={seoul:'#2f6df6',daejeon:'#35a486',sejong:'#a773cf'}
 export function RegionComparison({filter}:{filter:DateFilter}) {
+  // Comparisons always use the independently preserved common month.
+  filter={start:'2025-12-01',end:'2025-12-31'}
   const [regions,setRegions]=useState<Region[]>([]), [ids,setIds]=useState(['seoul','daejeon','sejong'])
   const [data,setData]=useState<CompareResult>(),[clusters,setClusters]=useState<Record<string,ClusterResult>>({})
   const [error,setError]=useState('')
@@ -59,7 +61,7 @@ export function RegionComparison({filter}:{filter:DateFilter}) {
           <p className="muted">같은 군집 번호가 같은 역할을 뜻하지 않습니다.</p>
         </SectionCard>
         <SectionCard title="핵심 차이 요약" note="선택 기간 실제 관측">
-          {data.regions.map(r=><div className="city-summary" key={r.region_id}><span style={{background:colors[r.region_id]||'#a18acd'}}/><div><b>{r.region_name}</b><p>{r.region_id==='sejong'?'연간 추세만 제공 · 상세 패턴 비교 제외':r.hourly?peakHour(r.hourly)+'시 대여 비중 최대 · 도시 내부 패턴 참고':'시간대 자료 미확보'}</p><small>{r.coverage_note}</small></div></div>)}
+          {data.regions.map(r=><div className="city-summary" key={r.region_id}><span style={{background:colors[r.region_id]||'#a18acd'}}/><div><b>{r.region_name}</b><p>{r.hourly?peakHour(r.hourly)+'시 대여 비중 최대 · 도시 내부 패턴 참고':'시간대 자료 미확보'}</p><small>{r.coverage_note}</small></div></div>)}
         </SectionCard>
         <SectionCard title="세종 연간 이용 추세" note="2017~2026 · 건">
           {ids.includes('sejong')?<><div className="chart"><ResponsiveContainer width="100%" height="100%"><LineChart data={annual}><CartesianGrid vertical={false} stroke="#e6edf5"/><XAxis dataKey="year" fontSize={10} interval="preserveStartEnd" minTickGap={20} padding={{left:6,right:15}}/><YAxis tickFormatter={v=>(Number(v)/10000).toFixed(0)+'만'} width={45}/><Tooltip formatter={v=>number(Number(v))+'건'}/><Legend/><Line dataKey="complete" name="완결 연도" stroke="#8b6ec5" strokeWidth={2} dot={{r:3}} isAnimationActive={false}/><Line dataKey="partial" name="부분 연도" stroke="#ed9a60" dot={{r:5}} isAnimationActive={false}/></LineChart></ResponsiveContainer></div><p className="muted">공식 가공 CSV의 정적 스냅샷. 2026년은 8월 31일까지의 부분 집계이며 연간 실적과 직접 비교할 수 없습니다. 상단 분석 기간과 독립적입니다.</p></>:<Empty>세종을 선택하면 연간 추세를 표시합니다.</Empty>}

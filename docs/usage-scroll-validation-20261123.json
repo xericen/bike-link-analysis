@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "width": 1440,
+      "view": "대여소별 이용",
+      "scroll_top": 350,
+      "heading_moved": 350
+    },
+    {
+      "width": 1440,
+      "view": "이동 연결·패턴",
+      "scroll_top": 350,
+      "heading_moved": 350
+    },
+    {
+      "width": 390,
+      "view": "대여소별 이용",
+      "scroll_top": 350,
+      "heading_moved": 350.0
+    },
+    {
+      "width": 390,
+      "view": "이동 연결·패턴",
+      "scroll_top": 350,
+      "heading_moved": 350.0
+    }
+  ],
+  "errors": [],
+  "environment": "local compiled web + real source read adapter; no public deployment"
+}

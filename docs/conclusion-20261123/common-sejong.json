@@ -1,0 +1,923 @@
+{
+  "signature": "6d96a0e29544d4f438cadea5abccbc9b1962afb87d57b1a350e35f4deb4426f2",
+  "city": "sejong",
+  "scope": "common",
+  "period_start": "2025-01-01",
+  "period_end": "2025-12-31",
+  "period_label": "2025년 1월·4~12월 · 공통 10개월",
+  "scope_months": [
+    "2025-01",
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12"
+  ],
+  "selection_rule": "기존 균등 점수 유지. 해당 기간 관측 수요로 재계산한 신규 입지 상위3곳. 실제 설치 권고 확정 아님.",
+  "candidates": [
+    {
+      "site_id": "grid-981000-1830000",
+      "station_id": "grid-981000-1830000",
+      "latitude": 36.4696780788357,
+      "longitude": 127.29071378261396,
+      "district": "세종시",
+      "population_density_km2": null,
+      "facilities_within_500m": 1,
+      "nearby_rentals_1000m": 95988,
+      "nearest_station_distance_m": 712.7495786143038,
+      "gap_ratio": 1.0,
+      "potential_added_area_m2": 282289.36414913886,
+      "score_components": {
+        "facilities_within_500m": 0.8737373737373737,
+        "nearby_rentals_1000m": 0.9621212121212122,
+        "gap_ratio": 0.5909090909090909
+      },
+      "score": 0.8089225589225588,
+      "rank": 1,
+      "observed_demand_label": "주변1km 기존 대여소의 관측 대여. 신규 수요 예측 아님.",
+      "eligible_months": 10,
+      "top10_months": 10,
+      "monthly_ranks": [
+        {
+          "month": "2025-01",
+          "rank": 1,
+          "nearby_rentals_1000m": 4156
+        },
+        {
+          "month": "2025-04",
+          "rank": 1,
+          "nearby_rentals_1000m": 8667
+        },
+        {
+          "month": "2025-05",
+          "rank": 1,
+          "nearby_rentals_1000m": 9740
+        },
+        {
+          "month": "2025-06",
+          "rank": 1,
+          "nearby_rentals_1000m": 10848
+        },
+        {
+          "month": "2025-07",
+          "rank": 1,
+          "nearby_rentals_1000m": 10404
+        },
+        {
+          "month": "2025-08",
+          "rank": 1,
+          "nearby_rentals_1000m": 11891
+        },
+        {
+          "month": "2025-09",
+          "rank": 1,
+          "nearby_rentals_1000m": 12416
+        },
+        {
+          "month": "2025-10",
+          "rank": 1,
+          "nearby_rentals_1000m": 11235
+        },
+        {
+          "month": "2025-11",
+          "rank": 1,
+          "nearby_rentals_1000m": 10108
+        },
+        {
+          "month": "2025-12",
+          "rank": 1,
+          "nearby_rentals_1000m": 6523
+        }
+      ],
+      "rank_range": [
+        1,
+        1
+      ],
+      "route": {
+        "anchor_id": "brt:51111:36.478356:127.288188",
+        "anchor_name": "시청,시의회,교육청,세무서",
+        "anchor_latitude": 36.478356,
+        "anchor_longitude": 127.288188,
+        "straight_to_anchor_m": 991.0187831477576,
+        "before_walk": {
+          "status": "snap_uncertain",
+          "distance_m": 1800.3,
+          "duration_s": 1427.1,
+          "snap_distances_m": [
+            63.16972918,
+            3.640797775
+          ],
+          "retrieved_at": "2026-11-17T11:20:45.911552+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                127.290021,
+                36.469574
+              ],
+              [
+                127.289599,
+                36.471106
+              ],
+              [
+                127.289608,
+                36.471346
+              ],
+              [
+                127.289498,
+                36.471639
+              ],
+              [
+                127.289532,
+                36.471924
+              ],
+              [
+                127.288369,
+                36.472941
+              ],
+              [
+                127.287338,
+                36.473176
+              ],
+              [
+                127.287139,
+                36.473029
+              ],
+              [
+                127.286505,
+                36.472179
+              ],
+              [
+                127.286414,
+                36.472223
+              ],
+              [
+                127.286482,
+                36.472319
+              ],
+              [
+                127.286259,
+                36.472421
+              ],
+              [
+                127.285933,
+                36.472002
+              ],
+              [
+                127.285394,
+                36.472326
+              ],
+              [
+                127.285264,
+                36.472231
+              ],
+              [
+                127.285228,
+                36.472282
+              ],
+              [
+                127.28528,
+                36.472573
+              ],
+              [
+                127.285551,
+                36.472668
+              ],
+              [
+                127.286437,
+                36.473411
+              ],
+              [
+                127.287326,
+                36.473945
+              ],
+              [
+                127.286389,
+                36.475396
+              ],
+              [
+                127.288343,
+                36.476221
+              ],
+              [
+                127.287302,
+                36.477851
+              ],
+              [
+                127.287532,
+                36.478041
+              ],
+              [
+                127.288207,
+                36.478327
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "a2dde5dcddcef2a8d500510c888d521c8e4a2e29d5dfaae2e0a0d27aab755659"
+        },
+        "field_installation_verified": false,
+        "current_osm_only": true,
+        "status": "route_unconfirmed",
+        "dock_station_id": "SJ_00674",
+        "dock_station_name": "보람동_금강시티타워 앞",
+        "dock_latitude": 36.4781508,
+        "dock_longitude": 127.2882746,
+        "bike_to_dock": {
+          "status": "snap_uncertain",
+          "distance_m": 1785.3,
+          "duration_s": 471.0,
+          "snap_distances_m": [
+            63.16972918,
+            5.153127701
+          ],
+          "retrieved_at": "2026-11-23T11:36:26.810483+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                127.290021,
+                36.469574
+              ],
+              [
+                127.289599,
+                36.471106
+              ],
+              [
+                127.289608,
+                36.471346
+              ],
+              [
+                127.289498,
+                36.471639
+              ],
+              [
+                127.289532,
+                36.471924
+              ],
+              [
+                127.288369,
+                36.472941
+              ],
+              [
+                127.287338,
+                36.473176
+              ],
+              [
+                127.287139,
+                36.473029
+              ],
+              [
+                127.286505,
+                36.472179
+              ],
+              [
+                127.286414,
+                36.472223
+              ],
+              [
+                127.286482,
+                36.472319
+              ],
+              [
+                127.286259,
+                36.472421
+              ],
+              [
+                127.285933,
+                36.472002
+              ],
+              [
+                127.285394,
+                36.472326
+              ],
+              [
+                127.285264,
+                36.472231
+              ],
+              [
+                127.285228,
+                36.472282
+              ],
+              [
+                127.285222,
+                36.472348
+              ],
+              [
+                127.285475,
+                36.472453
+              ],
+              [
+                127.286663,
+                36.473495
+              ],
+              [
+                127.287363,
+                36.473889
+              ],
+              [
+                127.285407,
+                36.477013
+              ],
+              [
+                127.288248,
+                36.478192
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "b6f2b8b9a54338db57f28ef12cd5da801ad25773b2b75ffb6e51c67be1cc600b"
+        },
+        "walk_to_anchor": {
+          "status": "ok",
+          "distance_m": 195.7,
+          "duration_s": 156.5,
+          "snap_distances_m": [
+            5.153127701,
+            3.640797775
+          ],
+          "retrieved_at": "2026-11-23T11:36:28.622719+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                127.288248,
+                36.478192
+              ],
+              [
+                127.28733,
+                36.477809
+              ],
+              [
+                127.287302,
+                36.477851
+              ],
+              [
+                127.287532,
+                36.478041
+              ],
+              [
+                127.288207,
+                36.478327
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "79a1a6289065c9f68628d549083555ccf8053ea63cec2ba2eb93e39be073d604"
+        },
+        "assumed_pickup_return_seconds": 120,
+        "after_minutes": null,
+        "before_minutes": null,
+        "improvement_minutes": null,
+        "message": "경로 또는 좌표 접속을 확인하지 못해 연결 효과 판정을 보류합니다."
+      },
+      "action": "연결 경로 추가 확인 후 판단",
+      "unchecked": [
+        "실제 설치 가능 부지·허가",
+        "현장 보행/자전거 통행",
+        "과거 위치 동일성",
+        "반납 거치 용량·자전거 재고",
+        "설치 후 실제 이용·환승 변화"
+      ]
+    },
+    {
+      "site_id": "grid-980000-1832500",
+      "station_id": "grid-980000-1832500",
+      "latitude": 36.49219586062595,
+      "longitude": 127.27948807100312,
+      "district": "세종시",
+      "population_density_km2": null,
+      "facilities_within_500m": 1,
+      "nearby_rentals_1000m": 43320,
+      "nearest_station_distance_m": 516.2199391627163,
+      "gap_ratio": 1.0,
+      "potential_added_area_m2": 282289.36414913886,
+      "score_components": {
+        "facilities_within_500m": 0.8737373737373737,
+        "nearby_rentals_1000m": 0.8762626262626263,
+        "gap_ratio": 0.5909090909090909
+      },
+      "score": 0.7803030303030303,
+      "rank": 2,
+      "observed_demand_label": "주변1km 기존 대여소의 관측 대여. 신규 수요 예측 아님.",
+      "eligible_months": 10,
+      "top10_months": 10,
+      "monthly_ranks": [
+        {
+          "month": "2025-01",
+          "rank": 2,
+          "nearby_rentals_1000m": 1464
+        },
+        {
+          "month": "2025-04",
+          "rank": 2,
+          "nearby_rentals_1000m": 5407
+        },
+        {
+          "month": "2025-05",
+          "rank": 2,
+          "nearby_rentals_1000m": 7182
+        },
+        {
+          "month": "2025-06",
+          "rank": 2,
+          "nearby_rentals_1000m": 5831
+        },
+        {
+          "month": "2025-07",
+          "rank": 2,
+          "nearby_rentals_1000m": 2802
+        },
+        {
+          "month": "2025-08",
+          "rank": 2,
+          "nearby_rentals_1000m": 3871
+        },
+        {
+          "month": "2025-09",
+          "rank": 2,
+          "nearby_rentals_1000m": 4726
+        },
+        {
+          "month": "2025-10",
+          "rank": 2,
+          "nearby_rentals_1000m": 6732
+        },
+        {
+          "month": "2025-11",
+          "rank": 2,
+          "nearby_rentals_1000m": 3930
+        },
+        {
+          "month": "2025-12",
+          "rank": 2,
+          "nearby_rentals_1000m": 1375
+        }
+      ],
+      "rank_range": [
+        2,
+        2
+      ],
+      "route": {
+        "anchor_id": "brt:64065:36.5038919:127.2832104",
+        "anchor_name": "전통문화체험관",
+        "anchor_latitude": 36.5038919,
+        "anchor_longitude": 127.2832104,
+        "straight_to_anchor_m": 1342.4298315709518,
+        "before_walk": {
+          "status": "ok",
+          "distance_m": 2420.2,
+          "duration_s": 1935.2,
+          "snap_distances_m": [
+            21.49596413,
+            2.264102816
+          ],
+          "retrieved_at": "2026-11-17T11:20:49.416430+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                127.279563,
+                36.49238
+              ],
+              [
+                127.279311,
+                36.492436
+              ],
+              [
+                127.279252,
+                36.492679
+              ],
+              [
+                127.278172,
+                36.493207
+              ],
+              [
+                127.278325,
+                36.493476
+              ],
+              [
+                127.277724,
+                36.494168
+              ],
+              [
+                127.276777,
+                36.494122
+              ],
+              [
+                127.277395,
+                36.494745
+              ],
+              [
+                127.278131,
+                36.495038
+              ],
+              [
+                127.27793,
+                36.495364
+              ],
+              [
+                127.277637,
+                36.495417
+              ],
+              [
+                127.277302,
+                36.49615
+              ],
+              [
+                127.277583,
+                36.496915
+              ],
+              [
+                127.277983,
+                36.497315
+              ],
+              [
+                127.276769,
+                36.497774
+              ],
+              [
+                127.277211,
+                36.498177
+              ],
+              [
+                127.27896,
+                36.499024
+              ],
+              [
+                127.279715,
+                36.499778
+              ],
+              [
+                127.279996,
+                36.500738
+              ],
+              [
+                127.278471,
+                36.501593
+              ],
+              [
+                127.27859,
+                36.501557
+              ],
+              [
+                127.278228,
+                36.501859
+              ],
+              [
+                127.2788,
+                36.501789
+              ],
+              [
+                127.278476,
+                36.501875
+              ],
+              [
+                127.278495,
+                36.502155
+              ],
+              [
+                127.279409,
+                36.504495
+              ],
+              [
+                127.283205,
+                36.503872
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "83b0c1cb73e39f181cca1932846f7a1cb9b50fca9e75b4553e529d2c297f99f5"
+        },
+        "field_installation_verified": false,
+        "current_osm_only": true,
+        "status": "model_connected",
+        "dock_station_id": "SJ-00706",
+        "dock_station_name": "세종동_세종전통문화체험관 햇무리교방향(임시버스정류장)",
+        "dock_latitude": 36.5038572,
+        "dock_longitude": 127.2835151,
+        "bike_to_dock": {
+          "status": "ok",
+          "distance_m": 2451.2,
+          "duration_s": 532.8,
+          "snap_distances_m": [
+            21.49596413,
+            3.223075434
+          ],
+          "retrieved_at": "2026-11-23T11:36:30.440325+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                127.279563,
+                36.49238
+              ],
+              [
+                127.278293,
+                36.492725
+              ],
+              [
+                127.277917,
+                36.493209
+              ],
+              [
+                127.277919,
+                36.493957
+              ],
+              [
+                127.277724,
+                36.494168
+              ],
+              [
+                127.277104,
+                36.494091
+              ],
+              [
+                127.276342,
+                36.494191
+              ],
+              [
+                127.27546,
+                36.494435
+              ],
+              [
+                127.274635,
+                36.494849
+              ],
+              [
+                127.275157,
+                36.495699
+              ],
+              [
+                127.275095,
+                36.496415
+              ],
+              [
+                127.276074,
+                36.497043
+              ],
+              [
+                127.276913,
+                36.497966
+              ],
+              [
+                127.27896,
+                36.499024
+              ],
+              [
+                127.279715,
+                36.499778
+              ],
+              [
+                127.280085,
+                36.500977
+              ],
+              [
+                127.27859,
+                36.501557
+              ],
+              [
+                127.278228,
+                36.501859
+              ],
+              [
+                127.2788,
+                36.501789
+              ],
+              [
+                127.278476,
+                36.501875
+              ],
+              [
+                127.278495,
+                36.502155
+              ],
+              [
+                127.279409,
+                36.504495
+              ],
+              [
+                127.283513,
+                36.503828
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "e82a8c27811df6fa92e2a678ccf7e61daf61b690568a6df3ea0649e830d2add3"
+        },
+        "walk_to_anchor": {
+          "status": "ok",
+          "distance_m": 28.1,
+          "duration_s": 22.5,
+          "snap_distances_m": [
+            3.223075434,
+            2.264102816
+          ],
+          "retrieved_at": "2026-11-23T11:36:32.244145+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                127.283513,
+                36.503828
+              ],
+              [
+                127.283205,
+                36.503872
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "0c499142d3faa27417660b1a9b8341d9efa3e6bf0e97f480c5fa711e5344d063"
+        },
+        "assumed_pickup_return_seconds": 120,
+        "after_minutes": 11.254999999999999,
+        "before_minutes": 32.25333333333334,
+        "improvement_minutes": 20.99833333333334,
+        "message": "현 도로망 모델의 연결 확인. 실제 통행·거치 가능 용량·현장 설치·과거 경로는 미검증."
+      },
+      "action": "경로가 확인된 공간 후보로 현장 검토",
+      "unchecked": [
+        "실제 설치 가능 부지·허가",
+        "현장 보행/자전거 통행",
+        "과거 위치 동일성",
+        "반납 거치 용량·자전거 재고",
+        "설치 후 실제 이용·환승 변화"
+      ]
+    },
+    {
+      "site_id": "grid-982000-1844000",
+      "station_id": "grid-982000-1844000",
+      "latitude": 36.59590832266544,
+      "longitude": 127.30155346285264,
+      "district": "세종시",
+      "population_density_km2": null,
+      "facilities_within_500m": 1,
+      "nearby_rentals_1000m": 13875,
+      "nearest_station_distance_m": 397.08633966200404,
+      "gap_ratio": 1.0,
+      "potential_added_area_m2": 280059.0719484916,
+      "score_components": {
+        "facilities_within_500m": 0.8737373737373737,
+        "nearby_rentals_1000m": 0.73989898989899,
+        "gap_ratio": 0.5909090909090909
+      },
+      "score": 0.7348484848484849,
+      "rank": 3,
+      "observed_demand_label": "주변1km 기존 대여소의 관측 대여. 신규 수요 예측 아님.",
+      "eligible_months": 10,
+      "top10_months": 10,
+      "monthly_ranks": [
+        {
+          "month": "2025-01",
+          "rank": 3,
+          "nearby_rentals_1000m": 542
+        },
+        {
+          "month": "2025-04",
+          "rank": 4,
+          "nearby_rentals_1000m": 1318
+        },
+        {
+          "month": "2025-05",
+          "rank": 3,
+          "nearby_rentals_1000m": 1451
+        },
+        {
+          "month": "2025-06",
+          "rank": 3,
+          "nearby_rentals_1000m": 1515
+        },
+        {
+          "month": "2025-07",
+          "rank": 4,
+          "nearby_rentals_1000m": 1510
+        },
+        {
+          "month": "2025-08",
+          "rank": 3,
+          "nearby_rentals_1000m": 1644
+        },
+        {
+          "month": "2025-09",
+          "rank": 3,
+          "nearby_rentals_1000m": 1623
+        },
+        {
+          "month": "2025-10",
+          "rank": 3,
+          "nearby_rentals_1000m": 1606
+        },
+        {
+          "month": "2025-11",
+          "rank": 3,
+          "nearby_rentals_1000m": 1623
+        },
+        {
+          "month": "2025-12",
+          "rank": 3,
+          "nearby_rentals_1000m": 1043
+        }
+      ],
+      "rank_range": [
+        3,
+        4
+      ],
+      "route": {
+        "anchor_id": "brt:1499:36.6192124:127.3272959",
+        "anchor_name": "오송역종점",
+        "anchor_latitude": 36.6192124,
+        "anchor_longitude": 127.3272959,
+        "straight_to_anchor_m": 3463.328920072227,
+        "before_walk": {
+          "status": "ok",
+          "distance_m": 4183.6,
+          "duration_s": 3346.6,
+          "snap_distances_m": [
+            13.07082616,
+            16.35691667
+          ],
+          "retrieved_at": "2026-11-23T11:36:34.027657+00:00",
+          "geometry": {
+            "coordinates": [
+              [
+                127.301408,
+                36.595894
+              ],
+              [
+                127.301352,
+                36.596279
+              ],
+              [
+                127.301932,
+                36.596348
+              ],
+              [
+                127.301182,
+                36.601591
+              ],
+              [
+                127.306386,
+                36.603782
+              ],
+              [
+                127.304787,
+                36.605333
+              ],
+              [
+                127.305663,
+                36.605888
+              ],
+              [
+                127.321831,
+                36.61138
+              ],
+              [
+                127.325228,
+                36.614091
+              ],
+              [
+                127.326491,
+                36.616463
+              ],
+              [
+                127.326489,
+                36.617612
+              ],
+              [
+                127.327137,
+                36.618481
+              ],
+              [
+                127.327116,
+                36.619186
+              ]
+            ],
+            "type": "LineString"
+          },
+          "source_url": "https://routing.openstreetmap.de/about.html",
+          "response_sha256": "bde73bfa303eae24d4bcf44e50eb4edcbfd05307a02a18ae3045c94b73a86195"
+        },
+        "field_installation_verified": false,
+        "current_osm_only": true,
+        "status": "anchor_dock_missing",
+        "message": "이 기간 이용과 위치가 확인된 앵커300m 내 반납 대여소가 없습니다.",
+        "after_minutes": null,
+        "improvement_minutes": null
+      },
+      "action": "연결 경로 추가 확인 후 판단",
+      "unchecked": [
+        "실제 설치 가능 부지·허가",
+        "현장 보행/자전거 통행",
+        "과거 위치 동일성",
+        "반납 거치 용량·자전거 재고",
+        "설치 후 실제 이용·환승 변화"
+      ]
+    }
+  ],
+  "source_revision": "d9f93413404cd60220bdeb76ba34097c4c5d3b99b2a52cd59066e97aef2b4732"
+}
