@@ -1,0 +1,1833 @@
+{
+  "recorded_at": "2026-11-23",
+  "note": "Existing local analysis records extracted for documentation. Analysis code is not synchronized by this documentation change.",
+  "sources": [
+    {
+      "path": "docs/conclusion-20261123/results.json",
+      "sha256": "49e487138fd2c666156a7b79d6956575c227cab811b33ca329d4f080ac2cea9e"
+    },
+    {
+      "path": "data/reference/method_validation_202512.json",
+      "sha256": "e643a575b1e029a0d4ec47ffb03c66fab1e3f8c9aa23a2103d2f584daae2570f"
+    },
+    {
+      "path": "docs/recovery-evaluation-20261123/seoul.json",
+      "sha256": "094b495b65587803fe9b739f02d4c829586219e6e43abeef6824c1012d88c53b"
+    },
+    {
+      "path": "docs/recovery-evaluation-20261123/daejeon.json",
+      "sha256": "b23cd60201f12f331572c9e87cff8b2db19fe472488b1d90a46de1413e6e251a"
+    },
+    {
+      "path": "docs/recovery-evaluation-20261123/sejong.json",
+      "sha256": "ba5db8655af3747a2db1c8f739b6a2887819221ed2ddf456eb60dbcaa7f9a975"
+    }
+  ],
+  "common_months": [
+    "2025-01",
+    "2025-04",
+    "2025-05",
+    "2025-06",
+    "2025-07",
+    "2025-08",
+    "2025-09",
+    "2025-10",
+    "2025-11",
+    "2025-12"
+  ],
+  "common_cities": [
+    {
+      "city": "seoul",
+      "scope": "common",
+      "scope_months": [
+        "2025-01",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ],
+      "metrics": {
+        "rental_count": 32693864,
+        "month_count": 10,
+        "observed_days": 306,
+        "daily_average": 106842.69281045752,
+        "partial_months": 0,
+        "anchor_linked_ratio": 0.6155165691029975,
+        "unknown_endpoint_ratio": 0.025995061336280104,
+        "peak_hours": [
+          18
+        ]
+      },
+      "candidates": [
+        {
+          "rank": 1,
+          "site_id": "grid-961000-1952500",
+          "district": "동대문구",
+          "nearby_rentals_1000m": 205505,
+          "potential_added_area_m2": 282289.36414913886,
+          "top10_months": 10,
+          "eligible_months": 10,
+          "route": {
+            "anchor_name": "답십리",
+            "status": "model_connected",
+            "before_minutes": 20.746666666666666,
+            "after_minutes": 12.321666666666665,
+            "assumed_pickup_return_seconds": 120
+          }
+        },
+        {
+          "rank": 2,
+          "site_id": "grid-961500-1952500",
+          "district": "동대문구",
+          "nearby_rentals_1000m": 197098,
+          "potential_added_area_m2": 282289.36414913886,
+          "top10_months": 10,
+          "eligible_months": 10,
+          "route": {
+            "anchor_name": "장한평",
+            "status": "model_connected",
+            "before_minutes": 28.076666666666664,
+            "after_minutes": 12.235000000000001,
+            "assumed_pickup_return_seconds": 120
+          }
+        },
+        {
+          "rank": 3,
+          "site_id": "grid-942000-1946000",
+          "district": "양천구",
+          "nearby_rentals_1000m": 152076,
+          "potential_added_area_m2": 282289.36414913886,
+          "top10_months": 10,
+          "eligible_months": 10,
+          "route": {
+            "anchor_name": "신정네거리",
+            "status": "model_connected",
+            "before_minutes": 18.348333333333336,
+            "after_minutes": 16.476666666666667,
+            "assumed_pickup_return_seconds": 120
+          }
+        }
+      ]
+    },
+    {
+      "city": "daejeon",
+      "scope": "common",
+      "scope_months": [
+        "2025-01",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ],
+      "metrics": {
+        "rental_count": 5107326,
+        "month_count": 10,
+        "observed_days": 306,
+        "daily_average": 16690.607843137255,
+        "partial_months": 0,
+        "anchor_linked_ratio": 0.27128560033175875,
+        "unknown_endpoint_ratio": 0.005389904619364419,
+        "peak_hours": [
+          18
+        ]
+      },
+      "candidates": [
+        {
+          "rank": 1,
+          "site_id": "grid-987000-1811500",
+          "district": "서구",
+          "nearby_rentals_1000m": 91833,
+          "potential_added_area_m2": 282289.36414913886,
+          "top10_months": 10,
+          "eligible_months": 10,
+          "route": {
+            "anchor_name": "용문",
+            "status": "route_unconfirmed",
+            "before_minutes": null,
+            "after_minutes": null,
+            "assumed_pickup_return_seconds": 120
+          }
+        },
+        {
+          "rank": 2,
+          "site_id": "grid-987500-1816500",
+          "district": "서구",
+          "nearby_rentals_1000m": 112349,
+          "potential_added_area_m2": 282289.36414913886,
+          "top10_months": 10,
+          "eligible_months": 10,
+          "route": {
+            "anchor_name": "갑천",
+            "status": "model_connected",
+            "before_minutes": 22.678333333333335,
+            "after_minutes": 26.573333333333334,
+            "assumed_pickup_return_seconds": 120
+          }
+        },
+        {
+          "rank": 3,
+          "site_id": "grid-986500-1811000",
+          "district": "서구",
+          "nearby_rentals_1000m": 71573,
+          "potential_added_area_m2": 282289.36414913886,
+          "top10_months": 10,
+          "eligible_months": 10,
+          "route": {
+            "anchor_name": "용문",
+            "status": "model_connected",
+            "before_minutes": 93.775,
+            "after_minutes": 23.498333333333335,
+            "assumed_pickup_return_seconds": 120
+          }
+        }
+      ]
+    },
+    {
+      "city": "sejong",
+      "scope": "common",
+      "scope_months": [
+        "2025-01",
+        "2025-04",
+        "2025-05",
+        "2025-06",
+        "2025-07",
+        "2025-08",
+        "2025-09",
+        "2025-10",
+        "2025-11",
+        "2025-12"
+      ],
+      "metrics": {
+        "rental_count": 2333498,
+        "month_count": 10,
+        "observed_days": 306,
+        "daily_average": 7625.81045751634,
+        "partial_months": 0,
+        "anchor_linked_ratio": 0.7386777276003665,
+        "unknown_endpoint_ratio": 0.009334055568078481,
+        "peak_hours": [
+          8
+        ]
+      },
+      "candidates": [
+        {
+          "rank": 1,
+          "site_id": "grid-981000-1830000",
+          "district": "세종시",
+          "nearby_rentals_1000m": 95988,
+          "potential_added_area_m2": 282289.36414913886,
+          "top10_months": 10,
+          "eligible_months": 10,
+          "route": {
+            "anchor_name": "시청,시의회,교육청,세무서",
+            "status": "route_unconfirmed",
+            "before_minutes": null,
+            "after_minutes": null,
+            "assumed_pickup_return_seconds": 120
+          }
+        },
+        {
+          "rank": 2,
+          "site_id": "grid-980000-1832500",
+          "district": "세종시",
+          "nearby_rentals_1000m": 43320,
+          "potential_added_area_m2": 282289.36414913886,
+          "top10_months": 10,
+          "eligible_months": 10,
+          "route": {
+            "anchor_name": "전통문화체험관",
+            "status": "model_connected",
+            "before_minutes": 32.25333333333334,
+            "after_minutes": 11.254999999999999,
+            "assumed_pickup_return_seconds": 120
+          }
+        },
+        {
+          "rank": 3,
+          "site_id": "grid-982000-1844000",
+          "district": "세종시",
+          "nearby_rentals_1000m": 13875,
+          "potential_added_area_m2": 280059.0719484916,
+          "top10_months": 10,
+          "eligible_months": 10,
+          "route": {
+            "anchor_name": "오송역종점",
+            "status": "anchor_dock_missing",
+            "before_minutes": null,
+            "after_minutes": null,
+            "assumed_pickup_return_seconds": null
+          }
+        }
+      ]
+    }
+  ],
+  "sensitivity": {
+    "seoul": [
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 500,
+        "policy": "equal",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "population_density_km2": 0.25,
+          "facilities_within_500m": 0.25,
+          "nearby_rentals_1000m": 0.25,
+          "gap_ratio": 0.25
+        },
+        "candidate_count": 839,
+        "top_k": 10,
+        "exact_jaccard": 1.0,
+        "geographic_top10_overlap": 1.0,
+        "mean_common_rank_shift": 0.0,
+        "union_added_area_m2": 2796932.5615659226,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 300,
+        "grid_step_m": 500,
+        "policy": "equal",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "population_density_km2": 0.25,
+          "facilities_within_500m": 0.25,
+          "nearby_rentals_1000m": 0.25,
+          "gap_ratio": 0.25
+        },
+        "candidate_count": 839,
+        "top_k": 10,
+        "exact_jaccard": 0.42857142857142855,
+        "geographic_top10_overlap": 0.6,
+        "mean_common_rank_shift": 2.1666666666666665,
+        "union_added_area_m2": 2778218.3560990533,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 800,
+        "grid_step_m": 500,
+        "policy": "equal",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "population_density_km2": 0.25,
+          "facilities_within_500m": 0.25,
+          "nearby_rentals_1000m": 0.25,
+          "gap_ratio": 0.25
+        },
+        "candidate_count": 839,
+        "top_k": 10,
+        "exact_jaccard": 0.5384615384615384,
+        "geographic_top10_overlap": 0.7,
+        "mean_common_rank_shift": 2.0,
+        "union_added_area_m2": 2541152.3226557565,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 250,
+        "policy": "equal",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "population_density_km2": 0.25,
+          "facilities_within_500m": 0.25,
+          "nearby_rentals_1000m": 0.25,
+          "gap_ratio": 0.25
+        },
+        "candidate_count": 3312,
+        "top_k": 10,
+        "exact_jaccard": 0.05263157894736842,
+        "geographic_top10_overlap": 0.4,
+        "mean_common_rank_shift": 1.0,
+        "union_added_area_m2": 2049761.2251451663,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 750,
+        "policy": "equal",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "population_density_km2": 0.25,
+          "facilities_within_500m": 0.25,
+          "nearby_rentals_1000m": 0.25,
+          "gap_ratio": 0.25
+        },
+        "candidate_count": 377,
+        "top_k": 10,
+        "exact_jaccard": 0.0,
+        "geographic_top10_overlap": 0.0,
+        "mean_common_rank_shift": null,
+        "union_added_area_m2": 2822893.6414913875,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 500,
+        "policy": "demand",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "population_density_km2": 0.16666666666666666,
+          "facilities_within_500m": 0.16666666666666666,
+          "nearby_rentals_1000m": 0.5,
+          "gap_ratio": 0.16666666666666666
+        },
+        "candidate_count": 839,
+        "top_k": 10,
+        "exact_jaccard": 0.42857142857142855,
+        "geographic_top10_overlap": 0.6,
+        "mean_common_rank_shift": 1.6666666666666667,
+        "union_added_area_m2": 2551371.1420041174,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 500,
+        "policy": "gap",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "population_density_km2": 0.16666666666666666,
+          "facilities_within_500m": 0.16666666666666666,
+          "nearby_rentals_1000m": 0.16666666666666666,
+          "gap_ratio": 0.5
+        },
+        "candidate_count": 839,
+        "top_k": 10,
+        "exact_jaccard": 0.8181818181818182,
+        "geographic_top10_overlap": 0.9,
+        "mean_common_rank_shift": 0.0,
+        "union_added_area_m2": 2800555.998794892,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 500,
+        "policy": "equal",
+        "candidate_buffer_m": 500,
+        "weights": {
+          "population_density_km2": 0.25,
+          "facilities_within_500m": 0.25,
+          "nearby_rentals_1000m": 0.25,
+          "gap_ratio": 0.25
+        },
+        "candidate_count": 839,
+        "top_k": 10,
+        "exact_jaccard": 1.0,
+        "geographic_top10_overlap": 1.0,
+        "mean_common_rank_shift": 0.0,
+        "union_added_area_m2": 7068538.679458437,
+        "ranking_affected": false,
+        "note": "후보 버퍼는 점수 입력이 아니므로 순위가 같아도 강건성 증거로 세지 않습니다."
+      }
+    ],
+    "daejeon": [
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 500,
+        "policy": "equal",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "population_density_km2": 0.25,
+          "facilities_within_500m": 0.25,
+          "nearby_rentals_1000m": 0.25,
+          "gap_ratio": 0.25
+        },
+        "candidate_count": 487,
+        "top_k": 10,
+        "exact_jaccard": 1.0,
+        "geographic_top10_overlap": 1.0,
+        "mean_common_rank_shift": 0.0,
+        "union_added_area_m2": 2778218.3560988535,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 300,
+        "grid_step_m": 500,
+        "policy": "equal",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "population_density_km2": 0.25,
+          "facilities_within_500m": 0.25,
+          "nearby_rentals_1000m": 0.25,
+          "gap_ratio": 0.25
+        },
+        "candidate_count": 487,
+        "top_k": 10,
+        "exact_jaccard": 0.8181818181818182,
+        "geographic_top10_overlap": 0.9,
+        "mean_common_rank_shift": 0.7777777777777778,
+        "union_added_area_m2": 2778218.356099282,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 800,
+        "grid_step_m": 500,
+        "policy": "equal",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "population_density_km2": 0.25,
+          "facilities_within_500m": 0.25,
+          "nearby_rentals_1000m": 0.25,
+          "gap_ratio": 0.25
+        },
+        "candidate_count": 487,
+        "top_k": 10,
+        "exact_jaccard": 0.6666666666666666,
+        "geographic_top10_overlap": 0.8,
+        "mean_common_rank_shift": 1.375,
+        "union_added_area_m2": 2800555.9987951205,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 250,
+        "policy": "equal",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "population_density_km2": 0.25,
+          "facilities_within_500m": 0.25,
+          "nearby_rentals_1000m": 0.25,
+          "gap_ratio": 0.25
+        },
+        "candidate_count": 1998,
+        "top_k": 10,
+        "exact_jaccard": 0.0,
+        "geographic_top10_overlap": 0.3,
+        "mean_common_rank_shift": null,
+        "union_added_area_m2": 1974593.5301096966,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 750,
+        "policy": "equal",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "population_density_km2": 0.25,
+          "facilities_within_500m": 0.25,
+          "nearby_rentals_1000m": 0.25,
+          "gap_ratio": 0.25
+        },
+        "candidate_count": 222,
+        "top_k": 10,
+        "exact_jaccard": 0.0,
+        "geographic_top10_overlap": 0.1,
+        "mean_common_rank_shift": null,
+        "union_added_area_m2": 2810528.39242534,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 500,
+        "policy": "demand",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "population_density_km2": 0.16666666666666666,
+          "facilities_within_500m": 0.16666666666666666,
+          "nearby_rentals_1000m": 0.5,
+          "gap_ratio": 0.16666666666666666
+        },
+        "candidate_count": 487,
+        "top_k": 10,
+        "exact_jaccard": 0.8181818181818182,
+        "geographic_top10_overlap": 0.9,
+        "mean_common_rank_shift": 1.2222222222222223,
+        "union_added_area_m2": 2800555.998795121,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 500,
+        "policy": "gap",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "population_density_km2": 0.16666666666666666,
+          "facilities_within_500m": 0.16666666666666666,
+          "nearby_rentals_1000m": 0.16666666666666666,
+          "gap_ratio": 0.5
+        },
+        "candidate_count": 487,
+        "top_k": 10,
+        "exact_jaccard": 1.0,
+        "geographic_top10_overlap": 1.0,
+        "mean_common_rank_shift": 0.0,
+        "union_added_area_m2": 2778218.3560988535,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 500,
+        "policy": "equal",
+        "candidate_buffer_m": 500,
+        "weights": {
+          "population_density_km2": 0.25,
+          "facilities_within_500m": 0.25,
+          "nearby_rentals_1000m": 0.25,
+          "gap_ratio": 0.25
+        },
+        "candidate_count": 487,
+        "top_k": 10,
+        "exact_jaccard": 1.0,
+        "geographic_top10_overlap": 1.0,
+        "mean_common_rank_shift": 0.0,
+        "union_added_area_m2": 7086810.20137973,
+        "ranking_affected": false,
+        "note": "후보 버퍼는 점수 입력이 아니므로 순위가 같아도 강건성 증거로 세지 않습니다."
+      }
+    ],
+    "sejong": [
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 500,
+        "policy": "equal",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "facilities_within_500m": 0.3333333333333333,
+          "nearby_rentals_1000m": 0.3333333333333333,
+          "gap_ratio": 0.3333333333333333
+        },
+        "candidate_count": 198,
+        "top_k": 10,
+        "exact_jaccard": 1.0,
+        "geographic_top10_overlap": 1.0,
+        "mean_common_rank_shift": 0.0,
+        "union_added_area_m2": 2699212.571701392,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 300,
+        "grid_step_m": 500,
+        "policy": "equal",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "facilities_within_500m": 0.3333333333333333,
+          "nearby_rentals_1000m": 0.3333333333333333,
+          "gap_ratio": 0.3333333333333333
+        },
+        "candidate_count": 198,
+        "top_k": 10,
+        "exact_jaccard": 0.8181818181818182,
+        "geographic_top10_overlap": 0.9,
+        "mean_common_rank_shift": 0.0,
+        "union_added_area_m2": 2699164.907528181,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 800,
+        "grid_step_m": 500,
+        "policy": "equal",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "facilities_within_500m": 0.3333333333333333,
+          "nearby_rentals_1000m": 0.3333333333333333,
+          "gap_ratio": 0.3333333333333333
+        },
+        "candidate_count": 198,
+        "top_k": 10,
+        "exact_jaccard": 1.0,
+        "geographic_top10_overlap": 1.0,
+        "mean_common_rank_shift": 1.4,
+        "union_added_area_m2": 2663223.3612172394,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 250,
+        "policy": "equal",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "facilities_within_500m": 0.3333333333333333,
+          "nearby_rentals_1000m": 0.3333333333333333,
+          "gap_ratio": 0.3333333333333333
+        },
+        "candidate_count": 820,
+        "top_k": 10,
+        "exact_jaccard": 0.0,
+        "geographic_top10_overlap": 0.1,
+        "mean_common_rank_shift": null,
+        "union_added_area_m2": 1918458.1794497587,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 750,
+        "policy": "equal",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "facilities_within_500m": 0.3333333333333333,
+          "nearby_rentals_1000m": 0.3333333333333333,
+          "gap_ratio": 0.3333333333333333
+        },
+        "candidate_count": 91,
+        "top_k": 10,
+        "exact_jaccard": 0.05263157894736842,
+        "geographic_top10_overlap": 0.4,
+        "mean_common_rank_shift": 3.0,
+        "union_added_area_m2": 2666904.637477198,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 500,
+        "policy": "demand",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "facilities_within_500m": 0.25,
+          "nearby_rentals_1000m": 0.5,
+          "gap_ratio": 0.25
+        },
+        "candidate_count": 198,
+        "top_k": 10,
+        "exact_jaccard": 0.25,
+        "geographic_top10_overlap": 0.4,
+        "mean_common_rank_shift": 1.5,
+        "union_added_area_m2": 2575120.237657639,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 500,
+        "policy": "gap",
+        "candidate_buffer_m": 300,
+        "weights": {
+          "facilities_within_500m": 0.25,
+          "nearby_rentals_1000m": 0.25,
+          "gap_ratio": 0.5
+        },
+        "candidate_count": 198,
+        "top_k": 10,
+        "exact_jaccard": 1.0,
+        "geographic_top10_overlap": 1.0,
+        "mean_common_rank_shift": 0.0,
+        "union_added_area_m2": 2699212.571701392,
+        "ranking_affected": true,
+        "note": ""
+      },
+      {
+        "anchor_radius_m": 500,
+        "grid_step_m": 500,
+        "policy": "equal",
+        "candidate_buffer_m": 500,
+        "weights": {
+          "facilities_within_500m": 0.3333333333333333,
+          "nearby_rentals_1000m": 0.3333333333333333,
+          "gap_ratio": 0.3333333333333333
+        },
+        "candidate_count": 198,
+        "top_k": 10,
+        "exact_jaccard": 1.0,
+        "geographic_top10_overlap": 1.0,
+        "mean_common_rank_shift": 0.0,
+        "union_added_area_m2": 6125162.0610618405,
+        "ranking_affected": false,
+        "note": "후보 버퍼는 점수 입력이 아니므로 순위가 같아도 강건성 증거로 세지 않습니다."
+      }
+    ]
+  },
+  "masking": {
+    "seoul": {
+      "december_high_usage": {
+        "fold": "high_usage",
+        "seed": 0,
+        "target_count": 10,
+        "targets": [
+          {
+            "station_id": "ST-2031",
+            "station_name": "마곡나루역 2번 출구",
+            "rental_count": 9482,
+            "latitude": 37.56692505,
+            "longitude": 126.82743835
+          },
+          {
+            "station_id": "ST-1718",
+            "station_name": "마곡나루역 5번출구 뒤편",
+            "rental_count": 7133,
+            "latitude": 37.56520081,
+            "longitude": 126.82731628
+          },
+          {
+            "station_id": "ST-2045",
+            "station_name": "마곡나루역 3번 출구",
+            "rental_count": 6525,
+            "latitude": 37.56580353,
+            "longitude": 126.82807922
+          },
+          {
+            "station_id": "ST-891",
+            "station_name": "롯데월드타워(잠실역2번출구 쪽)",
+            "rental_count": 5875,
+            "latitude": 37.51312637,
+            "longitude": 127.10095978
+          },
+          {
+            "station_id": "ST-1065",
+            "station_name": "발산역 1번, 9번 인근 대여소",
+            "rental_count": 5210,
+            "latitude": 37.55894852,
+            "longitude": 126.83717346
+          },
+          {
+            "station_id": "ST-413",
+            "station_name": "영등포구청역 7번출구",
+            "rental_count": 4857,
+            "latitude": 37.52463531,
+            "longitude": 126.89621735
+          },
+          {
+            "station_id": "ST-2871",
+            "station_name": "마곡역 7번출구",
+            "rental_count": 4137,
+            "latitude": 37.55974579,
+            "longitude": 126.8243866
+          },
+          {
+            "station_id": "ST-1681",
+            "station_name": "송파구청",
+            "rental_count": 4010,
+            "latitude": 37.5150528,
+            "longitude": 127.10626984
+          },
+          {
+            "station_id": "ST-3311",
+            "station_name": "신도림역 3번출구",
+            "rental_count": 4008,
+            "latitude": 37.50760651,
+            "longitude": 126.89134979
+          },
+          {
+            "station_id": "ST-2050",
+            "station_name": "마곡13단지 정문 앞",
+            "rental_count": 3941,
+            "latitude": 37.5586319,
+            "longitude": 126.81991577
+          }
+        ],
+        "feasible_within_match_radius_count": 0,
+        "infeasible_targets": [
+          "ST-2031",
+          "ST-1718",
+          "ST-2045",
+          "ST-891",
+          "ST-1065",
+          "ST-413",
+          "ST-2871",
+          "ST-1681",
+          "ST-3311",
+          "ST-2050"
+        ],
+        "candidate_count": 839,
+        "top_k": 10,
+        "match_radius_m": 300,
+        "maximum_possible_recall_at_k": 1.0,
+        "spatial_block_all_stations_hidden": false,
+        "training_audit": {
+          "source_od_trips": 1954344,
+          "retained_od_trips": 1850045,
+          "removed_od_trips": 104299,
+          "hidden_ids": [
+            "ST-1065",
+            "ST-1681",
+            "ST-1718",
+            "ST-2031",
+            "ST-2045",
+            "ST-2050",
+            "ST-2871",
+            "ST-3311",
+            "ST-413",
+            "ST-891"
+          ],
+          "hidden_station_count_in_training": 0
+        },
+        "methods": {
+          "full": {
+            "hits": 0,
+            "pairs": [],
+            "recall": 0.0,
+            "eligible_recall": null
+          },
+          "demand_only": {
+            "hits": 0,
+            "pairs": [],
+            "recall": 0.0
+          },
+          "facilities_population_only": {
+            "hits": 0,
+            "pairs": [],
+            "recall": 0.0
+          }
+        },
+        "random_recall_mean": 0.0,
+        "random_recall_std": 0.0,
+        "random_repetitions": 30
+      },
+      "selection": {
+        "city": "seoul",
+        "selected": "500:demand",
+        "development_scores": {
+          "500:equal": 0.0,
+          "500:demand": 0.11515151515151516,
+          "500:gap": 0.0,
+          "500:facilities_only": 0.0,
+          "250:equal": 0.0,
+          "250:demand": 0.07878787878787878,
+          "250:gap": 0.0,
+          "250:facilities_only": 0.0
+        },
+        "locked_at": "2026-11-23T08:10:37.465024+00:00",
+        "excluded_test_ids": [
+          "ST-1063",
+          "ST-1064",
+          "ST-1069",
+          "ST-1195",
+          "ST-1349",
+          "ST-1517",
+          "ST-1689",
+          "ST-1709",
+          "ST-1715",
+          "ST-1718",
+          "ST-1867",
+          "ST-1888",
+          "ST-2035",
+          "ST-2036",
+          "ST-2044",
+          "ST-2115",
+          "ST-2411",
+          "ST-2574",
+          "ST-2713",
+          "ST-2718",
+          "ST-2740",
+          "ST-2757",
+          "ST-2795",
+          "ST-2832",
+          "ST-2844",
+          "ST-2858",
+          "ST-2871",
+          "ST-2884",
+          "ST-2886",
+          "ST-2942",
+          "ST-2993",
+          "ST-3145",
+          "ST-3237",
+          "ST-3260",
+          "ST-3261",
+          "ST-3324",
+          "ST-3338",
+          "ST-3371",
+          "ST-446",
+          "ST-502",
+          "ST-503",
+          "ST-504"
+        ]
+      },
+      "selected_summary": [
+        {
+          "fold": "gap_high_usage",
+          "n": 10,
+          "candidate_count": 848,
+          "possible": 8,
+          "hits10": 2,
+          "recall10": 0.2,
+          "hits20": 2,
+          "recall20": 0.2,
+          "random_recall": 0.006666666666666667,
+          "loss_counts": {
+            "rank_below_top10": 6,
+            "top10_nearby": 2,
+            "no_candidate": 2
+          },
+          "matched_error_m": 155.70799855036427
+        },
+        {
+          "fold": "gap_random",
+          "n": 10,
+          "candidate_count": 844,
+          "possible": 5,
+          "hits10": 0,
+          "recall10": 0.0,
+          "hits20": 0,
+          "recall20": 0.0,
+          "random_recall": 0.0,
+          "loss_counts": {
+            "no_candidate": 5,
+            "rank_below_top10": 5
+          },
+          "matched_error_m": null
+        },
+        {
+          "fold": "spatial_block",
+          "n": 18,
+          "candidate_count": 841,
+          "possible": 5,
+          "hits10": 0,
+          "recall10": 0.0,
+          "hits20": 0,
+          "recall20": 0.0,
+          "random_recall": 0.0018518518518518517,
+          "loss_counts": {
+            "rank_below_top10": 5,
+            "no_candidate": 13
+          },
+          "matched_error_m": null
+        }
+      ],
+      "baseline_summary": [
+        {
+          "fold": "gap_high_usage",
+          "n": 10,
+          "candidate_count": 848,
+          "possible": 8,
+          "hits10": 3,
+          "recall10": 0.3,
+          "hits20": 4,
+          "recall20": 0.4,
+          "random_recall": 0.006666666666666667,
+          "loss_counts": {
+            "rank_below_top10": 5,
+            "top10_nearby": 3,
+            "no_candidate": 2
+          },
+          "matched_error_m": 201.91031518881314
+        },
+        {
+          "fold": "gap_random",
+          "n": 10,
+          "candidate_count": 844,
+          "possible": 5,
+          "hits10": 0,
+          "recall10": 0.0,
+          "hits20": 1,
+          "recall20": 0.1,
+          "random_recall": 0.0,
+          "loss_counts": {
+            "no_candidate": 5,
+            "rank_below_top10": 5
+          },
+          "matched_error_m": null
+        },
+        {
+          "fold": "spatial_block",
+          "n": 18,
+          "candidate_count": 841,
+          "possible": 5,
+          "hits10": 0,
+          "recall10": 0.0,
+          "hits20": 0,
+          "recall20": 0.0,
+          "random_recall": 0.0018518518518518517,
+          "loss_counts": {
+            "rank_below_top10": 5,
+            "no_candidate": 13
+          },
+          "matched_error_m": null
+        }
+      ],
+      "demand_baseline_summary": [
+        {
+          "fold": "gap_high_usage",
+          "n": 10,
+          "candidate_count": 848,
+          "possible": 8,
+          "hits10": 2,
+          "recall10": 0.2,
+          "hits20": 2,
+          "recall20": 0.2,
+          "random_recall": 0.006666666666666667,
+          "loss_counts": {
+            "rank_below_top10": 6,
+            "top10_nearby": 2,
+            "no_candidate": 2
+          },
+          "matched_error_m": 155.70799855036427
+        },
+        {
+          "fold": "gap_random",
+          "n": 10,
+          "candidate_count": 844,
+          "possible": 5,
+          "hits10": 0,
+          "recall10": 0.0,
+          "hits20": 0,
+          "recall20": 0.0,
+          "random_recall": 0.0,
+          "loss_counts": {
+            "no_candidate": 5,
+            "rank_below_top10": 5
+          },
+          "matched_error_m": null
+        },
+        {
+          "fold": "spatial_block",
+          "n": 18,
+          "candidate_count": 841,
+          "possible": 5,
+          "hits10": 0,
+          "recall10": 0.0,
+          "hits20": 0,
+          "recall20": 0.0,
+          "random_recall": 0.0018518518518518517,
+          "loss_counts": {
+            "rank_below_top10": 5,
+            "no_candidate": 13
+          },
+          "matched_error_m": null
+        }
+      ]
+    },
+    "daejeon": {
+      "december_high_usage": {
+        "fold": "high_usage",
+        "seed": 0,
+        "target_count": 10,
+        "targets": [
+          {
+            "station_id": "ST1016",
+            "station_name": "궁동 충남대학교 학생회관",
+            "rental_count": 2437,
+            "latitude": 36.366454,
+            "longitude": 127.345568
+          },
+          {
+            "station_id": "ST0373",
+            "station_name": "구성동 카이스트 서쪽 쪽문",
+            "rental_count": 2392,
+            "latitude": 36.364171,
+            "longitude": 127.358968
+          },
+          {
+            "station_id": "ST1039",
+            "station_name": "둔산동 타임월드",
+            "rental_count": 2117,
+            "latitude": 36.352923,
+            "longitude": 127.379151
+          },
+          {
+            "station_id": "ST0426",
+            "station_name": "둔산동 샘머리아파트(209동)",
+            "rental_count": 2084,
+            "latitude": 36.36104,
+            "longitude": 127.390447
+          },
+          {
+            "station_id": "ST1341",
+            "station_name": "구성동 카이스트 정보전자동 (1410)",
+            "rental_count": 1898,
+            "latitude": 36.368165,
+            "longitude": 127.364611
+          },
+          {
+            "station_id": "ST0763",
+            "station_name": "어은동 한빛아파트(126동 건너편)",
+            "rental_count": 1783,
+            "latitude": 36.363151,
+            "longitude": 127.352945
+          },
+          {
+            "station_id": "ST0408",
+            "station_name": "오류동 서대전역",
+            "rental_count": 1756,
+            "latitude": 36.32207,
+            "longitude": 127.404872
+          },
+          {
+            "station_id": "ST0192",
+            "station_name": "궁동 다솔아파트 입구",
+            "rental_count": 1737,
+            "latitude": 36.361324,
+            "longitude": 127.34789
+          },
+          {
+            "station_id": "ST0375",
+            "station_name": "구성동 카이스트 창의학습관",
+            "rental_count": 1729,
+            "latitude": 36.370596,
+            "longitude": 127.362976
+          },
+          {
+            "station_id": "ST0446",
+            "station_name": "월평동 미래빌딩",
+            "rental_count": 1705,
+            "latitude": 36.360274,
+            "longitude": 127.376789
+          }
+        ],
+        "feasible_within_match_radius_count": 1,
+        "infeasible_targets": [
+          "ST0373",
+          "ST1039",
+          "ST0426",
+          "ST1341",
+          "ST0763",
+          "ST0408",
+          "ST0192",
+          "ST0375",
+          "ST0446"
+        ],
+        "candidate_count": 488,
+        "top_k": 10,
+        "match_radius_m": 300,
+        "maximum_possible_recall_at_k": 1.0,
+        "spatial_block_all_stations_hidden": false,
+        "training_audit": {
+          "source_od_trips": 368491,
+          "retained_od_trips": 333340,
+          "removed_od_trips": 35151,
+          "hidden_ids": [
+            "ST0192",
+            "ST0373",
+            "ST0375",
+            "ST0408",
+            "ST0426",
+            "ST0446",
+            "ST0763",
+            "ST1016",
+            "ST1039",
+            "ST1341"
+          ],
+          "hidden_station_count_in_training": 0
+        },
+        "methods": {
+          "full": {
+            "hits": 0,
+            "pairs": [],
+            "recall": 0.0,
+            "eligible_recall": 0.0
+          },
+          "demand_only": {
+            "hits": 1,
+            "pairs": [
+              {
+                "station_id": "ST1016",
+                "site_id": "grid-986000-1818500",
+                "distance_m": 111.65835568514318
+              }
+            ],
+            "recall": 0.1
+          },
+          "facilities_population_only": {
+            "hits": 0,
+            "pairs": [],
+            "recall": 0.0
+          }
+        },
+        "random_recall_mean": 0.0033333333333333335,
+        "random_recall_std": 0.017950549357115014,
+        "random_repetitions": 30
+      },
+      "selection": {
+        "city": "daejeon",
+        "selected": "500:demand",
+        "development_scores": {
+          "500:equal": 0.03333333333333333,
+          "500:demand": 0.13333333333333333,
+          "500:gap": 0.03333333333333333,
+          "500:facilities_only": 0.0,
+          "250:equal": 0.0,
+          "250:demand": 0.03333333333333333,
+          "250:gap": 0.0,
+          "250:facilities_only": 0.0
+        },
+        "locked_at": "2026-11-23T08:11:30.934033+00:00",
+        "excluded_test_ids": [
+          "ST0125",
+          "ST0138",
+          "ST0246",
+          "ST0248",
+          "ST0249",
+          "ST0250",
+          "ST0251",
+          "ST0254",
+          "ST0255",
+          "ST0256",
+          "ST0257",
+          "ST0258",
+          "ST0259",
+          "ST0260",
+          "ST0261",
+          "ST0262",
+          "ST0263",
+          "ST0264",
+          "ST0265",
+          "ST0266",
+          "ST0274",
+          "ST0277",
+          "ST0278",
+          "ST0367",
+          "ST0373",
+          "ST0374",
+          "ST0376",
+          "ST0400",
+          "ST0798",
+          "ST0799",
+          "ST0800",
+          "ST0808",
+          "ST0809",
+          "ST0819",
+          "ST0925",
+          "ST1062",
+          "ST1074",
+          "ST1117",
+          "ST1139",
+          "ST1192",
+          "ST1227",
+          "ST1228",
+          "ST1232",
+          "ST1300",
+          "ST1305",
+          "ST1346",
+          "ST1355",
+          "ST1484"
+        ]
+      },
+      "selected_summary": [
+        {
+          "fold": "gap_high_usage",
+          "n": 10,
+          "candidate_count": 478,
+          "possible": 3,
+          "hits10": 1,
+          "recall10": 0.1,
+          "hits20": 1,
+          "recall20": 0.1,
+          "random_recall": 0.006666666666666667,
+          "loss_counts": {
+            "no_candidate": 7,
+            "rank_below_top10": 2,
+            "top10_nearby": 1
+          },
+          "matched_error_m": 25.34710854267403
+        },
+        {
+          "fold": "gap_random",
+          "n": 10,
+          "candidate_count": 473,
+          "possible": 5,
+          "hits10": 0,
+          "recall10": 0.0,
+          "hits20": 0,
+          "recall20": 0.0,
+          "random_recall": 0.006666666666666667,
+          "loss_counts": {
+            "rank_below_top10": 5,
+            "no_candidate": 5
+          },
+          "matched_error_m": null
+        },
+        {
+          "fold": "spatial_block",
+          "n": 24,
+          "candidate_count": 477,
+          "possible": 14,
+          "hits10": 2,
+          "recall10": 0.08333333333333333,
+          "hits20": 2,
+          "recall20": 0.08333333333333333,
+          "random_recall": 0.0027777777777777775,
+          "loss_counts": {
+            "top10_nearby": 14,
+            "no_candidate": 10
+          },
+          "matched_error_m": 86.75555027347613
+        }
+      ],
+      "baseline_summary": [
+        {
+          "fold": "gap_high_usage",
+          "n": 10,
+          "candidate_count": 478,
+          "possible": 3,
+          "hits10": 0,
+          "recall10": 0.0,
+          "hits20": 0,
+          "recall20": 0.0,
+          "random_recall": 0.006666666666666667,
+          "loss_counts": {
+            "no_candidate": 7,
+            "rank_below_top10": 3
+          },
+          "matched_error_m": null
+        },
+        {
+          "fold": "gap_random",
+          "n": 10,
+          "candidate_count": 473,
+          "possible": 5,
+          "hits10": 0,
+          "recall10": 0.0,
+          "hits20": 0,
+          "recall20": 0.0,
+          "random_recall": 0.006666666666666667,
+          "loss_counts": {
+            "rank_below_top10": 5,
+            "no_candidate": 5
+          },
+          "matched_error_m": null
+        },
+        {
+          "fold": "spatial_block",
+          "n": 24,
+          "candidate_count": 477,
+          "possible": 14,
+          "hits10": 0,
+          "recall10": 0.0,
+          "hits20": 0,
+          "recall20": 0.0,
+          "random_recall": 0.0027777777777777775,
+          "loss_counts": {
+            "rank_below_top10": 14,
+            "no_candidate": 10
+          },
+          "matched_error_m": null
+        }
+      ],
+      "demand_baseline_summary": [
+        {
+          "fold": "gap_high_usage",
+          "n": 10,
+          "candidate_count": 478,
+          "possible": 3,
+          "hits10": 1,
+          "recall10": 0.1,
+          "hits20": 1,
+          "recall20": 0.1,
+          "random_recall": 0.006666666666666667,
+          "loss_counts": {
+            "no_candidate": 7,
+            "rank_below_top10": 2,
+            "top10_nearby": 1
+          },
+          "matched_error_m": 25.34710854267403
+        },
+        {
+          "fold": "gap_random",
+          "n": 10,
+          "candidate_count": 473,
+          "possible": 5,
+          "hits10": 0,
+          "recall10": 0.0,
+          "hits20": 0,
+          "recall20": 0.0,
+          "random_recall": 0.006666666666666667,
+          "loss_counts": {
+            "rank_below_top10": 5,
+            "no_candidate": 5
+          },
+          "matched_error_m": null
+        },
+        {
+          "fold": "spatial_block",
+          "n": 24,
+          "candidate_count": 477,
+          "possible": 14,
+          "hits10": 2,
+          "recall10": 0.08333333333333333,
+          "hits20": 2,
+          "recall20": 0.08333333333333333,
+          "random_recall": 0.0027777777777777775,
+          "loss_counts": {
+            "top10_nearby": 14,
+            "no_candidate": 10
+          },
+          "matched_error_m": 86.75555027347613
+        }
+      ]
+    },
+    "sejong": {
+      "december_high_usage": {
+        "fold": "high_usage",
+        "seed": 0,
+        "target_count": 10,
+        "targets": [
+          {
+            "station_id": "SJ_00400",
+            "station_name": "어진동_푸르지오시티2차",
+            "rental_count": 2541,
+            "latitude": 36.494919,
+            "longitude": 127.266949
+          },
+          {
+            "station_id": "SJ_00278",
+            "station_name": "어진동_푸르지오시티앞",
+            "rental_count": 1807,
+            "latitude": 36.4960608,
+            "longitude": 127.2634975
+          },
+          {
+            "station_id": "SJ_00320",
+            "station_name": "어진동_정부세종청사남측 BRT(다정동방향)",
+            "rental_count": 1789,
+            "latitude": 36.500987,
+            "longitude": 127.259364
+          },
+          {
+            "station_id": "SJ_00681",
+            "station_name": "어진동_정부세종청사 중앙동 입구",
+            "rental_count": 1472,
+            "latitude": 36.5014919,
+            "longitude": 127.2641945
+          },
+          {
+            "station_id": "SJ_00674",
+            "station_name": "보람동_금강시티타워 앞",
+            "rental_count": 1346,
+            "latitude": 36.4781508,
+            "longitude": 127.2882746
+          },
+          {
+            "station_id": "SJ_00682",
+            "station_name": "어진동_정부세종청사 중앙동 기획재정부 입구",
+            "rental_count": 1205,
+            "latitude": 36.50314,
+            "longitude": 127.2651379
+          },
+          {
+            "station_id": "SJ_00318",
+            "station_name": "나성동_다정동 BRT2(새롬동방향)",
+            "rental_count": 1141,
+            "latitude": 36.4940721,
+            "longitude": 127.2561312
+          },
+          {
+            "station_id": "SJ_00393",
+            "station_name": "나성동_다정교",
+            "rental_count": 1136,
+            "latitude": 36.4945267,
+            "longitude": 127.2563306
+          },
+          {
+            "station_id": "SJ_00321",
+            "station_name": "어진동_정부세종청사BRT환승센터 ",
+            "rental_count": 1096,
+            "latitude": 36.501739,
+            "longitude": 127.259677
+          },
+          {
+            "station_id": "SJ_00602",
+            "station_name": "어진동_해양수산부_농림축산식품부(5동-1) 로터리",
+            "rental_count": 1071,
+            "latitude": 36.505699,
+            "longitude": 127.2650661
+          }
+        ],
+        "feasible_within_match_radius_count": 0,
+        "infeasible_targets": [
+          "SJ_00400",
+          "SJ_00278",
+          "SJ_00320",
+          "SJ_00681",
+          "SJ_00674",
+          "SJ_00682",
+          "SJ_00318",
+          "SJ_00393",
+          "SJ_00321",
+          "SJ_00602"
+        ],
+        "candidate_count": 198,
+        "top_k": 10,
+        "match_radius_m": 300,
+        "maximum_possible_recall_at_k": 1.0,
+        "spatial_block_all_stations_hidden": false,
+        "training_audit": {
+          "source_od_trips": 164366,
+          "retained_od_trips": 137429,
+          "removed_od_trips": 26937,
+          "hidden_ids": [
+            "SJ_00278",
+            "SJ_00318",
+            "SJ_00320",
+            "SJ_00321",
+            "SJ_00393",
+            "SJ_00400",
+            "SJ_00602",
+            "SJ_00674",
+            "SJ_00681",
+            "SJ_00682"
+          ],
+          "hidden_station_count_in_training": 0
+        },
+        "methods": {
+          "full": {
+            "hits": 0,
+            "pairs": [],
+            "recall": 0.0,
+            "eligible_recall": null
+          },
+          "demand_only": {
+            "hits": 0,
+            "pairs": [],
+            "recall": 0.0
+          },
+          "facilities_population_only": {
+            "hits": 0,
+            "pairs": [],
+            "recall": 0.0
+          }
+        },
+        "random_recall_mean": 0.0,
+        "random_recall_std": 0.0,
+        "random_repetitions": 30
+      },
+      "selection": {
+        "city": "sejong",
+        "selected": "500:equal",
+        "development_scores": {
+          "500:equal": 0.17391304347826086,
+          "500:demand": 0.1144927536231884,
+          "500:gap": 0.16666666666666666,
+          "500:facilities_only": 0.04057971014492754,
+          "250:equal": 0.17391304347826086,
+          "250:demand": 0.06956521739130435,
+          "250:gap": 0.17391304347826086,
+          "250:facilities_only": 0.03333333333333333
+        },
+        "locked_at": "2026-11-23T08:12:06.436731+00:00",
+        "excluded_test_ids": [
+          "SJ-00708",
+          "SJ-00710",
+          "SJ-00716",
+          "SJ-00756",
+          "SJ-00765",
+          "SJ-00780",
+          "SJ_00074",
+          "SJ_00075",
+          "SJ_00085",
+          "SJ_00242",
+          "SJ_00244",
+          "SJ_00257",
+          "SJ_00258",
+          "SJ_00272",
+          "SJ_00273",
+          "SJ_00274",
+          "SJ_00293",
+          "SJ_00304",
+          "SJ_00308",
+          "SJ_00310",
+          "SJ_00311",
+          "SJ_00312",
+          "SJ_00313",
+          "SJ_00316",
+          "SJ_00318",
+          "SJ_00342",
+          "SJ_00343",
+          "SJ_00347",
+          "SJ_00350",
+          "SJ_00352",
+          "SJ_00353",
+          "SJ_00354",
+          "SJ_00380",
+          "SJ_00384",
+          "SJ_00387",
+          "SJ_00388",
+          "SJ_00389",
+          "SJ_00390",
+          "SJ_00420",
+          "SJ_00425",
+          "SJ_00428",
+          "SJ_00430",
+          "SJ_00432",
+          "SJ_00454",
+          "SJ_00470",
+          "SJ_00502",
+          "SJ_00516",
+          "SJ_00579",
+          "SJ_00580",
+          "SJ_00581",
+          "SJ_00582",
+          "SJ_00584",
+          "SJ_00585",
+          "SJ_00587",
+          "SJ_00588",
+          "SJ_00589",
+          "SJ_00590",
+          "SJ_00591",
+          "SJ_00601",
+          "SJ_00603",
+          "SJ_00604",
+          "SJ_00628"
+        ]
+      },
+      "selected_summary": [
+        {
+          "fold": "gap_high_usage",
+          "n": 10,
+          "candidate_count": 187,
+          "possible": 3,
+          "hits10": 1,
+          "recall10": 0.1,
+          "hits20": 1,
+          "recall20": 0.1,
+          "random_recall": 0.02,
+          "loss_counts": {
+            "top10_nearby": 1,
+            "no_candidate": 7,
+            "rank_below_top10": 2
+          },
+          "matched_error_m": 160.33087793640473
+        },
+        {
+          "fold": "gap_random",
+          "n": 10,
+          "candidate_count": 184,
+          "possible": 4,
+          "hits10": 1,
+          "recall10": 0.1,
+          "hits20": 1,
+          "recall20": 0.1,
+          "random_recall": 0.02333333333333333,
+          "loss_counts": {
+            "no_candidate": 6,
+            "rank_below_top10": 3,
+            "top10_nearby": 1
+          },
+          "matched_error_m": 160.33087793640473
+        },
+        {
+          "fold": "spatial_block",
+          "n": 43,
+          "candidate_count": 201,
+          "possible": 27,
+          "hits10": 1,
+          "recall10": 0.023255813953488372,
+          "hits20": 2,
+          "recall20": 0.046511627906976744,
+          "random_recall": 0.005426356589147288,
+          "loss_counts": {
+            "rank_below_top10": 26,
+            "no_candidate": 16,
+            "top10_nearby": 1
+          },
+          "matched_error_m": 296.69211612311244
+        }
+      ],
+      "baseline_summary": [
+        {
+          "fold": "gap_high_usage",
+          "n": 10,
+          "candidate_count": 187,
+          "possible": 3,
+          "hits10": 1,
+          "recall10": 0.1,
+          "hits20": 1,
+          "recall20": 0.1,
+          "random_recall": 0.02,
+          "loss_counts": {
+            "top10_nearby": 1,
+            "no_candidate": 7,
+            "rank_below_top10": 2
+          },
+          "matched_error_m": 160.33087793640473
+        },
+        {
+          "fold": "gap_random",
+          "n": 10,
+          "candidate_count": 184,
+          "possible": 4,
+          "hits10": 1,
+          "recall10": 0.1,
+          "hits20": 1,
+          "recall20": 0.1,
+          "random_recall": 0.02333333333333333,
+          "loss_counts": {
+            "no_candidate": 6,
+            "rank_below_top10": 3,
+            "top10_nearby": 1
+          },
+          "matched_error_m": 160.33087793640473
+        },
+        {
+          "fold": "spatial_block",
+          "n": 43,
+          "candidate_count": 201,
+          "possible": 27,
+          "hits10": 1,
+          "recall10": 0.023255813953488372,
+          "hits20": 2,
+          "recall20": 0.046511627906976744,
+          "random_recall": 0.005426356589147288,
+          "loss_counts": {
+            "rank_below_top10": 26,
+            "no_candidate": 16,
+            "top10_nearby": 1
+          },
+          "matched_error_m": 296.69211612311244
+        }
+      ],
+      "demand_baseline_summary": [
+        {
+          "fold": "gap_high_usage",
+          "n": 10,
+          "candidate_count": 187,
+          "possible": 3,
+          "hits10": 0,
+          "recall10": 0.0,
+          "hits20": 0,
+          "recall20": 0.0,
+          "random_recall": 0.02,
+          "loss_counts": {
+            "rank_below_top10": 3,
+            "no_candidate": 7
+          },
+          "matched_error_m": null
+        },
+        {
+          "fold": "gap_random",
+          "n": 10,
+          "candidate_count": 184,
+          "possible": 4,
+          "hits10": 0,
+          "recall10": 0.0,
+          "hits20": 0,
+          "recall20": 0.0,
+          "random_recall": 0.02333333333333333,
+          "loss_counts": {
+            "no_candidate": 6,
+            "rank_below_top10": 4
+          },
+          "matched_error_m": null
+        },
+        {
+          "fold": "spatial_block",
+          "n": 43,
+          "candidate_count": 201,
+          "possible": 27,
+          "hits10": 0,
+          "recall10": 0.0,
+          "hits20": 2,
+          "recall20": 0.046511627906976744,
+          "random_recall": 0.005426356589147288,
+          "loss_counts": {
+            "rank_below_top10": 27,
+            "no_candidate": 16
+          },
+          "matched_error_m": null
+        }
+      ]
+    }
+  }
+}
